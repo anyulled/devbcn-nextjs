@@ -1,28 +1,48 @@
-import { getTalks } from "@/hooks/useTalks";
-import { Talk } from "@/hooks/types";
+import TalksList from "@/components/layout/TalksList";
+import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import Link from "next/link";
 
 interface TalksProps {
-    params: Promise<{
-        year: number;
-    }>;
+  params: Promise<{
+    year: number;
+  }>;
 }
 
 export default async function Talks({ params }: TalksProps) {
-    const { year } = await params;
-    const sessionGroups = await getTalks(year);
-    const talks = sessionGroups.flatMap(group => group.sessions);
+  const { year } = await params;
+  const sessionGroups = await getTalks(year);
+  const talks = sessionGroups.flatMap((group) => group.sessions);
+  const tracks = getUniqueTracks(sessionGroups);
 
-    return (
-        <div>
-            <h1>Talks {year}</h1>
-            <ul>
-                {talks.map((talk: Talk) => (
-                    <li key={talk.id}>
-                        <Link href={`/${year}/talks/${talk.id}`}>{talk.title}</Link>
-                    </li>
-                ))}
-            </ul>
+  return (
+    <div>
+      {/* Header Section */}
+      <div
+        className="inner-page-header"
+        style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-5 m-auto">
+              <div className="heading1 text-center">
+                <h1>Talks {year}</h1>
+                <div className="space20" />
+                <Link href="/">
+                  Home <i className="fa-solid fa-angle-right" />{" "}
+                  <span>Talks</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+
+      {/* Talks Section */}
+      <div className="talks-section-area sp1">
+        <div className="container">
+          <TalksList talks={talks} tracks={tracks} year={year} />
+        </div>
+      </div>
+    </div>
+  );
 }

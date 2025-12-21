@@ -1,8 +1,3 @@
-
-export default function Breadcrumb({ breadcrumbTitle }:any) {
-    return (
-        <>
-
-        </>
-    )
+export default function Breadcrumb({ breadcrumbTitle }: any) {
+  return <></>;
 }
