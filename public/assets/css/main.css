@@ -4018,15 +4018,24 @@ Location:
   background-position: center;
 }
 
+.hero8-slider-area .hero8-header h4 {
+  color: var(--ztc-text-text-1);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s30);
+  font-style: normal;
+  font-weight: var(--ztc-weight-bold);
+  line-height: 38px;
+
+}
+
 .hero8-slider-area .hero8-header h5 {
   color: var(--ztc-text-text-1);
   font-family: var(--grotesk);
   font-size: var(--ztc-font-size-font-s28);
   font-style: normal;
   font-weight: var(--ztc-weight-medium);
-  line-height: 20px;
-  text-transform: uppercase;
-  display: inline-block;
+  line-height: 30px;
+
   transition: all 0.4s;
 }
 
@@ -12633,7 +12642,7 @@ html {
 .homepage8-body .header-area.homepage8 .header-elements .main-menu ul li .tp-submenu .homemenu-thumb .homemenu-btn .vl-btn8 {
   color: var(--ztc-text-text-1);
   font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s20);
+  font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-bold);
   line-height: 20px;

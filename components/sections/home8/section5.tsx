@@ -42,7 +42,7 @@ const swiperOptions = {
 			spaceBetween: 30,
 		},
 		1199: {
-			slidesPerView:4,
+			slidesPerView: 4,
 			spaceBetween: 30,
 		},
 		1350: {
@@ -221,15 +221,14 @@ export default function Section5() {
 									</div>
 								</SwiperSlide>
 							</Swiper>
-
-<div className="owl-nav">
-	<button type="button" role="presentation" className="owl-prev h1p">
-		<i className="fa-solid fa-angle-left" />
-	</button>
-	<button type="button" role="presentation" className="owl-next h1n">
-		<i className="fa-solid fa-angle-right" />
-	</button>
-</div>
+							<div className="owl-nav">
+								<button type="button" role="presentation" className="owl-prev h1p">
+									<i className="fa-solid fa-angle-left" />
+								</button>
+								<button type="button" role="presentation" className="owl-next h1n">
+									<i className="fa-solid fa-angle-right" />
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -15,13 +15,13 @@ export default function Section2() {
 							<div className="about8-images">
 								<img src="/assets/img/all-images/about/about-img10.png" alt="" className="about-img10 aniamtion-key-1" />
 								<div className="img1" data-aos="zoom-in" data-aos-duration={1000}>
-									<img src="/assets/img/all-images/about/about-img19.png" alt="" />
+									<img src="/assets/img/all-images/about/devbcn2.webp" alt="" />
 								</div>
 								<div className="img2" data-aos="zoom-in" data-aos-duration={1100}>
-									<img src="/assets/img/all-images/about/about-img20.png" alt="" />
+									<img src="/assets/img/all-images/about/FaqsImage0.webp" alt="" />
 								</div>
 								<div className="img3" data-aos="zoom-in" data-aos-duration={1200}>
-									<img src="/assets/img/all-images/about/about-img8.png" alt="" />
+									<img src="/assets/img/all-images/about/FaqsImage1.webp" alt="" />
 								</div>
 							</div>
 						</div>
@@ -31,7 +31,7 @@ export default function Section2() {
 							<div className="side-img1-area">
 								{/* <img src="/assets/img/all-images/about/about-img21.png" alt=""> */}
 								<div className="counter-box">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={50} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={70} />+</h3>
 									<p>Speakers</p>
 								</div>
 								<div className="img1">
@@ -47,11 +47,11 @@ export default function Section2() {
 									<img src="/assets/img/all-images/about/about-img25.png" alt="" />
 								</div>
 								<div className="counter-box2">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={66} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={80} />+</h3>
 									<p>Session</p>
 								</div>
 								<div className="counter-box3">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={700} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={800} />+</h3>
 									<p>Attendance</p>
 								</div>
 								<div className="counter-box4">
