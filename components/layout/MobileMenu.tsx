@@ -5,9 +5,9 @@ import Link from 'next/link'
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	const [isAccordion, setIsAccordion] = useState(1)
 
-const handleAccordion = (key: any) => {
-    setIsAccordion(prevState => prevState === key ? null : key)
-}
+	const handleAccordion = (key: any) => {
+		setIsAccordion(prevState => prevState === key ? null : key)
+	}
 	return (
 		<>
 			<div className="mobile-header mobile-haeder1 d-block d-lg-none">
@@ -35,9 +35,9 @@ const handleAccordion = (key: any) => {
 				</div>
 				<div className="mobile-nav mobile-nav1">
 					<ul className="mobile-nav-list nav-list1">
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion  == 1 ? "submenu-opened" : ""}`}onClick={() => handleAccordion (1)}><em /></span>
+						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 1 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(1)}><em /></span>
 							<Link href="/#" className="hash-nav">Home </Link>
-							<ul className={`sub-menu ${isAccordion  == 1 ? "open-sub" : ""}`} style={{ display: `${isAccordion  == 1 ? "block" : "none"}` }}>
+							<ul className={`sub-menu ${isAccordion == 1 ? "open-sub" : ""}`} style={{ display: `${isAccordion == 1 ? "block" : "none"}` }}>
 								<li className="hash-has-sub"><Link href="/" className="hash-nav">Home One</Link></li>
 								<li className="hash-has-sub"><Link href="/index2" className="hash-nav">Home Two</Link></li>
 								<li className="hash-has-sub"><Link href="/index3" className="hash-nav">Home Three</Link></li>
@@ -51,31 +51,31 @@ const handleAccordion = (key: any) => {
 							</ul>
 						</li>
 						<li className="hash-has-sub"><Link href="/about" className="hash-nav">About Event</Link></li>
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion  == 2 ? "submenu-opened" : ""}`}onClick={() => handleAccordion (2)}><em /></span>
+						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 2 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(2)}><em /></span>
 							<Link href="/features" className="hash-nav">Speakers</Link>
-							<ul className={`sub-menu ${isAccordion  == 2 ? "open-sub" : ""}`} style={{ display: `${isAccordion  == 2 ? "block" : "none"}` }}>
+							<ul className={`sub-menu ${isAccordion == 2 ? "open-sub" : ""}`} style={{ display: `${isAccordion == 2 ? "block" : "none"}` }}>
 								<li className="hash-has-sub"><Link href="/speakers" className="hash-nav">Speakers</Link></li>
 								<li className="hash-has-sub"><Link href="/speakers-single" className="hash-nav">Speakers Details</Link></li>
 							</ul>
 						</li>
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion  == 3 ? "submenu-opened" : ""}`}onClick={() => handleAccordion (3)}><em /></span>
+						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 3 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(3)}><em /></span>
 							<Link href="/features" className="hash-nav">Schedule</Link>
-							<ul className={`sub-menu ${isAccordion  == 3 ? "open-sub" : ""}`} style={{ display: `${isAccordion  == 3 ? "block" : "none"}` }}>
+							<ul className={`sub-menu ${isAccordion == 3 ? "open-sub" : ""}`} style={{ display: `${isAccordion == 3 ? "block" : "none"}` }}>
 								<li className="hash-has-sub"><Link href="/event" className="hash-nav">Our Event</Link></li>
 								<li className="hash-has-sub"><Link href="/event-schedule" className="hash-nav">Event Schedule</Link></li>
 								<li className="hash-has-sub"><Link href="/event-single" className="hash-nav">Event Details</Link></li>
 							</ul>
 						</li>
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion  == 4 ? "submenu-opened" : ""}`}onClick={() => handleAccordion (4)}><em /></span>
+						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 4 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(4)}><em /></span>
 							<Link href="/#" className="hash-nav">Blogs</Link>
-							<ul className={`sub-menu ${isAccordion  == 4 ? "open-sub" : ""}`} style={{ display: `${isAccordion  == 4 ? "block" : "none"}` }}>
+							<ul className={`sub-menu ${isAccordion == 4 ? "open-sub" : ""}`} style={{ display: `${isAccordion == 4 ? "block" : "none"}` }}>
 								<li className="hash-has-sub"><Link href="/blog" className="hash-nav">Our Blog</Link></li>
 								<li className="hash-has-sub"><Link href="/blog-single" className="hash-nav">Blog Details</Link></li>
 							</ul>
 						</li>
-						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion  == 5 ? "submenu-opened" : ""}`}onClick={() => handleAccordion (5)}><em /></span>
+						<li className="has-sub hash-has-sub"><span className={`submenu-button ${isAccordion == 5 ? "submenu-opened" : ""}`} onClick={() => handleAccordion(5)}><em /></span>
 							<Link href="/#" className="hash-nav">Pages</Link>
-							<ul className={`sub-menu ${isAccordion  == 5 ? "open-sub" : ""}`} style={{ display: `${isAccordion  == 5 ? "block" : "none"}` }}>
+							<ul className={`sub-menu ${isAccordion == 5 ? "open-sub" : ""}`} style={{ display: `${isAccordion == 5 ? "block" : "none"}` }}>
 								<li className="hash-has-sub"><Link href="/memories" className="hash-nav">Our Memories</Link></li>
 								<li className="hash-has-sub"><Link href="/pricing-plan" className="hash-nav">Pricing Plan</Link></li>
 								<li className="hash-has-sub"><Link href="/faq" className="hash-nav">FAQ,s</Link></li>
@@ -95,7 +95,7 @@ const handleAccordion = (key: any) => {
 										<span><i className="fa-solid fa-phone-volume" /></span>
 									</div>
 									<div className="contact-info-text">
-										<Link href="//tel:+3(924)4596512">+3(924)4596512</Link>
+										<a href="tel:+3(924)4596512">+3(924)4596512</a>
 									</div>
 								</div>
 								<div className="contact-info-single">
@@ -103,7 +103,7 @@ const handleAccordion = (key: any) => {
 										<span><i className="fa-solid fa-envelope" /></span>
 									</div>
 									<div className="contact-info-text">
-										<Link href="//mailto:info@example.com">info@example.com</Link>
+										<a href="mailto:info@example.com">info@example.com</a>
 									</div>
 								</div>
 								<div className="single-footer">

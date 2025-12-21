@@ -9,7 +9,7 @@ export default function AddClassBody() {
 		const bodyElement = document.querySelector('body')
 
 		if (bodyElement) {
-			// Remove all classes
+			// Remove all theme-specific classes
 			bodyElement.classList.remove(
 				'homepage1-body',
 				'homepage2-body',
@@ -23,21 +23,11 @@ export default function AddClassBody() {
 				'homepage10-body'
 			)
 
-			// Map pathname to corresponding class
-			const classMap: { [key: string]: string } = {
-				'/index2': 'homepage2-body',
-				'/index3': 'homepage3-body',
-				'/index4': 'homepage4-body',
-				'/index5': 'homepage5-body',
-				'/index6': 'homepage6-body',
-				'/index7': 'homepage7-body',
-				'/index8': 'homepage8-body',
-				'/index9': 'homepage9-body',
-				'/index10': 'homepage10-body',
-			}
+			// Always use homepage8-body since we're using Header8/Footer8 globally
+			// This ensures consistent styling across all pages
+			const className = 'homepage8-body'
+			console.log("=== Applied body class:", className);
 
-			// Add class based on pathname or default
-			const className = classMap[pathname || ''] || 'homepage1-body'
 			bodyElement.classList.add(className)
 		}
 

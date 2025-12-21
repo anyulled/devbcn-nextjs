@@ -16,22 +16,19 @@ export default function Home5() {
 
 	return (
 		<>
-			<Layout headerStyle={5} footerStyle={5}>
-				<img src="assets/img/bg/body-bg1.png" alt="" className="body-bg1" id="body-bg1" />
-
-				<Section1 />
-				<Section2 />
-				<Section3 />
-				<Section4 />
-				<Section5 />
-				<Section6 />
-				<Section7 />
-				<Section8 />
-				<Section9 />
-				<Section10 />
-				<Section11 />
-				<Section12 />
-			</Layout>
+			<img src="assets/img/bg/body-bg1.png" alt="" className="body-bg1" id="body-bg1" />
+			<Section1 />
+			<Section2 />
+			<Section3 />
+			<Section4 />
+			<Section5 />
+			<Section6 />
+			<Section7 />
+			<Section8 />
+			<Section9 />
+			<Section10 />
+			<Section11 />
+			<Section12 />
 		</>
 	)
 }

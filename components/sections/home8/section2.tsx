@@ -31,7 +31,7 @@ export default function Section2() {
 							<div className="side-img1-area">
 								{/* <img src="/assets/img/all-images/about/about-img21.png" alt=""> */}
 								<div className="counter-box">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={20} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={50} />+</h3>
 									<p>Speakers</p>
 								</div>
 								<div className="img1">
@@ -47,15 +47,15 @@ export default function Section2() {
 									<img src="/assets/img/all-images/about/about-img25.png" alt="" />
 								</div>
 								<div className="counter-box2">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={12} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={66} />+</h3>
 									<p>Session</p>
 								</div>
 								<div className="counter-box3">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={12} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={700} />+</h3>
 									<p>Attendance</p>
 								</div>
 								<div className="counter-box4">
-									<h3><CountUp className="odometer" enableScrollSpy={true} end={18} />+</h3>
+									<h3><CountUp className="odometer" enableScrollSpy={true} end={26} />+</h3>
 									<p>Sponsors</p>
 								</div>
 							</div>

@@ -15,11 +15,10 @@ const getPartsOfTimeDuration = (duration: number) => {
 	return { days, hours, minutes, seconds }
 }
 
-export default function Countdown({ style }: any) {
+export default function Countdown({ style }: { style?: number }) {
 	const [timeDif, setTimeDif] = useState(() => {
 		const now = Date.now()
-		const endDateTime = new Date()
-		endDateTime.setDate(endDateTime.getDate() + 2) // Set end date 2 days from now
+		const endDateTime = new Date(2026, 5, 17)
 		return endDateTime.getTime() - now
 	})
 
