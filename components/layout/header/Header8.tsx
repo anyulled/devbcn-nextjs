@@ -1,5 +1,5 @@
 "use client"
-import Link from 'next/link'
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
@@ -19,7 +19,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 						<div className="col-lg-12">
 							<div className="menu-top-area">
 								<div className="top-menu-area">
-									<p>Are you Ready to Enenify Conferences?<Link href="/#">Buy Ticket</Link></p>
+									<p>Are you Ready to Enenify Conferences?<Link href="https://tickets.devbcn.com/event/devbcn-2026">Buy Ticket</Link></p>
 									<ul>
 										<li>
 											<Link href="/mailto:info@devbcn.com"><img src="/assets/img/icons/mail1.svg" alt="" />info@devbcn.com <span> | </span></Link>
@@ -29,7 +29,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 							</div>
 							<div className="header-elements">
 								<div className="site-logo">
-									<Link href="/"><img src="/assets/img/logo/logo1.png" alt="" /></Link>
+									<Link href="/"><img src="/assets/img/logo/devbcn.webp" alt="" /></Link>
 								</div>
 								<div className="main-menu">
 									<ul>
@@ -66,8 +66,8 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
 								<div className="btn-area">
 
 									<div className="btn-area1">
-										<Link className="vl-btn8" href="/pricing-plan"><span className="demo">Buy
-											Ticket</span><span className="arrow"><i className="fa-solid fa-arrow-right" /></span>
+										<Link className="vl-btn8" href="https://tickets.devbcn.com/event/devbcn-2026"><span className="demo">Buy
+											Ticket</span>
 										</Link>
 									</div>
 								</div>
