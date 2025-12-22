@@ -1,4 +1,5 @@
-import { SessionGroup, Talk } from "./types";
+import { SessionGroup, Speaker, Talk } from "./types";
+import { getSpeakers } from "./useSpeakers";
 
 const YEAR_ENDPOINTS: Record<string | number, string> = {
   default: "https://sessionize.com/api/v2/xhudniix/view/Sessions",
@@ -98,4 +99,15 @@ export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
   }
 
   return grouped;
+};
+
+/**
+ * Get full speaker details (with profile pictures) for a talk's speakers
+ */
+export const getTalkSpeakersWithDetails = async (
+  year: string | number,
+  speakerIds: string[],
+): Promise<Speaker[]> => {
+  const speakers = await getSpeakers(year);
+  return speakers.filter((s) => speakerIds.includes(s.id));
 };
