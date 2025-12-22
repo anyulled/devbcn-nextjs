@@ -111,3 +111,32 @@ export const getTalkSpeakersWithDetails = async (
   const speakers = await getSpeakers(year);
   return speakers.filter((s) => speakerIds.includes(s.id));
 };
+
+/**
+ * Shuffle an array using Fisher-Yates algorithm
+ */
+const shuffleArray = <T>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+/**
+ * Get random related talks from the same track (excluding current talk)
+ */
+export const getRandomRelatedTalksByTrack = async (
+  year: string | number,
+  track: string,
+  excludeTalkId: string,
+  limit: number = 3,
+): Promise<Talk[]> => {
+  const sessionGroups = await getTalks(year);
+  const allTalks = sessionGroups.flatMap((g) => g.sessions);
+  const sameTracks = allTalks.filter(
+    (t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId,
+  );
+  return shuffleArray(sameTracks).slice(0, limit);
+};
