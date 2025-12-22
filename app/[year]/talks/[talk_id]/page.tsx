@@ -129,9 +129,8 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                   Home <i className="fa-solid fa-angle-right" />{" "}
                 </Link>
                 <Link href={`/${year}/talks`}>
-                  Talks <i className="fa-solid fa-angle-right" />{" "}
+                  Talks
                 </Link>
-                <span>{talk.title}</span>
               </div>
             </div>
           </div>

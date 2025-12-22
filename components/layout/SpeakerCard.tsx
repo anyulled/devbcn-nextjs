@@ -36,45 +36,55 @@ export default function SpeakerCard({
           className="elements22"
         />
         <div className="img1">
-          <img src={image} alt={name} className="team-img4" />
+          <Link href={`/${year}/speakers/${speakerId}`}>
+            <img src={image} alt={name} className="team-img4" />
+          </Link>
           <div className="share">
             <Link href="/#">
               <img src="/assets/img/icons/share1.svg" alt="" />
             </Link>
           </div>
           <ul>
-            <li>
-              <Link
-                href={extractSocialLink(links, "Twitter") || "#"}
-                className="icon1"
-              >
-                <i className="fa-brands fa-twitter" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={extractSocialLink(links, "LinkedIn") || "#"}
-                className="icon2"
-              >
-                <i className="fa-brands fa-linkedin-in" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={extractSocialLink(links, "Instagram") || "#"}
-                className="icon3"
-              >
-                <i className="fa-brands fa-instagram" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={extractSocialLink(links, "bluesky") || "#"}
-                className="icon4"
-              >
-                <i className="fa-brands fa-bluesky" />
-              </Link>
-            </li>
+            {extractSocialLink(links, "Twitter") && (
+              <li>
+                <Link
+                  href={extractSocialLink(links, "Twitter")!}
+                  className="icon1"
+                >
+                  <i className="fa-brands fa-twitter" />
+                </Link>
+              </li>
+            )}
+            {extractSocialLink(links, "LinkedIn") && (
+              <li>
+                <Link
+                  href={extractSocialLink(links, "LinkedIn")!}
+                  className="icon2"
+                >
+                  <i className="fa-brands fa-linkedin-in" />
+                </Link>
+              </li>
+            )}
+            {extractSocialLink(links, "Instagram") && (
+              <li>
+                <Link
+                  href={extractSocialLink(links, "Instagram")!}
+                  className="icon3"
+                >
+                  <i className="fa-brands fa-instagram" />
+                </Link>
+              </li>
+            )}
+            {extractSocialLink(links, "bluesky") && (
+              <li>
+                <Link
+                  href={extractSocialLink(links, "bluesky")!}
+                  className="icon4"
+                >
+                  <i className="fa-brands fa-bluesky" />
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

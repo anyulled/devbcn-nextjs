@@ -66,15 +66,14 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
           <div className="row">
             <div className="col-lg-6 m-auto">
               <div className="heading1 text-center">
-                <h1>Speaker Details</h1>
+                <h1>{speaker.fullName}</h1>
                 <div className="space20" />
                 <Link href={`/${year}`}>
                   Home <i className="fa-solid fa-angle-right" />{" "}
                 </Link>
                 <Link href={`/${year}/speakers`}>
-                  Speakers <i className="fa-solid fa-angle-right" />{" "}
+                  Speakers
                 </Link>
-                <span>{speaker.fullName}</span>
               </div>
             </div>
           </div>

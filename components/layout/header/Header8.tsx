@@ -30,7 +30,7 @@ export default function Header9({
               <div className="menu-top-area">
                 <div className="top-menu-area">
                   <p>
-                    Are you Ready to Enenify Conferences?
+                    Are you Ready to DevBcn?
                     <Link href="https://tickets.devbcn.com/event/devbcn-2026">
                       Buy Ticket
                     </Link>
