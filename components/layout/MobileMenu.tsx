@@ -16,7 +16,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
             <div className="mobile-header-elements">
               <div className="mobile-logo">
                 <Link href="//">
-                  <img src="/assets/img/logo/devbcn.webp" alt="" />
+                  <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
                 </Link>
               </div>
               <div

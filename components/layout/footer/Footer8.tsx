@@ -24,7 +24,7 @@ export default function Footer8() {
         <div className="row">
           <div className="col-lg-3 col-md-6">
             <div className="footer-logo-area">
-              <img src="/assets/img/logo/devbcn.webp" alt="" />
+              <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
               <div className="space16" />
               <p>Barcelona Developers Conference</p>
               <div className="space24" />

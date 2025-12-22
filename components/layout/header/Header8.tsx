@@ -48,7 +48,7 @@ export default function Header9({
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <img src="/assets/img/logo/devbcn.webp" alt="" />
+                    <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
                   </Link>
                 </div>
                 <div className="main-menu">
