@@ -3876,7 +3876,7 @@ Location:
   position: absolute;
   bottom: -100px;
   width: 100%;
-  z-index: 2;
+  z-index: -1;
 }
 
 .hero8-slider-area .arrow-btnarea {

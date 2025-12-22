@@ -1,17 +1,9 @@
+import BackgroundCarousel from "@/components/BackgroundCarousel";
 import Link from "next/link";
 
 export default function Section1() {
   return (
-    <div
-      className="hero8-slider-area"
-      style={{
-        backgroundImage: "url(assets/img/bg/header-bg19.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center bottom",
-      }}
-    >
-      <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
+    <BackgroundCarousel className="hero8-slider-area">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 m-auto">
@@ -26,9 +18,9 @@ export default function Section1() {
               <div className="space24" />
               <div className="space40" />
               <h5>
-                5 tracks with the following topics: Java & JVM | Cloud, DevOps,
-                VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular,
-                WASM | Leadership, Agile, Diversity | Big Data, Machine
+                5 tracks with the following topics: Java &amp; JVM | Cloud,
+                DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript,
+                Angular, WASM | Leadership, Agile, Diversity | Big Data, Machine
                 Learning, AI, Python
               </h5>
               <div className="space24" />
@@ -55,6 +47,7 @@ export default function Section1() {
           </div>
         </div>
       </div>
-    </div>
+      <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
+    </BackgroundCarousel>
   );
 }
