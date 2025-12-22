@@ -14,25 +14,28 @@ export default function TrackFilter({ tracks, year }: TrackFilterProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [selectedTrack, setSelectedTrack] = useState<string>("");
 
-  // Initialize from URL params or sessionStorage
-  useEffect(() => {
+  // Initialize state from URL params or sessionStorage using lazy initializer
+  const [selectedTrack, setSelectedTrack] = useState<string>(() => {
     const urlTrack = searchParams.get("track");
     if (urlTrack) {
-      setSelectedTrack(urlTrack);
       sessionStorage.setItem(STORAGE_KEY, urlTrack);
-    } else {
-      const storedTrack = sessionStorage.getItem(STORAGE_KEY);
-      if (storedTrack && tracks.includes(storedTrack)) {
-        setSelectedTrack(storedTrack);
-        // Update URL without navigation history entry
-        const params = new URLSearchParams(searchParams.toString());
-        params.set("track", storedTrack);
-        router.replace(`${pathname}?${params.toString()}`);
-      }
+      return urlTrack;
     }
-  }, [searchParams, tracks, pathname, router]);
+    const storedTrack = sessionStorage.getItem(STORAGE_KEY);
+    return storedTrack && tracks.includes(storedTrack) ? storedTrack : "";
+  });
+
+  // Sync URL when component mounts with stored track
+  useEffect(() => {
+    const urlTrack = searchParams.get("track");
+    if (!urlTrack && selectedTrack && tracks.includes(selectedTrack)) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("track", selectedTrack);
+      router.replace(`${pathname}?${params.toString()}`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
 
   const handleTrackChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newTrack = event.target.value;

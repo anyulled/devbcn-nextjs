@@ -18,18 +18,13 @@ const CircleText: React.FC<CircleTextProps> = ({ text }) => {
     }
   }, [text]); // Dependency on text to reapply effect if text changes
 
-  // Create span elements for each character
-  const children = text
-    .split("")
-    .map((char, i) =>
-      React.createElement("span", { key: i }, char === " " ? "\u00A0" : char),
-    );
-
-  // Return the main container
-  return React.createElement(
-    "div",
-    { className: "circle rotateme", ref: circleRef },
-    children,
+  // Return the main container with span elements for each character
+  return (
+    <div className="circle rotateme" ref={circleRef}>
+      {text.split("").map((char, i) => (
+        <span key={i}>{char === " " ? "\u00A0" : char}</span>
+      ))}
+    </div>
   );
 };
 
