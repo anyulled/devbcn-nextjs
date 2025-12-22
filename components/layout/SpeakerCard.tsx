@@ -1,11 +1,13 @@
-import Link from "next/link";
 import { Link as LinkType } from "@/hooks/types";
+import Link from "next/link";
 
 interface SpeakerCardProps {
   name: string;
   position: string;
   image: string;
   links: LinkType[];
+  speakerId: string;
+  year: number;
 }
 
 const extractSocialLink = (links: LinkType[], linkType: string) => {
@@ -17,6 +19,8 @@ export default function SpeakerCard({
   position,
   image,
   links,
+  speakerId,
+  year,
 }: SpeakerCardProps) {
   return (
     <div className="our-team-boxarea">
@@ -76,7 +80,7 @@ export default function SpeakerCard({
       </div>
       <div className="space28" />
       <div className="content-area">
-        <Link href="/speakers-single">{name}</Link>
+        <Link href={`/${year}/speakers/${speakerId}`}>{name}</Link>
         <div className="space16" />
         <p>{position}</p>
       </div>

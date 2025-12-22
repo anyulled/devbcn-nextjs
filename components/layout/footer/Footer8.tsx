@@ -13,7 +13,7 @@ export default function Footer8() {
     <div
       className="footer8-sertion-area"
       style={{
-        backgroundImage: "url(../assets/img/bg/header-bg21.png)",
+        backgroundImage: "url(/assets/img/bg/header-bg21.png)",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",

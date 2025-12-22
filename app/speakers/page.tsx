@@ -40,6 +40,8 @@ export default async function Speakers() {
                   image={speaker.profilePicture}
                   position={speaker.tagLine}
                   links={speaker.links}
+                  speakerId={speaker.id}
+                  year={2025}
                 />
               </div>
             ))}
