@@ -1,3 +1,4 @@
+import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
@@ -13,27 +14,12 @@ export default async function CFP({ params }: CFPProps) {
   const eventData = getEditionConfig(year);
   return (
     <div>
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(../assets/img/bg/header-bg13.png)" }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Call for Papers {year}</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Call for Papers {year}</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*===== HERO AREA ENDS =======*/}
-      {/*===== INTRODUCTION SECTION STARTS =======*/}
+      <PageHeader
+        title={`Call for Papers ${year}`}
+        breadcrumbText={`Call for Papers ${year}`}
+        backgroundImageId={13}
+      />
+
       <div className="container">
         <div className="row">
           <div className="col-lg-8 m-auto">
@@ -48,8 +34,7 @@ export default async function CFP({ params }: CFPProps) {
           </div>
         </div>
       </div>
-      {/*===== INTRODUCTION SECTION ENDS =======*/}
-      {/*===== CFP COMMITTEE AREA STARTS =======*/}
+
       {cfpCommittee && cfpCommittee.length > 0 ? (
         <>
           {cfpCommittee.map((track, trackIndex) => (
@@ -141,7 +126,7 @@ export default async function CFP({ params }: CFPProps) {
           </div>
         </div>
       )}
-      {/*===== CFP COMMITTEE AREA ENDS =======*/}
+
       <CTASection
         eventDate={formatEventDateRange(
           eventData.event.startDay,

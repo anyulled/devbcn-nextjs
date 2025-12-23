@@ -1,8 +1,8 @@
+import PageHeader from "@/components/layout/PageHeader";
 import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
-import Link from "next/link";
 
 interface TalksProps {
   params: Promise<{
@@ -19,33 +19,33 @@ export default async function Talks({ params }: TalksProps) {
 
   return (
     <div>
+      <PageHeader title={`Talks ${year}`} breadcrumbText="Talks" />
 
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5 m-auto">
-              <div className="heading1 text-center">
-                <h1>Talks {year}</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Talks</span>
-                </Link>
+      {talks && talks.length > 0 ? (
+        <div className="talks-section-area sp1">
+          <div className="container">
+            <TalksList talks={talks} tracks={tracks} year={year} />
+          </div>
+        </div>
+      ) : (
+        <div className="talks-section-area sp1">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 m-auto">
+                <div className="text-center" style={{ padding: "60px 0" }}>
+                  <h3 style={{ color: "#1a1a1a", marginBottom: "20px" }}>
+                    Talks Coming Soon!
+                  </h3>
+                  <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#666" }}>
+                    We&apos;re currently finalizing our talk lineup for DevBcn {year}.
+                    Stay tuned for exciting announcements about our sessions!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Talks Section */}
-      <div className="talks-section-area sp1">
-        <div className="container">
-          <TalksList talks={talks} tracks={tracks} year={year} />
-        </div>
-      </div>
+      )}
       <CTASection eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)} eventLocation={eventData.venue} ticketUrl={eventData.tickets.url} />
     </div>
   );

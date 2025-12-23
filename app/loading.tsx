@@ -4,7 +4,7 @@ export default function Preloader() {
       <div className="loading-container">
         <div className="loading" />
         <div id="loading-icon">
-          <img src="/assets/img/logo/preloader.png" alt="" />
+          <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
         </div>
       </div>
     </div>
