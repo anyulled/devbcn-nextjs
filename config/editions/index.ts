@@ -116,3 +116,33 @@ export const shouldShowSponsors = (
 ): boolean => {
   return now >= config.sponsors.startDate && now <= config.sponsors.endDate;
 };
+
+/**
+ * Format an event date range into a human-readable string
+ *
+ * @param startDate - The event start date
+ * @param endDate - The event end date
+ * @returns Formatted string like "16-17 June 2026" or "28 June - 1 July 2026"
+ *
+ * @example
+ * formatEventDateRange(new Date("2026-06-16"), new Date("2026-06-17"));
+ * // Returns "16-17 June 2026"
+ */
+export const formatEventDateRange = (
+  startDate: Date,
+  endDate: Date,
+): string => {
+  const startDay = startDate.getDate();
+  const endDay = endDate.getDate();
+  const startMonth = startDate.toLocaleString("en-US", { month: "long" });
+  const endMonth = endDate.toLocaleString("en-US", { month: "long" });
+  const year = endDate.getFullYear();
+
+  if (startMonth === endMonth) {
+    // Same month: "16-17 June 2026"
+    return `${startDay}-${endDay} ${startMonth} ${year}`;
+  } else {
+    // Different months: "28 June - 1 July 2026"
+    return `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`;
+  }
+};

@@ -1,5 +1,5 @@
 import CTASection from "@/components/sections/CTASection";
-import { getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 import { cfpData } from "./cfpData";
 
@@ -142,7 +142,14 @@ export default async function CFP({ params }: CFPProps) {
         </div>
       )}
       {/*===== CFP COMMITTEE AREA ENDS =======*/}
-      <CTASection eventDate={eventData?.event.startDay} eventLocation={eventData?.venue} ticketUrl={eventData?.tickets.} />
+      <CTASection
+        eventDate={formatEventDateRange(
+          eventData.event.startDay,
+          eventData.event.endDay,
+        )}
+        eventLocation={eventData.venue}
+        ticketUrl={eventData.tickets.url}
+      />
     </div>
   );
 }

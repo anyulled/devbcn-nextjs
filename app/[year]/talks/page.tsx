@@ -1,5 +1,6 @@
 import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
+import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import Link from "next/link";
 
@@ -14,10 +15,11 @@ export default async function Talks({ params }: TalksProps) {
   const sessionGroups = await getTalks(year);
   const talks = sessionGroups.flatMap((group) => group.sessions);
   const tracks = getUniqueTracks(sessionGroups);
+  const eventData = getEditionConfig(year);
 
   return (
     <div>
-      {/* Header Section */}
+
       <div
         className="inner-page-header"
         style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}
@@ -44,7 +46,7 @@ export default async function Talks({ params }: TalksProps) {
           <TalksList talks={talks} tracks={tracks} year={year} />
         </div>
       </div>
-      <CTASection ticketUrl="https://tickets.devbcn.com/event/devbcn-2026" />
+      <CTASection eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)} eventLocation={eventData.venue} ticketUrl={eventData.tickets.url} />
     </div>
   );
 }

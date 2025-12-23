@@ -1,8 +1,14 @@
-"use client";
 import CTASection from "@/components/sections/CTASection";
+import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 
-export default function Diversity() {
+interface DiversityProps {
+  params: Promise<{ year: string }>;
+}
+
+export default async function Diversity({ params }: DiversityProps) {
+  const { year } = await params;
+  const eventData = getEditionConfig(year);
   return (<div>
     {/*===== HERO AREA ENDS =======*/}
     <div
@@ -167,7 +173,7 @@ export default function Diversity() {
       </div>
     </div>
     {/*===== DIVERSITY CONTENT AREA ENDS =======*/}
-    <CTASection />
+    <CTASection eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)} eventLocation={eventData.venue} ticketUrl={eventData.tickets.url} />
   </div>
   );
 }
