@@ -75,7 +75,7 @@ describe("BackgroundCarousel", () => {
     }
   });
 
-  it("rotates to next image after 5 seconds", () => {
+  it("rotates to next image after 10 seconds", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
@@ -88,9 +88,9 @@ describe("BackgroundCarousel", () => {
     expect((images[0] as HTMLElement).style.opacity).toBe("1");
     expect((images[1] as HTMLElement).style.opacity).toBe("0");
 
-    // Advance time by 5 seconds
+    // Advance time by 10 seconds
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(10000);
     });
 
     // Now second image should be visible
@@ -113,14 +113,14 @@ describe("BackgroundCarousel", () => {
     // Cycle through all 8 images
     for (let i = 1; i < 8; i++) {
       act(() => {
-        jest.advanceTimersByTime(5000);
+        jest.advanceTimersByTime(10000);
       });
       expect((images[i] as HTMLElement).style.opacity).toBe("1");
     }
 
     // Advance one more time to cycle back to first
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(10000);
     });
     expect((images[0] as HTMLElement).style.opacity).toBe("1");
   });
@@ -170,14 +170,14 @@ describe("BackgroundCarousel", () => {
 
     const images = container.querySelectorAll(".background-carousel__image");
     const expectedImages = [
-      "/images/wtc-gemini-2.webp",
-      "/images/wtc-gemini-1.webp",
-      "/images/wtc-gemini-3.webp",
-      "/images/venue/venue-1.webp",
-      "/images/venue/venue-2.webp",
-      "/images/venue/venue-3.webp",
-      "/images/venue/venue-4.webp",
-      "/images/venue/venue-5.webp",
+      "assets/img/all-images/venue/wtc-gemini-2.webp",
+      "assets/img/all-images/venue/wtc-gemini-1.webp",
+      "assets/img/all-images/venue/wtc-gemini-3.webp",
+      "assets/img/all-images/venue/venue-1.webp",
+      "assets/img/all-images/venue/venue-2.webp",
+      "assets/img/all-images/venue/venue-3.webp",
+      "assets/img/all-images/venue/venue-4.webp",
+      "assets/img/all-images/venue/venue-5.webp",
     ];
 
     images.forEach((img, index) => {
@@ -198,7 +198,7 @@ describe("BackgroundCarousel", () => {
     const images = container.querySelectorAll(".background-carousel__image");
     images.forEach((img) => {
       const element = img as HTMLElement;
-      expect(element.style.transition).toBe("opacity 1s ease-in-out");
+      expect(element.style.transition).toBe("opacity 1.5s ease-in-out");
     });
   });
 });

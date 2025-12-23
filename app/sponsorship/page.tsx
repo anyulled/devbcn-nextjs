@@ -1,4 +1,5 @@
 "use client";
+import { getCurrentEditionConfig } from "@/config/editions";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -58,12 +59,13 @@ const sponsorImages = [
 ];
 
 export default function Sponsorship() {
+  const config = getCurrentEditionConfig();
   const data = {
-    edition: "2026",
-    startDay: "2026-12-21",
-    endDay: "2026-12-21",
-    venue: "Barcelona",
-    brochure: "https://devbcn.com/brochure.pdf",
+    edition: config.edition,
+    startDay: config.event.startDay,
+    endDay: config.event.endDay,
+    venue: config.venue,
+    brochure: config.brochure,
   };
 
   return (
@@ -103,7 +105,7 @@ export default function Sponsorship() {
                         <div className="img1 image-anime">
                           <img
                             src={image}
-                            alt={`DevBcn 2023 - sponsors ${index + 1}`}
+                            alt={`DevBcn ${config.edition} - sponsors ${index + 1}`}
                             width="540"
                             height="360"
                             style={{
@@ -137,7 +139,7 @@ export default function Sponsorship() {
                 <h3>Mark Your Calendars!</h3>
                 <div className="space16" />
                 <p>
-                  DevBcn <strong>{data?.edition}</strong> is set for{" "}
+                  DevBcn <strong>{data.edition}</strong> is set for{" "}
                   <strong>
                     {format(new Date(data.startDay), "MMMM do")} —
                     {" ".concat(format(new Date(data.endDay), "do"))}
@@ -225,14 +227,14 @@ export default function Sponsorship() {
 
                 <div className="space24" />
                 <p>
-                  Let's make DevBcn {data?.edition} an unforgettable experience
+                  Let's make DevBcn {data.edition} an unforgettable experience
                   together! Stay updated and spread the excitement using{" "}
                   <Link
-                    href={`https://twitter.com/hashtag/devbcn${data?.edition.substring(2)}?src=hashtag_click`}
+                    href={`https://twitter.com/hashtag/devbcn${data.edition.substring(2)}?src=hashtag_click`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    #devbcn{data?.edition.substring(2)}
+                    #devbcn{data.edition.substring(2)}
                   </Link>
                   .
                 </p>

@@ -1,16 +1,19 @@
+import { getEditionConfig } from "@/config/editions";
 import { SessionGroup, Speaker, Talk } from "./types";
 import { getSpeakers } from "./useSpeakers";
 
-const YEAR_ENDPOINTS: Record<string | number, string> = {
-  default: "https://sessionize.com/api/v2/xhudniix/view/Sessions",
-  2023: "https://sessionize.com/api/v2/ttsitynd/view/Sessions",
-  2024: "https://sessionize.com/api/v2/teq4asez/view/Sessions",
+/**
+ * Get the Sessionize sessions URL for a given edition year
+ */
+const getSessionsUrl = (year: string | number): string => {
+  const config = getEditionConfig(year);
+  return `${config.sessionizeUrl}/view/Sessions`;
 };
 
 export const getTalks = async (
   year: string | number = "default",
 ): Promise<SessionGroup[]> => {
-  const url = YEAR_ENDPOINTS[year] || YEAR_ENDPOINTS["default"];
+  const url = getSessionsUrl(year);
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error("Failed to fetch talks");

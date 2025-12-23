@@ -51,7 +51,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               </Link>
             </li>
             <li className="hash-has-sub">
-              <Link href="/about" className="hash-nav">
+              <Link href="/about-us" className="hash-nav">
                 About Us
               </Link>
             </li>
@@ -59,7 +59,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               <span className="hash-nav">
                 <em />
               </span>
-              <Link href="/features" className="hash-nav">
+              <Link href="/code-of-conduct" className="hash-nav">
                 Code of Conduct
               </Link>
             </li>
@@ -67,7 +67,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               <span className="hash-nav">
                 <em />
               </span>
-              <Link href="/features" className="hash-nav">
+              <Link href="/#sponsors" className="hash-nav">
                 Sponsors
               </Link>
             </li>
@@ -75,7 +75,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               <span className="hash-nav">
                 <em />
               </span>
-              <Link href="/#" className="hash-nav">
+              <Link href="/travel" className="hash-nav">
                 Venue
               </Link>
             </li>
@@ -83,7 +83,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               <span className="hash-nav">
                 <em />
               </span>
-              <Link href="/#" className="hash-nav">
+              <Link href="/sponsorship" className="hash-nav">
                 Sponsorship
               </Link>
             </li>

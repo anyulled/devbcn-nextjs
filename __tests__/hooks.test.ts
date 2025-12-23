@@ -1,5 +1,5 @@
-import { getSpeakers, getSpeakerByYearAndId } from "@/hooks/useSpeakers";
-import { getTalks, getTalkByYearAndId } from "@/hooks/useTalks";
+import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
+import { getTalkByYearAndId, getTalks } from "@/hooks/useTalks";
 
 // Mock global fetch
 global.fetch = jest.fn();
@@ -15,16 +15,16 @@ describe("Hooks", () => {
       { id: "2", fullName: "Speaker Two" },
     ];
 
-    it("fetches speakers for default year", async () => {
+    it("fetches speakers for 2025 year", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
       });
 
-      const speakers = await getSpeakers();
+      const speakers = await getSpeakers(2025);
       expect(global.fetch).toHaveBeenCalledWith(
         expect.stringContaining("xhudniix"),
-      ); // default ID
+      ); // 2025 sessionize ID
       expect(speakers).toEqual(mockSpeakers);
     });
 
@@ -81,16 +81,16 @@ describe("Hooks", () => {
       },
     ];
 
-    it("fetches session groups", async () => {
+    it("fetches session groups for 2025 year", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
       });
 
-      const groups = await getTalks();
+      const groups = await getTalks(2025);
       expect(global.fetch).toHaveBeenCalledWith(
         expect.stringContaining("xhudniix"),
-      );
+      ); // 2025 sessionize ID
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);
       expect(groups[0].sessions[0].id).toEqual("101");

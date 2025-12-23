@@ -8,7 +8,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-    ticketUrl = "/pricing-plan",
+    ticketUrl = "https://tickets.devbcn.com/event/devbcn-2026",
     eventDate = "16-17 June 2026",
     eventLocation = "World Trade Center Barcelona",
 }: CTASectionProps) {
@@ -28,7 +28,7 @@ export default function CTASection({
                             </div>
                             <ul>
                                 <li>
-                                    <Link href="/#">
+                                    <Link href="#">
                                         <img src="/assets/img/icons/calender1.svg" alt="" />
                                         {eventDate}
                                     </Link>
