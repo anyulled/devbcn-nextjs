@@ -1,7 +1,14 @@
-import Link from "next/link";
 import Countdown from "@/components/elements/Countdown";
+import Link from "next/link";
+import { cfpData } from "./cfpData";
 
-export default function CFP() {
+interface CFPProps {
+  params: Promise<{ year: string }>;
+}
+
+export default async function CFP({ params }: CFPProps) {
+  const { year } = await params;
+  const cfpCommittee = cfpData[year];
   return (
     <div>
       <div
@@ -12,11 +19,11 @@ export default function CFP() {
           <div className="row">
             <div className="col-lg-6 m-auto">
               <div className="heading1 text-center">
-                <h1>Call for Papers</h1>
+                <h1>Call for Papers {year}</h1>
                 <div className="space20" />
                 <Link href="/">
                   Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Call for Papers</span>
+                  <span>Call for Papers {year}</span>
                 </Link>
               </div>
             </div>
@@ -24,432 +31,115 @@ export default function CFP() {
         </div>
       </div>
       {/*===== HERO AREA ENDS =======*/}
-      {/*===== BLOG AREA STARTS =======*/}
-      <div className="bloginner-section-area sp1">
-        <div className="container">
-          <div className="row">
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="../assets/img/all-images/blog/blog-img4.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Beverly
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Save soil, save world Projects in 2020
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img src="/assets/img/all-images/blog/blog-img5.png" alt="" />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Gisselle
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Civil Litigation paper’s Of Conference
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img src="/assets/img/all-images/blog/blog-img6.png" alt="" />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Mertie
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Greetings and Opening Event of health
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img7.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Beverly
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Eventify 2024: Unlock the Future of Business
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="../assets/img/all-images/memory/memory-img8.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Gisselle
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Where Vision Meetup Connect: Eventify 2024
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img9.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Mertie
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Fuel Your Business Growth at Eventify
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img4.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="/assets/img/icons/user1.svg" alt="" />
-                        Beverly
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Ignite Your Business Potential at Eventify
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img11.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="../assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="../assets/img/icons/user1.svg" alt="" />
-                        Gisselle
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Step Into the Future of Business with Eventify
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
-              <div className="blog4-boxarea">
-                <div className="img1">
-                  <img
-                    src="../assets/img/all-images/memory/memory-img6.png"
-                    alt=""
-                  />
-                </div>
-                <div className="content-area">
-                  <ul>
-                    <li>
-                      <Link href="/#">
-                        <img src="../assets/img/icons/calender1.svg" alt="" />
-                        26 Jan 2025 <span> | </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/#">
-                        <img src="../assets/img/icons/user1.svg" alt="" />
-                        Mertie
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="space20" />
-                  <Link href="/blog-single">
-                    Empowering Business Growth at Eventify
-                  </Link>
-                  <div className="space24" />
-                  <Link href="/blog-single" className="readmore">
-                    read more <i className="fa-solid fa-arrow-right" />
-                  </Link>
-                  <div className="arrow">
-                    <Link href="/blog-single">
-                      <i className="fa-solid fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="space30" />
-            <div className="pagination-area">
-              <nav aria-label="Page navigation example">
-                <ul className="pagination">
-                  <li className="page-item">
-                    <Link className="page-link" href="/#" aria-label="Previous">
-                      <i className="fa-solid fa-angle-left" />
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link active" href="/#">
-                      1
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" href="/#">
-                      2
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" href="/#">
-                      ...
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" href="/#">
-                      12
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" href="/#" aria-label="Next">
-                      <i className="fa-solid fa-angle-right" />
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+      {/*===== INTRODUCTION SECTION STARTS =======*/}
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8 m-auto">
+            <div className="text-center" style={{ padding: "60px 0 40px" }}>
+              <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#666" }}>
+                We&apos;re excited to announce the members of the Call for
+                Papers committee for the next DevBcn conference! These
+                experienced professionals will be reviewing and selecting the
+                best talks and workshops for the upcoming event.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      {/*===== BLOG AREA ENDS =======*/}
+      {/*===== INTRODUCTION SECTION ENDS =======*/}
+      {/*===== CFP COMMITTEE AREA STARTS =======*/}
+      {cfpCommittee && cfpCommittee.length > 0 ? (
+        <>
+          {cfpCommittee.map((track, trackIndex) => (
+            <div key={track.id} className="team10-section-area sp3">
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-8 m-auto">
+                    <div className="heading13 text-center space-margin60">
+                      <h5>
+                        <img src="/assets/img/icons/sub-logo1.svg" alt="" />
+                        CFP Committee
+                      </h5>
+                      <div className="space20" />
+                      <h2 style={{ color: "#1a1a1a" }}>{track.name}</h2>
+                    </div>
+                  </div>
+                </div>
+                {track.members.length > 0 ? (
+                  <div className="row">
+                    {track.members.map((member, memberIndex) => (
+                      <div
+                        key={`${track.id}-${memberIndex}`}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="team10-widget-boxarea2">
+                          <div className="img1 image-anime">
+                            <img
+                              src={
+                                member.photo ||
+                                "/assets/img/all-images/team/team-img39.png"
+                              }
+                              alt={member.name}
+                            />
+                          </div>
+                          <div className="text-area">
+                            <div className="heading">
+                              <h4>{member.name}</h4>
+                            </div>
+                            <div className="space16" />
+                            {(member.linkedIn || member.twitter) && (
+                              <div className="social-icons">
+                                {member.linkedIn && (
+                                  <Link
+                                    href={member.linkedIn}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <i className="fa-brands fa-linkedin" />
+                                  </Link>
+                                )}
+                                {member.twitter && (
+                                  <Link
+                                    href={member.twitter}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <i className="fa-brands fa-twitter" />
+                                  </Link>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="space30" />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="row">
+                    <div className="col-12 text-center">
+                      <p>No committee members assigned to this track yet.</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </>
+      ) : (
+        <div className="team10-section-area sp3">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 m-auto">
+                <div className="heading13 text-center">
+                  <h2>CFP Committee information coming soon for {year}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/*===== CFP COMMITTEE AREA ENDS =======*/}
       {/*===== CTA AREA STARTS =======*/}
       <div className="cta1-section-area d-lg-block d-block">
         <div className="container">
