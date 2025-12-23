@@ -1,13 +1,21 @@
 import BrandSlider from "@/components/slider/BrandSlider";
+import { Sponsors } from "@/config/editions/types";
 import Link from "next/link";
+import { SponsorGroup } from "./SponsorGroup";
 
-export default function Section4() {
+interface Section4Props {
+  sponsors: Sponsors;
+}
+
+export default function Section4({ sponsors }: Section4Props) {
+  const hasSponsors = sponsors && Object.values(sponsors).some((arr) => arr && arr.length > 0);
+
   return (
     <>
       <div
         className="brands8-section-area sp8"
         style={{
-          backgroundImage: "url(assets/img/bg/header-bg20.png)",
+          backgroundImage: "url(/assets/img/bg/header-bg20.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -15,18 +23,42 @@ export default function Section4() {
       >
         <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
         <div className="container">
-          <div className="row">
-            <div className="col-lg-5 m-auto">
-              <div className="brand-header heading4 space-margin60 text-center">
-                <h3>Join 20+ companies already growing</h3>
+          {!hasSponsors && (
+            <>
+              <div className="row">
+                <div className="col-lg-5 m-auto">
+                  <div className="brand-header heading4 space-margin60 text-center">
+                    <h3>Join 20+ companies already growing</h3>
+                  </div>
+                </div>
               </div>
+              <div className="row">
+                <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
+                  <BrandSlider />
+                </div>
+              </div>
+            </>
+          )}
+
+          {hasSponsors && sponsors && (
+            <div className="sponsors-list py-5">
+              <div className="row">
+                <div className="col-lg-8 m-auto">
+                  <div className="heading4 text-center mb-5 space-margin60">
+                    <h3 className="sponsors-section-heading">Our Sponsors</h3>
+                  </div>
+                </div>
+              </div>
+
+              <SponsorGroup title="Top" items={sponsors.top} sizeClass="col-lg-12 col-md-12 mb-4 d-flex justify-content-center" />
+              <SponsorGroup title="Premium" items={sponsors.premium} sizeClass="col-lg-3 col-md-6 col-6 mb-4" />
+              <SponsorGroup title="Regular" items={sponsors.regular} sizeClass="col-lg-2 col-md-4 col-4 mb-4" />
+              <SponsorGroup title="Basic" items={sponsors.basic} sizeClass="col-lg-2 col-md-3 col-4 mb-4" />
+              <SponsorGroup title="Communities" items={sponsors.communities} sizeClass="col-lg-2 col-md-3 col-4 mb-4" />
+              <SponsorGroup title="Media Partners" items={sponsors.media_partners} sizeClass="col-lg-2 col-md-3 col-4 mb-4" />
+              <SponsorGroup title="Supporters" items={sponsors.supporters} sizeClass="col-lg-2 col-md-3 col-4 mb-4" />
             </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
-              <BrandSlider />
-            </div>
-          </div>
+          )}
         </div>
         <div className="space60" />
         <div className="contact8-bg-section">
@@ -49,14 +81,7 @@ export default function Section4() {
                     <div className="space18" />
                     <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
-                        <i
-                          className="fa-brands fa-linkedin-in"
-                          style={{
-                            color: "white",
-                            fontSize: "24px",
-                            marginTop: "20px",
-                          }}
-                        />
+                        <i className="fa-brands fa-linkedin-in" />
                       </div>
                       <div className="text">
                         <h5>LinkedIn</h5>
@@ -71,14 +96,7 @@ export default function Section4() {
                     <div className="space20 d-md-none d-block" />
                     <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
-                        <i
-                          className="fa-brands fa-twitter"
-                          style={{
-                            color: "white",
-                            fontSize: "24px",
-                            marginTop: "20px",
-                          }}
-                        />
+                        <i className="fa-brands fa-twitter" />
                       </div>
                       <div className="text">
                         <h5>X/Formerly twitter</h5>

@@ -62,6 +62,22 @@ export interface SocialLinks {
  * Contains all year-specific settings for a DevBcn edition.
  * Each year has its own file implementing this interface.
  */
+export interface Sponsor {
+  name: string;
+  website: string;
+  image: string;
+}
+
+export interface Sponsors {
+  top: Sponsor[] | null;
+  premium: Sponsor[] | null;
+  regular: Sponsor[] | null;
+  communities: Sponsor[] | null;
+  basic: Sponsor[] | null;
+  media_partners: Sponsor[] | null;
+  supporters: Sponsor[] | null;
+}
+
 export interface EditionConfig {
   // Basic info
   edition: string;
@@ -91,6 +107,7 @@ export interface EditionConfig {
   cfp: CFPConfig;
   tickets: TicketsConfig;
   sponsors: SponsorConfig;
+  sponsorsData: Sponsors;
 
   // External resources
   brochure: string;

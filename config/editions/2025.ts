@@ -61,4 +61,148 @@ export const edition2025: EditionConfig = {
     instagram: "https://www.instagram.com/devbcn.conf/",
     bluesky: "https://bsky.app/profile/devbcn.bsky.social",
   },
+  sponsorsData: {
+    top: [],
+    premium: [
+      {
+        name: "Dynatrace",
+        image: "/assets/img/all-images/sponsors/dynatrace.png",
+        website: "https://www.dynatrace.com/",
+      },
+    ],
+    regular: [
+      {
+        name: "Caixabank Tech",
+        website: "https://www.caixabanktech.com/es/pagina-de-inicio/",
+        image: "/assets/img/all-images/sponsors/caixabank-tech.png",
+      },
+      {
+        name: "Sopra Steria",
+        image: "/assets/img/all-images/sponsors/sopra.png",
+        website: "https://www.soprasteria.es/",
+      },
+      {
+        name: "Elastic",
+        image: "/assets/img/all-images/sponsors/logo-elastic-horizontal-color.png",
+        website: "https://www.elastic.co/",
+      },
+      {
+        name: "Manychat",
+        website: "https://careers.manychat.com/",
+        image: "/assets/img/all-images/sponsors/logo-manychat.webp",
+      },
+      {
+        name: "Snowflake",
+        website: "https://www.snowflake.com/en/developers/",
+        image: "/assets/img/all-images/sponsors/logo-snowflake.png",
+      },
+      {
+        name: "Clever Cloud",
+        image: "/assets/img/all-images/sponsors/clever-cloud.png",
+        website: "https://www.clever-cloud.com/",
+      },
+      {
+        name: "Vonage",
+        website: "https://vonage.dev/DevBcn",
+        image: "/assets/img/all-images/sponsors/vonage.jpg",
+      },
+      {
+        name: "NUBANK",
+        image: "/assets/img/all-images/sponsors/datomic.svg",
+        website: "https://nubank.com.br/",
+      },
+    ],
+    basic: [
+      {
+        name: "Seidor",
+        website: "https://www.opentrends.net/en",
+        image: "/assets/img/all-images/sponsors/seidor.png",
+      },
+      {
+        name: "Grupo Castilla",
+        image: "/assets/img/all-images/sponsors/grupo-castilla.png",
+        website: "https://www.grupocastilla.es/servicios-rrhh/consultoria-tecnologica/",
+      },
+      {
+        name: "FOR GOOD AI",
+        website: "https://zencoder.ai/",
+        image: "/assets/img/all-images/sponsors/zencoder.png",
+      },
+      {
+        name: "ORTUS SOLUTIONS",
+        website: "https://boxlang.io/",
+        image: "/assets/img/all-images/sponsors/boxlang.png",
+      },
+      {
+        name: "Preply",
+        website: "https://preply.com/en/careers",
+        image: "/assets/img/all-images/sponsors/preply.svg",
+      },
+      {
+        name: "Dow Jones",
+        image: "/assets/img/all-images/sponsors/dow-jones.png",
+        website: "https://www.dowjones.com/",
+      },
+      {
+        name: "Azul",
+        image: "/assets/img/all-images/sponsors/azul.png",
+        website: "https://www.azul.com",
+      },
+      {
+        name: "Glovo",
+        website: "https://jobs.glovoapp.com/departments/engineering-2/?d=engineering&l=barcelona-hq",
+        image: "/assets/img/all-images/sponsors/glovo.png",
+      },
+    ],
+    communities: [
+      {
+        name: "Step4ward",
+        image: "/assets/img/all-images/sponsors/step4ward.png",
+        website: "https://bit.ly/step4wardhome",
+      },
+      {
+        name: "Migracode Barcelona",
+        image: "/assets/img/all-images/sponsors/migracode.jpg",
+        website: "https://www.migracode.org/",
+      },
+      {
+        name: "CodeWomen+",
+        image: "/assets/img/all-images/sponsors/codewomen.png",
+        website: "https://codewomen.plus/",
+      },
+    ],
+    media_partners: [
+      {
+        name: "Digital Expert Online",
+        website: "https://digital-expert.online/en/",
+        image: "/assets/img/all-images/sponsors/logo-digital-expert.svg",
+      },
+      {
+        name: "Kube events",
+        image: "/assets/img/all-images/sponsors/kube-events.png",
+        website: "https://kube.events/",
+      },
+      {
+        name: "Kube careers",
+        image: "/assets/img/all-images/sponsors/kube-career.png",
+        website: "https://kube.careers/",
+      },
+      {
+        name: "CIO Insights",
+        website: "https://www.cioinsights.com/",
+        image: "/assets/img/all-images/sponsors/cio-insights.png",
+      },
+      {
+        name: "Codely",
+        image: "/assets/img/all-images/sponsors/codely.png",
+        website: "https://codely.com/",
+      },
+      {
+        name: "Foojay",
+        image: "/assets/img/all-images/sponsors/foojay.jpg",
+        website: "https://foojay.io/",
+      },
+    ],
+    supporters: [],
+  },
 };

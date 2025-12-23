@@ -62,4 +62,13 @@ export const edition2026: EditionConfig = {
     instagram: "https://www.instagram.com/devbcn.conf/",
     bluesky: "https://bsky.app/profile/devbcn.bsky.social",
   },
+  sponsorsData: {
+    top: [],
+    premium: [],
+    regular: [],
+    basic: [],
+    communities: [],
+    media_partners: [],
+    supporters: [],
+  },
 };

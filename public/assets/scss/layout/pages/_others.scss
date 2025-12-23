@@ -2129,3 +2129,54 @@
 		opacity: 1;
 	}
 }
+
+/*============= SPONSORS CSS AREA STARTS ===============*/
+
+// Sponsors section heading
+.sponsors-section-heading {
+	color: var(--ztc-text-text-1);
+}
+
+// Sponsor category title
+.sponsor-category-title {
+	color: white;
+	opacity: 0.7;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+// Sponsor card container
+.sponsor-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	transition: transform 0.3s ease;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 8px;
+	height: 100%;
+	min-height: 100px;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	img {
+		max-height: 100px;
+		width: auto;
+		max-width: 100%;
+		object-fit: contain;
+		margin: 0 auto;
+	}
+}
+
+// Social media icons in contact section
+.contact-boxarea .icons {
+	i.fa-brands {
+		color: white;
+		font-size: 24px;
+		margin-top: 20px;
+	}
+}
+
+/*============= SPONSORS CSS AREA ENDS ===============*/

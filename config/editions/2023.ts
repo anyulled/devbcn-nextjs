@@ -58,4 +58,237 @@ export const edition2023: EditionConfig = {
     flickr: "https://flickr.com/devbcn",
     github: "https://github.com/devbcn",
   },
+
+  sponsorsData: {
+    top: [
+      {
+        name: "GFT",
+        website: "https://www.gft.com/es/es/",
+        image: "/assets/img/all-images/sponsors/GFT.jpg",
+      },
+    ],
+    premium: [
+      {
+        name: "Barcelona JUG",
+        image: "/assets/img/all-images/sponsors/bcn-jug.png",
+        website: "https://www.meetup.com/barcelonajug/",
+      },
+      {
+        name: "Adevinta",
+        website: "https://www.adevinta.com/",
+        image: "/assets/img/all-images/sponsors/adevinta.png",
+      },
+      {
+        name: "Red Hat",
+        website: "https://developers.redhat.com/",
+        image: "/assets/img/all-images/sponsors/red-hat.png",
+      },
+      {
+        name: "Revolut",
+        website: "https://www.revolut.com/working-at-revolut/",
+        image: "/assets/img/all-images/sponsors/revolut.png",
+      },
+    ],
+    regular: [
+      {
+        name: "Adaptive",
+        image: "/assets/img/all-images/sponsors/adaptive.png",
+        website: "https://www.weareadaptive.com/",
+      },
+      {
+        name: "Capitol",
+        image: "/assets/img/all-images/sponsors/capitole.png",
+        website: "https://capitole-consulting.com/es/",
+      },
+      {
+        name: "Allianz",
+        image: "/assets/img/all-images/sponsors/allianz.png",
+        website: "https://careers.allianz.com/es_ES.html",
+      },
+      {
+        name: "Sopra Steria",
+        image: "/assets/img/all-images/sponsors/sopra.jpg",
+        website: "https://www.soprasteria.es/",
+      },
+      {
+        name: "Idealista",
+        image: "/assets/img/all-images/sponsors/idealista.jpg",
+        website: "https://www.idealista.com/info/trabaja-con-nosotros",
+      },
+      {
+        name: "King",
+        image: "/assets/img/all-images/sponsors/king.png",
+        website: "https://careers.king.com/about-us/",
+      },
+      {
+        name: "Azul",
+        image: "/assets/img/all-images/sponsors/azul.png",
+        website: "https://www.azul.com/?utm_medium=email&utm_campaign=20230703-SEV-DevBCN&utm_source=DevBCN&utm_content=&utm_term=",
+      },
+      {
+        name: "Gradle",
+        image: "/assets/img/all-images/sponsors/gradle.png",
+        website: "https://gradle.com/",
+      },
+      {
+        name: "CouchBase",
+        website: "https://developer.couchbase.com/",
+        image: "/assets/img/all-images/sponsors/couchbase.png",
+      },
+      {
+        name: "Alten",
+        image: "/assets/img/all-images/sponsors/alten.png",
+        website: "https://www.alten.es",
+      },
+      {
+        name: "New Relic",
+        image: "/assets/img/all-images/sponsors/someRelic.png",
+        website: "https://newrelic.com",
+      },
+      {
+        name: "Confluent",
+        website: "https://www.confluent.io/",
+        image: "/assets/img/all-images/sponsors/confluent.png",
+      },
+    ],
+    basic: [
+      {
+        name: "Caixabank Tech",
+        website: "https://www.caixabanktech.com/es/pagina-de-inicio/",
+        image: "/assets/img/all-images/sponsors/caixabank-tech.png",
+      },
+      {
+        name: "Ocado Tech",
+        website:
+          "https://careers.ocadogroup.com/where-we-are/europe/development-centre-barcelona?utm_source=event&utm_medium=other&utm_campaign=ot_event_bcn_devbcn_website",
+        image: "/assets/img/all-images/sponsors/ocado.png",
+      },
+      {
+        name: "Honeypot",
+        website: "https://app.honeypot.io/users/sign_up?utm_source=Live&utm_medium=sourcing&utm_campaign=event_02072023&utm_content=DevBCN",
+        image: "/assets/img/all-images/sponsors/honeypot.jpg",
+      },
+      {
+        name: "Edreams",
+        image: "/assets/img/all-images/sponsors/edreams.png",
+        website: "https://www.edreamsodigeo.com",
+      },
+      {
+        name: "barcelona Activa",
+        image: "/assets/img/all-images/sponsors/barcelona-activa.png",
+        website: "https://www.barcelonactiva.cat/",
+      },
+      {
+        name: "Seidor",
+        website: "https://www.opentrends.net/en",
+        image: "/assets/img/all-images/sponsors/seidor.png",
+      },
+      {
+        name: "Veepee",
+        image: "/assets/img/all-images/sponsors/veepee.png",
+        website: "https://www.veepee.es/gr/home/default",
+      },
+      {
+        name: "Zurich",
+        website: "https://bcntdc.zurich.com/en",
+        image: "/assets/img/all-images/sponsors/zurich.png",
+      },
+      {
+        name: "Inditex",
+        website: "https://www.zaratalent.com/es/tech/",
+        image: "/assets/img/all-images/sponsors/inditex.png",
+      },
+      {
+        name: "Axa",
+        image: "/assets/img/all-images/sponsors/axa.png",
+        website: "https://www.careers.axapartners.com/es/es",
+      },
+      {
+        name: "Servicenow",
+        image: "/assets/img/all-images/sponsors/servicenow.png",
+        website: "https://www.servicenow.com/products/observability.html",
+      },
+    ],
+    communities: [
+      {
+        name: "Agile Spain",
+        image: "/assets/img/all-images/sponsors/agile.png",
+        website: "https://agile-spain.org/",
+      },
+      {
+        name: "step4ward",
+        image: "/assets/img/all-images/sponsors/step4ward.png",
+        website: "https://bit.ly/step4wardhome",
+      },
+      {
+        name: "Apache foundation",
+        image: "/assets/img/all-images/sponsors/apache-foundation.jpeg",
+        website: "https://www.apache.org/",
+      },
+      {
+        name: "Eclipse foundation",
+        website: "https://www.eclipse.org/",
+        image: "/assets/img/all-images/sponsors/eclipse-foundation.png",
+      },
+    ],
+    media_partners: [
+      {
+        name: "Kube events",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/kube-events.png",
+        website: "https://kube.events/",
+      },
+      {
+        name: "Kube careers",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/kube-career.png",
+        website: "https://kube.careers//",
+      },
+      {
+        name: "entre devs y ops",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/entre-devs-y-ops.svg",
+        website: "https://www.entredevyops.es/",
+      },
+      {
+        name: "Codely",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/codely.png",
+        website: "https://codely.com/pro/jbcnconf22",
+      },
+      {
+        name: "CIO Insigths",
+        website: "https://www.cioinsights.com/",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/cio.png",
+      },
+      {
+        name: "Glorium",
+        image: "/assets/img/all-/assets/img/all-images/sponsors/glorium.png",
+        website: "https://gloriumtech.com/",
+      },
+    ],
+    supporters: [
+      {
+        name: "Jetbrains",
+        image: "/assets/img/all-images/sponsors/jetbrains.png",
+        website: "https://www.jetbrains.com",
+      },
+      {
+        name: "Madrid JUG",
+        website: "https://www.meetup.com/MadridJUG",
+        image: "/assets/img/all-images/sponsors/madrid-jug.png",
+      },
+      {
+        name: "Malaga JUG",
+        image: "/assets/img/all-images/sponsors/malaga-jug.png",
+        website: "https://www.meetup.com/MalagaJUG",
+      },
+      {
+        name: "PythonBCN",
+        website: "https://pybcn.org/",
+        image: "/assets/img/all-images/sponsors/python-bcn.png",
+      },
+      {
+        name: "BarcelonaJS",
+        website: "https://barcelonajs.com/",
+        image: "/assets/img/all-images/sponsors/barcelona-js.png",
+      },
+    ],
+  },
 };

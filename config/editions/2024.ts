@@ -61,4 +61,165 @@ export const edition2024: EditionConfig = {
     instagram: "https://www.instagram.com/devbcn.conf/",
     bluesky: "https://bsky.app/profile/devbcn.bsky.social",
   },
+  sponsorsData: {
+    top: [
+      {
+        name: "DATASTAX",
+        image: "/assets/img/all-images/sponsors/datastax.png",
+        website: "https://www.datastax.com/",
+      },
+    ],
+    premium: [
+      {
+        name: "Allianz",
+        image: "/assets/img/all-images/sponsors/allianz.png",
+        website: "https://tech.allianz.com/en.html",
+      },
+      {
+        name: "Barcelona JUG",
+        image: "/assets/img/all-images/sponsors/bcn-jug.png",
+        website: "https://www.meetup.com/barcelonajug/",
+      },
+      {
+        name: "PREM.AI",
+        website: "https://www.premai.io/",
+        image: "/assets/img/all-images/sponsors/prem-ai.png",
+      },
+      {
+        name: "Revolut",
+        website: "https://www.revolut.com/working-at-revolut/",
+        image: "/assets/img/all-images/sponsors/revolut.png",
+      },
+    ],
+    regular: [
+      {
+        name: "Sopra Steria",
+        image: "/assets/img/all-images/sponsors/sopra.png",
+        website: "https://www.soprasteria.es/",
+      },
+      {
+        name: "Caixabank Tech",
+        website: "https://www.caixabanktech.com/es/pagina-de-inicio/",
+        image: "/assets/img/all-images/sponsors/caixabank-tech.png",
+      },
+      {
+        name: "Idealista",
+        image: "/assets/img/all-images/sponsors/idealista.jpg",
+        website: "https://www.idealista.com/info/trabaja-con-nosotros",
+      },
+      {
+        name: "Clever Cloud",
+        image: "/assets/img/all-images/sponsors/clever-cloud.png",
+        website: "https://www.clever-cloud.com/",
+      },
+      {
+        name: "ALTEN",
+        image: "/assets/img/all-images/sponsors/alten.png",
+        website: "https://www.alten.es/",
+      },
+      {
+        name: "TIGERA",
+        image: "/assets/img/all-images/sponsors/tigera.png",
+        website: "https://www.tigera.io/",
+      },
+      {
+        name: "Dynatrace",
+        image: "/assets/img/all-images/sponsors/dynatrace.png",
+        website: "https://www.dynatrace.com/",
+      },
+    ],
+    basic: [
+      {
+        name: "Seidor",
+        website: "https://www.opentrends.net/en",
+        image: "/assets/img/all-images/sponsors/seidor.png",
+      },
+      {
+        name: "Perfect Scale",
+        website: "https://www.perfectscale.io/",
+        image: "/assets/img/all-images/sponsors/perfect-scale.png",
+      },
+      {
+        name: "Auth0",
+        image: "/assets/img/all-images/sponsors/auth0.png",
+        website: "https://okta.com/careers",
+      },
+      {
+        name: "Barcelona Activa",
+        image: "/assets/img/all-images/sponsors/barcelona-activa.png",
+        website: "https://www.barcelonactiva.cat/",
+      },
+      {
+        name: "Reevo",
+        image: "/assets/img/all-images/sponsors/reevo.png",
+        website: "https://www.reevo.it/",
+      },
+      {
+        name: "GFT",
+        website: "https://www.gft.com/es/es/",
+        image: "/assets/img/all-images/sponsors/GFT.jpg",
+      },
+      {
+        name: "Grupo Castilla",
+        image: "/assets/img/all-images/sponsors/grupo-castilla.png",
+        website: "https://www.grupocastilla.es/servicios-rrhh/consultoria-tecnologica/",
+      },
+      {
+        name: "Axa",
+        image: "/assets/img/all-images/sponsors/axa.png",
+        website: "https://www.axapartners.es/es",
+      },
+    ],
+    communities: [
+      {
+        name: "KCD Barcelona",
+        website: "https://community.cncf.io/events/details/cncf-kcd-spain-presents-kcd-barcelona-2024/",
+        image: "/assets/img/all-images/sponsors/KCD-logo-black.webp",
+      },
+      {
+        name: "Apache Foundation",
+        image: "/assets/img/all-images/sponsors/apache-foundation.jpeg",
+        website: "https://www.apache.org/",
+      },
+      {
+        name: "Eclipse Foundation",
+        image: "/assets/img/all-images/sponsors/eclipse-foundation.png",
+        website: "https://www.eclipse.org/",
+      },
+      {
+        name: "Foojay",
+        image: "/assets/img/all-images/sponsors/foojay.jpg",
+        website: "https://foojay.io/",
+      },
+      {
+        name: "Migracode Barcelona",
+        image: "/assets/img/all-images/sponsors/migracode.jpg",
+        website: "https://www.migracode.org/",
+      },
+      {
+        name: "Step4ward",
+        image: "/assets/img/all-images/sponsors/step4ward.png",
+        website: "https://bit.ly/step4wardhome",
+      },
+    ],
+    media_partners: [
+      {
+        name: "Kube events",
+        image: "/assets/img/all-images/sponsors/kube-events.png",
+        website: "https://kube.events/",
+      },
+      {
+        name: "Kube careers",
+        image: "/assets/img/all-images/sponsors/kube-career.png",
+        website: "https://kube.careers//",
+      },
+    ],
+    supporters: [
+      {
+        name: "BarcelonaJS",
+        website: "https://barcelonajs.com/",
+        image: "/assets/img/all-images/sponsors/barcelona-js.png",
+      },
+    ],
+  },
 };
