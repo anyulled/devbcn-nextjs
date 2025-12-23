@@ -48,8 +48,7 @@ export const edition2026: EditionConfig = {
     endDate: new Date("2026-06-18T09:00:00+01:00"),
   },
 
-  brochure:
-    "https://drive.google.com/file/d/1gl8rGHr5puw9-bbBV1I3LEm7N-GmrxHq/view?usp=sharing",
+  brochure: "https://drive.google.com/file/d/1gl8rGHr5puw9-bbBV1I3LEm7N-GmrxHq/view?usp=sharing",
   sessionizeUrl: "https://sessionize.com/api/v2/prcjw6ue/",
   openFeedbackId: "devbcn26",
 

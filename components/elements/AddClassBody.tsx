@@ -20,7 +20,7 @@ export default function AddClassBody() {
         "homepage7-body",
         "homepage8-body",
         "homepage9-body",
-        "homepage10-body",
+        "homepage10-body"
       );
 
       // Always use homepage8-body since we're using Header8/Footer8 globally

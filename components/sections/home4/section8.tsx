@@ -6,11 +6,7 @@ export default function Section8() {
       <div className="contact4-section-area sp1">
         <div className="container">
           <div className="row align-items-center">
-            <div
-              className="col-lg-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="contact4-boxarea">
                 <h3 className="text-anime-style-3">Leave A Message</h3>
                 <div className="space8" />
@@ -60,32 +56,20 @@ export default function Section8() {
                 <h2 className="text-anime-style-3">Connect with Our Team</h2>
                 <div className="space18" />
                 <p data-aos="fade-left" data-aos-duration={900}>
-                  We’re here to help! you have any questions about Innovate
-                  2024, need assistance with registration, or want to learn more
-                  about.
+                  We’re here to help! you have any questions about Innovate 2024, need assistance with registration, or want to learn more about.
                 </p>
                 <div className="space12" />
-                <div
-                  className="contact-author-box"
-                  data-aos="fade-left"
-                  data-aos-duration={1000}
-                >
+                <div className="contact-author-box" data-aos="fade-left" data-aos-duration={1000}>
                   <div className="icons">
                     <img src="/assets/img/icons/mail1.svg" alt="" />
                   </div>
                   <div className="text">
                     <h4>Our Email</h4>
                     <div className="space10" />
-                    <Link href="/mailto:eventify@gmail.com">
-                      eventify@gmail.com
-                    </Link>
+                    <Link href="/mailto:eventify@gmail.com">eventify@gmail.com</Link>
                   </div>
                 </div>
-                <div
-                  className="contact-author-box"
-                  data-aos="fade-left"
-                  data-aos-duration={1100}
-                >
+                <div className="contact-author-box" data-aos="fade-left" data-aos-duration={1100}>
                   <div className="icons">
                     <img src="/assets/img/icons/phn1.svg" alt="" />
                   </div>
@@ -95,20 +79,14 @@ export default function Section8() {
                     <Link href="/tel:+11234567890">+1 123 456 7890</Link>
                   </div>
                 </div>
-                <div
-                  className="contact-author-box"
-                  data-aos="fade-left"
-                  data-aos-duration={1200}
-                >
+                <div className="contact-author-box" data-aos="fade-left" data-aos-duration={1200}>
                   <div className="icons">
                     <img src="/assets/img/icons/clock1.svg" alt="" />
                   </div>
                   <div className="text">
                     <h4>Schedule</h4>
                     <div className="space10" />
-                    <Link href="/mailto:eventify@gmail.com">
-                      Sunday-Fri: 9 AM – 6 PM
-                    </Link>
+                    <Link href="/mailto:eventify@gmail.com">Sunday-Fri: 9 AM – 6 PM</Link>
                   </div>
                 </div>
               </div>
@@ -118,18 +96,12 @@ export default function Section8() {
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <div className="img1 image-anime reveal">
-                <img
-                  src="/assets/img/all-images/contact/contact-img2.png"
-                  alt=""
-                />
+                <img src="/assets/img/all-images/contact/contact-img2.png" alt="" />
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="img1 image-anime reveal">
-                <img
-                  src="/assets/img/all-images/contact/contact-img3.png"
-                  alt=""
-                />
+                <img src="/assets/img/all-images/contact/contact-img3.png" alt="" />
               </div>
             </div>
             <div className="col-lg-5">

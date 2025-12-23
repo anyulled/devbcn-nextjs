@@ -2,28 +2,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Header9({
-  scroll,
-  isMobileMenu,
-  handleMobileMenu,
-  isSearch,
-  handleSearch,
-}: any) {
+export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
-  const yearFromPath =
-    segments[0] && /^\d{4}$/.test(segments[0])
-      ? segments[0]
-      : new Date().getFullYear().toString();
+  const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
 
   const withYear = (slug: string) => `/${yearFromPath}${slug}`;
   console.log("=== Header 8");
   return (
     <header>
-      <div
-        className={`header-area homepage8 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`}
-        id="header"
-      >
+      <div className={`header-area homepage8 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -31,9 +19,7 @@ export default function Header9({
                 <div className="top-menu-area">
                   <p>
                     Are you Ready to DevBcn?
-                    <Link href="https://tickets.devbcn.com/event/devbcn-2026">
-                      Buy Ticket
-                    </Link>
+                    <Link href="https://tickets.devbcn.com/event/devbcn-2026">Buy Ticket</Link>
                   </p>
                   <ul>
                     <li>
@@ -107,10 +93,7 @@ export default function Header9({
                 </div>
                 <div className="btn-area">
                   <div className="btn-area1">
-                    <Link
-                      className="vl-btn8"
-                      href="https://tickets.devbcn.com/event/devbcn-2026"
-                    >
+                    <Link className="vl-btn8" href="https://tickets.devbcn.com/event/devbcn-2026">
                       <span className="demo">Buy Ticket</span>
                     </Link>
                   </div>

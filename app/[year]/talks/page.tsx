@@ -33,12 +33,9 @@ export default async function Talks({ params }: TalksProps) {
             <div className="row">
               <div className="col-lg-8 m-auto">
                 <div className="text-center" style={{ padding: "60px 0" }}>
-                  <h3 style={{ color: "#1a1a1a", marginBottom: "20px" }}>
-                    Talks Coming Soon!
-                  </h3>
+                  <h3 style={{ color: "#1a1a1a", marginBottom: "20px" }}>Talks Coming Soon!</h3>
                   <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#666" }}>
-                    We&apos;re currently finalizing our talk lineup for DevBcn {year}.
-                    Stay tuned for exciting announcements about our sessions!
+                    We&apos;re currently finalizing our talk lineup for DevBcn {year}. Stay tuned for exciting announcements about our sessions!
                   </p>
                 </div>
               </div>
@@ -46,7 +43,11 @@ export default async function Talks({ params }: TalksProps) {
           </div>
         </div>
       )}
-      <CTASection eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)} eventLocation={eventData.venue} ticketUrl={eventData.tickets.url} />
+      <CTASection
+        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventLocation={eventData.venue}
+        ticketUrl={eventData.tickets.url}
+      />
     </div>
   );
 }

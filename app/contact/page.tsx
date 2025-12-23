@@ -6,10 +6,7 @@ export default function Contact() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg12.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg12.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -17,8 +14,7 @@ export default function Contact() {
                     <h1>Contact Us</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Contact Us</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Contact Us</span>
                     </Link>
                   </div>
                 </div>
@@ -32,17 +28,10 @@ export default function Contact() {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/contact/contact-img4.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/contact/contact-img4.png" alt="" />
                   </div>
                 </div>
-                <div
-                  className="col-lg-6"
-                  data-aos="zoom-in"
-                  data-aos-duration={1000}
-                >
+                <div className="col-lg-6" data-aos="zoom-in" data-aos-duration={1000}>
                   <div className="contact4-boxarea">
                     <h3 className="text-anime-style-3">Get In Touch Now</h3>
                     <div className="space8" />
@@ -90,11 +79,7 @@ export default function Contact() {
           {/*===== CONTACT AREA STARTS =======*/}
           <div className="contact2-bg-section">
             <div className="img1">
-              <img
-                src="/assets/img/all-images/contact/contact-img1.png"
-                alt=""
-                className="contact-img1"
-              />
+              <img src="/assets/img/all-images/contact/contact-img1.png" alt="" className="contact-img1" />
             </div>
             <div className="container">
               <div className="row">
@@ -102,28 +87,18 @@ export default function Contact() {
                   <div className="space48" />
                   <div className="row">
                     <div className="col-lg-6 col-md-6">
-                      <div
-                        className="contact-boxarea"
-                        data-aos="zoom-in"
-                        data-aos-duration={900}
-                      >
+                      <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
                         <div className="icons">
                           <img src="/assets/img/icons/mail1.svg" alt="" />
                         </div>
                         <div className="text">
                           <h5>Our Email</h5>
                           <div className="space14" />
-                          <Link href="/maito:eventify@gmail.com">
-                            eventify@gmail.com
-                          </Link>
+                          <Link href="/maito:eventify@gmail.com">eventify@gmail.com</Link>
                         </div>
                       </div>
                       <div className="space18" />
-                      <div
-                        className="contact-boxarea"
-                        data-aos="zoom-in"
-                        data-aos-duration={1000}
-                      >
+                      <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                         <div className="icons">
                           <img src="/assets/img/icons/location1.svg" alt="" />
                         </div>
@@ -136,11 +111,7 @@ export default function Contact() {
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="space20 d-md-none d-block" />
-                      <div
-                        className="contact-boxarea"
-                        data-aos="zoom-in"
-                        data-aos-duration={1000}
-                      >
+                      <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                         <div className="icons">
                           <img src="/assets/img/icons/phn1.svg" alt="" />
                         </div>
@@ -151,11 +122,7 @@ export default function Contact() {
                         </div>
                       </div>
                       <div className="space18" />
-                      <div
-                        className="contact-boxarea"
-                        data-aos="zoom-in"
-                        data-aos-duration={1200}
-                      >
+                      <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
                         <div className="icons">
                           <img src="/assets/img/icons/instagram.svg" alt="" />
                         </div>

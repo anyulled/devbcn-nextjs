@@ -64,9 +64,7 @@ export default function Section7() {
                   our 10+ event speakers
                 </h5>
                 <div className="space16" />
-                <h2 className="text-anime-style-3">
-                  Business Breakthrough Team
-                </h2>
+                <h2 className="text-anime-style-3">Business Breakthrough Team</h2>
               </div>
             </div>
           </div>
@@ -75,10 +73,7 @@ export default function Section7() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img2.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -111,10 +106,7 @@ export default function Section7() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img1.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -147,10 +139,7 @@ export default function Section7() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img3.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -183,10 +172,7 @@ export default function Section7() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img2.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -219,10 +205,7 @@ export default function Section7() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img1.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -255,10 +238,7 @@ export default function Section7() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img3.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -292,18 +272,10 @@ export default function Section7() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

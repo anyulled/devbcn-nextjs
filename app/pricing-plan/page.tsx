@@ -6,10 +6,7 @@ export default function PricingPlan() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg16.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg16.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-9 m-auto">
@@ -17,8 +14,7 @@ export default function PricingPlan() {
                     <h1>Pricing Plan</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Pricing Plan</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Pricing Plan</span>
                     </Link>
                   </div>
                 </div>

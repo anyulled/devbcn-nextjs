@@ -11,10 +11,7 @@ export default function BlogSingle() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg14.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg14.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -22,8 +19,7 @@ export default function BlogSingle() {
                     <h1>Blog Details</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Blog Details</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Blog Details</span>
                     </Link>
                   </div>
                 </div>
@@ -38,10 +34,7 @@ export default function BlogSingle() {
                 <div className="col-lg-8">
                   <div className="blog-deatils-content heading2">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/blog/blog-img7.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/blog/blog-img7.png" alt="" />
                     </div>
                     <div className="space32" />
                     <ul>
@@ -59,8 +52,7 @@ export default function BlogSingle() {
                       </li>
                       <li>
                         <Link href="/#">
-                          <img src="/assets/img/icons/comments1.svg" alt="" />2
-                          Comments
+                          <img src="/assets/img/icons/comments1.svg" alt="" />2 Comments
                         </Link>
                       </li>
                     </ul>
@@ -68,32 +60,21 @@ export default function BlogSingle() {
                     <h2>Step Into the Future of Business with Eventify</h2>
                     <div className="space16" />
                     <p>
-                      At Eventify 2024, you'll join an exclusive gathering of
-                      business leaders and innovators shaping the future their
-                      industries. This one-day conference offers dynamic
-                      sessions on leadership, technology, and strategy to help
-                      you stay ahead in today's competitive market. Whether
-                      you're looking to unlock new opportunities or build
-                      lasting eventify partnerships, Eventify is where you need
-                      to be.
+                      At Eventify 2024, you'll join an exclusive gathering of business leaders and innovators shaping the future their industries. This one-day
+                      conference offers dynamic sessions on leadership, technology, and strategy to help you stay ahead in today's competitive market. Whether
+                      you're looking to unlock new opportunities or build lasting eventify partnerships, Eventify is where you need to be.
                     </p>
                     <div className="space48" />
                     <div className="row">
                       <div className="col-lg-6 col-md-6">
                         <div className="img1 image-anime">
-                          <img
-                            src="/assets/img/all-images/blog/blog-img8.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img8.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="space30 d-md-none d-block" />
                         <div className="img1 image-anime">
-                          <img
-                            src="/assets/img/all-images/blog/blog-img9.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img9.png" alt="" />
                         </div>
                       </div>
                     </div>
@@ -101,35 +82,23 @@ export default function BlogSingle() {
                     <h3>Eventify: Your Gateway Strategic Growth</h3>
                     <div className="space16" />
                     <p>
-                      Fuel an your business growth with actionable insights from
-                      world-class experts at Eventify 2024. This premier event
-                      brings together forward-thinking professionals to explore
-                      the latest trends, technologies, and strategies for
-                      success. From keynote speeches to interactive workshops,
-                      Eventify provides you with the tools you need.
+                      Fuel an your business growth with actionable insights from world-class experts at Eventify 2024. This premier event brings together
+                      forward-thinking professionals to explore the latest trends, technologies, and strategies for success. From keynote speeches to
+                      interactive workshops, Eventify provides you with the tools you need.
                     </p>
                     <div className="space16" />
                     <p>
-                      "Join us at Eventify 2024, where innovation meets
-                      opportunity. This conference is the ultimate destination
-                      for business leaders seeking to push the boundaries of an
-                      what's possible. With sessions on disruptive technologies,
-                      leadership trends, and market strategies, you'll walk away
-                      with the knowledge and connections to lead.
+                      "Join us at Eventify 2024, where innovation meets opportunity. This conference is the ultimate destination for business leaders seeking to
+                      push the boundaries of an what's possible. With sessions on disruptive technologies, leadership trends, and market strategies, you'll walk
+                      away with the knowledge and connections to lead.
                     </p>
                     <div className="space48" />
                     <div className="video-btn-area">
                       <div className="img1">
-                        <img
-                          src="/assets/img/all-images/blog/blog-img10.png"
-                          alt=""
-                        />
+                        <img src="/assets/img/all-images/blog/blog-img10.png" alt="" />
                       </div>
                       <div className="play">
-                        <a
-                          onClick={() => setOpen(true)}
-                          className="popup-youtube"
-                        >
+                        <a onClick={() => setOpen(true)} className="popup-youtube">
                           <i className="fa-solid fa-play" />
                         </a>
                       </div>
@@ -138,11 +107,8 @@ export default function BlogSingle() {
                     <h3>Reimagine Business Possibilities Eventify</h3>
                     <div className="space16" />
                     <p>
-                      "Eventify 2024 is the ultimate destination for
-                      professionals eager to stay ahead in the evolving business
-                      landscape. This event brings together to innovators,
-                      meetup industry leaders, and experts to explore the future
-                      of business strategy technology.
+                      "Eventify 2024 is the ultimate destination for professionals eager to stay ahead in the evolving business landscape. This event brings
+                      together to innovators, meetup industry leaders, and experts to explore the future of business strategy technology.
                     </p>
                     <div className="space32" />
                     <div className="tags-social-area">
@@ -288,54 +254,30 @@ export default function BlogSingle() {
                       <div className="space12" />
                       <ul>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img11.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img11.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img12.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img12.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img13.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img13.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img14.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img14.png" alt="" />
                         </li>
                       </ul>
                       <ul>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img15.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img15.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img16.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img16.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img17.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img17.png" alt="" />
                         </li>
                         <li>
-                          <img
-                            src="/assets/img/all-images/blog/blog-img18.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/blog/blog-img18.png" alt="" />
                         </li>
                       </ul>
                     </div>
@@ -356,17 +298,10 @@ export default function BlogSingle() {
                 </div>
               </div>
               <div className="row">
-                <div
-                  className="col-lg-4 col-md-6"
-                  data-aos="zoom-in"
-                  data-aos-duration={800}
-                >
+                <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800}>
                   <div className="blog4-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img7.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img7.png" alt="" />
                     </div>
                     <div className="content-area">
                       <ul>
@@ -384,9 +319,7 @@ export default function BlogSingle() {
                         </li>
                       </ul>
                       <div className="space20" />
-                      <Link href="/blog-single">
-                        Eventify 2024: Unlock the Future of Business
-                      </Link>
+                      <Link href="/blog-single">Eventify 2024: Unlock the Future of Business</Link>
                       <div className="space24" />
                       <Link href="/blog-single" className="readmore">
                         read more <i className="fa-solid fa-arrow-right" />
@@ -399,17 +332,10 @@ export default function BlogSingle() {
                     </div>
                   </div>
                 </div>
-                <div
-                  className="col-lg-4 col-md-6"
-                  data-aos="zoom-in"
-                  data-aos-duration={1000}
-                >
+                <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
                   <div className="blog4-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img8.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img8.png" alt="" />
                     </div>
                     <div className="content-area">
                       <ul>
@@ -427,9 +353,7 @@ export default function BlogSingle() {
                         </li>
                       </ul>
                       <div className="space20" />
-                      <Link href="/blog-single">
-                        Where Vision Meetup Connect: Eventify 2024
-                      </Link>
+                      <Link href="/blog-single">Where Vision Meetup Connect: Eventify 2024</Link>
                       <div className="space24" />
                       <Link href="/blog-single" className="readmore">
                         read more <i className="fa-solid fa-arrow-right" />
@@ -442,17 +366,10 @@ export default function BlogSingle() {
                     </div>
                   </div>
                 </div>
-                <div
-                  className="col-lg-4 col-md-6"
-                  data-aos="zoom-in"
-                  data-aos-duration={1200}
-                >
+                <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
                   <div className="blog4-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img9.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img9.png" alt="" />
                     </div>
                     <div className="content-area">
                       <ul>
@@ -470,9 +387,7 @@ export default function BlogSingle() {
                         </li>
                       </ul>
                       <div className="space20" />
-                      <Link href="/blog-single">
-                        Fuel Your Business Growth at Eventify
-                      </Link>
+                      <Link href="/blog-single">Fuel Your Business Growth at Eventify</Link>
                       <div className="space24" />
                       <Link href="/blog-single" className="readmore">
                         read more <i className="fa-solid fa-arrow-right" />
@@ -557,12 +472,7 @@ export default function BlogSingle() {
             </div>
           </div>
         </div>
-        <ModalVideo
-          channel="youtube"
-          isOpen={isOpen}
-          videoId="JXMWOmuR1hU"
-          onClose={() => setOpen(false)}
-        />
+        <ModalVideo channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
       </Layout>
     </>
   );

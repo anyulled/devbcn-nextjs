@@ -37,10 +37,7 @@ export default function RootLayout({
         {/* Link vendor CSS served from public/ */}
         <link rel="stylesheet" href="/assets/css/vendor/aos.css" />
         <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"
-        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
         <link rel="stylesheet" href="/assets/css/vendor/magnific-popup.css" />
         <link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
         {/* <link rel="stylesheet" href="/assets/css/vendor/owlcarousel.min.css" /> */}

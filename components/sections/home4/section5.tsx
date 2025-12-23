@@ -80,10 +80,7 @@ export default function Section5() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img1.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -98,10 +95,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img2.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -116,10 +110,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img3.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -134,10 +125,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img1.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -152,10 +140,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img2.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -170,10 +155,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="memory3-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img3.png" alt="" />
                   </div>
                   <div className="content-area">
                     <p>Event 2024</p>
@@ -189,18 +171,10 @@ export default function Section5() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

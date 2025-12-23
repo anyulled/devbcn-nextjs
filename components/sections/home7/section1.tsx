@@ -18,13 +18,7 @@ export default function Section1() {
           <div className="row">
             <div className="col-lg-2 col-md-3">
               <div className="date-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={148}
-                  height={168}
-                  viewBox="0 0 148 168"
-                  fill="none"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width={148} height={168} viewBox="0 0 148 168" fill="none">
                   <path
                     d="M66 3.6188C69.9043 1.36467 71.8564 0.237604 74 0.237604C76.1436 0.237604 78.0957 1.36467 82 3.6188L139.612 36.8812C143.516 39.1353 145.469 40.2624 146.54 42.1188C147.612 43.9752 147.612 46.2293 147.612 50.7376V117.262C147.612 121.771 147.612 124.025 146.54 125.881C145.469 127.738 143.516 128.865 139.612 131.119L82 164.381C78.0957 166.635 76.1436 167.762 74 167.762C71.8564 167.762 69.9043 166.635 66 164.381L8.38784 131.119C4.48357 128.865 2.53143 127.738 1.45964 125.881C0.38784 124.025 0.38784 121.771 0.38784 117.262V50.7376C0.38784 46.2293 0.38784 43.9752 1.45964 42.1188C2.53143 40.2624 4.48357 39.1353 8.38784 36.8812L66 3.6188Z"
                     fill="#FC226A"
@@ -41,9 +35,7 @@ export default function Section1() {
             </div>
             <div className="col-lg-5 col-md-9">
               <div className="heading-area">
-                <h1 className="text-anime-style-3">
-                  Digital World&nbsp; Conference
-                </h1>
+                <h1 className="text-anime-style-3">Digital World&nbsp; Conference</h1>
               </div>
             </div>
             <div className="col-lg-1" />
@@ -54,11 +46,7 @@ export default function Section1() {
                   <div className="content">
                     <CircleText text="Build Success Brand." />
                   </div>
-                  <img
-                    src="/assets/img/icons/arrow1.svg"
-                    alt=""
-                    className="arrow1"
-                  />
+                  <img src="/assets/img/icons/arrow1.svg" alt="" className="arrow1" />
                 </Link>
               </div>
             </div>
@@ -77,11 +65,7 @@ export default function Section1() {
             </div>
             <div className="col-lg-4">
               <div className="heading-area">
-                <p>
-                  From cutting-edge technology and digital transformation to
-                  leadership strategies and sustainable growth, Innovate 2024
-                  provide.
-                </p>
+                <p>From cutting-edge technology and digital transformation to leadership strategies and sustainable growth, Innovate 2024 provide.</p>
                 <div className="space32" />
                 <div className="btn-area1">
                   <Link href="/contact" className="vl-btn7">

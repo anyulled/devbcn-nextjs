@@ -18,17 +18,10 @@ export default function Section6() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={900}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={900}>
               <div className="team-widget-area">
                 <div className="img1 image-anime">
-                  <img
-                    src="/assets/img/all-images/team/team-img20.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/team/team-img20.png" alt="" />
                 </div>
                 <div className="img2">
                   <img src="/assets/img/elements/brand-img1.png" alt="" />
@@ -40,17 +33,10 @@ export default function Section6() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={1000}>
               <div className="team-widget-area">
                 <div className="img1 image-anime">
-                  <img
-                    src="/assets/img/all-images/team/team-img21.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/team/team-img21.png" alt="" />
                 </div>
                 <div className="img2">
                   <img src="/assets/img/elements/brand-img2.png" alt="" />
@@ -58,24 +44,14 @@ export default function Section6() {
                 <div className="content-area">
                   <Link href="/speakers-single">Jessica Lee</Link>
                   <div className="space12" />
-                  <p>
-                    Creative Director, With a keen eye for design and
-                    storytelling.
-                  </p>
+                  <p>Creative Director, With a keen eye for design and storytelling.</p>
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={1100}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={1100}>
               <div className="team-widget-area">
                 <div className="img1 image-anime">
-                  <img
-                    src="/assets/img/all-images/team/team-img22.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/team/team-img22.png" alt="" />
                 </div>
                 <div className="img2">
                   <img src="/assets/img/elements/brand-img3.png" alt="" />
@@ -83,23 +59,14 @@ export default function Section6() {
                 <div className="content-area">
                   <Link href="/speakers-single">Michael Davis</Link>
                   <div className="space12" />
-                  <p>
-                    Content Marketing Lead, Specializing in content converts.
-                  </p>
+                  <p>Content Marketing Lead, Specializing in content converts.</p>
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={1200}>
               <div className="team-widget-area">
                 <div className="img1 image-anime">
-                  <img
-                    src="/assets/img/all-images/team/team-img23.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/team/team-img23.png" alt="" />
                 </div>
                 <div className="img2">
                   <img src="/assets/img/elements/brand-img4.png" alt="" />
@@ -107,10 +74,7 @@ export default function Section6() {
                 <div className="content-area">
                   <Link href="/speakers-single">John Carry</Link>
                   <div className="space12" />
-                  <p>
-                    Chief Marketing Officer, Culture Marketing Manager At
-                    Epicurious.
-                  </p>
+                  <p>Chief Marketing Officer, Culture Marketing Manager At Epicurious.</p>
                 </div>
               </div>
             </div>

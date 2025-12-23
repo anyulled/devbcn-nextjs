@@ -1,12 +1,5 @@
 import { SessionGroup, Talk } from "@/hooks/types";
-import {
-  getLevelFromTalk,
-  getLevelStars,
-  getTagsFromTalk,
-  getTrackFromTalk,
-  getUniqueTracks,
-  groupTalksByTrack,
-} from "@/hooks/useTalks";
+import { getLevelFromTalk, getLevelStars, getTagsFromTalk, getTrackFromTalk, getUniqueTracks, groupTalksByTrack } from "@/hooks/useTalks";
 
 describe("Talk Utility Functions", () => {
   const mockTalk: Talk = {

@@ -46,10 +46,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
 
   if (!talk) {
     return (
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto">
@@ -70,12 +67,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const speakerIds = talk.speakers.map((s) => s.id);
   const speakers = await getTalkSpeakersWithDetails(year, speakerIds);
   const track = getTrackFromTalk(talk);
-  const relatedTalks = await getRandomRelatedTalksByTrack(
-    year,
-    track,
-    talk.id,
-    3,
-  );
+  const relatedTalks = await getRandomRelatedTalksByTrack(year, track, talk.id, 3);
 
   // Get speakers for related talks
   const relatedTalksSpeakers: Map<string, Speaker[]> = new Map();
@@ -91,23 +83,12 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const voteUrl = `https://openfeedback.io/${talk.id}`;
 
   // Format dates for display and calendar
-  const startDate = talk.startsAt
-    ? format(parseISO(talk.startsAt), "yyyy-MM-dd")
-    : "";
-  const startTime = talk.startsAt
-    ? format(parseISO(talk.startsAt), "HH:mm")
-    : "";
-  const endDate = talk.endsAt
-    ? format(parseISO(talk.endsAt), "yyyy-MM-dd")
-    : "";
+  const startDate = talk.startsAt ? format(parseISO(talk.startsAt), "yyyy-MM-dd") : "";
+  const startTime = talk.startsAt ? format(parseISO(talk.startsAt), "HH:mm") : "";
+  const endDate = talk.endsAt ? format(parseISO(talk.endsAt), "yyyy-MM-dd") : "";
   const endTime = talk.endsAt ? format(parseISO(talk.endsAt), "HH:mm") : "";
-  const startFormatted = talk.startsAt
-    ? format(parseISO(talk.startsAt), "MMMM d, yyyy")
-    : "";
-  const timeFormatted =
-    talk.startsAt && talk.endsAt
-      ? `${format(parseISO(talk.startsAt), "h:mm a")} - ${format(parseISO(talk.endsAt), "h:mm a")}`
-      : "";
+  const startFormatted = talk.startsAt ? format(parseISO(talk.startsAt), "MMMM d, yyyy") : "";
+  const timeFormatted = talk.startsAt && talk.endsAt ? `${format(parseISO(talk.startsAt), "h:mm a")} - ${format(parseISO(talk.endsAt), "h:mm a")}` : "";
 
   // WTC Barcelona coordinates for Google Maps
   const venueMapUrl =
@@ -116,10 +97,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   return (
     <div>
       {/* Hero Header Section */}
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 m-auto">
@@ -129,9 +107,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                 <Link href={`/${year}`}>
                   Home <i className="fa-solid fa-angle-right" />{" "}
                 </Link>
-                <Link href={`/${year}/talks`}>
-                  Talks
-                </Link>
+                <Link href={`/${year}/talks`}>Talks</Link>
               </div>
             </div>
           </div>
@@ -150,20 +126,14 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                 <div className="space16" />
 
                 {/* Session Description */}
-                <p style={{ lineHeight: "1.8", whiteSpace: "pre-line" }}>
-                  {talk.description}
-                </p>
+                <p style={{ lineHeight: "1.8", whiteSpace: "pre-line" }}>{talk.description}</p>
 
                 <div className="space24" />
 
                 {/* Track */}
                 <div style={{ marginBottom: "12px" }}>
                   <strong>
-                    <img
-                      src="/assets/img/icons/tag1.svg"
-                      alt=""
-                      style={{ width: "16px", marginRight: "8px" }}
-                    />
+                    <img src="/assets/img/icons/tag1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                     Track:
                   </strong>{" "}
                   {track}
@@ -186,8 +156,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                           key={index}
                           style={{
                             display: "inline-block",
-                            background:
-                              "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                            background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
                             color: "#fff",
                             padding: "6px 14px",
                             borderRadius: "20px",
@@ -207,11 +176,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                 {talk.room && (
                   <div style={{ marginBottom: "24px" }}>
                     <strong>
-                      <img
-                        src="/assets/img/icons/location1.svg"
-                        alt=""
-                        style={{ width: "16px", marginRight: "8px" }}
-                      />
+                      <img src="/assets/img/icons/location1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                       Room:
                     </strong>{" "}
                     {talk.room}
@@ -227,20 +192,8 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     <div className="col-lg-4 col-md-6" key={speaker.id}>
                       <div className="our-team-boxarea">
                         <div className="team-widget-area">
-                          <Image
-                            src="/assets/img/elements/elements25.png"
-                            alt=""
-                            className="elements21"
-                            width={100}
-                            height={100}
-                          />
-                          <Image
-                            src="/assets/img/elements/elements26.png"
-                            alt=""
-                            className="elements22"
-                            width={100}
-                            height={100}
-                          />
+                          <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
+                          <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
                           <div className="img1">
                             <Image
                               src={speaker.profilePicture}
@@ -254,32 +207,17 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                               <>
                                 <div className="share">
                                   <Link href="#">
-                                    <img
-                                      src="/assets/img/icons/share1.svg"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/icons/share1.svg" alt="" />
                                   </Link>
                                 </div>
                                 <ul>
-                                  {speaker.links
-                                    .slice(0, 4)
-                                    .map((link, idx) => (
-                                      <li key={link.title}>
-                                        <a
-                                          href={link.url}
-                                          className={getIconClass(idx)}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          title={link.title}
-                                        >
-                                          <i
-                                            className={getSocialIcon(
-                                              link.linkType,
-                                            )}
-                                          />
-                                        </a>
-                                      </li>
-                                    ))}
+                                  {speaker.links.slice(0, 4).map((link, idx) => (
+                                    <li key={link.title}>
+                                      <a href={link.url} className={getIconClass(idx)} target="_blank" rel="noopener noreferrer" title={link.title}>
+                                        <i className={getSocialIcon(link.linkType)} />
+                                      </a>
+                                    </li>
+                                  ))}
                                 </ul>
                               </>
                             )}
@@ -287,9 +225,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                         </div>
                         <div className="space28" />
                         <div className="content-area">
-                          <Link href={`/${year}/speakers/${speaker.id}`}>
-                            {speaker.fullName}
-                          </Link>
+                          <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
                           <div className="space16" />
                           <p>{speaker.tagLine}</p>
                         </div>
@@ -309,11 +245,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     {startFormatted && (
                       <li>
                         <span>
-                          <img
-                            src="/assets/img/icons/calender1.svg"
-                            alt=""
-                            style={{ width: "16px", marginRight: "8px" }}
-                          />
+                          <img src="/assets/img/icons/calender1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                           Start: {startFormatted}
                         </span>
                       </li>
@@ -321,11 +253,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     {timeFormatted && (
                       <li>
                         <span>
-                          <img
-                            src="/assets/img/icons/clock1.svg"
-                            alt=""
-                            style={{ width: "16px", marginRight: "8px" }}
-                          />
+                          <img src="/assets/img/icons/clock1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                           {timeFormatted}
                         </span>
                       </li>
@@ -333,11 +261,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     {talk.room && (
                       <li>
                         <span>
-                          <img
-                            src="/assets/img/icons/location1.svg"
-                            alt=""
-                            style={{ width: "16px", marginRight: "8px" }}
-                          />
+                          <img src="/assets/img/icons/location1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                           {talk.room}
                         </span>
                       </li>
@@ -367,17 +291,9 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     />
 
                     {/* OpenFeedback Vote Button */}
-                    <a
-                      href={voteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="vl-btn1"
-                    >
+                    <a href={voteUrl} target="_blank" rel="noopener noreferrer" className="vl-btn1">
                       <span className="demo">
-                        <i
-                          className="fa-solid fa-thumbs-up"
-                          style={{ marginRight: "8px" }}
-                        />
+                        <i className="fa-solid fa-thumbs-up" style={{ marginRight: "8px" }} />
                         Vote on OpenFeedback
                       </span>
                     </a>
@@ -430,8 +346,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                   <div className="tab-pane fade show active">
                     <div className="event-widget-area">
                       {relatedTalks.map((relatedTalk, index) => {
-                        const relSpeakers =
-                          relatedTalksSpeakers.get(relatedTalk.id) || [];
+                        const relSpeakers = relatedTalksSpeakers.get(relatedTalk.id) || [];
                         const relTime =
                           relatedTalk.startsAt && relatedTalk.endsAt
                             ? `${format(parseISO(relatedTalk.startsAt), "h:mm a")} - ${format(parseISO(relatedTalk.endsAt), "h:mm a")}`
@@ -439,13 +354,8 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                         return (
                           <div className="row" key={relatedTalk.id}>
                             <div className="col-lg-10 m-auto">
-                              <div
-                                className="event2-boxarea box1"
-                                style={{ marginBottom: "24px" }}
-                              >
-                                <h1 className="active">
-                                  {String(index + 1).padStart(2, "0")}
-                                </h1>
+                              <div className="event2-boxarea box1" style={{ marginBottom: "24px" }}>
+                                <h1 className="active">{String(index + 1).padStart(2, "0")}</h1>
                                 <div className="row align-items-center">
                                   <div className="col-lg-12">
                                     <div className="content-area">
@@ -453,88 +363,60 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                                         {relTime && (
                                           <li>
                                             <span>
-                                              <img
-                                                src="/assets/img/icons/clock1.svg"
-                                                alt=""
-                                              />
+                                              <img src="/assets/img/icons/clock1.svg" alt="" />
                                               {relTime}
-                                              {relatedTalk.room && (
-                                                <span> | </span>
-                                              )}
+                                              {relatedTalk.room && <span> | </span>}
                                             </span>
                                           </li>
                                         )}
                                         {relatedTalk.room && (
                                           <li>
                                             <span>
-                                              <img
-                                                src="/assets/img/icons/location1.svg"
-                                                alt=""
-                                              />
+                                              <img src="/assets/img/icons/location1.svg" alt="" />
                                               {relatedTalk.room}
                                             </span>
                                           </li>
                                         )}
                                       </ul>
                                       <div className="space20" />
-                                      <Link
-                                        href={`/${year}/talks/${relatedTalk.id}`}
-                                        className="head"
-                                      >
+                                      <Link href={`/${year}/talks/${relatedTalk.id}`} className="head">
                                         {relatedTalk.title}
                                       </Link>
                                       <div className="space24" />
                                       <div className="author-area">
-                                        {relSpeakers
-                                          .slice(0, 2)
-                                          .map((speaker, speakerIdx) => (
-                                            <div
-                                              key={speaker.id}
-                                              className="autho-name-area"
-                                              style={{
-                                                padding:
-                                                  speakerIdx > 0
-                                                    ? "0 0 0 12px"
-                                                    : undefined,
-                                                border:
-                                                  speakerIdx > 0
-                                                    ? "none"
-                                                    : undefined,
-                                              }}
-                                            >
-                                              <div className="img1">
-                                                <Image
-                                                  src={speaker.profilePicture}
-                                                  alt={speaker.fullName}
-                                                  width={50}
-                                                  height={50}
-                                                  style={{
-                                                    borderRadius: "50%",
-                                                    objectFit: "cover",
-                                                  }}
-                                                />
-                                              </div>
-                                              <div className="text">
-                                                <Link
-                                                  href={`/${year}/speakers/${speaker.id}`}
-                                                >
-                                                  {speaker.fullName}
-                                                </Link>
-                                                <div className="space8" />
-                                                <p>{speaker.tagLine}</p>
-                                              </div>
+                                        {relSpeakers.slice(0, 2).map((speaker, speakerIdx) => (
+                                          <div
+                                            key={speaker.id}
+                                            className="autho-name-area"
+                                            style={{
+                                              padding: speakerIdx > 0 ? "0 0 0 12px" : undefined,
+                                              border: speakerIdx > 0 ? "none" : undefined,
+                                            }}
+                                          >
+                                            <div className="img1">
+                                              <Image
+                                                src={speaker.profilePicture}
+                                                alt={speaker.fullName}
+                                                width={50}
+                                                height={50}
+                                                style={{
+                                                  borderRadius: "50%",
+                                                  objectFit: "cover",
+                                                }}
+                                              />
                                             </div>
-                                          ))}
+                                            <div className="text">
+                                              <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
+                                              <div className="space8" />
+                                              <p>{speaker.tagLine}</p>
+                                            </div>
+                                          </div>
+                                        ))}
                                       </div>
                                       <div className="space24" />
                                       <div className="btn-area1">
-                                        <Link
-                                          href={`/${year}/talks/${relatedTalk.id}`}
-                                          className="vl-btn1"
-                                        >
-                                          <span className="demo">
-                                            View Session Details
-                                          </span>
+                                        <Link href={`/${year}/talks/${relatedTalk.id}`} className="vl-btn1">
+                                          <span className="demo">View Session Details</span>
                                         </Link>
                                       </div>
                                     </div>

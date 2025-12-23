@@ -3,62 +3,59 @@
 import { useEffect, useState } from "react";
 
 const IMAGES = [
-    "assets/img/all-images/venue/wtc-gemini-2.webp",
-    "assets/img/all-images/venue/wtc-gemini-1.webp",
-    "assets/img/all-images/venue/wtc-gemini-3.webp",
-    "assets/img/all-images/venue/venue-1.webp",
-    "assets/img/all-images/venue/venue-2.webp",
-    "assets/img/all-images/venue/venue-3.webp",
-    "assets/img/all-images/venue/venue-4.webp",
-    "assets/img/all-images/venue/venue-5.webp",
+  "assets/img/all-images/venue/wtc-gemini-2.webp",
+  "assets/img/all-images/venue/wtc-gemini-1.webp",
+  "assets/img/all-images/venue/wtc-gemini-3.webp",
+  "assets/img/all-images/venue/venue-1.webp",
+  "assets/img/all-images/venue/venue-2.webp",
+  "assets/img/all-images/venue/venue-3.webp",
+  "assets/img/all-images/venue/venue-4.webp",
+  "assets/img/all-images/venue/venue-5.webp",
 ];
 
 const ROTATION_INTERVAL = 10000; // 10 seconds
 
 interface BackgroundCarouselProps {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-export default function BackgroundCarousel({
-    children,
-    className = "",
-}: BackgroundCarouselProps) {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export default function BackgroundCarousel({ children, className = "" }: BackgroundCarouselProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
-        }, ROTATION_INTERVAL);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
+    }, ROTATION_INTERVAL);
 
-        return () => clearInterval(interval);
-    }, []);
+    return () => clearInterval(interval);
+  }, []);
 
-    return (
-        <div className={`background-carousel ${className}`}>
-            {/* Background images with fade transition */}
-            {IMAGES.map((image, index) => (
-                <div
-                    key={image}
-                    className="background-carousel__image"
-                    style={{
-                        backgroundImage: `url(${image})`,
-                        opacity: index === currentImageIndex ? 1 : 0,
-                        transition: "opacity 1.5s ease-in-out",
-                    }}
-                />
-            ))}
+  return (
+    <div className={`background-carousel ${className}`}>
+      {/* Background images with fade transition */}
+      {IMAGES.map((image, index) => (
+        <div
+          key={image}
+          className="background-carousel__image"
+          style={{
+            backgroundImage: `url(${image})`,
+            opacity: index === currentImageIndex ? 1 : 0,
+            transition: "opacity 1.5s ease-in-out",
+          }}
+        />
+      ))}
 
-            {/* Animated gradient overlay */}
-            <div className="background-carousel__gradient" />
+      {/* Animated gradient overlay */}
+      <div className="background-carousel__gradient" />
 
-            {/* Static vignette overlay with backdrop blur */}
-            <div className="background-carousel__vignette" />
+      {/* Static vignette overlay with backdrop blur */}
+      <div className="background-carousel__vignette" />
 
-            {/* Content */}
-            <div className="background-carousel__content">{children}</div>
+      {/* Content */}
+      <div className="background-carousel__content">{children}</div>
 
-            <style jsx>{`
+      <style jsx>{`
         .background-carousel {
           position: relative;
           padding: 70px 0 40px;
@@ -84,13 +81,7 @@ export default function BackgroundCarousel({
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: linear-gradient(
-            -45deg,
-            #4798ca70,
-            #be345570,
-            #00245470,
-            #34bb9c70
-          );
+          background-image: linear-gradient(-45deg, #4798ca70, #be345570, #00245470, #34bb9c70);
           background-size: 400% 400%;
           background-position: 0 50%;
           animation: gradient 15s ease infinite;
@@ -105,11 +96,7 @@ export default function BackgroundCarousel({
           right: 0;
           bottom: 0;
           backdrop-filter: blur(2px);
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.6)
-          );
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
           pointer-events: none;
           z-index: 2;
         }
@@ -131,6 +118,6 @@ export default function BackgroundCarousel({
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

@@ -11,8 +11,7 @@ export const edition2023: EditionConfig = {
   email: "info@devbcn.com",
   venue: "La Farga, Hospitalet de Llobregat",
   trackNumber: 7,
-  tracks:
-    "Java | JVM | Go, Rust, C++, C# | Cloud, DevOps, VMs, Kubernetes | Frontend | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",
+  tracks: "Java | JVM | Go, Rust, C++, C# | Cloud, DevOps, VMs, Kubernetes | Frontend | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",
 
   event: {
     startDay: new Date("2023-07-03T09:00:00"),

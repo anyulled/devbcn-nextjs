@@ -71,10 +71,7 @@ export default function Sponsorship() {
   return (
     <div>
       {/* Header Section */}
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto">
@@ -82,8 +79,7 @@ export default function Sponsorship() {
                 <h1>Sponsorship</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Sponsorship</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>Sponsorship</span>
                 </Link>
               </div>
             </div>
@@ -119,18 +115,10 @@ export default function Sponsorship() {
                     ))}
                   </Swiper>
                   <div className="owl-nav">
-                    <button
-                      type="button"
-                      role="presentation"
-                      className="owl-prev h1p"
-                    >
+                    <button type="button" role="presentation" className="owl-prev h1p">
                       <i className="fa-solid fa-angle-left" />
                     </button>
-                    <button
-                      type="button"
-                      role="presentation"
-                      className="owl-next h1n"
-                    >
+                    <button type="button" role="presentation" className="owl-next h1n">
                       <i className="fa-solid fa-angle-right" />
                     </button>
                   </div>
@@ -141,49 +129,37 @@ export default function Sponsorship() {
                 <p>
                   DevBcn <strong>{data.edition}</strong> is set for{" "}
                   <strong>
-                    {format(new Date(data.startDay), "MMMM do")} —
-                    {" ".concat(format(new Date(data.endDay), "do"))}
+                    {format(new Date(data.startDay), "MMMM do")} —{" ".concat(format(new Date(data.endDay), "do"))}
                   </strong>{" "}
-                  at the iconic {data.venue}. This year, we're diving deep into
-                  the realms of Java, JVM, Cloud, DevOps, Frontend technologies,
-                  Leadership strategies, and groundbreaking advancements in Big
-                  Data and AI.
+                  at the iconic {data.venue}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
+                  strategies, and groundbreaking advancements in Big Data and AI.
                 </p>
 
                 <div className="space40" />
                 <h4>A New Era of Tech Innovation</h4>
                 <div className="space16" />
                 <p>
-                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend
-                  technologies, Leadership, Big Data, AI, and more. DevBcn{" "}
-                  {data?.edition} is the perfect stage to connect with tech
-                  professionals, thought leaders, and innovators.
+                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend technologies, Leadership, Big Data, AI, and more. DevBcn {data?.edition} is the
+                  perfect stage to connect with tech professionals, thought leaders, and innovators.
                 </p>
 
                 <div className="space40" />
                 <h4>Tailored Sponsorship Opportunities</h4>
                 <div className="space16" />
                 <p>
-                  While we're keeping the details of our sponsorship packages
-                  exclusive, we promise they're more engaging and impactful than
-                  ever. Curious? Access our{" "}
+                  While we're keeping the details of our sponsorship packages exclusive, we promise they're more engaging and impactful than ever. Curious?
+                  Access our{" "}
                   <strong>
                     <Link href={data.brochure} target="_blank" rel="noreferrer">
                       detailed brochure
                     </Link>
                   </strong>{" "}
-                  and discover the myriad of ways you can shine at DevBcn{" "}
-                  {data?.edition}.
+                  and discover the myriad of ways you can shine at DevBcn {data?.edition}.
                 </p>
 
                 <div className="space24" />
                 <div className="btn-area1">
-                  <Link
-                    href={data.brochure}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="vl-btn1"
-                  >
+                  <Link href={data.brochure} target="_blank" rel="noreferrer" className="vl-btn1">
                     <span className="demo">Get the Brochure</span>
                   </Link>
                 </div>
@@ -193,22 +169,17 @@ export default function Sponsorship() {
                 <div className="space16" />
                 <ul>
                   <li>
-                    <strong>Expand Your Reach:</strong> Engage with a diverse,
-                    tech-savvy audience. Our latest edition held more than 800
-                    attendees.
+                    <strong>Expand Your Reach:</strong> Engage with a diverse, tech-savvy audience. Our latest edition held more than 800 attendees.
                   </li>
                   <li>
-                    <strong>Elevate Your Brand:</strong> Showcase your products
-                    and innovations in a dynamic environment.
+                    <strong>Elevate Your Brand:</strong> Showcase your products and innovations in a dynamic environment.
                   </li>
                   <li>
-                    <strong>Network with the Best:</strong> Connect with
-                    industry leaders and potential collaborators. Nearly 30
-                    companies have pledged their trust in DevBcn.
+                    <strong>Network with the Best:</strong> Connect with industry leaders and potential collaborators. Nearly 30 companies have pledged their
+                    trust in DevBcn.
                   </li>
                   <li>
-                    <strong>Showcase Thought Leadership:</strong> Share your
-                    expertise and insights with a global audience.
+                    <strong>Showcase Thought Leadership:</strong> Share your expertise and insights with a global audience.
                   </li>
                 </ul>
 
@@ -218,32 +189,21 @@ export default function Sponsorship() {
                 <h4>Join us on this exciting journey</h4>
                 <div className="space16" />
                 <p>
-                  To discuss how we can align our sponsorship opportunities with
-                  your brand's vision, contact us at{" "}
-                  <Link href="mailto:sponsors@devbcn.com">
-                    sponsors@devbcn.com
-                  </Link>
+                  To discuss how we can align our sponsorship opportunities with your brand's vision, contact us at{" "}
+                  <Link href="mailto:sponsors@devbcn.com">sponsors@devbcn.com</Link>
                 </p>
 
                 <div className="space24" />
                 <p>
-                  Let's make DevBcn {data.edition} an unforgettable experience
-                  together! Stay updated and spread the excitement using{" "}
-                  <Link
-                    href={`https://twitter.com/hashtag/devbcn${data.edition.substring(2)}?src=hashtag_click`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  Let's make DevBcn {data.edition} an unforgettable experience together! Stay updated and spread the excitement using{" "}
+                  <Link href={`https://twitter.com/hashtag/devbcn${data.edition.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
                     #devbcn{data.edition.substring(2)}
                   </Link>
                   .
                 </p>
 
                 <div className="space24" />
-                <p>
-                  We eagerly await the opportunity to collaborate with you once
-                  more for an extraordinary event!
-                </p>
+                <p>We eagerly await the opportunity to collaborate with you once more for an extraordinary event!</p>
 
                 <div className="space40" />
                 <h4>Take a look at our latest edition summary</h4>
@@ -267,29 +227,17 @@ export default function Sponsorship() {
                 <div className="space16" />
                 <ul>
                   <li>
-                    <Link
-                      rel="noreferrer"
-                      target="_blank"
-                      href="https://youtube.com/playlist?list=PLzJFNZtyAbyyfUadLCuSc-8CdHct8NeSa&si=7lgKQAtEncL-332O"
-                    >
+                    <Link rel="noreferrer" target="_blank" href="https://youtube.com/playlist?list=PLzJFNZtyAbyyfUadLCuSc-8CdHct8NeSa&si=7lgKQAtEncL-332O">
                       🎥 DevBcn 2025 - recorded sessions
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      rel="noreferrer"
-                      target="_blank"
-                      href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyxg4LfdyFbcANJXDbilXjBB"
-                    >
+                    <Link rel="noreferrer" target="_blank" href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyxg4LfdyFbcANJXDbilXjBB">
                       🎥 DevBcn 2024 - recorded sessions
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzmAAKzx1COeIBEGFgPA_og"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
+                    <Link href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzmAAKzx1COeIBEGFgPA_og" rel="noreferrer" target="_blank">
                       🎥 DevBcn 2023 - recorded sessions
                     </Link>
                   </li>

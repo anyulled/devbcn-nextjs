@@ -10,18 +10,12 @@ export default function Section9() {
               <div className="blog-header heading6 text-center space-margin60">
                 <h5>News &amp; updates</h5>
                 <div className="space18" />
-                <h2 className="text-anime-style-3">
-                  Balancing Profit &amp; Purpose
-                </h2>
+                <h2 className="text-anime-style-3">Balancing Profit &amp; Purpose</h2>
               </div>
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img4.png" alt="" />
@@ -42,9 +36,7 @@ export default function Section9() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Save soil, save world Projects in 2020
-                  </Link>
+                  <Link href="/blog-single">Save soil, save world Projects in 2020</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -57,11 +49,7 @@ export default function Section9() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img5.png" alt="" />
@@ -82,9 +70,7 @@ export default function Section9() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Civil Litigation paper’s Of Conference
-                  </Link>
+                  <Link href="/blog-single">Civil Litigation paper’s Of Conference</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -97,11 +83,7 @@ export default function Section9() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img6.png" alt="" />
@@ -122,9 +104,7 @@ export default function Section9() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Greetings and Opening Event of health
-                  </Link>
+                  <Link href="/blog-single">Greetings and Opening Event of health</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />

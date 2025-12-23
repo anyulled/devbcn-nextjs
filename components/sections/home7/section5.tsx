@@ -69,10 +69,7 @@ export default function Section5() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img24.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img24.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -105,10 +102,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img25.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img25.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -141,10 +135,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img26.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img26.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -177,10 +168,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img27.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img27.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -213,10 +201,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img24.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img24.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -249,10 +234,7 @@ export default function Section5() {
                 </SwiperSlide>
                 <SwiperSlide className="team-widget-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/team/team-img25.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/team/team-img25.png" alt="" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -286,18 +268,10 @@ export default function Section5() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

@@ -12,10 +12,7 @@ export default function EventSingle() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg9.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg9.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -23,8 +20,7 @@ export default function EventSingle() {
                     <h1>Event single</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Event single</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Event single</span>
                     </Link>
                   </div>
                 </div>
@@ -39,21 +35,15 @@ export default function EventSingle() {
                 <div className="col-lg-7">
                   <div className="event-side-images">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/event/event-img8.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/event/event-img8.png" alt="" />
                     </div>
                     <div className="space32" />
                     <h3>Elevate User Experience Expertise</h3>
                     <div className="space16" />
                     <p>
-                      In today's digital landscape, exceptional user experience
-                      (UX) is the key to creating products and services that
-                      truly resonate with people. At Eventify, dive deep into
-                      the world of UX with expert-led sessions that explore and
-                      cutting-edge techniques, research-driven insights, and
-                      innovative tools.
+                      In today's digital landscape, exceptional user experience (UX) is the key to creating products and services that truly resonate with
+                      people. At Eventify, dive deep into the world of UX with expert-led sessions that explore and cutting-edge techniques, research-driven
+                      insights, and innovative tools.
                     </p>
                     <div className="space40" />
                     <h4>Event Speakers</h4>
@@ -61,28 +51,13 @@ export default function EventSingle() {
                       <div className="col-lg-4 col-md-6">
                         <div className="our-team-boxarea">
                           <div className="team-widget-area">
-                            <img
-                              src="/assets/img/elements/elements25.png"
-                              alt=""
-                              className="elements21"
-                            />
-                            <img
-                              src="/assets/img/elements/elements26.png"
-                              alt=""
-                              className="elements22"
-                            />
+                            <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
+                            <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
                             <div className="img1">
-                              <img
-                                src="/assets/img/all-images/team/team-img12.png"
-                                alt=""
-                                className="team-img4"
-                              />
+                              <img src="/assets/img/all-images/team/team-img12.png" alt="" className="team-img4" />
                               <div className="share">
                                 <Link href="/#">
-                                  <img
-                                    src="/assets/img/icons/share1.svg"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/icons/share1.svg" alt="" />
                                 </Link>
                               </div>
                               <ul>
@@ -120,28 +95,13 @@ export default function EventSingle() {
                       <div className="col-lg-4 col-md-6">
                         <div className="our-team-boxarea">
                           <div className="team-widget-area">
-                            <img
-                              src="/assets/img/elements/elements25.png"
-                              alt=""
-                              className="elements21"
-                            />
-                            <img
-                              src="/assets/img/elements/elements26.png"
-                              alt=""
-                              className="elements22"
-                            />
+                            <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
+                            <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
                             <div className="img1">
-                              <img
-                                src="/assets/img/all-images/team/team-img13.png"
-                                alt=""
-                                className="team-img4"
-                              />
+                              <img src="/assets/img/all-images/team/team-img13.png" alt="" className="team-img4" />
                               <div className="share">
                                 <Link href="/#">
-                                  <img
-                                    src="/assets/img/icons/share1.svg"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/icons/share1.svg" alt="" />
                                 </Link>
                               </div>
                               <ul>
@@ -179,28 +139,13 @@ export default function EventSingle() {
                       <div className="col-lg-4 col-md-6">
                         <div className="our-team-boxarea">
                           <div className="team-widget-area">
-                            <img
-                              src="/assets/img/elements/elements25.png"
-                              alt=""
-                              className="elements21"
-                            />
-                            <img
-                              src="/assets/img/elements/elements26.png"
-                              alt=""
-                              className="elements22"
-                            />
+                            <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
+                            <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
                             <div className="img1">
-                              <img
-                                src="/assets/img/all-images/team/team-img14.png"
-                                alt=""
-                                className="team-img4"
-                              />
+                              <img src="/assets/img/all-images/team/team-img14.png" alt="" className="team-img4" />
                               <div className="share">
                                 <Link href="/#">
-                                  <img
-                                    src="/assets/img/icons/share1.svg"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/icons/share1.svg" alt="" />
                                 </Link>
                               </div>
                               <ul>
@@ -263,10 +208,7 @@ export default function EventSingle() {
                       <div className="author-area">
                         <div className="autho-name-area">
                           <div className="img1">
-                            <img
-                              src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                              alt=""
-                            />
+                            <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                           </div>
                           <div className="text">
                             <Link href="/speakers-single">Alex Roberton</Link>
@@ -274,15 +216,9 @@ export default function EventSingle() {
                             <p>UI/UX Designer</p>
                           </div>
                         </div>
-                        <div
-                          className="autho-name-area"
-                          style={{ padding: "0 0 0 12px", border: "none" }}
-                        >
+                        <div className="autho-name-area" style={{ padding: "0 0 0 12px", border: "none" }}>
                           <div className="img1">
-                            <img
-                              src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                              alt=""
-                            />
+                            <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                           </div>
                           <div className="text">
                             <Link href="/speakers-single">Alexys Archer</Link>
@@ -328,18 +264,12 @@ export default function EventSingle() {
                 <div className="space32" />
               </div>
               <div className="row">
-                <div
-                  className="col-lg-12"
-                  data-aos="fade-up"
-                  data-aos-duration={1000}
-                >
+                <div className="col-lg-12" data-aos="fade-up" data-aos-duration={1000}>
                   <div className="tabs-button space-margin60">
                     <ul className="nav nav-pills" id="pills-tab" role="tablist">
                       <li className="nav-item" onClick={() => handleTab(1)}>
                         <button
-                          className={
-                            isTab == 1 ? "nav-link active" : "nav-link"
-                          }
+                          className={isTab == 1 ? "nav-link active" : "nav-link"}
                           id="pills-home-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-home"
@@ -359,9 +289,7 @@ export default function EventSingle() {
                       </li>
                       <li className="nav-item" onClick={() => handleTab(2)}>
                         <button
-                          className={
-                            isTab == 2 ? "nav-link active" : "nav-link"
-                          }
+                          className={isTab == 2 ? "nav-link active" : "nav-link"}
                           id="pills-profile-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-profile"
@@ -381,9 +309,7 @@ export default function EventSingle() {
                       </li>
                       <li className="nav-item" onClick={() => handleTab(3)}>
                         <button
-                          className={
-                            isTab == 3 ? "nav-link m-0 active" : "nav-link m-0"
-                          }
+                          className={isTab == 3 ? "nav-link m-0 active" : "nav-link m-0"}
                           id="pills-contact-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-contact"
@@ -393,10 +319,7 @@ export default function EventSingle() {
                           aria-selected="false"
                         >
                           <span className="calender">
-                            <img
-                              src="/assets/img/icons/calender2.svg"
-                              alt=""
-                            />{" "}
+                            <img src="/assets/img/icons/calender2.svg" alt="" />{" "}
                           </span>
                           <span className="pl-8">
                             <span className="day">Day Three</span>
@@ -408,11 +331,7 @@ export default function EventSingle() {
                   </div>
                   <div className="tab-content" id="pills-tabContent">
                     <div
-                      className={
-                        isTab == 1
-                          ? "tab-pane fade show active"
-                          : "tab-pane fade"
-                      }
+                      className={isTab == 1 ? "tab-pane fade show active" : "tab-pane fade"}
                       id="pills-home"
                       role="tabpanel"
                       aria-labelledby="pills-home-tab"
@@ -427,10 +346,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img4.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img4.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -439,19 +355,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -464,15 +374,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -485,15 +390,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -501,13 +401,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -528,19 +423,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -553,15 +442,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -574,15 +458,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -590,13 +469,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -604,10 +478,7 @@ export default function EventSingle() {
                                 </div>
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img5.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img5.png" alt="" />
                                   </div>
                                 </div>
                               </div>
@@ -623,10 +494,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img6.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img6.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -635,19 +503,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -660,15 +522,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -681,15 +538,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -697,13 +549,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -715,11 +562,7 @@ export default function EventSingle() {
                       </div>
                     </div>
                     <div
-                      className={
-                        isTab == 2
-                          ? "tab-pane fade show active"
-                          : "tab-pane fade"
-                      }
+                      className={isTab == 2 ? "tab-pane fade show active" : "tab-pane fade"}
                       id="pills-profile"
                       role="tabpanel"
                       aria-labelledby="pills-profile-tab"
@@ -734,10 +577,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img4.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img4.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -746,19 +586,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -771,15 +605,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -792,15 +621,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -808,13 +632,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -835,19 +654,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -860,15 +673,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -881,15 +689,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -897,13 +700,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -911,10 +709,7 @@ export default function EventSingle() {
                                 </div>
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img5.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img5.png" alt="" />
                                   </div>
                                 </div>
                               </div>
@@ -930,10 +725,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img6.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img6.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -942,19 +734,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -967,15 +753,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -988,15 +769,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -1004,13 +780,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -1022,11 +793,7 @@ export default function EventSingle() {
                       </div>
                     </div>
                     <div
-                      className={
-                        isTab == 3
-                          ? "tab-pane fade show active"
-                          : "tab-pane fade"
-                      }
+                      className={isTab == 3 ? "tab-pane fade show active" : "tab-pane fade"}
                       id="pills-contact"
                       role="tabpanel"
                       aria-labelledby="pills-contact-tab"
@@ -1041,10 +808,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img4.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img4.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -1053,19 +817,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -1078,15 +836,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -1099,15 +852,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -1115,13 +863,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -1142,19 +885,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -1167,15 +904,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -1188,15 +920,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -1204,13 +931,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>
@@ -1218,10 +940,7 @@ export default function EventSingle() {
                                 </div>
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img5.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img5.png" alt="" />
                                   </div>
                                 </div>
                               </div>
@@ -1237,10 +956,7 @@ export default function EventSingle() {
                               <div className="row align-items-center">
                                 <div className="col-lg-5">
                                   <div className="img1">
-                                    <img
-                                      src="/assets/img/all-images/event/event-img6.png"
-                                      alt=""
-                                    />
+                                    <img src="/assets/img/all-images/event/event-img6.png" alt="" />
                                   </div>
                                 </div>
                                 <div className="col-lg-1" />
@@ -1249,19 +965,13 @@ export default function EventSingle() {
                                     <ul>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/clock1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/clock1.svg" alt="" />
                                           10.00 AM -12.00 PM <span> | </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link href="/#">
-                                          <img
-                                            src="/assets/img/icons/location1.svg"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/icons/location1.svg" alt="" />
                                           26/C Asana, New York{" "}
                                         </Link>
                                       </li>
@@ -1274,15 +984,10 @@ export default function EventSingle() {
                                     <div className="author-area">
                                       <div className="autho-name-area">
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alex Roberton
-                                          </Link>
+                                          <Link href="/speakers-single">Alex Roberton</Link>
                                           <div className="space8" />
                                           <p>UI/UX Designer</p>
                                         </div>
@@ -1295,15 +1000,10 @@ export default function EventSingle() {
                                         }}
                                       >
                                         <div className="img1">
-                                          <img
-                                            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                            alt=""
-                                          />
+                                          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                         </div>
                                         <div className="text">
-                                          <Link href="/speakers-single">
-                                            Alexys Archer
-                                          </Link>
+                                          <Link href="/speakers-single">Alexys Archer</Link>
                                           <div className="space8" />
                                           <p>WP Developer</p>
                                         </div>
@@ -1311,13 +1011,8 @@ export default function EventSingle() {
                                     </div>
                                     <div className="space24" />
                                     <div className="btn-area1">
-                                      <Link
-                                        href="/pricing-plan"
-                                        className="vl-btn1"
-                                      >
-                                        <span className="demo">
-                                          purchase ticket Now
-                                        </span>
+                                      <Link href="/pricing-plan" className="vl-btn1">
+                                        <span className="demo">purchase ticket Now</span>
                                       </Link>
                                     </div>
                                   </div>

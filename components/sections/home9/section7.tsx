@@ -66,11 +66,7 @@ export default function Section7() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-12 brand-slider-area9"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-12 brand-slider-area9" data-aos="zoom-in" data-aos-duration={800}>
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="brand-box">
                   <img src="/assets/img/elements/brand-img1.png" alt="" />
@@ -99,18 +95,10 @@ export default function Section7() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

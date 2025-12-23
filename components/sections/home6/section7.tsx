@@ -12,25 +12,16 @@ export default function Section7() {
                   <img src="/assets/img/icons/sub-logo1.svg" alt="" /> PRICING
                 </h5>
                 <div className="space20" />
-                <h2 className="text-anime-style-3">
-                  Register For Eventify “2025”
-                </h2>
+                <h2 className="text-anime-style-3">Register For Eventify “2025”</h2>
               </div>
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-6 col-md-6"
-              data-aos="fade-right"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-6 col-md-6" data-aos="fade-right" data-aos-duration={1000}>
               <div className="pricing-boarea">
                 <h3>Conference Pass</h3>
                 <div className="space24" />
-                <p>
-                  Get full access to all man stage keynotes, mastermind
-                  sessions, and installation for the conference at Eventify.
-                </p>
+                <p>Get full access to all man stage keynotes, mastermind sessions, and installation for the conference at Eventify.</p>
                 <div className="space32" />
                 <h2>
                   $249<span>2x1 with code Eventify</span>
@@ -38,8 +29,7 @@ export default function Section7() {
                 <div className="space40" />
                 <div className="btn-area1">
                   <Link href="/pricing-plan" className="vl-btn6">
-                    Buy Tickets Now{" "}
-                    <img src="/assets/img/icons/arrow2.svg" alt="" />
+                    Buy Tickets Now <img src="/assets/img/icons/arrow2.svg" alt="" />
                   </Link>
                 </div>
                 <div className="space40" />
@@ -77,18 +67,11 @@ export default function Section7() {
                 </ul>
               </div>
             </div>
-            <div
-              className="col-lg-6 col-md-6"
-              data-aos="fade-left"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-6 col-md-6" data-aos="fade-left" data-aos-duration={1000}>
               <div className="pricing-boarea box2">
                 <h3>VIP Pass</h3>
                 <div className="space24" />
-                <p>
-                  Get full access to all man stage keynotes, mastermind
-                  sessions, and installation for the conference at Eventify.
-                </p>
+                <p>Get full access to all man stage keynotes, mastermind sessions, and installation for the conference at Eventify.</p>
                 <div className="space32" />
                 <h2>
                   $449<span>2x1 with code Eventify</span>
@@ -96,8 +79,7 @@ export default function Section7() {
                 <div className="space40" />
                 <div className="btn-area1">
                   <Link href="/pricing-plan" className="vl-btn6">
-                    Buy Tickets Now{" "}
-                    <img src="/assets/img/icons/arrow2.svg" alt="" />
+                    Buy Tickets Now <img src="/assets/img/icons/arrow2.svg" alt="" />
                   </Link>
                 </div>
                 <div className="space40" />
@@ -138,8 +120,7 @@ export default function Section7() {
                   </li>
                   <li>
                     <img src="/assets/img/icons/check4.svg" alt="" />
-                    Semrush Certification Workshop of Your Choice On January
-                    2025
+                    Semrush Certification Workshop of Your Choice On January 2025
                   </li>
                 </ul>
               </div>

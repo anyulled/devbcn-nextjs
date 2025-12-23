@@ -22,9 +22,7 @@ describe("Hooks", () => {
       });
 
       const speakers = await getSpeakers(2025);
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining("xhudniix"),
-      ); // 2025 sessionize ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix")); // 2025 sessionize ID
       expect(speakers).toEqual(mockSpeakers);
     });
 
@@ -35,9 +33,7 @@ describe("Hooks", () => {
       });
 
       await getSpeakers(2023);
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining("ttsitynd"),
-      ); // 2023 ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd")); // 2023 ID
     });
   });
 
@@ -88,9 +84,7 @@ describe("Hooks", () => {
       });
 
       const groups = await getTalks(2025);
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining("xhudniix"),
-      ); // 2025 sessionize ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix")); // 2025 sessionize ID
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);
       expect(groups[0].sessions[0].id).toEqual("101");

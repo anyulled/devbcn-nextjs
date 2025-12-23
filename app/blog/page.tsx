@@ -3,10 +3,7 @@ import Link from "next/link";
 export default function Blog() {
   return (
     <div>
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(assets/img/bg/header-bg13.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg13.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto">
@@ -14,8 +11,7 @@ export default function Blog() {
                 <h1>Our Blog</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Our Blog</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>Our Blog</span>
                 </Link>
               </div>
             </div>
@@ -27,11 +23,7 @@ export default function Blog() {
       <div className="bloginner-section-area sp1">
         <div className="container">
           <div className="row">
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img4.png" alt="" />
@@ -52,9 +44,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Save soil, save world Projects in 2020
-                  </Link>
+                  <Link href="/blog-single">Save soil, save world Projects in 2020</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -67,11 +57,7 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img5.png" alt="" />
@@ -92,9 +78,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Civil Litigation paper’s Of Conference
-                  </Link>
+                  <Link href="/blog-single">Civil Litigation paper’s Of Conference</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -107,11 +91,7 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
               <div className="blog4-boxarea">
                 <div className="img1">
                   <img src="/assets/img/all-images/blog/blog-img6.png" alt="" />
@@ -132,9 +112,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Greetings and Opening Event of health
-                  </Link>
+                  <Link href="/blog-single">Greetings and Opening Event of health</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -147,17 +125,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img7.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img7.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -175,9 +146,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Eventify 2024: Unlock the Future of Business
-                  </Link>
+                  <Link href="/blog-single">Eventify 2024: Unlock the Future of Business</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -190,17 +159,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img8.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img8.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -218,9 +180,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Where Vision Meetup Connect: Eventify 2024
-                  </Link>
+                  <Link href="/blog-single">Where Vision Meetup Connect: Eventify 2024</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -233,17 +193,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img9.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img9.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -261,9 +214,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Fuel Your Business Growth at Eventify
-                  </Link>
+                  <Link href="/blog-single">Fuel Your Business Growth at Eventify</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -276,17 +227,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={800}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img4.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img4.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -304,9 +248,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Ignite Your Business Potential at Eventify
-                  </Link>
+                  <Link href="/blog-single">Ignite Your Business Potential at Eventify</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -319,17 +261,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img11.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img11.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -347,9 +282,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Step Into the Future of Business with Eventify
-                  </Link>
+                  <Link href="/blog-single">Step Into the Future of Business with Eventify</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />
@@ -362,17 +295,10 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
               <div className="blog4-boxarea">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/memory/memory-img6.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/memory/memory-img6.png" alt="" />
                 </div>
                 <div className="content-area">
                   <ul>
@@ -390,9 +316,7 @@ export default function Blog() {
                     </li>
                   </ul>
                   <div className="space20" />
-                  <Link href="/blog-single">
-                    Empowering Business Growth at Eventify
-                  </Link>
+                  <Link href="/blog-single">Empowering Business Growth at Eventify</Link>
                   <div className="space24" />
                   <Link href="/blog-single" className="readmore">
                     read more <i className="fa-solid fa-arrow-right" />

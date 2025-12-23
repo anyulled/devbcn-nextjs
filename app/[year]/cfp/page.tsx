@@ -14,21 +14,15 @@ export default async function CFP({ params }: CFPProps) {
   const eventData = getEditionConfig(year);
   return (
     <div>
-      <PageHeader
-        title={`Call for Papers ${year}`}
-        breadcrumbText={`Call for Papers ${year}`}
-        backgroundImageId={13}
-      />
+      <PageHeader title={`Call for Papers ${year}`} breadcrumbText={`Call for Papers ${year}`} backgroundImageId={13} />
 
       <div className="container">
         <div className="row">
           <div className="col-lg-8 m-auto">
             <div className="text-center" style={{ padding: "60px 0 40px" }}>
               <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#666" }}>
-                We&apos;re excited to announce the members of the Call for
-                Papers committee for the next DevBcn conference! These
-                experienced professionals will be reviewing and selecting the
-                best talks and workshops for the upcoming event.
+                We&apos;re excited to announce the members of the Call for Papers committee for the next DevBcn conference! These experienced professionals will
+                be reviewing and selecting the best talks and workshops for the upcoming event.
               </p>
             </div>
           </div>
@@ -55,19 +49,10 @@ export default async function CFP({ params }: CFPProps) {
                 {track.members.length > 0 ? (
                   <div className="row">
                     {track.members.map((member, memberIndex) => (
-                      <div
-                        key={`${track.id}-${memberIndex}`}
-                        className="col-lg-3 col-md-4 col-sm-6"
-                      >
+                      <div key={`${track.id}-${memberIndex}`} className="col-lg-3 col-md-4 col-sm-6">
                         <div className="team10-widget-boxarea2">
                           <div className="img1 image-anime">
-                            <img
-                              src={
-                                member.photo ||
-                                "/assets/img/all-images/team/team-img39.png"
-                              }
-                              alt={member.name}
-                            />
+                            <img src={member.photo || "/assets/img/all-images/team/team-img39.png"} alt={member.name} />
                           </div>
                           <div className="text-area">
                             <div className="heading">
@@ -77,20 +62,12 @@ export default async function CFP({ params }: CFPProps) {
                             {(member.linkedIn || member.twitter) && (
                               <div className="social-icons">
                                 {member.linkedIn && (
-                                  <Link
-                                    href={member.linkedIn}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
+                                  <Link href={member.linkedIn} target="_blank" rel="noopener noreferrer">
                                     <i className="fa-brands fa-linkedin" />
                                   </Link>
                                 )}
                                 {member.twitter && (
-                                  <Link
-                                    href={member.twitter}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
+                                  <Link href={member.twitter} target="_blank" rel="noopener noreferrer">
                                     <i className="fa-brands fa-twitter" />
                                   </Link>
                                 )}
@@ -128,10 +105,7 @@ export default async function CFP({ params }: CFPProps) {
       )}
 
       <CTASection
-        eventDate={formatEventDateRange(
-          eventData.event.startDay,
-          eventData.event.endDay,
-        )}
+        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
         eventLocation={eventData.venue}
         ticketUrl={eventData.tickets.url}
       />

@@ -4,10 +4,7 @@ import Link from "next/link";
 export default function AboutUs() {
   return (
     <div>
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg15.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg15.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-9 m-auto">
@@ -15,8 +12,7 @@ export default function AboutUs() {
                 <h1>About Us</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>About Us</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>About Us</span>
                 </Link>
               </div>
             </div>
@@ -39,26 +35,16 @@ export default function AboutUs() {
           </div>
           <div className="row">
             {aboutData.map((member, index) => (
-              <div
-                key={member.name}
-                className="col-lg-3 col-md-6"
-                data-aos="fade-up"
-                data-aos-duration={900 + index * 100}
-              >
+              <div key={member.name} className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={900 + index * 100}>
                 <div className="team-widget-area">
                   <div className="img1 image-anime">
                     <img src={member.profileUrl.toString()} alt={member.name} />
                   </div>
                   <div className="img2">
-                    <img
-                      src={`/assets/img/elements/brand-img${(index % 4) + 1}.png`}
-                      alt=""
-                    />
+                    <img src={`/assets/img/elements/brand-img${(index % 4) + 1}.png`} alt="" />
                   </div>
                   <div className="content-area">
-                    <Link href={member.twitterUrl.toString()}>
-                      {member.name}
-                    </Link>
+                    <Link href={member.twitterUrl.toString()}>{member.name}</Link>
                     <div className="space12" />
                     <p>{member.job}</p>
                   </div>

@@ -13,11 +13,7 @@ export default function Section3() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-12"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
               <BrandSlider />
             </div>
           </div>

@@ -18,10 +18,8 @@ export default function Section1() {
               <div className="space24" />
               <div className="space40" />
               <h5>
-                5 tracks with the following topics: Java &amp; JVM | Cloud,
-                DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript,
-                Angular, WASM | Leadership, Agile, Diversity | Big Data, Machine
-                Learning, AI, Python
+                5 tracks with the following topics: Java &amp; JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM |
+                Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python
               </h5>
               <div className="space24" />
               <div

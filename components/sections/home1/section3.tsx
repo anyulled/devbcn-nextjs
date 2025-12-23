@@ -25,11 +25,7 @@ export default function Section3() {
           <div className="row">
             <div className="col-lg-12">
               <div data-aos="fade-up" data-aos-duration={900}>
-                <ul
-                  className="nav nav-pills space-margin60"
-                  id="pills-tab"
-                  role="tablist"
-                >
+                <ul className="nav nav-pills space-margin60" id="pills-tab" role="tablist">
                   <li className="nav-item" onClick={() => handleTab(1)}>
                     <button
                       className={isTab == 1 ? "nav-link active" : "nav-link"}
@@ -139,26 +135,17 @@ export default function Section3() {
               </div>
               <div className="tab-content" id="pills-tabContent">
                 <div
-                  className={
-                    isTab == 1 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 1 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-home"
                   role="tabpanel"
                   aria-labelledby="pills-home-tab"
                   tabIndex={0}
                 >
-                  <div
-                    className="tabs-widget-boxarea"
-                    data-aos="fade-up"
-                    data-aos-duration={800}
-                  >
+                  <div className="tabs-widget-boxarea" data-aos="fade-up" data-aos-duration={800}>
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img1.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -166,34 +153,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Your Pathway to Business
-                            Transformation
+                            Innovate 2025 Your Pathway to Business Transformation
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -206,18 +182,11 @@ export default function Section3() {
                     </div>
                   </div>
                   <div className="space30" />
-                  <div
-                    className="tabs-widget-boxarea"
-                    data-aos="fade-up"
-                    data-aos-duration={1000}
-                  >
+                  <div className="tabs-widget-boxarea" data-aos="fade-up" data-aos-duration={1000}>
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img2.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -225,34 +194,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 A Full-Day Journey the Future of
-                            Business
+                            Innovate 2025 A Full-Day Journey the Future of Business
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -265,18 +223,11 @@ export default function Section3() {
                     </div>
                   </div>
                   <div className="space30" />
-                  <div
-                    className="tabs-widget-boxarea"
-                    data-aos="fade-up"
-                    data-aos-duration={1200}
-                  >
+                  <div className="tabs-widget-boxarea" data-aos="fade-up" data-aos-duration={1200}>
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img3.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -284,34 +235,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Charting the Course for Business
-                            Success
+                            Innovate 2025 Charting the Course for Business Success
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -325,9 +265,7 @@ export default function Section3() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 2 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 2 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-profile"
                   role="tabpanel"
                   aria-labelledby="pills-profile-tab"
@@ -337,10 +275,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-3">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img1.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-9">
@@ -348,34 +283,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Your Pathway to Business
-                            Transformation
+                            Innovate 2025 Your Pathway to Business Transformation
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -389,9 +313,7 @@ export default function Section3() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 3 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 3 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-contact"
                   role="tabpanel"
                   aria-labelledby="pills-contact-tab"
@@ -401,10 +323,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img1.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -412,34 +331,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Your Pathway to Business
-                            Transformation
+                            Innovate 2025 Your Pathway to Business Transformation
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -456,10 +364,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img2.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -467,34 +372,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 A Full-Day Journey the Future of
-                            Business
+                            Innovate 2025 A Full-Day Journey the Future of Business
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -511,10 +405,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img3.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -522,34 +413,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Charting the Course for Business
-                            Success
+                            Innovate 2025 Charting the Course for Business Success
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -563,9 +443,7 @@ export default function Section3() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 4 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 4 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-contact1"
                   role="tabpanel"
                   aria-labelledby="pills-contact1-tab"
@@ -575,10 +453,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img1.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -586,34 +461,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Your Pathway to Business
-                            Transformation
+                            Innovate 2025 Your Pathway to Business Transformation
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -630,10 +494,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img2.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -641,34 +502,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 A Full-Day Journey the Future of
-                            Business
+                            Innovate 2025 A Full-Day Journey the Future of Business
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -685,10 +535,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img3.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -696,34 +543,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Charting the Course for Business
-                            Success
+                            Innovate 2025 Charting the Course for Business Success
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -737,9 +573,7 @@ export default function Section3() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 5 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 5 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-contact2"
                   role="tabpanel"
                   aria-labelledby="pills-contact2-tab"
@@ -749,10 +583,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img1.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -760,34 +591,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Your Pathway to Business
-                            Transformation
+                            Innovate 2025 Your Pathway to Business Transformation
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -804,10 +624,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img2.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -815,34 +632,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 A Full-Day Journey the Future of
-                            Business
+                            Innovate 2025 A Full-Day Journey the Future of Business
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">
@@ -859,10 +665,7 @@ export default function Section3() {
                     <div className="row align-items-center">
                       <div className="col-lg-4">
                         <div className="img1">
-                          <img
-                            src="/assets/img/all-images/event/event-img3.png"
-                            alt=""
-                          />
+                          <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                         </div>
                       </div>
                       <div className="col-lg-8">
@@ -870,34 +673,23 @@ export default function Section3() {
                           <ul>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/clock1.svg"
-                                  alt=""
-                                />{" "}
-                                10:00 AM -12:00 PM <span> | </span>
+                                <img src="/assets/img/icons/clock1.svg" alt="" /> 10:00 AM -12:00 PM <span> | </span>
                               </Link>
                             </li>
                             <li>
                               <Link href="/#">
-                                <img
-                                  src="/assets/img/icons/location1.svg"
-                                  alt=""
-                                />{" "}
-                                26/C Asana, New York{" "}
+                                <img src="/assets/img/icons/location1.svg" alt="" /> 26/C Asana, New York{" "}
                               </Link>
                             </li>
                           </ul>
                           <div className="space20" />
                           <Link href="/event-single" className="head">
-                            Innovate 2025 Charting the Course for Business
-                            Success
+                            Innovate 2025 Charting the Course for Business Success
                           </Link>
                           <div className="space16" />
                           <p>
-                            The Innovate 2025 conference is meticulously
-                            designed to provide you with a rich, immersive
-                            experience that drives actionable insights &amp;
-                            fosters collaboration from keynote presentations.
+                            The Innovate 2025 conference is meticulously designed to provide you with a rich, immersive experience that drives actionable
+                            insights &amp; fosters collaboration from keynote presentations.
                           </p>
                           <div className="space32" />
                           <div className="btn-area1">

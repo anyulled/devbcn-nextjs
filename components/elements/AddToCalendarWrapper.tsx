@@ -12,15 +12,7 @@ interface AddToCalendarWrapperProps {
   location: string;
 }
 
-export default function AddToCalendarWrapper({
-  name,
-  description,
-  startDate,
-  startTime,
-  endDate,
-  endTime,
-  location,
-}: AddToCalendarWrapperProps) {
+export default function AddToCalendarWrapper({ name, description, startDate, startTime, endDate, endTime, location }: AddToCalendarWrapperProps) {
   if (!startDate || !endDate) {
     return null;
   }

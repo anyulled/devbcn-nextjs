@@ -15,11 +15,7 @@ export default function Section7() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration={800}>
               <div className="pricing-boxarea">
                 <div className="ticket-box">
                   <p>Regular</p>
@@ -43,11 +39,7 @@ export default function Section7() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration={1000}>
               <div className="pricing-boxarea box2">
                 <div className="ticket-box">
                   <p>premium</p>
@@ -71,11 +63,7 @@ export default function Section7() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration={1200}>
               <div className="pricing-boxarea">
                 <div className="ticket-box">
                   <p>platinium</p>

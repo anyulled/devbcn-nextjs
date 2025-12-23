@@ -66,11 +66,7 @@ export default function Section6() {
                   <div className="space18" />
                   <h2 className="text-anime-style-3">Recent Memories 2024</h2>
                 </div>
-                <div
-                  className="btn-area1"
-                  data-aos="zoom-in"
-                  data-aos-duration={1000}
-                >
+                <div className="btn-area1" data-aos="zoom-in" data-aos-duration={1000}>
                   <Link href="/memories" className="vl-btn2">
                     <span className="demo">See Recent Photos</span>
                     <span className="arrow">
@@ -84,10 +80,7 @@ export default function Section6() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="memory-widget-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img1.png" alt="" />
                   </div>
                   <div className="content-area">
                     <Link href="/memories" className="arrow">
@@ -102,10 +95,7 @@ export default function Section6() {
                 </SwiperSlide>
                 <SwiperSlide className="memory-widget-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img2.png" alt="" />
                   </div>
                   <div className="content-area">
                     <Link href="/memories" className="arrow">
@@ -120,10 +110,7 @@ export default function Section6() {
                 </SwiperSlide>
                 <SwiperSlide className="memory-widget-boxarea">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img3.png" alt="" />
                   </div>
                   <div className="content-area">
                     <Link href="/memories" className="arrow">

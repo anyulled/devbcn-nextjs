@@ -1,18 +1,9 @@
 import Link from "next/link";
 
-export default function Header5({
-  scroll,
-  isMobileMenu,
-  handleMobileMenu,
-  isSearch,
-  handleSearch,
-}: any) {
+export default function Header5({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
   return (
     <header>
-      <div
-        className={`header-area homepage5 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`}
-        id="header"
-      >
+      <div className={`header-area homepage5 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -34,10 +25,7 @@ export default function Header5({
                             <div className="all-images-menu">
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img1.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img1.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/">
@@ -53,10 +41,7 @@ export default function Header5({
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img2.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img2.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index2">
@@ -67,17 +52,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index2">
-                                    Eventify-Homepage 02
-                                  </Link>
+                                  <Link href="/index2">Eventify-Homepage 02</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img3.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img3.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index3">
@@ -88,17 +68,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index3">
-                                    Eventify-Homepage 03
-                                  </Link>
+                                  <Link href="/index3">Eventify-Homepage 03</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img4.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img4.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index4">
@@ -109,20 +84,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index4">
-                                    Eventify-Homepage 04
-                                  </Link>
+                                  <Link href="/index4">Eventify-Homepage 04</Link>
                                 </div>
                               </div>
-                              <div
-                                className="homemenu-thumb"
-                                style={{ margin: 0 }}
-                              >
+                              <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img5.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img5.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index5">
@@ -133,19 +100,14 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index5">
-                                    Eventify-Homepage 05
-                                  </Link>
+                                  <Link href="/index5">Eventify-Homepage 05</Link>
                                 </div>
                               </div>
                             </div>
                             <div className="all-images-menu">
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img6.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img6.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index6">
@@ -156,17 +118,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index6">
-                                    Eventify-Homepage 06
-                                  </Link>
+                                  <Link href="/index6">Eventify-Homepage 06</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img7.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img7.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index7">
@@ -177,17 +134,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index7">
-                                    Eventify-Homepage 07
-                                  </Link>
+                                  <Link href="/index7">Eventify-Homepage 07</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img8.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img8.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index8">
@@ -198,17 +150,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index8">
-                                    Eventify-Homepage 08
-                                  </Link>
+                                  <Link href="/index8">Eventify-Homepage 08</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img9.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img9.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index9">
@@ -219,20 +166,12 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index9">
-                                    Eventify-Homepage 09
-                                  </Link>
+                                  <Link href="/index9">Eventify-Homepage 09</Link>
                                 </div>
                               </div>
-                              <div
-                                className="homemenu-thumb"
-                                style={{ margin: 0 }}
-                              >
+                              <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
-                                  <img
-                                    src="/assets/img/all-images/demo/demo-img10.png"
-                                    alt=""
-                                  />
+                                  <img src="/assets/img/all-images/demo/demo-img10.png" alt="" />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn5" href="/index10">
@@ -243,9 +182,7 @@ export default function Header5({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index10">
-                                    Eventify-Homepage 10
-                                  </Link>
+                                  <Link href="/index10">Eventify-Homepage 10</Link>
                                 </div>
                               </div>
                             </div>
@@ -320,10 +257,7 @@ export default function Header5({
                   </ul>
                 </div>
                 <div className="btn-area">
-                  <div
-                    className="search-icon header__search header-search-btn"
-                    onClick={handleSearch}
-                  >
+                  <div className="search-icon header__search header-search-btn" onClick={handleSearch}>
                     <a>
                       <img src="/assets/img/icons/search1.svg" alt="" />
                     </a>
@@ -337,32 +271,20 @@ export default function Header5({
                     </Link>
                   </div>
                 </div>
-                <div
-                  className={`header-search-form-wrapper ${isSearch ? "open" : ""}`}
-                >
-                  <div
-                    className="tx-search-close tx-close"
-                    onClick={handleSearch}
-                  >
+                <div className={`header-search-form-wrapper ${isSearch ? "open" : ""}`}>
+                  <div className="tx-search-close tx-close" onClick={handleSearch}>
                     <i className="fa-solid fa-xmark" />
                   </div>
                   <div className="header-search-container">
                     <form role="search" className="search-form">
-                      <input
-                        type="search"
-                        className="search-field"
-                        placeholder="Search …"
-                        name="s"
-                      />
+                      <input type="search" className="search-field" placeholder="Search …" name="s" />
                       <button type="submit" className="search-submit">
                         <img src="/assets/img/icons/search1.svg" alt="" />
                       </button>
                     </form>
                   </div>
                 </div>
-                {isSearch && (
-                  <div className="body-overlay active" onClick={handleSearch} />
-                )}
+                {isSearch && <div className="body-overlay active" onClick={handleSearch} />}
               </div>
             </div>
           </div>

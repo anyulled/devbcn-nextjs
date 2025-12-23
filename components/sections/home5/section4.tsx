@@ -6,8 +6,7 @@ export default function Section4() {
           <div className="marquee-content">
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                conferences
+                <img src="/assets/img/elements/elements32.png" alt="" /> conferences
               </span>
             </div>
             <div>
@@ -17,8 +16,7 @@ export default function Section4() {
             </div>
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                EXPERIENCE
+                <img src="/assets/img/elements/elements32.png" alt="" /> EXPERIENCE
               </span>
             </div>
             <div>
@@ -28,8 +26,7 @@ export default function Section4() {
             </div>
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                conferences
+                <img src="/assets/img/elements/elements32.png" alt="" /> conferences
               </span>
             </div>
             <div>
@@ -39,8 +36,7 @@ export default function Section4() {
             </div>
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                EXPERIENCE
+                <img src="/assets/img/elements/elements32.png" alt="" /> EXPERIENCE
               </span>
             </div>
             <div>
@@ -50,8 +46,7 @@ export default function Section4() {
             </div>
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                conferences
+                <img src="/assets/img/elements/elements32.png" alt="" /> conferences
               </span>
             </div>
             <div>
@@ -61,8 +56,7 @@ export default function Section4() {
             </div>
             <div>
               <span className="marquee-item">
-                <img src="/assets/img/elements/elements32.png" alt="" />{" "}
-                EXPERIENCE
+                <img src="/assets/img/elements/elements32.png" alt="" /> EXPERIENCE
               </span>
             </div>
             <div>

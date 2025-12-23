@@ -5,11 +5,7 @@ export default function Section11() {
     <>
       <div className="contact5-bg-section">
         <div className="img1">
-          <img
-            src="/assets/img/all-images/contact/contact-img5.png"
-            alt=""
-            className="contact-img1"
-          />
+          <img src="/assets/img/all-images/contact/contact-img5.png" alt="" className="contact-img1" />
         </div>
         <div className="container">
           <div className="row">
@@ -17,28 +13,18 @@ export default function Section11() {
               <div className="space48" />
               <div className="row">
                 <div className="col-lg-6 col-md-6">
-                  <div
-                    className="contact-boxarea"
-                    data-aos="zoom-in"
-                    data-aos-duration={900}
-                  >
+                  <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
                     <div className="icons">
                       <img src="/assets/img/icons/mail1.svg" alt="" />
                     </div>
                     <div className="text">
                       <h5>Our Email</h5>
                       <div className="space14" />
-                      <Link href="/maito:eventify@gmail.com">
-                        eventify@gmail.com
-                      </Link>
+                      <Link href="/maito:eventify@gmail.com">eventify@gmail.com</Link>
                     </div>
                   </div>
                   <div className="space18" />
-                  <div
-                    className="contact-boxarea"
-                    data-aos="zoom-in"
-                    data-aos-duration={1000}
-                  >
+                  <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                     <div className="icons">
                       <img src="/assets/img/icons/location1.svg" alt="" />
                     </div>
@@ -51,11 +37,7 @@ export default function Section11() {
                 </div>
                 <div className="col-lg-6 col-md-6">
                   <div className="space20 d-md-none d-block" />
-                  <div
-                    className="contact-boxarea"
-                    data-aos="zoom-in"
-                    data-aos-duration={1000}
-                  >
+                  <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                     <div className="icons">
                       <img src="/assets/img/icons/phn1.svg" alt="" />
                     </div>
@@ -66,11 +48,7 @@ export default function Section11() {
                     </div>
                   </div>
                   <div className="space18" />
-                  <div
-                    className="contact-boxarea"
-                    data-aos="zoom-in"
-                    data-aos-duration={1200}
-                  >
+                  <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
                     <div className="icons">
                       <img src="/assets/img/icons/instagram.svg" alt="" />
                     </div>

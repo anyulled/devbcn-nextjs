@@ -10,8 +10,7 @@ const CircleText: React.FC<CircleTextProps> = ({ text }) => {
 
   useEffect(() => {
     if (circleRef.current) {
-      const elements =
-        circleRef.current.querySelectorAll<HTMLSpanElement>("span");
+      const elements = circleRef.current.querySelectorAll<HTMLSpanElement>("span");
       elements.forEach((element, i) => {
         element.style.transform = `rotate(${i * 17}deg)`;
       });

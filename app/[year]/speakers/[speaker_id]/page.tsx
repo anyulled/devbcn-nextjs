@@ -35,7 +35,6 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
 
   if (!speaker) {
     return (
-
       <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg7.png)" }}>
         <div className="container">
           <div className="row">
@@ -51,18 +50,13 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
           </div>
         </div>
       </div>
-
     );
   }
 
   return (
-
     <div>
       {/* Header Section */}
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg7.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg7.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto">
@@ -72,9 +66,7 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
                 <Link href={`/${year}`}>
                   Home <i className="fa-solid fa-angle-right" />{" "}
                 </Link>
-                <Link href={`/${year}/speakers`}>
-                  Speakers
-                </Link>
+                <Link href={`/${year}/speakers`}>Speakers</Link>
               </div>
             </div>
           </div>
@@ -92,20 +84,8 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
                   <div className="col-lg-5">
                     <div className="our-team-boxarea">
                       <div className="team-widget-area">
-                        <Image
-                          src="/assets/img/elements/elements25.png"
-                          alt=""
-                          className="elements21"
-                          width={100}
-                          height={100}
-                        />
-                        <Image
-                          src="/assets/img/elements/elements26.png"
-                          alt=""
-                          className="elements22"
-                          width={100}
-                          height={100}
-                        />
+                        <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
+                        <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
                         <div className="img1">
                           <Image
                             src={speaker.profilePicture}
@@ -126,13 +106,7 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
                           <ul>
                             {speaker.links.map((link, index) => (
                               <li key={link.title}>
-                                <a
-                                  href={link.url}
-                                  className={getIconClass(index)}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  title={link.title}
-                                >
+                                <a href={link.url} className={getIconClass(index)} target="_blank" rel="noopener noreferrer" title={link.title}>
                                   <i className={getSocialIcon(link.linkType)} />
                                 </a>
                               </li>
@@ -256,6 +230,5 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
         </div>
       </div>
     </div>
-
   );
 }

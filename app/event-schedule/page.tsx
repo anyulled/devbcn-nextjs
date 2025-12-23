@@ -6,10 +6,7 @@ export default function EventSchedule() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg10.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg10.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -17,8 +14,7 @@ export default function EventSchedule() {
                     <h1>Event Schedule</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Event Schedule</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Event Schedule</span>
                     </Link>
                   </div>
                 </div>
@@ -46,10 +42,7 @@ export default function EventSchedule() {
                     <div className="content-area">
                       <Link href="/event-single">Make Ideas Happen</Link>
                       <div className="space16" />
-                      <p>
-                        Eventify 2024 brings together the brightest minds and
-                        industry leaders for best of transformative business.
-                      </p>
+                      <p>Eventify 2024 brings together the brightest minds and industry leaders for best of transformative business.</p>
                       <div className="space24" />
                       <Link href="/event-single" className="readmore">
                         Read More <i className="fa-solid fa-arrow-right" />
@@ -66,11 +59,7 @@ export default function EventSchedule() {
                     <div className="content-area">
                       <Link href="/event-single">Great Speakers</Link>
                       <div className="space16" />
-                      <p>
-                        Whether you're looking to elevate your business
-                        strategy, discover the latest industry trends, or
-                        connect.
-                      </p>
+                      <p>Whether you're looking to elevate your business strategy, discover the latest industry trends, or connect.</p>
                       <div className="space24" />
                       <Link href="/event-single" className="readmore">
                         Read More <i className="fa-solid fa-arrow-right" />
@@ -87,10 +76,7 @@ export default function EventSchedule() {
                     <div className="content-area">
                       <Link href="/event-single">One Day Ticket</Link>
                       <div className="space16" />
-                      <p>
-                        We empower businesses to thrive in an ever-evolving
-                        marketplace. This conference more than just an event.
-                      </p>
+                      <p>We empower businesses to thrive in an ever-evolving marketplace. This conference more than just an event.</p>
                       <div className="space24" />
                       <Link href="/event-single" className="readmore">
                         Read More <i className="fa-solid fa-arrow-right" />

@@ -9,10 +9,7 @@ export default async function Speakers() {
 
   return (
     <div>
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(assets/img/bg/header-bg6.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg6.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-5 m-auto">
@@ -20,8 +17,7 @@ export default async function Speakers() {
                 <h1>Our Speakers</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Our Speakers</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>Our Speakers</span>
                 </Link>
               </div>
             </div>

@@ -23,11 +23,7 @@ export default function Section4() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-12"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
               <BrandSlider />
             </div>
           </div>
@@ -40,28 +36,18 @@ export default function Section4() {
                 <div className="space48" />
                 <div className="row">
                   <div className="col-lg-6 col-md-6">
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={900}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
                       <div className="icons">
                         <img src="/assets/img/icons/mail1.svg" alt="" />
                       </div>
                       <div className="text">
                         <h5>Our Email</h5>
                         <div className="space14" />
-                        <Link href="mailto:info@devbcn.com">
-                          info@devbcn.com
-                        </Link>
+                        <Link href="mailto:info@devbcn.com">info@devbcn.com</Link>
                       </div>
                     </div>
                     <div className="space18" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1000}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
                         <i
                           className="fa-brands fa-linkedin-in"
@@ -75,11 +61,7 @@ export default function Section4() {
                       <div className="text">
                         <h5>LinkedIn</h5>
                         <div className="space14" />
-                        <a
-                          href="https://www.linkedin.com/company/devbcn/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href="https://www.linkedin.com/company/devbcn/" target="_blank" rel="noopener noreferrer">
                           DevBcn
                         </a>
                       </div>
@@ -87,11 +69,7 @@ export default function Section4() {
                   </div>
                   <div className="col-lg-6 col-md-6">
                     <div className="space20 d-md-none d-block" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1000}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
                         <i
                           className="fa-brands fa-twitter"
@@ -105,35 +83,20 @@ export default function Section4() {
                       <div className="text">
                         <h5>X/Formerly twitter</h5>
                         <div className="space14" />
-                        <a
-                          href="https://twitter.com/dev_bcn"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href="https://twitter.com/dev_bcn" target="_blank" rel="noopener noreferrer">
                           @dev_bcn
                         </a>
                       </div>
                     </div>
                     <div className="space18" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1200}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
                       <div className="icons">
-                        <img
-                          src="/assets/img/icons/instagram.svg"
-                          alt="Instagram"
-                        />
+                        <img src="/assets/img/icons/instagram.svg" alt="Instagram" />
                       </div>
                       <div className="text">
                         <h5>Instagram</h5>
                         <div className="space14" />
-                        <a
-                          href="https://www.instagram.com/devbcn.conf/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                           devbcn.conf
                         </a>
                       </div>

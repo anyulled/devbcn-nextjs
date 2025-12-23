@@ -14,12 +14,7 @@ import Section9 from "@/components/sections/home5/section9";
 export default function Home5() {
   return (
     <>
-      <img
-        src="assets/img/bg/body-bg1.png"
-        alt=""
-        className="body-bg1"
-        id="body-bg1"
-      />
+      <img src="assets/img/bg/body-bg1.png" alt="" className="body-bg1" id="body-bg1" />
       <Section1 />
       <Section2 />
       <Section3 />

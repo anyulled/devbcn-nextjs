@@ -9,11 +9,7 @@ export default function Footer10() {
             <div className="footer-logo-area">
               <img src="/assets/img/logo/logo2.png" alt="" />
               <div className="space16" />
-              <p>
-                We are committed to creating a platform where business leaders,
-                innovators, and professionals can come together to exchange
-                ideas
-              </p>
+              <p>We are committed to creating a platform where business leaders, innovators, and professionals can come together to exchange ideas</p>
               <div className="space24" />
               <ul>
                 <li>
@@ -100,10 +96,7 @@ export default function Footer10() {
               <div className="row">
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img1.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -113,10 +106,7 @@ export default function Footer10() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img2.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -126,10 +116,7 @@ export default function Footer10() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img3.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -139,10 +126,7 @@ export default function Footer10() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img4.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img4.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -152,10 +136,7 @@ export default function Footer10() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img5.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img5.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -165,10 +146,7 @@ export default function Footer10() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img6.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img6.png" alt="" />
                     <div className="icons">
                       <Link href="/#">
                         <i className="fa-brands fa-instagram" />
@@ -184,10 +162,7 @@ export default function Footer10() {
         <div className="row">
           <div className="col-lg-12">
             <div className="copyright">
-              <p>
-                © Copyright {new Date().getFullYear()} -Eventify. All Right
-                Reserved
-              </p>
+              <p>© Copyright {new Date().getFullYear()} -Eventify. All Right Reserved</p>
             </div>
           </div>
         </div>

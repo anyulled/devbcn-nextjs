@@ -34,10 +34,7 @@ export default function Section5() {
     <>
       <div className="testimonials1-section-area sp1">
         <div className="testimonial-img2">
-          <img
-            src="/assets/img/all-images/testimonials/testimonial-img2.png"
-            alt=""
-          />
+          <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
         </div>
         <div className="container">
           <div className="row align-items-center">
@@ -50,10 +47,7 @@ export default function Section5() {
                 <h2 className="text-anime-style-3">What Our Attendees Say</h2>
               </div>
               <div className="space32" />
-              <Swiper
-                {...swiperOptions}
-                className="testimonial-content-slider owl-carousel"
-              >
+              <Swiper {...swiperOptions} className="testimonial-content-slider owl-carousel">
                 <SwiperSlide className="testimonial-widget-box">
                   <div className="list-display">
                     <ul>
@@ -74,13 +68,7 @@ export default function Section5() {
                       </li>
                     </ul>
                     <div className="icons">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={28}
-                        height={24}
-                        viewBox="0 0 28 24"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={28} height={24} viewBox="0 0 28 24" fill="none">
                         <path
                           d="M15.3469 5.73963C15.3469 7.2063 15.7303 8.43797 16.4969 9.43463C17.0403 10.1213 17.7775 10.5724 18.7086 10.788C19.6253 11.0013 20.4919 11.0163 21.2753 10.8346C21.5419 12.418 21.1086 14.0946 20.0086 15.8713C18.9064 17.6469 17.4853 18.9819 15.7453 19.8763L18.3803 23.668C19.7136 23.008 20.9803 22.1713 22.1469 21.1596C23.3303 20.148 24.3803 18.9846 25.3136 17.6696C26.2469 16.3546 26.9469 14.8696 27.3969 13.1863C27.8469 11.503 27.9719 9.7863 27.7569 8.01963C27.4769 5.6863 26.7236 3.81963 25.4969 2.4363C24.2714 1.03519 22.7447 0.334633 20.9169 0.334633C19.3086 0.334633 17.9736 0.817966 16.9169 1.79797C15.8714 2.75797 15.3492 4.07352 15.3503 5.74463L15.3469 5.73963ZM0.140263 5.73963C0.140263 7.2063 0.523598 8.43797 1.29026 9.43463C1.83471 10.1346 2.57193 10.5885 3.50193 10.7963C4.43526 11.0019 5.29082 11.0141 6.06859 10.833C6.33526 12.3996 5.9186 14.083 4.81526 15.8663C3.71526 17.633 2.29526 18.9663 0.555264 19.8663L3.1836 23.668C4.51804 23.008 5.7736 22.1719 6.95026 21.1596C8.14426 20.1329 9.20475 18.9604 10.1069 17.6696C11.0336 16.353 11.7236 14.8696 12.1736 13.1863C12.6307 11.5043 12.7536 9.74894 12.5353 8.01963C12.2586 5.6863 11.5086 3.81963 10.2853 2.4363C9.06304 1.04519 7.53915 0.349634 5.7136 0.349634C4.10248 0.347412 2.76804 0.834633 1.71026 1.8113C0.664705 2.7713 0.141375 4.08685 0.140263 5.75797V5.73963Z"
                           fill="#FFBA00"
@@ -90,20 +78,14 @@ export default function Section5() {
                   </div>
                   <div className="space22" />
                   <p>
-                    “Attending Innovate 2024 game-changer for my business. The
-                    insights I gained industry leaders during the keynote
-                    sessions &amp; workshops were invaluable. I left the
-                    conference not only with a wealth of knowledge about
-                    emerging trends.”
+                    “Attending Innovate 2024 game-changer for my business. The insights I gained industry leaders during the keynote sessions &amp; workshops
+                    were invaluable. I left the conference not only with a wealth of knowledge about emerging trends.”
                   </p>
                   <div className="space24" />
                   <div className="auhtor-area">
                     <div className="name-area">
                       <div className="img1">
-                        <img
-                          src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                          alt=""
-                        />
+                        <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                       </div>
                       <div className="text">
                         <Link href="/speakers">Gabriel Krajcik</Link>
@@ -112,22 +94,13 @@ export default function Section5() {
                       </div>
                     </div>
                     <div className="logo">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={122}
-                        height={40}
-                        viewBox="0 0 122 40"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={122} height={40} viewBox="0 0 122 40" fill="none">
                         <g clipPath="url(#clip0_2205_3160)">
                           <path
                             d="M118.199 24.4463L121.584 26.7009C120.486 28.3175 117.858 31.0913 113.316 31.0913C107.675 31.0913 103.475 26.7306 103.475 21.1832C103.475 15.2802 107.72 11.2754 112.841 11.2754C117.992 11.2754 120.515 15.369 121.332 17.579L121.777 18.7063L108.507 24.1942C109.516 26.1818 111.09 27.1904 113.316 27.1904C115.543 27.1904 117.086 26.0928 118.199 24.4463ZM107.794 20.8721L116.656 17.1935C116.166 15.9625 114.711 15.0875 112.974 15.0875C110.763 15.0875 107.69 17.0454 107.794 20.8721Z"
                             fill="#FF302F"
                           />
-                          <path
-                            d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z"
-                            fill="#20B15A"
-                          />
+                          <path d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z" fill="#20B15A" />
                           <path
                             d="M90.3384 12.046H94.4649V29.6667C94.4649 36.9788 90.1453 39.9898 85.039 39.9898C80.2297 39.9898 77.3353 36.7564 76.2516 34.1312L80.0367 32.5588C80.7194 34.1755 82.3671 36.0891 85.039 36.0891C88.3194 36.0891 90.3384 34.0569 90.3384 30.26V28.8362H90.1899C89.2101 30.0226 87.3398 31.0905 84.9649 31.0905C80.007 31.0905 75.4646 26.7743 75.4646 21.2124C75.4646 15.6205 80.007 11.26 84.9649 11.26C87.325 11.26 89.2101 12.3131 90.1899 13.47H90.3384V12.046ZM90.635 21.2124C90.635 17.7119 88.3046 15.1607 85.3359 15.1607C82.3373 15.1607 79.8139 17.7119 79.8139 21.2124C79.8139 24.6681 82.3373 27.1748 85.3359 27.1748C88.3049 27.1898 90.6352 24.6681 90.6352 21.2124"
                             fill="#3686F7"
@@ -174,13 +147,7 @@ export default function Section5() {
                       </li>
                     </ul>
                     <div className="icons">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={28}
-                        height={24}
-                        viewBox="0 0 28 24"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={28} height={24} viewBox="0 0 28 24" fill="none">
                         <path
                           d="M15.3469 5.73963C15.3469 7.2063 15.7303 8.43797 16.4969 9.43463C17.0403 10.1213 17.7775 10.5724 18.7086 10.788C19.6253 11.0013 20.4919 11.0163 21.2753 10.8346C21.5419 12.418 21.1086 14.0946 20.0086 15.8713C18.9064 17.6469 17.4853 18.9819 15.7453 19.8763L18.3803 23.668C19.7136 23.008 20.9803 22.1713 22.1469 21.1596C23.3303 20.148 24.3803 18.9846 25.3136 17.6696C26.2469 16.3546 26.9469 14.8696 27.3969 13.1863C27.8469 11.503 27.9719 9.7863 27.7569 8.01963C27.4769 5.6863 26.7236 3.81963 25.4969 2.4363C24.2714 1.03519 22.7447 0.334633 20.9169 0.334633C19.3086 0.334633 17.9736 0.817966 16.9169 1.79797C15.8714 2.75797 15.3492 4.07352 15.3503 5.74463L15.3469 5.73963ZM0.140263 5.73963C0.140263 7.2063 0.523598 8.43797 1.29026 9.43463C1.83471 10.1346 2.57193 10.5885 3.50193 10.7963C4.43526 11.0019 5.29082 11.0141 6.06859 10.833C6.33526 12.3996 5.9186 14.083 4.81526 15.8663C3.71526 17.633 2.29526 18.9663 0.555264 19.8663L3.1836 23.668C4.51804 23.008 5.7736 22.1719 6.95026 21.1596C8.14426 20.1329 9.20475 18.9604 10.1069 17.6696C11.0336 16.353 11.7236 14.8696 12.1736 13.1863C12.6307 11.5043 12.7536 9.74894 12.5353 8.01963C12.2586 5.6863 11.5086 3.81963 10.2853 2.4363C9.06304 1.04519 7.53915 0.349634 5.7136 0.349634C4.10248 0.347412 2.76804 0.834633 1.71026 1.8113C0.664705 2.7713 0.141375 4.08685 0.140263 5.75797V5.73963Z"
                           fill="#FFBA00"
@@ -190,20 +157,14 @@ export default function Section5() {
                   </div>
                   <div className="space22" />
                   <p>
-                    “Attending Innovate 2024 game-changer for my business. The
-                    insights I gained industry leaders during the keynote
-                    sessions &amp; workshops were invaluable. I left the
-                    conference not only with a wealth of knowledge about
-                    emerging trends.”
+                    “Attending Innovate 2024 game-changer for my business. The insights I gained industry leaders during the keynote sessions &amp; workshops
+                    were invaluable. I left the conference not only with a wealth of knowledge about emerging trends.”
                   </p>
                   <div className="space24" />
                   <div className="auhtor-area">
                     <div className="name-area">
                       <div className="img1">
-                        <img
-                          src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                          alt=""
-                        />
+                        <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                       </div>
                       <div className="text">
                         <Link href="/speakers">Gabriel Krajcik</Link>
@@ -212,22 +173,13 @@ export default function Section5() {
                       </div>
                     </div>
                     <div className="logo">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={122}
-                        height={40}
-                        viewBox="0 0 122 40"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={122} height={40} viewBox="0 0 122 40" fill="none">
                         <g clipPath="url(#clip0_2205_3160)">
                           <path
                             d="M118.199 24.4463L121.584 26.7009C120.486 28.3175 117.858 31.0913 113.316 31.0913C107.675 31.0913 103.475 26.7306 103.475 21.1832C103.475 15.2802 107.72 11.2754 112.841 11.2754C117.992 11.2754 120.515 15.369 121.332 17.579L121.777 18.7063L108.507 24.1942C109.516 26.1818 111.09 27.1904 113.316 27.1904C115.543 27.1904 117.086 26.0928 118.199 24.4463ZM107.794 20.8721L116.656 17.1935C116.166 15.9625 114.711 15.0875 112.974 15.0875C110.763 15.0875 107.69 17.0454 107.794 20.8721Z"
                             fill="#FF302F"
                           />
-                          <path
-                            d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z"
-                            fill="#20B15A"
-                          />
+                          <path d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z" fill="#20B15A" />
                           <path
                             d="M90.3384 12.046H94.4649V29.6667C94.4649 36.9788 90.1453 39.9898 85.039 39.9898C80.2297 39.9898 77.3353 36.7564 76.2516 34.1312L80.0367 32.5588C80.7194 34.1755 82.3671 36.0891 85.039 36.0891C88.3194 36.0891 90.3384 34.0569 90.3384 30.26V28.8362H90.1899C89.2101 30.0226 87.3398 31.0905 84.9649 31.0905C80.007 31.0905 75.4646 26.7743 75.4646 21.2124C75.4646 15.6205 80.007 11.26 84.9649 11.26C87.325 11.26 89.2101 12.3131 90.1899 13.47H90.3384V12.046ZM90.635 21.2124C90.635 17.7119 88.3046 15.1607 85.3359 15.1607C82.3373 15.1607 79.8139 17.7119 79.8139 21.2124C79.8139 24.6681 82.3373 27.1748 85.3359 27.1748C88.3049 27.1898 90.6352 24.6681 90.6352 21.2124"
                             fill="#3686F7"
@@ -274,13 +226,7 @@ export default function Section5() {
                       </li>
                     </ul>
                     <div className="icons">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={28}
-                        height={24}
-                        viewBox="0 0 28 24"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={28} height={24} viewBox="0 0 28 24" fill="none">
                         <path
                           d="M15.3469 5.73963C15.3469 7.2063 15.7303 8.43797 16.4969 9.43463C17.0403 10.1213 17.7775 10.5724 18.7086 10.788C19.6253 11.0013 20.4919 11.0163 21.2753 10.8346C21.5419 12.418 21.1086 14.0946 20.0086 15.8713C18.9064 17.6469 17.4853 18.9819 15.7453 19.8763L18.3803 23.668C19.7136 23.008 20.9803 22.1713 22.1469 21.1596C23.3303 20.148 24.3803 18.9846 25.3136 17.6696C26.2469 16.3546 26.9469 14.8696 27.3969 13.1863C27.8469 11.503 27.9719 9.7863 27.7569 8.01963C27.4769 5.6863 26.7236 3.81963 25.4969 2.4363C24.2714 1.03519 22.7447 0.334633 20.9169 0.334633C19.3086 0.334633 17.9736 0.817966 16.9169 1.79797C15.8714 2.75797 15.3492 4.07352 15.3503 5.74463L15.3469 5.73963ZM0.140263 5.73963C0.140263 7.2063 0.523598 8.43797 1.29026 9.43463C1.83471 10.1346 2.57193 10.5885 3.50193 10.7963C4.43526 11.0019 5.29082 11.0141 6.06859 10.833C6.33526 12.3996 5.9186 14.083 4.81526 15.8663C3.71526 17.633 2.29526 18.9663 0.555264 19.8663L3.1836 23.668C4.51804 23.008 5.7736 22.1719 6.95026 21.1596C8.14426 20.1329 9.20475 18.9604 10.1069 17.6696C11.0336 16.353 11.7236 14.8696 12.1736 13.1863C12.6307 11.5043 12.7536 9.74894 12.5353 8.01963C12.2586 5.6863 11.5086 3.81963 10.2853 2.4363C9.06304 1.04519 7.53915 0.349634 5.7136 0.349634C4.10248 0.347412 2.76804 0.834633 1.71026 1.8113C0.664705 2.7713 0.141375 4.08685 0.140263 5.75797V5.73963Z"
                           fill="#FFBA00"
@@ -290,20 +236,14 @@ export default function Section5() {
                   </div>
                   <div className="space22" />
                   <p>
-                    “Attending Innovate 2024 game-changer for my business. The
-                    insights I gained industry leaders during the keynote
-                    sessions &amp; workshops were invaluable. I left the
-                    conference not only with a wealth of knowledge about
-                    emerging trends.”
+                    “Attending Innovate 2024 game-changer for my business. The insights I gained industry leaders during the keynote sessions &amp; workshops
+                    were invaluable. I left the conference not only with a wealth of knowledge about emerging trends.”
                   </p>
                   <div className="space24" />
                   <div className="auhtor-area">
                     <div className="name-area">
                       <div className="img1">
-                        <img
-                          src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                          alt=""
-                        />
+                        <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                       </div>
                       <div className="text">
                         <Link href="/speakers">Gabriel Krajcik</Link>
@@ -312,22 +252,13 @@ export default function Section5() {
                       </div>
                     </div>
                     <div className="logo">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={122}
-                        height={40}
-                        viewBox="0 0 122 40"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width={122} height={40} viewBox="0 0 122 40" fill="none">
                         <g clipPath="url(#clip0_2205_3160)">
                           <path
                             d="M118.199 24.4463L121.584 26.7009C120.486 28.3175 117.858 31.0913 113.316 31.0913C107.675 31.0913 103.475 26.7306 103.475 21.1832C103.475 15.2802 107.72 11.2754 112.841 11.2754C117.992 11.2754 120.515 15.369 121.332 17.579L121.777 18.7063L108.507 24.1942C109.516 26.1818 111.09 27.1904 113.316 27.1904C115.543 27.1904 117.086 26.0928 118.199 24.4463ZM107.794 20.8721L116.656 17.1935C116.166 15.9625 114.711 15.0875 112.974 15.0875C110.763 15.0875 107.69 17.0454 107.794 20.8721Z"
                             fill="#FF302F"
                           />
-                          <path
-                            d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z"
-                            fill="#20B15A"
-                          />
+                          <path d="M97.0781 1.17383H101.353V30.1857H97.0781V1.17383Z" fill="#20B15A" />
                           <path
                             d="M90.3384 12.046H94.4649V29.6667C94.4649 36.9788 90.1453 39.9898 85.039 39.9898C80.2297 39.9898 77.3353 36.7564 76.2516 34.1312L80.0367 32.5588C80.7194 34.1755 82.3671 36.0891 85.039 36.0891C88.3194 36.0891 90.3384 34.0569 90.3384 30.26V28.8362H90.1899C89.2101 30.0226 87.3398 31.0905 84.9649 31.0905C80.007 31.0905 75.4646 26.7743 75.4646 21.2124C75.4646 15.6205 80.007 11.26 84.9649 11.26C87.325 11.26 89.2101 12.3131 90.1899 13.47H90.3384V12.046ZM90.635 21.2124C90.635 17.7119 88.3046 15.1607 85.3359 15.1607C82.3373 15.1607 79.8139 17.7119 79.8139 21.2124C79.8139 24.6681 82.3373 27.1748 85.3359 27.1748C88.3049 27.1898 90.6352 24.6681 90.6352 21.2124"
                             fill="#3686F7"
@@ -357,18 +288,10 @@ export default function Section5() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>
@@ -376,13 +299,7 @@ export default function Section5() {
             <div className="col-lg-6">
               <div className="video-play-btn">
                 <a onClick={() => setOpen(true)} className="popup-youtube">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={20}
-                    height={24}
-                    viewBox="0 0 20 24"
-                    fill="none"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={24} viewBox="0 0 20 24" fill="none">
                     <path
                       d="M19.5185 11.1463L1.52146 0.147702C1.36988 0.0550624 1.19634 0.0044781 1.01872 0.0011519C0.8411 -0.00217431 0.665798 0.041878 0.510849 0.128777C0.3559 0.215677 0.226898 0.342285 0.137113 0.495581C0.0473273 0.648876 8.00178e-08 0.823322 0 1.00098V22.9981C8.00178e-08 23.1758 0.0473273 23.3502 0.137113 23.5035C0.226898 23.6568 0.3559 23.7834 0.510849 23.8703C0.665798 23.9572 0.8411 24.0013 1.01872 23.998C1.19634 23.9946 1.36988 23.944 1.52146 23.8514L19.5185 12.8528C19.6647 12.7635 19.7855 12.6381 19.8693 12.4887C19.9531 12.3393 19.9971 12.1709 19.9971 11.9996C19.9971 11.8282 19.9531 11.6598 19.8693 11.5104C19.7855 11.361 19.6647 11.2356 19.5185 11.1463Z"
                       fill="#1A1719"
@@ -394,12 +311,7 @@ export default function Section5() {
           </div>
         </div>
       </div>
-      <ModalVideo
-        channel="youtube"
-        isOpen={isOpen}
-        videoId="JXMWOmuR1hU"
-        onClose={() => setOpen(false)}
-      />
+      <ModalVideo channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
     </>
   );
 }

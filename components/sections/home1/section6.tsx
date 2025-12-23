@@ -72,17 +72,10 @@ export default function Section6() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="memory-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img1.png" alt="" />
                   </div>
                   <div className="content-area">
-                    <img
-                      src="/assets/img/icons/logo1.svg"
-                      alt=""
-                      className="logo1 keyframe5"
-                    />
+                    <img src="/assets/img/icons/logo1.svg" alt="" className="logo1 keyframe5" />
                     <div className="arrow">
                       <Link href="/memories">
                         <i className="fa-solid fa-arrow-right" />
@@ -96,17 +89,10 @@ export default function Section6() {
                 </SwiperSlide>
                 <SwiperSlide className="memory-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img2.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img2.png" alt="" />
                   </div>
                   <div className="content-area">
-                    <img
-                      src="/assets/img/icons/logo1.svg"
-                      alt=""
-                      className="logo1 keyframe5"
-                    />
+                    <img src="/assets/img/icons/logo1.svg" alt="" className="logo1 keyframe5" />
                     <div className="arrow">
                       <Link href="/memories">
                         <i className="fa-solid fa-arrow-right" />
@@ -120,17 +106,10 @@ export default function Section6() {
                 </SwiperSlide>
                 <SwiperSlide className="memory-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img3.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img3.png" alt="" />
                   </div>
                   <div className="content-area">
-                    <img
-                      src="/assets/img/icons/logo1.svg"
-                      alt=""
-                      className="logo1 keyframe5"
-                    />
+                    <img src="/assets/img/icons/logo1.svg" alt="" className="logo1 keyframe5" />
                     <div className="arrow">
                       <Link href="/memories">
                         <i className="fa-solid fa-arrow-right" />
@@ -144,17 +123,10 @@ export default function Section6() {
                 </SwiperSlide>
                 <SwiperSlide className="memory-boxarea">
                   <div className="img1 image-anime">
-                    <img
-                      src="/assets/img/all-images/memory/memory-img1.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/memory/memory-img1.png" alt="" />
                   </div>
                   <div className="content-area">
-                    <img
-                      src="/assets/img/icons/logo1.svg"
-                      alt=""
-                      className="logo1 keyframe5"
-                    />
+                    <img src="/assets/img/icons/logo1.svg" alt="" className="logo1 keyframe5" />
                     <div className="arrow">
                       <Link href="/memories">
                         <i className="fa-solid fa-arrow-right" />
@@ -169,18 +141,10 @@ export default function Section6() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

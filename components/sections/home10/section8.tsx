@@ -14,11 +14,7 @@ export default function Section8() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-12"
-              data-aos="zoom-in"
-              data-aos-duration={800}
-            >
+            <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
               <BrandSlider />
             </div>
           </div>
@@ -31,28 +27,18 @@ export default function Section8() {
                 <div className="space48" />
                 <div className="row">
                   <div className="col-lg-6 col-md-6">
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={900}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
                       <div className="icons">
                         <img src="/assets/img/icons/mail1.svg" alt="" />
                       </div>
                       <div className="text">
                         <h5>Our Email</h5>
                         <div className="space14" />
-                        <Link href="/maito:eventify@gmail.com">
-                          eventify@gmail.com
-                        </Link>
+                        <Link href="/maito:eventify@gmail.com">eventify@gmail.com</Link>
                       </div>
                     </div>
                     <div className="space18" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1000}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
                         <img src="/assets/img/icons/location1.svg" alt="" />
                       </div>
@@ -65,11 +51,7 @@ export default function Section8() {
                   </div>
                   <div className="col-lg-6 col-md-6">
                     <div className="space20 d-md-none d-block" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1000}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1000}>
                       <div className="icons">
                         <img src="/assets/img/icons/phn1.svg" alt="" />
                       </div>
@@ -80,11 +62,7 @@ export default function Section8() {
                       </div>
                     </div>
                     <div className="space18" />
-                    <div
-                      className="contact-boxarea"
-                      data-aos="zoom-in"
-                      data-aos-duration={1200}
-                    >
+                    <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
                       <div className="icons">
                         <img src="/assets/img/icons/instagram.svg" alt="" />
                       </div>

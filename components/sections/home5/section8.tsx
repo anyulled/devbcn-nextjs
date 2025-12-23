@@ -9,12 +9,7 @@ export default function Section8() {
             <div className="col-lg-3 col-md-6">
               <div className="counter-box">
                 <h2>
-                  <CountUp
-                    className="odometer"
-                    enableScrollSpy={true}
-                    end={3}
-                  />
-                  D
+                  <CountUp className="odometer" enableScrollSpy={true} end={3} />D
                 </h2>
                 <p>Days Of Event</p>
               </div>
@@ -22,11 +17,7 @@ export default function Section8() {
             <div className="col-lg-3 col-md-6">
               <div className="counter-box">
                 <h2>
-                  <CountUp
-                    className="odometer"
-                    enableScrollSpy={true}
-                    end={20}
-                  />
+                  <CountUp className="odometer" enableScrollSpy={true} end={20} />
                   K+
                 </h2>
                 <p>Registered Participant</p>
@@ -35,11 +26,7 @@ export default function Section8() {
             <div className="col-lg-3 col-md-6">
               <div className="counter-box">
                 <h2>
-                  <CountUp
-                    className="odometer"
-                    enableScrollSpy={true}
-                    end={12}
-                  />
+                  <CountUp className="odometer" enableScrollSpy={true} end={12} />
                   K+
                 </h2>
                 <p>Attendance Event</p>
@@ -48,11 +35,7 @@ export default function Section8() {
             <div className="col-lg-3 col-md-6">
               <div className="counter-box">
                 <h2>
-                  <CountUp
-                    className="odometer"
-                    enableScrollSpy={true}
-                    end={5}
-                  />
+                  <CountUp className="odometer" enableScrollSpy={true} end={5} />
                 </h2>
                 <p>Our Event Venue</p>
               </div>

@@ -59,12 +59,7 @@ export default function TrackFilter({ tracks, year }: TrackFilterProps) {
       <label htmlFor="track-select" className="track-filter-label">
         Filter by Track:
       </label>
-      <select
-        id="track-select"
-        value={selectedTrack}
-        onChange={handleTrackChange}
-        className="track-filter-select"
-      >
+      <select id="track-select" value={selectedTrack} onChange={handleTrackChange} className="track-filter-select">
         <option value="">All Tracks</option>
         {tracks.map((track) => (
           <option key={track} value={track}>

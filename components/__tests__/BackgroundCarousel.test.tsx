@@ -17,7 +17,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div data-testid="test-content">Test Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const content = container.querySelector('[data-testid="test-content"]');
@@ -29,7 +29,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel className="custom-class">
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const carousel = container.querySelector(".background-carousel");
@@ -40,7 +40,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -51,7 +51,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -64,7 +64,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -79,7 +79,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -102,7 +102,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -129,7 +129,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const gradient = container.querySelector(".background-carousel__gradient");
@@ -140,7 +140,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const vignette = container.querySelector(".background-carousel__vignette");
@@ -151,7 +151,7 @@ describe("BackgroundCarousel", () => {
     const { unmount } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const clearIntervalSpy = jest.spyOn(global, "clearInterval");
@@ -165,7 +165,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");
@@ -182,9 +182,7 @@ describe("BackgroundCarousel", () => {
 
     images.forEach((img, index) => {
       const element = img as HTMLElement;
-      expect(element.style.backgroundImage).toBe(
-        `url("${expectedImages[index]}")`,
-      );
+      expect(element.style.backgroundImage).toBe(`url("${expectedImages[index]}")`);
     });
   });
 
@@ -192,7 +190,7 @@ describe("BackgroundCarousel", () => {
     const { container } = render(
       <BackgroundCarousel>
         <div>Content</div>
-      </BackgroundCarousel>,
+      </BackgroundCarousel>
     );
 
     const images = container.querySelectorAll(".background-carousel__image");

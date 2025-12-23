@@ -42,11 +42,7 @@ export default function Countdown2() {
 
   return (
     <div className="row">
-      <div
-        className="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-duration={900}
-      >
+      <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={900}>
         <div className="time-box">
           <span id="days1" className="time-value">
             {timeParts.days}
@@ -54,11 +50,7 @@ export default function Countdown2() {
           </span>
         </div>
       </div>
-      <div
-        className="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-duration={1000}
-      >
+      <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
         <div className="time-box">
           <span id="hours1" className="time-value">
             {timeParts.hours}
@@ -66,11 +58,7 @@ export default function Countdown2() {
           </span>
         </div>
       </div>
-      <div
-        className="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-duration={1100}
-      >
+      <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1100}>
         <div className="time-box">
           <span id="minutes1" className="time-value">
             {timeParts.minutes}
@@ -78,11 +66,7 @@ export default function Countdown2() {
           </span>
         </div>
       </div>
-      <div
-        className="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-duration={1200}
-      >
+      <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
         <div className="time-box">
           <span id="seconds1" className="time-value">
             {timeParts.seconds}

@@ -5,11 +5,7 @@ export default function Section12() {
   return (
     <>
       <div className="others5-section-area sp7">
-        <img
-          src="/assets/img/elements/elements30.png"
-          alt=""
-          className="elements30"
-        />
+        <img src="/assets/img/elements/elements30.png" alt="" className="elements30" />
         <div className="container">
           <div className="row">
             <div className="col-lg-9 m-auto">

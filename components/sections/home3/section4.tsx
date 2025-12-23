@@ -72,22 +72,10 @@ export default function Section4() {
               <Swiper {...swiperOptions} className=" owl-carousel">
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img8.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img8.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -126,22 +114,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img9.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img9.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -180,22 +156,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img10.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img10.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -234,22 +198,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img11.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img11.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -288,22 +240,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img8.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img8.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -342,22 +282,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img9.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img9.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -396,22 +324,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img10.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img10.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -450,22 +366,10 @@ export default function Section4() {
                 </SwiperSlide>
                 <SwiperSlide className="our-team-boxarea">
                   <div className="team-widget-area">
-                    <img
-                      src="/assets/img/elements/elements21.png"
-                      alt=""
-                      className="elements21"
-                    />
-                    <img
-                      src="/assets/img/elements/elements22.png"
-                      alt=""
-                      className="elements22"
-                    />
+                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
+                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/team/team-img11.png"
-                        alt=""
-                        className="team-img4"
-                      />
+                      <img src="/assets/img/all-images/team/team-img11.png" alt="" className="team-img4" />
                       <div className="share">
                         <Link href="/#">
                           <img src="/assets/img/icons/share1.svg" alt="" />
@@ -505,18 +409,10 @@ export default function Section4() {
               </Swiper>
 
               <div className="owl-nav">
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-prev h1p"
-                >
+                <button type="button" role="presentation" className="owl-prev h1p">
                   <i className="fa-solid fa-angle-left" />
                 </button>
-                <button
-                  type="button"
-                  role="presentation"
-                  className="owl-next h1n"
-                >
+                <button type="button" role="presentation" className="owl-next h1n">
                   <i className="fa-solid fa-angle-right" />
                 </button>
               </div>

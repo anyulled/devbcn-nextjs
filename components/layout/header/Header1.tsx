@@ -2,32 +2,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Header1({
-  scroll,
-  isMobileMenu,
-  handleMobileMenu,
-  isSearch,
-  handleSearch,
-}: any) {
+export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
   return (
     <header>
-      <div
-        className={`header-area homepage1 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`}
-        id="header"
-      >
+      <div className={`header-area homepage1 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <Image
-                      src="/assets/img/logo/logo1.png"
-                      alt="Logo"
-                      width={150}
-                      height={40}
-                      style={{ width: "auto", height: "auto" }}
-                    />
+                    <Image src="/assets/img/logo/logo1.png" alt="Logo" width={150} height={40} style={{ width: "auto", height: "auto" }} />
                   </Link>
                 </div>
                 <div className="main-menu">
@@ -75,9 +60,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index2">
-                                    Eventify-Homepage 02
-                                  </Link>
+                                  <Link href="/index2">Eventify-Homepage 02</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
@@ -96,9 +79,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index3">
-                                    Eventify-Homepage 03
-                                  </Link>
+                                  <Link href="/index3">Eventify-Homepage 03</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
@@ -117,15 +98,10 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index4">
-                                    Eventify-Homepage 04
-                                  </Link>
+                                  <Link href="/index4">Eventify-Homepage 04</Link>
                                 </div>
                               </div>
-                              <div
-                                className="homemenu-thumb"
-                                style={{ margin: 0 }}
-                              >
+                              <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
                                   <Image
                                     src="/assets/img/all-images/demo/demo-img5.png"
@@ -141,9 +117,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index5">
-                                    Eventify-Homepage 05
-                                  </Link>
+                                  <Link href="/index5">Eventify-Homepage 05</Link>
                                 </div>
                               </div>
                             </div>
@@ -164,9 +138,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index6">
-                                    Eventify-Homepage 06
-                                  </Link>
+                                  <Link href="/index6">Eventify-Homepage 06</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
@@ -185,9 +157,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index7">
-                                    Eventify-Homepage 07
-                                  </Link>
+                                  <Link href="/index7">Eventify-Homepage 07</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
@@ -206,9 +176,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index8">
-                                    Eventify-Homepage 08
-                                  </Link>
+                                  <Link href="/index8">Eventify-Homepage 08</Link>
                                 </div>
                               </div>
                               <div className="homemenu-thumb">
@@ -227,15 +195,10 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index9">
-                                    Eventify-Homepage 09
-                                  </Link>
+                                  <Link href="/index9">Eventify-Homepage 09</Link>
                                 </div>
                               </div>
-                              <div
-                                className="homemenu-thumb"
-                                style={{ margin: 0 }}
-                              >
+                              <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
                                   <Image
                                     src="/assets/img/all-images/demo/demo-img10.png"
@@ -251,9 +214,7 @@ export default function Header1({
                                   </Link>
                                 </div>
                                 <div className="homemenu-text">
-                                  <Link href="/index10">
-                                    Eventify-Homepage 10
-                                  </Link>
+                                  <Link href="/index10">Eventify-Homepage 10</Link>
                                 </div>
                               </div>
                             </div>
@@ -328,17 +289,9 @@ export default function Header1({
                   </ul>
                 </div>
                 <div className="btn-area">
-                  <div
-                    className="search-icon header__search header-search-btn"
-                    onClick={handleSearch}
-                  >
+                  <div className="search-icon header__search header-search-btn" onClick={handleSearch}>
                     <a>
-                      <Image
-                        src="/assets/img/icons/search1.svg"
-                        alt=""
-                        width={20}
-                        height={20}
-                      />
+                      <Image src="/assets/img/icons/search1.svg" alt="" width={20} height={20} />
                     </a>
                   </div>
                   <ul>
@@ -364,37 +317,20 @@ export default function Header1({
                     </li>
                   </ul>
                 </div>
-                <div
-                  className={`header-search-form-wrapper ${isSearch ? "open" : ""}`}
-                >
-                  <div
-                    className="tx-search-close tx-close"
-                    onClick={handleSearch}
-                  >
+                <div className={`header-search-form-wrapper ${isSearch ? "open" : ""}`}>
+                  <div className="tx-search-close tx-close" onClick={handleSearch}>
                     <i className="fa-solid fa-xmark" />
                   </div>
                   <div className="header-search-container">
                     <form role="search" className="search-form">
-                      <input
-                        type="search"
-                        className="search-field"
-                        placeholder="Search …"
-                        name="s"
-                      />
+                      <input type="search" className="search-field" placeholder="Search …" name="s" />
                       <button type="submit" className="search-submit">
-                        <Image
-                          src="/assets/img/icons/search1.svg"
-                          alt=""
-                          width={20}
-                          height={20}
-                        />
+                        <Image src="/assets/img/icons/search1.svg" alt="" width={20} height={20} />
                       </button>
                     </form>
                   </div>
                 </div>
-                {isSearch && (
-                  <div className="body-overlay active" onClick={handleSearch} />
-                )}
+                {isSearch && <div className="body-overlay active" onClick={handleSearch} />}
               </div>
             </div>
           </div>

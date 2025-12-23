@@ -15,18 +15,14 @@ export default function Section2() {
             <div className="row">
               <div className="col-lg-7 col-12 m-auto">
                 <div className="timer-btn-area" id="timer-btn-area">
-                  <span
-                    className="close-icon"
-                    onClick={() => setIsVisible(false)}
-                  >
+                  <span className="close-icon" onClick={() => setIsVisible(false)}>
                     ✖
                   </span>
                   <Countdown style={3} />
                   <div className="btn-area1">
                     <Link className="vl-btn6" href="/pricing-plan">
                       <span className="demo">
-                        Buy A Ticket{" "}
-                        <img src="/assets/img/icons/arrow2.svg" alt="" />
+                        Buy A Ticket <img src="/assets/img/icons/arrow2.svg" alt="" />
                       </span>
                     </Link>
                   </div>

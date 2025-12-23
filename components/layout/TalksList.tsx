@@ -20,9 +20,7 @@ function TalksListContent({ talks, tracks, year }: TalksListProps) {
   // Filter talks if a track is selected
   const filteredTalks = selectedTrack
     ? talks.filter((talk) => {
-        const trackCategory = talk.categories.find(
-          (cat) => cat.name === "Track",
-        );
+        const trackCategory = talk.categories.find((cat) => cat.name === "Track");
         return trackCategory?.categoryItems[0]?.name === selectedTrack;
       })
     : talks;

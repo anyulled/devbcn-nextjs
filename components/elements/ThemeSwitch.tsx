@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function ThemeSwitch() {
-  const [togglETHeme, setTogglETHeme] = useState<string>(
-    () => (localStorage.getItem("togglETHeme") as string) || "light-theme",
-  );
+  const [togglETHeme, setTogglETHeme] = useState<string>(() => (localStorage.getItem("togglETHeme") as string) || "light-theme");
 
   useEffect(() => {
     localStorage.setItem("togglETHeme", JSON.stringify(togglETHeme));
@@ -14,32 +12,18 @@ export default function ThemeSwitch() {
   }, [togglETHeme]);
 
   const toggleTheme = () => {
-    setTogglETHeme((prevTheme) =>
-      prevTheme === "light-theme" ? "dark-theme" : "light-theme",
-    );
+    setTogglETHeme((prevTheme) => (prevTheme === "light-theme" ? "dark-theme" : "light-theme"));
   };
 
   return (
     <>
       <nav className="switcher__tab" onClick={toggleTheme}>
-        <span
-          className={`switcher__btn ${togglETHeme === "light-theme" ? "light-mode" : "dark-mode"}`}
-        >
-          {togglETHeme === "light-theme" ? (
-            <i className="flaticon-sun" />
-          ) : (
-            <i className="flaticon-moon" />
-          )}
+        <span className={`switcher__btn ${togglETHeme === "light-theme" ? "light-mode" : "dark-mode"}`}>
+          {togglETHeme === "light-theme" ? <i className="flaticon-sun" /> : <i className="flaticon-moon" />}
         </span>
         <span className="switcher__mode" />
-        <span
-          className={`switcher__btn ${togglETHeme === "light-theme" ? "dark-mode" : "light-mode"}`}
-        >
-          {togglETHeme === "light-theme" ? (
-            <i className="flaticon-moon" />
-          ) : (
-            <i className="flaticon-sun" />
-          )}
+        <span className={`switcher__btn ${togglETHeme === "light-theme" ? "dark-mode" : "light-mode"}`}>
+          {togglETHeme === "light-theme" ? <i className="flaticon-moon" /> : <i className="flaticon-sun" />}
         </span>
       </nav>
     </>

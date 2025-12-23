@@ -15,24 +15,12 @@ export default function Section4() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={900}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={900}>
               <div className="our-team-boxarea">
                 <div className="team-widget-area">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/team/team-img4.png"
-                      alt=""
-                      className="team-img4"
-                    />
-                    <img
-                      src="/assets/img/elements/elements16.png"
-                      alt=""
-                      className="team-img8"
-                    />
+                    <img src="/assets/img/all-images/team/team-img4.png" alt="" className="team-img4" />
+                    <img src="/assets/img/elements/elements16.png" alt="" className="team-img8" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -60,24 +48,12 @@ export default function Section4() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="our-team-boxarea">
                 <div className="team-widget-area">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/team/team-img5.png"
-                      alt=""
-                      className="team-img4"
-                    />
-                    <img
-                      src="/assets/img/elements/elements16.png"
-                      alt=""
-                      className="team-img8"
-                    />
+                    <img src="/assets/img/all-images/team/team-img5.png" alt="" className="team-img4" />
+                    <img src="/assets/img/elements/elements16.png" alt="" className="team-img8" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -105,24 +81,12 @@ export default function Section4() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1100}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1100}>
               <div className="our-team-boxarea">
                 <div className="team-widget-area">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/team/team-img6.png"
-                      alt=""
-                      className="team-img4"
-                    />
-                    <img
-                      src="/assets/img/elements/elements16.png"
-                      alt=""
-                      className="team-img8"
-                    />
+                    <img src="/assets/img/all-images/team/team-img6.png" alt="" className="team-img4" />
+                    <img src="/assets/img/elements/elements16.png" alt="" className="team-img8" />
                     <ul>
                       <li>
                         <Link href="/#">
@@ -150,24 +114,12 @@ export default function Section4() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6"
-              data-aos="zoom-in"
-              data-aos-duration={1200}
-            >
+            <div className="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-duration={1200}>
               <div className="our-team-boxarea">
                 <div className="team-widget-area">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/team/team-img7.png"
-                      alt=""
-                      className="team-img4"
-                    />
-                    <img
-                      src="/assets/img/elements/elements16.png"
-                      alt=""
-                      className="team-img8"
-                    />
+                    <img src="/assets/img/all-images/team/team-img7.png" alt="" className="team-img4" />
+                    <img src="/assets/img/elements/elements16.png" alt="" className="team-img8" />
                     <ul>
                       <li>
                         <Link href="/#">

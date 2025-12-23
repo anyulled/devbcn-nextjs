@@ -19,19 +19,14 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                   <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
                 </Link>
               </div>
-              <div
-                className="mobile-nav-icon dots-menu"
-                onClick={handleMobileMenu}
-              >
+              <div className="mobile-nav-icon dots-menu" onClick={handleMobileMenu}>
                 <i className="fa-solid fa-bars-staggered" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? "mobile-menu-active" : ""}`}
-      >
+      <div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? "mobile-menu-active" : ""}`}>
         <div className="logosicon-area">
           <div className="logos">
             <img src="/assets/img/logo/logo.png" alt="DevBcn" width={100} />
@@ -90,10 +85,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
           </ul>
 
           <div className="allmobilesection">
-            <Link
-              href="https://tickets.devbcn.com/event/devbcn-2026"
-              className="vl-btn1"
-            >
+            <Link href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn1">
               Reserve your spot
             </Link>
             <div className="single-footer">
@@ -118,11 +110,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                       </span>
                     </div>
                     <div className="contact-info-text">
-                      <a
-                        href="https://wtcbarcelona.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://wtcbarcelona.com" target="_blank" rel="noopener noreferrer">
                         World Trade Center, Barcelona
                       </a>
                     </div>
@@ -133,38 +121,22 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                   <div className="social-links-mobile-menu">
                     <ul>
                       <li>
-                        <Link
-                          href="https://twitter.com/dev_bcn"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <Link href="https://twitter.com/dev_bcn" target="_blank" rel="noopener noreferrer">
                           <i className="fa-brands fa-twitter" />
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          href="https://www.instagram.com/devbcn.conf/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <Link href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                           <i className="fa-brands fa-instagram" />
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          href="	https://www.linkedin.com/company/devbcn/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <Link href="	https://www.linkedin.com/company/devbcn/" target="_blank" rel="noopener noreferrer">
                           <i className="fa-brands fa-linkedin-in" />
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          href="https://bsky.app/profile/devbcn.bsky.social"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <Link href="https://bsky.app/profile/devbcn.bsky.social" target="_blank" rel="noopener noreferrer">
                           <i className="fa-brands fa-bluesky" />
                         </Link>
                       </li>

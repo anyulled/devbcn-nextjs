@@ -21,11 +21,7 @@ export default function Section5() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-12"
-              data-aos="fade-up"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-12" data-aos="fade-up" data-aos-duration={1000}>
               <div className="tabs-button space-margin60">
                 <ul className="nav nav-pills" id="pills-tab" role="tablist">
                   <li className="nav-item" onClick={() => handleTab(1)}>
@@ -70,9 +66,7 @@ export default function Section5() {
                   </li>
                   <li className="nav-item" onClick={() => handleTab(3)}>
                     <button
-                      className={
-                        isTab == 3 ? "nav-link m-0 active" : "nav-link m-0"
-                      }
+                      className={isTab == 3 ? "nav-link m-0 active" : "nav-link m-0"}
                       id="pills-contact-tab"
                       data-bs-toggle="pill"
                       data-bs-target="#pills-contact"
@@ -94,9 +88,7 @@ export default function Section5() {
               </div>
               <div className="tab-content" id="pills-tabContent">
                 <div
-                  className={
-                    isTab == 1 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 1 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-home"
                   role="tabpanel"
                   aria-labelledby="pills-home-tab"
@@ -110,10 +102,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img1.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -121,19 +110,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -146,15 +129,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -167,15 +145,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -183,13 +156,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -209,10 +177,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img3.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -220,19 +185,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -245,15 +204,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -266,15 +220,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -282,13 +231,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -308,10 +252,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img2.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -319,19 +260,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -344,15 +279,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -365,15 +295,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -381,13 +306,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -402,9 +322,7 @@ export default function Section5() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 2 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 2 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-profile"
                   role="tabpanel"
                   aria-labelledby="pills-profile-tab"
@@ -418,10 +336,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img1.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -429,19 +344,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -454,15 +363,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -475,15 +379,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -491,13 +390,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -517,10 +411,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img3.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -528,19 +419,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -553,15 +438,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -574,15 +454,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -590,13 +465,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -616,10 +486,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img2.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -627,19 +494,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -652,15 +513,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -673,15 +529,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -689,13 +540,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -710,9 +556,7 @@ export default function Section5() {
                   </div>
                 </div>
                 <div
-                  className={
-                    isTab == 3 ? "tab-pane fade show active" : "tab-pane fade"
-                  }
+                  className={isTab == 3 ? "tab-pane fade show active" : "tab-pane fade"}
                   id="pills-contact"
                   role="tabpanel"
                   aria-labelledby="pills-contact-tab"
@@ -726,10 +570,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img1.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img1.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -737,19 +578,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -762,15 +597,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -783,15 +613,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -799,13 +624,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -825,10 +645,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img3.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img3.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -836,19 +653,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -861,15 +672,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -882,15 +688,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -898,13 +699,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>
@@ -924,10 +720,7 @@ export default function Section5() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img2.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img2.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-7">
@@ -935,19 +728,13 @@ export default function Section5() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -960,15 +747,10 @@ export default function Section5() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -981,15 +763,10 @@ export default function Section5() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -997,13 +774,8 @@ export default function Section5() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn2"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn2">
+                                    <span className="demo">purchase ticket now</span>
                                     <span className="arrow">
                                       <i className="fa-solid fa-arrow-right" />
                                     </span>

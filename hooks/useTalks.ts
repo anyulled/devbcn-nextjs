@@ -10,9 +10,7 @@ const getSessionsUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Sessions`;
 };
 
-export const getTalks = async (
-  year: string | number = "default",
-): Promise<SessionGroup[]> => {
+export const getTalks = async (year: string | number = "default"): Promise<SessionGroup[]> => {
   const url = getSessionsUrl(year);
   const response = await fetch(url);
   if (!response.ok) {
@@ -22,10 +20,7 @@ export const getTalks = async (
   return data;
 };
 
-export const getTalkByYearAndId = async (
-  year: string | number,
-  talkId: string,
-): Promise<Talk | undefined> => {
+export const getTalkByYearAndId = async (year: string | number, talkId: string): Promise<Talk | undefined> => {
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
   return allTalks.find((talk) => talk.id === talkId);
@@ -68,9 +63,7 @@ export const getLevelStars = (level: string): string => {
  * Extract tags from a talk's questionAnswers
  */
 export const getTagsFromTalk = (talk: Talk): string[] => {
-  const tagsAnswer = talk.questionAnswers.find(
-    (qa) => qa.question === "Tags/Topics",
-  );
+  const tagsAnswer = talk.questionAnswers.find((qa) => qa.question === "Tags/Topics");
   if (!tagsAnswer?.answer) {
     return [];
   }
@@ -107,10 +100,7 @@ export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
 /**
  * Get full speaker details (with profile pictures) for a talk's speakers
  */
-export const getTalkSpeakersWithDetails = async (
-  year: string | number,
-  speakerIds: string[],
-): Promise<Speaker[]> => {
+export const getTalkSpeakersWithDetails = async (year: string | number, speakerIds: string[]): Promise<Speaker[]> => {
   const speakers = await getSpeakers(year);
   return speakers.filter((s) => speakerIds.includes(s.id));
 };
@@ -130,16 +120,9 @@ const shuffleArray = <T>(array: T[]): T[] => {
 /**
  * Get random related talks from the same track (excluding current talk)
  */
-export const getRandomRelatedTalksByTrack = async (
-  year: string | number,
-  track: string,
-  excludeTalkId: string,
-  limit: number = 3,
-): Promise<Talk[]> => {
+export const getRandomRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 3): Promise<Talk[]> => {
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((g) => g.sessions);
-  const sameTracks = allTalks.filter(
-    (t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId,
-  );
+  const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
   return shuffleArray(sameTracks).slice(0, limit);
 };

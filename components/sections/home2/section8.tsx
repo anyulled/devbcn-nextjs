@@ -15,11 +15,7 @@ export default function Section8() {
             </div>
           </div>
           <div className="row align-items-center">
-            <div
-              className="col-lg-7"
-              data-aos="zoom-in"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-7" data-aos="zoom-in" data-aos-duration={1000}>
               <div className="mapouter">
                 <div className="gmap_canvas">
                   <iframe
@@ -35,11 +31,7 @@ export default function Section8() {
               </div>
             </div>
             <div className="col-lg-5">
-              <div
-                className="contact-boxs-area"
-                data-aos="zoom-in"
-                data-aos-duration={1000}
-              >
+              <div className="contact-boxs-area" data-aos="zoom-in" data-aos-duration={1000}>
                 <div className="contact-auhtor-box">
                   <div className="icons">
                     <img src="/assets/img/icons/mail2.svg" alt="" />
@@ -47,9 +39,7 @@ export default function Section8() {
                   <div className="text">
                     <h4>Our Email</h4>
                     <div className="space14" />
-                    <Link href="/mailto:eventify@gmail.com">
-                      eventify@gmail.com
-                    </Link>
+                    <Link href="/mailto:eventify@gmail.com">eventify@gmail.com</Link>
                   </div>
                 </div>
                 <div className="space30" />

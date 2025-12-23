@@ -15,11 +15,7 @@ export default function Section4() {
             </div>
           </div>
           <div className="row">
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-right"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-right" data-aos-duration={1000}>
               <div className="pricing-boarea">
                 <h3>One Day Festival Pass</h3>
                 <div className="space16" />
@@ -59,11 +55,7 @@ export default function Section4() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-right"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-right" data-aos-duration={1000}>
               <div className="pricing-boarea box2">
                 <h3>Full Festival Pass</h3>
                 <div className="space16" />
@@ -103,11 +95,7 @@ export default function Section4() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-right"
-              data-aos-duration={1000}
-            >
+            <div className="col-lg-4 col-md-6" data-aos="fade-right" data-aos-duration={1000}>
               <div className="pricing-boarea">
                 <h3>Couple Pass</h3>
                 <div className="space16" />

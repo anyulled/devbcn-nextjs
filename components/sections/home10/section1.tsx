@@ -28,24 +28,21 @@ export default function Section1() {
                 </h1>
                 <div className="space32" />
                 <p>
-                  Explore cutting-edge innovations, network{" "}
-                  <br className="d-lg-block d-none" />
+                  Explore cutting-edge innovations, network <br className="d-lg-block d-none" />
                   with industry leaders and gain insight.
                 </p>
                 <div className="space16" />
                 <ul>
                   <li>
                     <Link href="/#">
-                      <img src="/assets/img/icons/calender1.svg" alt="" /> 15th,
-                      16th, &amp; 17th January “2025”
+                      <img src="/assets/img/icons/calender1.svg" alt="" /> 15th, 16th, &amp; 17th January “2025”
                     </Link>
                   </li>
                 </ul>
                 <div className="space32" />
                 <div className="btn-area1">
                   <Link href="/contact" className="vl-btn10">
-                    Register now{" "}
-                    <img src="/assets/img/icons/arrow2.svg" alt="" />
+                    Register now <img src="/assets/img/icons/arrow2.svg" alt="" />
                   </Link>
                 </div>
                 <div className="arrow-btn">
@@ -61,34 +58,18 @@ export default function Section1() {
             <div className="col-lg-5">
               <div className="hero10-images">
                 <div className="img1">
-                  <img
-                    src="/assets/img/all-images/hero/hero-img12.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/hero/hero-img12.png" alt="" />
                 </div>
                 <div className="img2">
-                  <img
-                    src="/assets/img/all-images/hero/hero-img13.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/hero/hero-img13.png" alt="" />
                 </div>
                 <div className="img3">
-                  <img
-                    src="/assets/img/all-images/hero/hero-img14.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/hero/hero-img14.png" alt="" />
                 </div>
                 <div className="img4">
-                  <img
-                    src="/assets/img/all-images/hero/hero-img15.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/hero/hero-img15.png" alt="" />
                 </div>
-                <img
-                  src="/assets/img/elements/elements38.png"
-                  alt=""
-                  className="elements38 keyframe5"
-                />
+                <img src="/assets/img/elements/elements38.png" alt="" className="elements38 keyframe5" />
               </div>
             </div>
           </div>

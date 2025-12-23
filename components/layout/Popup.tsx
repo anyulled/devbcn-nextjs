@@ -6,12 +6,8 @@ export default function Popup() {
   useEffect(() => {
     // Ensure the elements are properly typed, and add event listeners in useEffect
     const popup = document.getElementById("popup") as HTMLElement | null;
-    const closeBtn = document.getElementById(
-      "close-popup",
-    ) as HTMLElement | null;
-    const noThanksBtn = document.querySelector(
-      ".no-thanks",
-    ) as HTMLElement | null;
+    const closeBtn = document.getElementById("close-popup") as HTMLElement | null;
+    const noThanksBtn = document.querySelector(".no-thanks") as HTMLElement | null;
 
     // Display the popup after a short delay
     if (popup) {
@@ -69,8 +65,7 @@ export default function Popup() {
                 Elevate User Experience Expertise
               </li>
               <li>
-                <img src="/assets/img/icons/check3.svg" alt="" /> Elevate Your
-                UI/UX Skills Designer
+                <img src="/assets/img/icons/check3.svg" alt="" /> Elevate Your UI/UX Skills Designer
               </li>
               <li>
                 <img src="/assets/img/icons/check3.svg" alt="" />

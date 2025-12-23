@@ -9,9 +9,7 @@ const getSpeakersUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Speakers`;
 };
 
-export const getSpeakers = async (
-  year: string | number = "default",
-): Promise<Speaker[]> => {
+export const getSpeakers = async (year: string | number = "default"): Promise<Speaker[]> => {
   const url = getSpeakersUrl(year);
 
   const response = await fetch(url);
@@ -22,10 +20,7 @@ export const getSpeakers = async (
   return speakers;
 };
 
-export const getSpeakerByYearAndId = async (
-  year: string | number,
-  speakerId: string,
-): Promise<Speaker | undefined> => {
+export const getSpeakerByYearAndId = async (year: string | number, speakerId: string): Promise<Speaker | undefined> => {
   const speakers = await getSpeakers(year);
   return speakers.find((speaker) => speaker.id === speakerId);
 };

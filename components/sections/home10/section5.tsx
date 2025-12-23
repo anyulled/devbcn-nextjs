@@ -21,10 +21,7 @@ export default function Section5() {
             <div className="col-lg-4">
               <div className="team10-widget-boxarea">
                 <div className="img1 image-anime">
-                  <img
-                    src="/assets/img/all-images/team/team-img38.png"
-                    alt=""
-                  />
+                  <img src="/assets/img/all-images/team/team-img38.png" alt="" />
                 </div>
                 <div className="text-area">
                   <Link href="/speakers-single">Alex Carter</Link>
@@ -39,10 +36,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img39.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img39.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">Autumn Phillips</Link>
@@ -54,10 +48,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img40.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img40.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">James Hall</Link>
@@ -69,10 +60,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img41.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img41.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">Alex Buckmaster</Link>
@@ -84,10 +72,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img42.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img42.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">Jerry Helfer</Link>
@@ -99,10 +84,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img43.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img43.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">Dennis Callis</Link>
@@ -114,10 +96,7 @@ export default function Section5() {
                 <div className="col-lg-4 col-md-6">
                   <div className="team10-widget-boxarea2">
                     <div className="img1 image-anime">
-                      <img
-                        src="/assets/img/all-images/team/team-img44.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/team/team-img44.png" alt="" />
                     </div>
                     <div className="text-area">
                       <Link href="/speakers-single">Chris Glasser</Link>

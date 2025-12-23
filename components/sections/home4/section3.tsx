@@ -11,10 +11,7 @@ export default function Section3() {
                 <div className="row">
                   <div className="col-lg-6 col-md-6">
                     <div className="img1 image-anime reveal">
-                      <img
-                        src="/assets/img/all-images/about/about-img11.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/about/about-img11.png" alt="" />
                     </div>
                     <div className="space30" />
                     <div className="content-box">
@@ -41,17 +38,11 @@ export default function Section3() {
                   <div className="col-lg-6 col-md-6">
                     <div className="space44" />
                     <div className="img1 image-anime reveal">
-                      <img
-                        src="/assets/img/all-images/about/about-img12.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/about/about-img12.png" alt="" />
                     </div>
                     <div className="space30" />
                     <div className="img1 image-anime reveal">
-                      <img
-                        src="/assets/img/all-images/about/about-img13.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/about/about-img13.png" alt="" />
                     </div>
                   </div>
                 </div>
@@ -63,14 +54,10 @@ export default function Section3() {
                   about our business conferences
                 </h5>
                 <div className="space18" />
-                <h2 className="text-anime-style-3">
-                  Innovating for Tomorrow Insights for Business
-                </h2>
+                <h2 className="text-anime-style-3">Innovating for Tomorrow Insights for Business</h2>
                 <div className="space16" />
                 <p data-aos="fade-left" data-aos-duration={900}>
-                  Perfectly captures the essence of what this blog aims to
-                  deliver. In a rapidly evolving business landscape, leaders
-                  must stay.
+                  Perfectly captures the essence of what this blog aims to deliver. In a rapidly evolving business landscape, leaders must stay.
                 </p>
                 <div className="space10" />
                 <ul data-aos="fade-left" data-aos-duration={1000}>
@@ -87,16 +74,11 @@ export default function Section3() {
                     Law School and Civil Rights Attorney
                   </li>
                   <li>
-                    <img src="/assets/img/icons/check1.svg" alt="" /> Majored in
-                    Political Science
+                    <img src="/assets/img/icons/check1.svg" alt="" /> Majored in Political Science
                   </li>
                 </ul>
                 <div className="space32" />
-                <div
-                  className="btn-area1"
-                  data-aos="fade-left"
-                  data-aos-duration={1200}
-                >
+                <div className="btn-area1" data-aos="fade-left" data-aos-duration={1200}>
                   <Link href="/event-schedule" className="vl-btn4">
                     Reserve My Seat
                   </Link>

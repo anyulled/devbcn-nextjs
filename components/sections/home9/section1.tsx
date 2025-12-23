@@ -54,8 +54,7 @@ export default function Section1() {
                       <h3>30 January 2025</h3>
                       <div className="space16" />
                       <p>
-                        <img src="/assets/img/icons/location1.svg" alt="" />{" "}
-                        Secret Location In The UK
+                        <img src="/assets/img/icons/location1.svg" alt="" /> Secret Location In The UK
                       </p>
                     </div>
                   </div>

@@ -22,9 +22,8 @@ export default function Section10() {
                       <h2>Are you want to join our events?</h2>
                       <div className="space16" />
                       <p>
-                        It is a long established fact that a reader will be
-                        distracted by the <br className="d-lg-block d-none" />{" "}
-                        readable content of a page when looking at its layout.
+                        It is a long established fact that a reader will be distracted by the <br className="d-lg-block d-none" /> readable content of a page
+                        when looking at its layout.
                       </p>
                       <div className="space32" />
                       <div className="btn-area1">

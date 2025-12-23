@@ -5,10 +5,7 @@ export default function Travel() {
   return (
     <div>
       {/* Header Section */}
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg8.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg8.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto">
@@ -16,8 +13,7 @@ export default function Travel() {
                 <h1>Travel to Barcelona</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Travel</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>Travel</span>
                 </Link>
               </div>
             </div>
@@ -37,9 +33,7 @@ export default function Travel() {
                 <p>
                   <strong>World Trade Center, Barcelona</strong>
                 </p>
-                <p>
-                  1ª planta Edif. Este, Moll de Barcelona, s/n, 08039 Barcelona
-                </p>
+                <p>1ª planta Edif. Este, Moll de Barcelona, s/n, 08039 Barcelona</p>
 
                 <div className="space40" />
                 <div className="img1">
@@ -73,18 +67,11 @@ export default function Travel() {
                 <h4>Access by Car</h4>
                 <div className="space16" />
                 <p>
-                  🚙 Access by <strong>car:</strong> via C-31 & B-10 (14 minutes
-                  from the Airport)
+                  🚙 Access by <strong>car:</strong> via C-31 & B-10 (14 minutes from the Airport)
                 </p>
                 <p>
-                  The World Trade Center Barcelona offers paid parking
-                  facilities. For detailed parking information and rates, please
-                  visit the{" "}
-                  <Link
-                    href="https://www.wtcbarcelona.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  The World Trade Center Barcelona offers paid parking facilities. For detailed parking information and rates, please visit the{" "}
+                  <Link href="https://www.wtcbarcelona.com/" target="_blank" rel="noreferrer">
                     <strong>World Trade Center Barcelona website</strong>
                   </Link>
                   .
@@ -95,8 +82,7 @@ export default function Travel() {
                 <div className="space16" />
                 <ul>
                   <li>
-                    <strong>🚇 Metro:</strong> Líneas L3: Parada Drassanes,
-                    Línea L2: Parada Paral·lel
+                    <strong>🚇 Metro:</strong> Líneas L3: Parada Drassanes, Línea L2: Parada Paral·lel
                   </li>
                   <li>
                     <strong>🚍 Bus:</strong> Línea V11, parada Moll de Barcelona

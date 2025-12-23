@@ -121,13 +121,11 @@ describe("Edition Configuration", () => {
 
   describe("Edition Config Properties", () => {
     it("2025 edition has correct sessionize URL", () => {
-      expect(edition2025.sessionizeUrl).toBe(
-        "https://sessionize.com/api/v2/xhudniix",
-      );
+      expect(edition2025.sessionizeUrl).toBe("https://sessionize.com/api/v2/xhudniix");
     });
 
-    it("2026 edition has empty sessionize URL (not yet configured)", () => {
-      expect(edition2026.sessionizeUrl).toBe("");
+    it("2026 edition has sessionize URL configured", () => {
+      expect(edition2026.sessionizeUrl).toBe("https://sessionize.com/api/v2/prcjw6ue/");
     });
 
     it("all editions have required social links", () => {

@@ -7,11 +7,7 @@ import Footer8 from "@/components/layout/footer/Footer8";
 import BackToTop from "@/components/elements/BackToTop";
 import AddClassBody from "../elements/AddClassBody";
 
-export default function ClientLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [scroll, setScroll] = useState<boolean>(false);
   // Mobile Menu
   const [isMobileMenu, setIsMobileMenu] = useState<boolean>(false);
@@ -38,17 +34,8 @@ export default function ClientLayout({
     <>
       <div id="top" />
       <AddClassBody />
-      <Header8
-        scroll={scroll}
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-        isSearch={isSearch}
-        handleSearch={handleSearch}
-      />
-      <MobileMenu
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-      />
+      <Header8 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
+      <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
       {children}
       <Footer8 />
       <BackToTop target="#top" />

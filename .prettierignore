@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+.next
+out
+dist
+build
+coverage
+
+# Cache
+.cache
+.turbo
+.swc
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# Public assets (images, fonts, etc.)
+public/assets/img
+public/assets/fonts
+public/assets/scss
+
+# Test snapshots
+**/__snapshots__
+
+# Config files that shouldn't be formatted
+tsconfig.tsbuildinfo

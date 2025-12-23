@@ -6,10 +6,7 @@ export default function Event() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg8.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg8.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -17,8 +14,7 @@ export default function Event() {
                     <h1>Event List</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Event List</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Event List</span>
                     </Link>
                   </div>
                 </div>
@@ -46,10 +42,7 @@ export default function Event() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img4.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img4.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-1" />
@@ -58,19 +51,13 @@ export default function Event() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -83,15 +70,10 @@ export default function Event() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers-single">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -104,15 +86,10 @@ export default function Event() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers-single">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -120,13 +97,8 @@ export default function Event() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn1"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket Now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn1">
+                                    <span className="demo">purchase ticket Now</span>
                                   </Link>
                                 </div>
                               </div>
@@ -146,19 +118,13 @@ export default function Event() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -171,15 +137,10 @@ export default function Event() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers-single">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -192,15 +153,10 @@ export default function Event() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers-single">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -208,13 +164,8 @@ export default function Event() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn1"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket Now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn1">
+                                    <span className="demo">purchase ticket Now</span>
                                   </Link>
                                 </div>
                               </div>
@@ -222,10 +173,7 @@ export default function Event() {
                             </div>
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img5.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img5.png" alt="" />
                               </div>
                             </div>
                           </div>
@@ -240,10 +188,7 @@ export default function Event() {
                           <div className="row align-items-center">
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img
-                                  src="/assets/img/all-images/event/event-img6.png"
-                                  alt=""
-                                />
+                                <img src="/assets/img/all-images/event/event-img6.png" alt="" />
                               </div>
                             </div>
                             <div className="col-lg-1" />
@@ -252,19 +197,13 @@ export default function Event() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/clock1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/clock1.svg" alt="" />
                                       10.00 AM -12.00 PM <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img
-                                        src="/assets/img/icons/location1.svg"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/icons/location1.svg" alt="" />
                                       26/C Asana, New York{" "}
                                     </Link>
                                   </li>
@@ -277,15 +216,10 @@ export default function Event() {
                                 <div className="author-area">
                                   <div className="autho-name-area">
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img1.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img1.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alex Roberton
-                                      </Link>
+                                      <Link href="/speakers-single">Alex Roberton</Link>
                                       <div className="space8" />
                                       <p>UI/UX Designer</p>
                                     </div>
@@ -298,15 +232,10 @@ export default function Event() {
                                     }}
                                   >
                                     <div className="img1">
-                                      <img
-                                        src="/assets/img/all-images/testimonials/testimonial-img2.png"
-                                        alt=""
-                                      />
+                                      <img src="/assets/img/all-images/testimonials/testimonial-img2.png" alt="" />
                                     </div>
                                     <div className="text">
-                                      <Link href="/speakers-single">
-                                        Alexys Archer
-                                      </Link>
+                                      <Link href="/speakers-single">Alexys Archer</Link>
                                       <div className="space8" />
                                       <p>WP Developer</p>
                                     </div>
@@ -314,13 +243,8 @@ export default function Event() {
                                 </div>
                                 <div className="space24" />
                                 <div className="btn-area1">
-                                  <Link
-                                    href="/pricing-plan"
-                                    className="vl-btn1"
-                                  >
-                                    <span className="demo">
-                                      purchase ticket Now
-                                    </span>
+                                  <Link href="/pricing-plan" className="vl-btn1">
+                                    <span className="demo">purchase ticket Now</span>
                                   </Link>
                                 </div>
                               </div>
@@ -335,11 +259,7 @@ export default function Event() {
                     <nav aria-label="Page navigation example">
                       <ul className="pagination">
                         <li className="page-item">
-                          <Link
-                            className="page-link"
-                            href="/#"
-                            aria-label="Previous"
-                          >
+                          <Link className="page-link" href="/#" aria-label="Previous">
                             <i className="fa-solid fa-angle-left" />
                           </Link>
                         </li>
@@ -364,11 +284,7 @@ export default function Event() {
                           </Link>
                         </li>
                         <li className="page-item">
-                          <Link
-                            className="page-link"
-                            href="/#"
-                            aria-label="Next"
-                          >
+                          <Link className="page-link" href="/#" aria-label="Next">
                             <i className="fa-solid fa-angle-right" />
                           </Link>
                         </li>

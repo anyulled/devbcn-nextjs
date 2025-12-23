@@ -5,16 +5,8 @@ export default function Section1() {
   return (
     <>
       <div className="hero3-section-area">
-        <img
-          src="/assets/img/elements/elements18.png"
-          alt=""
-          className="elements18"
-        />
-        <img
-          src="/assets/img/elements/elements9.png"
-          alt=""
-          className="elements9"
-        />
+        <img src="/assets/img/elements/elements18.png" alt="" className="elements18" />
+        <img src="/assets/img/elements/elements9.png" alt="" className="elements9" />
         <div className="container">
           <div className="row">
             <div className="col-lg-8 m-auto">
@@ -27,8 +19,7 @@ export default function Section1() {
                 <h1 className="text-anime-style-3">Yearly designer</h1>
                 <div className="space24" />
                 <h1 className="text-anime-style-3">
-                  <span className="conferences">Conferences</span> ‘
-                  <span>25</span>
+                  <span className="conferences">Conferences</span> ‘<span>25</span>
                 </h1>
                 <div className="space40" />
                 <div className="btn-area1">
@@ -44,11 +35,7 @@ export default function Section1() {
                     <div className="content">
                       <CircleText text="Build Success Brand." />
                     </div>
-                    <img
-                      src="/assets/img/icons/arrow1.svg"
-                      alt=""
-                      className="arrow1"
-                    />
+                    <img src="/assets/img/icons/arrow1.svg" alt="" className="arrow1" />
                   </Link>
                 </div>
                 <div className="date-btn aniamtion-key-1">

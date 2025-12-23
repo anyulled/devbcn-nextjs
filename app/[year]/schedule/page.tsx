@@ -3,10 +3,7 @@ import Link from "next/link";
 export default function Schedule() {
   return (
     <div>
-      <div
-        className="inner-page-header"
-        style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}
-      >
+      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-5 m-auto">
@@ -14,8 +11,7 @@ export default function Schedule() {
                 <h1>Schedule</h1>
                 <div className="space20" />
                 <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                  <span>Schedule</span>
+                  Home <i className="fa-solid fa-angle-right" /> <span>Schedule</span>
                 </Link>
               </div>
             </div>

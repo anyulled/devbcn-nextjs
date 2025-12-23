@@ -30,42 +30,22 @@ export default function Footer8() {
               <div className="space24" />
               <ul>
                 <li>
-                  <a
-                    href="https://twitter.com/dev_bcn"
-                    className="m-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://twitter.com/dev_bcn" className="m-0" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-twitter"></i>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.instagram.com/devbcn.conf/"
-                    className="m-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://www.instagram.com/devbcn.conf/" className="m-0" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-instagram"></i>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.linkedin.com/company/devbcn/"
-                    className="m-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://www.linkedin.com/company/devbcn/" className="m-0" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-linkedin-in"></i>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://bsky.app/profile/devbcn.bsky.social"
-                    className="m-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://bsky.app/profile/devbcn.bsky.social" className="m-0" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-bluesky"></i>
                   </a>
                 </li>
@@ -111,11 +91,7 @@ export default function Footer8() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://devbcn.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://devbcn.com" target="_blank" rel="noopener noreferrer">
                     <img src="/assets/img/icons/world1.svg" alt="" />
                     devbcn.com
                   </Link>
@@ -130,16 +106,9 @@ export default function Footer8() {
               <div className="row">
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img7.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img7.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -147,16 +116,9 @@ export default function Footer8() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img8.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img8.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -164,16 +126,9 @@ export default function Footer8() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img9.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img9.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -181,16 +136,9 @@ export default function Footer8() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img10.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img10.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -198,16 +146,9 @@ export default function Footer8() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img11.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img11.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -215,16 +156,9 @@ export default function Footer8() {
                 </div>
                 <div className="col-lg-4 col-md-4 col-4">
                   <div className="img1">
-                    <img
-                      src="/assets/img/all-images/footer/footer-img12.png"
-                      alt=""
-                    />
+                    <img src="/assets/img/all-images/footer/footer-img12.png" alt="" />
                     <div className="icons">
-                      <a
-                        href="https://www.instagram.com/devbcn.conf/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -238,10 +172,7 @@ export default function Footer8() {
         <div className="row">
           <div className="col-lg-12">
             <div className="copyright">
-              <p>
-                © Copyright {new Date().getFullYear()} - DevBcn. All Right
-                Reserved
-              </p>
+              <p>© Copyright {new Date().getFullYear()} - DevBcn. All Right Reserved</p>
             </div>
           </div>
         </div>

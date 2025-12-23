@@ -11,9 +11,7 @@ export default function Section2() {
                 <div className="row align-items-center">
                   <div className="col-lg-4">
                     <div className="heading-area">
-                      <h4 className="text-anime-style-3">
-                        Yearly Business Conferences “25”
-                      </h4>
+                      <h4 className="text-anime-style-3">Yearly Business Conferences “25”</h4>
                       <div className="space20 d-lg-none d-block" />
                     </div>
                   </div>

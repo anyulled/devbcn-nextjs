@@ -19,14 +19,9 @@ export default function Section7() {
           <div className="row">
             <div className="col-lg-12">
               <div className="space60" />
-              <div
-                className="btn-area1 text-center"
-                data-aos="fade-left"
-                data-aos-duration={1200}
-              >
+              <div className="btn-area1 text-center" data-aos="fade-left" data-aos-duration={1200}>
                 <Link href="/pricing-plan" className="vl-btn10">
-                  purchase Ticket Now{" "}
-                  <img src="/assets/img/icons/arrow2.svg" alt="" />
+                  purchase Ticket Now <img src="/assets/img/icons/arrow2.svg" alt="" />
                 </Link>
               </div>
             </div>

@@ -6,10 +6,7 @@ export default function Memories() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div
-            className="inner-page-header"
-            style={{ backgroundImage: "url(assets/img/bg/header-bg11.png)" }}
-          >
+          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg11.png)" }}>
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 m-auto">
@@ -17,8 +14,7 @@ export default function Memories() {
                     <h1>Recent Memories</h1>
                     <div className="space20" />
                     <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" />{" "}
-                      <span>Recent Memories</span>
+                      Home <i className="fa-solid fa-angle-right" /> <span>Recent Memories</span>
                     </Link>
                   </div>
                 </div>
@@ -33,10 +29,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img4.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img4.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -53,10 +46,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img5.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img5.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -73,10 +63,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img6.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img6.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -93,10 +80,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img7.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img7.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -113,10 +97,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img8.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img8.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -133,10 +114,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img9.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img9.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -153,10 +131,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img10.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img10.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -173,10 +148,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img11.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img11.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -193,10 +165,7 @@ export default function Memories() {
                 <div className="col-lg-4 col-md-6">
                   <div className="memory3-boxarea">
                     <div className="img1">
-                      <img
-                        src="/assets/img/all-images/memory/memory-img12.png"
-                        alt=""
-                      />
+                      <img src="/assets/img/all-images/memory/memory-img12.png" alt="" />
                     </div>
                     <div className="content-area">
                       <p>Event 2024</p>
@@ -215,11 +184,7 @@ export default function Memories() {
                   <nav aria-label="Page navigation example">
                     <ul className="pagination">
                       <li className="page-item">
-                        <Link
-                          className="page-link"
-                          href="/#"
-                          aria-label="Previous"
-                        >
+                        <Link className="page-link" href="/#" aria-label="Previous">
                           <i className="fa-solid fa-angle-left" />
                         </Link>
                       </li>

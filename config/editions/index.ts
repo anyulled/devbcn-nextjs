@@ -12,15 +12,7 @@ import { edition2026 } from "./2026";
 import { EditionConfig, EditionYear, isValidEditionYear } from "./types";
 
 // Re-export types for convenience
-export type {
-  CFPConfig,
-  DateRangeConfig,
-  EditionConfig,
-  EditionYear,
-  FeatureConfig,
-  SocialLinks,
-  SponsorConfig,
-} from "./types";
+export type { CFPConfig, DateRangeConfig, EditionConfig, EditionYear, FeatureConfig, SocialLinks, SponsorConfig } from "./types";
 
 export { isValidEditionYear } from "./types";
 
@@ -82,10 +74,7 @@ export const getAvailableEditions = (): EditionYear[] => {
  * @param now - Optional date to check against (defaults to current time)
  * @returns Whether the CFP is currently accepting submissions
  */
-export const isCFPOpen = (
-  config: EditionConfig,
-  now: Date = new Date(),
-): boolean => {
+export const isCFPOpen = (config: EditionConfig, now: Date = new Date()): boolean => {
   return now >= config.cfp.startDay && now <= config.cfp.endDay;
 };
 
@@ -96,10 +85,7 @@ export const isCFPOpen = (
  * @param now - Optional date to check against (defaults to current time)
  * @returns Whether tickets are currently on sale
  */
-export const areTicketsOnSale = (
-  config: EditionConfig,
-  now: Date = new Date(),
-): boolean => {
+export const areTicketsOnSale = (config: EditionConfig, now: Date = new Date()): boolean => {
   return now >= config.tickets.startDay && now <= config.tickets.endDay;
 };
 
@@ -110,10 +96,7 @@ export const areTicketsOnSale = (
  * @param now - Optional date to check against (defaults to current time)
  * @returns Whether sponsors section should be displayed
  */
-export const shouldShowSponsors = (
-  config: EditionConfig,
-  now: Date = new Date(),
-): boolean => {
+export const shouldShowSponsors = (config: EditionConfig, now: Date = new Date()): boolean => {
   return now >= config.sponsors.startDate && now <= config.sponsors.endDate;
 };
 
@@ -128,10 +111,7 @@ export const shouldShowSponsors = (
  * formatEventDateRange(new Date("2026-06-16"), new Date("2026-06-17"));
  * // Returns "16-17 June 2026"
  */
-export const formatEventDateRange = (
-  startDate: Date,
-  endDate: Date,
-): string => {
+export const formatEventDateRange = (startDate: Date, endDate: Date): string => {
   const startDay = startDate.getDate();
   const endDay = endDate.getDate();
   const startMonth = startDate.toLocaleString("en-US", { month: "long" });

@@ -32,12 +32,7 @@ interface LayoutProps {
   breadcrumbTitle?: string;
 }
 
-export default function Layout({
-  headerStyle,
-  footerStyle,
-  breadcrumbTitle,
-  children,
-}: Readonly<LayoutProps>) {
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }: Readonly<LayoutProps>) {
   const [scroll, setScroll] = useState<boolean>(false);
   // Mobile Menu
   const [isMobileMenu, setIsMobileMenu] = useState<boolean>(false);
@@ -67,108 +62,39 @@ export default function Layout({
       <AddClassBody />
       {/* <AnimatedText /> */}
       {!headerStyle && (
-        <Header1
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       )}
       {headerStyle == 1 ? (
-        <Header1
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 2 ? (
-        <Header2
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header2 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 3 ? (
-        <Header3
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header3 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 4 ? (
-        <Header4
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header4 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 5 ? (
-        <Header5
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header5 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 6 ? (
-        <Header6
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header6 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 7 ? (
-        <Header7
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header7 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 8 ? (
-        <Header8
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header8 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 9 ? (
-        <Header9
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header9 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 10 ? (
-        <Header10
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
+        <Header10 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
-      <MobileMenu
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-      />
+      <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
 
       {children}
 

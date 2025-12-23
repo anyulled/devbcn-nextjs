@@ -14,27 +14,12 @@ const extractSocialLink = (links: LinkType[], linkType: string) => {
   return links.filter((link) => link.linkType === linkType).at(0)?.url;
 };
 
-export default function SpeakerCard({
-  name,
-  position,
-  image,
-  links,
-  speakerId,
-  year,
-}: SpeakerCardProps) {
+export default function SpeakerCard({ name, position, image, links, speakerId, year }: SpeakerCardProps) {
   return (
     <div className="our-team-boxarea">
       <div className="team-widget-area">
-        <img
-          src="/assets/img/elements/elements25.png"
-          alt=""
-          className="elements21"
-        />
-        <img
-          src="/assets/img/elements/elements26.png"
-          alt=""
-          className="elements22"
-        />
+        <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
+        <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
         <div className="img1">
           <Link href={`/${year}/speakers/${speakerId}`}>
             <img src={image} alt={name} className="team-img4" />
@@ -47,40 +32,28 @@ export default function SpeakerCard({
           <ul>
             {extractSocialLink(links, "Twitter") && (
               <li>
-                <Link
-                  href={extractSocialLink(links, "Twitter")!}
-                  className="icon1"
-                >
+                <Link href={extractSocialLink(links, "Twitter")!} className="icon1">
                   <i className="fa-brands fa-twitter" />
                 </Link>
               </li>
             )}
             {extractSocialLink(links, "LinkedIn") && (
               <li>
-                <Link
-                  href={extractSocialLink(links, "LinkedIn")!}
-                  className="icon2"
-                >
+                <Link href={extractSocialLink(links, "LinkedIn")!} className="icon2">
                   <i className="fa-brands fa-linkedin-in" />
                 </Link>
               </li>
             )}
             {extractSocialLink(links, "Instagram") && (
               <li>
-                <Link
-                  href={extractSocialLink(links, "Instagram")!}
-                  className="icon3"
-                >
+                <Link href={extractSocialLink(links, "Instagram")!} className="icon3">
                   <i className="fa-brands fa-instagram" />
                 </Link>
               </li>
             )}
             {extractSocialLink(links, "bluesky") && (
               <li>
-                <Link
-                  href={extractSocialLink(links, "bluesky")!}
-                  className="icon4"
-                >
+                <Link href={extractSocialLink(links, "bluesky")!} className="icon4">
                   <i className="fa-brands fa-bluesky" />
                 </Link>
               </li>
