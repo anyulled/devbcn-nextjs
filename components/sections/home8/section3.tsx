@@ -195,7 +195,7 @@ export default function Section3() {
                             <div className="col-lg-7">
                               <div className="content-area">
                                 <Link href="/event-single" className="head">
-                                  The Next Big Crypto Project Watch
+                                  More than Java & Cloud
                                 </Link>
                                 <div className="space20" />
                                 <p>
