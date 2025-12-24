@@ -43,6 +43,7 @@ export default function JobOffersAccordion({ offers }: JobOffersAccordionProps) 
                       </h2>
                       <div
                         id={collapseId}
+                        data-testid={collapseId}
                         className={activeAccordion === accordionId ? "accordion-collapse collapse show" : "accordion-collapse collapse"}
                         data-bs-parent="#jobOffersAccordion"
                       >
