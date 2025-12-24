@@ -3906,7 +3906,7 @@ Location:
   position: absolute;
   bottom: -100px;
   width: 100%;
-  z-index: -1;
+  z-index: 2;
 }
 
 .hero8-slider-area .arrow-btnarea {
@@ -4049,12 +4049,20 @@ Location:
 }
 
 .hero8-slider-area .hero8-header h4 {
-  color: var(--ztc-text-text-1);
+  color: #fff;
   font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s30);
+  font-size: 48px;
   font-style: normal;
-  font-weight: var(--ztc-weight-bold);
-  line-height: 38px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .hero8-slider-area .hero8-header h4 {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
 
 .hero8-slider-area .hero8-header h5 {
@@ -4063,15 +4071,14 @@ Location:
   font-size: var(--ztc-font-size-font-s28);
   font-style: normal;
   font-weight: var(--ztc-weight-medium);
-  line-height: 30px;
-
+  line-height: 36px;
   transition: all 0.4s;
 }
 
 @media (max-width: 767px) {
   .hero8-slider-area .hero8-header h5 {
     font-size: var(--ztc-font-size-font-s20);
-    line-height: 20px;
+    line-height: 28px;
   }
 }
 
@@ -4113,6 +4120,11 @@ Location:
   background: rgba(255, 255, 255, 0.15);
   display: inline-block;
   padding: 8px;
+}
+
+.hero8-slider-area .hero8-header .btn-area1 {
+  position: relative;
+  z-index: 10;
 }
 
 .hero8-slider-area .hero8-header .btn-area1 a span.demo {
@@ -6943,7 +6955,7 @@ Location:
 
 .footer2-sertion-area .footer-logo-area img {
   width: 150px;
-  height: 76.66px;
+  height: 46px;
   object-fit: cover;
 }
 
@@ -8461,7 +8473,7 @@ Location:
 
 .footer8-sertion-area .footer-logo-area img {
   width: 150px;
-  height: 76.66px;
+  height: 46px;
   object-fit: cover;
 }
 
@@ -12671,7 +12683,7 @@ html {
 .homepage8-body .header-area.homepage8 .header-elements .main-menu ul li .tp-submenu .homemenu-thumb .homemenu-btn .vl-btn8 {
   color: var(--ztc-text-text-1);
   font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s1);
+  font-size: var(--ztc-font-size-font-s20);
   font-style: normal;
   font-weight: var(--ztc-weight-bold);
   line-height: 20px;
@@ -16390,6 +16402,49 @@ html {
   }
 }
 
+/*============= SPONSORS CSS AREA STARTS ===============*/
+.sponsors-section-heading {
+  color: white !important;
+}
+
+.sponsor-category-title {
+  color: white !important;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  height: 100%;
+  min-height: 100px;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-5px);
+}
+
+.sponsor-card img {
+  max-height: 100px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.contact-boxarea .icons i.fa-brands {
+  color: white;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/*============= SPONSORS CSS AREA ENDS ===============*/
 /*============= TEAM CSS AREA ===============*/
 .team1-section-area {
   position: relative;
@@ -27382,179 +27437,5 @@ html {
 }
 
 /*============= MEMORY CSS AREA ===============*/
-
-/*============= TALKS CSS AREA ===============*/
-.talks-section-area {
-  padding: 80px 0;
-}
-
-.track-filter-container {
-  margin-bottom: 40px;
-}
-
-.track-filter {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.track-filter-label {
-  color: var(--ztc-text-text-2);
-  font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s18);
-  font-weight: var(--ztc-weight-semibold);
-}
-
-.track-filter-select {
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--ztc-border-border-1);
-  background: #fff;
-  color: var(--ztc-text-text-2);
-  font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s16);
-  min-width: 300px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.track-filter-select:hover,
-.track-filter-select:focus {
-  border-color: var(--ztc-bg-bg-3);
-  outline: none;
-}
-
-.track-section {
-  margin-bottom: 50px;
-}
-
-.track-heading {
-  color: var(--ztc-text-text-2);
-  font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s28);
-  font-weight: var(--ztc-weight-bold);
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--ztc-bg-bg-3);
-}
-
-.talks-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 24px;
-}
-
-@media (max-width: 767px) {
-  .talks-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.talk-card {
-  border-radius: 16px;
-  border: 1px solid rgba(26, 23, 25, 0.1);
-  background: #fff;
-  padding: 24px;
-  transition: all 0.4s;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.talk-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.talk-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
-}
-
-.talk-title {
-  margin: 0;
-}
-
-.talk-title a {
-  color: var(--ztc-text-text-2);
-  font-family: var(--grotesk);
-  font-size: var(--ztc-font-size-font-s20);
-  font-weight: var(--ztc-weight-bold);
-  line-height: 28px;
-  transition: all 0.3s;
-  display: block;
-}
-
-.talk-title a:hover {
-  color: var(--ztc-bg-bg-3);
-}
-
-.talk-speakers {
-  color: var(--ztc-text-text-3);
-  font-family: var(--figtree);
-  font-size: var(--ztc-font-size-font-s16);
-}
-
-.speaker-link {
-  color: var(--ztc-text-text-3);
-  transition: all 0.3s;
-}
-
-.speaker-link:hover {
-  color: var(--ztc-bg-bg-3);
-}
-
-.talk-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.talk-level {
-  color: var(--ztc-text-text-2);
-  font-family: var(--figtree);
-  font-size: var(--ztc-font-size-font-s14);
-  font-weight: var(--ztc-weight-medium);
-}
-
-.talk-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.talk-tag {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: rgba(255, 186, 0, 0.15);
-  color: var(--ztc-text-text-2);
-  font-family: var(--figtree);
-  font-size: var(--ztc-font-size-font-s12);
-  font-weight: var(--ztc-weight-medium);
-}
-
-.talk-actions {
-  margin-top: auto;
-  padding-top: 16px;
-}
-
-.vote-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  font-size: var(--ztc-font-size-font-s14);
-}
-
-.vote-link i {
-  font-size: var(--ztc-font-size-font-s14);
-}
-
-/*============= TALKS CSS AREA END ===============*/
 
 /*# sourceMappingURL=main.css.map */

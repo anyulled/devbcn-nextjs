@@ -1790,20 +1790,39 @@
 	}
 
 	.hero8-header {
+
+		// H4 styling for main heading (e.g., "The Barcelona Developers Conference")
+		h4 {
+			color: #fff;
+			font-family: var(--grotesk);
+			font-size: 48px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 56px;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+
+			@media #{$xs} {
+				font-size: 32px;
+				line-height: 40px;
+			}
+		}
+
+		// H5 styling for subheadings and paragraphs
 		h5 {
 			color: var(--ztc-text-text-1);
 			font-family: var(--grotesk);
 			font-size: var(--ztc-font-size-font-s28);
 			font-style: normal;
 			font-weight: var(--ztc-weight-medium);
-			line-height: 20px;
+			line-height: 36px; // Fixed from 20px to prevent text overlap
 			text-transform: uppercase;
 			display: inline-block;
 			transition: all .4s;
 
 			@media #{$xs} {
 				font-size: var(--ztc-font-size-font-s20);
-				line-height: 20px;
+				line-height: 28px; // Adjusted for mobile
 			}
 
 			img {
@@ -1844,6 +1863,9 @@
 		}
 
 		.btn-area1 {
+			position: relative;
+			z-index: 10;
+
 			a {
 				span.demo {
 					font-size: var(--ztc-font-size-font-s32);

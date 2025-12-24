@@ -2134,12 +2134,12 @@
 
 // Sponsors section heading
 .sponsors-section-heading {
-	color: var(--ztc-text-text-1);
+	color: white !important;
 }
 
 // Sponsor category title
 .sponsor-category-title {
-	color: white;
+	color: white !important;
 	opacity: 0.7;
 	text-transform: uppercase;
 	letter-spacing: 2px;

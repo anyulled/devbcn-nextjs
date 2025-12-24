@@ -8,6 +8,8 @@ export default function Section1() {
         <div className="row">
           <div className="col-lg-8 m-auto">
             <div className="hero8-header text-center">
+              <div className="space40"></div>
+              <div className="space32" />
               <h1 className="text-anime-style-3">
                 <img src="/assets/img/logo/logo.png" alt="DevBcn" />
               </h1>
@@ -21,7 +23,8 @@ export default function Section1() {
                 5 tracks with the following topics: Java &amp; JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM |
                 Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python
               </h5>
-              <div className="space24" />
+              <div className="space40"></div>
+              <div className="space32" />
               <div
                 className="btn-area1"
                 style={{
