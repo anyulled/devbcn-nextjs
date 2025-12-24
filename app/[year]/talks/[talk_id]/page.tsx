@@ -1,4 +1,5 @@
 import AddToCalendarWrapper from "@/components/elements/AddToCalendarWrapper";
+import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
@@ -99,22 +100,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   return (
     <div>
       {/* Hero Header Section */}
-      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 m-auto">
-              <div className="heading1 text-center">
-                <h1>{talk.title}</h1>
-                <div className="space20" />
-                <Link href={`/${year}`}>
-                  Home <i className="fa-solid fa-angle-right" />{" "}
-                </Link>
-                <Link href={`/${year}/talks`}>Talks</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader title={talk.title} backgroundImageId={9} breadcrumbText="Talks" />
 
       {/* Main Content Section - Two Column Layout */}
       <div className="event-sidepage-section-area sp8">
