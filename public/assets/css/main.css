@@ -4128,14 +4128,14 @@ Location:
 }
 
 .hero8-slider-area .hero8-header .btn-area1 a span.demo {
-  font-size: var(--ztc-font-size-font-s32);
+  font-size: var(--ztc-font-size-font-s24);
   line-height: 32px;
   padding: 30px 36px;
 }
 
 @media (max-width: 767px) {
   .hero8-slider-area .hero8-header .btn-area1 a span.demo {
-    font-size: var(--ztc-font-size-font-s20);
+    font-size: var(--ztc-font-size-font-s18);
     line-height: 20px;
     padding: 20px 26px;
   }
@@ -18303,7 +18303,7 @@ html {
 .team8-section-rea .team-slider-area8 .team-widget-boxarea .img1 {
   position: relative;
   z-index: 1;
-  border-radius: 200px 200px 4px 4px;
+  border-radius: 25px 50px;
   overflow: hidden;
   transition: all 0.4s;
 }
@@ -18312,7 +18312,7 @@ html {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 200px 200px 4px 4px;
+  border-radius: 25px 50px;
   transition: all 0.4s;
 }
 
