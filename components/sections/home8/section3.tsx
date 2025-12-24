@@ -154,7 +154,20 @@ export default function Section3() {
                                 <div className="space20" />
                                 <p>DevBcn is the rebranding of the biggest Java & JVM conference in Spain, now including more technologies and tracks.</p>
                                 <div className="space24" />
-                                <p>Check for videos/photos and summary of the DevBcn — 2025 edition — 2024 edition — 2023 edition</p>
+                                <p>
+                                  Check for videos/photos and summary of the DevBcn —{" "}
+                                  <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/AHWSu1WE288">
+                                    2025 edition
+                                  </a>{" "}
+                                  —{" "}
+                                  <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/k7iMIXtNKyo">
+                                    2024 edition
+                                  </a>{" "}
+                                  —{" "}
+                                  <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/6ZxsMUYBrSo">
+                                    2023 edition
+                                  </a>
+                                </p>
                                 <div className="btn-area1">
                                   <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
                                     <span className="demo">Buy Ticket Now</span>

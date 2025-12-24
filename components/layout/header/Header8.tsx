@@ -1,4 +1,5 @@
 "use client";
+import { getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -6,9 +7,10 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
   const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
+  const configData = getEditionConfig(yearFromPath);
 
   const withYear = (slug: string) => `/${yearFromPath}${slug}`;
-  console.log("=== Header 8");
+
   return (
     <header>
       <div className={`header-area homepage8 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
@@ -56,20 +58,25 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                       </ul>
                     </li>
                     <li>
+                      <Link href="/about-us">About us</Link>
+                    </li>
+                    <li>
                       <Link href="/code-of-conduct">Code of Conduct</Link>
                     </li>
                     <li>
-                      <Link href="#sponsors">Sponsors</Link>
+                      <Link href={withYear("/#sponsors")}>Sponsors</Link>
                     </li>
                     <li>
                       <Link href={withYear("/speakers")}>Speakers</Link>
                     </li>
                     <li>
-                      <Link href={withYear("/schedule")}>Schedule</Link>
-                    </li>
-                    <li>
                       <Link href={withYear("/talks")}>Talks</Link>
                     </li>
+                    {configData.schedule.enabled && (
+                      <li>
+                        <Link href={withYear("/schedule")}>Schedule</Link>
+                      </li>
+                    )}
                     <li>
                       <Link href="/#">
                         News <i className="fa-solid fa-angle-down" />
@@ -93,7 +100,7 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                 </div>
                 <div className="btn-area">
                   <div className="btn-area1">
-                    <Link className="vl-btn8" href="https://tickets.devbcn.com/event/devbcn-2026">
+                    <Link className="vl-btn8" href={configData.tickets.url}>
                       <span className="demo">Buy Ticket</span>
                     </Link>
                   </div>

@@ -26,8 +26,6 @@ export default function AddClassBody() {
       // Always use homepage8-body since we're using Header8/Footer8 globally
       // This ensures consistent styling across all pages
       const className = "homepage8-body";
-      console.log("=== Applied body class:", className);
-
       bodyElement.classList.add(className);
     }
 

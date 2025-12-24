@@ -27438,4 +27438,188 @@ html {
 
 /*============= MEMORY CSS AREA ===============*/
 
+/*============= TALKS CSS AREA ===============*/
+.talks-section-area {
+  padding: 80px 0;
+}
+
+.track-filter-container {
+  margin-bottom: 40px;
+}
+
+.track-filter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.track-filter-label {
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s18);
+  font-weight: var(--ztc-weight-semibold);
+}
+
+.track-filter-select {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--ztc-border-border-1);
+  background: #fff;
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s16);
+  min-width: 300px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.track-filter-select:hover,
+.track-filter-select:focus {
+  border-color: var(--ztc-bg-bg-3);
+  outline: none;
+}
+
+.track-section {
+  margin-bottom: 50px;
+}
+
+.track-heading {
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s28);
+  font-weight: var(--ztc-weight-bold);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ztc-bg-bg-3);
+}
+
+.talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .talks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.talk-card {
+  border-radius: 16px;
+  border: 1px solid rgba(26, 23, 25, 0.1);
+  background: #fff;
+  padding: 24px;
+  transition: all 0.4s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.talk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.talk-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.talk-title {
+  margin: 0;
+}
+
+.talk-title a {
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s20);
+  font-weight: var(--ztc-weight-bold);
+  line-height: 28px;
+  transition: all 0.3s;
+  display: block;
+}
+
+.talk-title a:hover {
+  color: var(--ztc-bg-bg-3);
+}
+
+.talk-speakers {
+  color: var(--ztc-text-text-3);
+  font-family: var(--figtree);
+  font-size: var(--ztc-font-size-font-s16);
+}
+
+.speaker-link {
+  color: var(--ztc-text-text-3);
+  transition: all 0.3s;
+}
+
+.speaker-link:hover {
+  color: var(--ztc-bg-bg-3);
+}
+
+.talk-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.talk-level {
+  color: var(--ztc-text-text-2);
+  font-family: var(--figtree);
+  font-size: var(--ztc-font-size-font-s14);
+  font-weight: var(--ztc-weight-medium);
+}
+
+.talk-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.talk-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 186, 0, 0.15);
+  color: var(--ztc-text-text-2);
+  font-family: var(--figtree);
+  font-size: var(--ztc-font-size-font-s12);
+  font-weight: var(--ztc-weight-medium);
+}
+
+.talk-actions {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.vote-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--ztc-bg-bg-3);
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s14);
+  font-weight: var(--ztc-weight-semibold);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.vote-link:hover {
+  background: var(--ztc-bg-bg-4);
+  transform: translateY(-2px);
+}
+
+.vote-link i {
+  font-size: var(--ztc-font-size-font-s16);
+}
+
 /*# sourceMappingURL=main.css.map */

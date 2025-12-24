@@ -1,7 +1,10 @@
+import CTASection from "@/components/sections/CTASection";
+import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { aboutData } from "@/data/AboutData";
 import Link from "next/link";
 
 export default function AboutUs() {
+  const eventData = getEditionConfig("2026");
   return (
     <div>
       <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg15.png)" }}>
@@ -54,6 +57,11 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      <CTASection
+        ticketUrl={eventData.tickets.url}
+        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventLocation={eventData.venue}
+      />
     </div>
   );
 }
