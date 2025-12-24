@@ -1,6 +1,7 @@
 import {
   areTicketsOnSale,
   CURRENT_EDITION,
+  formatEventDateRange,
   getAvailableEditions,
   getCurrentEditionConfig,
   getEditionConfig,
@@ -138,6 +139,29 @@ describe("Edition Configuration", () => {
       expect(edition2025.event.startDay).toBeInstanceOf(Date);
       expect(edition2025.event.endDay).toBeInstanceOf(Date);
       expect(edition2025.cfp.startDay).toBeInstanceOf(Date);
+    });
+  });
+
+  describe("formatEventDateRange", () => {
+    it("formats date range within same month correctly", () => {
+      const startDate = new Date("2026-06-16");
+      const endDate = new Date("2026-06-17");
+      const formatted = formatEventDateRange(startDate, endDate);
+      expect(formatted).toBe("16-17 June 2026");
+    });
+
+    it("formats date range across different months correctly", () => {
+      const startDate = new Date("2026-06-28");
+      const endDate = new Date("2026-07-01");
+      const formatted = formatEventDateRange(startDate, endDate);
+      expect(formatted).toBe("28 June - 1 July 2026");
+    });
+
+    it("formats single day event correctly", () => {
+      const startDate = new Date("2026-06-16");
+      const endDate = new Date("2026-06-16");
+      const formatted = formatEventDateRange(startDate, endDate);
+      expect(formatted).toBe("16-16 June 2026");
     });
   });
 });

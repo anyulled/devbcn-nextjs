@@ -101,4 +101,42 @@ This is a **description** with *italic* text and a [link](https://example.com).
     const { container } = render(<Markdown content="Test" className="custom-class" />);
     expect(container.firstChild).toHaveClass("custom-class");
   });
+
+  it("should handle italic text at the beginning of a line", () => {
+    const { container } = render(<Markdown content="*italic* at start" />);
+    const em = container.querySelector("em");
+    expect(em).toBeInTheDocument();
+    expect(em).toHaveTextContent("italic");
+  });
+
+  it("should handle links at the beginning of a line", () => {
+    const { container } = render(<Markdown content="[Link](https://example.com) at start" />);
+    const link = container.querySelector("a");
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveTextContent("Link");
+    expect(link).toHaveAttribute("href", "https://example.com");
+  });
+
+  it("should handle multiple formatting in the same line", () => {
+    const { container } = render(<Markdown content="**bold** and *italic* and [link](https://example.com)" />);
+    expect(container.querySelector("strong")).toHaveTextContent("bold");
+    expect(container.querySelector("em")).toHaveTextContent("italic");
+    expect(container.querySelector("a")).toHaveTextContent("link");
+  });
+
+  it("should handle headings with more than 6 hash marks", () => {
+    const { container } = render(<Markdown content="####### Deep heading" />);
+    const heading = container.querySelector("h6");
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent("Deep heading");
+  });
+
+  it("should handle empty lines between list items", () => {
+    const content = `- Item 1
+
+- Item 2`;
+    const { container } = render(<Markdown content={content} />);
+    const lists = container.querySelectorAll("ul");
+    expect(lists).toHaveLength(2); // Empty line creates two separate lists
+  });
 });

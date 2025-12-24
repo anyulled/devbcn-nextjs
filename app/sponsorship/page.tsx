@@ -1,4 +1,6 @@
 "use client";
+import PageHeader from "@/components/layout/PageHeader";
+import CTASection from "@/components/sections/CTASection";
 import { getCurrentEditionConfig } from "@/config/editions";
 import { format } from "date-fns";
 import Link from "next/link";
@@ -70,24 +72,8 @@ export default function Sponsorship() {
 
   return (
     <div>
-      {/* Header Section */}
-      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Sponsorship</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" /> <span>Sponsorship</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader title="Sponsorship" backgroundImageId={9} breadcrumbText="Sponsorship" />
 
-      {/* Main Content Section */}
       <div className="event-sidepage-section-area sp8">
         <div className="container">
           <div className="row">
@@ -247,6 +233,7 @@ export default function Sponsorship() {
           </div>
         </div>
       </div>
+      <CTASection />
     </div>
   );
 }

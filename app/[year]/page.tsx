@@ -18,7 +18,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <>
-      <Section1 />
+      <Section1 year={year} />
       <Section2 />
       <Section3 />
       <Section4 sponsors={config.sponsorsData} />

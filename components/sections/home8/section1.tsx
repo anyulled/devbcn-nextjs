@@ -1,7 +1,9 @@
 import BackgroundCarousel from "@/components/BackgroundCarousel";
+import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 
-export default function Section1() {
+export default function Section1({ year }: { year: string }) {
+  const config = getEditionConfig(year);
   return (
     <BackgroundCarousel className="hero8-slider-area">
       <div className="container">
@@ -14,7 +16,7 @@ export default function Section1() {
                 <img src="/assets/img/logo/logo.png" alt="DevBcn" />
               </h1>
               <h4>The Barcelona Developers Conference</h4>
-              <h5>June 16th - 17th, 2026</h5>
+              <h5>{formatEventDateRange(config.event.startDay, config.event.endDay)}</h5>
               <h5>World Trade Center, Barcelona</h5>
               <div className="space32" />
               <div className="space24" />
@@ -34,13 +36,13 @@ export default function Section1() {
                   gap: "1rem",
                 }}
               >
-                <Link href="/contact" className="vl-btn8">
+                <Link href={config.tickets.url} className="vl-btn8">
                   <span className="demo">🎟️ Reserve your Seat</span>
                 </Link>
-                <Link href="/contact" className="vl-btn8">
+                <Link href={config.cfp.link} className="vl-btn8">
                   <span className="demo">🎙️ Become a Speaker</span>
                 </Link>
-                <Link href="/contact" className="vl-btn8">
+                <Link href="/sponsorship" className="vl-btn8">
                   <span className="demo">🤝🏽 Sponsorship</span>
                 </Link>
               </div>
