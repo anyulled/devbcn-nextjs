@@ -1,5 +1,7 @@
 import { slugify } from "@/lib/utils/slugify";
 import { jobOffers2023 } from "./2023";
+import { jobOffers2024 } from "./2024";
+import { jobOffers2025 } from "./2025";
 import { Company } from "./types";
 
 /**
@@ -11,9 +13,10 @@ import { Company } from "./types";
 // Map of year to job offers data
 const jobOffersMap: Record<string, Company[]> = {
   "2023": jobOffers2023,
+  "2024": jobOffers2024,
+  "2025": jobOffers2025,
   // Add future years here:
-  // "2024": jobOffers2024,
-  // "2025": jobOffers2025,
+  // "2026": jobOffers2026,
 };
 
 /**
