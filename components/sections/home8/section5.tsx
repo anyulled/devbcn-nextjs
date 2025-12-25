@@ -90,6 +90,7 @@ interface Section5Props {
 
 export default function Section5({ year }: Section5Props) {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
+  const [speakersCount, setSpeakersCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -101,6 +102,7 @@ export default function Section5({ year }: Section5Props) {
         const allSpeakers = await getSpeakers(year);
         const randomSpeakers = getRandomSpeakers(allSpeakers, 6);
         setSpeakers(randomSpeakers);
+        setSpeakersCount(allSpeakers.length);
       } catch (err) {
         setError("Failed to load speakers");
         console.error("Error fetching speakers:", err);
@@ -127,7 +129,7 @@ export default function Section5({ year }: Section5Props) {
           <div className="row">
             <div className="col-lg-5">
               <div className="heading11 space-margin60">
-                <h5>15+ Event Speakers</h5>
+                <h5>{speakersCount} Event Speakers</h5>
                 <div className="space18" />
                 <h2 className="text-anime-style-3">Meet Our Speakers</h2>
               </div>

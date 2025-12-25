@@ -1,0 +1,55 @@
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-image {
+  width: 100%;
+  border-radius: 8px;
+  background-color: hsl(200, 20%, 80%);
+}
+
+.skeleton-text {
+  height: 16px;
+  margin: 8px 0;
+  border-radius: 4px;
+  background-color: hsl(200, 20%, 80%);
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 24px;
+  margin: 16px 0;
+}
+
+.skeleton-subtitle {
+  width: 60%;
+  height: 18px;
+}
+
+.skeleton-card {
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.skeleton-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
