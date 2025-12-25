@@ -4,6 +4,7 @@ import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
 import { getAvailableEditions } from "@/config/editions";
 import { slugify } from "@/lib/utils/slugify";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -27,6 +28,53 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
+  const { year, "company-name": companySlug } = await params;
+  const company = findCompanyBySlug(year, companySlug);
+
+  if (!company) {
+    return {
+      title: "Company Not Found",
+      description: "The requested company could not be found.",
+    };
+  }
+
+  const jobCount = company.offers.length;
+  const positionsText = jobCount === 1 ? "1 position" : `${jobCount} positions`;
+  const descriptionPreview = company.description.length > 120 ? `${company.description.substring(0, 120)}...` : company.description;
+
+  return {
+    title: `${company.name} - Job Offers at DevBcn ${year}`,
+    description: `${descriptionPreview} ${positionsText} available. Apply now!`,
+    keywords: [company.name, `DevBcn ${year}`, "job offers", "tech jobs", "developer jobs", "barcelona jobs", "software engineer"],
+    openGraph: {
+      title: `${company.name} - Job Offers at DevBcn ${year}`,
+      description: `${positionsText} available at ${company.name}. DevBcn ${year}.`,
+      url: `https://www.devbcn.com/${year}/job-offers/${companySlug}`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+      images: company.logo
+        ? [
+            {
+              url: company.logo,
+              width: 400,
+              height: 200,
+              alt: `${company.name} logo`,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `${company.name} - Job Offers`,
+      description: `${positionsText} available. DevBcn ${year}.`,
+    },
+  };
 }
 
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {

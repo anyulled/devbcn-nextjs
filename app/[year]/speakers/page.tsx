@@ -3,6 +3,7 @@ import SpeakerCard from "@/components/layout/SpeakerCard";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
+import type { Metadata } from "next";
 
 interface SpeakersProps {
   params: Promise<{
@@ -13,6 +14,33 @@ interface SpeakersProps {
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
+}
+
+export async function generateMetadata({ params }: SpeakersProps): Promise<Metadata> {
+  const { year } = await params;
+  const speakers = await getSpeakers(year);
+  const speakerCount = speakers.length;
+
+  return {
+    title: `Speakers - DevBcn ${year}`,
+    description: `Meet the ${speakerCount} amazing speakers at DevBcn ${year}. Industry experts sharing their knowledge on cutting-edge technologies.`,
+    keywords: [`DevBcn ${year} speakers`, "conference speakers", "tech speakers", "barcelona developer conference", "industry experts"],
+    openGraph: {
+      title: `DevBcn ${year} Speakers`,
+      description: `${speakerCount} speakers sharing their expertise at Barcelona's premier developer conference.`,
+      url: `https://www.devbcn.com/${year}/speakers`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `DevBcn ${year} Speakers`,
+      description: `${speakerCount} industry experts speaking at DevBcn ${year}.`,
+    },
+  };
 }
 
 export default async function Speakers({ params }: SpeakersProps) {

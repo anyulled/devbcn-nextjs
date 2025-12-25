@@ -14,6 +14,7 @@ import {
   getTrackFromTalk,
 } from "@/hooks/useTalks";
 import { format, parseISO } from "date-fns";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -41,6 +42,44 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata({ params }: TalkDetailProps): Promise<Metadata> {
+  const { year, talk_id } = await params;
+  const talk = await getTalkByYearAndId(year, talk_id);
+
+  if (!talk) {
+    return {
+      title: "Talk Not Found",
+      description: "The requested talk could not be found.",
+    };
+  }
+
+  const track = getTrackFromTalk(talk);
+  const level = getLevelFromTalk(talk);
+  const speakerNames = talk.speakers.map((s) => s.name).join(", ");
+  const descriptionPreview = talk.description.length > 150 ? `${talk.description.substring(0, 150)}...` : talk.description;
+
+  return {
+    title: `${talk.title} - DevBcn ${year}`,
+    description: `${descriptionPreview} Track: ${track}. Level: ${level}. By ${speakerNames}.`,
+    keywords: [talk.title, `DevBcn ${year}`, track, level, ...speakerNames.split(", "), "tech talk", "conference session", "barcelona developer conference"],
+    openGraph: {
+      title: `${talk.title} - DevBcn ${year}`,
+      description: `${descriptionPreview} By ${speakerNames}`,
+      url: `https://www.devbcn.com/${year}/talks/${talk_id}`,
+      type: "article",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `${talk.title} - DevBcn ${year}`,
+      description: `${descriptionPreview} By ${speakerNames}`,
+    },
+  };
 }
 
 const getSocialIcon = (linkType: string): string => {

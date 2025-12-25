@@ -3,6 +3,7 @@ import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { getAvailableEditions } from "@/config/editions";
 import { slugify } from "@/lib/utils/slugify";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +14,33 @@ interface JobOffersPageProps {
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
+}
+
+export async function generateMetadata({ params }: JobOffersPageProps): Promise<Metadata> {
+  const { year } = await params;
+  const companies = getJobOffersByYear(year);
+  const companyCount = companies.length;
+
+  return {
+    title: `Job Opportunities - DevBcn ${year}`,
+    description: `Explore career opportunities from ${companyCount} companies at DevBcn ${year}. Find your next role in tech.`,
+    keywords: [`DevBcn ${year} jobs`, "tech jobs barcelona", "developer jobs", "software engineer jobs", "conference job fair"],
+    openGraph: {
+      title: `DevBcn ${year} Job Opportunities`,
+      description: `${companyCount} companies hiring at DevBcn ${year}.`,
+      url: `https://www.devbcn.com/${year}/job-offers`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `DevBcn ${year} Jobs`,
+      description: `${companyCount} companies hiring. Find your next role.`,
+    },
+  };
 }
 
 export default async function JobOffers({ params }: JobOffersPageProps) {

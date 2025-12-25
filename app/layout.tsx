@@ -4,9 +4,9 @@ import "swiper/css/pagination";
 // Global CSS from node_modules can be imported normally above.
 // CSS files placed in `public/` must be linked via <link> tags, not imported.
 
+import ClientLayout from "@/components/layout/ClientLayout";
 import type { Metadata } from "next";
 import { Figtree, Space_Grotesk } from "next/font/google";
-import ClientLayout from "@/components/layout/ClientLayout";
 
 const figtree = Figtree({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -22,8 +22,60 @@ const grotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "DevBcn - Barcelona Developers' Conference",
-  description: "The Biggest Developer conference in Barcelona",
+  title: {
+    default: "DevBcn - Barcelona Developers' Conference",
+    template: "%s | DevBcn",
+  },
+  description: "The Biggest Developer conference in Barcelona. Join hundreds of developers for cutting-edge talks, workshops, and networking.",
+  keywords: [
+    "conference",
+    "barcelona",
+    "frontend",
+    "backend",
+    "java",
+    "agile",
+    "kubernetes",
+    "leadership",
+    "AI",
+    "ML",
+    "machine learning",
+    "artificial intelligence",
+    "cloud",
+    "security",
+    "frontend development",
+    "backend development",
+    "jvm",
+    "kotlin",
+    "DevOps",
+    "developer conference",
+    "tech conference",
+    "software development",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://www.devbcn.com",
+    siteName: "devbcn.com",
+    title: "DevBcn - Barcelona Developers' Conference",
+    description: "The Biggest Developer conference in Barcelona",
+    images: [
+      {
+        url: "/assets/img/logo/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "DevBcn - Barcelona Developers Conference",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@dev_bcn",
+    creator: "@dev_bcn",
+    title: "DevBcn - Barcelona Developers' Conference",
+    description: "The Biggest Developer conference in Barcelona",
+    images: ["/assets/img/logo/logo.png"],
+  },
+  metadataBase: new URL("https://www.devbcn.com"),
 };
 
 export default function RootLayout({

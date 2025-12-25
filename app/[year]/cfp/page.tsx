@@ -1,6 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { cfpData } from "./cfpData";
 
@@ -11,6 +12,31 @@ interface CFPProps {
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
+}
+
+export async function generateMetadata({ params }: CFPProps): Promise<Metadata> {
+  const { year } = await params;
+
+  return {
+    title: `Call for Papers - DevBcn ${year}`,
+    description: `Meet the CFP committee for DevBcn ${year}. Learn about the review process and submit your talk proposal.`,
+    keywords: [`DevBcn ${year} CFP`, "call for papers", "submit talk", "conference speakers", "barcelona developer conference"],
+    openGraph: {
+      title: `DevBcn ${year} Call for Papers`,
+      description: `Submit your talk proposal for DevBcn ${year}.`,
+      url: `https://www.devbcn.com/${year}/cfp`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `DevBcn ${year} CFP`,
+      description: `Submit your talk for DevBcn ${year}.`,
+    },
+  };
 }
 
 export default async function CFP({ params }: CFPProps) {

@@ -1,6 +1,7 @@
 import Countdown from "@/components/elements/Countdown";
 import { getAvailableEditions } from "@/config/editions";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,6 +28,43 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata({ params }: SpeakerDetailProps): Promise<Metadata> {
+  const { year, speaker_id } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+
+  if (!speaker) {
+    return {
+      title: "Speaker Not Found",
+      description: "The requested speaker could not be found.",
+    };
+  }
+
+  const sessionCount = speaker.sessions.length;
+  const sessionsText = sessionCount === 1 ? "1 session" : `${sessionCount} sessions`;
+  const bioPreview = speaker.bio.length > 150 ? `${speaker.bio.substring(0, 150)}...` : speaker.bio;
+
+  return {
+    title: `${speaker.fullName} - DevBcn ${year} Speaker`,
+    description: `${speaker.tagLine}. ${speaker.fullName} is speaking at DevBcn ${year} with ${sessionsText}. ${bioPreview}`,
+    keywords: [speaker.fullName, `DevBcn ${year}`, "conference speaker", "tech speaker", speaker.tagLine, "barcelona developer conference"],
+    openGraph: {
+      title: `${speaker.fullName} - DevBcn ${year} Speaker`,
+      description: `${speaker.tagLine}. Speaking at DevBcn ${year} with ${sessionsText}.`,
+      url: `https://www.devbcn.com/${year}/speakers/${speaker_id}`,
+      type: "profile",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `${speaker.fullName} - DevBcn ${year}`,
+      description: `${speaker.tagLine}. Speaking at DevBcn ${year}.`,
+    },
+  };
 }
 
 const getSocialIcon = (linkType: string): string => {

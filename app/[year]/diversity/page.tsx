@@ -1,6 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 interface DiversityProps {
@@ -10,6 +11,31 @@ interface DiversityProps {
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
+}
+
+export async function generateMetadata({ params }: DiversityProps): Promise<Metadata> {
+  const { year } = await params;
+
+  return {
+    title: `Diversity Sponsorship - DevBcn ${year}`,
+    description: `DevBcn ${year} diversity sponsorship program. Supporting underrepresented groups in tech. Apply for a free conference ticket.`,
+    keywords: [`DevBcn ${year} diversity`, "diversity sponsorship", "inclusion", "underrepresented groups", "free tickets", "barcelona developer conference"],
+    openGraph: {
+      title: `DevBcn ${year} Diversity Sponsorship`,
+      description: `Supporting diversity in tech. Apply for a free ticket to DevBcn ${year}.`,
+      url: `https://www.devbcn.com/${year}/diversity`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@dev_bcn",
+      creator: "@dev_bcn",
+      title: `DevBcn ${year} Diversity`,
+      description: `Apply for a free ticket. Supporting diversity in tech.`,
+    },
+  };
 }
 
 export default async function Diversity({ params }: DiversityProps) {
