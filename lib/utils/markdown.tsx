@@ -66,7 +66,7 @@ export function Markdown({ content, className = "" }: MarkdownProps): React.Reac
       flushList();
       const level = trimmed.match(/^#+/)?.[0].length || 1;
       const text = trimmed.replace(/^#+\s*/, "");
-      const HeadingTag = `h${Math.min(level, 6)}` as keyof JSX.IntrinsicElements;
+      const HeadingTag = `h${Math.min(level, 6)}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
       const headingClass = level === 1 ? "text-2xl font-bold mb-4" : level === 2 ? "text-xl font-bold mb-3" : "text-lg font-semibold mb-2";
       elements.push(
         <HeadingTag key={`h-${elements.length}`} className={headingClass}>
