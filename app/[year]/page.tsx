@@ -9,6 +9,9 @@ import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from
 import type { Metadata } from "next";
 import Script from "next/script";
 
+// ISR: Revalidate every 24 hours to keep homepage data fresh
+export const revalidate = 86400;
+
 interface PageProps {
   params: Promise<{
     year: string;

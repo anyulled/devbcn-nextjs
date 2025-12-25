@@ -20,6 +20,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
+// ISR: Revalidate every 6 hours to keep talk data fresh
+export const revalidate = 21600;
+
 interface TalkDetailProps {
   params: Promise<{
     year: string;

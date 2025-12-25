@@ -7,6 +7,9 @@ import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
+// ISR: Revalidate every 6 hours to keep talk data fresh
+export const revalidate = 21600;
+
 interface TalksProps {
   params: Promise<{
     year: number;

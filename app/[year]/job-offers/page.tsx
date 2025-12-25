@@ -9,6 +9,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
+// ISR: Revalidate every week to keep job offers data fresh
+export const revalidate = 604800;
+
 interface JobOffersPageProps {
   params: Promise<{ year: string }>;
 }

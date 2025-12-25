@@ -266,6 +266,10 @@ export function generateBreadcrumbSchema(breadcrumbs: Array<{ name: string; url:
 /**
  * Helper to serialize JSON-LD for embedding in HTML
  */
-export function serializeJsonLd(data: WithContext<unknown> | Array<WithContext<unknown>>): string {
+export function serializeJsonLd(
+  data:
+    | WithContext<Organization | Event | Person | EducationEvent | JobPosting | ItemList | BreadcrumbList>
+    | Array<WithContext<Organization | Event | Person | EducationEvent | JobPosting | ItemList | BreadcrumbList>>
+): string {
   return JSON.stringify(data, null, 0);
 }

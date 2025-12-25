@@ -2,6 +2,9 @@ import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/
 import type { Metadata } from "next";
 import Link from "next/link";
 
+// ISR: Revalidate every 24 hours to keep schedule data fresh
+export const revalidate = 86400;
+
 interface ScheduleProps {
   params: Promise<{ year: string }>;
 }

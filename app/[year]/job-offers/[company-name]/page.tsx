@@ -11,6 +11,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
+// ISR: Revalidate every week to keep job offers data fresh
+export const revalidate = 604800;
+
 interface CompanyJobOffersPageProps {
   params: Promise<{ year: string; "company-name": string }>;
 }
