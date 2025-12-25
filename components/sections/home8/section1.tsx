@@ -1,5 +1,7 @@
+"use client";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
+import { trackTicketClick } from "@/lib/utils/analytics";
 import Link from "next/link";
 
 interface Section1Props {
@@ -40,7 +42,7 @@ export default function Section1({ year }: Section1Props) {
                   gap: "1rem",
                 }}
               >
-                <Link href={config.tickets.url} className="vl-btn8">
+                <Link href={config.tickets.url} className="vl-btn8" onClick={() => trackTicketClick("hero", year)}>
                   <span className="demo">🎟️ Reserve your Seat</span>
                 </Link>
                 <Link href={config.cfp.link} className="vl-btn8">

@@ -1,4 +1,6 @@
+"use client";
 import Countdown from "@/components/elements/Countdown";
+import { trackTicketClick } from "@/lib/utils/analytics";
 import Link from "next/link";
 
 interface CTASectionProps {
@@ -21,7 +23,7 @@ export default function CTASection({
               <div className="timer-btn-area">
                 <Countdown />
                 <div className="btn-area1">
-                  <Link href={ticketUrl} className="vl-btn1">
+                  <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
                     Buy Ticket
                   </Link>
                 </div>
