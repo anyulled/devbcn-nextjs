@@ -100,6 +100,16 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/vendor/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
+
+        {/* PWA Meta Tags */}
+        <meta name="application-name" content="DevBcn" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="DevBcn" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#007bff" />
+        <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
       </head>
       {/* Google Analytics */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-0BG1LNPT11" strategy="afterInteractive" />
