@@ -3,10 +3,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 // Global CSS from node_modules can be imported normally above.
 // CSS files placed in `public/` must be linked via <link> tags, not imported.
-
 import ClientLayout from "@/components/layout/ClientLayout";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Figtree, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 
 const figtree = Figtree({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -99,9 +101,21 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
       </head>
+      {/* Google Analytics */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-0BG1LNPT11" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0BG1LNPT11');
+        `}
+      </Script>
       <body className={`${figtree.variable} ${grotesk.variable}`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
+      <SpeedInsights />
+      <Analytics />
     </html>
   );
 }
