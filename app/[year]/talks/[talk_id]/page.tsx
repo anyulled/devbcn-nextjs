@@ -13,7 +13,6 @@ import {
   getTalkSpeakersWithDetails,
   getTrackFromTalk,
 } from "@/hooks/useTalks";
-import { trackTicketClick } from "@/lib/utils/analytics";
 import { generateBreadcrumbSchema, generateEducationEventSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { format, parseISO } from "date-fns";
 import type { Metadata } from "next";
@@ -357,7 +356,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     </a>
 
                     {/* Buy Tickets Link */}
-                    <Link href={eventData.tickets.url} className="vl-btn1" onClick={() => trackTicketClick("talk_detail", year, talk.id)}>
+                    <Link href={eventData.tickets.url} className="vl-btn1">
                       <span className="demo">Get Tickets</span>
                     </Link>
                   </div>
