@@ -1,11 +1,20 @@
 "use client";
+import { getEditionConfig } from "@/config/editions";
+import { editionLinks, mainNavLinks, newsDropdownLinks, socialLinks, yearSpecificNavLinks } from "@/config/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
-  const [isAccordion, setIsAccordion] = useState(1);
+  const [isAccordion, setIsAccordion] = useState<number | null>(null);
+  const pathname = usePathname();
+  const segments = pathname.split("/").filter(Boolean);
+  const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
+  const configData = getEditionConfig(yearFromPath);
 
-  const handleAccordion = (key: any) => {
+  const withYear = (slug: string) => `/${yearFromPath}${slug}`;
+
+  const handleAccordion = (key: number) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
   };
   return (
@@ -37,50 +46,61 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
         </div>
         <div className="mobile-nav mobile-nav1">
           <ul className="mobile-nav-list nav-list1">
-            <li className="has-sub hash-has-sub">
-              <span className="hash-nav">
+            {/* Home with Past Editions submenu */}
+            <li className={isAccordion === 1 ? "has-sub hash-has-sub active" : "has-sub hash-has-sub"}>
+              <span className="submenu-button" onClick={() => handleAccordion(1)}>
                 <em />
               </span>
-              <Link href="/#" className="hash-nav">
-                Home{" "}
-              </Link>
+              <a className="hash-nav">Home</a>
+              <ul className="sub-menu" style={{ display: isAccordion === 1 ? "block" : "none" }}>
+                {editionLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </li>
-            <li className="hash-has-sub">
-              <Link href="/about-us" className="hash-nav">
-                About Us
-              </Link>
-            </li>
-            <li className="has-sub hash-has-sub">
-              <span className="hash-nav">
+
+            {/* Main Nav Links */}
+            {mainNavLinks.map((link) => (
+              <li key={link.href} className="hash-has-sub">
+                <Link href={link.href} className="hash-nav">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+
+            {/* Year-specific Nav Links */}
+            {yearSpecificNavLinks.map((link) => (
+              <li key={link.href} className="hash-has-sub">
+                <Link href={withYear(link.href)} className="hash-nav">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+
+            {/* Schedule (conditional) */}
+            {configData.schedule.enabled && (
+              <li className="hash-has-sub">
+                <Link href={withYear("/schedule")} className="hash-nav">
+                  Schedule
+                </Link>
+              </li>
+            )}
+
+            {/* News with submenu */}
+            <li className={isAccordion === 2 ? "has-sub hash-has-sub active" : "has-sub hash-has-sub"}>
+              <span className="submenu-button" onClick={() => handleAccordion(2)}>
                 <em />
               </span>
-              <Link href="/code-of-conduct" className="hash-nav">
-                Code of Conduct
-              </Link>
-            </li>
-            <li className="has-sub hash-has-sub">
-              <span className="hash-nav">
-                <em />
-              </span>
-              <Link href="/#sponsors" className="hash-nav">
-                Sponsors
-              </Link>
-            </li>
-            <li className="has-sub hash-has-sub">
-              <span className="hash-nav">
-                <em />
-              </span>
-              <Link href="/travel" className="hash-nav">
-                Venue
-              </Link>
-            </li>
-            <li className="has-sub hash-has-sub">
-              <span className="hash-nav">
-                <em />
-              </span>
-              <Link href="/sponsorship" className="hash-nav">
-                Sponsorship
-              </Link>
+              <a className="hash-nav">News</a>
+              <ul className="sub-menu" style={{ display: isAccordion === 2 ? "block" : "none" }}>
+                {newsDropdownLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.requiresYear ? withYear(link.href) : link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </li>
           </ul>
 
@@ -120,26 +140,13 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
                   <h3>Social Links</h3>
                   <div className="social-links-mobile-menu">
                     <ul>
-                      <li>
-                        <Link href="https://twitter.com/dev_bcn" target="_blank" rel="noopener noreferrer">
-                          <i className="fa-brands fa-twitter" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                          <i className="fa-brands fa-instagram" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="	https://www.linkedin.com/company/devbcn/" target="_blank" rel="noopener noreferrer">
-                          <i className="fa-brands fa-linkedin-in" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="https://bsky.app/profile/devbcn.bsky.social" target="_blank" rel="noopener noreferrer">
-                          <i className="fa-brands fa-bluesky" />
-                        </Link>
-                      </li>
+                      {socialLinks.map((social) => (
+                        <li key={social.platform}>
+                          <Link href={social.url} target="_blank" rel="noopener noreferrer">
+                            <i className={social.icon} />
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>

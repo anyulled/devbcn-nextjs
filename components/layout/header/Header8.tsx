@@ -1,5 +1,6 @@
 "use client";
 import { getEditionConfig } from "@/config/editions";
+import { editionLinks, mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "@/config/navigation";
 import { trackTicketClick } from "@/lib/utils/analytics";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -49,32 +50,23 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                         Home <i className="fa-solid fa-angle-down" />
                       </Link>
                       <ul className="dropdown-padding">
-                        <li>
-                          <Link href="/2025">2025 Edition</Link>
-                        </li>
-                        <li>
-                          <Link href="/2024">2024 Edition</Link>
-                        </li>
-                        <li>
-                          <Link href="/2023">2023 Edition</Link>
-                        </li>
+                        {editionLinks.map((link) => (
+                          <li key={link.href}>
+                            <Link href={link.href}>{link.label}</Link>
+                          </li>
+                        ))}
                       </ul>
                     </li>
-                    <li>
-                      <Link href="/about-us">About us</Link>
-                    </li>
-                    <li>
-                      <Link href="/code-of-conduct">Code of Conduct</Link>
-                    </li>
-                    <li>
-                      <Link href={withYear("/#sponsors")}>Sponsors</Link>
-                    </li>
-                    <li>
-                      <Link href={withYear("/speakers")}>Speakers</Link>
-                    </li>
-                    <li>
-                      <Link href={withYear("/talks")}>Talks</Link>
-                    </li>
+                    {mainNavLinks.map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href}>{link.label}</Link>
+                      </li>
+                    ))}
+                    {yearSpecificNavLinks.map((link) => (
+                      <li key={link.href}>
+                        <Link href={withYear(link.href)}>{link.label}</Link>
+                      </li>
+                    ))}
                     {configData.schedule.enabled && (
                       <li>
                         <Link href={withYear("/schedule")}>Schedule</Link>
@@ -85,18 +77,11 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                         News <i className="fa-solid fa-angle-down" />
                       </Link>
                       <ul className="dropdown-padding">
-                        <li>
-                          <Link href={withYear("/cfp")}>CFP</Link>
-                        </li>
-                        <li>
-                          <Link href={withYear("/diversity")}>Diversity</Link>
-                        </li>
-                        <li>
-                          <Link href={withYear("/job-offers")}>Job Offers</Link>
-                        </li>
-                        <li>
-                          <Link href="/travel">Travel</Link>
-                        </li>
+                        {newsDropdownLinks.map((link) => (
+                          <li key={link.href}>
+                            <Link href={link.requiresYear ? withYear(link.href) : link.href}>{link.label}</Link>
+                          </li>
+                        ))}
                       </ul>
                     </li>
                   </ul>
