@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
-import ModalVideo from "react-modal-video";
-import "@/node_modules/react-modal-video/css/modal-video.css";
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import "@/node_modules/react-modal-video/css/modal-video.css";
 import Link from "next/link";
+import { useState } from "react";
+import ModalVideo from "react-modal-video";
 export default function BlogSingle() {
   const [isOpen, setOpen] = useState(false);
   return (
@@ -411,7 +411,7 @@ export default function BlogSingle() {
                 <div className="col-lg-10 m-auto">
                   <div className="cta1-main-boxarea">
                     <div className="timer-btn-area">
-                      <Countdown />
+                      <Countdown eventDate={"2025-12-25T14:24:23+01:00"} />
                       <div className="btn-area1">
                         <Link href="/pricing-plan" className="vl-btn1">
                           Buy Ticket
@@ -438,39 +438,6 @@ export default function BlogSingle() {
             </div>
           </div>
           {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
-          <div className="cta1-section-area d-lg-none d-block">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-10 m-auto">
-                  <div className="cta1-main-boxarea">
-                    <div className="timer-btn-area">
-                      <Countdown />
-                      <div className="btn-area1">
-                        <Link href="/pricing-plan" className="vl-btn1">
-                          Buy Ticket
-                        </Link>
-                      </div>
-                    </div>
-                    <ul>
-                      <li>
-                        <Link href="/#">
-                          <img src="/assets/img/icons/calender1.svg" alt="" />
-                          30 January 2025 - 6pm to 11:30pm
-                        </Link>
-                      </li>
-                      <li className="m-0">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/location1.svg" alt="" />
-                          Secret Location In The UK
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <ModalVideo channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
       </Layout>

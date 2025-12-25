@@ -1,5 +1,5 @@
 import Countdown from "@/components/elements/Countdown";
-import { getAvailableEditions } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
@@ -95,6 +95,7 @@ const getIconClass = (index: number): string => {
 export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
   const { year, speaker_id } = await params;
   const speaker = await getSpeakerByYearAndId(year, speaker_id);
+  const eventData = getEditionConfig(year);
 
   if (!speaker) {
     notFound();
@@ -274,7 +275,7 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
             <div className="col-lg-10 m-auto">
               <div className="cta1-main-boxarea">
                 <div className="timer-btn-area">
-                  <Countdown />
+                  <Countdown eventDate={eventData.event.startDay.toISOString()} />
                   <div className="btn-area1">
                     <Link href="/pricing-plan" className="vl-btn1">
                       Buy Ticket
