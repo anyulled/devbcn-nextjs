@@ -2,6 +2,7 @@
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { trackTicketClick } from "@/lib/utils/analytics";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Section1Props {
@@ -19,7 +20,7 @@ export default function Section1({ year }: Section1Props) {
               <div className="space48"></div>
               <div className="space32" />
               <h1 className="text-anime-style-3">
-                <img src="/assets/img/logo/logo.png" alt="DevBcn" />
+                <Image src="/assets/img/logo/logo.png" alt="DevBcn - Barcelona Developers Conference" width={400} height={120} priority />
               </h1>
               <h4>The Barcelona Developers Conference</h4>
               <h5>{formatEventDateRange(config.event.startDay, config.event.endDay)}</h5>

@@ -15,7 +15,7 @@ export default function Section6() {
               </div>
             </div>
           </div>
-          <Countdown style={2} />
+          <Countdown eventDate={new Date().toISOString()} style={2} />
           <div className="row">
             <div className="col-lg-12">
               <div className="space60" />

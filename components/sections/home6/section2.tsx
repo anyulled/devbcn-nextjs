@@ -18,7 +18,7 @@ export default function Section2() {
                   <span className="close-icon" onClick={() => setIsVisible(false)}>
                     ✖
                   </span>
-                  <Countdown style={3} />
+                  <Countdown eventDate={new Date().toISOString()} style={3} />
                   <div className="btn-area1">
                     <Link className="vl-btn6" href="/pricing-plan">
                       <span className="demo">

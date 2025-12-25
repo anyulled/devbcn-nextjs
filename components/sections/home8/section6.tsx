@@ -1,4 +1,5 @@
 import Countdown from "@/components/elements/Countdown";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Section6Props {
@@ -29,13 +30,13 @@ export default function Section6({ eventDate, eventVenue }: Section6Props) {
                 <ul>
                   <li>
                     <Link href="/#">
-                      <img src="/assets/img/icons/calender2.svg" alt="" />
+                      <Image src="/assets/img/icons/calender2.svg" alt="Calendar" width={24} height={24} />
                       {eventDateFormated.toDateString()}
                     </Link>
                   </li>
                   <li className="m-0">
                     <Link href="/#">
-                      <img src="/assets/img/icons/location1.svg" alt="" />
+                      <Image src="/assets/img/icons/location1.svg" alt="Location" width={24} height={24} />
                       {eventVenue}
                     </Link>
                   </li>

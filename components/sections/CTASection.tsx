@@ -21,7 +21,7 @@ export default function CTASection({
           <div className="col-lg-10 m-auto">
             <div className="cta1-main-boxarea">
               <div className="timer-btn-area">
-                <Countdown />
+                <Countdown eventDate={eventDate} />
                 <div className="btn-area1">
                   <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
                     Buy Ticket

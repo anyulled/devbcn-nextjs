@@ -82,10 +82,10 @@ export default function Section1() {
             <div className="col-lg-4"></div>
             <div className="col-lg-7">
               <div className="timer-btn-area">
-                <Countdown style={1} />
+                <Countdown eventDate={new Date().toISOString()} style={1} />
               </div>
               <div className="timer-btn-area d-none">
-                <Countdown />
+                <Countdown eventDate={new Date().toISOString()} />
               </div>
             </div>
           </div>

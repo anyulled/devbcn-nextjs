@@ -10,7 +10,7 @@ export default function Section9() {
             <div className="col-lg-10 m-auto">
               <div className="cta1-main-boxarea">
                 <div className="timer-btn-area">
-                  <Countdown />
+                  <Countdown eventDate={new Date().toISOString()} />
                   <div className="btn-area1">
                     <Link className="vl-btn2" href="/pricing-plan">
                       <span className="demo">Buy A Ticket</span>

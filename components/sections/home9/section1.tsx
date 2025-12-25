@@ -46,7 +46,7 @@ export default function Section1() {
                 <div className="row">
                   <div className="col-lg-7">
                     <div className="timer-btn-area">
-                      <Countdown style={1} />
+                      <Countdown eventDate={new Date().toISOString()} style={1} />
                     </div>
                   </div>
                   <div className="col-lg-5">

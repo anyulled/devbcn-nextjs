@@ -7,15 +7,13 @@ import Section5 from "@/components/sections/home8/section5";
 import Section6 from "@/components/sections/home8/section6";
 export default function Home8() {
   return (
-    <>
-      <Layout headerStyle={8} footerStyle={8}>
-        <Section1 year="2023" />
-        <Section2 />
-        <Section3 />
-        <Section4 sponsors={{ top: [], premium: [], regular: [], basic: [], communities: [], media_partners: [], supporters: [] }} />
-        <Section5 year={"2026"} />
-        <Section6 />
-      </Layout>
-    </>
+    <Layout headerStyle={8} footerStyle={8}>
+      <Section1 year="2023" />
+      <Section2 eventDate={new Date().toISOString()} showCountdown={false} />
+      <Section3 />
+      <Section4 sponsors={{ top: [], premium: [], regular: [], basic: [], communities: [], media_partners: [], supporters: [] }} />
+      <Section5 year={"2026"} />
+      <Section6 eventDate={new Date().toISOString()} eventVenue="World Trade Center, Barcelona" />
+    </Layout>
   );
 }

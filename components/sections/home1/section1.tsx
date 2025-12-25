@@ -55,7 +55,7 @@ export default function Section1() {
               </div>
             </div>
             <div className="col-lg-1">
-              <Countdown />
+              <Countdown eventDate={new Date().toISOString()} />
             </div>
           </div>
         </div>

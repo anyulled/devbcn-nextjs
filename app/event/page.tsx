@@ -303,7 +303,7 @@ export default function Event() {
                 <div className="col-lg-10 m-auto">
                   <div className="cta1-main-boxarea">
                     <div className="timer-btn-area">
-                      <Countdown />
+                      <Countdown eventDate={new Date().toISOString()} />
                       <div className="btn-area1">
                         <Link href="/pricing-plan" className="vl-btn1">
                           Buy Ticket
@@ -337,7 +337,7 @@ export default function Event() {
                 <div className="col-lg-10 m-auto">
                   <div className="cta1-main-boxarea">
                     <div className="timer-btn-area">
-                      <Countdown />
+                      <Countdown eventDate={new Date().toISOString()} />
                       <div className="btn-area1">
                         <Link href="/pricing-plan" className="vl-btn1">
                           Buy Ticket

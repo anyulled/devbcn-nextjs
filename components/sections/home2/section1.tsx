@@ -47,7 +47,7 @@ export default function Section1() {
                   <h1>
                     <span className="conferences">Conferences</span> “ <CountUp className="odometer" enableScrollSpy={true} end={25} /> ”
                   </h1>
-                  <Countdown />
+                  <Countdown eventDate={new Date().toISOString()} />
                   <div className="space32" />
                   <div className="btn-area1">
                     <Link href="/event-schedule" className="vl-btn2">
@@ -103,7 +103,7 @@ export default function Section1() {
                   <h1>
                     <span className="conferences">Conferences</span> “ <CountUp className="odometer" enableScrollSpy={true} end={25} /> ”
                   </h1>
-                  <Countdown />
+                  <Countdown eventDate={new Date().toISOString()} />
                   <div className="space32" />
                   <div className="btn-area1">
                     <Link href="/event-schedule" className="vl-btn2">
@@ -159,7 +159,7 @@ export default function Section1() {
                   <h1>
                     <span className="conferences">Conferences</span> “ <CountUp className="odometer" enableScrollSpy={true} end={25} /> ”
                   </h1>
-                  <Countdown />
+                  <Countdown eventDate={new Date().toISOString()} />
                   <div className="space32" />
                   <div className="btn-area1">
                     <Link href="/event-schedule" className="vl-btn2">

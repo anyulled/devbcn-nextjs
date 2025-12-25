@@ -18,7 +18,7 @@ export default function Section2() {
                   <div className="col-lg-2" />
                   <div className="col-lg-6">
                     <div className="others-times-area">
-                      <Countdown style={1} />
+                      <Countdown eventDate={new Date().toISOString()} style={1} />
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
+import Image from "next/image";
 import CountUp from "react-countup";
 
 interface Section2Props {
@@ -25,15 +26,15 @@ export default function Section2({ eventDate, showCountdown }: Section2Props) {
             <div className="col-lg-6">
               <div className="space50 d-lg-none d-block" />
               <div className="about8-images">
-                <img src="/assets/img/all-images/about/about-img10.png" alt="" className="about-img10 aniamtion-key-1" />
+                <Image src="/assets/img/all-images/about/about-img10.png" alt="" className="about-img10 aniamtion-key-1" width={317} height={192} />
                 <div className="img1" data-aos="zoom-in" data-aos-duration={1000}>
-                  <img src="/assets/img/all-images/about/devbcn2.webp" alt="" />
+                  <Image src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn Conference" width={400} height={300} />
                 </div>
                 <div className="img2" data-aos="zoom-in" data-aos-duration={1100}>
-                  <img src="/assets/img/all-images/about/FaqsImage0.webp" alt="" />
+                  <Image src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn Event" width={400} height={300} />
                 </div>
                 <div className="img3" data-aos="zoom-in" data-aos-duration={1200}>
-                  <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="" />
+                  <Image src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn Venue" width={400} height={300} />
                 </div>
               </div>
             </div>
@@ -49,16 +50,16 @@ export default function Section2({ eventDate, showCountdown }: Section2Props) {
                   <p>Speakers</p>
                 </div>
                 <div className="img1">
-                  <img src="/assets/img/all-images/about/about-img22.png" alt="" />
+                  <Image src="/assets/img/all-images/about/about-img22.png" alt="" width={150} height={150} />
                 </div>
                 <div className="img2">
-                  <img src="/assets/img/all-images/about/about-img23.png" alt="" />
+                  <Image src="/assets/img/all-images/about/about-img23.png" alt="" width={150} height={150} />
                 </div>
                 <div className="img3">
-                  <img src="/assets/img/all-images/about/about-img24.png" alt="" />
+                  <Image src="/assets/img/all-images/about/about-img24.png" alt="" width={150} height={150} />
                 </div>
                 <div className="img4">
-                  <img src="/assets/img/all-images/about/about-img25.png" alt="" />
+                  <Image src="/assets/img/all-images/about/about-img25.png" alt="" width={150} height={150} />
                 </div>
                 <div className="counter-box2">
                   <h3>
