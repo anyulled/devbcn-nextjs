@@ -38,7 +38,7 @@ export const edition2023: EditionConfig = {
   tickets: {
     startDay: new Date("2022-11-01T00:00:00"),
     endDay: new Date("2023-06-26T00:00:00"),
-    url: "",
+    url: "https://tickets.devbcn.com/event/devbcn-2023",
   },
 
   sponsors: {

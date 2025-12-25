@@ -82,11 +82,11 @@ export default async function Page({ params }: PageProps) {
       <Script id="event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventSchema) }} />
       <Script id="organization-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationSchema) }} />
       <Section1 year={year} />
-      <Section2 />
+      <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
       <Section3 />
       <Section4 sponsors={config.sponsorsData} />
       <Section5 year={year} />
-      <Section6 />
+      <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
     </>
   );
 }

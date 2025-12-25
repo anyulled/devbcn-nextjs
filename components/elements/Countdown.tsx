@@ -15,11 +15,16 @@ const getPartsOfTimeDuration = (duration: number) => {
   return { days, hours, minutes, seconds };
 };
 
-export default function Countdown({ style }: { style?: number }) {
+interface CountdownProps {
+  style?: number;
+  eventDate: string;
+}
+
+export default function Countdown({ style, eventDate }: CountdownProps) {
   const [timeDif, setTimeDif] = useState(() => {
     const now = Date.now();
-    const endDateTime = new Date(2026, 5, 17);
-    return endDateTime.getTime() - now;
+    const targetDate = new Date(eventDate);
+    return targetDate.getTime() - now;
   });
 
   useEffect(() => {

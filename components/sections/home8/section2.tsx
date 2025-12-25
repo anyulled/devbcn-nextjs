@@ -1,7 +1,13 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
 import CountUp from "react-countup";
-export default function Section2() {
+
+interface Section2Props {
+  eventDate: string;
+  showCountdown: boolean;
+}
+
+export default function Section2({ eventDate, showCountdown }: Section2Props) {
   return (
     <>
       <div
@@ -78,9 +84,7 @@ export default function Section2() {
           </div>
         </div>
         <div className="others8-section-area sp1">
-          <div className="container">
-            <Countdown style={2} />
-          </div>
+          <div className="container">{showCountdown && <Countdown style={2} eventDate={eventDate} />}</div>
         </div>
       </div>
     </>

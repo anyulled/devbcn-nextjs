@@ -16,7 +16,7 @@ export default function Section1({ year }: Section1Props) {
         <div className="row">
           <div className="col-lg-8 m-auto">
             <div className="hero8-header text-center">
-              <div className="space40"></div>
+              <div className="space48"></div>
               <div className="space32" />
               <h1 className="text-anime-style-3">
                 <img src="/assets/img/logo/logo.png" alt="DevBcn" />

@@ -1,7 +1,13 @@
 import Countdown from "@/components/elements/Countdown";
 import Link from "next/link";
 
-export default function Section6() {
+interface Section6Props {
+  eventDate: string;
+  eventVenue: string;
+}
+
+export default function Section6({ eventDate, eventVenue }: Section6Props) {
+  const eventDateFormated = new Date(eventDate);
   return (
     <>
       <div className="cta8-section-area">
@@ -10,7 +16,7 @@ export default function Section6() {
             <div className="col-lg-10 m-auto">
               <div className="cta1-main-boxarea">
                 <div className="timer-btn-area">
-                  <Countdown />
+                  <Countdown eventDate={eventDate} />
                   <div className="btn-area1">
                     <Link className="vl-btn8" href="/pricing-plan">
                       <span className="demo">Buy A Ticket</span>
@@ -24,13 +30,13 @@ export default function Section6() {
                   <li>
                     <Link href="/#">
                       <img src="/assets/img/icons/calender2.svg" alt="" />
-                      24 - 28 June 2026
+                      {eventDateFormated.toDateString()}
                     </Link>
                   </li>
                   <li className="m-0">
                     <Link href="/#">
                       <img src="/assets/img/icons/location1.svg" alt="" />
-                      World Trade Center, Barcelona
+                      {eventVenue}
                     </Link>
                   </li>
                 </ul>
