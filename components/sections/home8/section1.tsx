@@ -2,7 +2,11 @@ import BackgroundCarousel from "@/components/BackgroundCarousel";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 
-export default function Section1({ year }: { year: string }) {
+interface Section1Props {
+  year: string;
+}
+
+export default function Section1({ year }: Section1Props) {
   const config = getEditionConfig(year);
   return (
     <BackgroundCarousel className="hero8-slider-area">

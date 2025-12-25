@@ -8,7 +8,7 @@ import { getEditionConfig } from "@/config/editions";
 
 interface PageProps {
   params: Promise<{
-    year: number;
+    year: string;
   }>;
 }
 
