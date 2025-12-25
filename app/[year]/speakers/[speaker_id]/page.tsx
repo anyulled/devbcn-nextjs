@@ -1,5 +1,6 @@
 import Countdown from "@/components/elements/Countdown";
-import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
+import { getAvailableEditions } from "@/config/editions";
+import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,24 @@ interface SpeakerDetailProps {
     year: string;
     speaker_id: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  const params = [];
+
+  for (const year of years) {
+    try {
+      const speakers = await getSpeakers(year);
+      for (const speaker of speakers) {
+        params.push({ year, speaker_id: speaker.id });
+      }
+    } catch (error) {
+      console.warn(`Failed to fetch speakers for year ${year}:`, error);
+    }
+  }
+
+  return params;
 }
 
 const getSocialIcon = (linkType: string): string => {

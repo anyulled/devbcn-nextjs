@@ -1,13 +1,18 @@
 import PageHeader from "@/components/layout/PageHeader";
 import SpeakerCard from "@/components/layout/SpeakerCard";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
 
 interface SpeakersProps {
   params: Promise<{
     year: number;
   }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
 }
 
 export default async function Speakers({ params }: SpeakersProps) {

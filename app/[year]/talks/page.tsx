@@ -1,13 +1,18 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 
 interface TalksProps {
   params: Promise<{
     year: number;
   }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
 }
 
 export default async function Talks({ params }: TalksProps) {

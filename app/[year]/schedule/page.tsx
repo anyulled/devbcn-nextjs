@@ -1,6 +1,17 @@
+import { getAvailableEditions } from "@/config/editions";
 import Link from "next/link";
 
-export default function Schedule() {
+interface ScheduleProps {
+  params: Promise<{ year: string }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
+}
+
+export default async function Schedule({ params }: ScheduleProps) {
+  const { year } = await params;
   return (
     <div>
       <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg6.png)" }}>

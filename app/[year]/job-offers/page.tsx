@@ -1,12 +1,18 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
+import { getAvailableEditions } from "@/config/editions";
 import { slugify } from "@/lib/utils/slugify";
 import Image from "next/image";
 import Link from "next/link";
 
 interface JobOffersPageProps {
   params: Promise<{ year: string }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
 }
 
 export default async function JobOffers({ params }: JobOffersPageProps) {

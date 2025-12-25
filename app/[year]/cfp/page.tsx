@@ -1,11 +1,16 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import Link from "next/link";
 import { cfpData } from "./cfpData";
 
 interface CFPProps {
   params: Promise<{ year: string }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
 }
 
 export default async function CFP({ params }: CFPProps) {

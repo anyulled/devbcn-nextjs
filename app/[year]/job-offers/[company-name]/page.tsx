@@ -1,13 +1,32 @@
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { findCompanyBySlug } from "@/config/data/job-offers";
+import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
+import { getAvailableEditions } from "@/config/editions";
+import { slugify } from "@/lib/utils/slugify";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface CompanyJobOffersPageProps {
   params: Promise<{ year: string; "company-name": string }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  const params = [];
+
+  for (const year of years) {
+    const companies = getJobOffersByYear(year);
+    for (const company of companies) {
+      params.push({
+        year,
+        "company-name": slugify(company.name),
+      });
+    }
+  }
+
+  return params;
 }
 
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {

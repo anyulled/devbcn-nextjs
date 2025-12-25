@@ -1,7 +1,7 @@
 import AddToCalendarWrapper from "@/components/elements/AddToCalendarWrapper";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import {
   getLevelFromTalk,
@@ -9,6 +9,7 @@ import {
   getRandomRelatedTalksByTrack,
   getTagsFromTalk,
   getTalkByYearAndId,
+  getTalks,
   getTalkSpeakersWithDetails,
   getTrackFromTalk,
 } from "@/hooks/useTalks";
@@ -21,6 +22,25 @@ interface TalkDetailProps {
     year: string;
     talk_id: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  const params = [];
+
+  for (const year of years) {
+    try {
+      const sessionGroups = await getTalks(year);
+      const allTalks = sessionGroups.flatMap((group) => group.sessions);
+      for (const talk of allTalks) {
+        params.push({ year, talk_id: talk.id });
+      }
+    } catch (error) {
+      console.warn(`Failed to fetch talks for year ${year}:`, error);
+    }
+  }
+
+  return params;
 }
 
 const getSocialIcon = (linkType: string): string => {

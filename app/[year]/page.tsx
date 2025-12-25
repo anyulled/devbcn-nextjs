@@ -4,12 +4,17 @@ import Section3 from "@/components/sections/home8/section3";
 import Section4 from "@/components/sections/home8/section4";
 import Section5 from "@/components/sections/home8/section5";
 import Section6 from "@/components/sections/home8/section6";
-import { getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 
 interface PageProps {
   params: Promise<{
     year: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
 }
 
 export default async function Page({ params }: PageProps) {
