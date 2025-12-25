@@ -3,7 +3,9 @@ import SpeakerCard from "@/components/layout/SpeakerCard";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 interface SpeakersProps {
   params: Promise<{
@@ -48,8 +50,25 @@ export default async function Speakers({ params }: SpeakersProps) {
   const speakers = await getSpeakers(year);
   const eventData = getEditionConfig(year);
 
+  // Generate JSON-LD ItemList schema for speakers
+  const baseUrl = "https://www.devbcn.com";
+  const speakersListSchema =
+    speakers.length > 0
+      ? generateItemListSchema(
+          speakers.map((speaker) => ({
+            name: speaker.fullName,
+            url: `${baseUrl}/${year}/speakers/${speaker.id}`,
+            description: speaker.bio || speaker.tagLine || undefined,
+          })),
+          `DevBcn ${year} Speakers`
+        )
+      : null;
+
   return (
     <div>
+      {speakersListSchema && (
+        <Script id="speakers-list-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(speakersListSchema) }} />
+      )}
       <PageHeader title="Our Speakers" breadcrumbText="Our Speakers" />
       {speakers && speakers.length > 0 ? (
         <div className="team-sperkers-section-area sp1">

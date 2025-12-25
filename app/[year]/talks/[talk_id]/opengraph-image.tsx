@@ -95,6 +95,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
         {track && (
           <div
             style={{
+              display: "flex",
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               padding: "12px 24px",
               borderRadius: "24px",
@@ -156,6 +157,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
           {level && (
             <div
               style={{
+                display: "flex",
                 fontSize: 28,
                 color: "#c4b5fd",
                 fontWeight: 500,

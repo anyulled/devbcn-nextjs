@@ -13,10 +13,12 @@ import {
   getTalkSpeakersWithDetails,
   getTrackFromTalk,
 } from "@/hooks/useTalks";
+import { generateBreadcrumbSchema, generateEducationEventSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { format, parseISO } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 interface TalkDetailProps {
   params: Promise<{
@@ -156,8 +158,28 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const venueMapUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.8087698983287!2d2.1387861!3d41.3801893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2e31f1c0f87%3A0x55f6c7a5b8f5f5d9!2sWorld%20Trade%20Center%20Barcelona!5e0!3m2!1sen!2ses!4v1703000000000!5m2!1sen!2ses";
 
+  // Generate JSON-LD schemas
+  const baseUrl = "https://www.devbcn.com";
+  const educationEventSchema = generateEducationEventSchema(talk, year, eventData.venue);
+  const speakerSchemas = speakers.map((speaker) => generatePersonSchema(speaker, year));
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: `${baseUrl}/${year}` },
+    { name: "Talks", url: `${baseUrl}/${year}/talks` },
+    { name: talk.title, url: `${baseUrl}/${year}/talks/${talk.id}` },
+  ]);
+
   return (
     <div>
+      <Script id="talk-education-event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(educationEventSchema) }} />
+      {speakerSchemas.map((schema, idx) => (
+        <Script
+          key={`speaker-${idx}`}
+          id={`talk-speaker-${idx}-jsonld`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
+        />
+      ))}
+      <Script id="talk-breadcrumb-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
       {/* Hero Header Section */}
       <PageHeader title={talk.title} backgroundImageId={9} breadcrumbText="Talks" />
 

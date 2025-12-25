@@ -3,7 +3,9 @@ import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 interface TalksProps {
   params: Promise<{
@@ -51,8 +53,23 @@ export default async function Talks({ params }: TalksProps) {
   const tracks = getUniqueTracks(sessionGroups);
   const eventData = getEditionConfig(year);
 
+  // Generate JSON-LD ItemList schema for talks
+  const baseUrl = "https://www.devbcn.com";
+  const talksListSchema =
+    talks.length > 0
+      ? generateItemListSchema(
+          talks.map((talk) => ({
+            name: talk.title,
+            url: `${baseUrl}/${year}/talks/${talk.id}`,
+            description: talk.description || undefined,
+          })),
+          `DevBcn ${year} Talks & Sessions`
+        )
+      : null;
+
   return (
     <div>
+      {talksListSchema && <Script id="talks-list-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(talksListSchema) }} />}
       <PageHeader title={`Talks ${year}`} breadcrumbText="Talks" />
 
       {talks && talks.length > 0 ? (

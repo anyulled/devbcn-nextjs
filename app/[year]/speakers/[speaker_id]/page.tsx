@@ -1,9 +1,11 @@
 import Countdown from "@/components/elements/Countdown";
 import { getAvailableEditions } from "@/config/editions";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
+import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 interface SpeakerDetailProps {
   params: Promise<{
@@ -110,8 +112,32 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
     );
   }
 
+  // Generate JSON-LD schemas
+  const baseUrl = "https://www.devbcn.com";
+  const personSchema = generatePersonSchema(speaker, year);
+  const sessionsListSchema =
+    speaker.sessions.length > 0
+      ? generateItemListSchema(
+          speaker.sessions.map((session) => ({
+            name: session.name,
+            url: `${baseUrl}/${year}/talks/${session.id}`,
+          })),
+          `Sessions by ${speaker.fullName}`
+        )
+      : null;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: `${baseUrl}/${year}` },
+    { name: "Speakers", url: `${baseUrl}/${year}/speakers` },
+    { name: speaker.fullName, url: `${baseUrl}/${year}/speakers/${speaker.id}` },
+  ]);
+
   return (
     <div>
+      <Script id="speaker-person-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }} />
+      {sessionsListSchema && (
+        <Script id="speaker-sessions-list-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(sessionsListSchema) }} />
+      )}
+      <Script id="speaker-breadcrumb-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
       {/* Header Section */}
       <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg7.png)" }}>
         <div className="container">

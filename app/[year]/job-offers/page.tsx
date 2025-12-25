@@ -2,10 +2,12 @@ import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { getAvailableEditions } from "@/config/editions";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 interface JobOffersPageProps {
   params: Promise<{ year: string }>;
@@ -47,8 +49,25 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
   const { year } = await params;
   const companies = getJobOffersByYear(year);
 
+  // Generate JSON-LD ItemList schema for companies
+  const baseUrl = "https://www.devbcn.com";
+  const companiesListSchema =
+    companies.length > 0
+      ? generateItemListSchema(
+          companies.map((company) => ({
+            name: company.name,
+            url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
+            description: company.description,
+          })),
+          `DevBcn ${year} Job Offers`
+        )
+      : null;
+
   return (
     <div>
+      {companiesListSchema && (
+        <Script id="job-offers-list-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(companiesListSchema) }} />
+      )}
       <PageHeader title="Job Offers" backgroundImageId={9} breadcrumbText="Job Offers" />
 
       <div className="job-offers-section sp1">

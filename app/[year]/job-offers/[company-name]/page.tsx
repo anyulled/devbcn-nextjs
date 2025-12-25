@@ -3,11 +3,13 @@ import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
 import { getAvailableEditions } from "@/config/editions";
+import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 interface CompanyJobOffersPageProps {
   params: Promise<{ year: string; "company-name": string }>;
@@ -85,8 +87,21 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
     notFound();
   }
 
+  // Generate JSON-LD schemas
+  const baseUrl = "https://www.devbcn.com";
+  const jobPostingSchemas = company.offers.map((offer) => generateJobPostingSchema(offer, company, year));
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: `${baseUrl}/${year}` },
+    { name: "Job Offers", url: `${baseUrl}/${year}/job-offers` },
+    { name: company.name, url: `${baseUrl}/${year}/job-offers/${companySlug}` },
+  ]);
+
   return (
     <div>
+      {jobPostingSchemas.map((schema, idx) => (
+        <Script key={`job-${idx}`} id={`job-posting-${idx}-jsonld`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
+      ))}
+      <Script id="job-offers-breadcrumb-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
       <PageHeader title={`${company.name} - Job Offers`} backgroundImageId={9} breadcrumbText={company.name} />
 
       <div className="company-detail-section sp1">

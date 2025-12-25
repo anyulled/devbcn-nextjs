@@ -5,7 +5,9 @@ import Section4 from "@/components/sections/home8/section4";
 import Section5 from "@/components/sections/home8/section5";
 import Section6 from "@/components/sections/home8/section6";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 interface PageProps {
   params: Promise<{
@@ -68,8 +70,14 @@ export default async function Page({ params }: PageProps) {
   const { year } = await params;
   const config = getEditionConfig(year);
 
+  // Generate JSON-LD schemas
+  const eventSchema = generateEventSchema(config, year);
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <>
+      <Script id="event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventSchema) }} />
+      <Script id="organization-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationSchema) }} />
       <Section1 year={year} />
       <Section2 />
       <Section3 />
