@@ -18,6 +18,7 @@ import { format, parseISO } from "date-fns";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 
 // ISR: Revalidate every 6 hours to keep talk data fresh
@@ -112,23 +113,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const eventData = getEditionConfig(year);
 
   if (!talk) {
-    return (
-      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg9.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Talk Not Found</h1>
-                <div className="space20" />
-                <Link href={`/${year}/talks`}>
-                  <i className="fa-solid fa-arrow-left" /> Back to Talks
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const speakerIds = talk.speakers.map((s) => s.id);

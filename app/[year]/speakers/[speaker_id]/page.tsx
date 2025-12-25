@@ -5,6 +5,7 @@ import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema,
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 
 // ISR: Revalidate every 6 hours to keep speaker data fresh
@@ -96,23 +97,7 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
   const speaker = await getSpeakerByYearAndId(year, speaker_id);
 
   if (!speaker) {
-    return (
-      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg7.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Speaker Not Found</h1>
-                <div className="space20" />
-                <Link href={`/${year}/speakers`}>
-                  <i className="fa-solid fa-arrow-left" /> Back to Speakers
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   // Generate JSON-LD schemas
