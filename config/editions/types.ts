@@ -43,6 +43,14 @@ export interface TicketsConfig extends DateRangeConfig {
 }
 
 /**
+ * Diversity configuration
+ */
+export interface DiversityConfig {
+  sponsors: Sponsor[];
+  applicationForm: string;
+}
+
+/**
  * Social media links configuration
  */
 export interface SocialLinks {
@@ -96,7 +104,7 @@ export interface EditionConfig {
   showInfoButtons: boolean;
   hideSpeakers: boolean;
   hideTalks: boolean;
-  diversity: boolean;
+  diversity: DiversityConfig;
 
   // Feature toggles with nested config
   carrousel: FeatureConfig;

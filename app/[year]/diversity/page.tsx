@@ -65,7 +65,15 @@ export default async function Diversity({ params }: DiversityProps) {
                 <div className="space16" />
                 <p>That's why we are running again the diversity sponsorship for DevBcn {year} 🎉</p>
                 <div className="space16" />
-                <p>We must thank NUBANK for making this possible!</p>
+                <p>We must thank our diversity sponsors for making this possible!</p>
+                <div className="space16" />
+                <div className="logo-container" style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                  {eventData.diversity.sponsors.map((sponsor, index) => (
+                    <a key={index} href={sponsor.website} target="_blank" rel="noopener noreferrer">
+                      <img src={sponsor.image} alt={sponsor.name} style={{ maxWidth: "200px", height: "auto" }} />
+                    </a>
+                  ))}
+                </div>
                 <div className="space48" />
                 <h3>Who can apply?</h3>
                 <div className="space16" />
@@ -79,7 +87,13 @@ export default async function Diversity({ params }: DiversityProps) {
                 <div className="space48" />
                 <h3>How can I apply?</h3>
                 <div className="space16" />
-                <p>To apply, please fill the application form introducing yourself and telling us about your expectations for the event.</p>
+                <p>
+                  To apply, please fill the{" "}
+                  <a href={eventData.diversity.applicationForm} target="_blank" rel="noopener noreferrer">
+                    application form
+                  </a>{" "}
+                  introducing yourself and telling us about your expectations for the event.
+                </p>
                 <div className="space16" />
                 <p>All applications' information will be kept confidential and used exclusively for this campaign.</p>
                 <div className="space48" />

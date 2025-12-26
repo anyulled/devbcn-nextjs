@@ -24,7 +24,16 @@ export const edition2024: EditionConfig = {
   showInfoButtons: true,
   hideSpeakers: false,
   hideTalks: false,
-  diversity: true,
+  diversity: {
+    sponsors: [
+      {
+        name: "Barcelona JUG",
+        image: "/assets/img/all-images/sponsors/bcn-jug.png",
+        website: "https://www.meetup.com/barcelonajug/",
+      },
+    ],
+    applicationForm: "TBD",
+  },
 
   carrousel: { enabled: true },
   schedule: { enabled: true },

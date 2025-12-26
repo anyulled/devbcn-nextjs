@@ -23,7 +23,21 @@ export const edition2023: EditionConfig = {
   showInfoButtons: true,
   hideSpeakers: false,
   hideTalks: false,
-  diversity: true,
+  diversity: {
+    sponsors: [
+      {
+        name: "Adevinta",
+        website: "https://www.adevinta.com/",
+        image: "/assets/img/all-images/sponsors/adevinta.png",
+      },
+      {
+        name: "Veepee",
+        image: "/assets/img/all-images/sponsors/veepee.png",
+        website: "https://www.veepee.es/gr/home/default",
+      },
+    ],
+    applicationForm: "https://docs.google.com/forms/d/e/1FAIpQLSdyRqQkh2iRD_QxzAwodIM1cXmO_Q4hNGojXnFli-crob2QUQ/viewform",
+  },
 
   carrousel: { enabled: true },
   schedule: { enabled: true },

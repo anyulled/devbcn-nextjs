@@ -24,7 +24,16 @@ export const edition2025: EditionConfig = {
   showInfoButtons: true,
   hideSpeakers: false,
   hideTalks: false,
-  diversity: false,
+  diversity: {
+    sponsors: [
+      {
+        name: "NUBANK",
+        website: "https://nubank.com.br/",
+        image: "/assets/img/all-images/sponsors/datomic.svg",
+      },
+    ],
+    applicationForm: "https://docs.google.com/forms/d/e/1FAIpQLSeX6",
+  },
 
   carrousel: { enabled: true },
   schedule: { enabled: true },
