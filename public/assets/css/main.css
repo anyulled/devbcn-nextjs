@@ -24407,7 +24407,7 @@ html {
 }
 
 .event-sidepage-section-area .shedule-listarea .content-area ul li {
-  display: inline-block;
+  display: block;
 }
 
 .event-sidepage-section-area .shedule-listarea .content-area ul li a {

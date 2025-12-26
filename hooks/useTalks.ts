@@ -74,6 +74,14 @@ export const getTagsFromTalk = (talk: Talk): string[] => {
 };
 
 /**
+ * Extract the slides URL from a talk's questionAnswers
+ */
+export const getSlidesUrl = (talk: Talk): string | null => {
+  const slidesAnswer = talk.questionAnswers.find((qa) => qa.question === "Slides");
+  return slidesAnswer?.answer || null;
+};
+
+/**
  * Get all unique track names from session groups
  */
 export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {

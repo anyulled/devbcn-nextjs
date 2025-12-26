@@ -1,3 +1,4 @@
+import VideoPlayer from "@/components/elements/VideoPlayer";
 import AddToCalendarWrapper from "@/components/elements/AddToCalendarWrapper";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
@@ -7,6 +8,7 @@ import {
   getLevelFromTalk,
   getLevelStars,
   getRandomRelatedTalksByTrack,
+  getSlidesUrl,
   getTagsFromTalk,
   getTalkByYearAndId,
   getTalks,
@@ -132,6 +134,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const level = getLevelFromTalk(talk);
   const levelStars = getLevelStars(level);
   const tags = getTagsFromTalk(talk);
+  const slidesUrl = getSlidesUrl(talk);
   const voteUrl = `https://openfeedback.io/${talk.id}`;
 
   // Format dates for display and calendar
@@ -187,58 +190,10 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
 
                 <div className="space24" />
 
-                {/* Track */}
-                <div style={{ marginBottom: "12px" }}>
-                  <strong>
-                    <img src="/assets/img/icons/tag1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                    Track:
-                  </strong>{" "}
-                  {track}
-                </div>
-
-                {/* Level */}
-                {levelStars && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <strong>Level:</strong> {levelStars} {level}
-                  </div>
-                )}
-
-                {/* Tags */}
-                {tags.length > 0 && (
-                  <div style={{ marginBottom: "24px" }}>
-                    <strong>Tags:</strong>
-                    <div style={{ marginTop: "8px" }}>
-                      {tags.map((tag, index) => (
-                        <Link
-                          key={index}
-                          href={`/${year}/tags/${tag}`}
-                          style={{
-                            display: "inline-block",
-                            background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                            color: "#fff",
-                            padding: "6px 14px",
-                            borderRadius: "20px",
-                            fontSize: "0.85rem",
-                            marginRight: "8px",
-                            marginBottom: "8px",
-                            textDecoration: "none",
-                          }}
-                        >
-                          {tag}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Room */}
-                {talk.room && (
-                  <div style={{ marginBottom: "24px" }}>
-                    <strong>
-                      <img src="/assets/img/icons/location1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                      Room:
-                    </strong>{" "}
-                    {talk.room}
+                {/* Video Player */}
+                {talk.recordingUrl && (
+                  <div style={{ marginBottom: "32px" }}>
+                    <VideoPlayer url={talk.recordingUrl} title={talk.title} />
                   </div>
                 )}
 
@@ -303,14 +258,16 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                   <ul>
                     {startFormatted && (
                       <li>
+                        <strong>Start:</strong>{" "}
                         <span>
                           <img src="/assets/img/icons/calender1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                          Start: {startFormatted}
+                          {startFormatted}
                         </span>
                       </li>
                     )}
                     {timeFormatted && (
                       <li>
+                        <strong>Time:</strong>{" "}
                         <span>
                           <img src="/assets/img/icons/clock1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                           {timeFormatted}
@@ -319,13 +276,53 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     )}
                     {talk.room && (
                       <li>
+                        <strong>Room:</strong>
                         <span>
                           <img src="/assets/img/icons/location1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
                           {talk.room}
                         </span>
                       </li>
                     )}
+                    <li>
+                      <strong>Track:</strong>
+                      <span>
+                        <img src="/assets/img/icons/tag1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
+                        {track}
+                      </span>
+                    </li>
+                    {levelStars && (
+                      <li>
+                        <strong>Level:</strong>{" "}
+                        <span>
+                          {level} {levelStars}
+                        </span>
+                      </li>
+                    )}
                   </ul>
+                  <h5>Tags:</h5>
+                  {tags.length > 0 && (
+                    <div style={{ marginBottom: "24px", marginTop: "16px" }}>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                        {tags.map((tag, index) => (
+                          <Link
+                            key={index}
+                            href={`/${year}/tags/${tag}`}
+                            style={{
+                              display: "inline-block",
+                              background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                              color: "#fff",
+                              padding: "4px 10px",
+                              borderRadius: "20px",
+                              fontSize: "0.75rem",
+                              textDecoration: "none",
+                            }}
+                          >
+                            {tag}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space24" />
 
@@ -361,6 +358,16 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     <Link href={eventData.tickets.url} className="vl-btn1">
                       <span className="demo">Get Tickets</span>
                     </Link>
+
+                    {/* Slides Link */}
+                    {slidesUrl && (
+                      <a href={slidesUrl} target="_blank" rel="noopener noreferrer" className="vl-btn1" style={{ backgroundColor: "#2563eb" }}>
+                        <span className="demo">
+                          <i className="fa-solid fa-file-powerpoint" style={{ marginRight: "8px" }} />
+                          View Slides
+                        </span>
+                      </a>
+                    )}
                   </div>
                 </div>
 

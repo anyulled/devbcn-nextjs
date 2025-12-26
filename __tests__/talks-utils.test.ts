@@ -1,5 +1,5 @@
 import { SessionGroup, Talk } from "@/hooks/types";
-import { getLevelFromTalk, getLevelStars, getTagsFromTalk, getTrackFromTalk, getUniqueTracks, groupTalksByTrack } from "@/hooks/useTalks";
+import { getLevelFromTalk, getLevelStars, getSlidesUrl, getTagsFromTalk, getTrackFromTalk, getUniqueTracks, groupTalksByTrack } from "@/hooks/useTalks";
 
 describe("Talk Utility Functions", () => {
   const mockTalk: Talk = {
@@ -120,6 +120,29 @@ describe("Talk Utility Functions", () => {
         ],
       };
       expect(getTagsFromTalk(talkWithNullAnswer)).toEqual([]);
+    });
+  });
+
+  describe("getSlidesUrl", () => {
+    it("extracts slides url from questionAnswers", () => {
+      const talkWithSlides = {
+        ...mockTalk,
+        questionAnswers: [
+          {
+            id: 2,
+            question: "Slides",
+            questionType: "Short_Text",
+            answer: "https://example.com/slides.pdf",
+            sort: 0,
+            answerExtra: null,
+          },
+        ],
+      };
+      expect(getSlidesUrl(talkWithSlides)).toBe("https://example.com/slides.pdf");
+    });
+
+    it("returns null when no slides answer exists", () => {
+      expect(getSlidesUrl(mockTalk)).toBeNull();
     });
   });
 
