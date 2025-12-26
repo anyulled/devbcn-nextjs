@@ -40,7 +40,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
         }}
       >
         <img
-          src="https://devbcn-nextjs.vercel.app/assets/img/logo/logo.png"
+          src="https://devbcn.vercel.app/assets/img/logo/logo.png"
           alt="DevBcn Logo"
           width={294}
           height={120}

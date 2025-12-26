@@ -1,0 +1,258 @@
+/* Session Cards */
+.scheduleCard {
+  padding: 16px;
+  background-color: var(--card-bg, #fff); /* Fallback or theme var */
+  border: 1px solid #eee;
+  border-radius: 8px;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-color, #5f3afc);
+  }
+
+  &.saved {
+    border-color: var(--primary-color, #5f3afc);
+    background-color: rgba(95, 58, 252, 0.03);
+  }
+}
+
+.serviceCard {
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #ddd;
+  height: 100%;
+}
+
+.serviceTitle {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #666;
+  font-weight: 500;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.timeBadge {
+  font-size: 0.8rem;
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.saveBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color, #5f3afc);
+  font-size: 1.1rem;
+  padding: 0;
+  z-index: 2;
+}
+
+.sessionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: var(--heading-color, #1a1a1a);
+}
+
+.cardLink:hover .sessionTitle {
+  color: var(--primary-color, #5f3afc);
+}
+
+.speakers {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.speakerLink {
+  color: #666;
+  margin-right: 8px;
+  display: inline-block;
+
+  &:hover {
+    color: var(--primary-color, #5f3afc);
+    text-decoration: underline;
+  }
+
+  &:not(:last-child):after {
+    content: ",";
+  }
+}
+
+.roomInfo {
+  font-size: 0.8rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Schedule Grid */
+.scheduleGridContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scheduleTabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tabBtn {
+  padding: 10px 24px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: var(--primary-color, #5f3afc);
+    color: #fff;
+  }
+}
+
+.gridScrollWrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+.scheduleGrid {
+  display: grid;
+  min-width: 1000px;
+  gap: 12px 12px;
+}
+
+.gridHeaderRoom {
+  font-weight: 700;
+  text-align: center;
+  padding: 12px;
+  background: #f4f5f8;
+  border-radius: 8px;
+  color: var(--heading-color, #1a1a1a);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.gridTimeLabel {
+  text-align: right;
+  padding-right: 12px;
+  color: #888;
+  font-size: 0.9rem;
+  position: relative;
+  top: -10px;
+}
+
+.gridSessionCell {
+  height: 100%;
+  min-height: 0;
+}
+
+.plenumSession {
+  z-index: 2;
+}
+
+/* Schedule Mobile */
+.scheduleTabsMobile {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mobileTabBtn {
+  flex: 0 0 auto;
+  padding: 8px 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #666;
+  white-space: nowrap;
+
+  &.active {
+    background: var(--primary-color, #5f3afc);
+    color: #fff;
+    border-color: var(--primary-color, #5f3afc);
+  }
+}
+
+.timeSlotBlock {
+  margin-bottom: 24px;
+}
+
+.timeStickyHeader {
+  position: sticky;
+  top: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 5;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color, #5f3afc);
+    margin: 0;
+  }
+}
+
+.mobileSessionWrapper {
+  margin-bottom: 16px;
+}
+
+/* Schedule Container Filter */
+.filterBtn {
+  padding: 8px 16px;
+  border: 2px solid var(--primary-color, #5f3afc);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--primary-color, #5f3afc);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &.active {
+    background: var(--primary-color, #5f3afc);
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  i {
+    margin-right: 6px;
+  }
+}
