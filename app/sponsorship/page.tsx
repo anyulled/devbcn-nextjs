@@ -1,7 +1,7 @@
 "use client";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { getCurrentEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getCurrentEditionConfig } from "@/config/editions";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -62,13 +62,6 @@ const sponsorImages = [
 
 export default function Sponsorship() {
   const config = getCurrentEditionConfig();
-  const data = {
-    edition: config.edition,
-    startDay: config.event.startDay,
-    endDay: config.event.endDay,
-    venue: config.venue,
-    brochure: config.brochure,
-  };
 
   return (
     <div>
@@ -113,11 +106,11 @@ export default function Sponsorship() {
                 <h3>Mark Your Calendars!</h3>
                 <div className="space16" />
                 <p>
-                  DevBcn <strong>{data.edition}</strong> is set for{" "}
+                  DevBcn <strong>{config.edition}</strong> is set for{" "}
                   <strong>
-                    {format(new Date(data.startDay), "MMMM do")} —{" ".concat(format(new Date(data.endDay), "do"))}
+                    {format(new Date(config.event.startDay), "MMMM do")} —{" ".concat(format(new Date(config.event.endDay), "do"))}
                   </strong>{" "}
-                  at the iconic {data.venue}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
+                  at the iconic {config.venue}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
                   strategies, and groundbreaking advancements in Big Data and AI.
                 </p>
 
@@ -125,7 +118,7 @@ export default function Sponsorship() {
                 <h4>A New Era of Tech Innovation</h4>
                 <div className="space16" />
                 <p>
-                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend technologies, Leadership, Big Data, AI, and more. DevBcn {data?.edition} is the
+                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend technologies, Leadership, Big Data, AI, and more. DevBcn {config.edition} is the
                   perfect stage to connect with tech professionals, thought leaders, and innovators.
                 </p>
 
@@ -136,16 +129,16 @@ export default function Sponsorship() {
                   While we're keeping the details of our sponsorship packages exclusive, we promise they're more engaging and impactful than ever. Curious?
                   Access our{" "}
                   <strong>
-                    <Link href={data.brochure} target="_blank" rel="noreferrer">
+                    <Link href={config.brochure} target="_blank" rel="noreferrer">
                       detailed brochure
                     </Link>
                   </strong>{" "}
-                  and discover the myriad of ways you can shine at DevBcn {data?.edition}.
+                  and discover the myriad of ways you can shine at DevBcn {config.edition}.
                 </p>
 
                 <div className="space24" />
                 <div className="btn-area1">
-                  <Link href={data.brochure} target="_blank" rel="noreferrer" className="vl-btn1">
+                  <Link href={config.brochure} target="_blank" rel="noreferrer" className="vl-btn1">
                     <span className="demo">Get the Brochure</span>
                   </Link>
                 </div>
@@ -181,9 +174,9 @@ export default function Sponsorship() {
 
                 <div className="space24" />
                 <p>
-                  Let's make DevBcn {data.edition} an unforgettable experience together! Stay updated and spread the excitement using{" "}
-                  <Link href={`https://twitter.com/hashtag/devbcn${data.edition.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
-                    #devbcn{data.edition.substring(2)}
+                  Let's make DevBcn {config.edition} an unforgettable experience together! Stay updated and spread the excitement using{" "}
+                  <Link href={`https://twitter.com/hashtag/devbcn${config.edition.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
+                    #devbcn{config.edition.substring(2)}
                   </Link>
                   .
                 </p>
@@ -233,7 +226,12 @@ export default function Sponsorship() {
           </div>
         </div>
       </div>
-      <CTASection />
+      <CTASection
+        eventDate={formatEventDateRange(config.event.startDay, config.event.endDay)}
+        eventLocation={config.venue}
+        ticketUrl={config.tickets.url}
+        showCountdown={config.showCountdown}
+      />
     </div>
   );
 }

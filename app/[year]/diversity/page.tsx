@@ -166,6 +166,7 @@ export default async function Diversity({ params }: DiversityProps) {
         eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
         eventLocation={eventData.venue}
         ticketUrl={eventData.tickets.url}
+        showCountdown={eventData.showCountdown}
       />
     </div>
   );

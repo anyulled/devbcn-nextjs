@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
-import { getAvailableEditions } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
@@ -51,6 +51,7 @@ export async function generateMetadata({ params }: JobOffersPageProps): Promise<
 export default async function JobOffers({ params }: JobOffersPageProps) {
   const { year } = await params;
   const companies = getJobOffersByYear(year);
+  const eventData = getEditionConfig(year);
 
   // Generate JSON-LD ItemList schema for companies
   const baseUrl = "https://www.devbcn.com";
@@ -125,7 +126,12 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
         </div>
       </div>
 
-      <CTASection />
+      <CTASection
+        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventLocation={eventData.venue}
+        ticketUrl={eventData.tickets.url}
+        showCountdown={eventData.showCountdown}
+      />
     </div>
   );
 }

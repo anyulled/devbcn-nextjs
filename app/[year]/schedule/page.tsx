@@ -69,7 +69,12 @@ export default async function Schedule({ params }: ScheduleProps) {
         </div>
       </div>
 
-      <CTASection eventLocation={config.venue} eventDate={formatEventDateRange(config.event.startDay, config.event.endDay)} ticketUrl={config.tickets.url} />
+      <CTASection
+        eventLocation={config.venue}
+        eventDate={formatEventDateRange(config.event.startDay, config.event.endDay)}
+        ticketUrl={config.tickets.url}
+        showCountdown={config.showCountdown}
+      />
     </div>
   );
 }

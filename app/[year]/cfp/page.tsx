@@ -139,6 +139,7 @@ export default async function CFP({ params }: CFPProps) {
         eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
         eventLocation={eventData.venue}
         ticketUrl={eventData.tickets.url}
+        showCountdown={eventData.showCountdown}
       />
     </div>
   );

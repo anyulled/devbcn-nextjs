@@ -2,7 +2,7 @@ import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
-import { getAvailableEditions } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
@@ -85,6 +85,7 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {
   const { year, "company-name": companySlug } = await params;
   const company = findCompanyBySlug(year, companySlug);
+  const eventData = getEditionConfig(year);
 
   if (!company) {
     notFound();
@@ -180,7 +181,12 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
         </div>
       </div>
 
-      <CTASection />
+      <CTASection
+        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventLocation={eventData.venue}
+        ticketUrl={eventData.tickets.url}
+        showCountdown={eventData.showCountdown}
+      />
     </div>
   );
 }

@@ -7,12 +7,14 @@ interface CTASectionProps {
   ticketUrl?: string;
   eventDate?: string;
   eventLocation?: string;
+  showCountdown?: boolean;
 }
 
 export default function CTASection({
   ticketUrl = "https://tickets.devbcn.com/event/devbcn-2026",
   eventDate = "16-17 June 2026",
   eventLocation = "World Trade Center Barcelona",
+  showCountdown = true,
 }: CTASectionProps) {
   return (
     <div className="cta1-section-area d-lg-block d-block">
@@ -21,12 +23,16 @@ export default function CTASection({
           <div className="col-lg-10 m-auto">
             <div className="cta1-main-boxarea">
               <div className="timer-btn-area">
-                <Countdown eventDate={eventDate} />
-                <div className="btn-area1">
-                  <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
-                    Buy Ticket
-                  </Link>
-                </div>
+                {showCountdown && (
+                  <>
+                    <Countdown eventDate={eventDate} />
+                    <div className="btn-area1">
+                      <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
+                        Buy Ticket
+                      </Link>
+                    </div>
+                  </>
+                )}
               </div>
               <ul>
                 <li>
