@@ -44,9 +44,9 @@ export default function TalkCard({ talk, year }: TalkCardProps) {
         {tags.length > 0 && (
           <div className="talk-tags">
             {tags.map((tag, index) => (
-              <span key={index} className="talk-tag">
+              <Link key={index} href={`/${year}/tags/${tag}`} className="talk-tag">
                 {tag}
-              </span>
+              </Link>
             ))}
           </div>
         )}

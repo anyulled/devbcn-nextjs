@@ -209,8 +209,9 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                     <strong>Tags:</strong>
                     <div style={{ marginTop: "8px" }}>
                       {tags.map((tag, index) => (
-                        <span
+                        <Link
                           key={index}
+                          href={`/${year}/tags/${tag}`}
                           style={{
                             display: "inline-block",
                             background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -220,10 +221,11 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
                             fontSize: "0.85rem",
                             marginRight: "8px",
                             marginBottom: "8px",
+                            textDecoration: "none",
                           }}
                         >
                           {tag}
-                        </span>
+                        </Link>
                       ))}
                     </div>
                   </div>
