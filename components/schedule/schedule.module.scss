@@ -1,7 +1,8 @@
 /* Session Cards */
 .scheduleCard {
   padding: 16px;
-  background-color: var(--card-bg, #fff); /* Fallback or theme var */
+  background-color: var(--card-bg, #fff);
+  /* Fallback or theme var */
   border: 1px solid #eee;
   border-radius: 8px;
   height: 100%;
@@ -93,6 +94,15 @@
   &:not(:last-child):after {
     content: ",";
   }
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  /* Push to bottom if flex column */
+  padding-top: 8px;
 }
 
 .roomInfo {

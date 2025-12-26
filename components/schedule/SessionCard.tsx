@@ -38,26 +38,18 @@ export default function SessionCard({ session, year, showTime = false }: Session
 
   return (
     <div className={`${styles.scheduleCard} ${saved ? styles.saved : ""}`}>
-      <div className={styles.cardHeader}>
-        {showTime && (
+      {showTime && (
+        <div className={styles.cardHeader}>
           <span className={styles.timeBadge}>
             {startTime} - {endTime}
           </span>
-        )}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            toggleSession(session.id);
-          }}
-          className={styles.saveBtn}
-          title={saved ? "Remove from my schedule" : "Add to my schedule"}
-        >
-          <i className={`fa-${saved ? "solid" : "regular"} fa-heart`} />
-        </button>
-      </div>
+        </div>
+      )}
 
       <Link href={`/${year}/talks/${session.id}`} className={styles.cardLink}>
-        <h3 className={styles.sessionTitle}>{session.title}</h3>
+        <h3 className={styles.sessionTitle} title={session.title}>
+          {session.title.length > 50 ? `${session.title.substring(0, 50)}...` : session.title}
+        </h3>
       </Link>
 
       <div className={styles.speakers}>
@@ -68,8 +60,20 @@ export default function SessionCard({ session, year, showTime = false }: Session
         ))}
       </div>
 
-      <div className={styles.roomInfo}>
-        <i className="fa-solid fa-location-dot" /> {session.room}
+      <div className={styles.cardFooter}>
+        <div className={styles.roomInfo}>
+          <i className="fa-solid fa-location-dot" /> {session.room}
+        </div>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            toggleSession(session.id);
+          }}
+          className={styles.saveBtn}
+          title={saved ? "Remove from my schedule" : "Add to my schedule"}
+        >
+          <i className={`fa-${saved ? "solid" : "regular"} fa-heart`} />
+        </button>
       </div>
     </div>
   );

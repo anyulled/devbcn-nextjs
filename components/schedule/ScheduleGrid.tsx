@@ -123,7 +123,7 @@ export default function ScheduleGrid({ schedule, year }: ScheduleGridProps) {
                       gridRow: `${rowStart} / span ${rowSpan}`,
                     }}
                   >
-                    <SessionCard session={session} year={year} showTime />
+                    <SessionCard session={session} year={year} />
                   </div>
                 );
               }
