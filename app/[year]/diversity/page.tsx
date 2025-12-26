@@ -8,6 +8,8 @@ interface DiversityProps {
   params: Promise<{ year: string }>;
 }
 
+//<editor-fold desc="Metadata">
+
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
@@ -37,6 +39,8 @@ export async function generateMetadata({ params }: DiversityProps): Promise<Meta
     },
   };
 }
+
+//</editor-fold>
 
 export default async function Diversity({ params }: DiversityProps) {
   const { year } = await params;
