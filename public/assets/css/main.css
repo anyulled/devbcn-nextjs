@@ -27454,11 +27454,14 @@ html {
   flex-wrap: wrap;
 }
 
-.track-filter-label {
+.track-filter-label,
+.search-filter-label {
   color: var(--ztc-text-text-2);
   font-family: var(--grotesk);
   font-size: var(--ztc-font-size-font-s18);
   font-weight: var(--ztc-weight-semibold);
+  white-space: nowrap;
+  padding-left: 1rem;
 }
 
 .track-filter-select {
@@ -27478,6 +27481,78 @@ html {
 .track-filter-select:focus {
   border-color: var(--ztc-bg-bg-3);
   outline: none;
+}
+
+.track-filter,
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+
+.search-filter-input {
+  overflow: hidden;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-filter-input {
+  padding: 12px 40px 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--ztc-border-border-1);
+  background: #fff;
+  color: var(--ztc-text-text-2);
+  font-family: var(--grotesk);
+  font-size: var(--ztc-font-size-font-s16);
+  min-width: 300px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.search-filter-input:hover,
+.search-filter-input:focus {
+  border-color: var(--ztc-bg-bg-3);
+  outline: none;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.search-clear-btn:hover {
+  color: var(--ztc-text-text-2);
+}
+
+@media (max-width: 767px) {
+  .track-filter,
+  .search-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .track-filter-select,
+  .search-filter-input {
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 .track-section {

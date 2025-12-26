@@ -2,8 +2,10 @@
 
 import { Talk } from "@/hooks/types";
 import { groupTalksByTrack } from "@/hooks/useTalks";
+import { filterTalks } from "@/lib/utils/talk-filters";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import SearchFilter from "./SearchFilter";
 import TalkCard from "./TalkCard";
 import TrackFilter from "./TrackFilter";
 
@@ -16,14 +18,10 @@ interface TalksListProps {
 function TalksListContent({ talks, tracks, year }: TalksListProps) {
   const searchParams = useSearchParams();
   const selectedTrack = searchParams.get("track") || "";
+  const searchQuery = searchParams.get("q") || "";
 
-  // Filter talks if a track is selected
-  const filteredTalks = selectedTrack
-    ? talks.filter((talk) => {
-        const trackCategory = talk.categories.find((cat) => cat.name === "Track");
-        return trackCategory?.categoryItems[0]?.name === selectedTrack;
-      })
-    : talks;
+  // Filter talks using the utility function
+  const filteredTalks = filterTalks(talks, selectedTrack, searchQuery);
 
   // Group by track
   const groupedTalks = groupTalksByTrack(filteredTalks);
@@ -31,7 +29,14 @@ function TalksListContent({ talks, tracks, year }: TalksListProps) {
   return (
     <>
       <div className="track-filter-container">
-        <TrackFilter tracks={tracks} year={year} />
+        <div className="row">
+          <div className="col-lg-5 mb-3 mb-lg-0">
+            <TrackFilter tracks={tracks} year={year} />
+          </div>
+          <div className="col-lg-7">
+            <SearchFilter />
+          </div>
+        </div>
       </div>
 
       <div className="talks-grouped">
