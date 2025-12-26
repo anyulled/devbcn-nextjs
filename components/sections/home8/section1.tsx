@@ -19,8 +19,27 @@ export default function Section1({ year }: Section1Props) {
             <div className="hero8-header text-center">
               <div className="space48"></div>
               <div className="space32" />
-              <h1 className="text-anime-style-3">
-                <Image src="/assets/img/logo/logo.png" alt="DevBcn - Barcelona Developers Conference" width={400} height={120} priority />
+              <h1 className="text-anime-style-3 d-flex justify-content-center align-items-center flex-wrap gap-4">
+                <Image
+                  src="/assets/img/logo/logo.png"
+                  alt="DevBcn - Barcelona Developers Conference"
+                  width={400}
+                  height={120}
+                  priority
+                  style={{ height: "100px", width: "auto", objectFit: "contain" }}
+                />
+                {year === "2024" && (
+                  <Link href="/kcd">
+                    <Image
+                      src="/assets/img/logo/KCD-logo-white.webp"
+                      alt="KCD Barcelona"
+                      width={400}
+                      height={120}
+                      priority
+                      style={{ height: "100px", width: "auto", objectFit: "contain" }}
+                    />
+                  </Link>
+                )}
               </h1>
               <h4>The Barcelona Developers Conference</h4>
               <h5>{formatEventDateRange(config.event.startDay, config.event.endDay)}</h5>
