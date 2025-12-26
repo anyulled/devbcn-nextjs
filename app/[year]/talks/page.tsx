@@ -98,7 +98,8 @@ export default async function Talks({ params }: TalksProps) {
         </div>
       )}
       <CTASection
-        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventStartDate={eventData.event.startDay}
+        eventEndDate={eventData.event.endDay}
         eventLocation={eventData.venue}
         ticketUrl={eventData.tickets.url}
         showCountdown={eventData.showCountdown}

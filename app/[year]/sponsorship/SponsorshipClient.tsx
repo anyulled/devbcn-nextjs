@@ -230,7 +230,8 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
         </div>
       </div>
       <CTASection
-        eventDate={formatEventDateRange(new Date(config.event.startDay), new Date(config.event.endDay))}
+        eventStartDate={new Date(config.event.startDay)}
+        eventEndDate={new Date(config.event.endDay)}
         eventLocation={config.venue}
         ticketUrl={config.tickets.url}
         showCountdown={config.showCountdown}

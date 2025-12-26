@@ -42,7 +42,8 @@ export default function AboutUs() {
       </div>
       <CTASection
         ticketUrl={eventData.tickets.url}
-        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventStartDate={eventData.event.startDay}
+        eventEndDate={eventData.event.endDay}
         eventLocation={eventData.venue}
         showCountdown={eventData.showCountdown}
       />

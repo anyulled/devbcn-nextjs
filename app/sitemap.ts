@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   // Static pages
-  const staticPages = ["about-us", "code-of-conduct", "travel"];
+  const staticPages = ["about-us", "code-of-conduct"];
   for (const page of staticPages) {
     urls.push({
       url: `${baseUrl}/${page}`,
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     // Year sub-pages
-    const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship"];
+    const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
     for (const page of yearPages) {
       urls.push({
         url: `${baseUrl}/${year}/${page}`,

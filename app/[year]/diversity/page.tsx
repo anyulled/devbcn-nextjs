@@ -59,7 +59,7 @@ export default async function Diversity({ params }: DiversityProps) {
                   and life status are critical for constant improvement and innovation in our profession.
                 </p>
                 <div className="space16" />
-                <p>That's why we are running again the diversity sponsorship for DevBcn 2025 🎉</p>
+                <p>That's why we are running again the diversity sponsorship for DevBcn {year} 🎉</p>
                 <div className="space16" />
                 <p>We must thank NUBANK for making this possible!</p>
                 <div className="space48" />
@@ -123,8 +123,8 @@ export default async function Diversity({ params }: DiversityProps) {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/contact">
-                        Contact{" "}
+                      <Link href={`/${year}/travel`}>
+                        Travel{" "}
                         <span>
                           <i className="fa-solid fa-angle-right" />
                         </span>
@@ -138,21 +138,21 @@ export default async function Diversity({ params }: DiversityProps) {
                   <div className="space12" />
                   <ul>
                     <li>
-                      <Link href="/#">#Diversity</Link>
+                      <Link href="#">#Diversity</Link>
                     </li>
                     <li>
-                      <Link href="/#">#Inclusion</Link>
+                      <Link href="#">#Inclusion</Link>
                     </li>
                     <li>
-                      <Link href="/#">#Community</Link>
+                      <Link href="#">#Community</Link>
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      <Link href="/#">#DevBcn2025</Link>
+                      <Link href="#">#DevBcn{year}</Link>
                     </li>
                     <li>
-                      <Link href="/#">#Sponsorship</Link>
+                      <Link href="#">#Sponsorship</Link>
                     </li>
                   </ul>
                 </div>
@@ -163,7 +163,8 @@ export default async function Diversity({ params }: DiversityProps) {
       </div>
 
       <CTASection
-        eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
+        eventStartDate={eventData.event.startDay}
+        eventEndDate={eventData.event.endDay}
         eventLocation={eventData.venue}
         ticketUrl={eventData.tickets.url}
         showCountdown={eventData.showCountdown}

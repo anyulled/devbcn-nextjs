@@ -1,26 +1,50 @@
 import Countdown from "@/components/elements/Countdown";
+import PageHeader from "@/components/layout/PageHeader";
+import CTASection from "@/components/sections/CTASection";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export default function Travel() {
+interface PageProps {
+  params: Promise<{
+    year: string;
+  }>;
+}
+
+export async function generateStaticParams() {
+  const years = getAvailableEditions();
+  return years.map((year) => ({ year }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { year } = await params;
+  const config = getEditionConfig(year);
+  const eventDate = formatEventDateRange(config.event.startDay, config.event.endDay);
+
+  return {
+    title: `Travel to Barcelona - DevBcn ${year}`,
+    description: `How to get to DevBcn ${year} at the ${config.venue}. Information about public transport, parking, and venue access.`,
+    keywords: [`DevBcn ${year} travel`, "Barcelona travel", "World Trade Center Barcelona", "public transport barcelona"],
+    openGraph: {
+      title: `Travel to Barcelona • DevBcn ${year}`,
+      description: `Join us for DevBcn ${year} at the World Trade Center Barcelona.`,
+      url: `https://www.devbcn.com/${year}/travel`,
+      type: "website",
+      locale: "en_GB",
+      siteName: "devbcn.com",
+    },
+  };
+}
+
+export default async function TravelPage({ params }: PageProps) {
+  const { year } = await params;
+  const config = getEditionConfig(year);
+  const eventDateRange = formatEventDateRange(config.event.startDay, config.event.endDay);
+
   return (
     <div>
       {/* Header Section */}
-      <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg8.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Travel to Barcelona</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" /> <span>Travel</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <PageHeader breadcrumbText="Travel" title={`Travel to Barcelona - DevBcn ${year}`} backgroundImageId={8} />
       {/* Main Content Section */}
       <div className="event-sidepage-section-area sp8">
         <div className="container">
@@ -31,7 +55,7 @@ export default function Travel() {
                 <h3>Venue</h3>
                 <div className="space16" />
                 <p>
-                  <strong>World Trade Center, Barcelona</strong>
+                  <strong>{config.venue}</strong>
                 </p>
                 <p>1ª planta Edif. Este, Moll de Barcelona, s/n, 08039 Barcelona</p>
 
@@ -110,38 +134,13 @@ export default function Travel() {
         </div>
       </div>
       {/* Countdown */}
-      <div className="cta1-section-area d-lg-block d-block">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-10 m-auto">
-              <div className="cta1-main-boxarea">
-                <div className="timer-btn-area">
-                  <Countdown eventDate={new Date().toISOString()} />
-                  <div className="btn-area1">
-                    <Link href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn1">
-                      Buy Ticket
-                    </Link>
-                  </div>
-                </div>
-                <ul>
-                  <li>
-                    <Link href="/">
-                      <img src="/assets/img/icons/calender1.svg" alt="" />
-                      16-17 June 2026
-                    </Link>
-                  </li>
-                  <li className="m-0">
-                    <Link href="/#">
-                      <img src="/assets/img/icons/location1.svg" alt="" />
-                      World Trade Center Barcelona
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CTASection
+        eventStartDate={config.event.startDay}
+        eventEndDate={config.event.endDay}
+        ticketUrl={config.tickets.url}
+        eventLocation={config.venue}
+        showCountdown={config.showCountdown}
+      />
     </div>
   );
 }

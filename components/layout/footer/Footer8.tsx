@@ -59,7 +59,7 @@ export default function Footer8() {
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <Link href={`${rootPath}/travel`}>Travel to Barcelona</Link>
+                  <Link href={`${basePath}/travel`}>Travel to Barcelona</Link>
                 </li>
                 <li>
                   <Link href={`${basePath}/speakers`}>Speakers</Link>
@@ -68,7 +68,7 @@ export default function Footer8() {
                   <Link href={`${basePath}/talks`}>Talks</Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/sponsorship`}>Sponsorship</Link>
+                  <Link href={`${basePath}/sponsorship`}>Sponsorship {currentYear}</Link>
                 </li>
                 <li>
                   <Link href={`${rootPath}/about-us`}>About Us</Link>

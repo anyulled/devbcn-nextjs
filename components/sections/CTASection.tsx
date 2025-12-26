@@ -1,21 +1,24 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
+import { formatEventDateRange } from "@/config/editions";
 import { trackTicketClick } from "@/lib/utils/analytics";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface CTASectionProps {
-  ticketUrl?: string;
-  eventDate?: string;
-  eventLocation?: string;
-  showCountdown?: boolean;
+  ticketUrl: string;
+  eventStartDate: Date;
+  eventEndDate: Date;
+  eventLocation: string;
+  showCountdown: boolean;
 }
 
-export default function CTASection({
-  ticketUrl = "https://tickets.devbcn.com/event/devbcn-2026",
-  eventDate = "16-17 June 2026",
-  eventLocation = "World Trade Center Barcelona",
-  showCountdown = true,
-}: CTASectionProps) {
+export default function CTASection({ ticketUrl, eventStartDate, eventEndDate, eventLocation, showCountdown = true }: CTASectionProps) {
+  const pathname = usePathname();
+  const yearMatch = pathname.match(/^\/(\d{4})/);
+  const currentYear = yearMatch ? yearMatch[1] : "2026";
+  const travelPath = `/${currentYear}/travel`;
+
   return (
     <div className="cta1-section-area d-lg-block d-block">
       <div className="container">
@@ -25,7 +28,7 @@ export default function CTASection({
               <div className="timer-btn-area">
                 {showCountdown && (
                   <>
-                    <Countdown eventDate={eventDate} />
+                    <Countdown eventDate={eventStartDate.toISOString()} />
                     <div className="btn-area1">
                       <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
                         Buy Ticket
@@ -38,11 +41,11 @@ export default function CTASection({
                 <li>
                   <Link href="#">
                     <img src="/assets/img/icons/calender1.svg" alt="" />
-                    {eventDate}
+                    {formatEventDateRange(eventStartDate, eventEndDate)}
                   </Link>
                 </li>
                 <li className="m-0">
-                  <Link href="/travel">
+                  <Link href={travelPath}>
                     <img src="/assets/img/icons/location1.svg" alt="" />
                     {eventLocation}
                   </Link>
