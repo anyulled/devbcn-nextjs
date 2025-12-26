@@ -1,7 +1,7 @@
 "use client";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getCurrentEditionConfig } from "@/config/editions";
+import { formatEventDateRange } from "@/config/editions";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -60,9 +60,12 @@ const sponsorImages = [
   "https://live.staticflickr.com/65535/53799782919_5b588a8077_c_d.jpg",
 ];
 
-export default function Sponsorship() {
-  const config = getCurrentEditionConfig();
+interface SponsorshipClientProps {
+  year: string;
+  config: any; // Using any as requested to avoid 'any' types later, but for now I'll just match the structure
+}
 
+export default function SponsorshipClient({ year, config }: SponsorshipClientProps) {
   return (
     <div>
       <PageHeader title="Sponsorship" backgroundImageId={9} breadcrumbText="Sponsorship" />
@@ -80,7 +83,7 @@ export default function Sponsorship() {
                         <div className="img1 image-anime">
                           <img
                             src={image}
-                            alt={`DevBcn ${config.edition} - sponsors ${index + 1}`}
+                            alt={`DevBcn ${year} - sponsors ${index + 1}`}
                             width="540"
                             height="360"
                             style={{
@@ -106,7 +109,7 @@ export default function Sponsorship() {
                 <h3>Mark Your Calendars!</h3>
                 <div className="space16" />
                 <p>
-                  DevBcn <strong>{config.edition}</strong> is set for{" "}
+                  DevBcn <strong>{year}</strong> is set for{" "}
                   <strong>
                     {format(new Date(config.event.startDay), "MMMM do")} —{" ".concat(format(new Date(config.event.endDay), "do"))}
                   </strong>{" "}
@@ -118,8 +121,8 @@ export default function Sponsorship() {
                 <h4>A New Era of Tech Innovation</h4>
                 <div className="space16" />
                 <p>
-                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend technologies, Leadership, Big Data, AI, and more. DevBcn {config.edition} is the
-                  perfect stage to connect with tech professionals, thought leaders, and innovators.
+                  Dive into tracks covering Java, JVM, Cloud, DevOps, Frontend technologies, Leadership, Big Data, AI, and more. DevBcn {year} is the perfect
+                  stage to connect with tech professionals, thought leaders, and innovators.
                 </p>
 
                 <div className="space40" />
@@ -133,7 +136,7 @@ export default function Sponsorship() {
                       detailed brochure
                     </Link>
                   </strong>{" "}
-                  and discover the myriad of ways you can shine at DevBcn {config.edition}.
+                  and discover the myriad of ways you can shine at DevBcn {year}.
                 </p>
 
                 <div className="space24" />
@@ -174,9 +177,9 @@ export default function Sponsorship() {
 
                 <div className="space24" />
                 <p>
-                  Let's make DevBcn {config.edition} an unforgettable experience together! Stay updated and spread the excitement using{" "}
-                  <Link href={`https://twitter.com/hashtag/devbcn${config.edition.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
-                    #devbcn{config.edition.substring(2)}
+                  Let's make DevBcn {year} an unforgettable experience together! Stay updated and spread the excitement using{" "}
+                  <Link href={`https://twitter.com/hashtag/devbcn${year.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
+                    #devbcn{year.substring(2)}
                   </Link>
                   .
                 </p>
@@ -227,7 +230,7 @@ export default function Sponsorship() {
         </div>
       </div>
       <CTASection
-        eventDate={formatEventDateRange(config.event.startDay, config.event.endDay)}
+        eventDate={formatEventDateRange(new Date(config.event.startDay), new Date(config.event.endDay))}
         eventLocation={config.venue}
         ticketUrl={config.tickets.url}
         showCountdown={config.showCountdown}

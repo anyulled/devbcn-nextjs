@@ -7,7 +7,9 @@ export default function Footer8() {
   const pathname = usePathname();
 
   const yearMatch = pathname.match(/^\/(\d{4})/);
-  const basePath = yearMatch ? `/${yearMatch[1]}` : "";
+  const currentYear = yearMatch ? yearMatch[1] : "2026";
+  const basePath = `/${currentYear}`;
+  const rootPath = "";
 
   return (
     <div
@@ -57,7 +59,7 @@ export default function Footer8() {
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <Link href={`${basePath}/travel`}>Travel to Barcelona</Link>
+                  <Link href={`${rootPath}/travel`}>Travel to Barcelona</Link>
                 </li>
                 <li>
                   <Link href={`${basePath}/speakers`}>Speakers</Link>
@@ -69,7 +71,7 @@ export default function Footer8() {
                   <Link href={`${basePath}/sponsorship`}>Sponsorship</Link>
                 </li>
                 <li>
-                  <Link href={`${basePath}/about-us`}>About Us</Link>
+                  <Link href={`${rootPath}/about-us`}>About Us</Link>
                 </li>
               </ul>
             </div>

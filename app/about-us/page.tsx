@@ -44,6 +44,7 @@ export default function AboutUs() {
         ticketUrl={eventData.tickets.url}
         eventDate={formatEventDateRange(eventData.event.startDay, eventData.event.endDay)}
         eventLocation={eventData.venue}
+        showCountdown={eventData.showCountdown}
       />
     </div>
   );

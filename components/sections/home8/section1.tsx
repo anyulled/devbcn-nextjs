@@ -49,7 +49,7 @@ export default function Section1({ year }: Section1Props) {
                 <Link href={config.cfp.link} className="vl-btn8">
                   <span className="demo">🎙️ Become a Speaker</span>
                 </Link>
-                <Link href="/sponsorship" className="vl-btn8">
+                <Link href={`/${year}/sponsorship`} className="vl-btn8">
                   <span className="demo">🤝🏽 Sponsorship</span>
                 </Link>
               </div>
