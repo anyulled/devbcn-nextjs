@@ -15,7 +15,7 @@ export default function Conditions() {
           <div className="row">
             <div className="col-lg-10 m-auto">
               <div className="blog-deatils-content heading2">
-                <ul>
+                <ul className="custom-list">
                   <li>
                     Once the ticket/sponsorship has been bought, it will neither be changed nor the amount refunded, except for causes stipulated in the
                     legislation in force.<li>Impossibility to assist to the event or an error during the buying process will not be valid causes to refund.</li>
@@ -40,6 +40,7 @@ export default function Conditions() {
                   <li>The Organization does not accept responsibility for the loss or theft of tickets.</li>
                   <li>Attendees agree that they personal info will be sent to the person that scans their badge with our mobile app.</li>
                 </ul>
+                <div className="space48" />
                 <h3>PRIVACY POLICY</h3>
                 <p>
                   This is the privacy declaration of DevBcn, an event organized by Conferencia DevBcn SL (“The Organization” hereinafter). The Organization is
@@ -52,16 +53,16 @@ export default function Conditions() {
                   ‘processing’, ‘profiling’, ‘data subject’ and all its derivatives used in this Privacy Declaration shall have the meaning set out in the
                   Regulation.
                 </p>
-
+                <div className="space48" />
                 <h4>1. Identity of the controller and contact details</h4>
                 <p>
                   Conferencia DevBcn SL as organizer of the DevBcn is the controller of the personal data that is used to organize the conference and related
                   activities.
                 </p>
-
+                <div className="space48" />
                 <h4>2. The personal data we collect and process</h4>
                 <p>Personal data collected falls under the following main categories:</p>
-                <ul>
+                <ul className="custom-list">
                   <li>Identification data (e.g. name, surname, id card…)</li>
                   <li>Contact data (e.g. email address…)</li>
                   <li>Financial data (e.g. bank account number, VAT number…)</li>
@@ -73,7 +74,7 @@ export default function Conditions() {
                   example via a public source or provided by one of our clients, sponsors or attendees. We do not use automated data processing (e.g. activity
                   analysis) or so-called“profiling” that may involve the generation of derivative data.
                 </p>
-
+                <div className="space48" />
                 <h4>3. Purposes of and legal basis for the processing personal data</h4>
                 <h5>3.1. In General</h5>
                 <p>
@@ -88,7 +89,7 @@ export default function Conditions() {
                   execute our agreements, it’s necessary to process personal data. We hereby always limit ourselves to processing the data that are strictly
                   necessary.
                 </p>
-
+                <div className="space48" />
                 <h5>3.2. Attending our conferences</h5>
                 <p>Organization of the DevBcn requires a lot of administration. Nevertheless we try to keep it very simple for our attendees.</p>
                 <p>
@@ -107,7 +108,7 @@ export default function Conditions() {
                   QR-Code. The sponsors are able to scan this QR-code which contains the information. Attendees are responsible for requiring each one of the
                   sponsors they interact with the respective data policies.
                 </p>
-
+                <div className="space48" />
                 <h5>3.3. Direct marketing activities</h5>
                 <p>
                   We also process personal data for reasons of direct marketing. We deem it to be one of our legitimate interests to communicate with our
@@ -117,7 +118,7 @@ export default function Conditions() {
                   receive our communications, you can unsubscribe by clicking the unsubscribe link contained at the bottom of any marketing email we send to you
                   and following the instructions which appear in your browser following your clicking on that link.
                 </p>
-
+                <div className="space48" />
                 <h4>4. Who has access to your personal data?</h4>
                 <p>
                   Only a limited number of the conference staff have direct access to the personal data we’ve collected and processed, and are bound to
@@ -136,21 +137,21 @@ export default function Conditions() {
                   If we transfer personal data to countries outside the EEA, we will, in all circumstances, take appropriate safeguards and establish legal
                   grounds justifying such transfer.
                 </p>
-
+                <div className="space48" />
                 <h4>5. How long do we keep your personal data?</h4>
                 <p>
                   We keep your personal data as long as required to comply with our legal obligations and to provide our services in a correct manner or because
                   we have a legitimate interest to keep your personal data. At any moment you have the possibility to object against further processing of your
                   personal data.
                 </p>
-
+                <div className="space48" />
                 <h4>6. How do we protect your personal data?</h4>
                 <p>
                   The Organization takes appropriate measures to prevent misuse, loss, unauthorized access, unwanted disclosure and unauthorized modification.
                   If you have the impression that your data is not properly secured or there are indications of abuse, please contact our customer service or
                   via customers@devbcn.com.
                 </p>
-
+                <div className="space48" />
                 <h4>7. What rights do you have regarding the processing of your personal data?</h4>
                 <p>
                   The Regulation provides you with various rights regarding the processing of your personal data. If you wish to invoke your privacy rights,
@@ -158,7 +159,7 @@ export default function Conditions() {
                   months if the request is complex or if you send us several requests. We will notify you of this extension within 30 days after we’ve received
                   your request.
                 </p>
-                <ul>
+                <ul className="custom-list">
                   <li>
                     <strong>Right to access:</strong> you have the right to know which of your personal data we’ve collected and processed.
                   </li>
@@ -182,7 +183,7 @@ export default function Conditions() {
                   Under the circumstances and conditions set by the Regulation, you also have the following rights regarding the processing of your personal
                   data.
                 </p>
-                <ul>
+                <ul className="custom-list">
                   <li>
                     <strong>Right to restriction of processing:</strong> the right to restrict the processing of your personal data.
                   </li>
@@ -197,14 +198,30 @@ export default function Conditions() {
                   addition, we may ask personal data as proof of identity during the process.
                 </p>
                 <p>If we are unable to resolve an inquiry or request, you have the right to lodge a complaint with a supervisory authority.</p>
-
+                <div className="space48" />
                 <h4>8. Update Privacy Declaration</h4>
                 <p>
                   The Organization is entitled to update this Privacy Declaration by posting a new version on the website. As such, it is strongly recommended
                   to regularly consult the website and the page explaining the Privacy Declaration, to make sure that you are aware of any changes.
                 </p>
-
+                <div className="space48" />
                 <h4>9. Questions, requests or complaints</h4>
+                <p>
+                  If you have any questions regarding this Privacy Declaration, or if you want to submit a request you can contact us using the following
+                  contact details:
+                </p>
+                <p>
+                  <strong>Conferencia DevBcn SL</strong>
+                </p>
+                <p>
+                  <strong>NIF : B72617129</strong>
+                </p>
+                <p>
+                  <a href="mailto:customers@devbcn.com" target="_blank" rel="noreferrer">
+                    customers@devbcn.com.
+                  </a>
+                </p>
+                <div className="space48" />
               </div>
             </div>
           </div>
@@ -217,6 +234,7 @@ export default function Conditions() {
         eventLocation={config.venue}
         showCountdown={config.showCountdown}
       />
+      <div className="space50" />
     </>
   );
 }

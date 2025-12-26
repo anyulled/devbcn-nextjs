@@ -97,9 +97,13 @@ export default async function Diversity({ params }: DiversityProps) {
                 <p>All awarded attendees must:</p>
                 <div className="space16" />
                 <ul>
-                  <li>Follow the conference Code of conduct</li>
+                  <li>
+                    Follow the conference <Link href="/code-of-conduct">Code of Conduct</Link>
+                  </li>
                   <li>Find additional funding for transportation and accommodation. These costs are not included.</li>
-                  <li>Agree to conference and ticket terms and conditions in case of being awarded with a ticket.</li>
+                  <li>
+                    Agree to conference and ticket <Link href="/conditions">terms and conditions</Link> in case of being awarded with a ticket.
+                  </li>
                 </ul>
               </div>
             </div>
