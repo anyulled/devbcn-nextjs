@@ -48,8 +48,7 @@ export default function Section1({ year }: Section1Props) {
               <div className="space24" />
               <div className="space40" />
               <h5>
-                5 tracks with the following topics: Java &amp; JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM |
-                Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python
+                {config.trackNumber} tracks with the following topics: {config.tracks}
               </h5>
               <div className="space40"></div>
               <div className="space32" />
