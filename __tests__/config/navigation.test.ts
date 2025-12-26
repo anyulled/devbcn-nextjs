@@ -68,15 +68,16 @@ describe("Navigation Configuration", () => {
 
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
-      expect(newsDropdownLinks).toHaveLength(4);
-      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Diversity", "Job Offers", "Travel"]);
+      expect(newsDropdownLinks).toHaveLength(5);
+      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Sponsorship", "Diversity", "Job Offers", "Travel"]);
     });
 
     it("should have correct year requirement flags", () => {
       expect(newsDropdownLinks[0].requiresYear).toBe(true); // CFP
-      expect(newsDropdownLinks[1].requiresYear).toBe(true); // Diversity
-      expect(newsDropdownLinks[2].requiresYear).toBe(true); // Job Offers
-      expect(newsDropdownLinks[3].requiresYear).toBe(false); // Travel
+      expect(newsDropdownLinks[1].requiresYear).toBe(true); // Sponsorship
+      expect(newsDropdownLinks[2].requiresYear).toBe(true); // Diversity
+      expect(newsDropdownLinks[3].requiresYear).toBe(true); // Job Offers
+      expect(newsDropdownLinks[4].requiresYear).toBe(true); // Travel
     });
   });
 
