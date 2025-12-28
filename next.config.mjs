@@ -3,6 +3,9 @@ import withPWA from "@ducanh2912/next-pwa";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: false,
+    qualities: [85],
+    minimumCacheTTL: 2678400, // 31 days
     remotePatterns: [
       {
         protocol: "https",
