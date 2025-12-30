@@ -1,5 +1,6 @@
 import Countdown from "@/components/elements/Countdown";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { Speaker } from "@/hooks/types";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
@@ -92,16 +93,7 @@ const getIconClass = (index: number): string => {
   return classes[index % classes.length];
 };
 
-export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
-  const { year, speaker_id } = await params;
-  const speaker = await getSpeakerByYearAndId(year, speaker_id);
-  const eventData = getEditionConfig(year);
-
-  if (!speaker) {
-    notFound();
-  }
-
-  // Generate JSON-LD schemas
+const generateJsonSchema = (speaker: Speaker, year: string) => {
   const baseUrl = "https://www.devbcn.com";
   const personSchema = generatePersonSchema(speaker, year);
   const sessionsListSchema =
@@ -119,6 +111,19 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
     { name: "Speakers", url: `${baseUrl}/${year}/speakers` },
     { name: speaker.fullName, url: `${baseUrl}/${year}/speakers/${speaker.id}` },
   ]);
+  return { personSchema, sessionsListSchema, breadcrumbSchema };
+};
+
+export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
+  const { year, speaker_id } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+  const eventData = getEditionConfig(year);
+
+  if (!speaker) {
+    notFound();
+  }
+
+  const { personSchema, sessionsListSchema, breadcrumbSchema } = generateJsonSchema(speaker, year);
 
   return (
     <div>
@@ -156,8 +161,6 @@ export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
                   <div className="col-lg-5">
                     <div className="our-team-boxarea">
                       <div className="team-widget-area">
-                        <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
-                        <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
                         <div className="img1">
                           <Image
                             src={speaker.profilePicture}

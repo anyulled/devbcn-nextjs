@@ -17542,6 +17542,7 @@ html {
 
 .team-details-section-area .speakers-details-box .speakesr-details-content .heading2 p {
   line-height: 24px;
+  font-weight: var(--ztc-weight-regular);
 }
 
 .team-details-section-area .speakers-details-box .speakesr-details-content .details-content {
