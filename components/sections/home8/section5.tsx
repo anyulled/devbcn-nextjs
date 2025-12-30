@@ -174,14 +174,16 @@ export default function Section5({ year }: Section5Props) {
                   ))
                 )}
               </Swiper>
-              <div className="owl-nav">
-                <button type="button" role="presentation" className="owl-prev h1p">
-                  <i className="fa-solid fa-angle-left" />
-                </button>
-                <button type="button" role="presentation" className="owl-next h1n">
-                  <i className="fa-solid fa-angle-right" />
-                </button>
-              </div>
+              {speakers.length > 3 && (
+                <div className="owl-nav">
+                  <button type="button" role="presentation" className="owl-prev h1p">
+                    <i className="fa-solid fa-angle-left" />
+                  </button>
+                  <button type="button" role="presentation" className="owl-next h1n">
+                    <i className="fa-solid fa-angle-right" />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -99,7 +99,7 @@ export default function Section4({ sponsors }: Section4Props) {
                         <i className="fa-brands fa-twitter" />
                       </div>
                       <div className="text">
-                        <h5>X/Formerly twitter</h5>
+                        <h5>X/ Twitter</h5>
                         <div className="space14" />
                         <a href="https://twitter.com/dev_bcn" target="_blank" rel="noopener noreferrer">
                           @dev_bcn
