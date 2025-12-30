@@ -766,7 +766,7 @@ Location:
   font-family: var(--grotesk);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
-  font-weight: var(--ztc-weight-medium);
+  font-weight: var(--ztc-weight-regular);
   line-height: 26px;
 }
 
