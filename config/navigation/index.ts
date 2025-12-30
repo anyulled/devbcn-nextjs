@@ -11,6 +11,7 @@ import type { NavItem, SocialLink } from "./types";
  * Past edition links for Home dropdown
  */
 export const editionLinks: NavItem[] = [
+  { label: "Current Edition", href: "/2026", requiresYear: false },
   { label: "2025 Edition", href: "/2025", requiresYear: false },
   { label: "2024 Edition", href: "/2024", requiresYear: false },
   { label: "2023 Edition", href: "/2023", requiresYear: false },
