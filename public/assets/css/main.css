@@ -15259,7 +15259,7 @@ html {
 }
 
 .others-pricing-area .pricing-boarea .btn-area1 a:hover img {
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
 }
 
 .others7-section-area {

@@ -1,6 +1,10 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { edition2023 } from "@/config/editions/2023";
+import { edition2024 } from "@/config/editions/2024";
+import { edition2025 } from "@/config/editions/2025";
+import { Sponsor } from "@/config/editions/types";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -51,34 +55,39 @@ const swiperOptions = {
     },
   },
 };
+
+// Aggregate sponsors from previous editions (module-level memoization)
+const getUniqueSponsors = () => {
+  const editions = [edition2023, edition2024, edition2025];
+  const uniqueSponsorsMap = new Map<string, Sponsor>();
+
+  editions.forEach((edition) => {
+    const top = edition.sponsorsData?.top || [];
+    const premium = edition.sponsorsData?.premium || [];
+    const allRelevant = [...top, ...premium];
+
+    allRelevant.forEach((sponsor) => {
+      // Use name as the key for deduplication
+      if (sponsor.name && !uniqueSponsorsMap.has(sponsor.name)) {
+        uniqueSponsorsMap.set(sponsor.name, sponsor);
+      }
+    });
+  });
+
+  return Array.from(uniqueSponsorsMap.values());
+};
+
+const processedSponsors = getUniqueSponsors();
+
 export default function BrandSlider() {
   return (
     <>
       <Swiper {...swiperOptions} className="brand-slider-area owl-carousel">
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img1.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img2.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img3.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img4.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img5.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img6.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img7.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide className="brand-box">
-          <img src="/assets/img/elements/brand-img8.png" alt="" />
-        </SwiperSlide>
+        {processedSponsors.map((sponsor, index) => (
+          <SwiperSlide key={`${sponsor.name}-${index}`} className="brand-box">
+            {sponsor.image && <img src={sponsor.image} alt={sponsor.name} />}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

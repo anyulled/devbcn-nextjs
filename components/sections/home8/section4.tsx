@@ -28,7 +28,7 @@ export default function Section4({ sponsors }: Section4Props) {
               <div className="row">
                 <div className="col-lg-5 m-auto">
                   <div className="brand-header heading4 space-margin60 text-center">
-                    <h3>Join 20+ companies already growing</h3>
+                    <h3>Trusted by leading tech companies</h3>
                   </div>
                 </div>
               </div>
