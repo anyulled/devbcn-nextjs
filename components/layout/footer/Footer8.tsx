@@ -24,7 +24,7 @@ export default function Footer8() {
       <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
       <div className="container">
         <div className="row">
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-3 col-md-12">
             <div className="footer-logo-area">
               <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
               <div className="space16" />
@@ -54,7 +54,7 @@ export default function Footer8() {
               </ul>
             </div>
           </div>
-          <div className="col-lg-2 col-md-6">
+          <div className="col-lg-3 col-md-6">
             <div className="link-content">
               <h3>Quick Links</h3>
               <ul>
@@ -76,7 +76,7 @@ export default function Footer8() {
               </ul>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-6 col-md-6">
             <div className="link-content2">
               <h3>Contact Us</h3>
               <ul>
@@ -99,74 +99,6 @@ export default function Footer8() {
                   </Link>
                 </li>
               </ul>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <div className="footer-social-box">
-              <h3>Our Recent Event Gallery</h3>
-              <div className="space12" />
-              <div className="row">
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img7.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img8.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img9.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img10.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img11.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                  <div className="img1">
-                    <img src="/assets/img/all-images/footer/footer-img12.png" alt="" />
-                    <div className="icons">
-                      <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
