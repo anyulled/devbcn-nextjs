@@ -70,6 +70,7 @@ export default async function TravelPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+      <div className="space50" />
       {/* Countdown */}
       <CTASection
         eventStartDate={config.event.startDay}

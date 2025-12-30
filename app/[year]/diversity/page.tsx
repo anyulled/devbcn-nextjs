@@ -3,12 +3,11 @@ import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageSidebar from "@/components/layout/PageSidebar";
 
 interface DiversityProps {
   params: Promise<{ year: string }>;
 }
-
-//<editor-fold desc="Metadata">
 
 export async function generateStaticParams() {
   const years = getAvailableEditions();
@@ -39,8 +38,6 @@ export async function generateMetadata({ params }: DiversityProps): Promise<Meta
     },
   };
 }
-
-//</editor-fold>
 
 export default async function Diversity({ params }: DiversityProps) {
   const { year } = await params;
@@ -123,67 +120,12 @@ export default async function Diversity({ params }: DiversityProps) {
             </div>
             <div className="col-lg-4">
               <div className="space30 d-lg-none d-block" />
-              <div className="blog-auhtor-details">
-                <div className="blog-categories">
-                  <h3>Quick Links</h3>
-                  <div className="space12" />
-                  <ul>
-                    <li>
-                      <Link href="/code-of-conduct">
-                        Code of Conduct{" "}
-                        <span>
-                          <i className="fa-solid fa-angle-right" />
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/about-us">
-                        About Us{" "}
-                        <span>
-                          <i className="fa-solid fa-angle-right" />
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={`/${year}/travel`}>
-                        Travel{" "}
-                        <span>
-                          <i className="fa-solid fa-angle-right" />
-                        </span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space32" />
-                <div className="tags-area">
-                  <h3>Related Topics</h3>
-                  <div className="space12" />
-                  <ul>
-                    <li>
-                      <Link href="#">#Diversity</Link>
-                    </li>
-                    <li>
-                      <Link href="#">#Inclusion</Link>
-                    </li>
-                    <li>
-                      <Link href="#">#Community</Link>
-                    </li>
-                  </ul>
-                  <ul>
-                    <li>
-                      <Link href="#">#DevBcn{year}</Link>
-                    </li>
-                    <li>
-                      <Link href="#">#Sponsorship</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <PageSidebar year={year} />
             </div>
           </div>
         </div>
       </div>
-
+      <div className="space50" />
       <CTASection
         eventStartDate={eventData.event.startDay}
         eventEndDate={eventData.event.endDay}

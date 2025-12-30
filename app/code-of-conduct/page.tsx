@@ -1,7 +1,11 @@
 import Countdown from "@/components/elements/Countdown";
+import CTASection from "@/components/sections/CTASection";
 import Link from "next/link";
+import { getEditionConfig } from "@/config/editions";
+import PageSidebar from "@/components/layout/PageSidebar";
 
 export default function CodeOfConduct() {
+  const eventData = getEditionConfig("2026");
   return (
     <div>
       <div className="inner-page-header" style={{ backgroundImage: "url(/assets/img/bg/header-bg15.png)" }}>
@@ -22,7 +26,7 @@ export default function CodeOfConduct() {
       <div className="blog-details-section sp8">
         <div className="container">
           <div className="row">
-            <div className="col-lg-10 m-auto">
+            <div className="col-lg-8">
               <div className="blog-deatils-content heading2">
                 <div className="space32" />
                 <h2>Code of Conduct</h2>
@@ -141,41 +145,20 @@ export default function CodeOfConduct() {
                 <div className="space32" />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="cta1-section-area d-lg-block d-block">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-10 m-auto">
-              <div className="cta1-main-boxarea">
-                <div className="timer-btn-area">
-                  <Countdown eventDate={new Date().toISOString()} />
-                  <div className="btn-area1">
-                    <Link href="/pricing-plan" className="vl-btn1">
-                      Buy Ticket
-                    </Link>
-                  </div>
-                </div>
-                <ul>
-                  <li>
-                    <Link href="/#">
-                      <img src="/assets/img/icons/calender1.svg" alt="" />
-                      16-17 June 2026
-                    </Link>
-                  </li>
-                  <li className="m-0">
-                    <Link href="/#">
-                      <img src="/assets/img/icons/location1.svg" alt="" />
-                      World Trade Center Barcelona
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+            <div className="col-lg-4">
+              <div className="space30 d-lg-none d-block" />
+              <PageSidebar year="2026" />
             </div>
           </div>
         </div>
       </div>
+      <CTASection
+        ticketUrl={eventData.tickets.url}
+        eventStartDate={eventData.event.startDay}
+        eventEndDate={eventData.event.endDay}
+        eventLocation={eventData.venue}
+        showCountdown={eventData.showCountdown}
+      />
     </div>
   );
 }

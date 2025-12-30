@@ -13,6 +13,7 @@ export default function Section4({ sponsors }: Section4Props) {
   return (
     <>
       <div
+        id="sponsors"
         className="brands8-section-area sp8"
         style={{
           backgroundImage: "url(/assets/img/bg/header-bg20.png)",

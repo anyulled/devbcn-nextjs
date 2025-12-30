@@ -166,8 +166,6 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 </ul>
 
                 <div className="space40" />
-
-                <div className="space40" />
                 <h4>Join us on this exciting journey</h4>
                 <div className="space16" />
                 <p>
@@ -224,6 +222,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                     </Link>
                   </li>
                 </ul>
+                <div className="space50" />
               </div>
             </div>
           </div>
