@@ -131,7 +131,8 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
           )}
         </div>
       </div>
-
+      <div className="space50"></div>
+      <div className="space50"></div>
       <CTASection
         eventStartDate={eventData.event.startDay}
         eventEndDate={eventData.event.endDay}

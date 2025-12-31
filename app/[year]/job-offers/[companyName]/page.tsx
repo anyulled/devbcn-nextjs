@@ -2,6 +2,7 @@ import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
+import { Company } from "@/config/data/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
@@ -84,6 +85,17 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
   };
 }
 
+function generateJsonLDSchema(company: Company, year: string, companySlug: string) {
+  const baseUrl = "https://www.devbcn.com";
+  const jobPostingSchemas = company.offers.map((offer) => generateJobPostingSchema(offer, company, year));
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: `${baseUrl}/${year}` },
+    { name: "Job Offers", url: `${baseUrl}/${year}/job-offers` },
+    { name: company.name, url: `${baseUrl}/${year}/job-offers/${companySlug}` },
+  ]);
+  return { jobPostingSchemas, breadcrumbSchema };
+}
+
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {
   const { year, companyName: companySlug } = await params;
   const company = findCompanyBySlug(year, companySlug);
@@ -94,13 +106,7 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
   }
 
   // Generate JSON-LD schemas
-  const baseUrl = "https://www.devbcn.com";
-  const jobPostingSchemas = company.offers.map((offer) => generateJobPostingSchema(offer, company, year));
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: `${baseUrl}/${year}` },
-    { name: "Job Offers", url: `${baseUrl}/${year}/job-offers` },
-    { name: company.name, url: `${baseUrl}/${year}/job-offers/${companySlug}` },
-  ]);
+  const { jobPostingSchemas, breadcrumbSchema } = generateJsonLDSchema(company, year, companySlug);
 
   return (
     <div>
@@ -182,7 +188,7 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
           </div>
         </div>
       </div>
-
+      <div className="space50"></div>
       <CTASection
         eventStartDate={eventData.event.startDay}
         eventEndDate={eventData.event.endDay}

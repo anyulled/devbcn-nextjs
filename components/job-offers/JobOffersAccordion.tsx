@@ -70,66 +70,6 @@ export default function JobOffersAccordion({ offers }: JobOffersAccordionProps) 
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .job-title {
-          flex: 1;
-          font-weight: 600;
-        }
-
-        .job-location {
-          font-size: 0.9rem;
-          color: #666;
-          margin-left: 1rem;
-          font-weight: 400;
-        }
-
-        .job-details {
-          padding: 1rem 0;
-        }
-
-        .job-description :global(p) {
-          margin-bottom: 1rem;
-          line-height: 1.7;
-        }
-
-        .job-description :global(ul),
-        .job-description :global(ol) {
-          margin-bottom: 1rem;
-          padding-left: 1.5rem;
-        }
-
-        .job-description :global(li) {
-          margin-bottom: 0.5rem;
-          line-height: 1.6;
-        }
-
-        .job-description :global(strong) {
-          font-weight: 600;
-          color: #333;
-        }
-
-        .job-description :global(a) {
-          color: #007bff;
-          text-decoration: underline;
-        }
-
-        .job-description :global(a:hover) {
-          color: #0056b3;
-        }
-
-        .apply-section {
-          margin-top: 2rem;
-          padding-top: 2rem;
-          border-top: 1px solid #e0e0e0;
-        }
-
-        .apply-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-      `}</style>
     </div>
   );
 }

@@ -45,6 +45,17 @@ jest.mock("next/image", () => ({
   default: (props: any) => <img {...props} />,
 }));
 
+// Mock child components
+jest.mock("@/components/layout/PageHeader", () => ({
+  __esModule: true,
+  default: ({ title }: { title: string }) => <div data-testid="page-header">{title}</div>,
+}));
+
+jest.mock("@/components/sections/CTASection", () => ({
+  __esModule: true,
+  default: () => <div data-testid="cta-section">CTA Section</div>,
+}));
+
 describe("Speaker Detail Page", () => {
   const params = Promise.resolve({ year: "2026", speaker_id: "speaker-1" });
   const mockSpeaker = {

@@ -2,9 +2,16 @@
 import { edition2023 } from "@/config/editions/2023";
 import { edition2024 } from "@/config/editions/2024";
 import { edition2025 } from "@/config/editions/2025";
-import { Sponsor } from "@/config/editions/types";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { slugify } from "@/lib/utils/slugify";
+import Link from "next/link";
+
+// Define locally to avoid modifying global types if not needed elsewhere yet
+interface SponsorWithYear extends Sponsor {
+  year: string;
+}
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -57,9 +64,9 @@ const swiperOptions = {
 };
 
 // Aggregate sponsors from previous editions (module-level memoization)
-const getUniqueSponsors = () => {
+const getUniqueSponsors = (): SponsorWithYear[] => {
   const editions = [edition2023, edition2024, edition2025];
-  const uniqueSponsorsMap = new Map<string, Sponsor>();
+  const uniqueSponsorsMap = new Map<string, SponsorWithYear>();
 
   editions.forEach((edition) => {
     const top = edition.sponsorsData?.top || [];
@@ -67,9 +74,10 @@ const getUniqueSponsors = () => {
     const allRelevant = [...top, ...premium];
 
     allRelevant.forEach((sponsor) => {
-      // Use name as the key for deduplication
-      if (sponsor.name && !uniqueSponsorsMap.has(sponsor.name)) {
-        uniqueSponsorsMap.set(sponsor.name, sponsor);
+      // Use name as the key for deduplication.
+      // We overwrite existing entries so that the LATEST year (from the last edition in the array) is used.
+      if (sponsor.name) {
+        uniqueSponsorsMap.set(sponsor.name, { ...sponsor, year: edition.edition });
       }
     });
   });
@@ -85,7 +93,11 @@ export default function BrandSlider() {
       <Swiper {...swiperOptions} className="brand-slider-area owl-carousel">
         {processedSponsors.map((sponsor, index) => (
           <SwiperSlide key={`${sponsor.name}-${index}`} className="brand-box">
-            {sponsor.image && <img src={sponsor.image} alt={sponsor.name} />}
+            {sponsor.image && (
+              <Link href={`/${sponsor.year}/job-offers/${slugify(sponsor.name)}`}>
+                <img src={sponsor.image} alt={sponsor.name} />
+              </Link>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
