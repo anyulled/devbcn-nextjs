@@ -1,9 +1,23 @@
+import { NavItem } from "@/config/navigation/types";
+
 /**
  * Edition Configuration Types
  *
  * Centralized type definitions for year-specific event configuration.
  * Each edition has its own config file that implements EditionConfig.
  */
+
+export type NavCondition = "hasSpeakers" | "hasCfp" | "hasDiversity" | "hasSchedule" | "hasTalks" | "hasJobOffers";
+
+export interface EditionNavItem extends NavItem {
+  condition?: NavCondition;
+}
+
+export interface EditionNavigation {
+  main: EditionNavItem[];
+  yearSpecific: EditionNavItem[];
+  news: EditionNavItem[];
+}
 
 /**
  * General feature toggle configuration
@@ -87,6 +101,9 @@ export interface Sponsors {
 }
 
 export interface EditionConfig {
+  // Navigation structure (Mandatory)
+  navigation: EditionNavigation;
+
   // Basic info
   edition: string;
   title: string;

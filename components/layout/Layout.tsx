@@ -1,4 +1,6 @@
 "use client";
+import { EditionNavigation } from "@/config/editions/types";
+import { mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "@/config/navigation";
 import AOS from "aos";
 import { useEffect, useState } from "react";
 import AddClassBody from "../elements/AddClassBody";
@@ -56,6 +58,12 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
     };
   }, [scroll]);
 
+  const defaultNavigation: EditionNavigation = {
+    main: mainNavLinks,
+    yearSpecific: yearSpecificNavLinks,
+    news: newsDropdownLinks,
+  };
+
   return (
     <>
       <div id="top" />
@@ -86,7 +94,14 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
         <Header7 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
       {headerStyle == 8 ? (
-        <Header8 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
+        <Header8
+          navigation={defaultNavigation}
+          scroll={scroll}
+          isMobileMenu={isMobileMenu}
+          handleMobileMenu={handleMobileMenu}
+          isSearch={isSearch}
+          handleSearch={handleSearch}
+        />
       ) : null}
       {headerStyle == 9 ? (
         <Header9 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
@@ -94,7 +109,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
       {headerStyle == 10 ? (
         <Header10 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
       ) : null}
-      <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
+      <MobileMenu navigation={defaultNavigation} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
 
       {children}
 

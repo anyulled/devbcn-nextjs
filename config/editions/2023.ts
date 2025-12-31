@@ -8,6 +8,24 @@ import { EditionConfig } from "./types";
 export const edition2023: EditionConfig = {
   edition: "2023",
   title: "DevBcn - Barcelona Developers Conference ",
+  navigation: {
+    main: [
+      { label: "About Us", href: "/about-us", requiresYear: false },
+      { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
+      { label: "Travel", href: "/travel", requiresYear: false },
+    ],
+    yearSpecific: [
+      { label: "Speakers", href: "/2023/speakers", requiresYear: false, condition: "hasSpeakers" },
+      { label: "Talks", href: "/2023/talks", requiresYear: false, condition: "hasTalks" },
+      { label: "Schedule", href: "/2023/schedule", requiresYear: false, condition: "hasSchedule" },
+    ],
+    news: [
+      { label: "CFP", href: "/2023/cfp", requiresYear: false, condition: "hasCfp" },
+      { label: "Sponsorship", href: "/sponsorship", requiresYear: false },
+      { label: "Diversity", href: "/2023/diversity", requiresYear: false, condition: "hasDiversity" },
+      { label: "Job Offers", href: "/2023/job-offers", requiresYear: false, condition: "hasJobOffers" },
+    ],
+  },
   email: "info@devbcn.com",
   venue: "La Farga, Hospitalet de Llobregat",
   trackNumber: 7,

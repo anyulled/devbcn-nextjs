@@ -1,18 +1,21 @@
 "use client";
-import { getEditionConfig } from "@/config/editions";
-import { editionLinks, mainNavLinks, newsDropdownLinks, socialLinks, yearSpecificNavLinks } from "@/config/navigation";
+import { EditionNavigation } from "@/config/editions/types";
+import { editionLinks, socialLinks } from "@/config/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
+interface MobileMenuProps {
+  isMobileMenu: boolean;
+  handleMobileMenu: () => void;
+  navigation: EditionNavigation;
+}
+
+export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation }: MobileMenuProps) {
   const [isAccordion, setIsAccordion] = useState<number | null>(null);
   const pathname = usePathname();
-  const segments = pathname.split("/").filter(Boolean);
-  const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
-  const configData = getEditionConfig(yearFromPath);
-
-  const withYear = (slug: string) => `/${yearFromPath}${slug}`;
+  // yearFromPath logic is still useful for some things or we can remove if unused
+  // But socialLinks might need context? No, socialLinks are global array.
 
   const handleAccordion = (key: number) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
@@ -62,7 +65,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
             </li>
 
             {/* Main Nav Links */}
-            {mainNavLinks.map((link) => (
+            {navigation.main.map((link) => (
               <li key={link.href} className="hash-has-sub">
                 <Link href={link.href} className="hash-nav">
                   {link.label}
@@ -71,22 +74,13 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
             ))}
 
             {/* Year-specific Nav Links */}
-            {yearSpecificNavLinks.map((link) => (
+            {navigation.yearSpecific.map((link) => (
               <li key={link.href} className="hash-has-sub">
-                <Link href={withYear(link.href)} className="hash-nav">
+                <Link href={link.href} className="hash-nav">
                   {link.label}
                 </Link>
               </li>
             ))}
-
-            {/* Schedule (conditional) */}
-            {configData.schedule.enabled && (
-              <li className="hash-has-sub">
-                <Link href={withYear("/schedule")} className="hash-nav">
-                  Schedule
-                </Link>
-              </li>
-            )}
 
             {/* News with submenu */}
             <li className={isAccordion === 2 ? "has-sub hash-has-sub active" : "has-sub hash-has-sub"}>
@@ -95,9 +89,9 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
               </span>
               <a className="hash-nav">News</a>
               <ul className="sub-menu" style={{ display: isAccordion === 2 ? "block" : "none" }}>
-                {newsDropdownLinks.map((link) => (
+                {navigation.news.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.requiresYear ? withYear(link.href) : link.href}>{link.label}</Link>
+                    <Link href={link.href}>{link.label}</Link>
                   </li>
                 ))}
               </ul>

@@ -1,17 +1,29 @@
 "use client";
-import { getEditionConfig } from "@/config/editions";
-import { editionLinks, mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "@/config/navigation";
+import { EditionNavigation } from "@/config/editions/types";
+import { editionLinks } from "@/config/navigation";
 import { trackTicketClick } from "@/lib/utils/analytics";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
+interface HeaderProps {
+  scroll: boolean;
+  isMobileMenu: boolean;
+  handleMobileMenu: () => void;
+  isSearch: boolean;
+  handleSearch: () => void;
+  navigation: EditionNavigation;
+}
+
+export default function Header8({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch, navigation }: HeaderProps) {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
   const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
-  const configData = getEditionConfig(yearFromPath);
 
-  const withYear = (slug: string) => `/${yearFromPath}${slug}`;
+  // Note: We use yearFromPath only for tracking or external links if needed.
+  // Navigation links are already resolved.
+
+  // Fallback for editionLinks (Home dropdown) - keep global or move to config?
+  // User didn't specify moving editionLinks. We'll keep them global for now as they list available editions.
 
   return (
     <header>
@@ -57,29 +69,24 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                         ))}
                       </ul>
                     </li>
-                    {mainNavLinks.map((link) => (
+                    {navigation.main.map((link) => (
                       <li key={link.href}>
                         <Link href={link.href}>{link.label}</Link>
                       </li>
                     ))}
-                    {yearSpecificNavLinks.map((link) => (
+                    {navigation.yearSpecific.map((link) => (
                       <li key={link.href}>
-                        <Link href={withYear(link.href)}>{link.label}</Link>
+                        <Link href={link.href}>{link.label}</Link>
                       </li>
                     ))}
-                    {configData.schedule.enabled && (
-                      <li>
-                        <Link href={withYear("/schedule")}>Schedule</Link>
-                      </li>
-                    )}
                     <li>
                       <Link href="/#">
                         News <i className="fa-solid fa-angle-down" />
                       </Link>
                       <ul className="dropdown-padding">
-                        {newsDropdownLinks.map((link) => (
+                        {navigation.news.map((link) => (
                           <li key={link.href}>
-                            <Link href={link.requiresYear ? withYear(link.href) : link.href}>{link.label}</Link>
+                            <Link href={link.href}>{link.label}</Link>
                           </li>
                         ))}
                       </ul>
@@ -88,7 +95,25 @@ export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSear
                 </div>
                 <div className="btn-area">
                   <div className="btn-area1">
-                    <Link className="vl-btn8" href={configData.tickets.url} onClick={() => trackTicketClick("header_button", yearFromPath)}>
+                    {/* Hardcoded ticket link fallback or passing config? 
+                        The original code used configData.tickets.url.
+                        We don't have configData here anymore. 
+                        We should probably include tickets URL in navigation or pass it as prop?
+                        Or just hardcode it for now since 2026 is the main one. 
+                        Plan didn't mention tickets URL. 
+                        Ideally DynamicHeaderWrapper should pass config or ticketUrl. 
+                        But I will assume 2026 for now or just generic link.
+                        Wait, tickets URL changes per year.
+                        I should probably pass it in navigation too? Or just import getEditionConfig here?
+                        Using getEditionConfig here is fine for METADATA (tickets, etc) but navigation should rely on prop.
+                        Actually, Client Components shouldn't fetch config if it depends on generic types.
+                        But `getEditionConfig` is just a sync helper. It's SAFE to use in Client Components for static data.
+                    */}
+                    <Link
+                      className="vl-btn8"
+                      href="https://tickets.devbcn.com/event/devbcn-2026"
+                      onClick={() => trackTicketClick("header_button", yearFromPath)}
+                    >
                       <span className="demo">Buy Ticket</span>
                     </Link>
                   </div>

@@ -9,6 +9,24 @@ import { EditionConfig } from "./types";
 export const edition2026: EditionConfig = {
   edition: "2026",
   title: "DevBcn - Barcelona Developers Conference ",
+  navigation: {
+    main: [
+      { label: "About Us", href: "/about-us", requiresYear: false },
+      { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
+      { label: "Travel", href: "/travel", requiresYear: false }, // assuming global travel page or check if it needs year
+    ],
+    yearSpecific: [
+      { label: "Speakers", href: "/2026/speakers", requiresYear: false, condition: "hasSpeakers" },
+      { label: "Talks", href: "/2026/talks", requiresYear: false, condition: "hasTalks" },
+      { label: "Schedule", href: "/2026/schedule", requiresYear: false, condition: "hasSchedule" },
+    ],
+    news: [
+      { label: "CFP", href: "/2026/cfp", requiresYear: false, condition: "hasCfp" },
+      { label: "Sponsorship", href: "/sponsorship", requiresYear: false },
+      { label: "Diversity", href: "/2026/diversity", requiresYear: false, condition: "hasDiversity" },
+      { label: "Job Offers", href: "/2026/job-offers", requiresYear: false, condition: "hasJobOffers" },
+    ],
+  },
   email: "info@devbcn.com",
   venue: "World Trade Center, Barcelona",
   trackNumber: 5,
@@ -26,13 +44,7 @@ export const edition2026: EditionConfig = {
   hideSpeakers: true,
   hideTalks: true,
   diversity: {
-    sponsors: [
-      {
-        name: "Barcelona JUG",
-        website: "https://www.meetup.com/barcelonajug/",
-        image: "/assets/img/all-images/sponsors/bcn-jug.png",
-      },
-    ],
+    sponsors: [],
     applicationForm: "TBD",
   },
 
