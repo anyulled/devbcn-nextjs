@@ -21,7 +21,7 @@ export const edition2023: EditionConfig = {
     ],
     news: [
       { label: "CFP", href: "/2023/cfp", requiresYear: false, condition: "hasCfp" },
-      { label: "Sponsorship", href: "/sponsorship", requiresYear: false },
+      { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
       { label: "Diversity", href: "/2023/diversity", requiresYear: false, condition: "hasDiversity" },
       { label: "Job Offers", href: "/2023/job-offers", requiresYear: false, condition: "hasJobOffers" },
     ],
