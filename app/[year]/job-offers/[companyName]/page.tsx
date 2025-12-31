@@ -2,7 +2,7 @@ import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
@@ -15,7 +15,7 @@ import Script from "next/script";
 export const revalidate = 604800;
 
 interface CompanyJobOffersPageProps {
-  params: Promise<{ year: string; "company-name": string }>;
+  params: Promise<{ year: string; companyName: string }>;
 }
 
 export async function generateStaticParams() {
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
     for (const company of companies) {
       params.push({
         year,
-        "company-name": slugify(company.name),
+        companyName: slugify(company.name),
       });
     }
   }
@@ -36,7 +36,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
-  const { year, "company-name": companySlug } = await params;
+  const { year, companyName: companySlug } = await params;
   const company = findCompanyBySlug(year, companySlug);
 
   if (!company) {
@@ -47,6 +47,8 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
   }
 
   const jobCount = company.offers.length;
+  // ... rest of metadata logic can remain if unchanged or if I just replace the top part
+
   const positionsText = jobCount === 1 ? "1 position" : `${jobCount} positions`;
   const descriptionPreview = company.description.length > 120 ? `${company.description.substring(0, 120)}...` : company.description;
 
@@ -83,7 +85,7 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
 }
 
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {
-  const { year, "company-name": companySlug } = await params;
+  const { year, companyName: companySlug } = await params;
   const company = findCompanyBySlug(year, companySlug);
   const eventData = getEditionConfig(year);
 

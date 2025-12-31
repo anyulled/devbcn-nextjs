@@ -1,7 +1,8 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { Company } from "@/config/data/job-offers/types";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import { slugify } from "@/lib/utils/slugify";
 import type { Metadata } from "next";
@@ -48,12 +49,7 @@ export async function generateMetadata({ params }: JobOffersPageProps): Promise<
   };
 }
 
-export default async function JobOffers({ params }: JobOffersPageProps) {
-  const { year } = await params;
-  const companies = getJobOffersByYear(year);
-  const eventData = getEditionConfig(year);
-
-  // Generate JSON-LD ItemList schema for companies
+function generateJsonLDSchema(companies: Company[], year: string) {
   const baseUrl = "https://www.devbcn.com";
   const companiesListSchema =
     companies.length > 0
@@ -66,6 +62,16 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
           `DevBcn ${year} Job Offers`
         )
       : null;
+  return companiesListSchema;
+}
+
+export default async function JobOffers({ params }: JobOffersPageProps) {
+  const { year } = await params;
+  const companies = getJobOffersByYear(year);
+  const eventData = getEditionConfig(year);
+
+  // Generate JSON-LD ItemList schema for companies
+  const companiesListSchema = generateJsonLDSchema(companies, year);
 
   return (
     <div>
