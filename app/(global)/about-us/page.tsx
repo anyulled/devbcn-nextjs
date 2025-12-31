@@ -26,9 +26,6 @@ export default function AboutUs() {
                   <div className="img1 image-anime">
                     <img src={member.profileUrl.toString()} alt={member.name} />
                   </div>
-                  <div className="img2">
-                    <img src={`/assets/img/elements/brand-img${(index % 4) + 1}.png`} alt="" />
-                  </div>
                   <div className="content-area">
                     <Link href={member.twitterUrl.toString()}>{member.name}</Link>
                     <div className="space12" />
