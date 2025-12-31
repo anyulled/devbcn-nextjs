@@ -16,22 +16,67 @@ export const cfpData: Record<string, CfpTrack[]> = {
     {
       name: "Java & JVM",
       id: "656fece2-9447-4dbe-8a78-8dc6aa7124f2",
-      members: [],
+      members: [
+        {
+          name: "Ana Maria Mihalceanu",
+          photo: "https://sessionize.com/image/076f-400o400o2-Lawur2AKGny32MmkpG69jQ.JPG",
+          twitter: "https://twitter.com/ammbra1508",
+          linkedIn: "https://www.linkedin.com/in/ana-maria-mihalceanu-1508",
+        },
+        {
+          name: "Ixchel Ruiz",
+          photo: "/assets/img/all-images/cfp/ixchel.png",
+          twitter: "https://twitter.com/ixchelruiz",
+          linkedIn: "https://www.linkedin.com/in/ixchelruiz",
+        },
+      ],
     },
     {
       name: "Frontend",
       id: "2684b568-2836-4713-99af-643f8a4d7972",
-      members: [],
+      members: [
+        {
+          name: "Carles Nuñez",
+          twitter: "https://twitter.com/carlesnunez",
+          linkedIn: "https://www.linkedin.com/in/carles-nunez-tomeo/",
+          photo: "/assets/img/all-images/cfp/carles_nunez.jpg",
+        },
+        {
+          name: "Iago Lastra",
+          photo: "/assets/img/all-images/cfp/iago.png",
+          twitter: "https://twitter.com/iagolast",
+          linkedIn: "https://www.linkedin.com/in/iagolast/",
+        },
+        {
+          name: "Montse Ortega",
+          photo: "https://step4ward.es/wp-content/uploads/2024/04/montse_ortega.webp",
+          linkedIn: "https://www.linkedin.com/in/montse-ortega-73061369/",
+        },
+      ],
     },
     {
       name: "AI, ML, Python",
       id: "c1ec728d-03c1-4d8d-9f56-637bc97f5a5b",
-      members: [],
+      members: [
+        {
+          name: "Nicolas Grenié",
+          photo: "https://pbs.twimg.com/profile_images/1731025672791830528/bCs8_e1h_400x400.jpg",
+          linkedIn: "https://linkedin.com/in/nicolasgrenie",
+          twitter: "https://x.com/picsoung",
+        },
+      ],
     },
     {
       name: "DevOps, Cloud, Kubernetes",
       id: "504cf03b-130d-4b70-a98c-c4faeb553b5e",
-      members: [],
+      members: [
+        {
+          name: "Rael Garcia",
+          photo: "/assets/img/all-images/cfp/rael-garcia.png",
+          linkedIn: "https://www.linkedin.com/in/rael/",
+          twitter: "https://x.com/raelga",
+        },
+      ],
     },
     {
       name: "Agile, Leadership, Diversity",
