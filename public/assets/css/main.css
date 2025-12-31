@@ -2902,7 +2902,6 @@ Location:
   top: 42%;
   height: 40px;
   width: 40px;
-  filter: brightness(0) invert(1);
 }
 
 .hero3-section-area .hero3-header .arrow-btnarea a .circle {

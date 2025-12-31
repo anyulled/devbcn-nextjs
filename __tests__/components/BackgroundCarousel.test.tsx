@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
+import BackgroundCarousel from "@/components/BackgroundCarousel";
 import { act, render } from "@testing-library/react";
-import BackgroundCarousel from "../BackgroundCarousel";
 
 // Mock timers
 jest.useFakeTimers();
