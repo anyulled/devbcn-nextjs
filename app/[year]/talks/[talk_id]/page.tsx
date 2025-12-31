@@ -1,7 +1,6 @@
-import TalkContent from "@/components/talks/TalkContent";
-import RelatedTalks from "@/components/talks/RelatedTalks";
-import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
+import RelatedTalks from "@/components/talks/RelatedTalks";
+import TalkContent from "@/components/talks/TalkContent";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import {
@@ -135,8 +134,6 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
         />
       ))}
       <Script id="talk-breadcrumb-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
-      {/* Hero Header Section */}
-      <PageHeader title={talk.title} backgroundImageId={9} breadcrumbText="Talks" />
 
       {/* Main Content from Reusable Component */}
       <TalkContent

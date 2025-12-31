@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import JobOffers, { generateMetadata, generateStaticParams } from "@/app/[year]/job-offers/page";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { render, screen } from "@testing-library/react";
@@ -19,7 +20,7 @@ jest.mock("@/components/sections/CTASection", () => ({
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn((year: string) => ({
+  getEditionConfig: jest.fn(() => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
     venue: "Test Venue",
     tickets: { url: "http://test.com" },

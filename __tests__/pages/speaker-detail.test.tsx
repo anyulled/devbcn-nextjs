@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speaker_id]/page";
+import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
-import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
