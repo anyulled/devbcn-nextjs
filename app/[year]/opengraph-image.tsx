@@ -99,7 +99,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <span>📍</span>
-            <span>{config.venue}</span>
+            <span>{config.venue.name}</span>
           </div>
         </div>
       </div>

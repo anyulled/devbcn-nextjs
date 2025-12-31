@@ -27,7 +27,10 @@ export const edition2025: EditionConfig = {
     ],
   },
   email: "info@devbcn.com",
-  venue: "La Farga, Hospitalet de Llobregat",
+  venue: {
+    name: "La Farga, Hospitalet de Llobregat",
+    mapUrl: "https://maps.app.goo.gl/2zao7ynr4wE7UYDn8",
+  },
   trackNumber: 5,
   tracks:
     "Java & JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",

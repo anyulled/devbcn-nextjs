@@ -23,7 +23,7 @@ jest.mock("@/components/sections/venue/WTCVenue", () => ({
 jest.mock("@/config/editions", () => ({
   getEditionConfig: jest.fn((year: string) => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
-    venue: year === "2026" ? "WTC" : "La Farga",
+    venue: year === "2026" ? { name: "WTC", mapUrl: "http://wtc" } : { name: "La Farga", mapUrl: "http://lafarga" },
     tickets: { url: "http://test.com" },
   })),
   formatEventDateRange: jest.fn(() => "July 10-11, 2025"),

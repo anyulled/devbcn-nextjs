@@ -1,3 +1,4 @@
+import { Speaker } from "@/hooks/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,7 +10,7 @@ interface SpeakerContentProps {
   year: string;
   eventData: {
     showCountdown: boolean;
-    venue: string;
+    venue: { name: string; mapUrl: string };
     tickets: {
       url: string;
     };

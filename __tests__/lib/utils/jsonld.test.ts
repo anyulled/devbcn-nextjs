@@ -38,7 +38,10 @@ describe("JSON-LD Schema Generators", () => {
         edition: "2026",
         title: "DevBcn 2026",
         email: "info@devbcn.com",
-        venue: "World Trade Center Barcelona",
+        venue: {
+          name: "World Trade Center Barcelona",
+          mapUrl: "https://maps.google.com",
+        },
         trackNumber: 8,
         tracks: "Frontend, Backend, Cloud, AI, DevOps, Mobile, Data, Security",
         event: {
@@ -155,7 +158,10 @@ describe("JSON-LD Schema Generators", () => {
         questionAnswers: [],
       };
 
-      const schema = generateEducationEventSchema(mockTalk, "2026", "World Trade Center Barcelona");
+      const schema = generateEducationEventSchema(mockTalk, "2026", {
+        name: "World Trade Center Barcelona",
+        mapUrl: "https://maps.google.com",
+      });
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("EducationEvent");

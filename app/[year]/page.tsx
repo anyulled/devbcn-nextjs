@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `DevBcn ${year} - Barcelona Developers Conference`,
-    description: `Join DevBcn ${year}, Barcelona's biggest developer conference on ${eventDate} at ${config.venue}. Explore cutting-edge talks, workshops, and networking opportunities.`,
+    description: `Join DevBcn ${year}, Barcelona's biggest developer conference on ${eventDate} at ${config.venue.name}. Explore cutting-edge talks, workshops, and networking opportunities.`,
     keywords: [
       `DevBcn ${year}`,
       "barcelona developer conference",
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "twitter:label1": "Date",
       "twitter:data1": eventDate,
       "twitter:label2": "Location",
-      "twitter:data2": config.venue,
+      "twitter:data2": config.venue.name,
     },
   };
 }

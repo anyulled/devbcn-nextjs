@@ -1,7 +1,6 @@
 "use client";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange } from "@/config/editions";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -113,7 +112,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                   <strong>
                     {format(new Date(config.event.startDay), "MMMM do")} —{" ".concat(format(new Date(config.event.endDay), "do"))}
                   </strong>{" "}
-                  at the iconic {config.venue}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
+                  at the iconic {config.venue.name}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
                   strategies, and groundbreaking advancements in Big Data and AI.
                 </p>
 

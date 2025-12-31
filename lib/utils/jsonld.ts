@@ -43,7 +43,7 @@ export function generateEventSchema(config: EditionConfig, year: string): WithCo
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
       "@type": "Place",
-      name: config.venue,
+      name: config.venue.name,
       address: {
         "@type": "PostalAddress",
         streetAddress: "1ª planta Edif. Este, Moll de Barcelona, s/n",
@@ -157,7 +157,7 @@ export function generatePersonSchema(speaker: Speaker, year: string): WithContex
 /**
  * Generate EducationEvent schema for a talk/session
  */
-export function generateEducationEventSchema(talk: Talk, year: string, venue: string): WithContext<EducationEvent> {
+export function generateEducationEventSchema(talk: Talk, year: string, venue: { name: string; mapUrl: string }): WithContext<EducationEvent> {
   const baseUrl = "https://www.devbcn.com";
 
   return {
@@ -171,7 +171,7 @@ export function generateEducationEventSchema(talk: Talk, year: string, venue: st
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
       "@type": "Place",
-      name: `${venue} - ${talk.room}`,
+      name: `${venue.name} - ${talk.room}`,
       address: {
         "@type": "PostalAddress",
         streetAddress: "1ª planta Edif. Este, Moll de Barcelona, s/n",

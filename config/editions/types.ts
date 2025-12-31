@@ -108,7 +108,10 @@ export interface EditionConfig {
   edition: string;
   title: string;
   email: string;
-  venue: string;
+  venue: {
+    name: string;
+    mapUrl: string;
+  };
   trackNumber: number;
   tracks: string;
 

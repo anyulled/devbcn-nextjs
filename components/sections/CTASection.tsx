@@ -9,7 +9,7 @@ interface CTASectionProps {
   ticketUrl: string;
   eventStartDate: Date;
   eventEndDate: Date;
-  eventLocation: string;
+  eventLocation: { name: string; mapUrl: string };
   showCountdown: boolean;
 }
 
@@ -47,7 +47,7 @@ export default function CTASection({ ticketUrl, eventStartDate, eventEndDate, ev
                 <li className="m-0">
                   <Link href={travelPath}>
                     <img src="/assets/img/icons/location1.svg" alt="" />
-                    {eventLocation}
+                    {eventLocation.name}
                   </Link>
                 </li>
               </ul>

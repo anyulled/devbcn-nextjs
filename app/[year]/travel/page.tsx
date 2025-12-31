@@ -1,11 +1,9 @@
-import Countdown from "@/components/elements/Countdown";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
-import type { Metadata } from "next";
-import Link from "next/link";
 import LaFargaVenue from "@/components/sections/venue/LaFargaVenue";
 import WTCVenue from "@/components/sections/venue/WTCVenue";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{
@@ -25,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Travel to Barcelona - DevBcn ${year}`,
-    description: `How to get to DevBcn ${year} at the ${config.venue}. Information about public transport, parking, and venue access.`,
+    description: `How to get to DevBcn ${year} at the ${config.venue.name}. Information about public transport, parking, and venue access.`,
     keywords: [`DevBcn ${year} travel`, "Barcelona travel", "World Trade Center Barcelona", "public transport barcelona"],
     openGraph: {
       title: `Travel to Barcelona • DevBcn ${year}`,
@@ -63,7 +61,7 @@ export default async function TravelPage({ params }: PageProps) {
                   <LaFargaVenue />
                 ) : (
                   /* World Trade Center Barcelona for 2026+ editions */
-                  <WTCVenue venueName={config.venue} />
+                  <WTCVenue venueName={config.venue.name} />
                 )}
               </div>
             </div>

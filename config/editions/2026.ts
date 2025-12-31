@@ -28,7 +28,10 @@ export const edition2026: EditionConfig = {
     ],
   },
   email: "info@devbcn.com",
-  venue: "World Trade Center, Barcelona",
+  venue: {
+    name: "World Trade Center, Barcelona",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=World+Trade+Center+Barcelona",
+  },
   trackNumber: 5,
   tracks:
     "Java & JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",

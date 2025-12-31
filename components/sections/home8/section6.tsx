@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface Section6Props {
   eventDate: string;
-  eventVenue: string;
+  eventVenue: { name: string; mapUrl: string };
 }
 
 export default function Section6({ eventDate, eventVenue }: Section6Props) {
@@ -37,7 +37,7 @@ export default function Section6({ eventDate, eventVenue }: Section6Props) {
                   <li className="m-0">
                     <Link href="/#">
                       <Image src="/assets/img/icons/location1.svg" alt="Location" width={24} height={24} />
-                      {eventVenue}
+                      {eventVenue.name}
                     </Link>
                   </li>
                 </ul>

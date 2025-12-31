@@ -5,6 +5,7 @@ import { edition2025 } from "@/config/editions/2025";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { Sponsor } from "@/config/editions/types";
 import { slugify } from "@/lib/utils/slugify";
 import Link from "next/link";
 
