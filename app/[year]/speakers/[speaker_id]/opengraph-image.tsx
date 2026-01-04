@@ -57,37 +57,52 @@ export default async function Image({ params }: { params: Promise<{ year: string
           padding: "60px",
         }}
       >
-        {speaker.profilePicture ? (
-          <img
-            src={speaker.profilePicture}
-            alt={speaker.fullName}
-            style={{
-              width: "350px",
-              height: "350px",
-              borderRadius: "50%",
-              border: "8px solid white",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-            }}
-          />
-        ) : (
-          <div
-            style={{
-              width: "350px",
-              height: "350px",
-              borderRadius: "50%",
-              backgroundColor: "#4c1d95",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 120,
-              color: "white",
-              fontWeight: 700,
-              border: "8px solid white",
-            }}
-          >
-            {speaker.fullName.charAt(0)}
-          </div>
-        )}
+        {(() => {
+          const profilePicture = speaker.profilePicture;
+          // Satori (Vercel OG) does not support WebP. We assume if it's not WebP, it's a supported format (like JPG/PNG).
+          // We check using a simple lowercase string check, which handles the most common cases.
+          // In a real-world scenario with obscure URLs, a more robust check might be needed.
+          const isWebP = profilePicture?.toLowerCase().endsWith(".webp");
+          const shouldShowImage = profilePicture && !isWebP;
+
+          if (shouldShowImage) {
+            return (
+              <img
+                src={profilePicture}
+                alt={speaker.fullName}
+                style={{
+                  width: "350px",
+                  height: "350px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "8px solid white",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+                }}
+              />
+            );
+          }
+
+          return (
+            <div
+              style={{
+                width: "350px",
+                height: "350px",
+                borderRadius: "50%",
+                backgroundColor: "#4c1d95",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 120,
+                color: "white",
+                fontWeight: 700,
+                border: "8px solid white",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              }}
+            >
+              {speaker.fullName.charAt(0)}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Right side - Speaker Info */}
