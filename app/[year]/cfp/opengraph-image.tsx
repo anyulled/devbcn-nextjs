@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "DevBcn - Barcelona Developers Conference";
+export const alt = "DevBcn Call for Papers";
 export const size = {
   width: 1200,
   height: 630,
@@ -74,14 +74,15 @@ export default async function Image({ params }: { params: Promise<{ year: string
       >
         <div
           style={{
-            fontSize: 48,
-            fontWeight: 700,
+            fontSize: 64,
+            fontWeight: 900,
             color: "white",
             maxWidth: "900px",
             lineHeight: 1.2,
+            letterSpacing: "-0.02em",
           }}
         >
-          Barcelona Developers Conference
+          Call for Papers
         </div>
 
         <div
@@ -89,9 +90,22 @@ export default async function Image({ params }: { params: Promise<{ year: string
             fontSize: 36,
             fontWeight: 600,
             color: "#e0e7ff",
+            maxWidth: "800px",
+            lineHeight: 1.3,
+          }}
+        >
+          Submit your talk proposal for DevBcn {year}
+        </div>
+
+        <div
+          style={{
+            fontSize: 32,
+            fontWeight: 600,
+            color: "#c4b5fd",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
+            marginTop: "16px",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>

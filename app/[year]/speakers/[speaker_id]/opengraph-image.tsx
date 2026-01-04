@@ -1,4 +1,5 @@
 import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
+import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -109,7 +110,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
           }}
         >
           <img
-            src="https://devbcn-nextjs.vercel.app/assets/img/logo/logo.png"
+            src={DEVBCN_LOGO_BASE64}
             alt="DevBcn Logo"
             width={147}
             height={60}
