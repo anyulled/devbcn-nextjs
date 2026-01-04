@@ -152,6 +152,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
         {/* Speaker Name */}
         <div
           style={{
+            display: "flex",
             fontSize: 56,
             fontWeight: 900,
             color: "white",
