@@ -59,6 +59,12 @@ export const cfpData: Record<string, CfpTrack[]> = {
       id: "c1ec728d-03c1-4d8d-9f56-637bc97f5a5b",
       members: [
         {
+          name: "Mary Grygleski",
+          photo: "/assets/img/all-images/cfp/mary-grygleski.jpg",
+          twitter: "https://x.com/mgrygles",
+          linkedIn: "https://www.linkedin.com/in/mary-grygleski/",
+        },
+        {
           name: "Nicolas Grenié",
           photo: "https://pbs.twimg.com/profile_images/1731025672791830528/bCs8_e1h_400x400.jpg",
           linkedIn: "https://linkedin.com/in/nicolasgrenie",
