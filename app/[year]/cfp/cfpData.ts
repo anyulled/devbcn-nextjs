@@ -38,6 +38,7 @@ export const cfpData: Record<string, CfpTrack[]> = {
         {
           name: "François Martin",
           linkedIn: "https://www.linkedin.com/in/frlan%C3%A7oismartin/",
+          photo: "/assets/img/all-images/cfp/francois_martin.jpg",
         },
       ],
     },
@@ -106,10 +107,12 @@ export const cfpData: Record<string, CfpTrack[]> = {
         {
           name: "Aurelie Vache",
           linkedIn: "https://www.linkedin.com/in/aurelievache/",
+          photo: "/assets/img/all-images/cfp/aurelie_vache.jpg",
         },
         {
           name: "Diana Todea",
           linkedIn: "https://www.linkedin.com/in/diana-todea-b2a79968/",
+          photo: "/assets/img/all-images/cfp/diana_todea.jpg",
         },
       ],
     },
