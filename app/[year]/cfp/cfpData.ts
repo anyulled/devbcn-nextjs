@@ -29,6 +29,16 @@ export const cfpData: Record<string, CfpTrack[]> = {
           twitter: "https://twitter.com/ixchelruiz",
           linkedIn: "https://www.linkedin.com/in/ixchelruiz",
         },
+        {
+          name: "David Gomez",
+          photo: "https://sessionize.com/image/0c32-400o400o2-DP6mds9ahD7Qz7P5zWwcjy.jpg",
+          twitter: "https://twitter.com/dgomezg",
+          linkedIn: "https://www.linkedin.com/in/dgomezg",
+        },
+        {
+          name: "François Martin",
+          linkedIn: "https://www.linkedin.com/in/frlan%C3%A7oismartin/",
+        },
       ],
     },
     {
@@ -70,6 +80,11 @@ export const cfpData: Record<string, CfpTrack[]> = {
           linkedIn: "https://linkedin.com/in/nicolasgrenie",
           twitter: "https://x.com/picsoung",
         },
+        {
+          name: "Santiago Rincón Martínez",
+          linkedIn: "https://www.linkedin.com/in/santiago-rincon-martinez",
+          photo: "/assets/img/all-images/cfp/santiago-rincon.jpg",
+        },
       ],
     },
     {
@@ -82,12 +97,49 @@ export const cfpData: Record<string, CfpTrack[]> = {
           linkedIn: "https://www.linkedin.com/in/rael/",
           twitter: "https://x.com/raelga",
         },
+        {
+          name: "Ana Carmona",
+          photo: "/assets/img/all-images/cfp/ana_carmona.jpg",
+          twitter: "https://twitter.com/nhan_bcn",
+          linkedIn: "https://www.linkedin.com/in/ana-carmona-ag?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        },
+        {
+          name: "Aurelie Vache",
+          linkedIn: "https://www.linkedin.com/in/aurelievache/",
+        },
+        {
+          name: "Diana Todea",
+          linkedIn: "https://www.linkedin.com/in/diana-todea-b2a79968/",
+        },
       ],
     },
     {
       name: "Agile, Leadership, Diversity",
       id: "1d04d5bf-4b94-4e56-b0c6-ee93b3bb8c1f",
-      members: [],
+      members: [
+        {
+          name: "Toni Tassani",
+          photo: "/assets/img/all-images/cfp/toni.jpg",
+          twitter: "https://twitter.com/atassani",
+          linkedIn: "https://www.linkedin.com/in/tonitassani/en",
+        },
+        {
+          name: "Raquel Dominguez",
+          photo: "/assets/img/all-images/cfp/raquel-andujar.jpg",
+          linkedIn: "https://www.linkedin.com/in/raqueldominguezandujar/",
+        },
+        {
+          name: "Angels Gilabert",
+          linkedIn: "https://www.linkedin.com/in/angelsgilabertviciana/",
+          photo: "/assets/img/all-images/cfp/angels-gilabert.jpg",
+        },
+        {
+          name: "Julio Cesar",
+          photo: "/assets/img/all-images/cfp/julio_cesar.jpg",
+          linkedIn: "https://www.linkedin.com/in/juliocesarperezarques/",
+          twitter: "https://twitter.com/jcesarperez",
+        },
+      ],
     },
   ],
   2025: [
