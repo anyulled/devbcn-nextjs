@@ -1,16 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const IMAGES = [
-  "assets/img/all-images/venue/wtc-gemini-2.webp",
-  "assets/img/all-images/venue/wtc-gemini-1.webp",
-  "assets/img/all-images/venue/wtc-gemini-3.webp",
-  "assets/img/all-images/venue/venue-1.webp",
-  "assets/img/all-images/venue/venue-2.webp",
-  "assets/img/all-images/venue/venue-3.webp",
-  "assets/img/all-images/venue/venue-4.webp",
-  "assets/img/all-images/venue/venue-5.webp",
+  "/assets/img/all-images/venue/wtc-gemini-2.webp",
+  "/assets/img/all-images/venue/wtc-gemini-1.webp",
+  "/assets/img/all-images/venue/wtc-gemini-3.webp",
+  "/assets/img/all-images/venue/venue-1.webp",
+  "/assets/img/all-images/venue/venue-2.webp",
+  "/assets/img/all-images/venue/venue-3.webp",
+  "/assets/img/all-images/venue/venue-4.webp",
+  "/assets/img/all-images/venue/venue-5.webp",
 ];
 
 const ROTATION_INTERVAL = 10000; // 10 seconds
@@ -35,11 +36,16 @@ export default function BackgroundCarousel({ children, className = "" }: Backgro
     <div className={`background-carousel ${className}`}>
       {/* Background images with fade transition */}
       {IMAGES.map((image, index) => (
-        <div
+        <Image
           key={image}
+          src={image}
+          alt="Conference venue background"
+          fill
+          priority={index === 0}
+          sizes="100vw"
           className="background-carousel__image"
           style={{
-            backgroundImage: `url(${image})`,
+            objectFit: "cover",
             opacity: index === currentImageIndex ? 1 : 0,
             transition: "opacity 1.5s ease-in-out",
           }}
@@ -63,14 +69,6 @@ export default function BackgroundCarousel({ children, className = "" }: Backgro
         }
 
         .background-carousel__image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
           z-index: 0;
         }
 

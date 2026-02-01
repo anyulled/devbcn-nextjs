@@ -170,19 +170,26 @@ describe("BackgroundCarousel", () => {
 
     const images = container.querySelectorAll(".background-carousel__image");
     const expectedImages = [
-      "assets/img/all-images/venue/wtc-gemini-2.webp",
-      "assets/img/all-images/venue/wtc-gemini-1.webp",
-      "assets/img/all-images/venue/wtc-gemini-3.webp",
-      "assets/img/all-images/venue/venue-1.webp",
-      "assets/img/all-images/venue/venue-2.webp",
-      "assets/img/all-images/venue/venue-3.webp",
-      "assets/img/all-images/venue/venue-4.webp",
-      "assets/img/all-images/venue/venue-5.webp",
+      "/assets/img/all-images/venue/wtc-gemini-2.webp",
+      "/assets/img/all-images/venue/wtc-gemini-1.webp",
+      "/assets/img/all-images/venue/wtc-gemini-3.webp",
+      "/assets/img/all-images/venue/venue-1.webp",
+      "/assets/img/all-images/venue/venue-2.webp",
+      "/assets/img/all-images/venue/venue-3.webp",
+      "/assets/img/all-images/venue/venue-4.webp",
+      "/assets/img/all-images/venue/venue-5.webp",
     ];
 
     images.forEach((img, index) => {
-      const element = img as HTMLElement;
-      expect(element.style.backgroundImage).toBe(`url("${expectedImages[index]}")`);
+      const element = img as HTMLImageElement;
+      // next/image encodes the url, so we just check if it contains the path
+      // The src will look like /_next/image?url=%2Fassets%2Fimg%2F...
+      // Or if not mocked properly in jest, it might be the raw src depending on version.
+      // But typically it contains the original src string somewhere.
+      // We also decodeURIComponent to make it easier to check.
+      const src = decodeURIComponent(element.getAttribute("src") || "");
+      expect(src).toContain(expectedImages[index]);
+      expect(element.getAttribute("alt")).toBe("Conference venue background");
     });
   });
 
