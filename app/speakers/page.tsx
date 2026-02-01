@@ -3,9 +3,7 @@ import SpeakerCard from "@/components/layout/SpeakerCard";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import Link from "next/link";
 export default async function Speakers() {
-  console.log("===  speakers ===");
   const speakers = await getSpeakers(2025);
-  console.log("getSpeakers", speakers);
 
   return (
     <div>
