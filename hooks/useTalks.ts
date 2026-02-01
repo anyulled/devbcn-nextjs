@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { getEditionConfig } from "@/config/editions";
 import { SessionGroup, Speaker, Talk } from "./types";
 import { getSpeakers } from "./useSpeakers";
@@ -10,7 +11,7 @@ const getSessionsUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Sessions`;
 };
 
-export const getTalks = async (year: string | number = "default"): Promise<SessionGroup[]> => {
+export const getTalks = cache(async (year: string | number = "default"): Promise<SessionGroup[]> => {
   const url = getSessionsUrl(year);
   const response = await fetch(url);
   if (!response.ok) {
@@ -18,11 +19,15 @@ export const getTalks = async (year: string | number = "default"): Promise<Sessi
   }
   const data: SessionGroup[] = await response.json();
   return data;
-};
+});
+
+export const getAllTalks = cache(async (year: string | number): Promise<Talk[]> => {
+  const sessionGroups = await getTalks(year);
+  return sessionGroups.flatMap((group) => group.sessions);
+});
 
 export const getTalkByYearAndId = async (year: string | number, talkId: string): Promise<Talk | undefined> => {
-  const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
+  const allTalks = await getAllTalks(year);
   return allTalks.find((talk) => talk.id === talkId);
 };
 
@@ -129,8 +134,7 @@ const shuffleArray = <T>(array: T[]): T[] => {
  * Get random related talks from the same track (excluding current talk)
  */
 export const getRandomRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 3): Promise<Talk[]> => {
-  const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((g) => g.sessions);
+  const allTalks = await getAllTalks(year);
   const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
   return shuffleArray(sameTracks).slice(0, limit);
 };
