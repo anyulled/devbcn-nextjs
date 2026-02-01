@@ -1,57 +1,69 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { DailySchedule } from "@/hooks/useSchedule";
 import SessionCard from "./SessionCard";
 import { format, parseISO, addMinutes, startOfDay } from "date-fns";
 import styles from "./schedule.module.scss";
+import { GridRoom } from "@/hooks/useSchedule";
 
 interface ScheduleGridProps {
   schedule: DailySchedule[];
   year: string;
 }
 
+const EMPTY_ROOMS: GridRoom[] = [];
+
 export default function ScheduleGrid({ schedule, year }: ScheduleGridProps) {
   const [activeTab, setActiveTab] = useState(0);
 
-  if (!schedule || schedule.length === 0) {
-    return <div className="text-center py-5">Schedule not yet published.</div>;
-  }
+  const hasSchedule = schedule && schedule.length > 0;
+  const currentDay = hasSchedule ? schedule[activeTab] : null;
+  const rooms = currentDay ? currentDay.rooms : EMPTY_ROOMS;
 
-  const currentDay = schedule[activeTab];
-  const rooms = currentDay.rooms;
+  const { minTime, totalRows, timeLabels } = useMemo(() => {
+    if (!rooms || rooms.length === 0) {
+      return { minTime: 0, totalRows: 0, timeLabels: [] };
+    }
 
-  // Calculate grid dimensions
-  // Find earliest start and latest end across all sessions to define grid range
-  let minTime = 24 * 60; // Minutes from midnight
-  let maxTime = 0;
+    // Calculate grid dimensions
+    // Find earliest start and latest end across all sessions to define grid range
+    let minTime = 24 * 60; // Minutes from midnight
+    let maxTime = 0;
 
-  rooms.forEach((room) => {
-    room.sessions.forEach((session) => {
-      const start = parseISO(session.startsAt);
-      const end = parseISO(session.endsAt);
-      const startMinutes = start.getHours() * 60 + start.getMinutes();
-      const endMinutes = end.getHours() * 60 + end.getMinutes();
-      if (startMinutes < minTime) minTime = startMinutes;
-      if (endMinutes > maxTime) maxTime = endMinutes;
+    rooms.forEach((room) => {
+      room.sessions.forEach((session) => {
+        const start = parseISO(session.startsAt);
+        const end = parseISO(session.endsAt);
+        const startMinutes = start.getHours() * 60 + start.getMinutes();
+        const endMinutes = end.getHours() * 60 + end.getMinutes();
+        if (startMinutes < minTime) minTime = startMinutes;
+        if (endMinutes > maxTime) maxTime = endMinutes;
+      });
     });
-  });
 
-  // Round down minTime to nearest hour
-  minTime = Math.floor(minTime / 60) * 60;
-  // Round up maxTime to nearest hour
-  maxTime = Math.ceil(maxTime / 60) * 60;
+    // Round down minTime to nearest hour
+    minTime = Math.floor(minTime / 60) * 60;
+    // Round up maxTime to nearest hour
+    maxTime = Math.ceil(maxTime / 60) * 60;
 
-  const totalMinutes = maxTime - minTime;
-  const slotDuration = 30; // 30 minute increments
-  const totalRows = Math.ceil(totalMinutes / slotDuration);
+    const totalMinutes = maxTime - minTime;
+    const slotDuration = 30; // 30 minute increments
+    const totalRows = Math.ceil(totalMinutes / slotDuration);
 
-  // Generate time labels
-  const timeLabels = [];
-  for (let i = 0; i <= totalRows; i++) {
-    const minutes = minTime + i * slotDuration;
-    const date = addMinutes(startOfDay(new Date()), minutes);
-    timeLabels.push(format(date, "HH:mm"));
+    // Generate time labels
+    const timeLabels = [];
+    for (let i = 0; i <= totalRows; i++) {
+      const minutes = minTime + i * slotDuration;
+      const date = addMinutes(startOfDay(new Date()), minutes);
+      timeLabels.push(format(date, "HH:mm"));
+    }
+
+    return { minTime, totalRows, timeLabels };
+  }, [rooms]);
+
+  if (!hasSchedule) {
+    return <div className="text-center py-5">Schedule not yet published.</div>;
   }
 
   return (
