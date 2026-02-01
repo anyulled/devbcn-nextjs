@@ -31,25 +31,30 @@ describe("SpeakerCard", () => {
     // Instead, let's look for the hrefs
     const links = screen.getAllByRole("link");
 
-    mockLinks.forEach((mockLink) => {
-      const linkElement = links.find((l) => l.getAttribute("href") === mockLink.url);
-      expect(linkElement).toBeInTheDocument();
-    });
+    const twitterParams = links.find(l => l.getAttribute("href") === "https://twitter.com/johndoe");
+    expect(twitterParams).toBeInTheDocument();
+
+    const linkedinParams = links.find(l => l.getAttribute("href") === "https://linkedin.com/in/johndoe");
+    expect(linkedinParams).toBeInTheDocument();
+
+    const instagramParams = links.find(l => l.getAttribute("href") === "https://instagram.com/johndoe");
+    expect(instagramParams).toBeInTheDocument();
+
+    const blueskyParams = links.find(l => l.getAttribute("href") === "https://bsky.app/profile/johndoe.bsky.social");
+    expect(blueskyParams).toBeInTheDocument();
   });
 
   it("does not render missing social links", () => {
-     const propsWithNoLinks = {
-        ...defaultProps,
-        links: []
-     };
-     render(<SpeakerCard {...propsWithNoLinks} />);
+    const propsWithNoLinks = {
+      ...defaultProps,
+      links: [],
+    };
+    render(<SpeakerCard {...propsWithNoLinks} />);
 
-     const links = screen.getAllByRole("link");
-     // Should only contain link to speaker page (x2) and share button
-     // Speaker page image, Share button, Speaker page name
-     // Actually let's just verify specific social links are absent
+    const links = screen.getAllByRole("link");
 
-     expect(links.some(l => l.getAttribute("href")?.includes("twitter"))).toBe(false);
-     expect(links.some(l => l.getAttribute("href")?.includes("linkedin"))).toBe(false);
+    mockLinks.forEach((mockLink) => {
+      expect(links.some((l) => l.getAttribute("href") === mockLink.url)).toBe(false);
+    });
   });
 });
