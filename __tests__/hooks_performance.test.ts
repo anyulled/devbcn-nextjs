@@ -1,25 +1,36 @@
 
+import { cache } from 'react';
+import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
+
 // Mock react cache before importing the hook
 jest.mock('react', () => {
   const actual = jest.requireActual('react');
-  return {
-    ...actual,
-    cache: (fn: Function) => {
-      const cacheMap = new Map();
-      return function(...args: any[]) {
-        const key = JSON.stringify(args);
-        if (cacheMap.has(key)) {
-          return cacheMap.get(key);
-        }
-        const result = fn(...args);
-        cacheMap.set(key, result);
-        return result;
+  const cacheMaps: Map<any, any>[] = [];
+
+  const mockedCache = (fn: Function) => {
+    const cacheMap = new Map();
+    cacheMaps.push(cacheMap);
+    return function(...args: any[]) {
+      const key = JSON.stringify(args);
+      if (cacheMap.has(key)) {
+        return cacheMap.get(key);
       }
+      const result = fn(...args);
+      cacheMap.set(key, result);
+      return result;
     }
   };
-});
 
-import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
+  // Attach a helper to clear the caches
+  (mockedCache as any)._reset = () => {
+    cacheMaps.forEach(map => map.clear());
+  };
+
+  return {
+    ...actual,
+    cache: mockedCache
+  };
+});
 
 // Mock global fetch
 global.fetch = jest.fn(() =>
@@ -35,9 +46,13 @@ global.fetch = jest.fn(() =>
 describe("getSpeakerByYearAndId Performance", () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockClear();
+    // Clear all caches before each test
+    if ((cache as any)._reset) {
+      (cache as any)._reset();
+    }
   });
 
-  it("should call fetch only once if cached", async () => {
+  it("should call fetch only once for the same year", async () => {
     // First call
     await getSpeakerByYearAndId("2024", "1");
     // Second call - same year
@@ -46,10 +61,27 @@ describe("getSpeakerByYearAndId Performance", () => {
     expect((global.fetch as jest.Mock).mock.calls.length).toBe(1);
   });
 
-  it("should call fetch for each different year", async () => {
+  it("should call fetch again for a different year", async () => {
+    // First call - year 2024
     await getSpeakerByYearAndId("2024", "1");
+
+    // Second call - year 2025
     await getSpeakerByYearAndId("2025", "1");
 
     expect((global.fetch as jest.Mock).mock.calls.length).toBe(2);
+  });
+
+  it("should call fetch again if cache is cleared (simulating new request)", async () => {
+      // First call
+      await getSpeakerByYearAndId("2024", "1");
+
+      // Reset cache manually to simulate new request
+      (cache as any)._reset();
+      (global.fetch as jest.Mock).mockClear();
+
+      // Second call - same year, but fresh cache
+      await getSpeakerByYearAndId("2024", "2");
+
+      expect((global.fetch as jest.Mock).mock.calls.length).toBe(1);
   });
 });
