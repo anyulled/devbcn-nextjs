@@ -53,9 +53,10 @@ export default function ScheduleGrid({ schedule, year }: ScheduleGridProps) {
 
     // Generate time labels
     const timeLabels = [];
+    const today = startOfDay(new Date());
     for (let i = 0; i <= totalRows; i++) {
       const minutes = minTime + i * slotDuration;
-      const date = addMinutes(startOfDay(new Date()), minutes);
+      const date = addMinutes(today, minutes);
       timeLabels.push(format(date, "HH:mm"));
     }
 
