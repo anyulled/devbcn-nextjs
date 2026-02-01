@@ -1,4 +1,5 @@
 import { Link as LinkType } from "@/hooks/types";
+import Image from "next/image";
 import Link from "next/link";
 
 interface SpeakerCardProps {
@@ -20,9 +21,15 @@ export default function SpeakerCard({ name, position, image, links, speakerId, y
       <div className="team-widget-area">
         <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
         <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
-        <div className="img1">
-          <Link href={`/${year}/speakers/${speakerId}`}>
-            <img src={image} alt={name} className="team-img4" />
+        <div className="img1" style={{ aspectRatio: "1/1" }}>
+          <Link href={`/${year}/speakers/${speakerId}`} style={{ display: "block", width: "100%", height: "100%", position: "relative" }}>
+            <Image
+              src={image}
+              alt={name}
+              className="team-img4"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </Link>
           <div className="share">
             <Link href="/#">
