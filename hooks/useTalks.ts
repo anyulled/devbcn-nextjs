@@ -26,9 +26,14 @@ export const getAllTalks = cache(async (year: string | number): Promise<Talk[]> 
   return sessionGroups.flatMap((group) => group.sessions);
 });
 
-export const getTalkByYearAndId = async (year: string | number, talkId: string): Promise<Talk | undefined> => {
+const getTalksMap = cache(async (year: string | number): Promise<Map<string, Talk>> => {
   const allTalks = await getAllTalks(year);
-  return allTalks.find((talk) => talk.id === talkId);
+  return new Map(allTalks.map((talk) => [talk.id, talk]));
+});
+
+export const getTalkByYearAndId = async (year: string | number, talkId: string): Promise<Talk | undefined> => {
+  const talksMap = await getTalksMap(year);
+  return talksMap.get(talkId);
 };
 
 /**
