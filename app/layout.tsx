@@ -2,7 +2,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // Global CSS from node_modules can be imported normally above.
-// CSS files placed in `public/` must be linked via <link> tags, not imported.
+import "@/styles/vendor/aos.css";
+import "@/styles/vendor/bootstrap.min.css";
+import "@/styles/vendor/magnific-popup.css";
+import "@/styles/vendor/mobile.css";
+import "@/styles/vendor/sidebar.css";
+import "@/styles/vendor/slick-slider.css";
+import "@/styles/vendor/nice-select.css";
+import "@/styles/vendor/odometer.css";
+import "@/styles/main.scss";
+
 import ClientLayout from "@/components/layout/ClientLayout";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -89,17 +98,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Link vendor CSS served from public/ */}
-        <link rel="stylesheet" href="/assets/css/vendor/aos.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/magnific-popup.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/mobile.css" />
-        {/* <link rel="stylesheet" href="/assets/css/vendor/owlcarousel.min.css" /> */}
-        <link rel="stylesheet" href="/assets/css/vendor/sidebar.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/slick-slider.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/nice-select.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/odometer.css" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
 
         {/* PWA Meta Tags */}
         <meta name="application-name" content="DevBcn" />
