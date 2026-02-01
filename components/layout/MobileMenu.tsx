@@ -2,7 +2,6 @@
 import { EditionNavigation } from "@/config/editions/types";
 import { editionLinks, socialLinks } from "@/config/navigation";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 interface MobileMenuProps {
@@ -13,9 +12,6 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation }: MobileMenuProps) {
   const [isAccordion, setIsAccordion] = useState<number | null>(null);
-  const pathname = usePathname();
-  // yearFromPath logic is still useful for some things or we can remove if unused
-  // But socialLinks might need context? No, socialLinks are global array.
 
   const handleAccordion = (key: number) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
