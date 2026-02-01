@@ -31,17 +31,10 @@ describe("SpeakerCard", () => {
     // Instead, let's look for the hrefs
     const links = screen.getAllByRole("link");
 
-    const twitterParams = links.find(l => l.getAttribute("href") === "https://twitter.com/johndoe");
-    expect(twitterParams).toBeInTheDocument();
-
-    const linkedinParams = links.find(l => l.getAttribute("href") === "https://linkedin.com/in/johndoe");
-    expect(linkedinParams).toBeInTheDocument();
-
-    const instagramParams = links.find(l => l.getAttribute("href") === "https://instagram.com/johndoe");
-    expect(instagramParams).toBeInTheDocument();
-
-    const blueskyParams = links.find(l => l.getAttribute("href") === "https://bsky.app/profile/johndoe.bsky.social");
-    expect(blueskyParams).toBeInTheDocument();
+    mockLinks.forEach((mockLink) => {
+      const linkElement = links.find((l) => l.getAttribute("href") === mockLink.url);
+      expect(linkElement).toBeInTheDocument();
+    });
   });
 
   it("does not render missing social links", () => {
