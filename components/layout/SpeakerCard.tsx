@@ -21,8 +21,8 @@ export default function SpeakerCard({ name, position, image, links, speakerId, y
       <div className="team-widget-area">
         <img src="/assets/img/elements/elements25.png" alt="" className="elements21" />
         <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
-        <div className="img1" style={{ aspectRatio: "1/1" }}>
-          <Link href={`/${year}/speakers/${speakerId}`} style={{ display: "block", width: "100%", height: "100%", position: "relative" }}>
+        <div className="img1 speaker-image-container">
+          <Link href={`/${year}/speakers/${speakerId}`} className="speaker-image-link">
             <Image
               src={image}
               alt={name}

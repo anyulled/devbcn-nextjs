@@ -2268,3 +2268,14 @@
 }
 
 /*============= TEAM CSS AREA STARTS ===============*/
+// Shared SpeakerCard styles
+.speaker-image-container {
+	aspect-ratio: 1/1;
+}
+
+.speaker-image-link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
