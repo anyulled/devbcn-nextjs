@@ -1,5 +1,6 @@
 import { getEditionConfig } from "@/config/editions";
 import { Speaker } from "./types";
+import { cache } from "react";
 
 /**
  * Get the Sessionize speakers URL for a given edition year
@@ -9,7 +10,7 @@ const getSpeakersUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Speakers`;
 };
 
-export const getSpeakers = async (year: string | number = "default"): Promise<Speaker[]> => {
+export const getSpeakers = cache(async (year: string | number = "default"): Promise<Speaker[]> => {
   const url = getSpeakersUrl(year);
 
   const response = await fetch(url);
@@ -18,7 +19,7 @@ export const getSpeakers = async (year: string | number = "default"): Promise<Sp
   }
   const speakers: Speaker[] = await response.json();
   return speakers;
-};
+});
 
 export const getSpeakerByYearAndId = async (year: string | number, speakerId: string): Promise<Speaker | undefined> => {
   const speakers = await getSpeakers(year);
