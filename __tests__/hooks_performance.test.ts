@@ -45,4 +45,11 @@ describe("getSpeakerByYearAndId Performance", () => {
 
     expect((global.fetch as jest.Mock).mock.calls.length).toBe(1);
   });
+
+  it("should call fetch for each different year", async () => {
+    await getSpeakerByYearAndId("2024", "1");
+    await getSpeakerByYearAndId("2025", "1");
+
+    expect((global.fetch as jest.Mock).mock.calls.length).toBe(2);
+  });
 });
