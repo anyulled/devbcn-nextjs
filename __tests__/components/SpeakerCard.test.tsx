@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SpeakerCard from "../../components/layout/SpeakerCard";
+import SpeakerCard from "@/components/layout/SpeakerCard";
 import { Link as LinkType } from "../../hooks/types";
 
 describe("SpeakerCard", () => {
@@ -13,7 +13,7 @@ describe("SpeakerCard", () => {
   const defaultProps = {
     name: "John Doe",
     position: "Software Engineer",
-    image: "/path/to/image.jpg",
+    image: "https://sessionize.com/image?f=test.jpg",
     links: mockLinks,
     speakerId: "johndoe",
     year: 2024,
@@ -28,7 +28,6 @@ describe("SpeakerCard", () => {
   it("renders social links with correct URLs", () => {
     render(<SpeakerCard {...defaultProps} />);
 
-    // Instead, let's look for the hrefs
     const links = screen.getAllByRole("link");
 
     const twitterParams = links.find(l => l.getAttribute("href") === "https://twitter.com/johndoe");
@@ -55,6 +54,35 @@ describe("SpeakerCard", () => {
 
     mockLinks.forEach((mockLink) => {
       expect(links.some((l) => l.getAttribute("href") === mockLink.url)).toBe(false);
+    });
+  });
+
+  it("renders the speaker image with correct attributes", () => {
+    render(<SpeakerCard {...defaultProps} />);
+
+    // In the new implementation, it's a next/image
+    const img = screen.getByAltText("John Doe");
+    expect(img).toBeInTheDocument();
+
+    // Check src contains original image url (decoded)
+    const src = decodeURIComponent(img.getAttribute("src") || "");
+    expect(src).toContain("https://sessionize.com/image?f=test.jpg");
+
+    expect(img).toHaveClass("team-img4");
+    expect(img.tagName).toBe("IMG");
+
+    // Check next/image specific attributes
+    expect(img).toHaveAttribute("sizes", "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw");
+
+    // fill={true} applies absolute position
+    expect(img).toHaveStyle({
+      position: "absolute",
+      height: "100%",
+      width: "100%",
+      left: "0",
+      top: "0",
+      right: "0",
+      bottom: "0",
     });
   });
 });
