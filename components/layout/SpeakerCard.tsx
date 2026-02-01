@@ -11,7 +11,7 @@ interface SpeakerCardProps {
 }
 
 const extractSocialLink = (links: LinkType[], linkType: string) => {
-  return links.filter((link) => link.linkType === linkType).at(0)?.url;
+  return links.find((link) => link.linkType === linkType)?.url;
 };
 
 export default function SpeakerCard({ name, position, image, links, speakerId, year }: SpeakerCardProps) {
