@@ -23,13 +23,7 @@ export default function SpeakerCard({ name, position, image, links, speakerId, y
         <img src="/assets/img/elements/elements26.png" alt="" className="elements22" />
         <div className="img1 speaker-image-container">
           <Link href={`/${year}/speakers/${speakerId}`} className="speaker-image-link">
-            <Image
-              src={image}
-              alt={name}
-              className="team-img4"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            <Image src={image} alt={name} className="team-img4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           </Link>
           <div className="share">
             <Link href="/#">

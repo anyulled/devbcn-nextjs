@@ -30,16 +30,16 @@ describe("SpeakerCard", () => {
 
     const links = screen.getAllByRole("link");
 
-    const twitterParams = links.find(l => l.getAttribute("href") === "https://twitter.com/johndoe");
+    const twitterParams = links.find((l) => l.getAttribute("href") === "https://twitter.com/johndoe");
     expect(twitterParams).toBeInTheDocument();
 
-    const linkedinParams = links.find(l => l.getAttribute("href") === "https://linkedin.com/in/johndoe");
+    const linkedinParams = links.find((l) => l.getAttribute("href") === "https://linkedin.com/in/johndoe");
     expect(linkedinParams).toBeInTheDocument();
 
-    const instagramParams = links.find(l => l.getAttribute("href") === "https://instagram.com/johndoe");
+    const instagramParams = links.find((l) => l.getAttribute("href") === "https://instagram.com/johndoe");
     expect(instagramParams).toBeInTheDocument();
 
-    const blueskyParams = links.find(l => l.getAttribute("href") === "https://bsky.app/profile/johndoe.bsky.social");
+    const blueskyParams = links.find((l) => l.getAttribute("href") === "https://bsky.app/profile/johndoe.bsky.social");
     expect(blueskyParams).toBeInTheDocument();
   });
 

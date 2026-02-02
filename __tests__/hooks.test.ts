@@ -22,7 +22,9 @@ describe("Hooks", () => {
       });
 
       const speakers = await getSpeakers(2025);
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix")); // 2025 sessionize ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
+        next: { revalidate: 3600 },
+      });
       expect(speakers).toEqual(mockSpeakers);
     });
 
@@ -33,16 +35,20 @@ describe("Hooks", () => {
       });
 
       await getSpeakers(2023);
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd")); // 2023 ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
+        next: { revalidate: 3600 },
+      });
     });
 
-    it("throws error when fetch fails", async () => {
+    it("returns empty array when fetch fails", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 404,
+        statusText: "Not Found",
       });
 
-      await expect(getSpeakers(2025)).rejects.toThrow("Failed to fetch speakers");
+      const speakers = await getSpeakers(2025);
+      expect(speakers).toEqual([]);
     });
   });
 
@@ -93,19 +99,23 @@ describe("Hooks", () => {
       });
 
       const groups = await getTalks(2025);
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix")); // 2025 sessionize ID
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
+        next: { revalidate: 3600 },
+      });
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);
       expect(groups[0].sessions[0].id).toEqual("101");
     });
 
-    it("throws error when fetch fails", async () => {
+    it("returns empty array when fetch fails", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 500,
+        statusText: "Internal Server Error",
       });
 
-      await expect(getTalks(2025)).rejects.toThrow("Failed to fetch talks");
+      const groups = await getTalks(2025);
+      expect(groups).toEqual([]);
     });
   });
 

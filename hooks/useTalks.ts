@@ -12,13 +12,22 @@ const getSessionsUrl = (year: string | number): string => {
 };
 
 export const getTalks = cache(async (year: string | number = "default"): Promise<SessionGroup[]> => {
-  const url = getSessionsUrl(year);
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Failed to fetch talks");
+  try {
+    const url = getSessionsUrl(year);
+    // Add a signal if we want to really handle timeouts, but for now simple try-catch is good
+    const response = await fetch(url, {
+      next: { revalidate: 3600 }, // Ensure it's cached correctly at Next.js level
+    });
+    if (!response.ok) {
+      console.error(`Failed to fetch talks for year ${year}: ${response.statusText}`);
+      return [];
+    }
+    const data: SessionGroup[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching talks for year ${year}:`, error);
+    return [];
   }
-  const data: SessionGroup[] = await response.json();
-  return data;
 });
 
 export const getAllTalks = cache(async (year: string | number): Promise<Talk[]> => {

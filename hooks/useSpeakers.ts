@@ -11,14 +11,21 @@ const getSpeakersUrl = (year: string | number): string => {
 };
 
 export const getSpeakers = cache(async (year: string | number = "default"): Promise<Speaker[]> => {
-  const url = getSpeakersUrl(year);
-
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Failed to fetch speakers");
+  try {
+    const url = getSpeakersUrl(year);
+    const response = await fetch(url, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) {
+      console.error(`Failed to fetch speakers for year ${year}: ${response.statusText}`);
+      return [];
+    }
+    const speakers: Speaker[] = await response.json();
+    return speakers;
+  } catch (error) {
+    console.error(`Error fetching speakers for year ${year}:`, error);
+    return [];
   }
-  const speakers: Speaker[] = await response.json();
-  return speakers;
 });
 
 export const getSpeakerByYearAndId = async (year: string | number, speakerId: string): Promise<Speaker | undefined> => {
