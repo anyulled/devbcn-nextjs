@@ -1,26 +1,13 @@
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
 export default function Event() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg8.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Event List</h1>
-                    <div className="space20" />
-                    <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" /> <span>Event List</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PageHeader title="Event List" breadcrumbText="Event List" backgroundImageId={8} contentColClass="col-lg-6" />
           {/*===== HERO AREA ENDS =======*/}
           {/*===== EVENT AREA STARTS =======*/}
           <div className="event-team-area sp1">

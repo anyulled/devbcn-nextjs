@@ -1,26 +1,13 @@
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
 export default function EventSchedule() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg10.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Event Schedule</h1>
-                    <div className="space20" />
-                    <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" /> <span>Event Schedule</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PageHeader title="Event Schedule" breadcrumbText="Event Schedule" backgroundImageId={10} contentColClass="col-lg-6" />
           {/*===== HERO AREA ENDS =======*/}
           {/*===== OTHERS AREA STARTS =======*/}
           <div className="choose-section-area sp2">

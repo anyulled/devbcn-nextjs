@@ -1,6 +1,7 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/layout/PageHeader";
 import BrandSlider from "@/components/slider/BrandSlider";
 import Link from "next/link";
 import CountUp from "react-countup";
@@ -8,21 +9,7 @@ export default function About() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg5.png)" }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-4 m-auto">
-                <div className="heading1 text-center">
-                  <h1>About Event</h1>
-                  <div className="space20" />
-                  <Link href="/">
-                    Home <i className="fa-solid fa-angle-right" /> <span>About Us</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeader title="About Event" breadcrumbText="About Us" backgroundImageId={5} contentColClass="col-lg-4" />
         {/*===== HERO AREA ENDS =======*/}
         {/*===== ABOUT AREA STARTS =======*/}
         <div className="about1-section-area sp1">
