@@ -65,5 +65,9 @@
     "*.{json,md,css,scss}": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   }
 }
