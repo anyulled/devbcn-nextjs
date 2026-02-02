@@ -52,7 +52,7 @@ export default function BackgroundCarousel({ children, className = "" }: Backgro
         />
       ))}
 
-      {/* Animated gradient overlay */}
+      {/* Animated gradient overlay - Barcelona Themed */}
       <div className="background-carousel__gradient" />
 
       {/* Static vignette overlay with backdrop blur */}
@@ -79,10 +79,11 @@ export default function BackgroundCarousel({ children, className = "" }: Backgro
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: linear-gradient(-45deg, #4798ca70, #be345570, #00245470, #34bb9c70);
+          /* Barcelona Vibes: Deep Mediterranean Blue, Warm Sun Yellow, Vibrant Purple (Tech/Modern) */
+          background-image: linear-gradient(-45deg, rgba(0, 75, 135, 0.7), rgba(255, 204, 0, 0.4), rgba(138, 43, 226, 0.6), rgba(0, 36, 84, 0.8));
           background-size: 400% 400%;
           background-position: 0 50%;
-          animation: gradient 15s ease infinite;
+          animation: gradient 20s ease infinite;
           z-index: 1;
         }
 
@@ -93,8 +94,8 @@ export default function BackgroundCarousel({ children, className = "" }: Backgro
           left: 0;
           right: 0;
           bottom: 0;
-          backdrop-filter: blur(2px);
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+          backdrop-filter: blur(3px); /* Slightly increased blur for better text readability */
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
           pointer-events: none;
           z-index: 2;
         }
