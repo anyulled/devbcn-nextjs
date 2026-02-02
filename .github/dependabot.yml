@@ -1,0 +1,24 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      react:
+        patterns:
+          - "react*"
+          - "@types/react*"
+      testing:
+        patterns:
+          - "@testing-library*"
+          - "cypress*"
+          - "jest*"
+      all-others:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"

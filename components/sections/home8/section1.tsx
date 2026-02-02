@@ -66,7 +66,7 @@ export default function Section1({ year }: Section1Props) {
               <motion.h4 variants={itemVariants}>The Barcelona Developers Conference</motion.h4>
               <motion.div variants={itemVariants}>
                 <h5>{formatEventDateRange(config.event.startDay, config.event.endDay)}</h5>
-                <h5>World Trade Center, Barcelona</h5>
+                <h5>{config.venue.name}</h5>
               </motion.div>
               <div className="space32" />
               <div className="space24" />
