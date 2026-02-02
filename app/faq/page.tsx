@@ -1,6 +1,7 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
 import { useState } from "react";
 export default function Faq() {
@@ -17,21 +18,7 @@ export default function Faq() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg15.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-9 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Frequently Asked Question</h1>
-                    <div className="space20" />
-                    <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" /> <span>Frequently Asked Question</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PageHeader title="Frequently Asked Question" breadcrumbText="Frequently Asked Question" backgroundImageId={15} contentColClass="col-lg-9" />
           {/*===== HERO AREA ENDS =======*/}
           {/*===== FAQ AREA STARTS =======*/}
           <div className="faq-inner-section-area sp1">

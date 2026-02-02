@@ -1,26 +1,13 @@
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
+import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
 export default function Contact() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <div>
-          <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg12.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6 m-auto">
-                  <div className="heading1 text-center">
-                    <h1>Contact Us</h1>
-                    <div className="space20" />
-                    <Link href="/">
-                      Home <i className="fa-solid fa-angle-right" /> <span>Contact Us</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PageHeader title="Contact Us" breadcrumbText="Contact Us" backgroundImageId={12} contentColClass="col-lg-6" />
           {/*===== HERO AREA ENDS =======*/}
           {/*===== CONTACT AREA STARTS =======*/}
           <div className="contact-inner-section sp1">

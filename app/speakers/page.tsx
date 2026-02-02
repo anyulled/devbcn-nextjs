@@ -1,4 +1,5 @@
 import Countdown from "@/components/elements/Countdown";
+import PageHeader from "@/components/layout/PageHeader";
 import SpeakerCard from "@/components/layout/SpeakerCard";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import Link from "next/link";
@@ -7,21 +8,7 @@ export default async function Speakers() {
 
   return (
     <div>
-      <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg6.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5 m-auto">
-              <div className="heading1 text-center">
-                <h1>Our Speakers</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" /> <span>Our Speakers</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader title="Our Speakers" breadcrumbText="Our Speakers" backgroundImageId={6} contentColClass="col-lg-5" />
       {/*===== HERO AREA ENDS =======*/}
       {/*===== TEAM AREA STARTS =======*/}
       <div className="team-sperkers-section-area sp1">

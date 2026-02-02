@@ -1,23 +1,10 @@
 import Countdown from "@/components/elements/Countdown";
+import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
 export default function Blog() {
   return (
     <div>
-      <div className="inner-page-header" style={{ backgroundImage: "url(assets/img/bg/header-bg13.png)" }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="heading1 text-center">
-                <h1>Our Blog</h1>
-                <div className="space20" />
-                <Link href="/">
-                  Home <i className="fa-solid fa-angle-right" /> <span>Our Blog</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader title="Our Blog" breadcrumbText="Our Blog" backgroundImageId={13} contentColClass="col-lg-6" />
       {/*===== HERO AREA ENDS =======*/}
       {/*===== BLOG AREA STARTS =======*/}
       <div className="bloginner-section-area sp1">
