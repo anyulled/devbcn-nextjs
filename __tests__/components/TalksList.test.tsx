@@ -2,6 +2,23 @@ import { render, screen } from "@testing-library/react";
 import TalksList from "@/components/layout/TalksList";
 import { Talk } from "@/hooks/types";
 
+// Mock logic dependencies
+jest.mock("@/lib/utils/talk-filters", () => ({
+  filterTalks: jest.fn((talks) => talks),
+}));
+
+jest.mock("@/hooks/useTalks", () => ({
+  groupTalksByTrack: jest.fn((talks) => {
+    // Return a Map as expected by the component
+    const map = new Map();
+    if (talks && talks.length > 0) {
+      map.set("Track A", [talks[0], talks[1]]);
+      map.set("Track B", [talks[2]]);
+    }
+    return map;
+  }),
+}));
+
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
   useSearchParams: () => ({
