@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import ModalVideo from "react-modal-video";
-import "@/node_modules/react-modal-video/css/modal-video.css";
+import VideoModal from "@/components/elements/VideoModal";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -311,7 +310,7 @@ export default function Section5() {
           </div>
         </div>
       </div>
-      <ModalVideo channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
+      <VideoModal channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
     </>
   );
 }

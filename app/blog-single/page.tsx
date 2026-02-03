@@ -2,10 +2,10 @@
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/layout/PageHeader";
-import "@/node_modules/react-modal-video/css/modal-video.css";
+import VideoModal from "@/components/elements/VideoModal";
 import Link from "next/link";
 import { useState } from "react";
-import ModalVideo from "react-modal-video";
+
 export default function BlogSingle() {
   const [isOpen, setOpen] = useState(false);
   return (
@@ -426,7 +426,7 @@ export default function BlogSingle() {
           </div>
           {/*===== CTA AREA ENDS =======*/}
         </div>
-        <ModalVideo channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
+        <VideoModal channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
       </Layout>
     </>
   );
