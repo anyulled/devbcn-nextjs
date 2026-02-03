@@ -28,28 +28,41 @@ function TalksListContent({ talks, tracks, year }: TalksListProps) {
 
   return (
     <>
-      <div className="track-filter-container">
-        <div className="row">
-          <div className="col-lg-5 mb-3 mb-lg-0">
-            <TrackFilter tracks={tracks} year={year} />
+      <div className="row mb-5">
+        <div className="col-lg-6 mb-4 mb-lg-0">
+          <div className="blog-details-section">
+            <div className="blog-auhtor-details">
+              <div className="search-area">
+                <h3 className="mb-4">Filter by Track</h3>
+                <TrackFilter tracks={tracks} year={year} />
+              </div>
+            </div>
           </div>
-          <div className="col-lg-7">
-            <SearchFilter />
+        </div>
+        <div className="col-lg-6">
+          <div className="blog-details-section">
+            <SearchFilter label="Search Talks" />
           </div>
         </div>
       </div>
 
-      <div className="talks-grouped">
-        {Array.from(groupedTalks.entries()).map(([track, trackTalks]) => (
-          <div key={track} className="track-section">
-            <h3 className="track-heading">{track}</h3>
-            <div className="talks-grid">
-              {trackTalks.map((talk) => (
-                <TalkCard key={talk.id} talk={talk} year={year} />
-              ))}
-            </div>
+      <div className="row">
+        <div className="col-12">
+          <div className="talks-grouped">
+            {Array.from(groupedTalks.entries()).map(([track, trackTalks]) => (
+              <div key={track} className="track-section mb-5">
+                <h3 className="track-heading mb-4">{track}</h3>
+                <div className="row">
+                  {trackTalks.map((talk) => (
+                    <div key={talk.id} className="col-lg-6 mb-4">
+                      <TalkCard talk={talk} year={year} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </>
   );

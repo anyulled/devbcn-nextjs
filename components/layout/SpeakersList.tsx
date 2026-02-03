@@ -22,40 +22,40 @@ function SpeakersListContent({ speakers, year }: SpeakersListProps) {
   return (
     <>
       <div className="container mb-5">
-        <div className="row">
-          <div className="col-lg-8 m-auto">
-            <SearchFilter label="Filter Speakers:" placeholder="Search by name or tagline..." />
+        <div className="row mb-5">
+          <div className="col-12">
+            <div className="blog-details-section">
+              <SearchFilter label="Filter Speakers" placeholder="Search by name or tagline..." />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="team-sperkers-section-area sp1">
-        <div className="container">
-          {filteredSpeakers.length > 0 ? (
-            <div className="row">
-              {filteredSpeakers.map((speaker) => (
-                <div key={speaker.id} className="col-lg-3 col-md-6">
-                  <SpeakerCard
-                    name={speaker.fullName}
-                    image={speaker.profilePicture}
-                    position={speaker.tagLine}
-                    links={speaker.links}
-                    speakerId={speaker.id}
-                    year={year}
-                  />
+        <div className="row">
+          <div className="col-12">
+            <div className="team-sperkers-section-area">
+              {filteredSpeakers.length > 0 ? (
+                <div className="row">
+                  {filteredSpeakers.map((speaker) => (
+                    <div key={speaker.id} className="col-lg-3 col-md-6 mb-4">
+                      <SpeakerCard
+                        name={speaker.fullName}
+                        image={speaker.profilePicture}
+                        position={speaker.tagLine}
+                        links={speaker.links}
+                        speakerId={speaker.id}
+                        year={year}
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="row">
-              <div className="col-lg-8 m-auto">
+              ) : (
                 <div className="text-center" style={{ padding: "40px 0" }}>
                   <h4 style={{ color: "#666" }}>No speakers found matching &quot;{searchQuery}&quot;</h4>
                   <p>Try adjusting your search terms.</p>
                 </div>
-              </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </>

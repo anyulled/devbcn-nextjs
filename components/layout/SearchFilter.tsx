@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 interface SearchFilterProps {
   label?: string;
   placeholder?: string;
+  className?: string;
 }
 
-export default function SearchFilter({ label = "Filter by Keyword:", placeholder = "Search by title or description..." }: SearchFilterProps) {
+export default function SearchFilter({ label = "Filter by Keyword:", placeholder = "Search by title or description...", className = "" }: SearchFilterProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -36,24 +37,15 @@ export default function SearchFilter({ label = "Filter by Keyword:", placeholder
   }, [query, pathname, router, searchParams]);
 
   return (
-    <div className="search-filter">
-      <label htmlFor="talk-search" className="search-filter-label">
-        {label}
-      </label>
-      <div className="search-input-wrapper">
-        <input
-          id="talk-search"
-          type="text"
-          placeholder={placeholder}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="search-filter-input"
-        />
-        {query && (
-          <button className="search-clear-btn" onClick={() => setQuery("")} aria-label="Clear search">
-            ×
+    <div className={`blog-auhtor-details ${className}`}>
+      <div className="search-area">
+        {label && <h3 className="mb-4">{label}</h3>}
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input id="talk-search" type="text" placeholder={placeholder} value={query} onChange={(e) => setQuery(e.target.value)} />
+          <button type="submit" aria-label="Search">
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
-        )}
+        </form>
       </div>
     </div>
   );
