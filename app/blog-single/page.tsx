@@ -426,7 +426,25 @@ export default function BlogSingle() {
           </div>
           {/*===== CTA AREA ENDS =======*/}
         </div>
-        <VideoModal channel="youtube" isOpen={isOpen} videoId="JXMWOmuR1hU" onClose={() => setOpen(false)} />
+        <VideoModal
+          channel="youtube"
+          isOpen={isOpen}
+          videoId="JXMWOmuR1hU"
+          onClose={() => setOpen(false)}
+          aria={{ openMessage: "Video modal opened", dismissBtnMessage: "Close video modal" }}
+          allowFullScreen={true}
+          ratio="16:9"
+          animationSpeed={300}
+          classNames={{
+            modalVideo: "modal-video",
+            modalVideoClose: "modal-video-close",
+            modalVideoBody: "modal-video-body",
+            modalVideoInner: "modal-video-inner",
+            modalVideoIframeWrap: "modal-video-movie-wrap",
+            modalVideoCloseBtn: "modal-video-close-btn",
+            modalVideoEffect: "modal-video-effect",
+          }}
+        />
       </Layout>
     </>
   );
