@@ -2,6 +2,18 @@ import Talks, { generateMetadata, generateStaticParams } from "@/app/[year]/talk
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import { render, screen } from "@testing-library/react";
 
+// Mock next/navigation
+jest.mock("next/navigation", () => ({
+  useSearchParams: () => ({
+    get: jest.fn(() => ""),
+  }),
+  usePathname: () => "/2025/talks",
+  useRouter: () => ({
+    replace: jest.fn(),
+    push: jest.fn(),
+  }),
+}));
+
 // Mock hooks
 jest.mock("@/hooks/useTalks", () => ({
   getTalks: jest.fn(),

@@ -2,6 +2,18 @@ import Speakers, { generateMetadata, generateStaticParams } from "@/app/[year]/s
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
 
+// Mock next/navigation
+jest.mock("next/navigation", () => ({
+  useSearchParams: () => ({
+    get: jest.fn(() => ""),
+  }),
+  usePathname: () => "/2025/speakers",
+  useRouter: () => ({
+    replace: jest.fn(),
+    push: jest.fn(),
+  }),
+}));
+
 // Mock hooks
 jest.mock("@/hooks/useSpeakers", () => ({
   getSpeakers: jest.fn(),
