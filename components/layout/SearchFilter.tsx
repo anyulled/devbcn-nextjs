@@ -3,7 +3,12 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function SearchFilter() {
+interface SearchFilterProps {
+  label?: string;
+  placeholder?: string;
+}
+
+export default function SearchFilter({ label = "Filter by Keyword:", placeholder = "Search by title or description..." }: SearchFilterProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -33,13 +38,13 @@ export default function SearchFilter() {
   return (
     <div className="search-filter">
       <label htmlFor="talk-search" className="search-filter-label">
-        Filter by Keyword:
+        {label}
       </label>
       <div className="search-input-wrapper">
         <input
           id="talk-search"
           type="text"
-          placeholder="Search by title or description..."
+          placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="search-filter-input"

@@ -1,5 +1,5 @@
 import PageHeader from "@/components/layout/PageHeader";
-import SpeakerCard from "@/components/layout/SpeakerCard";
+import SpeakersList from "@/components/layout/SpeakersList";
 import CTASection from "@/components/sections/CTASection";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
@@ -74,24 +74,7 @@ export default async function Speakers({ params }: SpeakersProps) {
       )}
       <PageHeader title="Our Speakers" breadcrumbText="Our Speakers" />
       {speakers && speakers.length > 0 ? (
-        <div className="team-sperkers-section-area sp1">
-          <div className="container">
-            <div className="row">
-              {speakers.map((speaker) => (
-                <div key={speaker.id} className="col-lg-3 col-md-6">
-                  <SpeakerCard
-                    name={speaker.fullName}
-                    image={speaker.profilePicture}
-                    position={speaker.tagLine}
-                    links={speaker.links}
-                    speakerId={speaker.id}
-                    year={year}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <SpeakersList speakers={speakers} year={year} />
       ) : (
         <div className="team-sperkers-section-area sp1">
           <div className="container">
