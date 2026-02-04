@@ -106,14 +106,7 @@ export default function Section1({ year }: Section1Props) {
           </div>
         </div>
       </div>
-      <Image
-        src="/assets/img/elements/layer1.png"
-        alt=""
-        className="layer1"
-        width={1440}
-        height={230}
-        style={{ width: "100%", height: "auto" }}
-      />
+      <Image src="/assets/img/elements/layer1.png" alt="" className="layer1" width={1440} height={230} style={{ width: "100%", height: "auto" }} />
     </BackgroundCarousel>
   );
 }
