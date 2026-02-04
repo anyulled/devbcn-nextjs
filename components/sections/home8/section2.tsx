@@ -11,16 +11,23 @@ interface Section2Props {
 export default function Section2({ eventDate, showCountdown }: Section2Props) {
   return (
     <>
-      <div
-        className="about8-section-area"
-        style={{
-          backgroundImage: "url(assets/img/bg/header-bg20.png)",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
+      <div className="about8-section-area">
+        <Image
+          src="/assets/img/bg/header-bg20.png"
+          alt="Background"
+          fill
+          sizes="100vw"
+          quality={90}
+          style={{ objectFit: "cover", zIndex: -1 }}
+        />
+        <Image
+          src="/assets/img/elements/layer1.png"
+          alt=""
+          className="layer1"
+          width={1440}
+          height={230}
+          style={{ width: "100%", height: "auto" }}
+        />
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
