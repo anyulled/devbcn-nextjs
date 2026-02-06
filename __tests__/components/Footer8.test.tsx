@@ -12,7 +12,7 @@ describe("Footer8", () => {
 
     // Check if the optimized image is present
     // Note: We are asserting that the image SHOULD be there (after optimization)
-    const img = screen.getByAltText("Footer Background");
+    const img = screen.getByTestId("footer-background-image");
     expect(img).toBeInTheDocument();
 
     // Check if it has the correct src
