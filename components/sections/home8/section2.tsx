@@ -12,12 +12,7 @@ export default function Section2({ eventDate, showCountdown }: Section2Props) {
   return (
     <>
       <div className="about8-section-area">
-        <Image
-          src="/assets/img/bg/header-bg20.png"
-          alt="Section Background"
-          fill
-          style={{ objectFit: "cover", zIndex: -1 }}
-        />
+        <Image src="/assets/img/bg/header-bg20.png" alt="Section Background" fill style={{ objectFit: "cover", zIndex: -1 }} />
         <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
         <div className="container">
           <div className="row align-items-center">
