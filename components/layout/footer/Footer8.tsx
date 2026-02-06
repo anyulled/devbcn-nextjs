@@ -14,7 +14,7 @@ export default function Footer8() {
 
   return (
     <div className="footer8-sertion-area">
-      <Image src="/assets/img/bg/header-bg21.png" data-test-id="footer-background-image" alt="Footer Background" fill style={{ objectFit: "cover", zIndex: -3 }} />
+      <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill style={{ objectFit: "cover", zIndex: -3 }} />
       <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
       <div className="container">
         <div className="row">

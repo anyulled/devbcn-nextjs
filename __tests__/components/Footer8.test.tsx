@@ -10,9 +10,9 @@ describe("Footer8", () => {
   it("renders optimized background image", () => {
     render(<Footer8 />);
 
-    // Check if the optimized image is present
-    // Note: We are asserting that the image SHOULD be there (after optimization)
-    const img = screen.getByTestId("footer-background-image");
+    // Check if the optimized image is present using getByRole
+    // This confirms the image is accessible and has the correct alt text
+    const img = screen.getByRole("img", { name: "Footer Background" });
     expect(img).toBeInTheDocument();
 
     // Check if it has the correct src
