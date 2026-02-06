@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Footer8() {
@@ -12,15 +13,13 @@ export default function Footer8() {
   const rootPath = "";
 
   return (
-    <div
-      className="footer8-sertion-area"
-      style={{
-        backgroundImage: "url(/assets/img/bg/header-bg21.png)",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="footer8-sertion-area">
+      <Image
+        src="/assets/img/bg/header-bg21.png"
+        alt="Footer Background"
+        fill
+        style={{ objectFit: "cover", zIndex: -3 }}
+      />
       <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
       <div className="container">
         <div className="row">
