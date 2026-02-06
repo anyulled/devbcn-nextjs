@@ -4,30 +4,12 @@ import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
 // Mock react cache before importing the hook
 jest.mock("react", () => {
   const actual = jest.requireActual("react");
-  const cacheMaps: Map<any, any>[] = [];
-
-  const mockedCache = (fn: Function) => {
-    const cacheMap = new Map();
-    cacheMaps.push(cacheMap);
-    return function (...args: any[]) {
-      const key = JSON.stringify(args);
-      if (cacheMap.has(key)) {
-        return cacheMap.get(key);
-      }
-      const result = fn(...args);
-      cacheMap.set(key, result);
-      return result;
-    };
-  };
-
-  // Attach a helper to clear the caches
-  (mockedCache as any)._reset = () => {
-    cacheMaps.forEach((map) => map.clear());
-  };
+  // Relative path from __tests__/hooks_performance.test.ts to __tests__/utils/mockReactCache.ts
+  const { createMockCache } = require("./utils/mockReactCache");
 
   return {
     ...actual,
-    cache: mockedCache,
+    cache: createMockCache(),
   };
 });
 

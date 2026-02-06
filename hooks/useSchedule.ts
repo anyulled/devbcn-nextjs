@@ -1,5 +1,6 @@
 import { getEditionConfig } from "@/config/editions";
 import { format, parseISO } from "date-fns";
+import { cache } from "react";
 
 export interface GridSession {
   id: string;
@@ -40,7 +41,7 @@ export interface DailySchedule {
   timeSlots: TimeSlot[];
 }
 
-export const getSchedule = async (year: string | number): Promise<DailySchedule[]> => {
+export const getSchedule = cache(async (year: string | number): Promise<DailySchedule[]> => {
   const config = getEditionConfig(year);
   // GridSmart view gives us the room/grid layout structure
   const url = `${config.sessionizeUrl}/view/GridSmart`;
@@ -82,4 +83,4 @@ export const getSchedule = async (year: string | number): Promise<DailySchedule[
     console.error("Error fetching schedule:", error);
     return [];
   }
-};
+});
