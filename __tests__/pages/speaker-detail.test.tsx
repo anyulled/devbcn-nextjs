@@ -30,6 +30,7 @@ jest.mock("@/config/editions", () => ({
     tickets: { url: "http://test.com" },
   })),
   getAvailableEditions: jest.fn(() => ["2026"]),
+  formatEventDateRange: jest.fn(() => "June 16-17, 2026"),
 }));
 
 // Mock JsonLd utils
