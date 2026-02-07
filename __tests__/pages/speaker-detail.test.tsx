@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
   notFound: jest.fn(),
+  usePathname: jest.fn(() => "/2026/speakers/speaker-1"),
 }));
 
 // Mock hooks
