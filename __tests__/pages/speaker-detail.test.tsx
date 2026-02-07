@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
+
 import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speaker_id]/page";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
@@ -42,18 +42,8 @@ jest.mock("@/lib/utils/jsonld", () => ({
 // Mock next/image
 jest.mock("next/image", () => ({
   __esModule: true,
+  // eslint-disable-next-line jsx-a11y/alt-text
   default: (props: any) => <img {...props} />,
-}));
-
-// Mock child components
-jest.mock("@/components/layout/PageHeader", () => ({
-  __esModule: true,
-  default: ({ title }: { title: string }) => <div data-testid="page-header">{title}</div>,
-}));
-
-jest.mock("@/components/sections/CTASection", () => ({
-  __esModule: true,
-  default: () => <div data-testid="cta-section">CTA Section</div>,
 }));
 
 describe("Speaker Detail Page", () => {

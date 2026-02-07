@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
+
 import JobOffers, { generateMetadata, generateStaticParams } from "@/app/[year]/job-offers/page";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { render, screen } from "@testing-library/react";
@@ -32,6 +32,7 @@ jest.mock("@/config/editions", () => ({
 // Mock next/image
 jest.mock("next/image", () => ({
   __esModule: true,
+  // eslint-disable-next-line jsx-a11y/alt-text
   default: (props: any) => <img {...props} />,
 }));
 

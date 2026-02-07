@@ -1,6 +1,4 @@
-"use client";
-import Layout from "@/components/layout/Layout";
-import Link from "next/link";
+
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";

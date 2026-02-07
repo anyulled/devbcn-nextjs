@@ -1,6 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+
+import { createContext, useContext, useEffect, useMemo, useState, ReactNode, useCallback } from "react";
+
 
 interface ScheduleContextType {
   savedSessionIds: string[];
@@ -10,7 +12,7 @@ interface ScheduleContextType {
 
 const ScheduleContext = createContext<ScheduleContextType | undefined>(undefined);
 
-export function ScheduleProvider({ children }: { children: ReactNode }) {
+export function ScheduleProvider({ children }: { readonly children: ReactNode }) {
   const [savedSessionIds, setSavedSessionIds] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -19,7 +21,7 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem("eventify_saved_sessions");
     if (saved) {
       try {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- Safe as it creates the initial state from local storage on client load
         setSavedSessionIds(JSON.parse(saved));
       } catch (e) {
         console.error("Failed to parse saved sessions", e);
@@ -35,7 +37,7 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
     }
   }, [savedSessionIds, isLoaded]);
 
-  const toggleSession = (sessionId: string) => {
+  const toggleSession = useCallback((sessionId: string) => {
     setSavedSessionIds((prev) => {
       if (prev.includes(sessionId)) {
         return prev.filter((id) => id !== sessionId);
@@ -43,11 +45,13 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
         return [...prev, sessionId];
       }
     });
-  };
+  }, []);
 
-  const isSaved = (sessionId: string) => savedSessionIds.includes(sessionId);
+  const isSaved = useCallback((sessionId: string) => savedSessionIds.includes(sessionId), [savedSessionIds]);
 
-  return <ScheduleContext.Provider value={{ savedSessionIds, toggleSession, isSaved }}>{children}</ScheduleContext.Provider>;
+  const contextValue = useMemo(() => ({ savedSessionIds, toggleSession, isSaved }), [savedSessionIds, toggleSession, isSaved]);
+
+  return <ScheduleContext.Provider value={contextValue}>{children}</ScheduleContext.Provider>;
 }
 
 export function useScheduleContext() {

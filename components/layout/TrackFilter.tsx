@@ -4,8 +4,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface TrackFilterProps {
-  tracks: string[];
-  year: number | string;
+  readonly tracks: string[];
+  readonly year: number | string;
 }
 
 const STORAGE_KEY = "talks-track-filter";
@@ -34,8 +34,7 @@ export default function TrackFilter({ tracks, year }: TrackFilterProps) {
       params.set("track", selectedTrack);
       router.replace(`${pathname}?${params.toString()}`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run on mount
+  }, [pathname, router, searchParams, selectedTrack, tracks]);
 
   const handleTrackChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newTrack = event.target.value;

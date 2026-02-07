@@ -1,10 +1,10 @@
-"use client";
+import AboutCounter from "@/components/elements/AboutCounter";
 import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/layout/PageHeader";
 import BrandSlider from "@/components/slider/BrandSlider";
 import Link from "next/link";
-import CountUp from "react-countup";
+
 export default function About() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
@@ -65,30 +65,7 @@ export default function About() {
                     technologies to sustainable design practices.
                   </p>
                   <div className="space32" />
-                  <div className="about-counter-area">
-                    <div className="counter-box">
-                      <h2>
-                        <CountUp className="odometer" enableScrollSpy={true} end={250} />+
-                      </h2>
-                      <div className="space18" />
-                      <p>Our Journalist</p>
-                    </div>
-                    <div className="counter-box box2">
-                      <h2>
-                        <CountUp className="odometer" enableScrollSpy={true} end={15} />+
-                      </h2>
-                      <div className="space18" />
-                      <p>Our Speaker</p>
-                    </div>
-                    <div className="counter-box box3" style={{ border: "none" }}>
-                      <h2>
-                        <CountUp className="odometer" enableScrollSpy={true} end={7} />
-                        K+
-                      </h2>
-                      <div className="space18" />
-                      <p>Attendees</p>
-                    </div>
-                  </div>
+                  <AboutCounter />
                   <div className="space32" />
                   <div className="btn-area1" data-aos="fade-left" data-aos-duration={1200}>
                     <Link href="/contact" className="vl-btn1">
