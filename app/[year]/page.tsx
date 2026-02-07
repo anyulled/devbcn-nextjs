@@ -5,6 +5,7 @@ import Section4 from "@/components/sections/home8/section4";
 import Section5 from "@/components/sections/home8/section5";
 import Section6 from "@/components/sections/home8/section6";
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getRandomSpeakers, getSpeakers } from "@/hooks/useSpeakers";
 import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/utils/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -77,6 +78,11 @@ export default async function Page({ params }: PageProps) {
   const eventSchema = generateEventSchema(config, year);
   const organizationSchema = generateOrganizationSchema();
 
+  // Fetch speakers for Section5
+  const allSpeakers = await getSpeakers(year);
+  const randomSpeakers = getRandomSpeakers(allSpeakers, 6);
+  const totalSpeakers = allSpeakers.length;
+
   return (
     <>
       <Script id="event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventSchema) }} />
@@ -85,7 +91,7 @@ export default async function Page({ params }: PageProps) {
       <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
       <Section3 />
       <Section4 sponsors={config.sponsorsData} />
-      <Section5 year={year} />
+      <Section5 year={year} speakers={randomSpeakers} totalSpeakers={totalSpeakers} />
       <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
     </>
   );

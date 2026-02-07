@@ -32,3 +32,21 @@ export const getSpeakerByYearAndId = async (year: string | number, speakerId: st
   const speakers = await getSpeakers(year);
   return speakers.find((speaker) => speaker.id === speakerId);
 };
+
+/**
+ * Get random speakers from the list
+ * Always returns an array, even if empty or fewer than requested
+ */
+export function getRandomSpeakers(speakers: Speaker[], count: number): Speaker[] {
+  if (!speakers || speakers.length === 0) return [];
+  if (speakers.length <= count) return speakers;
+
+  // Fisher-Yates shuffle algorithm
+  const shuffled = [...speakers];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled.slice(0, count);
+}

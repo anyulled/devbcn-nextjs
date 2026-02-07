@@ -48,6 +48,12 @@ jest.mock("@/config/editions", () => ({
   getAvailableEditions: jest.fn(() => ["2024", "2025"]),
 }));
 
+// Mock speakers hook
+jest.mock("@/hooks/useSpeakers", () => ({
+  getSpeakers: jest.fn(() => Promise.resolve([{ id: "1", fullName: "Test Speaker" }])),
+  getRandomSpeakers: jest.fn((speakers) => speakers),
+}));
+
 // Mock JsonLd utils
 jest.mock("@/lib/utils/jsonld", () => ({
   generateEventSchema: jest.fn(() => ({})),
