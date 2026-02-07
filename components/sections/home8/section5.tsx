@@ -1,8 +1,6 @@
 "use client";
 import { Speaker } from "@/hooks/types";
-import { getSpeakers } from "@/hooks/useSpeakers";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -57,24 +55,6 @@ const swiperOptions = {
 };
 
 /**
- * Get random speakers from the list
- * Always returns an array, even if empty or fewer than requested
- */
-function getRandomSpeakers(speakers: Speaker[], count: number): Speaker[] {
-  if (!speakers || speakers.length === 0) return [];
-  if (speakers.length <= count) return speakers;
-
-  // Fisher-Yates shuffle algorithm
-  const shuffled = [...speakers];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  return shuffled.slice(0, count);
-}
-
-/**
  * Truncate tagline to a maximum number of words
  */
 function truncateTagline(tagline: string, maxWords: number = 5): string {
@@ -86,34 +66,11 @@ function truncateTagline(tagline: string, maxWords: number = 5): string {
 
 interface Section5Props {
   year: string | number;
+  speakers: Speaker[];
+  totalSpeakers: number;
 }
 
-export default function Section5({ year }: Section5Props) {
-  const [speakers, setSpeakers] = useState<Speaker[]>([]);
-  const [speakersCount, setSpeakersCount] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchSpeakers() {
-      try {
-        setLoading(true);
-        setError(null);
-        const allSpeakers = await getSpeakers(year);
-        const randomSpeakers = getRandomSpeakers(allSpeakers, 6);
-        setSpeakers(randomSpeakers);
-        setSpeakersCount(allSpeakers.length);
-      } catch (err) {
-        setError("Failed to load speakers");
-        console.error("Error fetching speakers:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchSpeakers();
-  }, [year]);
-
+export default function Section5({ year, speakers, totalSpeakers }: Section5Props) {
   return (
     <>
       <div
@@ -129,7 +86,7 @@ export default function Section5({ year }: Section5Props) {
           <div className="row">
             <div className="col-lg-5">
               <div className="heading11 space-margin60">
-                <h5>{speakersCount} Event Speakers</h5>
+                <h5>{totalSpeakers} Event Speakers</h5>
                 <div className="space18" />
                 <h2 className="text-anime-style-3">Meet Our Speakers</h2>
               </div>
@@ -138,19 +95,7 @@ export default function Section5({ year }: Section5Props) {
           <div className="row">
             <div className="col-lg-12 team-slider-area8">
               <Swiper {...swiperOptions} className=" owl-carousel">
-                {loading ? (
-                  <SwiperSlide className="team-widget-boxarea">
-                    <div className="text-area">
-                      <p>Loading speakers...</p>
-                    </div>
-                  </SwiperSlide>
-                ) : error ? (
-                  <SwiperSlide className="team-widget-boxarea">
-                    <div className="text-area">
-                      <p>{error}</p>
-                    </div>
-                  </SwiperSlide>
-                ) : speakers.length === 0 ? (
+                {speakers.length === 0 ? (
                   <SwiperSlide className="team-widget-boxarea">
                     <div className="text-area">
                       <p>No speakers available yet.</p>
