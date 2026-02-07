@@ -24,7 +24,11 @@ jest.mock("@/components/sections/home8/section4", () => ({
 }));
 jest.mock("@/components/sections/home8/section5", () => ({
   __esModule: true,
-  default: ({ year }: { year: string }) => <div data-testid="section5">Section 5 {year}</div>,
+  default: ({ year, speakers, totalSpeakers }: { year: string; speakers: any[]; totalSpeakers: number }) => (
+    <div data-testid="section5">
+      Section 5 {year} {speakers?.length} speakers ({totalSpeakers} total)
+    </div>
+  ),
 }));
 jest.mock("@/components/sections/home8/section6", () => ({
   __esModule: true,
@@ -72,7 +76,7 @@ describe("Year Index Page", () => {
     expect(screen.getByTestId("section2")).toHaveTextContent("Section 2 2025-07-10T00:00:00.000Z countdown");
     expect(screen.getByTestId("section3")).toBeInTheDocument();
     expect(screen.getByTestId("section4")).toBeInTheDocument();
-    expect(screen.getByTestId("section5")).toHaveTextContent("Section 5 2025");
+    expect(screen.getByTestId("section5")).toHaveTextContent("Section 5 2025 1 speakers (1 total)");
     expect(screen.getByTestId("section6")).toHaveTextContent("Section 6 Test Venue 2025-07-10T00:00:00.000Z");
   });
 
