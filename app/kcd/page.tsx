@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";

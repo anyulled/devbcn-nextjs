@@ -24,12 +24,7 @@ Make a Node.js script to download Whisper.cpp and a model, and transcribe the au
 
 ```ts
 import path from "path";
-import {
-  downloadWhisperModel,
-  installWhisperCpp,
-  transcribe,
-  toCaptions,
-} from "@remotion/install-whisper-cpp";
+import { downloadWhisperModel, installWhisperCpp, transcribe, toCaptions } from "@remotion/install-whisper-cpp";
 import fs from "fs";
 
 const to = path.join(process.cwd(), "whisper.cpp");

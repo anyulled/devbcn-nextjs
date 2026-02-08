@@ -96,10 +96,7 @@ const CaptionedContent: React.FC = () => {
       {pages.map((page, index) => {
         const nextPage = pages[index + 1] ?? null;
         const startFrame = (page.startMs / 1000) * fps;
-        const endFrame = Math.min(
-          nextPage ? (nextPage.startMs / 1000) * fps : Infinity,
-          startFrame + (SWITCH_CAPTIONS_EVERY_MS / 1000) * fps,
-        );
+        const endFrame = Math.min(nextPage ? (nextPage.startMs / 1000) * fps : Infinity, startFrame + (SWITCH_CAPTIONS_EVERY_MS / 1000) * fps);
         const durationInFrames = endFrame - startFrame;
 
         if (durationInFrames <= 0) {
@@ -107,11 +104,7 @@ const CaptionedContent: React.FC = () => {
         }
 
         return (
-          <Sequence
-            key={index}
-            from={startFrame}
-            durationInFrames={durationInFrames}
-          >
+          <Sequence key={index} from={startFrame} durationInFrames={durationInFrames}>
             <CaptionPage page={page} />
           </Sequence>
         );
@@ -153,14 +146,10 @@ const CaptionPage: React.FC<{ page: TikTokPage }> = ({ page }) => {
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
       <div style={{ fontSize: 80, fontWeight: "bold", whiteSpace: "pre" }}>
         {page.tokens.map((token) => {
-          const isActive =
-            token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+          const isActive = token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
 
           return (
-            <span
-              key={token.fromMs}
-              style={{ color: isActive ? HIGHLIGHT_COLOR : "white" }}
-            >
+            <span key={token.fromMs} style={{ color: isActive ? HIGHLIGHT_COLOR : "white" }}>
               {token.text}
             </span>
           );
