@@ -1,5 +1,6 @@
 "use client";
 import { Speaker } from "@/hooks/types";
+import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -73,16 +74,9 @@ interface Section5Props {
 export default function Section5({ year, speakers, totalSpeakers }: Section5Props) {
   return (
     <>
-      <div
-        className="team8-section-rea sp1"
-        style={{
-          backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container">
+      <div className="team8-section-rea sp1" style={{ position: "relative" }}>
+        <Image src="/assets/img/bg/header-bg20.png" alt="Background" fill priority={false} style={{ objectFit: "cover", zIndex: -1 }} />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="row">
             <div className="col-lg-5">
               <div className="heading11 space-margin60">
@@ -104,9 +98,15 @@ export default function Section5({ year, speakers, totalSpeakers }: Section5Prop
                 ) : (
                   speakers.map((speaker) => (
                     <SwiperSlide key={speaker.id} className="team-widget-boxarea">
-                      <div className="img1 image-anime">
-                        <Link href={`/${year}/speakers/${speaker.id}`}>
-                          <img src={speaker.profilePicture || "/assets/img/all-images/team/team-img28.png"} alt={speaker.fullName} />
+                      <div className="img1 image-anime" style={{ position: "relative", aspectRatio: "250/307" }}>
+                        <Link href={`/${year}/speakers/${speaker.id}`} style={{ display: "block", position: "relative", width: "100%", height: "100%" }}>
+                          <Image
+                            src={speaker.profilePicture || "/assets/img/all-images/team/team-img28.png"}
+                            alt={speaker.fullName}
+                            fill
+                            sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, (max-width: 1199px) 33vw, 25vw"
+                            style={{ objectFit: "cover" }}
+                          />
                         </Link>
                       </div>
                       <div className="space20" />
