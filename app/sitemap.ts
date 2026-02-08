@@ -93,7 +93,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   const yearResults = await Promise.all(yearPromises);
-  const allYearUrls = yearResults.flat();
-
-  return [...urls, ...allYearUrls];
+  return [...urls, ...yearResults.flat()];
 }
