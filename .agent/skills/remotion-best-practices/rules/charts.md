@@ -85,24 +85,13 @@ const progress = interpolate(frame, [0, 2 * fps], [0, 1], {
 
 const { strokeDasharray, strokeDashoffset } = evolvePath(progress, path);
 
-<path
-  d={path}
-  fill="none"
-  stroke="#FF3232"
-  strokeWidth={4}
-  strokeDasharray={strokeDasharray}
-  strokeDashoffset={strokeDashoffset}
-/>;
+<path d={path} fill="none" stroke="#FF3232" strokeWidth={4} strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} />;
 ```
 
 ### Follow path with marker/arrow
 
 ```tsx
-import {
-  getLength,
-  getPointAtLength,
-  getTangentAtLength,
-} from "@remotion/paths";
+import { getLength, getPointAtLength, getTangentAtLength } from "@remotion/paths";
 
 const pathLength = getLength(path);
 const point = getPointAtLength(path, progress * pathLength);
