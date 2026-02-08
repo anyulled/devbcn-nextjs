@@ -30,10 +30,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Year-specific pages
-  for (const year of years) {
+  // Year-specific pages - Process concurrently
+  const yearPromises = years.map(async (year) => {
+    const yearUrls: MetadataRoute.Sitemap = [];
+
     // Year homepage
-    urls.push({
+    yearUrls.push({
       url: `${baseUrl}/${year}`,
       lastModified: new Date(),
       changeFrequency: "daily",
@@ -43,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Year sub-pages
     const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
     for (const page of yearPages) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/${page}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
@@ -51,10 +53,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
+    // Fetch data concurrently for this year
+    const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
+
     // Speakers
-    const speakers = await getSpeakers(year);
     for (const speaker of speakers) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
@@ -63,10 +67,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // Talks
-    const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
-        urls.push({
+        yearUrls.push({
           url: `${baseUrl}/${year}/talks/${talk.id}`,
           lastModified: new Date(),
           changeFrequency: "weekly",
@@ -78,14 +81,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Job offers
     const companies = getJobOffersByYear(year);
     for (const company of companies) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.5,
       });
     }
-  }
 
-  return urls;
+    return yearUrls;
+  });
+
+  const yearResults = await Promise.all(yearPromises);
+  const allYearUrls = yearResults.flat();
+
+  return [...urls, ...allYearUrls];
 }
