@@ -107,7 +107,7 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
       const relSpeakerIds = relatedTalk.speakers.map((s) => s.id);
       const relSpeakers = await getTalkSpeakersWithDetails(year, relSpeakerIds);
       relatedTalksSpeakers.set(relatedTalk.id, relSpeakers);
-    }),
+    })
   );
 
   const tags = getTagsFromTalk(talk);
