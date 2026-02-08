@@ -1,4 +1,3 @@
-
 import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speaker_id]/page";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";

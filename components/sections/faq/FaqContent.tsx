@@ -1638,4 +1638,3 @@ export default function FaqContent() {
     </>
   );
 }
-
