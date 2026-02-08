@@ -21,6 +21,7 @@ const nextConfig = {
   },
   // Empty turbopack config to silence webpack/turbopack warning
   turbopack: {},
+  transpilePackages: ["swiper", "ssr-window", "dom7"],
 };
 
 export default withPWA({

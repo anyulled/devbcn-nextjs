@@ -10,7 +10,10 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
   moduleNameMapper: {
+    "^swiper/css$": "<rootDir>/__mocks__/styleMock.js",
+    "^swiper/css/(.*)$": "<rootDir>/__mocks__/styleMock.js",
     "^@/(.*)$": "<rootDir>/$1",
+    "^.+\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
   },
   collectCoverageFrom: [
     "app/**/*.{js,jsx,ts,tsx}",
