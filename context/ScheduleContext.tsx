@@ -1,8 +1,6 @@
 "use client";
 
-
 import { createContext, useContext, useEffect, useMemo, useState, ReactNode, useCallback } from "react";
-
 
 interface ScheduleContextType {
   savedSessionIds: string[];
