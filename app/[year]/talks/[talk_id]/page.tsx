@@ -101,12 +101,14 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const relatedTalks = await getRandomRelatedTalksByTrack(year, track, talk.id, 3);
 
   // Get speakers for related talks
-  const relatedTalksSpeakers: Map<string, Speaker[]> = new Map();
-  for (const relatedTalk of relatedTalks) {
-    const relSpeakerIds = relatedTalk.speakers.map((s) => s.id);
-    const relSpeakers = await getTalkSpeakersWithDetails(year, relSpeakerIds);
-    relatedTalksSpeakers.set(relatedTalk.id, relSpeakers);
-  }
+  const relatedTalksSpeakersEntries = await Promise.all(
+    relatedTalks.map(async (relatedTalk) => {
+      const relSpeakerIds = relatedTalk.speakers.map((s) => s.id);
+      const relSpeakers = await getTalkSpeakersWithDetails(year, relSpeakerIds);
+      return [relatedTalk.id, relSpeakers] as const;
+    })
+  );
+  const relatedTalksSpeakers = new Map(relatedTalksSpeakersEntries);
 
   const tags = getTagsFromTalk(talk);
   const slidesUrl = getSlidesUrl(talk);
