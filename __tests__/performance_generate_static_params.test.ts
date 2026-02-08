@@ -1,5 +1,6 @@
 import { generateStaticParams } from "@/app/[year]/talks/[talk_id]/page";
 import { getTalks } from "@/hooks/useTalks";
+import { getAvailableEditions } from "@/config/editions";
 
 // Mock dependencies
 jest.mock("next/script", () => ({
@@ -23,6 +24,12 @@ jest.mock("@/lib/utils/jsonld", () => ({
   serializeJsonLd: jest.fn(),
 }));
 
+// Mock config/editions
+jest.mock("@/config/editions", () => ({
+  getAvailableEditions: jest.fn(),
+  getEditionConfig: jest.fn(() => ({})),
+}));
+
 // Mock hooks
 jest.mock("@/hooks/useTalks", () => {
   return {
@@ -43,6 +50,9 @@ describe("generateStaticParams Performance", () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
+    // Mock getAvailableEditions to return a fixed list of years
+    (getAvailableEditions as jest.Mock).mockReturnValue(years);
+
     // Mock getTalks implementation with a delay
     (getTalks as jest.Mock).mockImplementation(async (year) => {
       // Simulate network delay
@@ -58,9 +68,9 @@ describe("generateStaticParams Performance", () => {
   });
 
   it("measures execution time of generateStaticParams", async () => {
-    const start = performance.now();
+    const start = Date.now();
     const params = await generateStaticParams();
-    const end = performance.now();
+    const end = Date.now();
     const duration = end - start;
 
     console.log(`generateStaticParams duration: ${duration}ms`);
