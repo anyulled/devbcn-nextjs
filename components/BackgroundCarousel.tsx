@@ -2,6 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
 const IMAGES = [
   "/assets/img/all-images/venue/wtc-gemini-2.webp",
@@ -14,109 +21,68 @@ const IMAGES = [
   "/assets/img/all-images/venue/venue-5.webp",
 ];
 
-const ROTATION_INTERVAL = 10000; // 10 seconds
+const SLIDE_DURATION = 7000; // 7 seconds per slide
 
 interface BackgroundCarouselProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export default function BackgroundCarousel({ children, className = "" }: BackgroundCarouselProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export default function BackgroundCarousel({ children, className = "" }: Readonly<BackgroundCarouselProps>) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof globalThis.window !== "undefined") {
+      return globalThis.window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
-    }, ROTATION_INTERVAL);
+    // Check for reduced motion preference
+    const mediaQuery = globalThis.window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    return () => clearInterval(interval);
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   return (
     <div className={`background-carousel ${className}`}>
-      {/* Background images with fade transition */}
-      {IMAGES.map((image, index) => (
-        <Image
-          key={image}
-          src={image}
-          alt="Conference venue background"
-          fill
-          priority={index === 0}
-          sizes="100vw"
-          className="background-carousel__image"
-          style={{
-            objectFit: "cover",
-            opacity: index === currentImageIndex ? 1 : 0,
-            transition: "opacity 1.5s ease-in-out",
-          }}
-        />
-      ))}
+      {/* Swiper Background */}
+      <Swiper
+        modules={[EffectFade, Autoplay]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        speed={1500}
+        autoplay={{
+          delay: SLIDE_DURATION,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+        }}
+        loop={true}
+        onSwiper={() => {}}
+        className="background-carousel__swiper"
+        allowTouchMove={false}
+      >
+        {IMAGES.map((image, index) => (
+          <SwiperSlide key={image}>
+            <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
+              <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={90} />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-      {/* Animated gradient overlay - Barcelona Themed */}
+      {/* Animated gradient overlay */}
       <div className="background-carousel__gradient" />
 
-      {/* Static vignette overlay with backdrop blur */}
+      {/* Vignette overlay with backdrop blur */}
       <div className="background-carousel__vignette" />
 
       {/* Content */}
       <div className="background-carousel__content">{children}</div>
-
-      <style jsx>{`
-        .background-carousel {
-          position: relative;
-          padding: 70px 0 40px;
-          overflow: hidden;
-        }
-
-        .background-carousel__image {
-          z-index: 0;
-        }
-
-        .background-carousel__gradient {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          /* Barcelona Vibes: Deep Mediterranean Blue, Warm Sun Yellow, Vibrant Purple (Tech/Modern) */
-          background-image: linear-gradient(-45deg, rgba(0, 75, 135, 0.7), rgba(255, 204, 0, 0.4), rgba(138, 43, 226, 0.6), rgba(0, 36, 84, 0.8));
-          background-size: 400% 400%;
-          background-position: 0 50%;
-          animation: gradient 20s ease infinite;
-          z-index: 1;
-        }
-
-        .background-carousel__vignette {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          backdrop-filter: blur(3px); /* Slightly increased blur for better text readability */
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
-          pointer-events: none;
-          z-index: 2;
-        }
-
-        .background-carousel__content {
-          position: relative;
-          z-index: 3;
-        }
-
-        @keyframes gradient {
-          0% {
-            background-position: 0 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0 50%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

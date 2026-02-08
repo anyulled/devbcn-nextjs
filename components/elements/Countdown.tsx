@@ -20,7 +20,7 @@ interface CountdownProps {
   eventDate: string;
 }
 
-export default function Countdown({ style, eventDate }: CountdownProps) {
+export default function Countdown({ style, eventDate }: Readonly<CountdownProps>) {
   const [timeDif, setTimeDif] = useState(() => {
     const now = Date.now();
     const targetDate = new Date(eventDate);
@@ -47,151 +47,143 @@ export default function Countdown({ style, eventDate }: CountdownProps) {
   return (
     <>
       {!style && (
-        <>
-          <div className="timer">
-            <div className="time-box">
-              <span id="days1" className="time-value">
-                {timeParts.days}
-              </span>
-              <br />
-              Days
-            </div>
-            <div className="space14" />
-            <div className="time-box">
-              <span id="hours1" className="time-value">
-                {timeParts.hours}
-              </span>
-              <br />
-              Hours
-            </div>
-            <div className="space14" />
-            <div className="time-box">
-              <span id="minutes1" className="time-value">
-                {timeParts.minutes}
-              </span>
-              <br />
-              Minutes
-            </div>
-            <div className="space14" />
-            <div className="time-box" style={{ margin: "0 26px 0 0" }}>
-              <span id="seconds1" className="time-value">
-                {timeParts.seconds}
-              </span>
-              <br />
-              Seconds
-            </div>
+        <div className="timer">
+          <div className="time-box">
+            <span id="days1" className="time-value">
+              {timeParts.days}
+            </span>
+            <br />
+            Days
           </div>
-        </>
+          <div className="space14" />
+          <div className="time-box">
+            <span id="hours1" className="time-value">
+              {timeParts.hours}
+            </span>
+            <br />
+            Hours
+          </div>
+          <div className="space14" />
+          <div className="time-box">
+            <span id="minutes1" className="time-value">
+              {timeParts.minutes}
+            </span>
+            <br />
+            Minutes
+          </div>
+          <div className="space14" />
+          <div className="time-box" style={{ margin: "0 26px 0 0" }}>
+            <span id="seconds1" className="time-value">
+              {timeParts.seconds}
+            </span>
+            <br />
+            Seconds
+          </div>
+        </div>
       )}
 
       {style === 1 && (
-        <>
-          <div className="timer">
-            <div className="time-box">
-              <span id="days" className="time-value">
-                {timeParts.days} <span>DAYS</span>
-              </span>
-            </div>
-            <div className="time-box">
-              <span id="hours" className="time-value">
-                {timeParts.hours} <span>Hours</span>
-              </span>
-            </div>
-            <div className="time-box">
-              <span id="minutes" className="time-value">
-                {timeParts.minutes} <span>Minutes</span>
-              </span>
-            </div>
-            <div className="time-box">
-              <span id="seconds" className="time-value">
-                {timeParts.seconds} <span>Seconds</span>
-              </span>
-            </div>
+        <div className="timer">
+          <div className="time-box">
+            <span id="days" className="time-value">
+              {timeParts.days} <span>DAYS</span>
+            </span>
           </div>
-        </>
+          <div className="time-box">
+            <span id="hours" className="time-value">
+              {timeParts.hours} <span>Hours</span>
+            </span>
+          </div>
+          <div className="time-box">
+            <span id="minutes" className="time-value">
+              {timeParts.minutes} <span>Minutes</span>
+            </span>
+          </div>
+          <div className="time-box">
+            <span id="seconds" className="time-value">
+              {timeParts.seconds} <span>Seconds</span>
+            </span>
+          </div>
+        </div>
       )}
       {style === 2 && (
-        <>
-          <div className="row">
-            <div className="col-lg-3 col-md-6">
-              <div className="cta-counter-box">
-                <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
-                <h2>
-                  <span id="days1" className="time-value">
-                    {timeParts.days} <span>DAYS</span>
-                  </span>
-                </h2>
-              </div>
-              <div className="space50 d-lg-none d-block" />
+        <div className="row">
+          <div className="col-lg-3 col-md-6">
+            <div className="cta-counter-box">
+              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <h2>
+                <span id="days1" className="time-value">
+                  {timeParts.days} <span>DAYS</span>
+                </span>
+              </h2>
             </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="cta-counter-box">
-                <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
-                <h2>
-                  <span id="hours1" className="time-value">
-                    {timeParts.hours} <span>Hours</span>{" "}
-                  </span>
-                </h2>
-              </div>
-              <div className="space50 d-lg-none d-block" />
+            <div className="space50 d-lg-none d-block" />
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="cta-counter-box">
+              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <h2>
+                <span id="hours1" className="time-value">
+                  {timeParts.hours} <span>Hours</span>{" "}
+                </span>
+              </h2>
             </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="cta-counter-box">
-                <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
-                <h2>
-                  <span id="minutes1" className="time-value">
-                    {timeParts.minutes}
-                    <span>Minutes</span>
-                  </span>
-                </h2>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="cta-counter-box">
-                <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
-                <h2>
-                  <span id="seconds1" className="time-value">
-                    {timeParts.seconds}
-                    <span>Seconds</span>
-                  </span>
-                </h2>
-              </div>
+            <div className="space50 d-lg-none d-block" />
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="cta-counter-box">
+              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <h2>
+                <span id="minutes1" className="time-value">
+                  {timeParts.minutes}
+                  <span>Minutes</span>
+                </span>
+              </h2>
             </div>
           </div>
-        </>
+          <div className="col-lg-3 col-md-6">
+            <div className="cta-counter-box">
+              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <h2>
+                <span id="seconds1" className="time-value">
+                  {timeParts.seconds}
+                  <span>Seconds</span>
+                </span>
+              </h2>
+            </div>
+          </div>
+        </div>
       )}
       {style === 3 && (
-        <>
-          <div className="timer2">
-            <div className="time-box">
-              <span id="days" className="time-value">
-                {timeParts.days} <span>DAYS</span>
-              </span>
-              <br />
-            </div>
-            <div className="space14" />
-            <div className="time-box">
-              <span id="hours" className="time-value">
-                {timeParts.hours} <span>Hours</span>
-              </span>
-              <br />
-            </div>
-            <div className="space14" />
-            <div className="time-box">
-              <span id="minutes" className="time-value">
-                {timeParts.minutes} <span>Minutes</span>
-              </span>
-              <br />
-            </div>
-            <div className="space14" />
-            <div className="time-box" style={{ margin: "0 26px 0 0" }}>
-              <span id="seconds" className="time-value">
-                {timeParts.seconds} <span>Seconds</span>
-              </span>
-              <br />
-            </div>
+        <div className="timer2">
+          <div className="time-box">
+            <span id="days" className="time-value">
+              {timeParts.days} <span>DAYS</span>
+            </span>
+            <br />
           </div>
-        </>
+          <div className="space14" />
+          <div className="time-box">
+            <span id="hours" className="time-value">
+              {timeParts.hours} <span>Hours</span>
+            </span>
+            <br />
+          </div>
+          <div className="space14" />
+          <div className="time-box">
+            <span id="minutes" className="time-value">
+              {timeParts.minutes} <span>Minutes</span>
+            </span>
+            <br />
+          </div>
+          <div className="space14" />
+          <div className="time-box" style={{ margin: "0 26px 0 0" }}>
+            <span id="seconds" className="time-value">
+              {timeParts.seconds} <span>Seconds</span>
+            </span>
+            <br />
+          </div>
+        </div>
       )}
     </>
   );
