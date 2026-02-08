@@ -36,3 +36,7 @@ public/assets/scss
 
 # Config files that shouldn't be formatted
 tsconfig.tsbuildinfo
+
+# Agent files
+.agent
+.agents
