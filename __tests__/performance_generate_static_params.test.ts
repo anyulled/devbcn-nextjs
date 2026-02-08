@@ -58,9 +58,9 @@ describe("generateStaticParams Performance", () => {
   });
 
   it("measures execution time of generateStaticParams", async () => {
-    const start = Date.now();
+    const start = performance.now();
     const params = await generateStaticParams();
-    const end = Date.now();
+    const end = performance.now();
     const duration = end - start;
 
     console.log(`generateStaticParams duration: ${duration}ms`);
