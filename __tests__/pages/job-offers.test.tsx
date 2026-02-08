@@ -1,4 +1,3 @@
-
 import JobOffers, { generateMetadata, generateStaticParams } from "@/app/[year]/job-offers/page";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { render, screen } from "@testing-library/react";
