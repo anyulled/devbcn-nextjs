@@ -12,3 +12,8 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-02-01 - Background Image Optimization
+
+**Learning:** CSS `background-image` bypasses Next.js optimization. Replacing with `<Image fill style={{ zIndex: -1 }} />` works well but requires checking parent stacking context.
+**Action:** When finding `style={{ backgroundImage: ... }}` on a div, check if the div has `position: relative` (or add it) and verify z-index stacking order. Use `fill` and `objectFit: cover`.
