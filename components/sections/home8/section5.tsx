@@ -76,7 +76,7 @@ export default function Section5({ year, speakers, totalSpeakers }: Section5Prop
     <>
       <div className="team8-section-rea sp1" style={{ position: "relative" }}>
         {/* Bolt: Optimized background image with next/image for better performance and lazy loading */}
-        <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
+<Image src="/assets/img/bg/header-bg20.png" alt="" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -1 }} />
         <div className="container">
           <div className="row">
             <div className="col-lg-5">
