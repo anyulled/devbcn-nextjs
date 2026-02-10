@@ -1,5 +1,6 @@
 "use client";
 import { Speaker } from "@/hooks/types";
+import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -73,15 +74,9 @@ interface Section5Props {
 export default function Section5({ year, speakers, totalSpeakers }: Section5Props) {
   return (
     <>
-      <div
-        className="team8-section-rea sp1"
-        style={{
-          backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="team8-section-rea sp1" style={{ position: "relative" }}>
+        {/* Bolt: Optimized background image with next/image for better performance and lazy loading */}
+        <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
         <div className="container">
           <div className="row">
             <div className="col-lg-5">
