@@ -1,5 +1,6 @@
 import BrandSlider from "@/components/slider/BrandSlider";
 import { Sponsors } from "@/config/editions/types";
+import Image from "next/image";
 import Link from "next/link";
 import { SponsorGroup } from "./SponsorGroup";
 
@@ -11,16 +12,15 @@ export default function Section4({ sponsors }: Section4Props) {
   const hasSponsors = sponsors && Object.values(sponsors).some((arr) => arr && arr.length > 0);
 
   return (
-    <div
-      id="sponsors"
-      className="brands8-section-area sp8"
-      style={{
-        backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div id="sponsors" className="brands8-section-area sp8" style={{ position: "relative" }}>
+      {/* Optimization: Replace CSS background image with Next.js Image for better performance (lazy loading, resizing, format) */}
+      <Image
+        src="/assets/img/bg/header-bg20.png"
+        alt="Background"
+        fill
+        style={{ objectFit: "cover", zIndex: -1 }}
+        priority // Priority because it's a large background section likely visible early
+      />
       <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
       <div className="container">
         {!hasSponsors && (
