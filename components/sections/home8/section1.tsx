@@ -59,7 +59,8 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                   width={400}
                   height={120}
                   priority
-                  style={{ height: "100px", width: "auto", objectFit: "contain" }}
+                  className="hero-logo"
+                  style={{ width: "auto", objectFit: "contain" }}
                 />
                 {year === "2024" && (
                   <Link href="/kcd">

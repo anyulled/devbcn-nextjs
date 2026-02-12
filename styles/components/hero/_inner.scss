@@ -1,0 +1,29 @@
+@use "../../utils" as *;
+
+// Inner Pages Header //
+.inner-page-header {
+  position: relative;
+  z-index: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 160px 0 90px;
+
+  .heading1 {
+    a {
+      color: var(--ztc-text-text-1);
+      text-align: center;
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s28);
+      font-style: normal;
+      font-weight: var(--ztc-weight-medium);
+      line-height: 28px;
+      display: inline-block;
+      transition: all 0.4s;
+
+      i {
+        margin: 0 8px 0 0;
+      }
+    }
+  }
+}

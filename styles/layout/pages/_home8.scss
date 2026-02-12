@@ -1,0 +1,10 @@
+// Reverted scroll snapping styles
+// We want the hero section to be 100vh, but the rest to be normal.
+
+// Targeting the hero section specifically to ensure it's full height.
+// Assuming Section1 contains the hero class, or we can target it structurally if needed,
+// but relying on the .hero8-slider-area class in components/hero/_home8.scss is better.
+// However, to force 100vh on the *container* of the slider (if needed), we can add it here or in the component file.
+
+// Let's modify components/hero/_home8.scss instead to ensure .hero8-slider-area is min-height: 100vh.
+// leaving this file empty or for page-specific layout tweaks if necessary.

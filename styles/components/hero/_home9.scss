@@ -1,0 +1,230 @@
+@use "../../utils" as *;
+
+// Homepage 09 //
+.hero9-slider-area {
+  position: relative;
+  z-index: 1;
+  padding: 190px 0 170px;
+
+  @media #{$xs} {
+    padding: 170px 0 0;
+  }
+
+  @media #{$md} {
+    padding: 170px 0 0;
+  }
+
+  .hero8-header {
+    h5 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s32);
+      font-style: normal;
+      font-weight: var(--ztc-weight-medium);
+      line-height: 32px;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.4s;
+
+      @media #{$xs} {
+        font-size: var(--ztc-font-size-font-s20);
+        line-height: 20px;
+      }
+
+      img {
+        margin: 0 6px 0 0;
+        height: 30px;
+        width: 30px;
+        object-fit: contain;
+        display: inline-block !important;
+      }
+    }
+
+    h1 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: 100px;
+      font-style: normal;
+      font-weight: var(--ztc-weight-bold);
+      line-height: 110px;
+      text-transform: uppercase;
+
+      @media #{$xs} {
+        font-size: var(--ztc-font-size-font-s36);
+        line-height: 40px;
+      }
+
+      @media #{$md} {
+        font-size: 80px;
+        line-height: 90px;
+      }
+    }
+
+    .btn-area1 {
+      .vl-btn9.btn2 {
+        background: transparent;
+        color: var(--ztc-text-text-1);
+        border: 1px solid var(--ztc-text-text-1);
+        margin-left: 20px;
+        padding: 18px 26px;
+
+        @media #{$xs} {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+
+        &::after {
+          background: var(--ztc-bg-bg-1);
+        }
+
+        &:hover {
+          color: var(--ztc-text-text-18);
+        }
+      }
+    }
+  }
+
+  .img1 {
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  .timer-bg-area {
+    border-radius: 8px;
+    position: absolute;
+    border-radius: var(--rounded-lg, 8px) var(--rounded-lg, 8px) 0px 0px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    width: 1170px;
+    padding: 40px 100px;
+    bottom: 0;
+
+    @media #{$xs} {
+      width: auto;
+      position: relative;
+      padding: 40px;
+    }
+
+    @media #{$md} {
+      width: auto;
+      position: relative;
+      padding: 40px;
+    }
+
+    .timer-btn-area {
+      @media #{$xs} {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        display: inline-block;
+        margin-top: 30px;
+      }
+
+      @media #{$md} {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 30px;
+      }
+
+      .timer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media #{$xs} {
+          display: block;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+        @media #{$md} {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .time-box.box2 {
+          &::after {
+            display: none;
+          }
+        }
+
+        .time-box {
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          border-radius: var(--rounded-lg, 8px);
+          background: rgba(255, 255, 255, 0.1);
+          padding: 16px 36px;
+
+          @media #{$xs} {
+            margin-bottom: 20px;
+          }
+        }
+
+        .time-box .time-value span {
+          color: var(--ztc-text-text-1);
+          text-align: center;
+          font-family: var(--grotesk);
+          font-size: var(--ztc-font-size-font-s16);
+          font-style: normal;
+          font-weight: var(--ztc-weight-medium);
+          line-height: 16px;
+          text-transform: uppercase;
+          display: block;
+          padding-top: 12px;
+        }
+
+        .time-value {
+          color: var(--ztc-text-text-1);
+          text-align: center;
+          font-family: var(--grotesk);
+          font-size: var(--ztc-font-size-font-s32);
+          font-style: normal;
+          font-weight: var(--ztc-weight-bold);
+          line-height: 32px;
+          text-transform: uppercase;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .heading12 {
+    @media #{$md} {
+      margin-top: 20px;
+    }
+
+    h3 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s44);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 44px;
+
+      @media #{$xs} {
+        font-size: var(--ztc-font-size-font-s28);
+        line-height: 34px;
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+@use "../../utils" as *;
+
+// Homepage 06 //
+.hero6-section-area {
+  position: relative;
+  z-index: 1;
+  padding: 150px 0 0;
+  overflow: hidden;
+  height: 950px;
+
+  @media #{$md} {
+    height: auto;
+  }
+
+  @media #{$xs} {
+    height: auto;
+    padding: 150px 0 0;
+  }
+
+  .hero6-header {
+    position: relative;
+    top: 130px;
+
+    @media #{$xs} {
+      top: 0;
+    }
+
+    @media #{$md} {
+      top: 40px;
+    }
+
+    h5 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s28);
+      font-style: normal;
+      font-weight: var(--ztc-weight-medium);
+      line-height: 20px;
+      text-transform: uppercase;
+
+      @media #{$xs} {
+        font-size: var(--ztc-font-size-font-s18);
+        line-height: 18px;
+      }
+
+      img {
+        margin: -5px 4px 0 0;
+      }
+    }
+
+    h1 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: 100px;
+      font-style: normal;
+      font-weight: var(--ztc-weight-bold);
+      line-height: 120px;
+      text-transform: uppercase;
+
+      @media #{$xs} {
+        font-size: var(--ztc-font-size-font-s40);
+        line-height: 50px;
+      }
+    }
+
+    .arrow-btn {
+      background: rgba(255, 255, 255, 0.4);
+      border-width: 0.784px;
+      border: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3.9210524559020996px);
+      display: inline-block;
+      border-radius: 50%;
+      padding: 5px;
+      position: absolute;
+      bottom: -60px;
+      right: 0;
+
+      @media #{$xs} {
+        bottom: -150px;
+      }
+
+      .arrow {
+        position: absolute;
+        transform: rotate(-45deg);
+        top: 40%;
+        left: 40%;
+        height: 28px;
+        width: 28px;
+
+        img {
+          height: 28px;
+          width: 28px;
+        }
+      }
+    }
+  }
+
+  .img1 {
+    position: absolute;
+    top: 160px;
+
+    @media #{$md} {
+      position: relative;
+      top: 60px;
+    }
+
+    @media #{$xs} {
+      position: relative;
+      top: 30px;
+    }
+
+    .date-format {
+      position: absolute;
+      top: 30px;
+      right: 70px;
+
+      @media #{$md} {
+        top: 60px;
+        right: 100px;
+      }
+
+      @media #{$xs} {
+        display: none;
+      }
+
+      img {
+        position: absolute;
+        height: 160px;
+        width: 160px;
+        max-width: 160px;
+        max-height: 160px;
+        z-index: -1;
+        left: -42px;
+        top: -34px;
+      }
+
+      h5 {
+        color: var(--ztc-text-text-1);
+        font-family: var(--grotesk);
+        font-size: 57.262px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 57.262px;
+      }
+
+      p {
+        color: var(--ztc-text-text-1);
+        font-family: var(--grotesk);
+        font-size: 23.199px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 23.117px;
+      }
+    }
+  }
+}

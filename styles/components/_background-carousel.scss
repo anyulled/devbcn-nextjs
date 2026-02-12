@@ -5,6 +5,12 @@
   position: relative;
   padding: 70px 0 40px;
   overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__swiper {
     position: absolute !important;
@@ -60,12 +66,12 @@
 
   @media #{$md} {
     padding: 60px 0 30px;
-    min-height: auto;
+    min-height: 100dvh;
   }
 
   @media #{$xs} {
     padding: 60px 0 30px;
-    min-height: auto;
+    min-height: 100dvh;
   }
 }
 
