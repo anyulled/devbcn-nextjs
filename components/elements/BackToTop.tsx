@@ -5,19 +5,42 @@ export default function BackToTop({ target }: any) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    let rafId: number;
+
     const onScroll = () => {
-      setHasScrolled(window.scrollY > 100);
+      if (!ticking) {
+        ticking = true;
+        rafId = window.requestAnimationFrame(() => {
+          setHasScrolled(window.scrollY > 100);
+          ticking = false;
+        });
+      }
     };
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    // Use passive listener for better scrolling performance
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   const handleClick = () => {
-    window.scrollTo({
-      top: document.querySelector(target).offsetTop,
-      behavior: "smooth",
-    });
+    const targetElement = document.querySelector(target);
+    if (targetElement) {
+      window.scrollTo({
+        top: (targetElement as HTMLElement).offsetTop,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
