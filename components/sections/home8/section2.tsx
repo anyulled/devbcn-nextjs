@@ -1,7 +1,7 @@
 "use client";
+import CountUp from "react-countup";
 import Countdown from "@/components/elements/Countdown";
 import Image from "next/image";
-import CountUp from "react-countup";
 
 interface Section2Props {
   eventDate: string;
@@ -10,74 +10,65 @@ interface Section2Props {
 
 export default function Section2({ eventDate, showCountdown }: Readonly<Section2Props>) {
   return (
-    <div className="about8-section-area">
-      <Image src="/assets/img/bg/header-bg20.png" alt="Section Background" fill style={{ objectFit: "cover", zIndex: -1 }} />
-      <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <div className="space50 d-lg-none d-block" />
-            <div className="about8-images">
-              <Image src="/assets/img/all-images/about/about-img10.png" alt="" className="about-img10 aniamtion-key-1" width={317} height={192} />
-              <div className="img1" data-aos="zoom-in" data-aos-duration={1000}>
-                <Image src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn Conference" width={400} height={300} />
-              </div>
-              <div className="img2" data-aos="zoom-in" data-aos-duration={1100}>
-                <Image src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn Event" width={400} height={300} />
-              </div>
-              <div className="img3" data-aos="zoom-in" data-aos-duration={1200}>
-                <Image src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn Venue" width={400} height={300} />
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-2" />
-          <div className="col-lg-4">
-            <div className="space60 d-lg-none d-block" />
-            <div className="side-img1-area">
-              {/* <img src="/assets/img/all-images/about/about-img21.png" alt=""> */}
-              <div className="counter-box">
-                <h3>
-                  <CountUp className="odometer" enableScrollSpy={true} end={70} />+
-                </h3>
-                <p>Speakers</p>
-              </div>
-              <div className="img1">
-                <Image src="/assets/img/all-images/about/about-img22.png" alt="" width={150} height={150} />
-              </div>
-              <div className="img2">
-                <Image src="/assets/img/all-images/about/about-img23.png" alt="" width={150} height={150} />
-              </div>
-              <div className="img3">
-                <Image src="/assets/img/all-images/about/about-img24.png" alt="" width={150} height={150} />
-              </div>
-              <div className="img4">
-                <Image src="/assets/img/all-images/about/about-img25.png" alt="" width={150} height={150} />
-              </div>
-              <div className="counter-box2">
-                <h3>
-                  <CountUp className="odometer" enableScrollSpy={true} end={80} />+
-                </h3>
-                <p>Session</p>
-              </div>
-              <div className="counter-box3">
-                <h3>
-                  <CountUp className="odometer" enableScrollSpy={true} end={800} />+
-                </h3>
-                <p>Attendance</p>
-              </div>
-              <div className="counter-box4">
-                <h3>
-                  <CountUp className="odometer" enableScrollSpy={true} end={26} />+
-                </h3>
-                <p>Sponsors</p>
-              </div>
-            </div>
-            <div className="div d-lg-none d-block" style={{ marginBottom: 200 }} />
-          </div>
-        </div>
+    <div className="conference-stats">
+      {/* Background with reused image */}
+      <div className="conference-stats__bg">
+        <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover" }} priority />
       </div>
-      <div className="others8-section-area sp1">
-        <div className="container">{showCountdown && <Countdown style={2} eventDate={eventDate} />}</div>
+
+      <div className="container">
+        <div className="conference-stats__content">
+          {/* Intro Section */}
+          <div className="conference-stats__intro" data-aos="fade-up" data-aos-duration="800">
+            <h2>Where Developers Connect, Learn & Grow</h2>
+            <p>
+              Join us for the premier multi-track conference in Barcelona. Experience cutting-edge talks, hands-on workshops, and unparalleled networking
+              opportunities with industry leaders and the community.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="conference-stats__grid">
+            <div className="conference-stats__card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+              <h3>
+                <CountUp end={70} duration={2.5} enableScrollSpy />
+                <span>+</span>
+              </h3>
+              <p>Speakers</p>
+            </div>
+
+            <div className="conference-stats__card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+              <h3>
+                <CountUp end={80} duration={2.5} enableScrollSpy />
+                <span>+</span>
+              </h3>
+              <p>Sessions</p>
+            </div>
+
+            <div className="conference-stats__card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+              <h3>
+                <CountUp end={800} duration={2.5} enableScrollSpy />
+                <span>+</span>
+              </h3>
+              <p>Attendees</p>
+            </div>
+
+            <div className="conference-stats__card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+              <h3>
+                <CountUp end={26} duration={2.5} enableScrollSpy />
+                <span>+</span>
+              </h3>
+              <p>Sponsors</p>
+            </div>
+          </div>
+
+          {/* Countdown Section */}
+          {showCountdown && (
+            <div className="conference-stats__countdown" data-aos="fade-up" data-aos-duration="1200">
+              <Countdown style={2} eventDate={eventDate} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
