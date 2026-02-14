@@ -6,6 +6,7 @@ import ScheduleGrid from "./ScheduleGrid";
 import ScheduleMobile from "./ScheduleMobile";
 import { useScheduleContext } from "@/context/ScheduleContext";
 import styles from "./schedule.module.scss";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface ScheduleContainerProps {
   initialSchedule: DailySchedule[];
@@ -15,6 +16,8 @@ interface ScheduleContainerProps {
 export default function ScheduleContainer({ initialSchedule, year }: ScheduleContainerProps) {
   const { savedSessionIds } = useScheduleContext();
   const [showSavedOnly, setShowSavedOnly] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 991px)");
+
   const filteredSchedule = useMemo(() => {
     if (!showSavedOnly) {
       return initialSchedule;
@@ -46,12 +49,24 @@ export default function ScheduleContainer({ initialSchedule, year }: ScheduleCon
         </button>
       </div>
 
-      <div className="d-none d-lg-block">
-        <ScheduleGrid schedule={filteredSchedule} year={year} />
-      </div>
-      <div className="d-lg-none">
-        <ScheduleMobile schedule={filteredSchedule} year={year} />
-      </div>
+      {/*
+        Optimization: Only render the visible component to reduce DOM nodes.
+        Render both (hidden via CSS) only during SSR/initial hydration (isMobile === null).
+      */}
+
+      {/* Desktop View */}
+      {(isMobile === null || isMobile === false) && (
+        <div className="d-none d-lg-block">
+          <ScheduleGrid schedule={filteredSchedule} year={year} />
+        </div>
+      )}
+
+      {/* Mobile View */}
+      {(isMobile === null || isMobile === true) && (
+        <div className="d-lg-none">
+          <ScheduleMobile schedule={filteredSchedule} year={year} />
+        </div>
+      )}
     </div>
   );
 }
