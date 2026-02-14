@@ -1,6 +1,6 @@
 @use "../../utils/" as *;
 
-/*============= CONTACT CSS AREA ===============*/
+/* ============= CONTACT CSS AREA =============== */
 // Homepage 02 //
 .contact2-section-area {
   position: relative;
@@ -39,7 +39,7 @@
       position: relative;
       z-index: 1;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgb(255 255 255 / 0.1);
       padding: 24px;
       display: flex;
       align-items: center;
@@ -80,7 +80,7 @@
         line-height: 60px;
         display: inline-block;
         transition: all 0.4s;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgb(255 255 255 / 0.1);
         border-radius: 50%;
 
         img {
@@ -103,7 +103,7 @@
         }
 
         a {
-          color: rgba(255, 255, 255, 0.8);
+          color: rgb(255 255 255 / 0.8);
           text-align: center;
           font-family: var(--grotesk);
           font-size: var(--ztc-font-size-font-s18);
@@ -128,7 +128,7 @@
 .contact-bg-section {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/contact-bg1.png);
+  background-image: url("/assets/img/bg/contact-bg1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -207,6 +207,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 18px;
+
         /* 100% */
         text-transform: uppercase;
       }
@@ -219,6 +220,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
+
         /* 100% */
         display: inline-block;
       }
@@ -229,7 +231,7 @@
 .contact5-bg-section {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/contact-bg2.png);
+  background-image: url("/assets/img/bg/contact-bg2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -308,6 +310,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 18px;
+
         /* 100% */
         text-transform: uppercase;
       }
@@ -320,6 +323,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
+
         /* 100% */
         display: inline-block;
       }
@@ -330,7 +334,7 @@
 .contact8-bg-section {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 0.1);
 
   .mapouter {
     .gmap_canvas {
@@ -392,6 +396,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 18px;
+
         /* 100% */
         text-transform: uppercase;
       }
@@ -404,6 +409,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
+
         /* 100% */
         display: inline-block;
       }
@@ -420,7 +426,7 @@
   .contact4-boxarea {
     position: relative;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 0.1);
     padding: 24px;
 
     h3 {
@@ -430,6 +436,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-bold);
       line-height: 32px;
+
       /* 100% */
       text-transform: uppercase;
     }
@@ -444,8 +451,8 @@
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
         border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgb(255 255 255 / 0.1);
+        background: rgb(255 255 255 / 0.1);
         padding: 16px;
         margin-top: 16px;
 
@@ -456,7 +463,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 18px;
-          opacity: 80%;
+          opacity: 0.8;
         }
       }
 
@@ -469,8 +476,8 @@
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
         border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgb(255 255 255 / 0.1);
+        background: rgb(255 255 255 / 0.1);
         padding: 16px;
         height: 140px;
         margin-top: 16px;
@@ -482,7 +489,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 18px;
-          opacity: 80%;
+          opacity: 0.8;
         }
       }
 
@@ -519,7 +526,7 @@
         display: inline-block;
         transition: all 0.4s;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgb(255 255 255 / 0.1);
 
         img {
           filter: brightness(0) invert(1);
@@ -543,7 +550,7 @@
         }
 
         a {
-          color: rgba(255, 255, 255, 0.8);
+          color: rgb(255 255 255 / 0.8);
           text-align: center;
           font-family: var(--grotesk);
           font-size: var(--ztc-font-size-font-s18);
@@ -591,7 +598,7 @@
 .contact2-bg-section {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/others-bg3.png);
+  background-image: url("/assets/img/bg/others-bg3.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -649,7 +656,7 @@
       display: inline-block;
       transition: all 0.4s;
       border-radius: 50%;
-      background-image: url(/assets/img/elements/elements27.png);
+      background-image: url("/assets/img/elements/elements27.png");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -673,6 +680,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 18px;
+
         /* 100% */
         text-transform: uppercase;
       }
@@ -685,6 +693,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 18px;
+
         /* 100% */
         display: inline-block;
       }
@@ -715,6 +724,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-bold);
       line-height: 32px;
+
       /* 100% */
       text-transform: uppercase;
     }
@@ -740,7 +750,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 18px;
-          opacity: 80%;
+          opacity: 0.8;
         }
       }
 
@@ -765,7 +775,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 18px;
-          opacity: 80%;
+          opacity: 0.8;
         }
       }
 
@@ -809,8 +819,8 @@
 
   .contact-boxarea {
     border-radius: var(--rounded-lg, 8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.2);
     padding: 24px;
     position: relative;
     z-index: 1;
@@ -861,4 +871,4 @@
   }
 }
 
-/*============= CONTACT CSS AREA ENDS===============*/
+/* ============= CONTACT CSS AREA ENDS=============== */

@@ -1,6 +1,6 @@
 @use "../../utils/" as *;
 
-/*============= TESTIMONIAL CSS AREA ===============*/
+/* ============= TESTIMONIAL CSS AREA =============== */
 .testimonials1-section-area {
   background: #fbf9f4;
   position: relative;
@@ -47,8 +47,7 @@
         text-align: center;
         line-height: 50px;
         border-radius: 100px;
-        background: rgba(26, 23, 25, 0.05);
-        transition: all 0.4s;
+        background: rgb(26 23 25 / 0.05);
         color: var(--ztc-text-text-2);
         transition: all 0.4s;
         font-size: var(--ztc-font-size-font-s20);
@@ -80,7 +79,7 @@
             text-align: center;
             display: inline-block;
             border-radius: 4px;
-            background: rgba(255, 186, 0, 0.1);
+            background: rgb(255 186 0 / 0.1);
             transition: all 0.4s;
             line-height: 24px;
             color: #ffba00;
@@ -125,6 +124,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 20px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -192,7 +192,7 @@
         left: 45px;
         top: 45px;
         background: var(--ztc-bg-bg-1);
-        opacity: 30%;
+        opacity: 0.3;
         transition: all 0.4s;
         border-radius: 50%;
         animation: pulse-border 1500ms ease-out infinite;
@@ -237,7 +237,7 @@
         line-height: 56px;
         border-radius: 50%;
         transition: all 0.4s;
-        background: rgba(46, 77, 253, 0.08);
+        background: rgb(46 77 253 / 0.08);
         font-size: var(--ztc-font-size-font-s20);
         display: inline-block;
         color: var(--ztc-text-text-11);
@@ -305,12 +305,11 @@
         li {
           height: 28px;
           width: 28px;
-          text-align: center;
           line-height: 28px;
           display: inline-block;
           transition: all 0.4s;
           border-radius: 4px;
-          background: rgba(46, 77, 253, 0.08);
+          background: rgb(46 77 253 / 0.08);
           color: var(--ztc-text-text-13);
           text-align: center;
         }
@@ -318,12 +317,12 @@
 
       p.main {
         color: var(--ztc-text-text-12);
-        text-align: center;
         font-family: var(--figtree);
         font-size: var(--ztc-font-size-font-s24);
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 40px;
+
         /* 166.667% */
         text-align: center;
       }
@@ -362,6 +361,7 @@
             font-style: normal;
             font-weight: 500;
             line-height: 16px;
+
             /* 100% */
             text-align: start;
           }
@@ -405,7 +405,7 @@
       margin: 0 8px;
 
       p {
-        color: rgba(64, 64, 64, 0.9);
+        color: rgb(64 64 64 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s18);
         font-style: normal;
@@ -414,7 +414,7 @@
       }
 
       a {
-        color: rgba(64, 64, 64, 0.9);
+        color: rgb(64 64 64 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s18);
         font-style: normal;
@@ -446,7 +446,7 @@
       }
 
       p {
-        color: rgba(64, 64, 64, 0.9);
+        color: rgb(64 64 64 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s18);
         font-style: normal;
@@ -455,7 +455,7 @@
       }
 
       a {
-        color: rgba(64, 64, 64, 0.9);
+        color: rgb(64 64 64 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s18);
         font-style: normal;
@@ -507,8 +507,7 @@
         text-align: center;
         line-height: 50px;
         border-radius: 100px;
-        background: rgba(252, 34, 106, 0.1);
-        transition: all 0.4s;
+        background: rgb(252 34 106 / 0.1);
         color: var(--ztc-text-text-15);
         transition: all 0.4s;
         font-size: var(--ztc-font-size-font-s20);
@@ -529,7 +528,7 @@
       position: relative;
       z-index: 1;
       border-radius: var(--rounded-lg, 8px);
-      border: 1px solid rgba(26, 23, 25, 0.05);
+      border: 1px solid rgb(26 23 25 / 0.05);
       padding: 32px 24px;
       transition: all 0.4s;
 
@@ -628,6 +627,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 20px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -695,7 +695,7 @@
         left: 45px;
         top: 45px;
         background: var(--ztc-bg-bg-1);
-        opacity: 30%;
+        opacity: 0.3;
         transition: all 0.4s;
         border-radius: 50%;
         animation: pulse-border 1500ms ease-out infinite;
@@ -713,4 +713,4 @@
   }
 }
 
-/*============= TESTIMONIAL CSS AREA ENDS ===============*/
+/* ============= TESTIMONIAL CSS AREA ENDS =============== */

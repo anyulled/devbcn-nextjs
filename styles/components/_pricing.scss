@@ -1,17 +1,17 @@
 @use "../utils" as *;
 
-/*============= PRICING PLAN CSS AREA ===============*/
+/* ============= PRICING PLAN CSS AREA =============== */
 .pricing-plan-section-area {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/header-bg3.png);
+  background-image: url("/assets/img/bg/header-bg3.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   .pricing-boxarea {
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgb(255 255 255 / 0.06);
     position: relative;
     z-index: 1;
     text-align: center;
@@ -124,7 +124,6 @@
   z-index: 1;
 
   .pricing-boxarea {
-    border-radius: 8px;
     background: #f2f4ff;
     position: relative;
     z-index: 1;
@@ -139,11 +138,12 @@
       font-style: normal;
       font-weight: var(--ztc-weight-semibold);
       line-height: 18px;
+
       /* 100% */
       text-transform: capitalize;
       padding: 8px 10px;
       display: inline-block;
-      background-image: url(/assets/img/bg/others-bg3.png);
+      background-image: url("/assets/img/bg/others-bg3.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -201,4 +201,4 @@
   }
 }
 
-/*============= PRICING PLAN CSS AREA ===============*/
+/* ============= PRICING PLAN CSS AREA =============== */

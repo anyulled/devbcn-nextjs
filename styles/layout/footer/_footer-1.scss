@@ -1,6 +1,6 @@
 @use "../../utils/" as *;
 
-/*============= FOOTER CSS AREA ===============*/
+/* ============= FOOTER CSS AREA =============== */
 .footer1-sertion-area {
   position: relative;
   z-index: 1;
@@ -27,12 +27,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-2);
           border-radius: 165px;
-          background: rgba(26, 23, 25, 0.05);
+          background: rgb(26 23 25 / 0.05);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -75,6 +74,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -249,7 +249,7 @@
 .footer2-sertion-area {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/footer-bg1.png);
+  background-image: url("/assets/img/bg/footer-bg1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -281,12 +281,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-1);
           border-radius: 165px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -330,6 +329,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -534,12 +534,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-1);
           border-radius: 165px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -583,6 +582,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -787,12 +787,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-11);
           border-radius: 165px;
-          background: rgba(46, 77, 253, 0.08);
+          background: rgb(46 77 253 / 0.08);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -836,6 +835,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -1010,7 +1010,7 @@
 .footer5-sertion-area {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 0.1);
   backdrop-filter: blur(40px);
   padding: 80px 0 32px;
 
@@ -1046,12 +1046,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-1);
           border-radius: 165px;
-          background: rgba(255, 255, 255, 0.2);
+          background: rgb(255 255 255 / 0.2);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -1096,6 +1095,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -1300,12 +1300,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-2);
           border-radius: 165px;
-          background: rgba(255, 103, 0, 0.06);
+          background: rgb(255 103 0 / 0.06);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -1349,6 +1348,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -1534,7 +1534,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-medium);
       line-height: 26px;
-      opacity: 80%;
+      opacity: 0.8;
     }
 
     ul {
@@ -1546,12 +1546,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-2);
           border-radius: 165px;
-          background: rgba(26, 23, 25, 0.05);
+          background: rgb(26 23 25 / 0.05);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -1595,6 +1594,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -1806,12 +1806,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-1);
           border-radius: 165px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -1855,6 +1854,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -2059,12 +2059,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-18);
           border-radius: 165px;
-          background: rgba(255, 80, 0, 0.1);
+          background: rgb(255 80 0 / 0.1);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -2108,6 +2107,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -2312,12 +2312,11 @@
           width: 40px;
           text-align: center;
           line-height: 40px;
-          border-radius: 50%;
           display: inline-block;
           transition: all 0.4s;
           color: var(--ztc-text-text-1);
           border-radius: 165px;
-          background: rgba(255, 255, 255, 0.06);
+          background: rgb(255 255 255 / 0.06);
           font-size: var(--ztc-font-size-font-s18);
           margin: 0 6px 0 0;
 
@@ -2361,6 +2360,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-medium);
           line-height: 16px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -2532,4 +2532,4 @@
   }
 }
 
-/*============= FOOTER CSS AREA ===============*/
+/* ============= FOOTER CSS AREA =============== */

@@ -1,6 +1,6 @@
 @use "../utils" as *;
 
-/*============= MOBILE MENU CSS AREA ===============*/
+/* ============= MOBILE MENU CSS AREA =============== */
 .mobile-header.mobile-haeder1 {
   background: var(--ztc-bg-bg-2);
   position: fixed;
@@ -25,7 +25,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-2);
       }
 
@@ -151,7 +151,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-5);
       }
 
@@ -276,7 +276,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-8);
       }
 
@@ -408,7 +408,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-11);
       }
 
@@ -534,7 +534,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-2);
       }
 
@@ -665,7 +665,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-2);
       }
 
@@ -792,7 +792,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-2);
       }
 
@@ -918,7 +918,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-2);
       }
 
@@ -1043,7 +1043,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-18);
       }
 
@@ -1177,7 +1177,7 @@
 
   .mobile-nav.mobile-nav1 {
     ul {
-      span.submenu-button:before {
+      span.submenu-button::before {
         background: var(--ztc-text-text-1);
       }
 
@@ -1278,4 +1278,4 @@
   }
 }
 
-/*============= MOBILE MENU CSS AREA ===============*/
+/* ============= MOBILE MENU CSS AREA =============== */

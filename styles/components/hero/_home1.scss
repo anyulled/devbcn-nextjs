@@ -1,10 +1,10 @@
 @use "../../utils" as *;
 
-/*============= HERO CSS AREA ===============*/
+/* ============= HERO CSS AREA =============== */
 .hero1-section-area {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/header-bg1.png);
+  background-image: url("/assets/img/bg/header-bg1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -178,7 +178,7 @@
         font-weight: var(--ztc-weight-medium);
         line-height: 24px;
         padding-top: 16px;
-        border-top: 1px solid rgba(26, 23, 25, 0.1);
+        border-top: 1px solid rgb(26 23 25 / 0.1);
       }
     }
   }
@@ -219,8 +219,8 @@
       display: inline-block;
       text-align: center;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgb(255 255 255 / 0.15);
+      background: rgb(255 255 255 / 0.1);
       width: 150px;
       color: white;
       padding: 16px 30px;
@@ -232,7 +232,7 @@
     }
 
     .time-box .time-value span {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgb(255 255 255 / 0.9);
       text-align: center;
       font-family: var(--grotesk);
       font-size: var(--ztc-font-size-font-s16);

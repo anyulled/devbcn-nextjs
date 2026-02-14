@@ -27,7 +27,7 @@
       display: inline-block;
       padding: 8px 12px;
       border-radius: 8px;
-      background: rgba(46, 77, 253, 0.08);
+      background: rgb(46 77 253 / 0.08);
 
       @media #{$xs} {
         font-size: var(--ztc-font-size-font-s14);
@@ -49,6 +49,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-bold);
       line-height: 74px;
+
       /* 115.625% */
       text-transform: uppercase;
 
@@ -126,6 +127,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 20px;
+
         /* 100% */
         display: inline-block;
         transition: all 0.4s;
@@ -140,6 +142,7 @@
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
             line-height: 16px;
+
             /* 100% */
             display: inline-block;
             transition: all 0.4s;

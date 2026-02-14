@@ -1,6 +1,6 @@
 @use "../../utils/" as *;
 
-/*============= ABOUT CSS AREA ===============*/
+/* ============= ABOUT CSS AREA =============== */
 .about1-section-area {
   position: relative;
   z-index: 1;
@@ -90,11 +90,10 @@
       .icons {
         height: 48px;
         width: 48px;
-        border-radius: 50%;
         transition: all 0.4s;
         display: inline-block;
         border-radius: 48px;
-        background: rgba(26, 23, 25, 0.05);
+        background: rgb(26 23 25 / 0.05);
         text-align: center;
         line-height: 48px;
         position: absolute;
@@ -209,7 +208,7 @@
         display: flex;
         align-items: center;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgb(255 255 255 / 0.04);
         padding: 10px 12px;
         margin: 0 18px 0 0;
         margin-top: 28px;
@@ -217,7 +216,6 @@
         &:hover {
           .icons {
             background: var(--ztc-bg-bg-5);
-            transition: all 0.4s;
             transform: rotateY(-180deg);
             transition: all 0.4s;
 
@@ -236,7 +234,7 @@
           border-radius: 50%;
           transition: all 0.4s;
           display: inline-block;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
 
           img {
             filter: brightness(0) invert(1);
@@ -432,12 +430,13 @@
       border-radius: 8px;
 
       p {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgb(255 255 255 / 0.8);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s16);
         font-style: normal;
         font-weight: var(--ztc-weight-medium);
         line-height: 16px;
+
         /* 100% */
       }
 
@@ -448,6 +447,7 @@
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
         line-height: 24px;
+
         /* 120% */
         padding-bottom: 20px;
         border-bottom: 1px solid var(--ztc-text-text-1);
@@ -456,12 +456,13 @@
       ul {
         li {
           a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgb(255 255 255 / 0.8);
             font-family: var(--grotesk);
             font-size: var(--ztc-font-size-font-s16);
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
             line-height: 16px;
+
             /* 100% */
             display: inline-block;
             margin-top: 14px;
@@ -580,7 +581,6 @@
       .icons {
         height: 48px;
         width: 48px;
-        border-radius: 50%;
         transition: all 0.4s;
         display: inline-block;
         border-radius: 48px;
@@ -695,7 +695,7 @@
       a {
         background: var(--ztc-bg-bg-2);
         border-width: 1px;
-        border: rgba(255, 255, 255, 0.2);
+        border: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
@@ -724,10 +724,6 @@
           text-transform: uppercase;
           left: 50%;
           top: 50%;
-          -webkit-transform: translate(-50%, -50%);
-          -moz-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
           color: var(--tg-color-white-default);
 
@@ -777,7 +773,7 @@
     }
 
     .img1 {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgb(255 255 255 / 0.2);
       padding: 10px;
       overflow: hidden;
       border-radius: 50%;
@@ -799,7 +795,7 @@
     }
 
     .img2 {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgb(255 255 255 / 0.2);
       border-radius: 50%;
       padding: 10px;
       position: absolute;
@@ -835,7 +831,7 @@
     }
 
     .img3 {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgb(255 255 255 / 0.2);
       border-radius: 50%;
       padding: 10px;
       position: absolute;
@@ -893,9 +889,8 @@
         font-size: var(--ztc-font-size-font-s44);
         font-style: normal;
         font-weight: 700;
-        line-height: 44px;
         letter-spacing: -0.88px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(2px);
         display: inline-block;
         height: 132px;
@@ -918,13 +913,13 @@
           content: "";
           left: -8px;
           top: -8px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           border-radius: 50%;
         }
       }
 
       p {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgb(255 255 255 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s20);
         font-style: normal;
@@ -948,9 +943,8 @@
         font-size: var(--ztc-font-size-font-s24);
         font-style: normal;
         font-weight: 700;
-        line-height: 24px;
         letter-spacing: -0.88px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(2px);
         display: inline-block;
         height: 80px;
@@ -973,13 +967,13 @@
           content: "";
           left: -5px;
           top: -5px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           border-radius: 50%;
         }
       }
 
       p {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgb(255 255 255 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s20);
         font-style: normal;
@@ -1003,9 +997,8 @@
         font-size: var(--ztc-font-size-font-s32);
         font-style: normal;
         font-weight: 700;
-        line-height: 32px;
         letter-spacing: -0.88px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(2px);
         display: inline-block;
         height: 100px;
@@ -1028,13 +1021,13 @@
           content: "";
           left: -5px;
           top: -5px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           border-radius: 50%;
         }
       }
 
       p {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgb(255 255 255 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s20);
         font-style: normal;
@@ -1058,9 +1051,8 @@
         font-size: var(--ztc-font-size-font-s32);
         font-style: normal;
         font-weight: 700;
-        line-height: 32px;
         letter-spacing: -0.88px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(2px);
         display: inline-block;
         height: 100px;
@@ -1083,13 +1075,13 @@
           content: "";
           left: -5px;
           top: -5px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           border-radius: 50%;
         }
       }
 
       p {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgb(255 255 255 / 0.9);
         font-family: var(--grotesk);
         font-size: var(--ztc-font-size-font-s20);
         font-style: normal;
@@ -1308,4 +1300,4 @@
   }
 }
 
-/*============= ABOUT CSS AREA ENDS ===============*/
+/* ============= ABOUT CSS AREA ENDS =============== */

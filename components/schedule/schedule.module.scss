@@ -2,6 +2,7 @@
 .scheduleCard {
   padding: 16px;
   background-color: var(--card-bg, #fff);
+
   /* Fallback or theme var */
   border: 1px solid #eee;
   border-radius: 8px;
@@ -12,13 +13,13 @@
   flex-direction: column;
 
   &:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.05);
     border-color: var(--primary-color, #5f3afc);
   }
 
   &.saved {
     border-color: var(--primary-color, #5f3afc);
-    background-color: rgba(95, 58, 252, 0.03);
+    background-color: rgb(95 58 252 / 0.03);
   }
 }
 
@@ -91,7 +92,7 @@
     text-decoration: underline;
   }
 
-  &:not(:last-child):after {
+  &:not(:last-child)::after {
     content: ",";
   }
 }
@@ -101,6 +102,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
+
   /* Push to bottom if flex column */
   padding-top: 8px;
 }
@@ -146,14 +148,14 @@
   overflow-x: auto;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.05);
   padding: 20px;
 }
 
 .scheduleGrid {
   display: grid;
   min-width: 1000px;
-  gap: 12px 12px;
+  gap: 12px;
 }
 
 .gridHeaderRoom {
@@ -224,7 +226,7 @@
 .timeStickyHeader {
   position: sticky;
   top: 60px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(255 255 255 / 0.95);
   backdrop-filter: blur(5px);
   z-index: 5;
   padding: 10px 0;

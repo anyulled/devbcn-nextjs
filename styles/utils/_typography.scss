@@ -423,7 +423,7 @@ $trans: all 0.4s ease-in-out;
 
 @keyframes animation-8 {
   0% {
-    padding-left: 0px;
+    padding-left: 0;
   }
 
   100% {
@@ -439,29 +439,25 @@ $trans: all 0.4s ease-in-out;
   animation-direction: alternate;
 }
 
-@-webkit-keyframes fade-in-down {
+@keyframes fade-in-down {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0, -50px, 0);
     transform: translate3d(0, -50px, 0);
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: none;
     transform: none;
   }
 }
 
 @keyframes fade-in-down {
   0% {
-    -webkit-transform: translate3d(0, -50px, 0);
     transform: translate3d(0, -50px, 0);
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: none;
     transform: none;
   }
 }
@@ -493,7 +489,7 @@ $trans: all 0.4s ease-in-out;
   }
 
   100% {
-    transform: translatex(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -503,7 +499,7 @@ $trans: all 0.4s ease-in-out;
   }
 
   100% {
-    transform: translatex(0);
+    transform: translateX(0);
   }
 }
 
@@ -512,19 +508,19 @@ $trans: all 0.4s ease-in-out;
   overflow: hidden;
 }
 
-.image-anime:after {
+.image-anime::after {
   content: "";
   position: absolute;
   width: 200%;
   height: 0%;
   left: 50%;
   top: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgb(255 255 255 / 0.3);
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 1;
 }
 
-.image-anime:hover:after {
+.image-anime:hover::after {
   height: 250%;
   transition: all 600ms linear;
   background-color: transparent;
@@ -534,6 +530,7 @@ $trans: all 0.4s ease-in-out;
   position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
+
   // visibility:hidden;
   overflow: hidden;
 }
@@ -542,9 +539,7 @@ $trans: all 0.4s ease-in-out;
   height: 100%;
   width: 100%;
   display: inline-block;
-  -o-object-fit: cover;
   object-fit: cover;
-  -webkit-transform-origin: left;
   transform-origin: left;
 }
 

@@ -3,7 +3,7 @@
 @use "./typography" as *;
 
 :root {
-  //Colors Declearations
+  // Colors Declearations
   @each $color, $shades in $colors {
     @each $shade, $value in $shades {
       --ztc-#{$color}-#{$shade}: #{$value};
@@ -15,6 +15,7 @@
       --ztc-#{$font-size}-#{$shade}: #{$value};
     }
   }
+
   @each $weight, $shades in $fonts-size {
     @each $shade, $value in $shades {
       --ztc-#{$weight}-#{$shade}: #{$value};
@@ -33,7 +34,7 @@
     }
   }
 
-  //Fonts Family
+  // Fonts Family
   @each $family, $shades in $fontsfamily {
     @each $shade, $value in $shades {
       --ztc-#{$family}-#{$shade}: #{$value};

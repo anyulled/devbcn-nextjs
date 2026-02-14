@@ -4,7 +4,7 @@
 .hero3-section-area {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/img/bg/header-bg4.png);
+  background-image: url("/assets/img/bg/header-bg4.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,9 +56,9 @@
       }
 
       a {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 0.2);
         border-width: 1px;
-        border: rgba(255, 255, 255, 0.2);
+        border: rgb(255 255 255 / 0.2);
         backdrop-filter: blur(5px);
         display: flex;
         align-items: center;
@@ -85,10 +85,6 @@
           text-transform: uppercase;
           left: 50%;
           top: 50%;
-          -webkit-transform: translate(-50%, -50%);
-          -moz-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
           color: var(--tg-color-white-default);
 
@@ -117,7 +113,7 @@
       height: 230px;
       position: absolute;
       right: -400px;
-      bottom: 0px;
+      bottom: 0;
 
       @media #{$xs} {
         position: relative;
@@ -172,7 +168,7 @@
         line-height: 18px;
         display: inline-block;
         padding: 18px;
-        background-image: url(/assets/img/elements/elements20.png);
+        background-image: url("/assets/img/elements/elements20.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -226,7 +222,7 @@
       .conferences {
         border-radius: 3px;
         border: 2px solid #fff;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgb(255 255 255 / 0.15);
         display: inline-block;
         padding: 8px;
       }

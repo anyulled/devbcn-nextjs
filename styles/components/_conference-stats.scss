@@ -1,6 +1,6 @@
 @use "../utils" as *;
 
-/*============= CONFERENCE STATS SECTION ===============*/
+/* ============= CONFERENCE STATS SECTION =============== */
 .conference-stats {
   position: relative;
   padding: 80px 0;
@@ -19,6 +19,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+
       // opacity: 0.15; // Removed subtle effect to show full image
     }
   }
@@ -52,8 +53,7 @@
       margin-bottom: 24px;
 
       // Use gradient text if supported in the theme
-      background: linear-gradient(135deg, var(--ztc-text-text-1) 0%, rgba(255, 255, 255, 0.7) 100%);
-      -webkit-background-clip: text;
+      background: linear-gradient(135deg, var(--ztc-text-text-1) 0%, rgb(255 255 255 / 0.7) 100%);
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
@@ -62,7 +62,7 @@
       font-family: var(--grotesk);
       font-size: clamp(1rem, 2vw, 1.25rem);
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8); // Adjust based on theme (assuming dark background context from header-bg20.png)
+      color: rgb(255 255 255 / 0.8); // Adjust based on theme (assuming dark background context from header-bg20.png)
       font-weight: 300;
     }
   }
@@ -87,9 +87,9 @@
   }
 
   &__card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(255 255 255 / 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(255 255 255 / 0.1);
     border-radius: 16px;
     padding: 30px 20px;
     display: flex;
@@ -101,9 +101,9 @@
 
     &:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background: rgb(255 255 255 / 0.1);
+      border-color: rgb(255 255 255 / 0.3);
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
     }
 
     h3 {
@@ -112,8 +112,8 @@
       font-weight: 800;
       line-height: 1;
       margin-bottom: 8px;
-      color: #ffffff; // Updated to pure white for better visibility
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); // Added shadow for contrast
+      color: #fff; // Updated to pure white for better visibility
+      text-shadow: 0 2px 4px rgb(0 0 0 / 0.3); // Added shadow for contrast
 
       span {
         font-size: 0.6em; // Make the '+' symbol slightly smaller
@@ -128,7 +128,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgb(255 255 255 / 0.6);
       margin: 0;
     }
   }
@@ -137,12 +137,13 @@
   &__countdown {
     width: 100%;
     max-width: 800px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgb(255 255 255 / 0.1);
     padding-top: 40px;
     margin-top: 20px;
 
     .row {
       justify-content: center;
+
       --bs-gutter-x: 1.5rem;
 
       @media #{$xs} {
@@ -171,6 +172,7 @@
     .cta-counter-box {
       text-align: center;
       position: relative;
+
       // padding: 0 !important; // remove padding if needed
       // width: auto !important; // remove fixed width if needed
 
@@ -201,7 +203,7 @@
 
           @media #{$xs} {
             font-size: 0.5rem !important; // Smaller label on mobile
-            letter-spacing: 0px !important;
+            letter-spacing: 0 !important;
             margin-top: 2px !important;
           }
         }

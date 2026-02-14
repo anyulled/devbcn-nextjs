@@ -1,6 +1,6 @@
 @use "../../utils/" as *;
 
-/*============= EVENT CSS AREA ===============*/
+/* ============= EVENT CSS AREA =============== */
 .event1-section-area {
   position: relative;
   z-index: 1;
@@ -12,7 +12,7 @@
     .nav-item {
       button {
         border-radius: 8px;
-        border: 1px solid rgba(26, 23, 25, 0.05);
+        border: 1px solid rgb(26 23 25 / 0.05);
         background: #fff;
         padding: 0;
         margin: 0 30px 0 0;
@@ -22,7 +22,7 @@
         }
 
         @media #{$xs} {
-          margin: 30px 0 0 0;
+          margin: 30px 0 0;
           width: 100%;
         }
 
@@ -53,8 +53,8 @@
           line-height: 18px;
           display: block;
           text-align: center;
-          border-radius: 8px 8px 0px 0px;
-          background: rgba(26, 23, 25, 0.05);
+          border-radius: 8px 8px 0 0;
+          background: rgb(26 23 25 / 0.05);
           padding: 8px 0;
         }
 
@@ -78,6 +78,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-bold);
           line-height: 26px;
+
           /* 118.182% */
           display: inline-block;
         }
@@ -167,7 +168,7 @@
 .event2-section-area {
   position: relative;
   z-index: 2;
-  background-image: url(/assets/img/bg/header-bg3.png);
+  background-image: url("/assets/img/bg/header-bg3.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -179,7 +180,7 @@
       li {
         button {
           border-radius: 8px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           padding: 8px;
           width: 180px;
           display: flex;
@@ -189,7 +190,7 @@
           margin: 0 16px 0 0;
 
           @media #{$xs} {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
           }
 
           &.active {
@@ -216,7 +217,7 @@
 
           span.calender {
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgb(255 255 255 / 0.2);
             height: 43px;
             width: 55px;
             text-align: center;
@@ -244,6 +245,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -257,6 +259,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 14px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -271,8 +274,7 @@
     .tab-pane {
       .event-widget-area {
         .event2-boxarea {
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           backdrop-filter: blur(5px);
           border-radius: 8px;
           padding: 28px;
@@ -287,7 +289,7 @@
             left: -60px;
             top: 195px;
             transition: all 0.4s;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgb(255 255 255 / 0.1);
           }
 
           h1 {
@@ -296,14 +298,13 @@
             font-size: var(--ztc-font-size-font-s24);
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
-            line-height: 24px;
             display: inline-block;
             transition: all 0.4s;
             height: 56px;
             width: 56px;
             text-align: center;
             line-height: 56px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgb(255 255 255 / 0.1);
             border-radius: 50%;
             position: absolute;
             left: -88px;
@@ -353,6 +354,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-bold);
                   line-height: 16px;
+
                   /* 100% */
                   display: inline-block;
                   transition: all 0.4s;
@@ -501,7 +503,7 @@
           margin: 0 16px 0 0;
 
           @media #{$xs} {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
           }
 
           &.active {
@@ -561,6 +563,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -574,6 +577,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 14px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -615,7 +619,6 @@
             font-size: var(--ztc-font-size-font-s24);
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
-            line-height: 24px;
             display: inline-block;
             transition: all 0.4s;
             height: 56px;
@@ -675,6 +678,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-bold);
                   line-height: 16px;
+
                   /* 100% */
                   display: inline-block;
                   transition: all 0.4s;
@@ -842,7 +846,6 @@
 
     .content-area {
       position: absolute;
-      top: 0;
       z-index: 2;
       padding: 48px 90px 48px 48px;
       top: 50%;
@@ -861,7 +864,7 @@
     .nav-item {
       button {
         border-radius: 8px;
-        border: 1px solid rgba(0, 36, 102, 0.1);
+        border: 1px solid rgb(0 36 102 / 0.1);
         background: #fff;
         padding: 0;
         margin-bottom: 30px;
@@ -871,7 +874,7 @@
         }
 
         @media #{$xs} {
-          margin: 30px 0 0 0;
+          margin: 30px 0 0;
           width: 100%;
         }
 
@@ -910,8 +913,8 @@
           line-height: 18px;
           display: block;
           text-align: center;
-          border-radius: 8px 8px 0px 0px;
-          background: rgba(0, 36, 102, 0.1);
+          border-radius: 8px 8px 0 0;
+          background: rgb(0 36 102 / 0.1);
           padding: 8px 0;
         }
 
@@ -935,6 +938,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-bold);
           line-height: 26px;
+
           /* 118.182% */
           display: inline-block;
         }
@@ -946,10 +950,9 @@
     .tab-pane {
       .accordion-item {
         margin-bottom: 24px;
-        border-radius: 8px;
         padding: 28px 24px;
         border-radius: 8px;
-        border: 1px solid rgba(46, 77, 253, 0.08);
+        border: 1px solid rgb(46 77 253 / 0.08);
         background: #fff;
 
         button {
@@ -1013,6 +1016,7 @@
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
             line-height: 24px;
+
             /* 100% */
             display: block;
             padding-bottom: 0;
@@ -1056,6 +1060,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-bold);
       line-height: 36px;
+
       /* 100% */
     }
 
@@ -1075,6 +1080,7 @@
       font-style: normal;
       font-weight: var(--ztc-weight-bold);
       line-height: 36px;
+
       /* 100% */
     }
 
@@ -1091,6 +1097,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-bold);
           line-height: 24px;
+
           /* 100% */
           display: inline-block;
           transition: all 0.4s;
@@ -1108,8 +1115,6 @@
       }
 
       .team-widget-area {
-        position: relative;
-        z-index: 1;
         overflow: hidden;
         position: relative;
         z-index: 1;
@@ -1245,7 +1250,7 @@
                 transition: all 0.4s;
                 display: inline-block;
                 background: var(--ztc-text-text-1);
-                box-shadow: (0px 4px 40px rgba(0, 0, 0, 0.09));
+                box-shadow: (0 4px 40px rgb(0 0 0 / 0.09));
                 color: var(--ztc-text-text-8);
                 margin: 0 10px 0 0;
 
@@ -1327,6 +1332,7 @@
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
             line-height: 16px;
+
             /* 100% */
             display: inline-block;
             transition: all 0.4s;
@@ -1461,7 +1467,7 @@
           margin: 0 16px 0 0;
 
           @media #{$xs} {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
           }
 
           &.active {
@@ -1521,6 +1527,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -1534,6 +1541,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 14px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -1575,7 +1583,6 @@
             font-size: var(--ztc-font-size-font-s24);
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
-            line-height: 24px;
             display: inline-block;
             transition: all 0.4s;
             height: 56px;
@@ -1635,6 +1642,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-bold);
                   line-height: 16px;
+
                   /* 100% */
                   display: inline-block;
                   transition: all 0.4s;
@@ -1774,7 +1782,7 @@
 
   th,
   td {
-    border: 1px solid rgba(26, 23, 25, 0.1);
+    border: 1px solid rgb(26 23 25 / 0.1);
     background: #fff;
     padding: 38px;
     text-align: center;
@@ -1818,7 +1826,7 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     table,
     thead,
     tbody,
@@ -1885,7 +1893,6 @@
         font-size: var(--ztc-font-size-font-s24);
         font-style: normal;
         font-weight: var(--ztc-weight-bold);
-        line-height: 24px;
         display: inline-block;
         transition: all 0.4s;
         height: 56px;
@@ -1945,6 +1952,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -2040,7 +2048,7 @@
                 line-height: 18px;
                 display: inline-block;
                 transition: all 0.4s;
-                opacity: 80%;
+                opacity: 0.8;
               }
             }
           }
@@ -2350,7 +2358,7 @@
     .nav-item {
       button {
         border-radius: 8px;
-        border: 1px solid rgba(26, 23, 25, 0.05);
+        border: 1px solid rgb(26 23 25 / 0.05);
         background: #fff;
         padding: 0;
         margin: 0 30px 0 0;
@@ -2360,7 +2368,7 @@
         }
 
         @media #{$xs} {
-          margin: 30px 0 0 0;
+          margin: 30px 0 0;
           width: 100%;
         }
 
@@ -2402,8 +2410,8 @@
           line-height: 18px;
           display: block;
           text-align: center;
-          border-radius: 8px 8px 0px 0px;
-          background: rgba(26, 23, 25, 0.05);
+          border-radius: 8px 8px 0 0;
+          background: rgb(26 23 25 / 0.05);
           padding: 8px 0;
         }
 
@@ -2427,6 +2435,7 @@
           font-style: normal;
           font-weight: var(--ztc-weight-bold);
           line-height: 26px;
+
           /* 118.182% */
           display: inline-block;
         }
@@ -2475,7 +2484,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-medium);
                   line-height: 16px;
-                  opacity: 80%;
+                  opacity: 0.8;
                   display: inline-block;
 
                   span {
@@ -2507,7 +2516,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 28px;
-              opacity: 80%;
+              opacity: 0.8;
             }
 
             .vl-btn7 {
@@ -2596,7 +2605,7 @@
       li {
         button {
           border-radius: 8px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(255 255 255 / 0.1);
           padding: 8px;
           width: 180px;
           display: flex;
@@ -2606,7 +2615,7 @@
           margin: 0 16px 0 0;
 
           @media #{$xs} {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
           }
 
           &.active {
@@ -2637,7 +2646,7 @@
 
           span.calender {
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgb(255 255 255 / 0.2);
             height: 43px;
             width: 55px;
             text-align: center;
@@ -2665,6 +2674,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -2678,6 +2688,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 14px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -2692,11 +2703,10 @@
     .tab-pane {
       .event-widget-area {
         .event2-boxarea {
-          border-radius: 8px;
           background: var(--ztc-bg-bg-1);
           backdrop-filter: blur(5px);
           border-radius: 8px;
-          padding: 32px 32px 68px 32px;
+          padding: 32px 32px 68px;
           position: relative;
           z-index: 1;
 
@@ -2729,7 +2739,7 @@
               padding: 8px 12px;
               border-radius: 6px;
               display: inline-block;
-              background: rgba(255, 54, 57, 0.1);
+              background: rgb(255 54 57 / 0.1);
             }
 
             .head {
@@ -2780,7 +2790,7 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 24px;
-            border-top: 1px solid rgba(56, 16, 112, 0.1);
+            border-top: 1px solid rgb(56 16 112 / 0.1);
 
             @media #{$xs} {
               display: inline-block;
@@ -2797,6 +2807,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-bold);
                   line-height: 16px;
+
                   /* 100% */
                   display: inline-block;
                   transition: all 0.4s;
@@ -2831,6 +2842,7 @@
                 font-style: normal;
                 font-weight: var(--ztc-weight-bold);
                 line-height: 18px;
+
                 /* 100% */
                 margin: 0 10px 0 0;
               }
@@ -2865,7 +2877,7 @@
           margin: 0 16px 0 0;
 
           @media #{$xs} {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
           }
 
           &.active {
@@ -2925,6 +2937,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-bold);
               line-height: 16px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -2938,6 +2951,7 @@
               font-style: normal;
               font-weight: var(--ztc-weight-medium);
               line-height: 14px;
+
               /* 100% */
               display: inline-block;
               transition: all 0.4s;
@@ -2979,7 +2993,6 @@
             font-size: var(--ztc-font-size-font-s24);
             font-style: normal;
             font-weight: var(--ztc-weight-bold);
-            line-height: 24px;
             display: inline-block;
             transition: all 0.4s;
             height: 56px;
@@ -3039,6 +3052,7 @@
                   font-style: normal;
                   font-weight: var(--ztc-weight-bold);
                   line-height: 16px;
+
                   /* 100% */
                   display: inline-block;
                   transition: all 0.4s;
@@ -3237,4 +3251,4 @@
   }
 }
 
-/*============= EVENT CSS AREA ===============*/
+/* ============= EVENT CSS AREA =============== */

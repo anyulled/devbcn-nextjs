@@ -10,7 +10,7 @@
       transition:
         transform 1400ms ease,
         opacity 1400ms ease;
-      transform: translateX(0px);
+      transform: translateX(0);
       opacity: 1;
     }
 
@@ -18,7 +18,7 @@
       transition:
         transform 1600ms ease,
         opacity 1600ms ease;
-      transform: translateX(-0px);
+      transform: translateX(-0);
       opacity: 1;
     }
 
@@ -26,7 +26,7 @@
       transition:
         transform 1700ms ease,
         opacity 1700ms ease;
-      transform: translateX(0px);
+      transform: translateX(0);
       opacity: 0.9 !important;
     }
 
@@ -34,7 +34,7 @@
       transition:
         transform 1800ms ease,
         opacity 1800ms ease;
-      transform: translateX(0px);
+      transform: translateX(0);
       opacity: 1;
     }
 
@@ -50,7 +50,7 @@
       transition:
         transform 1600ms ease,
         opacity 1600ms ease;
-      transform: translateX(-0px);
+      transform: translateX(-0);
       opacity: 1;
     }
 
@@ -58,7 +58,7 @@
       transition:
         transform 1600ms ease,
         opacity 1600ms ease;
-      transform: translateY(0px);
+      transform: translateY(0);
       opacity: 1;
     }
 
@@ -66,7 +66,7 @@
       transition:
         transform 1600ms ease,
         opacity 1600ms ease;
-      transform: translateY(0px);
+      transform: translateY(0);
       opacity: 1;
     }
   }
@@ -76,7 +76,7 @@
     z-index: 1;
     padding: 250px 0 110px;
     overflow: hidden;
-    background-image: url(/assets/img/bg/header-bg3.png);
+    background-image: url("/assets/img/bg/header-bg3.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -200,8 +200,8 @@
 
         .conferences {
           border-radius: 4px;
-          border: 1px solid rgba(192, 240, 55, 0.9);
-          background: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgb(192 240 55 / 0.9);
+          background: rgb(255 255 255 / 0.15);
           display: inline-block;
           padding: 8px;
         }
@@ -223,7 +223,7 @@
           display: inline-block;
           text-align: center;
           border-radius: 4px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 1px solid rgb(255 255 255 / 0.15);
           width: 150px;
           color: white;
           padding: 16px 30px;
@@ -249,7 +249,7 @@
           }
 
           p {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgb(255 255 255 / 0.9);
             text-align: center;
             font-family: var(--grotesk);
             font-size: var(--ztc-font-size-font-s16);
@@ -262,7 +262,7 @@
         }
 
         .time-box .time-value span {
-          color: rgba(255, 255, 255, 0.9);
+          color: rgb(255 255 255 / 0.9);
           text-align: center;
           font-family: var(--grotesk);
           font-size: var(--ztc-font-size-font-s16);

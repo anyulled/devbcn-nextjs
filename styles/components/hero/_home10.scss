@@ -94,9 +94,9 @@
     }
 
     .arrow-btn {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgb(255 255 255 / 0.2);
       border-width: 0.784px;
-      border: rgba(255, 255, 255, 0.2);
+      border: rgb(255 255 255 / 0.2);
       backdrop-filter: blur(3.9210524559020996px);
       display: flex;
       align-items: center;
@@ -125,10 +125,6 @@
         text-transform: uppercase;
         left: 50%;
         top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         color: var(--tg-color-white-default);
 
@@ -189,7 +185,6 @@
       border-radius: 50%;
       max-width: 500px;
       max-height: 450px;
-      -o-object-fit: contain;
       object-fit: contain;
       left: -50px;
 
