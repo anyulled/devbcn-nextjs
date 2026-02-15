@@ -6,11 +6,10 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Sponsor } from "@/config/editions/types";
-import { slugify } from "@/lib/utils/slugify";
+import { slugify } from "@/lib/shared/slugify";
 import Link from "next/link";
 import Image from "next/image";
 
-// Define locally to avoid modifying global types if not needed elsewhere yet
 interface SponsorWithYear extends Sponsor {
   year: string;
 }
@@ -25,13 +24,11 @@ const swiperOptions = {
   },
   loop: true,
 
-  // Navigation
   navigation: {
     nextEl: ".h1n",
     prevEl: ".h1p",
   },
 
-  // Pagination
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -65,7 +62,6 @@ const swiperOptions = {
   },
 };
 
-// Aggregate sponsors from previous editions (module-level memoization)
 const getUniqueSponsors = (): SponsorWithYear[] => {
   const editions = [edition2023, edition2024, edition2025];
   const uniqueSponsorsMap = new Map<string, SponsorWithYear>();
@@ -76,8 +72,6 @@ const getUniqueSponsors = (): SponsorWithYear[] => {
     const allRelevant = [...top, ...premium];
 
     allRelevant.forEach((sponsor) => {
-      // Use name as the key for deduplication.
-      // We overwrite existing entries so that the LATEST year (from the last edition in the array) is used.
       if (sponsor.name) {
         uniqueSponsorsMap.set(sponsor.name, { ...sponsor, year: edition.edition });
       }

@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Section3() {
-  const [isTab, setIsTab] = useState(1);
-  const handleTab = (i: number) => {
-    setIsTab(i);
-  };
   return (
     <>
       <div

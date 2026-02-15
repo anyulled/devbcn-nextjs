@@ -6,10 +6,9 @@ import MobileMenu from "./MobileMenu";
 
 interface DynamicHeaderWrapperProps {
   navigation: EditionNavigation;
-  scroll?: boolean; // Optional if we want to pass initial scroll state, though Header/ClientLayout handles it
 }
 
-export default function DynamicHeaderWrapper({ navigation }: DynamicHeaderWrapperProps) {
+export default function DynamicHeaderWrapper({ navigation }: Readonly<DynamicHeaderWrapperProps>) {
   const [isMobileMenu, setIsMobileMenu] = useState<boolean>(false);
   const handleMobileMenu = (): void => setIsMobileMenu(!isMobileMenu);
   const [isSearch, setIsSearch] = useState<boolean>(false);
@@ -31,14 +30,7 @@ export default function DynamicHeaderWrapper({ navigation }: DynamicHeaderWrappe
 
   return (
     <>
-      <Header8
-        scroll={scroll}
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-        isSearch={isSearch}
-        handleSearch={handleSearch}
-        navigation={navigation}
-      />
+      <Header8 scroll={scroll} isSearch={isSearch} handleSearch={handleSearch} navigation={navigation} />
       <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} navigation={navigation} />
     </>
   );

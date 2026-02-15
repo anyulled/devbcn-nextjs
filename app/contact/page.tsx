@@ -8,8 +8,8 @@ export default function Contact() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeader title="Contact Us" breadcrumbText="Contact Us" backgroundImageId={12} contentColClass="col-lg-6" />
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== CONTACT AREA STARTS =======*/}
+          {/* ===== HERO AREA ENDS =======*/}
+          {/* ===== CONTACT AREA STARTS =======*/}
           <div className="contact-inner-section sp1">
             <div className="container">
               <div className="row">
@@ -62,8 +62,8 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          {/*===== CONTACT AREA ENDS =======*/}
-          {/*===== CONTACT AREA STARTS =======*/}
+          {/* ===== CONTACT AREA ENDS =======*/}
+          {/* ===== CONTACT AREA STARTS =======*/}
           <div className="contact2-bg-section">
             <div className="img1">
               <img src="/assets/img/all-images/contact/contact-img1.png" alt="" className="contact-img1" />
@@ -140,8 +140,8 @@ export default function Contact() {
           </div>
           <div className="space100 d-lg-block d-none" />
           <div className="space50 d-lg-none d-block" />
-          {/*===== CONTACT AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CONTACT AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-block d-block">
             <div className="container">
               <div className="row">
@@ -174,8 +174,8 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CTA AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-none d-block">
             <div className="container">
               <div className="row">

@@ -2,18 +2,29 @@
  * @jest-environment jsdom
  */
 
+import type { ReactNode } from "react";
+import "@testing-library/jest-dom";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 import { render, screen } from "@testing-library/react";
 
-// Mock Swiper
+interface SwiperProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface SwiperSlideProps {
+  children: ReactNode;
+  className?: string;
+}
+
 jest.mock("swiper/react", () => ({
-  Swiper: ({ children, className }: any) => (
-    <div className={`swiper ${className || ""}`} data-testid="swiper">
+  Swiper: ({ children, className }: SwiperProps) => (
+    <div className={`swiper ${className ?? ""}`} data-testid="swiper">
       {children}
     </div>
   ),
-  SwiperSlide: ({ children, className }: any) => (
-    <div className={`swiper-slide ${className || ""}`} data-testid="swiper-slide">
+  SwiperSlide: ({ children, className }: SwiperSlideProps) => (
+    <div className={`swiper-slide ${className ?? ""}`} data-testid="swiper-slide">
       {children}
     </div>
   ),
@@ -24,15 +35,14 @@ jest.mock("swiper/modules", () => ({
   EffectFade: jest.fn(),
 }));
 
-// Mock matchMedia
 Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
+  value: jest.fn().mockImplementation((query: string) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(), // deprecated
-    removeListener: jest.fn(), // deprecated
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
@@ -59,8 +69,7 @@ describe("BackgroundCarousel", () => {
 
     expect(screen.getByTestId("swiper")).toBeInTheDocument();
     const slides = screen.getAllByTestId("swiper-slide");
-    // We expect 8 images in the IMAGES array
-    expect(slides.length).toBe(8);
+    expect(slides.length).toBe(15);
   });
 
   it("renders gradient and vignette overlays", () => {

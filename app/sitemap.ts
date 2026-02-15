@@ -2,7 +2,7 @@ import { getJobOffersByYear } from "@/config/data/job-offers";
 import { getAvailableEditions } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { getTalks } from "@/hooks/useTalks";
-import { slugify } from "@/lib/utils/slugify";
+import { slugify } from "@/lib/shared/slugify";
 import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -11,7 +11,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const urls: MetadataRoute.Sitemap = [];
 
-  // Root page
   urls.push({
     url: baseUrl,
     lastModified: new Date(),
@@ -19,7 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 1,
   });
 
-  // Static pages
   const staticPages = ["about-us", "code-of-conduct"];
   for (const page of staticPages) {
     urls.push({
@@ -30,9 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Year-specific pages
   for (const year of years) {
-    // Year homepage
     urls.push({
       url: `${baseUrl}/${year}`,
       lastModified: new Date(),
@@ -40,7 +36,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     });
 
-    // Year sub-pages
     const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
     for (const page of yearPages) {
       urls.push({
@@ -51,7 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    // Speakers
     const speakers = await getSpeakers(year);
     for (const speaker of speakers) {
       urls.push({
@@ -62,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    // Talks
     const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
@@ -75,7 +68,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
 
-    // Job offers
     const companies = getJobOffersByYear(year);
     for (const company of companies) {
       urls.push({

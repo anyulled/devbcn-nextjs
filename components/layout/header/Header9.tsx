@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-export default function Header9({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: any) {
+interface Header9Props {
+  scroll: boolean;
+  isSearch: boolean;
+  handleSearch: () => void;
+}
+
+export default function Header9({ scroll, isSearch, handleSearch }: Readonly<Header9Props>) {
   return (
     <header>
       <div className={`header-area homepage9 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">

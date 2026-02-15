@@ -35,6 +35,7 @@ describe("Hooks", () => {
       });
 
       await getSpeakers(2023);
+      // Ttsitynd - 2023 endpoint
       expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
         next: { revalidate: 3600 },
       });
@@ -215,7 +216,8 @@ describe("Hooks", () => {
       });
 
       const relatedTalks = await getRandomRelatedTalksByTrack(2025, "Frontend", "101", 3);
-      expect(relatedTalks).toHaveLength(1); // Only talk 102 matches
+      // Only talk 102 matches
+      expect(relatedTalks).toHaveLength(1);
       expect(relatedTalks[0].id).toBe("102");
     });
 

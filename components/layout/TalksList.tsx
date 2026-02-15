@@ -2,7 +2,7 @@
 
 import { Talk } from "@/hooks/types";
 import { groupTalksByTrack } from "@/hooks/useTalks";
-import { filterTalks } from "@/lib/utils/talk-filters";
+import { filterTalks } from "@/lib/shared/talk-filters";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import SearchFilter from "./SearchFilter";
@@ -20,10 +20,8 @@ function TalksListContent({ talks, tracks, year }: TalksListProps) {
   const selectedTrack = searchParams.get("track") || "";
   const searchQuery = searchParams.get("q") || "";
 
-  // Filter talks using the utility function
   const filteredTalks = filterTalks(talks, selectedTrack, searchQuery);
 
-  // Group by track
   const groupedTalks = groupTalksByTrack(filteredTalks);
 
   return (

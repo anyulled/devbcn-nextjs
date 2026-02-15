@@ -1,4 +1,4 @@
-import { Markdown } from "@/lib/utils/markdown";
+import { Markdown } from "@/lib/shared/markdown";
 import { render } from "@testing-library/react";
 
 describe("Markdown", () => {
@@ -137,6 +137,6 @@ This is a **description** with *italic* text and a [link](https://example.com).
 - Item 2`;
     const { container } = render(<Markdown content={content} />);
     const lists = container.querySelectorAll("ul");
-    expect(lists).toHaveLength(2); // Empty line creates two separate lists
+    expect(lists).toHaveLength(2);
   });
 });

@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speaker_id]/page";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
@@ -33,7 +34,7 @@ jest.mock("@/config/editions", () => ({
 }));
 
 // Mock JsonLd utils
-jest.mock("@/lib/utils/jsonld", () => ({
+jest.mock("@/lib/shared/jsonld", () => ({
   generatePersonSchema: jest.fn(() => ({})),
   generateItemListSchema: jest.fn(() => ({})),
   generateBreadcrumbSchema: jest.fn(() => ({})),
@@ -43,8 +44,7 @@ jest.mock("@/lib/utils/jsonld", () => ({
 // Mock next/image
 jest.mock("next/image", () => ({
   __esModule: true,
-  // eslint-disable-next-line jsx-a11y/alt-text
-  default: (props: any) => <img {...props} />,
+  default: (props: React.ComponentProps<"img">) => <img {...props} />,
 }));
 
 describe("Speaker Detail Page", () => {
@@ -79,8 +79,8 @@ describe("Speaker Detail Page", () => {
     (getSpeakerByYearAndId as jest.Mock).mockResolvedValue(null);
     try {
       await SpeakerDetail({ params });
-    } catch (e) {
-      // ignore
+    } catch {
+      // Ignore
     }
     expect(notFound).toHaveBeenCalled();
   });

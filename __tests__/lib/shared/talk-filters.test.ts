@@ -1,5 +1,5 @@
 import { Talk } from "@/hooks/types";
-import { filterTalks } from "@/lib/utils/talk-filters";
+import { filterTalks } from "@/lib/shared/talk-filters";
 
 describe("filterTalks utility", () => {
   const mockTalks: Talk[] = [
@@ -108,7 +108,7 @@ describe("filterTalks utility", () => {
 
   it("should be case-insensitive", () => {
     const result = filterTalks(mockTalks, "", "java");
-    expect(result).toHaveLength(2); // "Advanced Java Techniques" and "Cloud Native Java"
+    expect(result).toHaveLength(2);
   });
 
   it("should filter by both track and search query", () => {

@@ -1,7 +1,8 @@
 import { HeaderProps } from "@/types";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: HeaderProps) {
+export default function Header2({ scroll, isSearch, handleSearch }: Readonly<HeaderProps>) {
   return (
     <header>
       <div className={`header-area homepage2 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
@@ -17,13 +18,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                   <ul>
                     <li>
                       <Link href="/mailto:eventifyconference@.com">
-                        <img src="/assets/img/icons/mail1.svg" alt="" />
+                        <Image src="/assets/img/icons/mail1.svg" alt="" width={16} height={16} />
                         eventifyconference@.com <span> | </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/tel:(234)345-4574">
-                        <img src="/assets/img/icons/phn1.svg" alt="" />
+                        <Image src="/assets/img/icons/phn1.svg" alt="" width={16} height={16} />
                         (234) 345-4574
                       </Link>
                     </li>
@@ -33,7 +34,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <img src="/assets/img/logo/logo2.png" alt="" />
+                    <Image src="/assets/img/logo/logo2.png" alt="" width={150} height={40} style={{ width: "auto", height: "auto" }} />
                   </Link>
                 </div>
                 <div className="main-menu">
@@ -48,7 +49,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                             <div className="all-images-menu">
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img1.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img1.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/">
@@ -64,7 +71,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img2.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img2.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index2">
@@ -80,7 +93,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img3.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img3.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index3">
@@ -96,7 +115,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img4.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img4.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index4">
@@ -112,7 +137,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img5.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img5.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index5">
@@ -130,7 +161,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                             <div className="all-images-menu">
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img6.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img6.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index6">
@@ -146,7 +183,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img7.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img7.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index7">
@@ -162,7 +205,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img8.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img8.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index8">
@@ -178,7 +227,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img9.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img9.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index9">
@@ -194,7 +249,13 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                               </div>
                               <div className="homemenu-thumb" style={{ margin: 0 }}>
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/demo/demo-img10.png" alt="" />
+                                  <Image
+                                    src="/assets/img/all-images/demo/demo-img10.png"
+                                    alt=""
+                                    width={300}
+                                    height={300}
+                                    style={{ width: "100%", height: "auto" }}
+                                  />
                                 </div>
                                 <div className="homemenu-btn">
                                   <Link className="vl-btn2" href="/index10">
@@ -282,7 +343,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                 <div className="btn-area">
                   <div className="search-icon header__search header-search-btn" onClick={handleSearch}>
                     <a>
-                      <img src="/assets/img/icons/search1.svg" alt="" />
+                      <Image src="/assets/img/icons/search1.svg" alt="" width={20} height={20} />
                     </a>
                   </div>
                   <ul>
@@ -316,7 +377,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSear
                     <form role="search" className="search-form">
                       <input type="search" className="search-field" placeholder="Search …" name="s" />
                       <button type="submit" className="search-submit">
-                        <img src="/assets/img/icons/search1.svg" alt="" />
+                        <Image src="/assets/img/icons/search1.svg" alt="" width={20} height={20} />
                       </button>
                     </form>
                   </div>

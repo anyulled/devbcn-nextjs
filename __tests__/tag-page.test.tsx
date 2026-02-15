@@ -1,22 +1,30 @@
+import "@testing-library/jest-dom";
 import TagPage, { generateMetadata, generateStaticParams } from "@/app/[year]/tags/[tag]/page";
 import { getTagsFromTalk, getTalks } from "@/hooks/useTalks";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
 
 // Mock the hooks and next/navigation
-jest.mock("@/hooks/useTalks", () => ({
-  ...jest.requireActual("@/hooks/useTalks"),
-  getTalks: jest.fn(),
-  getTagsFromTalk: jest.fn(),
-}));
+jest.mock("@/hooks/useTalks", () => {
+  const actual = jest.requireActual("@/hooks/useTalks") as Record<string, unknown>;
+  return {
+    ...actual,
+    getTalks: jest.fn(),
+    getTagsFromTalk: jest.fn(),
+  };
+});
 
 jest.mock("next/navigation", () => ({
   notFound: jest.fn(),
 }));
 
+interface TalkCardProps {
+  talk: { id: string; title: string };
+}
+
 jest.mock("@/components/layout/TalkCard", () => ({
   __esModule: true,
-  default: ({ talk }: { talk: any }) => <div data-testid="talk-card">{talk.title}</div>,
+  default: ({ talk }: TalkCardProps) => <div data-testid="talk-card">{talk.title}</div>,
 }));
 
 jest.mock("@/components/sections/CTASection", () => ({
@@ -55,13 +63,13 @@ describe("TagPage", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getTalks as jest.Mock).mockResolvedValue([
+    (getTalks as jest.Mock<Promise<Array<{ sessions: typeof mockTalks }>>>).mockResolvedValue([
       {
         sessions: mockTalks,
       },
     ]);
-    (getTagsFromTalk as jest.Mock).mockImplementation((talk) => {
-      const tags = talk.questionAnswers.find((qa: any) => qa.question === "Tags/Topics")?.answer || "";
+    (getTagsFromTalk as jest.Mock).mockImplementation((talk: { questionAnswers: Array<{ question: string; answer: string }> }) => {
+      const tags = talk.questionAnswers.find((qa) => qa.question === "Tags/Topics")?.answer || "";
       return tags.split(",").map((t: string) => t.trim());
     });
   });
@@ -82,8 +90,8 @@ describe("TagPage", () => {
       const params = Promise.resolve({ year: "2025", tag: "NonExistent" });
       try {
         await TagPage({ params });
-      } catch (e) {
-        // ignore
+      } catch {
+        // Ignore
       }
       expect(notFound).toHaveBeenCalled();
     });
@@ -128,7 +136,7 @@ describe("TagPage", () => {
     });
 
     it("handles errors when fetching talks gracefully", async () => {
-      (getTalks as jest.Mock).mockRejectedValueOnce(new Error("API Error"));
+      (getTalks as jest.Mock<Promise<unknown>>).mockRejectedValueOnce(new Error("API Error"));
       const params = await generateStaticParams();
       expect(params).toEqual([]);
     });

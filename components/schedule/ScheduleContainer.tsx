@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
-import { DailySchedule } from "@/hooks/useSchedule";
+import { useState, useMemo } from "react";
+import { DailySchedule, GridSession } from "@/hooks/useSchedule";
 import ScheduleGrid from "./ScheduleGrid";
 import ScheduleMobile from "./ScheduleMobile";
 import { useScheduleContext } from "@/context/ScheduleContext";
@@ -12,7 +12,7 @@ interface ScheduleContainerProps {
   year: string;
 }
 
-export default function ScheduleContainer({ initialSchedule, year }: ScheduleContainerProps) {
+export default function ScheduleContainer({ initialSchedule, year }: Readonly<ScheduleContainerProps>) {
   const { savedSessionIds } = useScheduleContext();
   const [showSavedOnly, setShowSavedOnly] = useState(false);
   const filteredSchedule = useMemo(() => {
@@ -20,19 +20,20 @@ export default function ScheduleContainer({ initialSchedule, year }: ScheduleCon
       return initialSchedule;
     }
 
-    // Filter logic
+    const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedSessionIds.includes(s.id) || s.isServiceSession);
+
     return initialSchedule.map((day) => ({
       ...day,
       rooms: day.rooms
         .map((room) => ({
           ...room,
-          sessions: room.sessions.filter((s) => savedSessionIds.includes(s.id) || s.isServiceSession),
+          sessions: filterSessions(room.sessions),
         }))
         .filter((room) => room.sessions.length > 0),
       timeSlots: day.timeSlots
         .map((slot) => ({
           ...slot,
-          sessions: slot.sessions.filter((s) => savedSessionIds.includes(s.id) || s.isServiceSession),
+          sessions: filterSessions(slot.sessions),
         }))
         .filter((slot) => slot.sessions.length > 0),
     }));

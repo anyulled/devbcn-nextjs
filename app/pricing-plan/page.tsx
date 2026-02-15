@@ -8,8 +8,8 @@ export default function PricingPlan() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeader title="Pricing Plan" breadcrumbText="Pricing Plan" backgroundImageId={16} contentColClass="col-lg-9" />
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== PRICING AREA STARTS =======*/}
+          {/* ===== HERO AREA ENDS =======*/}
+          {/* ===== PRICING AREA STARTS =======*/}
           <div className="pricing-lan-section-area sp1">
             <div className="container">
               <div className="row">
@@ -139,8 +139,8 @@ export default function PricingPlan() {
               </div>
             </div>
           </div>
-          {/*===== PRICING AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== PRICING AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-block d-block">
             <div className="container">
               <div className="row">
@@ -173,8 +173,8 @@ export default function PricingPlan() {
               </div>
             </div>
           </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CTA AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-none d-block">
             <div className="container">
               <div className="row">

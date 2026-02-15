@@ -4,15 +4,14 @@ import CTASection from "@/components/sections/CTASection";
 import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
 import { Company } from "@/config/data/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
-import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/utils/jsonld";
-import { slugify } from "@/lib/utils/slugify";
+import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/shared/jsonld";
+import { slugify } from "@/lib/shared/slugify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
-// ISR: Revalidate every week to keep job offers data fresh
 export const revalidate = 604800;
 
 interface CompanyJobOffersPageProps {
@@ -48,7 +47,6 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
   }
 
   const jobCount = company.offers.length;
-  // ... rest of metadata logic can remain if unchanged or if I just replace the top part
 
   const positionsText = jobCount === 1 ? "1 position" : `${jobCount} positions`;
   const descriptionPreview = company.description.length > 120 ? `${company.description.substring(0, 120)}...` : company.description;
@@ -105,7 +103,6 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
     notFound();
   }
 
-  // Generate JSON-LD schemas
   const { jobPostingSchemas, breadcrumbSchema } = generateJsonLDSchema(company, year, companySlug);
 
   return (

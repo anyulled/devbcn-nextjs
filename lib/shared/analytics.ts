@@ -2,7 +2,6 @@
  * Analytics tracking utilities for Google Analytics and Vercel Analytics
  */
 
-// Declare gtag function for TypeScript
 declare global {
   interface Window {
     gtag?: (command: string, ...args: unknown[]) => void;
@@ -15,17 +14,14 @@ declare global {
  * @param eventParams - Additional parameters for the event
  */
 export function trackEvent(eventName: string, eventParams?: Record<string, unknown>) {
-  // Track to Google Analytics (gtag)
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", eventName, eventParams);
   }
 
-  // Track to Vercel Analytics
-  if (typeof window !== "undefined" && (window as any).va) {
-    (window as any).va("track", eventName, eventParams);
+  if (typeof window !== "undefined" && (window as unknown as { va: (event: string, name: string, params?: Record<string, unknown>) => void }).va) {
+    (window as unknown as { va: (event: string, name: string, params?: Record<string, unknown>) => void }).va("track", eventName, eventParams);
   }
 
-  // Log to console in development
   if (process.env.NODE_ENV === "development") {
     console.log("[Analytics]", eventName, eventParams);
   }

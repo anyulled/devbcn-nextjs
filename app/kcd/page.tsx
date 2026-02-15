@@ -13,7 +13,6 @@ export default function KCDPage() {
           <div className="row">
             <div className="col-lg-10 m-auto">
               <div className="blog-deatils-content heading2 text-center">
-                {/* KCD Logo */}
                 <div className="img1 mb-4">
                   <img
                     src="/assets/img/logo/KCD-logo-white.webp"
@@ -54,13 +53,12 @@ export default function KCDPage() {
 
                 <div className="space32" />
 
-                {/* Social Icons */}
                 <div className="tags-social-area justify-content-center">
                   <div className="social">
                     <ul>
                       <li>
                         <a href="https://twitter.com/kcdspain" target="_blank" rel="noreferrer">
-                          <i className="fa-brands fa-x-twitter" /> {/* Updated Twitter icon if available, or fa-twitter */}
+                          <i className="fa-brands fa-x-twitter" />
                         </a>
                       </li>
                       <li>

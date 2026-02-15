@@ -1,13 +1,12 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
-import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-// ISR: Revalidate every 6 hours to keep talk data fresh
 export const revalidate = 21600;
 
 interface TalksProps {
@@ -56,7 +55,6 @@ export default async function Talks({ params }: TalksProps) {
   const tracks = getUniqueTracks(sessionGroups);
   const eventData = getEditionConfig(year);
 
-  // Generate JSON-LD ItemList schema for talks
   const baseUrl = "https://www.devbcn.com";
   const talksListSchema =
     talks.length > 0

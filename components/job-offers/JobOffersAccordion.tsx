@@ -1,7 +1,7 @@
 "use client";
 
 import { JobOffer } from "@/config/data/job-offers/types";
-import { Markdown } from "@/lib/utils/markdown";
+import { Markdown } from "@/lib/shared/markdown";
 import { useState } from "react";
 
 interface JobOffersAccordionProps {

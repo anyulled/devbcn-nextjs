@@ -8,8 +8,8 @@ export default function Memories() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeader title="Recent Memories" breadcrumbText="Recent Memories" backgroundImageId={11} contentColClass="col-lg-6" />
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== MEMORY AREA STARTS =======*/}
+          {/* ===== HERO AREA ENDS =======*/}
+          {/* ===== MEMORY AREA STARTS =======*/}
           <div className="memory-inner-section-area sp1">
             <div className="container">
               <div className="row">
@@ -206,8 +206,8 @@ export default function Memories() {
               </div>
             </div>
           </div>
-          {/*===== MEMORY AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== MEMORY AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-block d-block">
             <div className="container">
               <div className="row">
@@ -240,8 +240,8 @@ export default function Memories() {
               </div>
             </div>
           </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CTA AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-none d-block">
             <div className="container">
               <div className="row">

@@ -16,7 +16,7 @@ import {
   generateOrganizationSchema,
   generatePersonSchema,
   serializeJsonLd,
-} from "@/lib/utils/jsonld";
+} from "@/lib/shared/jsonld";
 
 describe("JSON-LD Schema Generators", () => {
   describe("generateOrganizationSchema", () => {

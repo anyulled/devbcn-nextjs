@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import Talks, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/page";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import { render, screen } from "@testing-library/react";
@@ -25,9 +26,14 @@ jest.mock("@/components/layout/PageHeader", () => ({
   __esModule: true,
   default: ({ title }: { title: string }) => <div data-testid="page-header">{title}</div>,
 }));
+interface TalksListProps {
+  talks: Array<{ id: string; title: string }> | undefined;
+  tracks: string[] | undefined;
+}
+
 jest.mock("@/components/layout/TalksList", () => ({
   __esModule: true,
-  default: ({ talks, tracks }: any) => (
+  default: ({ talks, tracks }: TalksListProps) => (
     <div data-testid="talks-list">
       {talks?.length} talks, {tracks?.length} tracks
     </div>
@@ -40,7 +46,7 @@ jest.mock("@/components/sections/CTASection", () => ({
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn((year: string) => ({
+  getEditionConfig: jest.fn((_year: string) => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
     venue: "Test Venue",
     tickets: { url: "http://test.com" },
@@ -50,7 +56,7 @@ jest.mock("@/config/editions", () => ({
 }));
 
 // Mock JsonLd utils
-jest.mock("@/lib/utils/jsonld", () => ({
+jest.mock("@/lib/shared/jsonld", () => ({
   generateItemListSchema: jest.fn(() => ({})),
   serializeJsonLd: jest.fn(() => "{}"),
 }));
@@ -62,8 +68,8 @@ describe("Talks List Page", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getTalks as jest.Mock).mockResolvedValue([{ sessions: mockTalks }]);
-    (getUniqueTracks as jest.Mock).mockReturnValue(mockTracks);
+    (getTalks as jest.Mock<Promise<Array<{ sessions: typeof mockTalks }>>>).mockResolvedValue([{ sessions: mockTalks }]);
+    (getUniqueTracks as jest.Mock<string[]>).mockReturnValue(mockTracks);
   });
 
   it("renders talks list when talks are available", async () => {
@@ -75,7 +81,7 @@ describe("Talks List Page", () => {
   });
 
   it("renders coming soon message when no talks are available", async () => {
-    (getTalks as jest.Mock).mockResolvedValue([]);
+    (getTalks as jest.Mock<Promise<[]>>).mockResolvedValue([]);
     const result = await Talks({ params });
     render(result);
 

@@ -13,12 +13,11 @@ import {
   getTalkSpeakersWithDetails,
   getTrackFromTalk,
 } from "@/hooks/useTalks";
-import { generateBreadcrumbSchema, generateEducationEventSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
+import { generateBreadcrumbSchema, generateEducationEventSchema, generatePersonSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
-// ISR: Revalidate every 6 hours to keep talk data fresh
 export const revalidate = 21600;
 
 interface TalkDetailProps {
@@ -100,7 +99,6 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const level = getLevelFromTalk(talk);
   const relatedTalks = await getRandomRelatedTalksByTrack(year, track, talk.id, 3);
 
-  // Get speakers for related talks
   const relatedTalksSpeakers: Map<string, Speaker[]> = new Map();
   await Promise.all(
     relatedTalks.map(async (relatedTalk) => {
@@ -114,7 +112,6 @@ export default async function TalkDetail({ params }: TalkDetailProps) {
   const slidesUrl = getSlidesUrl(talk);
   const voteUrl = `https://openfeedback.io/${talk.id}`;
 
-  // Generate JSON-LD schemas
   const baseUrl = "https://www.devbcn.com";
   const educationEventSchema = generateEducationEventSchema(talk, year, eventData.venue);
   const speakerSchemas = speakers.map((speaker) => generatePersonSchema(speaker, year));

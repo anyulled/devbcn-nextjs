@@ -41,12 +41,10 @@ export function getRandomSpeakers(speakers: Speaker[], count: number): Speaker[]
   if (!speakers || speakers.length === 0) return [];
   if (speakers.length <= count) return speakers;
 
-  // Fisher-Yates shuffle algorithm
-  const shuffled = [...speakers];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
+  const shuffled = [...speakers]
+    .map((speaker) => ({ speaker, sortKey: Math.random() }))
+    .sort((a, b) => a.sortKey - b.sortKey)
+    .map((item) => item.speaker);
 
   return shuffled.slice(0, count);
 }

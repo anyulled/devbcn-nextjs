@@ -10,8 +10,8 @@ export default function About() {
     <Layout headerStyle={1} footerStyle={1}>
       <div>
         <PageHeader title="About Event" breadcrumbText="About Us" backgroundImageId={5} contentColClass="col-lg-4" />
-        {/*===== HERO AREA ENDS =======*/}
-        {/*===== ABOUT AREA STARTS =======*/}
+        {/* ===== HERO AREA ENDS =======*/}
+        {/* ===== ABOUT AREA STARTS =======*/}
         <div className="about1-section-area sp1">
           <div className="container">
             <div className="row align-items-center">
@@ -77,8 +77,8 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/*===== ABOUT AREA ENDS =======*/}
-        {/*===== OTHERS AREA STARTS =======*/}
+        {/* ===== ABOUT AREA ENDS =======*/}
+        {/* ===== OTHERS AREA STARTS =======*/}
         <div className="brands3-section-area sp2">
           <div className="container">
             <div className="row">
@@ -95,8 +95,8 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/*===== OTHERS AREA ENDS =======*/}
-        {/*===== OTHERS AREA STARTS =======*/}
+        {/* ===== OTHERS AREA ENDS =======*/}
+        {/* ===== OTHERS AREA STARTS =======*/}
         <div className="choose-section-area sp2">
           <div className="container">
             <div className="row">
@@ -214,8 +214,8 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/*===== OTHERS AREA ENDS =======*/}
-        {/*===== CTA AREA STARTS =======*/}
+        {/* ===== OTHERS AREA ENDS =======*/}
+        {/* ===== CTA AREA STARTS =======*/}
         <div className="cta1-section-area d-lg-block d-block">
           <div className="container">
             <div className="row">
@@ -248,7 +248,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/*===== CTA AREA ENDS =======*/}
+        {/* ===== CTA AREA ENDS =======*/}
       </div>
     </Layout>
   );

@@ -1,6 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageSidebar from "@/components/layout/PageSidebar";

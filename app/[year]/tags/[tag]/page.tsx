@@ -1,13 +1,12 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TalkCard from "@/components/layout/TalkCard";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getTagsFromTalk, getTalks } from "@/hooks/useTalks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// Revalidate every hour
 export const revalidate = 3600;
 
 interface TagPageProps {
@@ -32,7 +31,6 @@ export async function generateStaticParams() {
       }
 
       for (const tag of allTags) {
-        // Encode tag just in case, though Next.js handles this well usually
         params.push({ year, tag: encodeURIComponent(tag) });
       }
     } catch (error) {
@@ -63,7 +61,7 @@ export default async function TagPage({ params }: TagPageProps) {
 
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
-    // Case-insensitive comparison just to be safe
+
     return talkTags.some((t) => t.toLowerCase() === decodedTag.toLowerCase());
   });
 

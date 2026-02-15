@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -6,11 +5,10 @@ import type { Metadata } from "next";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
-import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/utils/jsonld";
+import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 
 import SpeakerContent from "@/components/speakers/SpeakerContent";
 
-// ISR: Revalidate every 6 hours to keep speaker data fresh
 export const revalidate = 21600;
 
 interface SpeakerDetailProps {

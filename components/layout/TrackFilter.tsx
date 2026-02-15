@@ -10,12 +10,11 @@ interface TrackFilterProps {
 
 const STORAGE_KEY = "talks-track-filter";
 
-export default function TrackFilter({ tracks, year }: TrackFilterProps) {
+export default function TrackFilter({ tracks, year: _year }: TrackFilterProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Initialize state from URL params or sessionStorage using lazy initializer
   const [selectedTrack, setSelectedTrack] = useState<string>(() => {
     const urlTrack = searchParams.get("track");
     if (urlTrack) {
@@ -26,7 +25,6 @@ export default function TrackFilter({ tracks, year }: TrackFilterProps) {
     return storedTrack && tracks.includes(storedTrack) ? storedTrack : "";
   });
 
-  // Sync URL when component mounts with stored track
   useEffect(() => {
     const urlTrack = searchParams.get("track");
     if (!urlTrack && selectedTrack && tracks.includes(selectedTrack)) {

@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import { JobOffer } from "@/config/data/job-offers/types";
 import { fireEvent, render, screen } from "@testing-library/react";
@@ -49,7 +50,7 @@ describe("JobOffersAccordion", () => {
     const secondButton = screen.getByText("Junior Developer").closest("button");
 
     // Second accordion should be collapsed initially
-    let accordions = container.querySelectorAll(".accordion-collapse.show");
+    const accordions = container.querySelectorAll(".accordion-collapse.show");
     expect(accordions).toHaveLength(1);
 
     // Click to open second accordion
@@ -58,8 +59,8 @@ describe("JobOffersAccordion", () => {
     }
 
     // Now second should be open, first closed
-    accordions = container.querySelectorAll(".accordion-collapse.show");
-    expect(accordions).toHaveLength(1);
+    const accordionsAfterClick = container.querySelectorAll(".accordion-collapse.show");
+    expect(accordionsAfterClick).toHaveLength(1);
   });
 
   it("should render apply button when URL is provided", () => {

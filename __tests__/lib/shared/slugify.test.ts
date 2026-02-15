@@ -1,4 +1,4 @@
-import { slugify } from "@/lib/utils/slugify";
+import { slugify } from "@/lib/shared/slugify";
 
 describe("slugify", () => {
   it("should convert basic company names to lowercase slugs", () => {

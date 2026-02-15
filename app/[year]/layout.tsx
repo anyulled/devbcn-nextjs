@@ -1,5 +1,5 @@
 import DynamicHeaderWrapper from "@/components/layout/DynamicHeaderWrapper";
-import { getEditionNavigation } from "@/lib/utils/navigation";
+import { getEditionNavigation } from "@/lib/shared/navigation";
 
 export default async function Layout({ children, modal, params }: { children: React.ReactNode; modal: React.ReactNode; params: Promise<{ year: string }> }) {
   const { year } = await params;

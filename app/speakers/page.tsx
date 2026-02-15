@@ -9,8 +9,8 @@ export default async function Speakers() {
   return (
     <div>
       <PageHeader title="Our Speakers" breadcrumbText="Our Speakers" backgroundImageId={6} contentColClass="col-lg-5" />
-      {/*===== HERO AREA ENDS =======*/}
-      {/*===== TEAM AREA STARTS =======*/}
+      {/* ===== HERO AREA ENDS =======*/}
+      {/* ===== TEAM AREA STARTS =======*/}
       <div className="team-sperkers-section-area sp1">
         <div className="container">
           <div className="row">
@@ -29,8 +29,8 @@ export default async function Speakers() {
           </div>
         </div>
       </div>
-      {/*===== TEAM AREA ENDS =======*/}
-      {/*===== CTA AREA STARTS =======*/}
+      {/* ===== TEAM AREA ENDS =======*/}
+      {/* ===== CTA AREA STARTS =======*/}
       <div className="cta1-section-area d-lg-block d-block">
         <div className="container">
           <div className="row">
@@ -63,8 +63,8 @@ export default async function Speakers() {
           </div>
         </div>
       </div>
-      {/*===== CTA AREA ENDS =======*/}
-      {/*===== CTA AREA STARTS =======*/}
+      {/* ===== CTA AREA ENDS =======*/}
+      {/* ===== CTA AREA STARTS =======*/}
       <div className="cta1-section-area d-lg-none d-block">
         <div className="container">
           <div className="row">

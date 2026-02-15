@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import SpeakerCard from "@/components/layout/SpeakerCard";
 import { Link as LinkType } from "../../hooks/types";
@@ -60,21 +61,17 @@ describe("SpeakerCard", () => {
   it("renders the speaker image with correct attributes", () => {
     render(<SpeakerCard {...defaultProps} />);
 
-    // In the new implementation, it's a next/image
     const img = screen.getByAltText("John Doe");
     expect(img).toBeInTheDocument();
 
-    // Check src contains original image url (decoded)
     const src = decodeURIComponent(img.getAttribute("src") || "");
     expect(src).toContain("https://sessionize.com/image?f=test.jpg");
 
     expect(img).toHaveClass("team-img4");
     expect(img.tagName).toBe("IMG");
 
-    // Check next/image specific attributes
     expect(img).toHaveAttribute("sizes", "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw");
 
-    // fill={true} applies absolute position
     expect(img).toHaveStyle({
       position: "absolute",
       height: "100%",

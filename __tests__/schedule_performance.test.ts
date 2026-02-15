@@ -1,15 +1,19 @@
+import "@testing-library/jest-dom";
 import { cache } from "react";
 import { getSchedule } from "@/hooks/useSchedule";
 
+type CacheMap = Map<string, unknown>;
+type CachedFunction = ((...args: string[]) => unknown) & { _reset?: () => void };
+
 // Mock react cache before importing the hook
 jest.mock("react", () => {
-  const actual = jest.requireActual("react");
-  const cacheMaps: Map<any, any>[] = [];
+  const actual = jest.requireActual("react") as Record<string, unknown>;
+  const cacheMaps: CacheMap[] = [];
 
-  const mockedCache = (fn: Function) => {
-    const cacheMap = new Map();
+  const mockedCache = (fn: (...args: string[]) => unknown): CachedFunction => {
+    const cacheMap = new Map<string, unknown>();
     cacheMaps.push(cacheMap);
-    return function (...args: any[]) {
+    return function (...args: string[]) {
       const key = JSON.stringify(args);
       if (cacheMap.has(key)) {
         return cacheMap.get(key);
@@ -21,7 +25,7 @@ jest.mock("react", () => {
   };
 
   // Attach a helper to clear the caches
-  (mockedCache as any)._reset = () => {
+  (mockedCache as unknown as CachedFunction)._reset = () => {
     cacheMaps.forEach((map) => map.clear());
   };
 
@@ -49,8 +53,9 @@ describe("getSchedule Performance", () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockClear();
     // Clear all caches before each test
-    if ((cache as any)._reset) {
-      (cache as any)._reset();
+    const cachedFn = cache as unknown as { _reset?: () => void };
+    if (cachedFn._reset) {
+      cachedFn._reset();
     }
   });
 

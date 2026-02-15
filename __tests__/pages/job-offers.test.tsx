@@ -31,8 +31,8 @@ jest.mock("@/config/editions", () => ({
 // Mock next/image
 jest.mock("next/image", () => ({
   __esModule: true,
-  // eslint-disable-next-line jsx-a11y/alt-text
-  default: (props: any) => <img {...props} />,
+
+  default: (props: React.ComponentProps<"img">) => <img {...props} />,
 }));
 
 describe("Job Offers Page", () => {

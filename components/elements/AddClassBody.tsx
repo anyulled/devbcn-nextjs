@@ -9,7 +9,6 @@ export default function AddClassBody() {
     const bodyElement = document.querySelector("body");
 
     if (bodyElement) {
-      // Remove all theme-specific classes
       bodyElement.classList.remove(
         "homepage1-body",
         "homepage2-body",
@@ -23,18 +22,15 @@ export default function AddClassBody() {
         "homepage10-body"
       );
 
-      // Always use homepage8-body since we're using Header8/Footer8 globally
-      // This ensures consistent styling across all pages
       const className = "homepage8-body";
       bodyElement.classList.add(className);
     }
 
-    // Scroll to the top of the page with a slight delay
     setTimeout(() => {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth", // Optional for smooth scrolling
+        behavior: "smooth",
       });
     }, 0);
   }, [pathname]);

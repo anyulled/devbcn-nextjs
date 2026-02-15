@@ -8,8 +8,8 @@ export default function Event() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeader title="Event List" breadcrumbText="Event List" backgroundImageId={8} contentColClass="col-lg-6" />
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== EVENT AREA STARTS =======*/}
+          {/* ===== HERO AREA ENDS =======*/}
+          {/* ===== EVENT AREA STARTS =======*/}
           <div className="event-team-area sp1">
             <div className="container">
               <div className="row">
@@ -282,8 +282,8 @@ export default function Event() {
               </div>
             </div>
           </div>
-          {/*===== EVENT AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== EVENT AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-block d-block">
             <div className="container">
               <div className="row">
@@ -316,8 +316,8 @@ export default function Event() {
               </div>
             </div>
           </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CTA AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-none d-block">
             <div className="container">
               <div className="row">

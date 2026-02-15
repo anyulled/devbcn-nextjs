@@ -1,4 +1,3 @@
-import Layout from "@/components/layout/Layout";
 import Section1 from "@/components/sections/home5/section1";
 import Section10 from "@/components/sections/home5/section10";
 import Section11 from "@/components/sections/home5/section11";

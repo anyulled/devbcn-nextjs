@@ -12,12 +12,11 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image({ params }: { params: Promise<{ year: string; speaker_id: string }> }) {
-  const { year, speaker_id } = await params;
-  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+export default async function Image({ params }: { params: Promise<{ year: string; speakerId: string }> }) {
+  const { year, speakerId } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speakerId);
 
   if (!speaker) {
-    // Fallback image if speaker not found
     return new ImageResponse(
       <div
         style={{
@@ -59,9 +58,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
       >
         {(() => {
           const profilePicture = speaker.profilePicture;
-          // Satori (Vercel OG) does not support WebP. We assume if it's not WebP, it's a supported format (like JPG/PNG).
-          // We check using a simple lowercase string check, which handles the most common cases.
-          // In a real-world scenario with obscure URLs, a more robust check might be needed.
+
           const isWebP = profilePicture?.toLowerCase().endsWith(".webp");
           const shouldShowImage = profilePicture && !isWebP;
 

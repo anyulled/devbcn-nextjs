@@ -60,7 +60,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
           backgroundColor: "#fff",
           borderRadius: "12px",
           width: "100%",
-          maxWidth: "1200px", // Matches container-ish width
+          maxWidth: "1200px",
           maxHeight: "90vh",
           overflowY: "auto",
           position: "relative",

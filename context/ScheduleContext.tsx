@@ -15,11 +15,9 @@ export function ScheduleProvider({ children }: { readonly children: ReactNode })
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Load from local storage on mount
     const saved = localStorage.getItem("eventify_saved_sessions");
     if (saved) {
       try {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- Safe as it creates the initial state from local storage on client load
         setSavedSessionIds(JSON.parse(saved));
       } catch (e) {
         console.error("Failed to parse saved sessions", e);
@@ -29,7 +27,6 @@ export function ScheduleProvider({ children }: { readonly children: ReactNode })
   }, []);
 
   useEffect(() => {
-    // Save to local storage on change, but only after initial load
     if (isLoaded) {
       localStorage.setItem("eventify_saved_sessions", JSON.stringify(savedSessionIds));
     }

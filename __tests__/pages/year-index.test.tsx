@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import Page, { generateMetadata, generateStaticParams } from "@/app/[year]/page";
 import { render, screen } from "@testing-library/react";
 
@@ -6,9 +7,14 @@ jest.mock("@/components/sections/home8/section1", () => ({
   __esModule: true,
   default: ({ year }: { year: string }) => <div data-testid="section1">Section 1 {year}</div>,
 }));
+interface Section2Props {
+  eventDate: Date;
+  showCountdown: boolean;
+}
+
 jest.mock("@/components/sections/home8/section2", () => ({
   __esModule: true,
-  default: ({ eventDate, showCountdown }: any) => (
+  default: ({ eventDate, showCountdown }: Section2Props) => (
     <div data-testid="section2">
       Section 2 {eventDate} {showCountdown ? "countdown" : "no-countdown"}
     </div>
@@ -18,21 +24,36 @@ jest.mock("@/components/sections/home8/section3", () => ({
   __esModule: true,
   default: () => <div data-testid="section3">Section 3</div>,
 }));
+interface Section4Props {
+  sponsors: Array<unknown> | undefined;
+}
+
 jest.mock("@/components/sections/home8/section4", () => ({
   __esModule: true,
-  default: ({ sponsors }: any) => <div data-testid="section4">Section 4 {sponsors?.length} sponsors</div>,
+  default: ({ sponsors }: Section4Props) => <div data-testid="section4">Section 4 {sponsors?.length} sponsors</div>,
 }));
+interface Section5Props {
+  year: string;
+  speakers: Array<{ id: string; fullName: string }> | undefined;
+  totalSpeakers: number;
+}
+
 jest.mock("@/components/sections/home8/section5", () => ({
   __esModule: true,
-  default: ({ year, speakers, totalSpeakers }: { year: string; speakers: any[]; totalSpeakers: number }) => (
+  default: ({ year, speakers, totalSpeakers }: Section5Props) => (
     <div data-testid="section5">
       Section 5 {year} {speakers?.length} speakers ({totalSpeakers} total)
     </div>
   ),
 }));
+interface Section6Props {
+  eventVenue: string;
+  eventDate: Date;
+}
+
 jest.mock("@/components/sections/home8/section6", () => ({
   __esModule: true,
-  default: ({ eventVenue, eventDate }: any) => (
+  default: ({ eventVenue, eventDate }: Section6Props) => (
     <div data-testid="section6">
       Section 6 {eventVenue} {eventDate}
     </div>
@@ -41,7 +62,7 @@ jest.mock("@/components/sections/home8/section6", () => ({
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn((year: string) => ({
+  getEditionConfig: jest.fn((_year: string) => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
     venue: "Test Venue",
     tickets: { url: "http://test.com" },
@@ -55,11 +76,11 @@ jest.mock("@/config/editions", () => ({
 // Mock speakers hook
 jest.mock("@/hooks/useSpeakers", () => ({
   getSpeakers: jest.fn(() => Promise.resolve([{ id: "1", fullName: "Test Speaker" }])),
-  getRandomSpeakers: jest.fn((speakers) => speakers),
+  getRandomSpeakers: jest.fn(<T,>(speakers: T[]) => speakers),
 }));
 
 // Mock JsonLd utils
-jest.mock("@/lib/utils/jsonld", () => ({
+jest.mock("@/lib/shared/jsonld", () => ({
   generateEventSchema: jest.fn(() => ({})),
   generateOrganizationSchema: jest.fn(() => ({})),
   serializeJsonLd: jest.fn(() => "{}"),

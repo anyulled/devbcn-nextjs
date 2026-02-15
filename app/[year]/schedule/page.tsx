@@ -1,13 +1,11 @@
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getSchedule } from "@/hooks/useSchedule";
 import ScheduleContainer from "@/components/schedule/ScheduleContainer";
 import { ScheduleProvider } from "@/context/ScheduleContext";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 
-// ISR: Revalidate every 1 hour (3600s) to keep schedule data reasonably fresh without overloading
 export const revalidate = 3600;
 
 interface ScheduleProps {
@@ -50,7 +48,6 @@ export default async function Schedule({ params }: ScheduleProps) {
   const { year } = await params;
   const config = getEditionConfig(year);
 
-  // Server-side fetch
   const scheduleData = await getSchedule(year);
 
   return (

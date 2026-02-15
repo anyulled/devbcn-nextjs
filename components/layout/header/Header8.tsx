@@ -1,29 +1,22 @@
 "use client";
 import { EditionNavigation } from "@/config/editions/types";
 import { editionLinks } from "@/config/navigation";
-import { trackTicketClick } from "@/lib/utils/analytics";
+import { trackTicketClick } from "@/lib/shared/analytics";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   scroll: boolean;
-  isMobileMenu: boolean;
-  handleMobileMenu: () => void;
   isSearch: boolean;
   handleSearch: () => void;
   navigation: EditionNavigation;
 }
 
-export default function Header8({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch, navigation }: HeaderProps) {
+export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
   const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
-
-  // Note: We use yearFromPath only for tracking or external links if needed.
-  // Navigation links are already resolved.
-
-  // Fallback for editionLinks (Home dropdown) - keep global or move to config?
-  // User didn't specify moving editionLinks. We'll keep them global for now as they list available editions.
 
   return (
     <header>
@@ -42,7 +35,7 @@ export default function Header8({ scroll, isMobileMenu, handleMobileMenu, isSear
                   <ul>
                     <li>
                       <Link href="/mailto:info@devbcn.com">
-                        <img src="/assets/img/icons/mail1.svg" alt="" />
+                        <Image src="/assets/img/icons/mail1.svg" alt="" width={16} height={16} />
                         info@devbcn.com <span> | </span>
                       </Link>
                     </li>
@@ -52,7 +45,7 @@ export default function Header8({ scroll, isMobileMenu, handleMobileMenu, isSear
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
+                    <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} style={{ width: "auto", height: "auto" }} />
                   </Link>
                 </div>
                 <div className="main-menu">
@@ -95,20 +88,6 @@ export default function Header8({ scroll, isMobileMenu, handleMobileMenu, isSear
                 </div>
                 <div className="btn-area">
                   <div className="btn-area1">
-                    {/* Hardcoded ticket link fallback or passing config? 
-                        The original code used configData.tickets.url.
-                        We don't have configData here anymore. 
-                        We should probably include tickets URL in navigation or pass it as prop?
-                        Or just hardcode it for now since 2026 is the main one. 
-                        Plan didn't mention tickets URL. 
-                        Ideally DynamicHeaderWrapper should pass config or ticketUrl. 
-                        But I will assume 2026 for now or just generic link.
-                        Wait, tickets URL changes per year.
-                        I should probably pass it in navigation too? Or just import getEditionConfig here?
-                        Using getEditionConfig here is fine for METADATA (tickets, etc) but navigation should rely on prop.
-                        Actually, Client Components shouldn't fetch config if it depends on generic types.
-                        But `getEditionConfig` is just a sync helper. It's SAFE to use in Client Components for static data.
-                    */}
                     <Link
                       className="vl-btn8"
                       href="https://tickets.devbcn.com/event/devbcn-2026"

@@ -2,8 +2,6 @@
 import dynamic from "next/dynamic";
 import type { ModalVideoProps } from "react-modal-video";
 
-// Define internal interface to avoid import issues if needed,
-// but react-modal-video exports ModalVideoProps which includes these.
 interface ModalVideoBaseProps {
   channel: "youtube" | "vimeo" | "custom";
   isOpen: boolean;

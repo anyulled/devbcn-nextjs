@@ -28,7 +28,7 @@ jest.mock("@/config/editions/2023", () => ({
 jest.mock("@/config/editions/2024", () => ({
   edition2024: {
     sponsorsData: {
-      top: [{ name: "Sponsor A", image: "/img/a_new.png" }], // Duplicate name
+      top: [{ name: "Sponsor A", image: "/img/a_new.png" }],
       premium: [{ name: "Sponsor C", image: "/img/c.png" }],
     },
   },
@@ -52,9 +52,11 @@ describe("BrandSlider", () => {
   it("aggregates and deduplicates sponsors from all editions", () => {
     render(<BrandSlider />);
 
-    // Should contain Sponsor A, B, C, D
-    // Sponsor A is in both 2023 and 2024, so it should appear only once.
-    // Total unique sponsors: 4
+    /*
+     * Should contain Sponsor A, B, C, D
+     * Sponsor A is in both 2023 and 2024, so it should appear only once.
+     * Total unique sponsors: 4
+     */
     const slides = screen.getAllByTestId("swiper-slide");
     expect(slides).toHaveLength(4);
 

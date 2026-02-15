@@ -2,7 +2,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import LaFargaVenue from "@/components/sections/venue/LaFargaVenue";
 import WTCVenue from "@/components/sections/venue/WTCVenue";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -18,12 +18,11 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { year } = await params;
-  const config = getEditionConfig(year);
-  const eventDate = formatEventDateRange(config.event.startDay, config.event.endDay);
+  const editionConfig = getEditionConfig(year);
 
   return {
     title: `Travel to Barcelona - DevBcn ${year}`,
-    description: `How to get to DevBcn ${year} at the ${config.venue.name}. Information about public transport, parking, and venue access.`,
+    description: `How to get to DevBcn ${year} at the ${editionConfig.venue.name}. Information about public transport, parking, and venue access.`,
     keywords: [`DevBcn ${year} travel`, "Barcelona travel", "World Trade Center Barcelona", "public transport barcelona"],
     openGraph: {
       title: `Travel to Barcelona • DevBcn ${year}`,
@@ -39,7 +38,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function TravelPage({ params }: PageProps) {
   const { year } = await params;
   const config = getEditionConfig(year);
-  const eventDateRange = formatEventDateRange(config.event.startDay, config.event.endDay);
 
   return (
     <div>

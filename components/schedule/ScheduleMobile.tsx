@@ -11,7 +11,7 @@ interface ScheduleMobileProps {
   year: string;
 }
 
-export default function ScheduleMobile({ schedule, year }: ScheduleMobileProps) {
+export default function ScheduleMobile({ schedule, year }: Readonly<ScheduleMobileProps>) {
   const [activeTab, setActiveTab] = useState(0);
 
   if (!schedule || schedule.length === 0) {
@@ -19,10 +19,6 @@ export default function ScheduleMobile({ schedule, year }: ScheduleMobileProps) 
   }
 
   const currentDay = schedule[activeTab];
-  // Calculate end range from format "09:00" to "10:00" roughly?
-  // We'll rely on timeSlots which are "Start Time".
-  // User wanted "group by hour". timeSlots are by start time.
-  // Concurrent sessions will be in the same TimeSlot.
 
   return (
     <div className={styles.scheduleMobileContainer}>

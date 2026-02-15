@@ -1,23 +1,27 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import SpeakersList from "@/components/layout/SpeakersList";
 import { Speaker } from "@/hooks/types";
 
-// Mock next/navigation
 jest.mock("next/navigation", () => ({
   useSearchParams: () => ({
-    get: jest.fn(() => ""), // return empty string for 'q'
+    get: jest.fn(() => ""),
   }),
 }));
 
 // Mock child components
 jest.mock("@/components/layout/SearchFilter", () => ({
   __esModule: true,
-  default: () => <div data-testid="search-filter">Search Filter</div>,
+  default: function SearchFilterMock() {
+    return <div data-testid="search-filter">Search Filter</div>;
+  },
 }));
 
 jest.mock("@/components/layout/SpeakerCard", () => ({
   __esModule: true,
-  default: ({ name }: { name: string }) => <div data-testid="speaker-card">{name}</div>,
+  default: function SpeakerCardMock({ name }: { name: string }) {
+    return <div data-testid="speaker-card">{name}</div>;
+  },
 }));
 
 describe("SpeakersList", () => {
@@ -52,13 +56,10 @@ describe("SpeakersList", () => {
   it("renders correct layout structure", () => {
     const { container } = render(<SpeakersList speakers={mockSpeakers} year={year} />);
 
-    // Check for search filter wrapper
     const filterWrapper = container.querySelector(".blog-details-section");
     expect(filterWrapper).toBeInTheDocument();
 
-    // Check for grid classes
-    // We expect speakers to use col-lg-3 for 4 items per row
     const speakerColumns = container.querySelectorAll(".col-lg-3");
-    expect(speakerColumns.length).toBe(2); // Since we rendered 2 speakers
+    expect(speakerColumns.length).toBe(2);
   });
 });

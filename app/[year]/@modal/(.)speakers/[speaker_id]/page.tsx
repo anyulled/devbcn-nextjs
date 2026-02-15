@@ -7,13 +7,13 @@ import { notFound } from "next/navigation";
 interface SpeakerDetailProps {
   params: Promise<{
     year: string;
-    speaker_id: string;
+    speakerId: string;
   }>;
 }
 
 export default async function InterceptedSpeakerDetail({ params }: SpeakerDetailProps) {
-  const { year, speaker_id } = await params;
-  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+  const { year, speakerId } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speakerId);
   const eventData = getEditionConfig(year);
 
   if (!speaker) {

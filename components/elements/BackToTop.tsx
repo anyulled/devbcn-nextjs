@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function BackToTop({ target }: any) {
+export default function BackToTop({ target }: Readonly<{ target: string }>) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -14,10 +14,13 @@ export default function BackToTop({ target }: any) {
   }, []);
 
   const handleClick = () => {
-    window.scrollTo({
-      top: document.querySelector(target).offsetTop,
-      behavior: "smooth",
-    });
+    const element = document.querySelector(target);
+    if (element instanceof HTMLElement) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (

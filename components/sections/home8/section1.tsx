@@ -3,7 +3,7 @@ import BackgroundCarousel from "@/components/BackgroundCarousel";
 import TrackBadges from "@/components/elements/TrackBadges";
 import VideoOverlay from "@/components/elements/VideoOverlay";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
-import { trackTicketClick } from "@/lib/utils/analytics";
+import { trackTicketClick } from "@/lib/shared/analytics";
 import { motion, Variants } from "framer-motion";
 import { CalendarDays, Handshake, MapPin, Mic, Ticket } from "lucide-react";
 import Image from "next/image";

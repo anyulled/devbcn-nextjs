@@ -43,8 +43,7 @@ const getIconClass = (index: number): string => {
   return classes[index % classes.length];
 };
 
-const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, slidesUrl, voteUrl, eventData, track, level }) => {
-  // Format dates for display and calendar
+const formatTalkDates = (talk: Talk) => {
   const startDate = talk.startsAt ? format(parseISO(talk.startsAt), "yyyy-MM-dd") : "";
   const startTime = talk.startsAt ? format(parseISO(talk.startsAt), "HH:mm") : "";
   const endDate = talk.endsAt ? format(parseISO(talk.endsAt), "yyyy-MM-dd") : "";
@@ -52,7 +51,85 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
   const startFormatted = talk.startsAt ? format(parseISO(talk.startsAt), "MMMM d, yyyy") : "";
   const timeFormatted = talk.startsAt && talk.endsAt ? `${format(parseISO(talk.startsAt), "h:mm a")} - ${format(parseISO(talk.endsAt), "h:mm a")}` : "";
 
-  // WTC Barcelona coordinates for Google Maps
+  return { startDate, startTime, endDate, endTime, startFormatted, timeFormatted };
+};
+
+const SpeakerCard: React.FC<{ speaker: Speaker; year: string }> = ({ speaker, year }) => (
+  <div className="col-lg-4 col-md-6" key={speaker.id}>
+    <div className="our-team-boxarea">
+      <div className="team-widget-area">
+        <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
+        <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
+        <div className="img1">
+          <Link href={`/${year}/speakers/${speaker.id}`}>
+            <Image src={speaker.profilePicture} alt={speaker.fullName} className="team-img4" width={150} height={150} style={{ objectFit: "cover" }} />
+          </Link>
+          {speaker.links.length > 0 && (
+            <>
+              <div className="share">
+                <Link href="#">
+                  <img src="/assets/img/icons/share1.svg" alt="" />
+                </Link>
+              </div>
+              <ul>
+                {speaker.links.slice(0, 4).map((link, idx) => (
+                  <li key={link.title}>
+                    <a href={link.url} className={getIconClass(idx)} target="_blank" rel="noopener noreferrer" title={link.title}>
+                      <i className={getSocialIcon(link.linkType)} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </div>
+      <div className="space28" />
+      <div className="content-area">
+        <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
+        <div className="space16" />
+        <p>{speaker.tagLine}</p>
+      </div>
+    </div>
+  </div>
+);
+
+const SessionDetailItem: React.FC<{ icon: string; label: string; value: React.ReactNode }> = ({ icon, label, value }) => (
+  <li>
+    <strong>{label}:</strong>{" "}
+    <span>
+      <img src={`/assets/img/icons/${icon}`} alt="" style={{ width: "16px", marginRight: "8px" }} />
+      {value}
+    </span>
+  </li>
+);
+
+const TagList: React.FC<{ tags: string[]; year: string }> = ({ tags, year }) => (
+  <div style={{ marginBottom: "24px", marginTop: "16px" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+      {tags.map((tag, index) => (
+        <Link
+          key={index}
+          href={`/${year}/tags/${tag}`}
+          style={{
+            display: "inline-block",
+            background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+            color: "#fff",
+            padding: "4px 10px",
+            borderRadius: "20px",
+            fontSize: "0.75rem",
+            textDecoration: "none",
+          }}
+        >
+          {tag}
+        </Link>
+      ))}
+    </div>
+  </div>
+);
+
+const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, slidesUrl, voteUrl, eventData, track, level }) => {
+  const { startDate, startTime, endDate, endTime, startFormatted, timeFormatted } = formatTalkDates(talk);
   const venueMapUrl = eventData.venue.mapUrl;
 
   return (
@@ -84,50 +161,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                 <h4>Session Speakers</h4>
                 <div className="row">
                   {speakers.map((speaker) => (
-                    <div className="col-lg-4 col-md-6" key={speaker.id}>
-                      <div className="our-team-boxarea">
-                        <div className="team-widget-area">
-                          <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
-                          <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
-                          <div className="img1">
-                            <Link href={`/${year}/speakers/${speaker.id}`}>
-                              <Image
-                                src={speaker.profilePicture}
-                                alt={speaker.fullName}
-                                className="team-img4"
-                                width={150}
-                                height={150}
-                                style={{ objectFit: "cover" }}
-                              />
-                            </Link>
-                            {speaker.links.length > 0 && (
-                              <>
-                                <div className="share">
-                                  <Link href="#">
-                                    <img src="/assets/img/icons/share1.svg" alt="" />
-                                  </Link>
-                                </div>
-                                <ul>
-                                  {speaker.links.slice(0, 4).map((link, idx) => (
-                                    <li key={link.title}>
-                                      <a href={link.url} className={getIconClass(idx)} target="_blank" rel="noopener noreferrer" title={link.title}>
-                                        <i className={getSocialIcon(link.linkType)} />
-                                      </a>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                        <div className="space28" />
-                        <div className="content-area">
-                          <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
-                          <div className="space16" />
-                          <p>{speaker.tagLine}</p>
-                        </div>
-                      </div>
-                    </div>
+                    <SpeakerCard key={speaker.id} speaker={speaker} year={year} />
                   ))}
                 </div>
               </div>
@@ -139,40 +173,10 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                 <div className="content-area">
                   <h4 style={{ marginBottom: "20px" }}>Session Details</h4>
                   <ul>
-                    {startFormatted && (
-                      <li>
-                        <strong>Start:</strong>{" "}
-                        <span>
-                          <img src="/assets/img/icons/calender1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                          {startFormatted}
-                        </span>
-                      </li>
-                    )}
-                    {timeFormatted && (
-                      <li>
-                        <strong>Time:</strong>{" "}
-                        <span>
-                          <img src="/assets/img/icons/clock1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                          {timeFormatted}
-                        </span>
-                      </li>
-                    )}
-                    {talk.room && (
-                      <li>
-                        <strong>Room:</strong>
-                        <span>
-                          <img src="/assets/img/icons/location1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                          {talk.room}
-                        </span>
-                      </li>
-                    )}
-                    <li>
-                      <strong>Track:</strong>
-                      <span>
-                        <img src="/assets/img/icons/tag1.svg" alt="" style={{ width: "16px", marginRight: "8px" }} />
-                        {track}
-                      </span>
-                    </li>
+                    {startFormatted && <SessionDetailItem icon="calender1.svg" label="Start" value={startFormatted} />}
+                    {timeFormatted && <SessionDetailItem icon="clock1.svg" label="Time" value={timeFormatted} />}
+                    {talk.room && <SessionDetailItem icon="location1.svg" label="Room" value={talk.room} />}
+                    <SessionDetailItem icon="tag1.svg" label="Track" value={track} />
                     {level && (
                       <li>
                         <strong>Level:</strong> <span>{level}</span>
@@ -180,29 +184,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     )}
                   </ul>
                   <h5>Tags:</h5>
-                  {tags.length > 0 && (
-                    <div style={{ marginBottom: "24px", marginTop: "16px" }}>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                        {tags.map((tag, index) => (
-                          <Link
-                            key={index}
-                            href={`/${year}/tags/${tag}`}
-                            style={{
-                              display: "inline-block",
-                              background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                              color: "#fff",
-                              padding: "4px 10px",
-                              borderRadius: "20px",
-                              fontSize: "0.75rem",
-                              textDecoration: "none",
-                            }}
-                          >
-                            {tag}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {tags.length > 0 && <TagList tags={tags} year={year} />}
 
                   <div className="space24" />
 

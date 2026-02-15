@@ -20,8 +20,8 @@ export interface Speaker {
   sessions: Session[];
   isTopSpeaker: boolean;
   links: Link[];
-  questionAnswers: any[];
-  categories: any[];
+  questionAnswers: QuestionAnswer[];
+  categories: Category[];
 }
 
 export interface TalkSpeaker {
@@ -47,7 +47,7 @@ export interface QuestionAnswer {
   questionType: string;
   answer: string | null;
   sort: number;
-  answerExtra: any | null;
+  answerExtra: unknown | null;
 }
 
 export interface Talk {

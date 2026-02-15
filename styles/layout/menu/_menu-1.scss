@@ -253,7 +253,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-4) !important;
               font-weight: var(--ztc-weight-medium);
@@ -299,13 +299,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-4);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-4);
                   transition: all 0.4s;
                   visibility: visible;
@@ -752,7 +752,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-6) !important;
               font-weight: var(--ztc-weight-medium);
@@ -797,13 +797,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-6);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-6);
                   transition: all 0.4s;
                   visibility: visible;
@@ -1268,7 +1268,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-10) !important;
               font-weight: var(--ztc-weight-medium);
@@ -1313,13 +1313,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-10);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-10);
                   transition: all 0.4s;
                   visibility: visible;
@@ -1701,7 +1701,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-13) !important;
               font-weight: var(--ztc-weight-medium);
@@ -1746,13 +1746,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-13);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-13);
                   transition: all 0.4s;
                   visibility: visible;
@@ -2130,7 +2130,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: #f00 !important;
               font-weight: var(--ztc-weight-medium);
@@ -2175,13 +2175,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: #f00;
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: #f00;
                   transition: all 0.4s;
                   visibility: visible;
@@ -2538,7 +2538,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-14) !important;
               font-weight: var(--ztc-weight-medium);
@@ -2583,13 +2583,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-14);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-14);
                   transition: all 0.4s;
                   visibility: visible;
@@ -2944,7 +2944,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-15) !important;
               font-weight: var(--ztc-weight-medium);
@@ -2990,13 +2990,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-15);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-15);
                   transition: all 0.4s;
                   visibility: visible;
@@ -3205,6 +3205,17 @@ html {
     }
 
     .header-elements {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s;
+      gap: 10px;
+
+      @media #{$lg} {
+        padding: 12px 10px;
+        gap: 5px;
+      }
+
       padding: 12px 20px;
       border-radius: 16px;
       border: 1px solid rgb(255 255 255 / 0.2);
@@ -3213,10 +3224,16 @@ html {
       z-index: 1;
 
       .site-logo {
+        flex-shrink: 0;
+
         img {
           width: 150px;
           height: 45px;
           object-fit: contain;
+
+          @media #{$lg} {
+            width: 120px;
+          }
         }
       }
 
@@ -3234,14 +3251,6 @@ html {
           left: -370px;
         }
       }
-    }
-
-    .header-elements {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      transition: all 0.4s;
 
       .main-menu {
         position: relative;
@@ -3418,12 +3427,21 @@ html {
               transition: all 0.4s;
               padding: 0 20px;
 
+              @media #{$xl} {
+                padding: 0 12px;
+              }
+
+              @media #{$lg} {
+                padding: 0 8px;
+                font-size: 14px;
+              }
+
               i.fa-solid.fa-angle-down {
                 font-size: var(--ztc-font-size-font-s12) !important;
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-16) !important;
               font-weight: var(--ztc-weight-medium);
@@ -3468,13 +3486,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-16);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-16);
                   transition: all 0.4s;
                   visibility: visible;
@@ -3536,6 +3554,7 @@ html {
       }
 
       .btn-area {
+        flex-shrink: 0;
         display: flex;
         align-items: center;
 
@@ -3545,6 +3564,11 @@ html {
 
         .search-icon {
           padding: 0 20px 0 0;
+
+          @media #{$lg} {
+            padding: 0 10px 0 0;
+          }
+
           border-right: 2px solid #f6f7ff;
         }
 
@@ -3839,7 +3863,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-16) !important;
               font-weight: var(--ztc-weight-medium);
@@ -3884,13 +3908,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-16);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-16);
                   transition: all 0.4s;
                   visibility: visible;
@@ -4248,7 +4272,7 @@ html {
               }
             }
 
-            &:hover > a {
+            &:hover>a {
               transition: all 0.4s;
               color: var(--ztc-text-text-20) !important;
               font-weight: var(--ztc-weight-medium);
@@ -4293,13 +4317,13 @@ html {
               li.main-small-menu {
                 position: relative;
 
-                &:hover > a {
+                &:hover>a {
                   transition: all 0.4s;
                   padding-left: 15px;
                   color: var(--ztc-text-text-20);
                 }
 
-                &:hover > a::after {
+                &:hover>a::after {
                   background: var(--ztc-text-text-20);
                   transition: all 0.4s;
                   visibility: visible;

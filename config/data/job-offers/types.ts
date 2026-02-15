@@ -9,7 +9,7 @@ export interface JobOffer {
   title: string;
   url?: string;
   location: string;
-  text: string; // Markdown format
+  text: string;
 }
 
 export interface Company {

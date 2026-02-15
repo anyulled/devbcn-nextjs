@@ -12,12 +12,11 @@ interface SessionCardProps {
   showTime?: boolean;
 }
 
-export default function SessionCard({ session, year, showTime = false }: SessionCardProps) {
+export default function SessionCard({ session, year, showTime = false }: Readonly<SessionCardProps>) {
   const { isSaved, toggleSession } = useScheduleContext();
   const saved = isSaved(session.id);
   const isService = session.isServiceSession;
 
-  // Format times
   const startTime = format(parseISO(session.startsAt), "HH:mm");
   const endTime = format(parseISO(session.endsAt), "HH:mm");
 

@@ -1,7 +1,7 @@
 import { HeaderProps } from "@/types";
 import Link from "next/link";
 
-export default function Header5({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }: HeaderProps) {
+export default function Header5({ scroll, isSearch, handleSearch }: Readonly<HeaderProps>) {
   return (
     <header>
       <div className={`header-area homepage5 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">

@@ -4,19 +4,16 @@ import { useEffect } from "react";
 
 export default function Popup() {
   useEffect(() => {
-    // Ensure the elements are properly typed, and add event listeners in useEffect
     const popup = document.getElementById("popup") as HTMLElement | null;
     const closeBtn = document.getElementById("close-popup") as HTMLElement | null;
     const noThanksBtn = document.querySelector(".no-thanks") as HTMLElement | null;
 
-    // Display the popup after a short delay
     if (popup) {
       setTimeout(() => {
         popup.style.display = "flex";
       }, 100);
     }
 
-    // Close the popup when the close button is clicked
     if (closeBtn) {
       closeBtn.addEventListener("click", () => {
         if (popup) {
@@ -25,7 +22,6 @@ export default function Popup() {
       });
     }
 
-    // Close the popup when the "No thanks" button is clicked
     if (noThanksBtn) {
       noThanksBtn.addEventListener("click", () => {
         if (popup) {
@@ -34,7 +30,6 @@ export default function Popup() {
       });
     }
 
-    // Cleanup event listeners on component unmount
     return () => {
       if (closeBtn) {
         closeBtn.removeEventListener("click", () => {});

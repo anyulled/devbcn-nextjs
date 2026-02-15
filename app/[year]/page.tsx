@@ -8,11 +8,10 @@ const Section5 = dynamic(() => import("@/components/sections/home8/section5"));
 const Section6 = dynamic(() => import("@/components/sections/home8/section6"));
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getRandomSpeakers, getSpeakers } from "@/hooks/useSpeakers";
-import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/utils/jsonld";
+import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-// ISR: Revalidate every 24 hours to keep homepage data fresh
 export const revalidate = 86400;
 
 interface PageProps {
@@ -76,11 +75,9 @@ export default async function Page({ params }: PageProps) {
   const { year } = await params;
   const config = getEditionConfig(year);
 
-  // Generate JSON-LD schemas
   const eventSchema = generateEventSchema(config, year);
   const organizationSchema = generateOrganizationSchema();
 
-  // Fetch speakers for Section5
   const allSpeakers = await getSpeakers(year);
   const randomSpeakers = getRandomSpeakers(allSpeakers, 6);
   const totalSpeakers = allSpeakers.length;

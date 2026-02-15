@@ -21,31 +21,28 @@ jest.mock("next/link", () => {
 });
 
 const generateLargeSchedule = (): DailySchedule[] => {
-  const rooms: GridRoom[] = [];
-  for (let i = 0; i < 5; i++) {
-    const sessions: GridSession[] = [];
-    for (let j = 0; j < 10; j++) {
-      sessions.push({
-        id: `session-${i}-${j}`,
-        title: `Session ${i}-${j}`,
-        description: "Description",
-        startsAt: `2023-01-01T${10 + j}:00:00`,
-        endsAt: `2023-01-01T${10 + j}:50:00`,
-        isServiceSession: false,
-        isPlenumSession: false,
-        speakers: [],
-        roomId: i,
-        room: `Room ${i}`,
-        status: "confirmed",
-      });
-    }
-    rooms.push({
-      id: i,
-      name: `Room ${i}`,
+  const rooms: GridRoom[] = Array.from({ length: 5 }, (_, roomIndex) => {
+    const sessions: GridSession[] = Array.from({ length: 10 }, (_, sessionIndex) => ({
+      id: `session-${roomIndex}-${sessionIndex}`,
+      title: `Session ${roomIndex}-${sessionIndex}`,
+      description: "Description",
+      startsAt: `2023-01-01T${10 + sessionIndex}:00:00`,
+      endsAt: `2023-01-01T${10 + sessionIndex}:50:00`,
+      isServiceSession: false,
+      isPlenumSession: false,
+      speakers: [],
+      roomId: roomIndex,
+      room: `Room ${roomIndex}`,
+      status: "confirmed",
+    }));
+
+    return {
+      id: roomIndex,
+      name: `Room ${roomIndex}`,
       sessions: sessions,
       hasOnlyPlenumSessions: false,
-    });
-  }
+    };
+  });
 
   return [
     {
@@ -72,8 +69,10 @@ describe("ScheduleGrid Performance", () => {
   it("renders correctly and updates without crashing", () => {
     render(<Wrapper />);
 
-    // Verify grid dimensions by checking time labels
-    // Based on mock data: Start 10:00, End 10:50 -> Range 10:00 - 11:00
+    /*
+     * Verify grid dimensions by checking time labels
+     * Based on mock data: Start 10:00, End 10:50 -> Range 10:00 - 11:00
+     */
     expect(screen.getByText("10:00")).toBeInTheDocument();
     expect(screen.getByText("10:30")).toBeInTheDocument();
     // 11:00 might be present if loops goes <= totalRows, let's check implementation

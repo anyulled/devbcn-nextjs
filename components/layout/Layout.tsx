@@ -37,8 +37,6 @@ interface LayoutProps {
 
 interface BaseHeaderProps {
   scroll: boolean;
-  isMobileMenu: boolean;
-  handleMobileMenu: () => void;
   isSearch: boolean;
   handleSearch: () => void;
 }
@@ -104,7 +102,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle: _bre
   const resolvedHeaderStyle = headerStyle ? headerStyle : 1;
   const resolvedFooterStyle = footerStyle ? footerStyle : 1;
   const headerRenderer = headerRenderers[resolvedHeaderStyle] ?? headerRenderers[1];
-  const headerElement = headerRenderer({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }, defaultNavigation);
+  const headerElement = headerRenderer({ scroll, isSearch, handleSearch }, defaultNavigation);
   const footerElement = footerComponents[resolvedFooterStyle] ?? footerComponents[1];
 
   return (

@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import TalkDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/[talk_id]/page";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
@@ -59,7 +60,7 @@ jest.mock("@/config/editions", () => ({
 }));
 
 // Mock JsonLd utils
-jest.mock("@/lib/utils/jsonld", () => ({
+jest.mock("@/lib/shared/jsonld", () => ({
   generateEducationEventSchema: jest.fn(() => ({})),
   generatePersonSchema: jest.fn(() => ({})),
   generateBreadcrumbSchema: jest.fn(() => ({})),
@@ -112,8 +113,8 @@ describe("Talk Detail Page", () => {
     (getTalkByYearAndId as jest.Mock).mockResolvedValue(null);
     try {
       await TalkDetail({ params });
-    } catch (e) {
-      // ignore
+    } catch {
+      // Ignore
     }
     expect(notFound).toHaveBeenCalled();
   });

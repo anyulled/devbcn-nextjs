@@ -29,9 +29,8 @@ export interface GridSchedule {
   rooms: GridRoom[];
 }
 
-// Mobile view structure: Time Slot -> List of Sessions
 export interface TimeSlot {
-  time: string; // "09:00"
+  time: string;
   sessions: GridSession[];
 }
 
@@ -43,7 +42,7 @@ export interface DailySchedule {
 
 export const getSchedule = cache(async (year: string | number): Promise<DailySchedule[]> => {
   const config = getEditionConfig(year);
-  // GridSmart view gives us the room/grid layout structure
+
   const url = `${config.sessionizeUrl}/view/GridSmart`;
 
   try {
@@ -53,9 +52,7 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
     }
     const data: GridSchedule[] = await response.json();
 
-    // Transform for easier consumption
     return data.map((day) => {
-      // Create time slots for mobile view
       const sessionsByTime = new Map<string, GridSession[]>();
 
       day.rooms.forEach((room) => {
@@ -69,7 +66,7 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
       const timeSlots: TimeSlot[] = Array.from(sessionsByTime.entries())
         .map(([time, sessions]) => ({
           time,
-          sessions: sessions.sort((a, b) => a.room.localeCompare(b.room)), // Sort by room name
+          sessions: sessions.sort((a, b) => a.room.localeCompare(b.room)),
         }))
         .sort((a, b) => a.time.localeCompare(b.time));
 

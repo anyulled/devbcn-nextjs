@@ -1,7 +1,7 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// Global CSS from node_modules can be imported normally above.
+
 import "@/styles/vendor/aos.css";
 import "@/styles/vendor/bootstrap.min.css";
 import "@/styles/vendor/magnific-popup.css";

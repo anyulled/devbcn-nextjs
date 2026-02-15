@@ -1,13 +1,12 @@
 import PageHeader from "@/components/layout/PageHeader";
 import SpeakersList from "@/components/layout/SpeakersList";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
-import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-// ISR: Revalidate every 6 hours to keep speaker data fresh
 export const revalidate = 21600;
 
 interface SpeakersProps {
@@ -53,7 +52,6 @@ export default async function Speakers({ params }: SpeakersProps) {
   const speakers = await getSpeakers(year);
   const eventData = getEditionConfig(year);
 
-  // Generate JSON-LD ItemList schema for speakers
   const baseUrl = "https://www.devbcn.com";
   const speakersListSchema =
     speakers.length > 0

@@ -1,15 +1,13 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import TalksList from "@/components/layout/TalksList";
 import { Talk } from "@/hooks/types";
-
-// Mock logic dependencies
-jest.mock("@/lib/utils/talk-filters", () => ({
-  filterTalks: jest.fn((talks) => talks),
+jest.mock("@/lib/shared/talk-filters", () => ({
+  filterTalks: jest.fn((talks: Talk[]) => talks),
 }));
 
 jest.mock("@/hooks/useTalks", () => ({
-  groupTalksByTrack: jest.fn((talks) => {
-    // Return a Map as expected by the component
+  groupTalksByTrack: jest.fn((talks: Talk[]) => {
     const map = new Map();
     if (talks && talks.length > 0) {
       map.set("Track A", [talks[0], talks[1]]);
@@ -19,10 +17,9 @@ jest.mock("@/hooks/useTalks", () => ({
   }),
 }));
 
-// Mock next/navigation
 jest.mock("next/navigation", () => ({
   useSearchParams: () => ({
-    get: jest.fn((key) => {
+    get: jest.fn((key: string) => {
       if (key === "track") return "";
       if (key === "q") return "";
       return null;
@@ -35,20 +32,25 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-// Mock child components to simplify test and focus on layout
 jest.mock("@/components/layout/TrackFilter", () => ({
   __esModule: true,
-  default: () => <div data-testid="track-filter">Track Filter</div>,
+  default: function TrackFilterMock() {
+    return <div data-testid="track-filter">Track Filter</div>;
+  },
 }));
 
 jest.mock("@/components/layout/SearchFilter", () => ({
   __esModule: true,
-  default: () => <div data-testid="search-filter">Search Filter</div>,
+  default: function SearchFilterMock() {
+    return <div data-testid="search-filter">Search Filter</div>;
+  },
 }));
 
 jest.mock("@/components/layout/TalkCard", () => ({
   __esModule: true,
-  default: ({ talk }: { talk: Talk }) => <div data-testid="talk-card">{talk.title}</div>,
+  default: function TalkCardMock({ talk }: { talk: Talk }) {
+    return <div data-testid="talk-card">{talk.title}</div>;
+  },
 }));
 
 describe("TalksList", () => {
@@ -81,15 +83,12 @@ describe("TalksList", () => {
   it("renders filters and talk lists", () => {
     render(<TalksList talks={mockTalks} tracks={mockTracks} year={year} />);
 
-    // Verify Filters are present
     expect(screen.getByTestId("track-filter")).toBeInTheDocument();
     expect(screen.getByTestId("search-filter")).toBeInTheDocument();
 
-    // Verify Tracks headings
     expect(screen.getByText("Track A")).toBeInTheDocument();
     expect(screen.getByText("Track B")).toBeInTheDocument();
 
-    // Verify Talk Cards
     expect(screen.getByText("Talk 1")).toBeInTheDocument();
     expect(screen.getByText("Talk 2")).toBeInTheDocument();
     expect(screen.getByText("Talk 3")).toBeInTheDocument();
@@ -98,10 +97,8 @@ describe("TalksList", () => {
   it("renders correct layout structure", () => {
     const { container } = render(<TalksList talks={mockTalks} tracks={mockTracks} year={year} />);
 
-    // Check for the new wrapper class ensuring styles
     expect(container.getElementsByClassName("blog-details-section").length).toBeGreaterThan(0);
 
-    // Check that we have a grid system in place (generic check)
     const rows = container.getElementsByClassName("row");
     expect(rows.length).toBeGreaterThan(0);
   });

@@ -3,14 +3,13 @@ import CTASection from "@/components/sections/CTASection";
 import { getJobOffersByYear } from "@/config/data/job-offers";
 import { Company } from "@/config/data/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
-import { generateItemListSchema, serializeJsonLd } from "@/lib/utils/jsonld";
-import { slugify } from "@/lib/utils/slugify";
+import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
+import { slugify } from "@/lib/shared/slugify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
-// ISR: Revalidate every week to keep job offers data fresh
 export const revalidate = 604800;
 
 interface JobOffersPageProps {
@@ -70,7 +69,6 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
   const companies = getJobOffersByYear(year);
   const eventData = getEditionConfig(year);
 
-  // Generate JSON-LD ItemList schema for companies
   const companiesListSchema = generateJsonLDSchema(companies, year);
 
   return (

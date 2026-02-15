@@ -1,0 +1,129 @@
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/.agent/skills/remotion-best-practices/rules/assets/charts-bar-chart.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/.agent/skills/remotion-best-practices/rules/assets/text-animations-typewriter.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/.agent/skills/remotion-best-practices/rules/assets/text-animations-word-highlight.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__mocks__/styleMock.js
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/BackgroundCarousel.test.tsx
+  10:37  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  15:42  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/BrandSlider.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/Footer8.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/SpeakerCard.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/SpeakersList.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/TalksList.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/elements/VideoPlayer.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/job-offers/JobOffersAccordion.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/components/schedule/ScheduleGrid.perf.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/config/data/job-offers/index.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/config/navigation.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/editions.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/hooks.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/hooks_performance.test.ts
+   7:24  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   7:29  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  12:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  24:19  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  50:19  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  51:17  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  79:15  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/shared/jsonld.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/shared/markdown.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/shared/slugify.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/shared/talk-filters.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/utils/jsonld.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/utils/markdown.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/utils/slugify.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/lib/utils/talk-filters.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/diversity.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/job-offers.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/speaker-detail.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/speakers-list.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/sponsorship.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/talk-detail.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/talks-list.test.tsx
+  30:32  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/travel.test.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/pages/year-index.test.tsx
+  11:43  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  23:27  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  27:74  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  35:40  error  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/schedule_performance.test.ts
+   7:24  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   7:29  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  12:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  24:19  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  52:19  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  53:17  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/tag-page.test.tsx
+   19:31  error  Unexpected any. Specify a different type                 @typescript-eslint/no-explicit-any
+   64:51  error  Unexpected any. Specify a different type                 @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/__tests__/talks-utils.test.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/@modal/(.)speakers/[speaker_id]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/@modal/(.)talks/[talk_id]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/cfp/cfpData.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/cfp/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/diversity/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/schedule/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/speakers/[speaker_id]/opengraph-image.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/speakers/[speaker_id]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/speakers/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/sponsorship/SponsorshipClient.tsx
+  64:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/tags/[tag]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/talks/[talk_id]/opengraph-image.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/talks/[talk_id]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/talks/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/travel/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/[year]/workshops/[workshop_id]/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/blog-single/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/blog/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/event-single/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/global-error.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/index5/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/kcd/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/app/speakers-single/page.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/elements/BackToTop.tsx
+  4:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/Breadcrumb.tsx
+  1:57  error  Unexpected any. Specify a different type                                           @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/Layout.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/TrackFilter.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header1.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header10.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header2.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header3.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header4.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header5.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header6.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header7.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header8.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/layout/header/Header9.tsx
+  3:101  error  Unexpected any. Specify a different type                                            @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/schedule/ScheduleContainer.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/schedule/ScheduleGrid.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/faq/FaqContent.tsx
+   13:33  error  Unexpected any. Specify a different type                              @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home1/section3.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home2/section5.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home3/section4.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home3/section7.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home4/section4.tsx
+   12:33  error  Unexpected any. Specify a different type                           @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home7/section6.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home8/section3.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/sections/home9/section3.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/components/talks/TalkContent.tsx
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/config/data/job-offers/2023.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/config/data/job-offers/2024.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/config/data/job-offers/2025.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/config/data/job-offers/index.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/config/data/job-offers/types.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/cypress.config.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/cypress/support/e2e.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/data/AboutData.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/hooks/useSpeakers.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/hooks/useTalks.ts
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/lib/shared/analytics.ts
+  24:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  25:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+/Users/anyulled/IdeaProjects/Eventify_v1.0.0_Unzip-First/1.Eventify_nextjs_template/lib/shared/markdown.tsx

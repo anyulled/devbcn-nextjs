@@ -12,13 +12,11 @@ const swiperOptions = {
   },
   loop: true,
 
-  // Navigation
   navigation: {
     nextEl: ".owl-next",
     prevEl: ".owl-prev",
   },
 
-  // Pagination
   pagination: {
     el: ".swiper-pagination",
     clickable: true,

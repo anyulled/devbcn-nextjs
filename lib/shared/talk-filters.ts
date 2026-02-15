@@ -8,12 +8,10 @@ export const filterTalks = (talks: Talk[], selectedTrack: string, searchQuery: s
   const query = searchQuery.toLowerCase().trim();
 
   return talks.filter((talk) => {
-    // Filter by track if selected
     if (selectedTrack && getTrackFromTalk(talk) !== selectedTrack) {
       return false;
     }
 
-    // Filter by search query if provided
     if (query) {
       const title = talk.title.toLowerCase();
       const description = (talk.description || "").toLowerCase();

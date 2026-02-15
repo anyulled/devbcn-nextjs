@@ -1,7 +1,5 @@
 export interface HeaderProps {
   scroll: boolean;
-  isMobileMenu: boolean;
-  handleMobileMenu: () => void;
   isSearch: boolean;
   handleSearch: () => void;
 }

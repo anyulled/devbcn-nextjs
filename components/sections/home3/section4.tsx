@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Section4SpeakerCard from "./Section4SpeakerCard";
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -13,13 +13,11 @@ const swiperOptions = {
   },
   loop: true,
 
-  // Navigation
   navigation: {
     nextEl: ".h1n",
     prevEl: ".h1p",
   },
 
-  // Pagination
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -53,6 +51,57 @@ const swiperOptions = {
   },
 };
 
+const speakerCards = [
+  {
+    id: 1,
+    image: "/assets/img/all-images/team/team-img8.png",
+    name: "Alex Robertson",
+    role: "Finance Consultant",
+  },
+  {
+    id: 2,
+    image: "/assets/img/all-images/team/team-img9.png",
+    name: "Alexy Sammo",
+    role: "HR Consultant",
+  },
+  {
+    id: 3,
+    image: "/assets/img/all-images/team/team-img10.png",
+    name: "Andrew Symonds",
+    role: "Finance Consultant",
+  },
+  {
+    id: 4,
+    image: "/assets/img/all-images/team/team-img11.png",
+    name: "Ben Stokes",
+    role: "Finance Consultant",
+  },
+  {
+    id: 5,
+    image: "/assets/img/all-images/team/team-img8.png",
+    name: "Alex Robertson",
+    role: "Finance Consultant",
+  },
+  {
+    id: 6,
+    image: "/assets/img/all-images/team/team-img9.png",
+    name: "Alexy Sammo",
+    role: "HR Consultant",
+  },
+  {
+    id: 7,
+    image: "/assets/img/all-images/team/team-img10.png",
+    name: "Andrew Symonds",
+    role: "Finance Consultant",
+  },
+  {
+    id: 8,
+    image: "/assets/img/all-images/team/team-img11.png",
+    name: "Ben Stokes",
+    role: "Finance Consultant",
+  },
+];
+
 export default function Section4() {
   return (
     <>
@@ -70,342 +119,11 @@ export default function Section4() {
           <div className="row">
             <div className="col-lg-12 team-slider-area2">
               <Swiper {...swiperOptions} className=" owl-carousel">
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img8.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Alex Robertson</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img9.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Alexy Sammo</Link>
-                    <div className="space16" />
-                    <p>HR Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img10.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Andrew Symonds</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img11.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Ben Stokes</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img8.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Alex Robertson</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img9.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Alexy Sammo</Link>
-                    <div className="space16" />
-                    <p>HR Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img10.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Andrew Symonds</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="our-team-boxarea">
-                  <div className="team-widget-area">
-                    <img src="/assets/img/elements/elements21.png" alt="" className="elements21" />
-                    <img src="/assets/img/elements/elements22.png" alt="" className="elements22" />
-                    <div className="img1">
-                      <img src="/assets/img/all-images/team/team-img11.png" alt="" className="team-img4" />
-                      <div className="share">
-                        <Link href="/#">
-                          <img src="/assets/img/icons/share1.svg" alt="" />
-                        </Link>
-                      </div>
-                      <ul>
-                        <li>
-                          <Link href="/#" className="icon1">
-                            <i className="fa-brands fa-facebook-f" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon2">
-                            <i className="fa-brands fa-linkedin-in" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon3">
-                            <i className="fa-brands fa-instagram" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/#" className="icon4">
-                            <i className="fa-brands fa-pinterest-p" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="space28" />
-                  <div className="content-area">
-                    <Link href="/speakers">Ben Stokes</Link>
-                    <div className="space16" />
-                    <p>Finance Consultant</p>
-                  </div>
-                </SwiperSlide>
+                {speakerCards.map((speaker) => (
+                  <SwiperSlide key={speaker.id} className="our-team-boxarea">
+                    <Section4SpeakerCard image={speaker.image} name={speaker.name} role={speaker.role} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
 
               <div className="owl-nav">

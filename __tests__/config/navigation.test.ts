@@ -78,11 +78,16 @@ describe("Navigation Configuration", () => {
     });
 
     it("should have correct year requirement flags", () => {
-      expect(newsDropdownLinks[0].requiresYear).toBe(true); // CFP
-      expect(newsDropdownLinks[1].requiresYear).toBe(true); // Sponsorship
-      expect(newsDropdownLinks[2].requiresYear).toBe(true); // Diversity
-      expect(newsDropdownLinks[3].requiresYear).toBe(true); // Job Offers
-      expect(newsDropdownLinks[4].requiresYear).toBe(true); // Travel
+      // CFP
+      expect(newsDropdownLinks[0].requiresYear).toBe(true);
+      // Sponsorship
+      expect(newsDropdownLinks[1].requiresYear).toBe(true);
+      // Diversity
+      expect(newsDropdownLinks[2].requiresYear).toBe(true);
+      // Job Offers
+      expect(newsDropdownLinks[3].requiresYear).toBe(true);
+      // Travel
+      expect(newsDropdownLinks[4].requiresYear).toBe(true);
     });
   });
 

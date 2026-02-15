@@ -1,15 +1,16 @@
+import "@testing-library/jest-dom";
 import { cache } from "react";
 import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
 
 // Mock react cache before importing the hook
 jest.mock("react", () => {
-  const actual = jest.requireActual("react");
-  const cacheMaps: Map<any, any>[] = [];
+  const actual = jest.requireActual("react") as typeof import("react");
+  const cacheMaps: Map<string, unknown>[] = [];
 
-  const mockedCache = (fn: Function) => {
-    const cacheMap = new Map();
+  const mockedCache = (fn: (...args: unknown[]) => unknown) => {
+    const cacheMap = new Map<string, unknown>();
     cacheMaps.push(cacheMap);
-    return function (...args: any[]) {
+    return function (...args: unknown[]) {
       const key = JSON.stringify(args);
       if (cacheMap.has(key)) {
         return cacheMap.get(key);
@@ -21,12 +22,15 @@ jest.mock("react", () => {
   };
 
   // Attach a helper to clear the caches
-  (mockedCache as any)._reset = () => {
+  interface CacheWithReset {
+    _reset?: () => void;
+  }
+  (mockedCache as CacheWithReset)._reset = () => {
     cacheMaps.forEach((map) => map.clear());
   };
 
   return {
-    ...actual,
+    ...(actual as Record<string, unknown>),
     cache: mockedCache,
   };
 });
@@ -47,8 +51,12 @@ describe("getSpeakerByYearAndId Performance", () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockClear();
     // Clear all caches before each test
-    if ((cache as any)._reset) {
-      (cache as any)._reset();
+    interface CacheWithReset {
+      _reset?: () => void;
+    }
+    const cacheWithReset = cache as CacheWithReset;
+    if (cacheWithReset._reset) {
+      cacheWithReset._reset();
     }
   });
 
@@ -76,7 +84,13 @@ describe("getSpeakerByYearAndId Performance", () => {
     await getSpeakerByYearAndId("2024", "1");
 
     // Reset cache manually to simulate new request
-    (cache as any)._reset();
+    interface CacheWithReset {
+      _reset?: () => void;
+    }
+    const cacheWithReset = cache as CacheWithReset;
+    if (cacheWithReset._reset) {
+      cacheWithReset._reset();
+    }
     (global.fetch as jest.Mock).mockClear();
 
     // Second call - same year, but fresh cache

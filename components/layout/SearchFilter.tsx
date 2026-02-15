@@ -16,7 +16,6 @@ export default function SearchFilter({ label = "Filter by Keyword:", placeholder
 
   const [query, setQuery] = useState(searchParams.get("q") || "");
 
-  // Debounced update of the URL
   useEffect(() => {
     const timer = setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
@@ -26,12 +25,11 @@ export default function SearchFilter({ label = "Filter by Keyword:", placeholder
         params.delete("q");
       }
 
-      // Update URL only if it changed to avoid unnecessary history entries
       const currentQ = searchParams.get("q") || "";
       if (currentQ !== query) {
         router.push(`${pathname}?${params.toString()}`, { scroll: false });
       }
-    }, 400); // 400ms debounce
+    }, 400);
 
     return () => clearTimeout(timer);
   }, [query, pathname, router, searchParams]);

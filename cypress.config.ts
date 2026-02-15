@@ -8,8 +8,6 @@ export default defineConfig({
     video: false,
     screenshotOnRunFailure: true,
     pageLoadTimeout: 120000,
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    setupNodeEvents() {},
   },
 });

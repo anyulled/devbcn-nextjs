@@ -15,8 +15,6 @@ const settings = {
   cssEase: "linear",
   fade: true,
   draggable: true,
-  // prevArrow: $(".testimonial-prev-arrow"),
-  // nextArrow: $(".testimonial-next-arrow"),
 };
 
 import Countdown from "@/components/elements/Countdown";

@@ -11,7 +11,6 @@ import { edition2025 } from "./2025";
 import { edition2026 } from "./2026";
 import { EditionConfig, EditionYear, isValidEditionYear } from "./types";
 
-// Re-export types for convenience
 export type { CFPConfig, DateRangeConfig, EditionConfig, EditionYear, FeatureConfig, SocialLinks, SponsorConfig } from "./types";
 
 export { isValidEditionYear } from "./types";
@@ -109,7 +108,7 @@ export const shouldShowSponsors = (config: EditionConfig, now: Date = new Date()
  *
  * @example
  * formatEventDateRange(new Date("2026-06-16"), new Date("2026-06-17"));
- * // Returns "16-17 June 2026"
+ *
  */
 export const formatEventDateRange = (startDate: Date, endDate: Date): string => {
   const startDay = startDate.getDate();
@@ -119,10 +118,8 @@ export const formatEventDateRange = (startDate: Date, endDate: Date): string => 
   const year = endDate.getFullYear();
 
   if (startMonth === endMonth) {
-    // Same month: "16-17 June 2026"
     return `${startDay}-${endDay} ${startMonth} ${year}`;
   } else {
-    // Different months: "28 June - 1 July 2026"
     return `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`;
   }
 };

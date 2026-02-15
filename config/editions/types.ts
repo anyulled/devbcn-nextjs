@@ -101,10 +101,8 @@ export interface Sponsors {
 }
 
 export interface EditionConfig {
-  // Navigation structure (Mandatory)
   navigation: EditionNavigation;
 
-  // Basic info
   edition: string;
   title: string;
   email: string;
@@ -115,10 +113,8 @@ export interface EditionConfig {
   trackNumber: number;
   tracks: string;
 
-  // Event dates
   event: DateRangeConfig;
 
-  // Feature flags
   actionButtons: boolean;
   showCountdown: boolean;
   showInfoButtons: boolean;
@@ -126,23 +122,19 @@ export interface EditionConfig {
   hideTalks: boolean;
   diversity: DiversityConfig;
 
-  // Feature toggles with nested config
   carrousel: FeatureConfig;
   schedule: FeatureConfig;
   jobOffers: FeatureConfig;
 
-  // Time-bounded features
   cfp: CFPConfig;
   tickets: TicketsConfig;
   sponsors: SponsorConfig;
   sponsorsData: Sponsors;
 
-  // External resources
   brochure: string;
   sessionizeUrl: string;
   openFeedbackId: string;
 
-  // Social media
   socialLinks: SocialLinks;
 }
 

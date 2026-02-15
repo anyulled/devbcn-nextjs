@@ -1,7 +1,7 @@
 "use client";
 
 import { Speaker } from "@/hooks/types";
-import { filterSpeakers } from "@/lib/utils/speaker-filters";
+import { filterSpeakers } from "@/lib/shared/speaker-filters";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import SearchFilter from "./SearchFilter";
@@ -16,7 +16,6 @@ function SpeakersListContent({ speakers, year }: SpeakersListProps) {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || "";
 
-  // Filter speakers using the utility function
   const filteredSpeakers = filterSpeakers(speakers, searchQuery);
 
   return (

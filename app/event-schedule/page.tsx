@@ -8,8 +8,8 @@ export default function EventSchedule() {
       <Layout headerStyle={1} footerStyle={1}>
         <div>
           <PageHeader title="Event Schedule" breadcrumbText="Event Schedule" backgroundImageId={10} contentColClass="col-lg-6" />
-          {/*===== HERO AREA ENDS =======*/}
-          {/*===== OTHERS AREA STARTS =======*/}
+          {/* ===== HERO AREA ENDS =======*/}
+          {/* ===== OTHERS AREA STARTS =======*/}
           <div className="choose-section-area sp2">
             <div className="container">
               <div className="row">
@@ -74,8 +74,8 @@ export default function EventSchedule() {
               </div>
             </div>
           </div>
-          {/*===== OTHERS AREA ENDS =======*/}
-          {/*===== EVENT AREA STARTS =======*/}
+          {/* ===== OTHERS AREA ENDS =======*/}
+          {/* ===== EVENT AREA STARTS =======*/}
           <div className="schedule-section-area sp10">
             <div className="container">
               <div className="row">
@@ -188,8 +188,8 @@ export default function EventSchedule() {
               </div>
             </div>
           </div>
-          {/*===== EVENT AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== EVENT AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-block d-block">
             <div className="container">
               <div className="row">
@@ -222,8 +222,8 @@ export default function EventSchedule() {
               </div>
             </div>
           </div>
-          {/*===== CTA AREA ENDS =======*/}
-          {/*===== CTA AREA STARTS =======*/}
+          {/* ===== CTA AREA ENDS =======*/}
+          {/* ===== CTA AREA STARTS =======*/}
           <div className="cta1-section-area d-lg-none d-block">
             <div className="container">
               <div className="row">

@@ -12,12 +12,11 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image({ params }: { params: Promise<{ year: string; talk_id: string }> }) {
-  const { year, talk_id } = await params;
-  const talk = await getTalkByYearAndId(year, talk_id);
+export default async function Image({ params }: { params: Promise<{ year: string; talkId: string }> }) {
+  const { year, talkId } = await params;
+  const talk = await getTalkByYearAndId(year, talkId);
 
   if (!talk) {
-    // Fallback image if talk not found
     return new ImageResponse(
       <div
         style={{

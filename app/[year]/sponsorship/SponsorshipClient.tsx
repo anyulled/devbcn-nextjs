@@ -59,9 +59,33 @@ const sponsorImages = [
   "https://live.staticflickr.com/65535/53799782919_5b588a8077_c_d.jpg",
 ];
 
+interface Venue {
+  name: string;
+  address?: string;
+  mapUrl: string;
+  city?: string;
+}
+
+interface Event {
+  startDay: Date;
+  endDay: Date;
+}
+
+interface Tickets {
+  url: string;
+}
+
+interface Config {
+  event: Event;
+  venue: Venue;
+  brochure: string;
+  tickets: Tickets;
+  showCountdown: boolean;
+}
+
 interface SponsorshipClientProps {
   year: string;
-  config: any; // Using any as requested to avoid 'any' types later, but for now I'll just match the structure
+  config: Readonly<Config>;
 }
 
 export default function SponsorshipClient({ year, config }: SponsorshipClientProps) {
@@ -78,7 +102,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 <div className="team-slider-area8">
                   <Swiper {...swiperOptions} className="owl-carousel">
                     {sponsorImages.map((image, index) => (
-                      <SwiperSlide key={index}>
+                      <SwiperSlide key={image}>
                         <div className="img1 image-anime">
                           <img
                             src={image}
@@ -96,10 +120,10 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                     ))}
                   </Swiper>
                   <div className="owl-nav">
-                    <button type="button" role="presentation" className="owl-prev h1p">
+                    <button type="button" className="owl-prev h1p" aria-label="Previous slide">
                       <i className="fa-solid fa-angle-left" />
                     </button>
-                    <button type="button" role="presentation" className="owl-next h1n">
+                    <button type="button" className="owl-next h1n" aria-label="Next slide">
                       <i className="fa-solid fa-angle-right" />
                     </button>
                   </div>
@@ -110,7 +134,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 <p>
                   DevBcn <strong>{year}</strong> is set for{" "}
                   <strong>
-                    {format(new Date(config.event.startDay), "MMMM do")} —{" ".concat(format(new Date(config.event.endDay), "do"))}
+                    {format(config.event.startDay, "MMMM do")} —{" ".concat(format(config.event.endDay, "do"))}
                   </strong>{" "}
                   at the iconic {config.venue.name}. This year, we're diving deep into the realms of Java, JVM, Cloud, DevOps, Frontend technologies, Leadership
                   strategies, and groundbreaking advancements in Big Data and AI.
@@ -262,8 +286,8 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
         </div>
       </div>
       <CTASection
-        eventStartDate={new Date(config.event.startDay)}
-        eventEndDate={new Date(config.event.endDay)}
+        eventStartDate={config.event.startDay}
+        eventEndDate={config.event.endDay}
         eventLocation={config.venue}
         ticketUrl={config.tickets.url}
         showCountdown={config.showCountdown}

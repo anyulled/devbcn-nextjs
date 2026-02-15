@@ -1,6 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cfpData } from "./cfpData";
@@ -62,7 +62,7 @@ export default async function CFP({ params }: CFPProps) {
 
       {cfpCommittee && cfpCommittee.length > 0 ? (
         <>
-          {cfpCommittee.map((track, trackIndex) => (
+          {cfpCommittee.map((track, _trackIndex) => (
             <div key={track.id} className="team10-section-area sp3">
               <div className="container">
                 <div className="row">

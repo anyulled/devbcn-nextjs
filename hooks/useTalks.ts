@@ -14,9 +14,9 @@ const getSessionsUrl = (year: string | number): string => {
 export const getTalks = cache(async (year: string | number = "default"): Promise<SessionGroup[]> => {
   try {
     const url = getSessionsUrl(year);
-    // Add a signal if we want to really handle timeouts, but for now simple try-catch is good
+
     const response = await fetch(url, {
-      next: { revalidate: 3600 }, // Ensure it's cached correctly at Next.js level
+      next: { revalidate: 3600 },
     });
     if (!response.ok) {
       console.error(`Failed to fetch talks for year ${year}: ${response.statusText}`);
@@ -136,12 +136,10 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
  * Shuffle an array using Fisher-Yates algorithm
  */
 const shuffleArray = <T>(array: T[]): T[] => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
+  return [...array]
+    .map((item) => ({ item, sortKey: Math.random() }))
+    .sort((a, b) => a.sortKey - b.sortKey)
+    .map((entry) => entry.item);
 };
 
 /**

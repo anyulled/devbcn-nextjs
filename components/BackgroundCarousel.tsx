@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
@@ -19,9 +18,16 @@ const IMAGES = [
   "/assets/img/all-images/venue/venue-3.webp",
   "/assets/img/all-images/venue/venue-4.webp",
   "/assets/img/all-images/venue/venue-5.webp",
+  "/assets/img/all-images/venue/venue-6.webp",
+  "/assets/img/all-images/venue/venue-7.webp",
+  "/assets/img/all-images/venue/venue-8.webp",
+  "/assets/img/all-images/venue/venue-9.webp",
+  "/assets/img/all-images/venue/venue-10.webp",
+  "/assets/img/all-images/venue/venue-11.webp",
+  "/assets/img/all-images/venue/venue-12.webp",
 ];
 
-const SLIDE_DURATION = 7000; // 7 seconds per slide
+const SLIDE_DURATION = 7000;
 
 interface BackgroundCarouselProps {
   children: React.ReactNode;
@@ -37,7 +43,6 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
   });
 
   useEffect(() => {
-    // Check for reduced motion preference
     const mediaQuery = globalThis.window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const handleChange = (e: MediaQueryListEvent) => {

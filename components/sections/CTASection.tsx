@@ -1,7 +1,7 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
 import { formatEventDateRange } from "@/config/editions";
-import { trackTicketClick } from "@/lib/utils/analytics";
+import { trackTicketClick } from "@/lib/shared/analytics";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
