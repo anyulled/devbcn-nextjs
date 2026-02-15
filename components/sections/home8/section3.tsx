@@ -11,12 +11,7 @@ export default function Section3() {
   return (
     <>
       <div className="event8-section-area sp1">
-        <Image
-          src="/assets/img/bg/header-bg20.png"
-          alt="Background Texture"
-          fill
-          style={{ objectFit: "cover", zIndex: -1 }}
-        />
+        <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover", zIndex: -1 }} />
         <div className="container">
           <div className="row">
             <div className="col-lg-10 m-auto">
