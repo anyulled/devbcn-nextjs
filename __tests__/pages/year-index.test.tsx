@@ -73,11 +73,11 @@ describe("Year Index Page", () => {
     render(result);
 
     expect(screen.getByTestId("section1")).toHaveTextContent("Section 1 2025");
-    expect(screen.getByTestId("section2")).toHaveTextContent("Section 2 2025-07-10T00:00:00.000Z countdown");
-    expect(screen.getByTestId("section3")).toBeInTheDocument();
-    expect(screen.getByTestId("section4")).toBeInTheDocument();
-    expect(screen.getByTestId("section5")).toHaveTextContent("Section 5 2025 1 speakers (1 total)");
-    expect(screen.getByTestId("section6")).toHaveTextContent("Section 6 Test Venue 2025-07-10T00:00:00.000Z");
+    expect(await screen.findByTestId("section2")).toHaveTextContent("Section 2 2025-07-10T00:00:00.000Z countdown");
+    expect(await screen.findByTestId("section3")).toBeInTheDocument();
+    expect(await screen.findByTestId("section4")).toBeInTheDocument();
+    expect(await screen.findByTestId("section5")).toHaveTextContent("Section 5 2025 1 speakers (1 total)");
+    expect(await screen.findByTestId("section6")).toHaveTextContent("Section 6 Test Venue 2025-07-10T00:00:00.000Z");
   });
 
   it("generates correct metadata", async () => {
