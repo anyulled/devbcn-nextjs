@@ -1,4 +1,5 @@
 @use "../../utils/" as *;
+@import "./brands";
 
 /* ============= OTHERS CSS AREA STARTS =============== */
 
@@ -1427,8 +1428,6 @@
 }
 
 /* ============= TIMER CSS AREA ENDS =============== */
-
-@use "./brands";
 
 /* ============= HEADER SEARCH CSS AREA STARTS =============== */
 .header-search-container form input {
