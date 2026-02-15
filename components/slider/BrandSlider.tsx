@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Sponsor } from "@/config/editions/types";
 import { slugify } from "@/lib/utils/slugify";
 import Link from "next/link";
+import Image from "next/image";
 
 // Define locally to avoid modifying global types if not needed elsewhere yet
 interface SponsorWithYear extends Sponsor {
@@ -90,18 +91,24 @@ const processedSponsors = getUniqueSponsors();
 
 export default function BrandSlider() {
   return (
-    <>
-      <Swiper {...swiperOptions} className="brand-slider-area owl-carousel">
-        {processedSponsors.map((sponsor, index) => (
-          <SwiperSlide key={`${sponsor.name}-${index}`} className="brand-box">
-            {sponsor.image && (
-              <Link href={`/${sponsor.year}/job-offers/${slugify(sponsor.name)}`}>
-                <img src={sponsor.image} alt={sponsor.name} />
-              </Link>
-            )}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
+    <Swiper {...swiperOptions} className="brand-slider-area owl-carousel">
+      {processedSponsors.map((sponsor, index) => (
+        <SwiperSlide key={`${sponsor.name}-${index}`} className="brand-box">
+          {sponsor.image && (
+            <Link href={`/${sponsor.year}/job-offers/${slugify(sponsor.name)}`}>
+              <div style={{ position: "relative", width: "100%", height: "80px" }}>
+                <Image
+                  src={sponsor.image}
+                  alt={sponsor.name}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+            </Link>
+          )}
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }

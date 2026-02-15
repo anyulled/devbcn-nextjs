@@ -1,0 +1,417 @@
+/* ============= BRANDS CSS AREA STARTS =============== */
+.brands1-section-area {
+  position: relative;
+  z-index: 1;
+  background: #fbf9f4;
+
+  .brand-box {
+    border-radius: 8px;
+    border: 1px solid rgb(26 23 25 / 0.05);
+    background: #fff;
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+    }
+  }
+}
+
+.brands2-section-area {
+  position: relative;
+  z-index: 1;
+  background-image: url("/assets/img/bg/header-bg3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .brand-header {
+    h3 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: var(--ztc-weight-semibold);
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .brand-box {
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.06);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      margin: 0 auto;
+    }
+  }
+}
+
+.brands3-section-area {
+  position: relative;
+  z-index: 1;
+  background: #f5f5f5;
+
+  .brand-header {
+    h3 {
+      color: var(--ztc-text-text-8);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: var(--ztc-weight-semibold);
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .brand-box {
+    border-radius: 8px;
+    background: var(--ztc-text-text-1);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Homepage 05 //
+.brands5-section-area {
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: linear-gradient(90deg, #243b55, #141e30);
+    padding: 20px 0;
+  }
+
+  .marquee-content {
+    display: inline-flex;
+    animation: scroll 200s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+      transition: all 0.6s;
+    }
+  }
+
+  .marquee-item {
+    color: #6e7de9;
+    font-family: var(--grotesk);
+    font-size: 120px;
+    font-style: normal;
+    line-height: 120px;
+    letter-spacing: 4.8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.4s;
+    display: flex;
+
+    &:hover {
+      color: var(--ztc-text-text-1);
+      transition: all 0.4s;
+
+      img {
+        filter: brightness(0) invert(1);
+        transition: all 0.4s;
+      }
+    }
+
+    img {
+      margin: 0 28px 0 150px;
+      transition: all 0.4s;
+    }
+  }
+
+  /* Keyframes for scrolling effect */
+  @keyframes scroll {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.brands6-section-area {
+  position: relative;
+  z-index: 1;
+
+  .brand-header {
+    h3 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: var(--ztc-weight-semibold);
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .brand-box {
+    border-radius: 16px;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.2);
+    backdrop-filter: blur(0);
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      margin: 0 auto;
+    }
+  }
+}
+
+// Homepage 07 //
+.brands7-section-area {
+  position: relative;
+  z-index: 1;
+  background: #fff3f6;
+
+  .brand-box {
+    border-radius: 8px;
+    border: 1px solid rgb(26 23 25 / 0.05);
+    background: #fff;
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+      transform: translateY(-5px);
+      border-radius: var(--rounded-lg, 8px);
+      border: 1px solid rgb(26 23 25 / 0.05);
+      background: var(--white, #fff);
+      box-shadow: 0 4px 32px 0 rgb(0 0 0 / 0.09);
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+    }
+  }
+}
+
+// homepage 08 //
+.brands8-section-area {
+  position: relative;
+  z-index: 1;
+
+  .layer1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+  .brand-header {
+    h3 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: var(--ztc-weight-semibold);
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .brand-box {
+    border-radius: 16px;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.2);
+    backdrop-filter: blur(0);
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+  }
+}
+
+// homepage 09 //
+.brands9-section-area {
+  position: relative;
+  z-index: 1;
+
+  .brand-slider-area9 {
+    &.owl-carousel .owl-stage-outer {
+      overflow: inherit;
+    }
+
+    .brand-box {
+      border-radius: var(--rounded-lg, 8px);
+      border: 1px solid rgb(13 4 0 / 0.1);
+      background: var(--white, #fff);
+      text-align: center;
+      padding: 32px;
+      transition: all 0.4s;
+
+      &:hover {
+        transition: all 0.4s;
+      }
+
+      img {
+        width: 170px;
+        height: 48px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// homepage 10 //
+.brands10-section-area {
+  position: relative;
+  z-index: 1;
+
+  .layer1 {
+    position: absolute;
+    top: -100px;
+    width: 100%;
+    z-index: 2;
+    height: 160px;
+  }
+
+  .brand-header {
+    h3 {
+      color: var(--ztc-text-text-1);
+      font-family: var(--grotesk);
+      font-size: var(--ztc-font-size-font-s24);
+      font-style: normal;
+      font-weight: var(--ztc-weight-semibold);
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .brand-box {
+    border-radius: 16px;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(0);
+    text-align: center;
+    padding: 32px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transition: all 0.4s;
+    }
+
+    img {
+      width: 170px;
+      height: 48px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      margin: 0 auto;
+    }
+  }
+}
+
+/* ============= BRANDS CSS AREA ENDS =============== */
+
+/* ============= SPONSORS CSS AREA STARTS =============== */
+
+// Sponsors section heading
+.sponsors-section-heading {
+  color: white !important;
+}
+
+// Sponsor category title
+.sponsor-category-title {
+  color: white !important;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+// Sponsor card container
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  background-color: rgb(255 255 255 / 0.05);
+  border-radius: 8px;
+  height: 100%;
+  min-height: 100px;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    max-height: 100px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+
+/* ============= SPONSORS CSS AREA ENDS =============== */

@@ -1,9 +1,11 @@
 import Section1 from "@/components/sections/home8/section1";
-import Section2 from "@/components/sections/home8/section2";
-import Section3 from "@/components/sections/home8/section3";
-import Section4 from "@/components/sections/home8/section4";
-import Section5 from "@/components/sections/home8/section5";
-import Section6 from "@/components/sections/home8/section6";
+import dynamic from "next/dynamic";
+
+const Section2 = dynamic(() => import("@/components/sections/home8/section2"));
+const Section3 = dynamic(() => import("@/components/sections/home8/section3"));
+const Section4 = dynamic(() => import("@/components/sections/home8/section4"));
+const Section5 = dynamic(() => import("@/components/sections/home8/section5"));
+const Section6 = dynamic(() => import("@/components/sections/home8/section6"));
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getRandomSpeakers, getSpeakers } from "@/hooks/useSpeakers";
 import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/utils/jsonld";

@@ -101,7 +101,8 @@
     display: inline-block;
   }
 
-  h2 {
+  h2,
+  h3 {
     color: var(--ztc-text-text-1);
     font-family: var(--grotesk);
     font-size: var(--ztc-font-size-font-s44);
@@ -874,14 +875,17 @@
     background: linear-gradient(135deg, #ff2e63 0%, #f96 100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 70px;
-    padding: 20px 32px; /* Increased padding for better touch target */
-    box-shadow: 0 4px 15px rgb(255 46 99 / 0.3); /* Soft colored shadow */
+    padding: 20px 32px;
+    /* Increased padding for better touch target */
+    box-shadow: 0 4px 15px rgb(255 46 99 / 0.3);
+    /* Soft colored shadow */
     border: 1px solid rgb(255 255 255 / 0.1);
   }
 
   span.arrow {
     display: inline-block;
-    background: var(--ztc-bg-bg-12); /* Keep original or match gradient if needed, typically separate element in this theme */
+    background: var(--ztc-bg-bg-12);
+    /* Keep original or match gradient if needed, typically separate element in this theme */
     transition: all 0.4s;
     height: 54px;
     width: 54px;
@@ -896,12 +900,14 @@
   &:hover {
     transition: all 0.4s;
     color: var(--ztc-text-text-1);
-    transform: translateY(-2px); /* Subtle lift */
+    transform: translateY(-2px);
+    /* Subtle lift */
 
     span.demo {
       /* Reverse or shift gradient on hover */
       background: linear-gradient(135deg, #f96 0%, #ff2e63 100%);
-      box-shadow: 0 8px 25px rgb(255 46 99 / 0.5); /* Stronger shadow */
+      box-shadow: 0 8px 25px rgb(255 46 99 / 0.5);
+      /* Stronger shadow */
     }
 
     span.arrow {

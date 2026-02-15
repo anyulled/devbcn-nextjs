@@ -1,8 +1,5 @@
 const config = {
-  extends: [
-    "stylelint-config-standard",
-    "stylelint-config-standard-scss"
-  ],
+  extends: ["stylelint-config-standard", "stylelint-config-standard-scss"],
   rules: {
     "no-descending-specificity": null,
     "selector-class-pattern": null,
@@ -14,8 +11,8 @@ const config = {
     "keyframes-name-pattern": null,
     "declaration-block-no-shorthand-property-overrides": null,
     "block-no-empty": null,
-    "number-max-precision": null
-  }
+    "number-max-precision": null,
+  },
 };
 
 export default config;

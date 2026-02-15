@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const msInSecond = 1000;
 const msInMinute = 60 * msInSecond;
@@ -110,7 +111,7 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
         <div className="row">
           <div className="col-lg-3 col-md-6">
             <div className="cta-counter-box">
-              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <Image src="/assets/img/elements/elements23.png" alt="" width={100} height={100} className="elements23 keyframe5" />
               <h2>
                 <span id="days1" className="time-value">
                   {timeParts.days} <span>DAYS</span>
@@ -121,7 +122,7 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cta-counter-box">
-              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <Image src="/assets/img/elements/elements23.png" alt="" width={100} height={100} className="elements23 keyframe5" />
               <h2>
                 <span id="hours1" className="time-value">
                   {timeParts.hours} <span>Hours</span>{" "}
@@ -132,7 +133,7 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cta-counter-box">
-              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <Image src="/assets/img/elements/elements23.png" alt="" width={100} height={100} className="elements23 keyframe5" />
               <h2>
                 <span id="minutes1" className="time-value">
                   {timeParts.minutes}
@@ -143,7 +144,7 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cta-counter-box">
-              <img src="/assets/img/elements/elements23.png" alt="" className="elements23 keyframe5" />
+              <Image src="/assets/img/elements/elements23.png" alt="" width={100} height={100} className="elements23 keyframe5" />
               <h2>
                 <span id="seconds1" className="time-value">
                   {timeParts.seconds}

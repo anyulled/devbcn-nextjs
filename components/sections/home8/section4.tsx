@@ -1,13 +1,14 @@
 import BrandSlider from "@/components/slider/BrandSlider";
 import { Sponsors } from "@/config/editions/types";
 import Link from "next/link";
+import Image from "next/image";
 import { SponsorGroup } from "./SponsorGroup";
 
 interface Section4Props {
   sponsors: Sponsors;
 }
 
-export default function Section4({ sponsors }: Section4Props) {
+export default function Section4({ sponsors }: Readonly<Section4Props>) {
   const hasSponsors = sponsors && Object.values(sponsors).some((arr) => arr && arr.length > 0);
 
   return (
@@ -21,14 +22,14 @@ export default function Section4({ sponsors }: Section4Props) {
         backgroundPosition: "center",
       }}
     >
-      <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
       <div className="container">
         {!hasSponsors && (
           <>
             <div className="row">
               <div className="col-lg-5 m-auto">
                 <div className="brand-header heading4 space-margin60 text-center">
-                  <h3>Trusted by leading tech companies</h3>
+                  <h3 className="sponsors-section-heading">Trusted by leading tech companies</h3>
                 </div>
               </div>
             </div>
@@ -70,7 +71,7 @@ export default function Section4({ sponsors }: Section4Props) {
                 <div className="col-lg-6 col-md-6">
                   <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={900}>
                     <div className="icons">
-                      <img src="/assets/img/icons/mail1.svg" alt="" />
+                      <Image src="/assets/img/icons/mail1.svg" alt="" width={40} height={40} />
                     </div>
                     <div className="text">
                       <h5>Our Email</h5>
@@ -128,6 +129,7 @@ export default function Section4({ sponsors }: Section4Props) {
         <div className="mapouter">
           <div className="gmap_canvas">
             <iframe
+              title="Location Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.0089347896845!2d2.1750847!3d41.3755825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f7c8f7c8f7%3A0x7c8f7c8f7c8f7c8f!2sWorld%20Trade%20Center%20Barcelona!5e0!3m2!1sen!2ses!4v1234567890123!5m2!1sen!2ses"
               width={600}
               height={450}
