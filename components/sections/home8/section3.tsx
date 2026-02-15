@@ -53,25 +53,6 @@ export default function Section3() {
                               <img src="/assets/img/all-images/about/devbcn-1.webp" alt="DevBcn" />
                             </div>
                           </div>
-                          <div className="space24" />
-                          <div className="col-gl-12">
-                            <div className="list">
-                              <ul>
-                                <li>
-                                  <Link href="/#">
-                                    <img src="/assets/img/icons/clock1.svg" alt="" />
-                                    June 16th - 17th, 2026 <span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/#">
-                                    <img src="/assets/img/icons/location1.svg" alt="" />
-                                    World Trade Center, Barcelona{" "}
-                                  </Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -86,9 +67,8 @@ export default function Section3() {
                               </Link>
                               <div className="space20" />
                               <p>
-                                This conference is the perfect stage to discover how others are using your favourite technology. There is something interesting
-                                for any kind of tech passionate: on the backend Java & JVM, Python, to Frontend with JavaScript, TypeScript and Web assembly;
-                                Also, Cloud, Kubernetes, and DevOps, Agile, Big Data, Machine Learning and more.
+                                Discover how others use your favorite technologies. From Backend and Frontend to Cloud, AI, and DevOps, there's something for
+                                every tech enthusiast to learn and share.
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
@@ -99,25 +79,6 @@ export default function Section3() {
                           <div className="col-lg-5">
                             <div className="img1">
                               <img src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn" />
-                            </div>
-                          </div>
-                          <div className="space24" />
-                          <div className="col-gl-12">
-                            <div className="list">
-                              <ul>
-                                <li>
-                                  <Link href="/#">
-                                    <img src="/assets/img/icons/clock1.svg" alt="Date" />
-                                    June 16th - 17th, 2026 <span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/#">
-                                    <img src="/assets/img/icons/location1.svg" alt="Location" />
-                                    World Trade Center, Barcelona{" "}
-                                  </Link>
-                                </li>
-                              </ul>
                             </div>
                           </div>
                         </div>
@@ -159,31 +120,6 @@ export default function Section3() {
                               <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn" />
                             </div>
                           </div>
-                          <div className="space24" />
-                          <div className="col-gl-12">
-                            <div className="list">
-                              <ul>
-                                <li>
-                                  <Link href="/2025">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2025 edition" />
-                                    2025 edition <span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/2024">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2024 edition" />
-                                    2024 edition<span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/2023">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2023 edition" />
-                                    2023 edition{" "}
-                                  </Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -210,31 +146,6 @@ export default function Section3() {
                           <div className="col-lg-5">
                             <div className="img1">
                               <img src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn" />
-                            </div>
-                          </div>
-                          <div className="space24" />
-                          <div className="col-gl-12">
-                            <div className="list">
-                              <ul>
-                                <li>
-                                  <Link href="/2025">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2025 edition" />
-                                    2025 edition <span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/2024">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2024 edition" />
-                                    2024 edition<span> | </span>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/2023">
-                                    <img src="/assets/img/icons/clock1.svg" alt="2023 edition" />
-                                    2023 edition{" "}
-                                  </Link>
-                                </li>
-                              </ul>
                             </div>
                           </div>
                         </div>
