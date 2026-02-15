@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3() {
   return (
@@ -43,9 +44,7 @@ export default function Section3() {
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
-                                <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket </span>
-                                </a>
+                                <BuyTicketButton />
                               </div>
                             </div>
                           </div>
@@ -93,9 +92,7 @@ export default function Section3() {
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
-                                <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket </span>
-                                </a>
+                                <BuyTicketButton />
                               </div>
                             </div>
                           </div>
@@ -153,9 +150,7 @@ export default function Section3() {
                                 </a>
                               </p>
                               <div className="btn-area1">
-                                <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket </span>
-                                </a>
+                                <BuyTicketButton />
                               </div>
                             </div>
                           </div>
@@ -208,9 +203,7 @@ export default function Section3() {
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
-                                <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket </span>
-                                </a>
+                                <BuyTicketButton />
                               </div>
                             </div>
                           </div>
