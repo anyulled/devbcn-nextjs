@@ -23,7 +23,7 @@ export const revalidate = 21600;
 interface TalkDetailProps {
   params: Promise<{
     year: string;
-    talk_id: string;
+    talkId: string;
   }>;
 }
 
@@ -36,7 +36,7 @@ export async function generateStaticParams() {
       const sessionGroups = await getTalks(year);
       const allTalks = sessionGroups.flatMap((group) => group.sessions);
       for (const talk of allTalks) {
-        params.push({ year, talk_id: talk.id });
+        params.push({ year, talkId: talk.id });
       }
     } catch (error) {
       console.warn(`Failed to fetch talks for year ${year}:`, error);
@@ -47,8 +47,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TalkDetailProps): Promise<Metadata> {
-  const { year, talk_id } = await params;
-  const talk = await getTalkByYearAndId(year, talk_id);
+  const { year, talkId } = await params;
+  const talk = await getTalkByYearAndId(year, talkId);
 
   if (!talk) {
     return {
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: TalkDetailProps): Promise<Met
     openGraph: {
       title: `${talk.title} - DevBcn ${year}`,
       description: `${descriptionPreview} By ${speakerNames}`,
-      url: `https://www.devbcn.com/${year}/talks/${talk_id}`,
+      url: `https://www.devbcn.com/${year}/talks/${talkId}`,
       type: "article",
       locale: "en_GB",
       siteName: "devbcn.com",
@@ -85,8 +85,8 @@ export async function generateMetadata({ params }: TalkDetailProps): Promise<Met
 }
 
 export default async function TalkDetail({ params }: TalkDetailProps) {
-  const { year, talk_id } = await params;
-  const talk = await getTalkByYearAndId(year, talk_id);
+  const { year, talkId } = await params;
+  const talk = await getTalkByYearAndId(year, talkId);
   const eventData = getEditionConfig(year);
 
   if (!talk) {

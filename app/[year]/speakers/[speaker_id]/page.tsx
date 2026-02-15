@@ -14,7 +14,7 @@ export const revalidate = 21600;
 interface SpeakerDetailProps {
   params: Promise<{
     year: string;
-    speaker_id: string;
+    speakerId: string;
   }>;
 }
 
@@ -37,8 +37,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: SpeakerDetailProps): Promise<Metadata> {
-  const { year, speaker_id } = await params;
-  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+  const { year, speakerId } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speakerId);
 
   if (!speaker) {
     return {
@@ -79,12 +79,12 @@ const generateJsonSchema = (speaker: Speaker, year: string) => {
   const sessionsListSchema =
     speaker.sessions.length > 0
       ? generateItemListSchema(
-          speaker.sessions.map((session) => ({
-            name: session.name,
-            url: `${baseUrl}/${year}/talks/${session.id}`,
-          })),
-          `Sessions by ${speaker.fullName}`
-        )
+        speaker.sessions.map((session) => ({
+          name: session.name,
+          url: `${baseUrl}/${year}/talks/${session.id}`,
+        })),
+        `Sessions by ${speaker.fullName}`
+      )
       : null;
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: `${baseUrl}/${year}` },
@@ -95,8 +95,8 @@ const generateJsonSchema = (speaker: Speaker, year: string) => {
 };
 
 export default async function SpeakerDetail({ params }: SpeakerDetailProps) {
-  const { year, speaker_id } = await params;
-  const speaker = await getSpeakerByYearAndId(year, speaker_id);
+  const { year, speakerId } = await params;
+  const speaker = await getSpeakerByYearAndId(year, speakerId);
   const eventData = getEditionConfig(year);
 
   if (!speaker) {
