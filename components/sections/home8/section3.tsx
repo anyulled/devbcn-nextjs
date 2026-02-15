@@ -44,7 +44,7 @@ export default function Section3() {
                               <div className="space24" />
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket Now</span>
+                                  <span className="demo">Buy Ticket </span>
                                 </a>
                               </div>
                             </div>
@@ -94,7 +94,7 @@ export default function Section3() {
                               <div className="space24" />
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket Now</span>
+                                  <span className="demo">Buy Ticket </span>
                                 </a>
                               </div>
                             </div>
@@ -154,7 +154,7 @@ export default function Section3() {
                               </p>
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket Now</span>
+                                  <span className="demo">Buy Ticket </span>
                                 </a>
                               </div>
                             </div>
@@ -199,28 +199,17 @@ export default function Section3() {
                           <div className="col-lg-7">
                             <div className="content-area">
                               <Link href="/event-single" className="head">
-                                More than Java & Cloud
+                                Community & Networking
                               </Link>
                               <div className="space20" />
-                              <p>DevBcn is the rebranding of the biggest Java & JVM conference in Spain, now including more technologies and tracks.</p>
-                              <div className="space24" />
                               <p>
-                                Check for videos/photos and summary of the DevBcn —{" "}
-                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/AHWSu1WE288">
-                                  2025 edition
-                                </a>{" "}
-                                —{" "}
-                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/k7iMIXtNKyo">
-                                  2024 edition
-                                </a>{" "}
-                                —{" "}
-                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/6ZxsMUYBrSo">
-                                  2023 edition
-                                </a>
+                                Join one of the most vibrant developer communities in Europe. Connect with peers, meet world-class speakers, and expand your
+                                network during our breaks, parties, and special events.
                               </p>
+                              <div className="space24" />
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
-                                  <span className="demo">Buy Ticket Now</span>
+                                  <span className="demo">Buy Ticket </span>
                                 </a>
                               </div>
                             </div>
