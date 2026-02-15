@@ -1,5 +1,6 @@
 const config = {
   extends: ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  plugins: ["stylelint-max-lines"],
   rules: {
     "no-descending-specificity": null,
     "selector-class-pattern": null,
@@ -12,6 +13,7 @@ const config = {
     "declaration-block-no-shorthand-property-overrides": null,
     "block-no-empty": null,
     "number-max-precision": null,
+    "pitcher/max-lines": 500,
   },
 };
 

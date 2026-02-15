@@ -1,0 +1,77 @@
+@use "../../../utils/" as *;
+
+.schedule-section-area {
+  .schedule {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid rgb(26 23 25 / 0.1);
+    background: #fff;
+    padding: 38px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #f8b500;
+    color: var(--ztc-text-text-2);
+    text-align: center;
+    font-family: var(--grotesk);
+    font-size: var(--ztc-font-size-font-s24);
+    font-style: normal;
+    font-weight: var(--ztc-weight-bold);
+    line-height: 24px;
+    letter-spacing: -0.48px;
+    padding: 18px 0;
+  }
+
+  td {
+    color: var(--ztc-text-text-2);
+    text-align: center;
+    font-family: var(--grotesk);
+    font-size: var(--ztc-font-size-font-s20);
+    font-style: normal;
+    font-weight: var(--ztc-weight-medium);
+    line-height: 20px;
+    letter-spacing: -0.4px;
+
+    span {
+      color: var(--ztc-text-text-3);
+      text-align: center;
+      font-family: var(--figtree);
+      font-size: var(--ztc-font-size-font-s16);
+      font-style: normal;
+      font-weight: var(--ztc-weight-medium);
+      line-height: 16px;
+      letter-spacing: -0.32px;
+      display: inline-block;
+      padding-top: 10px;
+    }
+  }
+
+  @media screen and (width <=768px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      text-align: center;
+    }
+
+    th,
+    td {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

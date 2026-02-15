@@ -1,0 +1,326 @@
+@use "../../../utils/" as *;
+
+// Homepage 09 //
+.event9-section-area {
+  position: relative;
+  z-index: 2;
+  background: #f7f5fb;
+
+  .tabs-button {
+    ul {
+      justify-content: center;
+
+      li {
+        button {
+          border-radius: 8px;
+          background: #fff;
+          padding: 8px;
+          width: 180px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          height: 56px;
+          margin: 0 16px 0 0;
+
+          @media #{$xs} {
+            margin: 0 0 10px;
+          }
+
+          &.active {
+            border-radius: 8px;
+            background: var(--LLL, linear-gradient(135deg, #ff5000 0%, #ff00b8 100%));
+            transition: all 0.4s;
+
+            span.calender {
+              background: var(--ztc-bg-bg-1);
+              transition: all 0.4s;
+
+              img {
+                filter: none;
+              }
+            }
+
+            .pl-8 {
+              .day {
+                color: var(--ztc-text-text-1);
+                transition: all 0.4s;
+              }
+
+              .date {
+                color: var(--ztc-text-text-1);
+                transition: all 0.4s;
+              }
+            }
+          }
+
+          span.calender {
+            border-radius: 4px;
+            background: var(--LLL, linear-gradient(135deg, #ff5000 0%, #ff00b8 100%));
+            height: 43px;
+            width: 55px;
+            text-align: center;
+            line-height: 40px;
+            display: inline-block;
+            transition: all 0.4s;
+
+            img {
+              transition: all 0.4s;
+              height: 24px;
+              width: 24px;
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          .pl-8 {
+            padding-left: 8px;
+            display: inline-block;
+            text-align: start;
+
+            .day {
+              color: var(--ztc-text-text-18);
+              font-family: var(--grotesk);
+              font-size: var(--ztc-font-size-font-s16);
+              font-style: normal;
+              font-weight: var(--ztc-weight-bold);
+              line-height: 16px;
+
+              /* 100% */
+              display: inline-block;
+              transition: all 0.4s;
+              text-align: start;
+            }
+
+            .date {
+              color: var(--ztc-text-text-18);
+              font-family: var(--grotesk);
+              font-size: var(--ztc-font-size-font-s14);
+              font-style: normal;
+              font-weight: var(--ztc-weight-medium);
+              line-height: 14px;
+
+              /* 100% */
+              display: inline-block;
+              transition: all 0.4s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    .tab-pane {
+      .event-widget-area {
+        .event2-boxarea {
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: "";
+            height: 93%;
+            width: 1px;
+            left: 45.7%;
+            top: 0;
+            transition: all 0.4s;
+            background: #e6e7e8;
+
+            @media #{$xs} {
+              display: none;
+            }
+
+            @media #{$md} {
+              display: none;
+            }
+          }
+
+          h1 {
+            color: var(--ztc-text-text-1);
+            font-family: var(--grotesk);
+            font-size: var(--ztc-font-size-font-s24);
+            font-style: normal;
+            font-weight: var(--ztc-weight-bold);
+            display: inline-block;
+            transition: all 0.4s;
+            height: 56px;
+            width: 56px;
+            text-align: center;
+            line-height: 56px;
+            background: var(--LLL, linear-gradient(135deg, #ff5000 0%, #ff00b8 100%));
+            border-radius: 50%;
+            position: absolute;
+            left: 43%;
+            top: 88px;
+            z-index: 1;
+
+            &.active {
+              background: var(--LLL, linear-gradient(135deg, #ff5000 0%, #ff00b8 100%));
+              color: var(--ztc-text-text-1);
+            }
+
+            @media #{$xs} {
+              display: none;
+            }
+
+            @media #{$md} {
+              display: none;
+            }
+          }
+
+          .img1 {
+            position: relative;
+            z-index: 1;
+
+            @media #{$xs} {
+              margin-bottom: 30px;
+            }
+
+            @media #{$md} {
+              margin-bottom: 30px;
+            }
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              border-radius: 4px;
+            }
+          }
+
+          .content-area {
+            ul {
+              li {
+                display: inline-block;
+
+                a {
+                  color: var(--ztc-text-text-18);
+                  font-family: var(--grotesk);
+                  font-size: var(--ztc-font-size-font-s16);
+                  font-style: normal;
+                  font-weight: var(--ztc-weight-bold);
+                  line-height: 16px;
+
+                  /* 100% */
+                  display: inline-block;
+                  transition: all 0.4s;
+
+                  @media #{$xs} {
+                    display: block;
+                    margin-bottom: 10px;
+                  }
+
+                  img {
+                    filter: brightness(0);
+                    margin: 0 4px 0 0;
+                  }
+
+                  span {
+                    margin: 0 8px;
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+
+            .head {
+              color: var(--ztc-text-text-18);
+              font-family: var(--grotesk);
+              font-size: var(--ztc-font-size-font-s24);
+              font-style: normal;
+              font-weight: var(--ztc-weight-bold);
+              line-height: 24px;
+              display: inline-block;
+              transition: all 0.4s;
+
+              @media #{$xs} {
+                line-height: 32px;
+              }
+            }
+
+            .author-area {
+              display: flex;
+              align-items: center;
+
+              @media #{$xs} {
+                display: inline-block;
+              }
+
+              .autho-name-area {
+                display: flex;
+                align-items: center;
+                padding: 0 12px 0 0;
+                border-right: 1px solid #e6e7e8;
+
+                .img1 {
+                  @media #{$xs} {
+                    margin-bottom: 0;
+                  }
+
+                  @media #{$md} {
+                    margin-bottom: 0;
+                  }
+
+                  img {
+                    height: 56px;
+                    width: 56px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  }
+                }
+
+                .text {
+                  padding-left: 12px;
+
+                  a {
+                    color: var(--ztc-text-text-18);
+                    font-family: var(--grotesk);
+                    font-size: var(--ztc-font-size-font-s18);
+                    font-style: normal;
+                    font-weight: var(--ztc-weight-bold);
+                    line-height: 18px;
+                    display: inline-block;
+                    transition: all 0.4s;
+
+                    @media #{$xs} {
+                      line-height: 18px;
+                    }
+                  }
+
+                  p {
+                    color: var(--ztc-text-text-19);
+                    font-family: var(--grotesk);
+                    font-size: var(--ztc-font-size-font-s16);
+                    font-style: normal;
+                    font-weight: var(--ztc-weight-medium);
+                    line-height: 18px;
+                    display: inline-block;
+                    transition: all 0.4s;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .event2-boxarea.box3 {
+          &::after {
+            display: none;
+          }
+        }
+
+        .event2-boxarea {
+          .content-area {
+            .author-area {
+              .autho-name-area {
+                @media #{$xs} {
+                  padding: 0 !important;
+                  margin-bottom: 16px;
+                  border: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
