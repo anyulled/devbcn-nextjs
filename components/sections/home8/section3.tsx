@@ -45,9 +45,6 @@ export default function Section3() {
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
                                   <span className="demo">Buy Ticket Now</span>
-                                  <span className="arrow">
-                                    <i className="fa-solid fa-arrow-right" />
-                                  </span>
                                 </a>
                               </div>
                             </div>
@@ -98,9 +95,6 @@ export default function Section3() {
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
                                   <span className="demo">Buy Ticket Now</span>
-                                  <span className="arrow">
-                                    <i className="fa-solid fa-arrow-right" />
-                                  </span>
                                 </a>
                               </div>
                             </div>
@@ -161,9 +155,6 @@ export default function Section3() {
                               <div className="btn-area1">
                                 <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
                                   <span className="demo">Buy Ticket Now</span>
-                                  <span className="arrow">
-                                    <i className="fa-solid fa-arrow-right" />
-                                  </span>
                                 </a>
                               </div>
                             </div>
@@ -171,6 +162,72 @@ export default function Section3() {
                           <div className="col-lg-5">
                             <div className="img1">
                               <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn" />
+                            </div>
+                          </div>
+                          <div className="space24" />
+                          <div className="col-gl-12">
+                            <div className="list">
+                              <ul>
+                                <li>
+                                  <Link href="/2025">
+                                    <img src="/assets/img/icons/clock1.svg" alt="2025 edition" />
+                                    2025 edition <span> | </span>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/2024">
+                                    <img src="/assets/img/icons/clock1.svg" alt="2024 edition" />
+                                    2024 edition<span> | </span>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/2023">
+                                    <img src="/assets/img/icons/clock1.svg" alt="2023 edition" />
+                                    2023 edition{" "}
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 mb-4">
+                      <div className="event2-boxarea box1">
+                        <div className="row align-items-center">
+                          <div className="col-lg-7">
+                            <div className="content-area">
+                              <Link href="/event-single" className="head">
+                                More than Java & Cloud
+                              </Link>
+                              <div className="space20" />
+                              <p>DevBcn is the rebranding of the biggest Java & JVM conference in Spain, now including more technologies and tracks.</p>
+                              <div className="space24" />
+                              <p>
+                                Check for videos/photos and summary of the DevBcn —{" "}
+                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/AHWSu1WE288">
+                                  2025 edition
+                                </a>{" "}
+                                —{" "}
+                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/k7iMIXtNKyo">
+                                  2024 edition
+                                </a>{" "}
+                                —{" "}
+                                <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/6ZxsMUYBrSo">
+                                  2023 edition
+                                </a>
+                              </p>
+                              <div className="btn-area1">
+                                <a href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn8" target="_blank" rel="noopener noreferrer">
+                                  <span className="demo">Buy Ticket Now</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-5">
+                            <div className="img1">
+                              <img src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn" />
                             </div>
                           </div>
                           <div className="space24" />
