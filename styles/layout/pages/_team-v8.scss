@@ -1,0 +1,182 @@
+@use "../../utils/" as *;
+
+/* ============= TEAM CSS AREA (V8) =============== */
+
+.team8-section-rea {
+  position: relative;
+  z-index: 1;
+
+  .team-slider-area8 {
+    position: relative;
+    z-index: 1;
+
+    .owl-nav {
+      position: absolute;
+      top: -130px;
+      right: 0;
+
+      @media #{$xs} {
+        text-align: center;
+        margin-top: 40px;
+        position: relative;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      @media #{$md} {
+        text-align: center;
+        margin-top: 30px;
+        position: relative;
+        left: 0;
+      }
+
+      button {
+        height: 56px;
+        width: 56px;
+        text-align: center;
+        line-height: 56px;
+        border-radius: 50%;
+        transition: all 0.4s;
+        background: rgb(255 255 255 / 0.2);
+        backdrop-filter: blur(2px);
+        font-size: var(--ztc-font-size-font-s20);
+        display: inline-block;
+        color: var(--ztc-text-text-1);
+
+        &:hover {
+          background: var(--ztc-text-text-16);
+          color: var(--ztc-text-text-1);
+          transition: all 0.4s;
+        }
+
+        &.owl-prev {
+          margin: 0 16px 0 0;
+
+          @media #{$xs} {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .team-widget-boxarea {
+      position: relative;
+      z-index: 1;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 12px;
+      border-radius: 32px;
+      background: rgb(255, 255, 255, 0.02);
+      border: 1px solid rgb(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+
+      &:hover {
+        transform: translateY(-12px);
+        background: rgb(255, 255, 255, 0.05);
+        border-color: rgb(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgb(0, 0, 0, 0.4);
+
+        .img1 {
+          img {
+            transform: scale(1.08) rotate(-3deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          ul {
+            bottom: 20px;
+            transition: all 0.6s;
+          }
+        }
+      }
+
+      .img1 {
+        position: relative;
+        z-index: 1;
+        border-radius: 24px;
+        overflow: hidden;
+        transition: all 0.4s;
+        box-shadow: 0 8px 24px rgb(0, 0, 0, 0.2);
+
+        img {
+          height: 100%;
+          width: 100%;
+          aspect-ratio: 4/5;
+          object-fit: cover;
+          border-radius: 24px;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        ul {
+          position: absolute;
+          bottom: -250px;
+          width: 100%;
+          transition: all 0.6s;
+          z-index: 2;
+          left: 15%;
+          right: 15%;
+
+          li {
+            display: inline-block;
+
+            a {
+              height: 44px;
+              width: 44px;
+              text-align: center;
+              border-radius: 50%;
+              display: inline-block;
+              transition: all 0.4s;
+              line-height: 44px;
+              color: var(--ztc-text-text-2);
+              font-size: var(--ztc-font-size-font-s18);
+              background: #fff;
+              margin: 0 10px 0 0;
+
+              &:hover {
+                background: var(--ztc-text-text-15);
+                color: var(--ztc-text-text-1);
+                transition: all 0.4s;
+              }
+            }
+          }
+        }
+      }
+
+      .text-area {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-top: 16px;
+
+        a {
+          color: var(--ztc-text-text-1);
+          text-align: center;
+          font-family: var(--grotesk);
+          font-size: var(--ztc-font-size-font-s22);
+          font-style: normal;
+          font-weight: var(--ztc-weight-bold);
+          line-height: 1.2;
+          display: inline-block;
+          transition: all 0.4s;
+          margin-bottom: 4px;
+
+          &:hover {
+            color: var(--ztc-text-text-15);
+          }
+        }
+
+        p {
+          color: var(--ztc-text-text-1);
+          text-align: center;
+          font-family: var(--grotesk);
+          font-size: var(--ztc-font-size-font-s18);
+          font-style: normal;
+          font-weight: var(--ztc-weight-regular);
+          line-height: 18px;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
