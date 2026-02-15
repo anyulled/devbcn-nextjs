@@ -13,7 +13,7 @@ export const edition2026: EditionConfig = {
     main: [
       { label: "About Us", href: "/about-us", requiresYear: false },
       { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-      { label: "Travel", href: "/travel", requiresYear: false }, // assuming global travel page or check if it needs year
+      { label: "Travel", href: "/2026/travel", requiresYear: true },
     ],
     yearSpecific: [
       { label: "Speakers", href: "/2026/speakers", requiresYear: false, condition: "hasSpeakers" },

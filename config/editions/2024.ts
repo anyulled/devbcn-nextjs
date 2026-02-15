@@ -12,7 +12,7 @@ export const edition2024: EditionConfig = {
     main: [
       { label: "About Us", href: "/about-us", requiresYear: false },
       { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-      { label: "Travel", href: "/travel", requiresYear: false },
+      { label: "Travel", href: "/2024/travel", requiresYear: false },
     ],
     yearSpecific: [
       { label: "Speakers", href: "/2024/speakers", requiresYear: false, condition: "hasSpeakers" },
@@ -21,9 +21,9 @@ export const edition2024: EditionConfig = {
       { label: "Workshops", href: "/2024/workshops", requiresYear: false },
     ],
     news: [
-      { label: "CFP", href: "/2024/cfp", requiresYear: false, condition: "hasCfp" },
+      { label: "CFP", href: "/2024/cfp", requiresYear: true, condition: "hasCfp" },
       { label: "KCD", href: "/kcd", requiresYear: false },
-      { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
+      { label: "Sponsorship", href: "/2024/sponsorship", requiresYear: true },
       { label: "Diversity", href: "/2024/diversity", requiresYear: false, condition: "hasDiversity" },
       { label: "Job Offers", href: "/2024/job-offers", requiresYear: false, condition: "hasJobOffers" },
     ],

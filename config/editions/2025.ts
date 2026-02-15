@@ -12,7 +12,7 @@ export const edition2025: EditionConfig = {
     main: [
       { label: "About Us", href: "/about-us", requiresYear: false },
       { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-      { label: "Travel", href: "/travel", requiresYear: false },
+      { label: "Travel", href: "/2025/travel", requiresYear: true },
     ],
     yearSpecific: [
       { label: "Speakers", href: "/2025/speakers", requiresYear: false, condition: "hasSpeakers" },
@@ -21,7 +21,7 @@ export const edition2025: EditionConfig = {
     ],
     news: [
       { label: "CFP", href: "/2025/cfp", requiresYear: false, condition: "hasCfp" },
-      { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
+      { label: "Sponsorship", href: "/2025/sponsorship", requiresYear: true },
       { label: "Diversity", href: "/2025/diversity", requiresYear: false, condition: "hasDiversity" },
       { label: "Job Offers", href: "/2025/job-offers", requiresYear: false, condition: "hasJobOffers" },
     ],
