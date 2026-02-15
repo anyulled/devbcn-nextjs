@@ -1,6 +1,7 @@
 "use client";
 import { Speaker } from "@/hooks/types";
 import Link from "next/link";
+import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -70,69 +71,73 @@ interface Section5Props {
   totalSpeakers: number;
 }
 
-export default function Section5({ year, speakers, totalSpeakers }: Section5Props) {
+export default function Section5({ year, speakers, totalSpeakers }: Readonly<Section5Props>) {
   return (
-    <>
-      <div
-        className="team8-section-rea sp1"
-        style={{
-          backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5">
-              <div className="heading11 space-margin60">
-                <h5>{totalSpeakers} Event Speakers</h5>
-                <div className="space18" />
-                <h2 className="text-anime-style-3">Meet Our Speakers</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12 team-slider-area8">
-              <Swiper {...swiperOptions} className=" owl-carousel">
-                {speakers.length === 0 ? (
-                  <SwiperSlide className="team-widget-boxarea">
-                    <div className="text-area">
-                      <p>No speakers available yet.</p>
-                    </div>
-                  </SwiperSlide>
-                ) : (
-                  speakers.map((speaker) => (
-                    <SwiperSlide key={speaker.id} className="team-widget-boxarea">
-                      <div className="img1 image-anime">
-                        <Link href={`/${year}/speakers/${speaker.id}`}>
-                          <img src={speaker.profilePicture || "/assets/img/all-images/team/team-img28.png"} alt={speaker.fullName} />
-                        </Link>
-                      </div>
-                      <div className="space20" />
-                      <div className="text-area">
-                        <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
-                        <div className="space16" />
-                        <p>{truncateTagline(speaker.tagLine)}</p>
-                      </div>
-                    </SwiperSlide>
-                  ))
-                )}
-              </Swiper>
-              {speakers.length > 3 && (
-                <div className="owl-nav">
-                  <button type="button" role="presentation" className="owl-prev h1p">
-                    <i className="fa-solid fa-angle-left" />
-                  </button>
-                  <button type="button" role="presentation" className="owl-next h1n">
-                    <i className="fa-solid fa-angle-right" />
-                  </button>
-                </div>
-              )}
+    <div
+      className="team8-section-rea sp1"
+      style={{
+        backgroundImage: "url(/assets/img/bg/header-bg20.png)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5">
+            <div className="heading11 space-margin60">
+              <h5>{totalSpeakers} Event Speakers</h5>
+              <div className="space18" />
+              <h2 className="text-anime-style-3">Meet Our Speakers</h2>
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="col-lg-12 team-slider-area8">
+            <Swiper {...swiperOptions} className=" owl-carousel">
+              {speakers.length === 0 ? (
+                <SwiperSlide className="team-widget-boxarea">
+                  <div className="text-area">
+                    <p>No speakers available yet.</p>
+                  </div>
+                </SwiperSlide>
+              ) : (
+                speakers.map((speaker) => (
+                  <SwiperSlide key={speaker.id} className="team-widget-boxarea">
+                    <div className="img1 image-anime">
+                      <Link href={`/${year}/speakers/${speaker.id}`}>
+                        <Image
+                          src={speaker.profilePicture || "/assets/img/all-images/team/team-img28.png"}
+                          alt={speaker.fullName}
+                          width={400}
+                          height={500}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </Link>
+                    </div>
+                    <div className="space20" />
+                    <div className="text-area">
+                      <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
+                      <div className="space16" />
+                      <p>{truncateTagline(speaker.tagLine)}</p>
+                    </div>
+                  </SwiperSlide>
+                ))
+              )}
+            </Swiper>
+            {speakers.length > 3 && (
+              <div className="owl-nav">
+                <button type="button" role="presentation" className="owl-prev h1p">
+                  <i className="fa-solid fa-angle-left" />
+                </button>
+                <button type="button" role="presentation" className="owl-next h1n">
+                  <i className="fa-solid fa-angle-right" />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

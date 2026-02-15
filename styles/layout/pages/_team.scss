@@ -1863,13 +1863,23 @@
     .team-widget-boxarea {
       position: relative;
       z-index: 1;
-      transition: all 0.4s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 12px;
+      border-radius: 32px;
+      background: rgb(255, 255, 255, 0.02);
+      border: 1px solid rgb(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
 
       &:hover {
+        transform: translateY(-12px);
+        background: rgb(255, 255, 255, 0.05);
+        border-color: rgb(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgb(0, 0, 0, 0.4);
+
         .img1 {
           img {
-            transform: scale(1.1) rotate(-4deg);
-            transition: all 0.4s;
+            transform: scale(1.08) rotate(-3deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
           }
 
           ul {
@@ -1882,16 +1892,18 @@
       .img1 {
         position: relative;
         z-index: 1;
-        border-radius: 200px 200px 4px 4px;
+        border-radius: 24px;
         overflow: hidden;
         transition: all 0.4s;
+        box-shadow: 0 8px 24px rgb(0, 0, 0, 0.2);
 
         img {
           height: 100%;
           width: 100%;
+          aspect-ratio: 4/5;
           object-fit: cover;
-          border-radius: 200px 200px 4px 4px;
-          transition: all 0.4s;
+          border-radius: 24px;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         ul {
@@ -1933,18 +1945,23 @@
         text-align: center;
         position: relative;
         z-index: 1;
-        border-radius: 8px;
+        padding-top: 16px;
 
         a {
           color: var(--ztc-text-text-1);
           text-align: center;
           font-family: var(--grotesk);
-          font-size: var(--ztc-font-size-font-s24);
+          font-size: var(--ztc-font-size-font-s22);
           font-style: normal;
           font-weight: var(--ztc-weight-bold);
-          line-height: 24px;
+          line-height: 1.2;
           display: inline-block;
           transition: all 0.4s;
+          margin-bottom: 4px;
+
+          &:hover {
+            color: var(--ztc-text-text-15);
+          }
         }
 
         p {
