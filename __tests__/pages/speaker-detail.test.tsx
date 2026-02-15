@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speaker_id]/page";
+import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speakerId]/page";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
@@ -48,7 +48,7 @@ jest.mock("next/image", () => ({
 }));
 
 describe("Speaker Detail Page", () => {
-  const params = Promise.resolve({ year: "2026", speaker_id: "speaker-1" });
+  const params = Promise.resolve({ year: "2026", speakerId: "speaker-1" });
   const mockSpeaker = {
     id: "speaker-1",
     fullName: "Speaker 1",
@@ -93,6 +93,6 @@ describe("Speaker Detail Page", () => {
   it("generates static params", async () => {
     (getSpeakers as jest.Mock).mockResolvedValue([mockSpeaker]);
     const staticParams = await generateStaticParams();
-    expect(staticParams).toEqual([{ year: "2026", speaker_id: "speaker-1" }]);
+    expect(staticParams).toEqual([{ year: "2026", speakerId: "speaker-1" }]);
   });
 });

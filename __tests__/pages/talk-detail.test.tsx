@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import TalkDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/[talk_id]/page";
+import TalkDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/[talkId]/page";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
 import {
@@ -68,7 +68,7 @@ jest.mock("@/lib/shared/jsonld", () => ({
 }));
 
 describe("Talk Detail Page", () => {
-  const params = Promise.resolve({ year: "2025", talk_id: "talk-1" });
+  const params = Promise.resolve({ year: "2025", talkId: "talk-1" });
   const mockTalk = {
     id: "talk-1",
     title: "Talk 1",
@@ -127,6 +127,6 @@ describe("Talk Detail Page", () => {
   it("generates static params", async () => {
     (getTalks as jest.Mock).mockResolvedValue([{ sessions: [mockTalk] }]);
     const staticParams = await generateStaticParams();
-    expect(staticParams).toEqual([{ year: "2025", talk_id: "talk-1" }]);
+    expect(staticParams).toEqual([{ year: "2025", talkId: "talk-1" }]);
   });
 });

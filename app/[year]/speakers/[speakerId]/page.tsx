@@ -26,7 +26,7 @@ export async function generateStaticParams() {
     try {
       const speakers = await getSpeakers(year);
       for (const speaker of speakers) {
-        params.push({ year, speaker_id: speaker.id });
+        params.push({ year, speakerId: speaker.id });
       }
     } catch (error) {
       console.warn(`Failed to fetch speakers for year ${year}:`, error);
