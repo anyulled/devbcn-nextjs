@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Section3() {
   const [isTab, setIsTab] = useState(1);
@@ -9,15 +10,13 @@ export default function Section3() {
   };
   return (
     <>
-      <div
-        className="event8-section-area sp1"
-        style={{
-          backgroundImage: "url(assets/img/bg/header-bg20.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="event8-section-area sp1">
+        <Image
+          src="/assets/img/bg/header-bg20.png"
+          alt="Background Texture"
+          fill
+          style={{ objectFit: "cover", zIndex: -1 }}
+        />
         <div className="container">
           <div className="row">
             <div className="col-lg-10 m-auto">
@@ -60,7 +59,13 @@ export default function Section3() {
                             </div>
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img src="/assets/img/all-images/about/devbcn-1.webp" alt="DevBcn" />
+                                <Image
+                                  src="/assets/img/all-images/about/devbcn-1.webp"
+                                  alt="DevBcn"
+                                  width={600}
+                                  height={400}
+                                  style={{ width: "100%", height: "auto" }}
+                                />
                               </div>
                             </div>
                             <div className="space24" />
@@ -69,13 +74,13 @@ export default function Section3() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img src="/assets/img/icons/clock1.svg" alt="" />
+                                      <Image src="/assets/img/icons/clock1.svg" alt="" width={24} height={24} />
                                       June 16th - 17th, 2026 <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img src="/assets/img/icons/location1.svg" alt="" />
+                                      <Image src="/assets/img/icons/location1.svg" alt="" width={24} height={24} />
                                       World Trade Center, Barcelona{" "}
                                     </Link>
                                   </li>
@@ -115,7 +120,13 @@ export default function Section3() {
                             </div>
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn" />
+                                <Image
+                                  src="/assets/img/all-images/about/devbcn2.webp"
+                                  alt="DevBcn"
+                                  width={600}
+                                  height={400}
+                                  style={{ width: "100%", height: "auto" }}
+                                />
                               </div>
                             </div>
                             <div className="space24" />
@@ -124,13 +135,13 @@ export default function Section3() {
                                 <ul>
                                   <li>
                                     <Link href="/#">
-                                      <img src="/assets/img/icons/clock1.svg" alt="Date" />
+                                      <Image src="/assets/img/icons/clock1.svg" alt="Date" width={24} height={24} />
                                       June 16th - 17th, 2026 <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/#">
-                                      <img src="/assets/img/icons/location1.svg" alt="Location" />
+                                      <Image src="/assets/img/icons/location1.svg" alt="Location" width={24} height={24} />
                                       World Trade Center, Barcelona{" "}
                                     </Link>
                                   </li>
@@ -180,7 +191,13 @@ export default function Section3() {
                             </div>
                             <div className="col-lg-5">
                               <div className="img1">
-                                <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn" />
+                                <Image
+                                  src="/assets/img/all-images/about/FaqsImage1.webp"
+                                  alt="DevBcn"
+                                  width={600}
+                                  height={400}
+                                  style={{ width: "100%", height: "auto" }}
+                                />
                               </div>
                             </div>
                             <div className="space24" />
@@ -189,19 +206,19 @@ export default function Section3() {
                                 <ul>
                                   <li>
                                     <Link href="/2025">
-                                      <img src="/assets/img/icons/clock1.svg" alt="2025 edition" />
+                                      <Image src="/assets/img/icons/clock1.svg" alt="2025 edition" width={24} height={24} />
                                       2025 edition <span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/2024">
-                                      <img src="/assets/img/icons/clock1.svg" alt="2024 edition" />
+                                      <Image src="/assets/img/icons/clock1.svg" alt="2024 edition" width={24} height={24} />
                                       2024 edition<span> | </span>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/2023">
-                                      <img src="/assets/img/icons/clock1.svg" alt="2023 edition" />
+                                      <Image src="/assets/img/icons/clock1.svg" alt="2023 edition" width={24} height={24} />
                                       2023 edition{" "}
                                     </Link>
                                   </li>
