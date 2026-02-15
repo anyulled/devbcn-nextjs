@@ -2,6 +2,7 @@
 import { EditionNavigation } from "@/config/editions/types";
 import { mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "@/config/navigation";
 import AOS from "aos";
+import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import AddClassBody from "../elements/AddClassBody";
 import BackToTop from "../elements/BackToTop";
@@ -34,9 +35,45 @@ interface LayoutProps {
   breadcrumbTitle?: string;
 }
 
-export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }: Readonly<LayoutProps>) {
+interface BaseHeaderProps {
+  scroll: boolean;
+  isMobileMenu: boolean;
+  handleMobileMenu: () => void;
+  isSearch: boolean;
+  handleSearch: () => void;
+}
+
+type HeaderRenderer = (props: BaseHeaderProps, navigation: EditionNavigation) => ReactElement;
+
+const headerRenderers: Record<number, HeaderRenderer> = {
+  1: (props) => <Header1 {...props} />,
+  2: (props) => <Header2 {...props} />,
+  3: (props) => <Header3 {...props} />,
+  4: (props) => <Header4 {...props} />,
+  5: (props) => <Header5 {...props} />,
+  6: (props) => <Header6 {...props} />,
+  7: (props) => <Header7 {...props} />,
+  8: (props, navigation) => <Header8 navigation={navigation} {...props} />,
+  9: (props) => <Header9 {...props} />,
+  10: (props) => <Header10 {...props} />,
+};
+
+const footerComponents: Record<number, ReactElement> = {
+  1: <Footer1 />,
+  2: <Footer2 />,
+  3: <Footer3 />,
+  4: <Footer4 />,
+  5: <Footer5 />,
+  6: <Footer6 />,
+  7: <Footer7 />,
+  8: <Footer8 />,
+  9: <Footer9 />,
+  10: <Footer10 />,
+};
+
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle: _breadcrumbTitle, children }: Readonly<LayoutProps>) {
   const [scroll, setScroll] = useState<boolean>(false);
-  // Mobile Menu
+
   const [isMobileMenu, setIsMobileMenu] = useState<boolean>(false);
   const handleMobileMenu = (): void => setIsMobileMenu(!isMobileMenu);
   const [isSearch, setIsSearch] = useState<boolean>(false);
@@ -64,66 +101,23 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
     news: newsDropdownLinks,
   };
 
+  const resolvedHeaderStyle = headerStyle ? headerStyle : 1;
+  const resolvedFooterStyle = footerStyle ? footerStyle : 1;
+  const headerRenderer = headerRenderers[resolvedHeaderStyle] ?? headerRenderers[1];
+  const headerElement = headerRenderer({ scroll, isMobileMenu, handleMobileMenu, isSearch, handleSearch }, defaultNavigation);
+  const footerElement = footerComponents[resolvedFooterStyle] ?? footerComponents[1];
+
   return (
     <>
       <div id="top" />
       <AddClassBody />
       {/* <AnimatedText /> */}
-      {!headerStyle && (
-        <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      )}
-      {headerStyle == 1 ? (
-        <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 2 ? (
-        <Header2 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 3 ? (
-        <Header3 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 4 ? (
-        <Header4 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 5 ? (
-        <Header5 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 6 ? (
-        <Header6 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 7 ? (
-        <Header7 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 8 ? (
-        <Header8
-          navigation={defaultNavigation}
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isSearch={isSearch}
-          handleSearch={handleSearch}
-        />
-      ) : null}
-      {headerStyle == 9 ? (
-        <Header9 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
-      {headerStyle == 10 ? (
-        <Header10 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />
-      ) : null}
+      {headerElement}
       <MobileMenu navigation={defaultNavigation} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
 
       {children}
 
-      {!footerStyle && <Footer1 />}
-      {footerStyle == 1 ? <Footer1 /> : null}
-      {footerStyle == 2 ? <Footer2 /> : null}
-      {footerStyle == 3 ? <Footer3 /> : null}
-      {footerStyle == 4 ? <Footer4 /> : null}
-      {footerStyle == 5 ? <Footer5 /> : null}
-      {footerStyle == 6 ? <Footer6 /> : null}
-      {footerStyle == 7 ? <Footer7 /> : null}
-      {footerStyle == 8 ? <Footer8 /> : null}
-      {footerStyle == 9 ? <Footer9 /> : null}
-      {footerStyle == 10 ? <Footer10 /> : null}
+      {footerElement}
 
       <BackToTop target="#top" />
     </>
