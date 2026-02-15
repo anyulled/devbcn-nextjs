@@ -150,6 +150,9 @@ const eslintConfig = [
   {
     files: ["src/__tests__/**/*.ts", "src/__tests__/**/*.tsx", "**/*.test.ts", "**/*.test.tsx"],
     languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.test.json",
+      },
       globals: {
         ...globals.browser,
         ...globals.node,

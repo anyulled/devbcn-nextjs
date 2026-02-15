@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";
-import { aboutData } from "@/data/AboutData";
+import { teamMembers } from "@/team/TeamMembers";
 import Link from "next/link";
 
 export default function AboutUs() {
@@ -20,7 +20,7 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="row">
-            {aboutData.map((member, index) => (
+            {teamMembers.map((member, index) => (
               <div key={member.name} className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={900 + index * 100}>
                 <div className="team-widget-area">
                   <div className="img1 image-anime">

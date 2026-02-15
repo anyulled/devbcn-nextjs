@@ -4,7 +4,7 @@
  * Unit tests for JSON-LD utility functions
  */
 
-import type { Company, JobOffer } from "@/config/data/job-offers/types";
+import type { Company, JobOffer } from "@/config/job-offers/job-offers/types";
 import type { EditionConfig } from "@/config/editions/types";
 import type { Speaker, Talk } from "@/hooks/types";
 import {

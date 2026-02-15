@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
-import { JobOffer } from "@/config/data/job-offers/types";
+import { JobOffer } from "@/config/job-offers/job-offers/types";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 const mockOffers: JobOffer[] = [

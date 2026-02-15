@@ -1,5 +1,5 @@
 import { cfpData } from "@/app/[year]/cfp/cfpData";
-import { hasJobOffers as checkJobOffers } from "@/config/data/job-offers";
+import { hasJobOffers as checkJobOffers } from "@/config/job-offers/job-offers";
 import { getEditionConfig } from "@/config/editions";
 import { EditionNavigation, EditionNavItem, NavCondition } from "@/config/editions/types";
 import { getSchedule } from "@/hooks/useSchedule";

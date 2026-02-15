@@ -9,7 +9,7 @@ type Member = {
   linkedinUrl: URL;
 };
 
-export const aboutData: Member[] = [
+export const teamMembers: Member[] = [
   {
     id: 1,
     name: "Jonathan Vila",

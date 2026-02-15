@@ -1,4 +1,4 @@
-import { getJobOffersByYear } from "@/config/data/job-offers";
+import { getJobOffersByYear } from "@/config/job-offers/job-offers";
 import { getAvailableEditions } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { getTalks } from "@/hooks/useTalks";

@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { getJobOffersByYear } from "@/config/data/job-offers";
-import { Company } from "@/config/data/job-offers/types";
+import { getJobOffersByYear } from "@/config/job-offers/job-offers";
+import { Company } from "@/config/job-offers/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import { slugify } from "@/lib/shared/slugify";

@@ -1,4 +1,4 @@
-import { findCompanyBySlug, getJobOffersByYear, hasJobOffers } from "@/config/data/job-offers";
+import { findCompanyBySlug, getJobOffersByYear, hasJobOffers } from "@/config/job-offers/job-offers";
 
 describe("Job Offers Data Access", () => {
   describe("getJobOffersByYear", () => {

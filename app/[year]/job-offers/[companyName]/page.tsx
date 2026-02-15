@@ -1,8 +1,8 @@
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { findCompanyBySlug, getJobOffersByYear } from "@/config/data/job-offers";
-import { Company } from "@/config/data/job-offers/types";
+import { findCompanyBySlug, getJobOffersByYear } from "@/config/job-offers/job-offers";
+import { Company } from "@/config/job-offers/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import { slugify } from "@/lib/shared/slugify";

@@ -1,9 +1,9 @@
 import JobOffers, { generateMetadata, generateStaticParams } from "@/app/[year]/job-offers/page";
-import { getJobOffersByYear } from "@/config/data/job-offers";
+import { getJobOffersByYear } from "@/config/job-offers/job-offers";
 import { render, screen } from "@testing-library/react";
 
 // Mock config data
-jest.mock("@/config/data/job-offers", () => ({
+jest.mock("@/config/job-offers/job-offers", () => ({
   getJobOffersByYear: jest.fn(),
 }));
 

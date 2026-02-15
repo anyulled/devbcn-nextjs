@@ -1,6 +1,6 @@
 "use client";
 
-import { JobOffer } from "@/config/data/job-offers/types";
+import { JobOffer } from "@/config/job-offers/job-offers/types";
 import { Markdown } from "@/lib/shared/markdown";
 import { useState } from "react";
 

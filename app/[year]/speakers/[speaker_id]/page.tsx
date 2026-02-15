@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: SpeakerDetailProps): Promise<
     openGraph: {
       title: `${speaker.fullName} - DevBcn ${year} Speaker`,
       description: `${speaker.tagLine}. Speaking at DevBcn ${year} with ${sessionsText}.`,
-      url: `https://www.devbcn.com/${year}/speakers/${speaker_id}`,
+      url: `https://www.devbcn.com/${year}/speakers/${speakerId}`,
       type: "profile",
       locale: "en_GB",
       siteName: "devbcn.com",
@@ -79,12 +79,12 @@ const generateJsonSchema = (speaker: Speaker, year: string) => {
   const sessionsListSchema =
     speaker.sessions.length > 0
       ? generateItemListSchema(
-        speaker.sessions.map((session) => ({
-          name: session.name,
-          url: `${baseUrl}/${year}/talks/${session.id}`,
-        })),
-        `Sessions by ${speaker.fullName}`
-      )
+          speaker.sessions.map((session) => ({
+            name: session.name,
+            url: `${baseUrl}/${year}/talks/${session.id}`,
+          })),
+          `Sessions by ${speaker.fullName}`
+        )
       : null;
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: `${baseUrl}/${year}` },
