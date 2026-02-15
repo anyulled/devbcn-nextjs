@@ -165,23 +165,31 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 </ul>
 
                 <div className="space40" />
+                <div className="space40" />
                 <h4>Join us on this exciting journey</h4>
                 <div className="space16" />
-                <p>
-                  To discuss how we can align our sponsorship opportunities with your brand's vision, contact us at{" "}
-                  <Link href="mailto:sponsors@devbcn.com">sponsors@devbcn.com</Link>
-                </p>
+                <p>To discuss how we can align our sponsorship opportunities with your brand's vision, reach out to us:</p>
 
                 <div className="space24" />
-                <p>
-                  Let's make DevBcn {year} an unforgettable experience together! Stay updated and spread the excitement using{" "}
-                  <Link href={`https://twitter.com/hashtag/devbcn${year.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer">
-                    #devbcn{year.substring(2)}
+                <div className="btn-area1">
+                  <Link href="mailto:sponsors@devbcn.com" className="vl-btn1">
+                    <span className="demo">Contact Us</span>
+                    <i className="fa-solid fa-envelope" style={{ marginLeft: "8px" }} />
                   </Link>
-                  .
-                </p>
+                </div>
+
+                <div className="space40" />
+                <p>Let's make DevBcn {year} an unforgettable experience together! Stay updated and spread the excitement using:</p>
 
                 <div className="space24" />
+                <div className="btn-area1">
+                  <Link href={`https://twitter.com/hashtag/devbcn${year.substring(2)}?src=hashtag_click`} target="_blank" rel="noreferrer" className="vl-btn1">
+                    <span className="demo">#devbcn{year.substring(2)}</span>
+                    <i className="fa-brands fa-twitter" style={{ marginLeft: "8px" }} />
+                  </Link>
+                </div>
+
+                <div className="space40" />
                 <p>We eagerly await the opportunity to collaborate with you once more for an extraordinary event!</p>
 
                 <div className="space40" />
@@ -204,23 +212,49 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 <div className="space40" />
                 <h4>Explore DevBcn Talks Online!</h4>
                 <div className="space16" />
-                <ul>
-                  <li>
-                    <Link rel="noreferrer" target="_blank" href="https://youtube.com/playlist?list=PLzJFNZtyAbyyfUadLCuSc-8CdHct8NeSa&si=7lgKQAtEncL-332O">
-                      🎥 DevBcn 2025 - recorded sessions
+                <p>Access our curated playlists from previous editions:</p>
+                <div className="space24" />
+                <div className="row g-4">
+                  <div className="col-md-4">
+                    <Link
+                      rel="noreferrer"
+                      target="_blank"
+                      href="https://youtube.com/playlist?list=PLzJFNZtyAbyyfUadLCuSc-8CdHct8NeSa&si=7lgKQAtEncL-332O"
+                      className="vl-btn1 w-100 text-center"
+                      style={{ padding: "14px 10px" }}
+                    >
+                      <span className="demo" style={{ fontSize: "16px" }}>
+                        DevBcn 2025 Sessions
+                      </span>
                     </Link>
-                  </li>
-                  <li>
-                    <Link rel="noreferrer" target="_blank" href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyxg4LfdyFbcANJXDbilXjBB">
-                      🎥 DevBcn 2024 - recorded sessions
+                  </div>
+                  <div className="col-md-4">
+                    <Link
+                      rel="noreferrer"
+                      target="_blank"
+                      href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyxg4LfdyFbcANJXDbilXjBB"
+                      className="vl-btn1 w-100 text-center"
+                      style={{ padding: "14px 10px" }}
+                    >
+                      <span className="demo" style={{ fontSize: "16px" }}>
+                        DevBcn 2024 Sessions
+                      </span>
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzmAAKzx1COeIBEGFgPA_og" rel="noreferrer" target="_blank">
-                      🎥 DevBcn 2023 - recorded sessions
+                  </div>
+                  <div className="col-md-4">
+                    <Link
+                      href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzmAAKzx1COeIBEGFgPA_og"
+                      rel="noreferrer"
+                      target="_blank"
+                      className="vl-btn1 w-100 text-center"
+                      style={{ padding: "14px 10px" }}
+                    >
+                      <span className="demo" style={{ fontSize: "16px" }}>
+                        DevBcn 2023 Sessions
+                      </span>
                     </Link>
-                  </li>
-                </ul>
+                  </div>
+                </div>
                 <div className="space50" />
               </div>
             </div>
