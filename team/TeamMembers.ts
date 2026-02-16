@@ -2,11 +2,11 @@ type Member = {
   id: number;
   name: string;
 
-  profileUrl: URL;
+  profileUrl: string;
   job: string;
 
-  twitterUrl: URL;
-  linkedinUrl: URL;
+  twitterUrl: string;
+  linkedinUrl: string;
 };
 
 export const teamMembers: Member[] = [
@@ -14,16 +14,16 @@ export const teamMembers: Member[] = [
     id: 1,
     name: "Jonathan Vila",
     job: "Developer Advocate",
-    profileUrl: new URL("https://avatars.githubusercontent.com/u/1836434?v=4"),
-    twitterUrl: new URL("https://twitter.com/vilojona"),
-    linkedinUrl: new URL("https://www.linkedin.com/in/jonathanvila"),
+    profileUrl: "https://avatars.githubusercontent.com/u/1836434?v=4",
+    twitterUrl: "https://twitter.com/vilojona",
+    linkedinUrl: "https://www.linkedin.com/in/jonathanvila",
   },
   {
     id: 2,
     name: "Nacho Cougil",
     job: "Java Engineer",
-    profileUrl: new URL("https://www.devbcn.com/images/nacho.webp"),
-    twitterUrl: new URL("https://twitter.com/icougil"),
-    linkedinUrl: new URL("https://www.linkedin.com/in/icougil"),
+    profileUrl: "https://www.devbcn.com/images/nacho.webp",
+    twitterUrl: "https://twitter.com/icougil",
+    linkedinUrl: "https://www.linkedin.com/in/icougil",
   },
 ];

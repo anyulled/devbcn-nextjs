@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: "devbcn-nextjs.vercel.app",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "/**",
+      },
     ],
   },
   // Empty turbopack config to silence webpack/turbopack warning

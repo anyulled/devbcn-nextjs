@@ -1,8 +1,8 @@
 import PageHeader from "@/components/layout/PageHeader";
+import TeamMemberCard from "@/components/layout/TeamMemberCard";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";
 import { teamMembers } from "@/team/TeamMembers";
-import Link from "next/link";
 
 export default function AboutUs() {
   const eventData = getEditionConfig("2026");
@@ -20,18 +20,9 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="row">
-            {teamMembers.map((member, index) => (
-              <div key={member.name} className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration={900 + index * 100}>
-                <div className="team-widget-area">
-                  <div className="img1 image-anime">
-                    <img src={member.profileUrl.toString()} alt={member.name} />
-                  </div>
-                  <div className="content-area">
-                    <Link href={member.twitterUrl.toString()}>{member.name}</Link>
-                    <div className="space12" />
-                    <p>{member.job}</p>
-                  </div>
-                </div>
+            {teamMembers.map((member) => (
+              <div key={member.id} className="col-lg-3 col-md-6 mb-4">
+                <TeamMemberCard member={member} />
               </div>
             ))}
           </div>
