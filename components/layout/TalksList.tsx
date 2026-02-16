@@ -79,7 +79,7 @@ function TalksListContent({ talks, tracks, year }: Readonly<TalksListProps>) {
   );
 }
 
-export default function TalksList({ talks, tracks, year }: TalksListProps) {
+export default function TalksList({ talks, tracks, year }: Readonly<TalksListProps>) {
   return (
     <Suspense
       fallback={
