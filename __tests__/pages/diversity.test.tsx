@@ -1,4 +1,6 @@
+import { describe, expect, it, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import Diversity, { generateMetadata, generateStaticParams } from "@/app/[year]/diversity/page";
 import { render, screen } from "@testing-library/react";
 

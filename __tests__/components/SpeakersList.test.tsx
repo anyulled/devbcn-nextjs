@@ -1,4 +1,6 @@
+import { describe, expect, it, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { render, screen } from "@testing-library/react";
 import SpeakersList from "@/components/layout/SpeakersList";
 import { Speaker } from "@/hooks/types";
@@ -28,19 +30,31 @@ describe("SpeakersList", () => {
   const mockSpeakers: Speaker[] = [
     {
       id: "1",
+      firstName: "Speaker",
+      lastName: "One",
       fullName: "Speaker One",
+      bio: "Bio 1",
       tagLine: "Dev",
       profilePicture: "img1.jpg",
+      isTopSpeaker: false,
       links: [],
       sessions: [],
+      questionAnswers: [],
+      categories: [],
     },
     {
       id: "2",
+      firstName: "Speaker",
+      lastName: "Two",
       fullName: "Speaker Two",
+      bio: "Bio 2",
       tagLine: "Dev",
       profilePicture: "img2.jpg",
+      isTopSpeaker: false,
       links: [],
       sessions: [],
+      questionAnswers: [],
+      categories: [],
     },
   ];
   const year = 2025;

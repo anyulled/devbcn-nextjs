@@ -1,7 +1,10 @@
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import TalkDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/[talkId]/page";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
+import { Talk, Speaker } from "@/hooks/types";
 import {
   getTalkByYearAndId,
   getTalks,
@@ -69,34 +72,50 @@ jest.mock("@/lib/shared/jsonld", () => ({
 
 describe("Talk Detail Page", () => {
   const params = Promise.resolve({ year: "2025", talkId: "talk-1" });
-  const mockTalk = {
+  const mockTalk: Talk = {
     id: "talk-1",
     title: "Talk 1",
     description: "Description 1",
-    speakers: [{ id: "speaker-1", name: "Speaker 1" }],
     startsAt: "2025-07-10T10:00:00Z",
     endsAt: "2025-07-10T11:00:00Z",
+    isServiceSession: false,
+    isPlenumSession: false,
+    speakers: [{ id: "speaker-1", name: "Speaker 1" }],
+    categories: [],
+    roomId: 1,
     room: "Room A",
+    liveUrl: null,
     recordingUrl: "http://video.com",
+    status: "published",
+    isInformed: true,
+    isConfirmed: true,
+    questionAnswers: [],
   };
-  const mockSpeakers = [
+  const mockSpeakers: Speaker[] = [
     {
       id: "speaker-1",
+      firstName: "Speaker",
+      lastName: "One",
       fullName: "Speaker 1",
       profilePicture: "/img.jpg",
       tagLine: "Expert",
+      bio: "Bio 1",
+      isTopSpeaker: false,
       links: [{ title: "X", url: "http://x.com", linkType: "Twitter" }],
+      sessions: [],
+      questionAnswers: [],
+      categories: [],
     },
   ];
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getTalkByYearAndId as jest.Mock).mockResolvedValue(mockTalk);
-    (getTalkSpeakersWithDetails as jest.Mock).mockResolvedValue(mockSpeakers);
-    (getTrackFromTalk as jest.Mock).mockReturnValue("Java");
-    (getRandomRelatedTalksByTrack as jest.Mock).mockResolvedValue([]);
-    (getLevelFromTalk as jest.Mock).mockReturnValue("Intermediate");
-    (getTagsFromTalk as jest.Mock).mockReturnValue(["Java", "Cloud"]);
+    jest.mocked(getTalkByYearAndId).mockResolvedValue(mockTalk);
+    jest.mocked(getTalkSpeakersWithDetails).mockResolvedValue(mockSpeakers);
+    jest.mocked(getTrackFromTalk).mockReturnValue("Java");
+    jest.mocked(getRandomRelatedTalksByTrack).mockResolvedValue([]);
+    jest.mocked(getLevelFromTalk).mockReturnValue("Intermediate");
+    jest.mocked(getTagsFromTalk).mockReturnValue(["Java", "Cloud"]);
   });
 
   it("renders talk details correctly", async () => {
@@ -110,7 +129,7 @@ describe("Talk Detail Page", () => {
   });
 
   it("renders notFound if talk is not found", async () => {
-    (getTalkByYearAndId as jest.Mock).mockResolvedValue(null);
+    jest.mocked(getTalkByYearAndId).mockResolvedValue(undefined);
     try {
       await TalkDetail({ params });
     } catch {
@@ -125,7 +144,7 @@ describe("Talk Detail Page", () => {
   });
 
   it("generates static params", async () => {
-    (getTalks as jest.Mock).mockResolvedValue([{ sessions: [mockTalk] }]);
+    jest.mocked(getTalks).mockResolvedValue([{ sessions: [mockTalk], groupId: 1, groupName: "Group 1" }]);
     const staticParams = await generateStaticParams();
     expect(staticParams).toEqual([{ year: "2025", talkId: "talk-1" }]);
   });

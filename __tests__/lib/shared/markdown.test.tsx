@@ -1,3 +1,6 @@
+import { describe, expect, it } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { Markdown } from "@/lib/shared/markdown";
 import { render } from "@testing-library/react";
 

@@ -1,4 +1,19 @@
+import { describe, expect, it, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
+// Mock config
+jest.mock("@/config/editions", () => ({
+  getEditionConfig: jest.fn((_year: string) => ({
+    event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
+    venue: "Test Venue",
+    tickets: { url: "http://test.com" },
+    sponsorsData: [],
+    showCountdown: true,
+  })),
+  formatEventDateRange: jest.fn(() => "July 10-11, 2025"),
+  getAvailableEditions: jest.fn(() => ["2024", "2025"]),
+}));
+
 import Page, { generateMetadata, generateStaticParams } from "@/app/[year]/page";
 import { render, screen } from "@testing-library/react";
 
@@ -16,7 +31,7 @@ jest.mock("@/components/sections/home8/section2", () => ({
   __esModule: true,
   default: ({ eventDate, showCountdown }: Section2Props) => (
     <div data-testid="section2">
-      Section 2 {eventDate} {showCountdown ? "countdown" : "no-countdown"}
+      Section 2 {eventDate.toISOString()} {showCountdown ? "countdown" : "no-countdown"}
     </div>
   ),
 }));
@@ -55,7 +70,7 @@ jest.mock("@/components/sections/home8/section6", () => ({
   __esModule: true,
   default: ({ eventVenue, eventDate }: Section6Props) => (
     <div data-testid="section6">
-      Section 6 {eventVenue} {eventDate}
+      Section 6 {eventVenue} {eventDate.toISOString()}
     </div>
   ),
 }));

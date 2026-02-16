@@ -1,12 +1,16 @@
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { getRandomRelatedTalksByTrack, getTalkByYearAndId, getTalkSpeakersWithDetails, getTalks } from "@/hooks/useTalks";
 
 // Mock global fetch
-global.fetch = jest.fn();
+const mockFetch = jest.fn() as jest.MockedFunction<typeof globalThis.fetch>;
+globalThis.fetch = mockFetch;
 
 describe("Hooks", () => {
   beforeEach(() => {
-    (global.fetch as jest.Mock).mockClear();
+    jest.mocked(globalThis.fetch).mockClear();
   });
 
   describe("getSpeakers", () => {
@@ -16,39 +20,39 @@ describe("Hooks", () => {
     ];
 
     it("fetches speakers for 2025 year", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
-      const speakers = await getSpeakers(2025);
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
+      const speakers = await getSpeakers("2025");
+      expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
         next: { revalidate: 3600 },
       });
       expect(speakers).toEqual(mockSpeakers);
     });
 
     it("fetches speakers for specific year", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
-      await getSpeakers(2023);
+      await getSpeakers("2023");
       // Ttsitynd - 2023 endpoint
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
+      expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
         next: { revalidate: 3600 },
       });
     });
 
     it("returns empty array when fetch fails", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: false,
         status: 404,
         statusText: "Not Found",
-      });
+      } as Response);
 
-      const speakers = await getSpeakers(2025);
+      const speakers = await getSpeakers("2025");
       expect(speakers).toEqual([]);
     });
   });
@@ -60,10 +64,10 @@ describe("Hooks", () => {
     ];
 
     it("fetches a specific speaker by id", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
       const speaker = await getSpeakerByYearAndId("default", "1");
       expect(speaker).toBeDefined();
@@ -71,10 +75,10 @@ describe("Hooks", () => {
     });
 
     it("returns undefined if speaker not found", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
       const speaker = await getSpeakerByYearAndId("default", "999");
       expect(speaker).toBeUndefined();
@@ -94,13 +98,13 @@ describe("Hooks", () => {
     ];
 
     it("fetches session groups for 2025 year", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
-      });
+      } as Response);
 
-      const groups = await getTalks(2025);
-      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
+      const groups = await getTalks("2025");
+      expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
         next: { revalidate: 3600 },
       });
       expect(groups).toHaveLength(1);
@@ -109,13 +113,13 @@ describe("Hooks", () => {
     });
 
     it("returns empty array when fetch fails", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: false,
         status: 500,
         statusText: "Internal Server Error",
-      });
+      } as Response);
 
-      const groups = await getTalks(2025);
+      const groups = await getTalks("2025");
       expect(groups).toEqual([]);
     });
   });
@@ -133,10 +137,10 @@ describe("Hooks", () => {
     ];
 
     it("fetches a specific talk by id", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
-      });
+      } as Response);
 
       const talk = await getTalkByYearAndId("default", "101");
       expect(talk).toBeDefined();
@@ -144,10 +148,10 @@ describe("Hooks", () => {
     });
 
     it("returns undefined if talk not found", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
-      });
+      } as Response);
 
       const talk = await getTalkByYearAndId("default", "999");
       expect(talk).toBeUndefined();
@@ -162,24 +166,24 @@ describe("Hooks", () => {
     ];
 
     it("returns speakers matching the provided IDs", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
-      const speakers = await getTalkSpeakersWithDetails(2025, ["1", "3"]);
+      const speakers = await getTalkSpeakersWithDetails("2025", ["1", "3"]);
       expect(speakers).toHaveLength(2);
       expect(speakers[0].id).toBe("1");
       expect(speakers[1].id).toBe("3");
     });
 
     it("returns empty array when no speakers match", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockSpeakers,
-      });
+      } as Response);
 
-      const speakers = await getTalkSpeakersWithDetails(2025, ["999"]);
+      const speakers = await getTalkSpeakersWithDetails("2025", ["999"]);
       expect(speakers).toHaveLength(0);
     });
   });
@@ -210,24 +214,24 @@ describe("Hooks", () => {
     ];
 
     it("returns talks from the same track excluding current talk", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
-      });
+      } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack(2025, "Frontend", "101", 3);
+      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "Frontend", "101", 3);
       // Only talk 102 matches
       expect(relatedTalks).toHaveLength(1);
       expect(relatedTalks[0].id).toBe("102");
     });
 
     it("returns empty array when no related talks found", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => mockTalksData,
-      });
+      } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack(2025, "DevOps", "101", 3);
+      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "DevOps", "101", 3);
       expect(relatedTalks).toHaveLength(0);
     });
 
@@ -244,12 +248,12 @@ describe("Hooks", () => {
         },
       ];
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
         ok: true,
         json: async () => manyTalks,
-      });
+      } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack(2025, "Frontend", "0", 3);
+      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "Frontend", "0", 3);
       expect(relatedTalks.length).toBeLessThanOrEqual(3);
     });
   });

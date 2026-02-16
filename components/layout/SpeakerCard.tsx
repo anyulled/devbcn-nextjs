@@ -1,3 +1,4 @@
+"use client";
 import { Link as LinkType } from "@/hooks/types";
 import { motion } from "framer-motion";
 import Image from "next/image";

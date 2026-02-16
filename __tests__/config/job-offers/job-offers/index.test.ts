@@ -1,3 +1,4 @@
+import { describe, expect, it } from "@jest/globals";
 import { findCompanyBySlug, getJobOffersByYear, hasJobOffers } from "@/config/job-offers/job-offers";
 
 describe("Job Offers Data Access", () => {

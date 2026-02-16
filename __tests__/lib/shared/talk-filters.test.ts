@@ -1,3 +1,6 @@
+import { describe, expect, it } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { Talk } from "@/hooks/types";
 import { filterTalks } from "@/lib/shared/talk-filters";
 

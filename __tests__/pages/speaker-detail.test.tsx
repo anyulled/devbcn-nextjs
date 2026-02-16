@@ -1,8 +1,11 @@
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speakerId]/page";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
 import { notFound } from "next/navigation";
+import { Speaker } from "@/hooks/types";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
@@ -44,25 +47,29 @@ jest.mock("@/lib/shared/jsonld", () => ({
 // Mock next/image
 jest.mock("next/image", () => ({
   __esModule: true,
-  default: (props: React.ComponentProps<"img">) => <img {...props} />,
+  default: (props: React.ComponentProps<"img">) => <img alt="" {...props} />,
 }));
 
 describe("Speaker Detail Page", () => {
   const params = Promise.resolve({ year: "2026", speakerId: "speaker-1" });
-  const mockSpeaker = {
+  const mockSpeaker: Speaker = {
     id: "speaker-1",
     fullName: "Speaker 1",
     firstName: "Speaker",
+    lastName: "One",
     profilePicture: "/img.jpg",
     tagLine: "Expert",
     bio: "Long bio about speaker 1.",
+    isTopSpeaker: false,
     links: [{ title: "X", url: "http://x.com", linkType: "Twitter" }],
-    sessions: [{ id: "session-1", name: "Session 1" }],
+    sessions: [{ id: 1, name: "Session 1" }],
+    questionAnswers: [],
+    categories: [],
   };
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getSpeakerByYearAndId as jest.Mock).mockResolvedValue(mockSpeaker);
+    jest.mocked(getSpeakerByYearAndId).mockResolvedValue(mockSpeaker);
   });
 
   it("renders speaker details correctly", async () => {
@@ -76,7 +83,7 @@ describe("Speaker Detail Page", () => {
   });
 
   it("renders notFound if speaker is not found", async () => {
-    (getSpeakerByYearAndId as jest.Mock).mockResolvedValue(null);
+    jest.mocked(getSpeakerByYearAndId).mockResolvedValue(undefined);
     try {
       await SpeakerDetail({ params });
     } catch {
@@ -91,7 +98,7 @@ describe("Speaker Detail Page", () => {
   });
 
   it("generates static params", async () => {
-    (getSpeakers as jest.Mock).mockResolvedValue([mockSpeaker]);
+    jest.mocked(getSpeakers).mockResolvedValue([mockSpeaker]);
     const staticParams = await generateStaticParams();
     expect(staticParams).toEqual([{ year: "2026", speakerId: "speaker-1" }]);
   });

@@ -1,3 +1,6 @@
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import JobOffers, { generateMetadata, generateStaticParams } from "@/app/[year]/job-offers/page";
 import { getJobOffersByYear } from "@/config/job-offers/job-offers";
 import { render, screen } from "@testing-library/react";
@@ -32,24 +35,33 @@ jest.mock("@/config/editions", () => ({
 jest.mock("next/image", () => ({
   __esModule: true,
 
-  default: (props: React.ComponentProps<"img">) => <img {...props} />,
+  default: (props: React.ComponentProps<"img">) => <img alt="" {...props} />,
 }));
+
+import { Company } from "@/config/job-offers/job-offers/types";
 
 describe("Job Offers Page", () => {
   const params = Promise.resolve({ year: "2025" });
-  const mockCompanies = [
+  const mockCompanies: Company[] = [
     {
       id: "1",
       name: "Company 1",
       logo: "/logo1.png",
       description: "Description 1",
-      offers: [{ title: "Job 1" }],
+      offers: [
+        {
+          id: "j1",
+          title: "Job 1",
+          location: "Location 1",
+          text: "Text 1",
+        },
+      ],
     },
   ];
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getJobOffersByYear as jest.Mock).mockReturnValue(mockCompanies);
+    jest.mocked(getJobOffersByYear).mockReturnValue(mockCompanies);
   });
 
   it("renders job offers list when companies are available", async () => {
@@ -62,7 +74,7 @@ describe("Job Offers Page", () => {
   });
 
   it("renders empty message when no companies are available", async () => {
-    (getJobOffersByYear as jest.Mock).mockReturnValue([]);
+    jest.mocked(getJobOffersByYear).mockReturnValue([]);
     const result = await JobOffers({ params });
     render(result);
 

@@ -1,7 +1,10 @@
+import { describe, expect, it, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import Talks, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/page";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import { render, screen } from "@testing-library/react";
+import { Talk } from "@/hooks/types";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
@@ -63,13 +66,33 @@ jest.mock("@/lib/shared/jsonld", () => ({
 
 describe("Talks List Page", () => {
   const params = Promise.resolve({ year: 2025 });
-  const mockTalks = [{ id: "1", title: "Talk 1" }];
+  const mockTalks: Talk[] = [
+    {
+      id: "1",
+      title: "Talk 1",
+      description: "Desc 1",
+      startsAt: "2025-07-10T10:00:00Z",
+      endsAt: "2025-07-10T11:00:00Z",
+      isServiceSession: false,
+      isPlenumSession: false,
+      speakers: [],
+      categories: [],
+      roomId: 1,
+      room: "Room 1",
+      liveUrl: null,
+      recordingUrl: null,
+      status: "published",
+      isInformed: true,
+      isConfirmed: true,
+      questionAnswers: [],
+    },
+  ];
   const mockTracks = ["Java"];
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getTalks as jest.Mock<Promise<Array<{ sessions: typeof mockTalks }>>>).mockResolvedValue([{ sessions: mockTalks }]);
-    (getUniqueTracks as jest.Mock<string[]>).mockReturnValue(mockTracks);
+    jest.mocked(getTalks).mockResolvedValue([{ sessions: mockTalks, groupId: 1, groupName: "Group 1" }]);
+    jest.mocked(getUniqueTracks).mockReturnValue(mockTracks);
   });
 
   it("renders talks list when talks are available", async () => {
@@ -81,7 +104,7 @@ describe("Talks List Page", () => {
   });
 
   it("renders coming soon message when no talks are available", async () => {
-    (getTalks as jest.Mock<Promise<[]>>).mockResolvedValue([]);
+    jest.mocked(getTalks).mockResolvedValue([]);
     const result = await Talks({ params });
     render(result);
 

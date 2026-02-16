@@ -1,3 +1,6 @@
+import { describe, expect, it } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 /**
  * JSON-LD Schema Generators Tests
  *
@@ -18,10 +21,35 @@ import {
   serializeJsonLd,
 } from "@/lib/shared/jsonld";
 
+interface SchemaObject {
+  "@context": string;
+  "@type": string;
+  name?: string;
+  url?: string;
+  logo?: string;
+  sameAs?: string[];
+  title?: string;
+  description?: string;
+  startDate?: string;
+  endDate?: string;
+  eventStatus?: string;
+  eventAttendanceMode?: string;
+  location?: unknown;
+  organizer?: unknown;
+  jobTitle?: string;
+  image?: string;
+  jobLocation?: unknown;
+  hiringOrganization?: unknown;
+  numberOfItems?: number;
+  itemListElement?: unknown[];
+  performer?: unknown[];
+  datePosted?: string;
+}
+
 describe("JSON-LD Schema Generators", () => {
   describe("generateOrganizationSchema", () => {
     it("should generate valid Organization schema", () => {
-      const schema = generateOrganizationSchema();
+      const schema = generateOrganizationSchema() as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("Organization");
@@ -53,7 +81,15 @@ describe("JSON-LD Schema Generators", () => {
         showInfoButtons: true,
         hideSpeakers: false,
         hideTalks: false,
-        diversity: true,
+        diversity: {
+          sponsors: [],
+          applicationForm: "https://example.com",
+        },
+        navigation: {
+          main: [],
+          yearSpecific: [],
+          news: [],
+        },
         carrousel: { enabled: true },
         schedule: { enabled: true },
         jobOffers: { enabled: true },
@@ -89,7 +125,7 @@ describe("JSON-LD Schema Generators", () => {
         },
       };
 
-      const schema = generateEventSchema(mockConfig, "2026");
+      const schema = generateEventSchema(mockConfig, "2026") as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("Event");
@@ -123,7 +159,7 @@ describe("JSON-LD Schema Generators", () => {
         categories: [],
       };
 
-      const schema = generatePersonSchema(mockSpeaker, "2026");
+      const schema = generatePersonSchema(mockSpeaker, "2026") as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("Person");
@@ -161,7 +197,7 @@ describe("JSON-LD Schema Generators", () => {
       const schema = generateEducationEventSchema(mockTalk, "2026", {
         name: "World Trade Center Barcelona",
         mapUrl: "https://maps.google.com",
-      });
+      }) as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("EducationEvent");
@@ -194,7 +230,7 @@ describe("JSON-LD Schema Generators", () => {
         offers: [mockJobOffer],
       };
 
-      const schema = generateJobPostingSchema(mockJobOffer, mockCompany, "2026");
+      const schema = generateJobPostingSchema(mockJobOffer, mockCompany, "2026") as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("JobPosting");
@@ -212,7 +248,7 @@ describe("JSON-LD Schema Generators", () => {
         { name: "Item 2", url: "https://example.com/item2", description: "Second item" },
       ];
 
-      const schema = generateItemListSchema(items, "Test List");
+      const schema = generateItemListSchema(items, "Test List") as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("ItemList");
@@ -231,7 +267,7 @@ describe("JSON-LD Schema Generators", () => {
         { name: "Talk Detail", url: "https://example.com/talks/1" },
       ];
 
-      const schema = generateBreadcrumbSchema(breadcrumbs);
+      const schema = generateBreadcrumbSchema(breadcrumbs) as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("BreadcrumbList");
@@ -242,25 +278,45 @@ describe("JSON-LD Schema Generators", () => {
 
   describe("serializeJsonLd", () => {
     it("should serialize JSON-LD data to string", () => {
-      const data = {
+      const data: SchemaObject = {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "Test",
+        "@type": "JobPosting",
+        title: "Test",
+        description: "Test description",
+        datePosted: "2026-06-16T10:00:00Z",
+        hiringOrganization: {
+          "@type": "Organization",
+          name: "Test Org",
+        },
       };
 
-      const serialized = serializeJsonLd(data);
+      const serialized = serializeJsonLd(data as Parameters<typeof serializeJsonLd>[0]);
 
       expect(typeof serialized).toBe("string");
       expect(JSON.parse(serialized)).toEqual(data);
     });
 
     it("should serialize array of JSON-LD data", () => {
-      const data = [
-        { "@context": "https://schema.org", "@type": "Person", name: "John" },
-        { "@context": "https://schema.org", "@type": "Person", name: "Jane" },
+      const data: SchemaObject[] = [
+        {
+          "@context": "https://schema.org",
+          "@type": "JobPosting",
+          title: "Job 1",
+          description: "D1",
+          datePosted: "2026-06-16T10:00:00Z",
+          hiringOrganization: { "@type": "Organization", name: "O1" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "JobPosting",
+          title: "Job 2",
+          description: "D2",
+          datePosted: "2026-06-16T10:00:00Z",
+          hiringOrganization: { "@type": "Organization", name: "O2" },
+        },
       ];
 
-      const serialized = serializeJsonLd(data);
+      const serialized = serializeJsonLd(data as Parameters<typeof serializeJsonLd>[0]);
 
       expect(typeof serialized).toBe("string");
       expect(JSON.parse(serialized)).toEqual(data);

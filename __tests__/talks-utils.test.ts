@@ -1,3 +1,6 @@
+import { describe, expect, it } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { SessionGroup, Talk } from "@/hooks/types";
 import { getLevelFromTalk, getLevelStars, getSlidesUrl, getTagsFromTalk, getTrackFromTalk, getUniqueTracks, groupTalksByTrack } from "@/hooks/useTalks";
 

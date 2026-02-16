@@ -1,71 +1,51 @@
-import "@testing-library/jest-dom";
-import { cache } from "react";
-import { getSchedule } from "@/hooks/useSchedule";
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
+import "@testing-library/jest-dom/jest-globals";
 
-type CacheMap = Map<string, unknown>;
-type CachedFunction = ((...args: string[]) => unknown) & { _reset?: () => void };
+// Mock fetch
+const mockFetch = jest.fn(() =>
+  Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve([{ date: "2024-05-17", rooms: [] }]),
+  } as Response)
+);
+globalThis.fetch = mockFetch as unknown as typeof fetch;
 
-// Mock react cache before importing the hook
+// Define a shared variable for the cache map
+const cacheMap = new Map<string, unknown>();
+
+// Mock react cache BEFORE anything else
 jest.mock("react", () => {
   const actual = jest.requireActual("react") as Record<string, unknown>;
-  const cacheMaps: CacheMap[] = [];
-
-  const mockedCache = (fn: (...args: string[]) => unknown): CachedFunction => {
-    const cacheMap = new Map<string, unknown>();
-    cacheMaps.push(cacheMap);
-    return function (...args: string[]) {
-      const key = JSON.stringify(args);
-      if (cacheMap.has(key)) {
-        return cacheMap.get(key);
-      }
-      const result = fn(...args);
-      cacheMap.set(key, result);
-      return result;
-    };
-  };
-
-  // Attach a helper to clear the caches
-  (mockedCache as unknown as CachedFunction)._reset = () => {
-    cacheMaps.forEach((map) => map.clear());
-  };
-
   return {
     ...actual,
-    cache: mockedCache,
+    cache: <T extends (...args: unknown[]) => unknown>(fn: T): T => {
+      const cached = (...args: Parameters<T>): ReturnType<T> => {
+        const key = JSON.stringify(args);
+        if (cacheMap.has(key)) return cacheMap.get(key) as ReturnType<T>;
+        const result = fn(...(args as unknown[] as Parameters<T>)) as ReturnType<T>;
+        cacheMap.set(key, result);
+        return result;
+      };
+      return cached as unknown as T;
+    },
   };
 });
 
-// Mock global fetch
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    json: () =>
-      Promise.resolve([
-        {
-          date: "2024-05-17",
-          rooms: [],
-        },
-      ]),
-  })
-) as jest.Mock;
-
 describe("getSchedule Performance", () => {
   beforeEach(() => {
-    (global.fetch as jest.Mock).mockClear();
-    // Clear all caches before each test
-    const cachedFn = cache as unknown as { _reset?: () => void };
-    if (cachedFn._reset) {
-      cachedFn._reset();
-    }
+    jest.resetModules();
+    mockFetch.mockClear();
+    cacheMap.clear();
   });
 
-  it("should call fetch once for the same year (AFTER optimization)", async () => {
-    // First call
+  it("should call fetch once for the same year", async () => {
+    // Dynamic import to ensure module is loaded in isolation after mock is active
+    const useSchedule = (await import("@/hooks/useSchedule")) as { getSchedule: (year: string) => Promise<unknown> };
+    const { getSchedule } = useSchedule;
+
     await getSchedule("2024");
-    // Second call - same year
     await getSchedule("2024");
 
-    // Expect 1 call because it IS cached now
-    expect((global.fetch as jest.Mock).mock.calls.length).toBe(1);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
   });
 });

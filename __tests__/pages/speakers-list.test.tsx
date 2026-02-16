@@ -1,7 +1,10 @@
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import Speakers, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/page";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
+import { Speaker } from "@/hooks/types";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
@@ -53,11 +56,26 @@ jest.mock("@/lib/shared/jsonld", () => ({
 
 describe("Speakers List Page", () => {
   const params = Promise.resolve({ year: 2025 });
-  const mockSpeakers = [{ id: "1", fullName: "Speaker 1", profilePicture: "/img1.jpg", tagLine: "Expert", links: [] }];
+  const mockSpeakers: Speaker[] = [
+    {
+      id: "1",
+      firstName: "Speaker",
+      lastName: "One",
+      fullName: "Speaker 1",
+      bio: "Bio 1",
+      profilePicture: "/img1.jpg",
+      tagLine: "Expert",
+      isTopSpeaker: false,
+      links: [],
+      sessions: [],
+      questionAnswers: [],
+      categories: [],
+    },
+  ];
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getSpeakers as jest.Mock).mockResolvedValue(mockSpeakers);
+    jest.mocked(getSpeakers).mockResolvedValue(mockSpeakers);
   });
 
   it("renders speakers list when speakers are available", async () => {
@@ -69,7 +87,7 @@ describe("Speakers List Page", () => {
   });
 
   it("renders coming soon message when no speakers are available", async () => {
-    (getSpeakers as jest.Mock).mockResolvedValue([]);
+    jest.mocked(getSpeakers).mockResolvedValue([]);
     const result = await Speakers({ params });
     render(result);
 

@@ -1,3 +1,6 @@
+import { describe, expect, it, jest } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 import { render, screen, fireEvent } from "@testing-library/react";
 import ScheduleGrid from "../../../components/schedule/ScheduleGrid";
 import { DailySchedule, GridRoom, GridSession } from "../../../hooks/useSchedule";
