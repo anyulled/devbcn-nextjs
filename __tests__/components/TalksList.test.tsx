@@ -32,17 +32,10 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-jest.mock("@/components/layout/TrackFilter", () => ({
+jest.mock("@/components/layout/TalksFilterBar", () => ({
   __esModule: true,
-  default: function TrackFilterMock() {
-    return <div data-testid="track-filter">Track Filter</div>;
-  },
-}));
-
-jest.mock("@/components/layout/SearchFilter", () => ({
-  __esModule: true,
-  default: function SearchFilterMock() {
-    return <div data-testid="search-filter">Search Filter</div>;
+  default: function TalksFilterBarMock() {
+    return <div data-testid="talks-filter-bar">Talks Filter Bar</div>;
   },
 }));
 
@@ -83,8 +76,7 @@ describe("TalksList", () => {
   it("renders filters and talk lists", () => {
     render(<TalksList talks={mockTalks} tracks={mockTracks} year={year} />);
 
-    expect(screen.getByTestId("track-filter")).toBeInTheDocument();
-    expect(screen.getByTestId("search-filter")).toBeInTheDocument();
+    expect(screen.getByTestId("talks-filter-bar")).toBeInTheDocument();
 
     expect(screen.getByText("Track A")).toBeInTheDocument();
     expect(screen.getByText("Track B")).toBeInTheDocument();
@@ -97,7 +89,7 @@ describe("TalksList", () => {
   it("renders correct layout structure", () => {
     const { container } = render(<TalksList talks={mockTalks} tracks={mockTracks} year={year} />);
 
-    expect(container.getElementsByClassName("blog-details-section").length).toBeGreaterThan(0);
+    expect(container.getElementsByClassName("talks-grouped").length).toBeGreaterThan(0);
 
     const rows = container.getElementsByClassName("row");
     expect(rows.length).toBeGreaterThan(0);
