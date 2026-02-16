@@ -67,7 +67,7 @@ describe("SpeakerCard", () => {
     const src = decodeURIComponent(img.getAttribute("src") || "");
     expect(src).toContain("https://sessionize.com/image?f=test.jpg");
 
-    expect(img).toHaveClass("team-img4");
+    expect(img).toHaveClass("speaker-image");
     expect(img.tagName).toBe("IMG");
 
     expect(img).toHaveAttribute("sizes", "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw");

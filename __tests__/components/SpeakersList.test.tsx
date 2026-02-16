@@ -10,17 +10,17 @@ jest.mock("next/navigation", () => ({
 }));
 
 // Mock child components
-jest.mock("@/components/layout/SearchFilter", () => ({
+jest.mock("@/components/layout/SpeakersFilterBar", () => ({
   __esModule: true,
-  default: function SearchFilterMock() {
-    return <div data-testid="search-filter">Search Filter</div>;
+  default: function SpeakersFilterBarMock() {
+    return <div data-testid="speakers-filter-bar">Speakers Filter Bar</div>;
   },
 }));
 
 jest.mock("@/components/layout/SpeakerCard", () => ({
   __esModule: true,
-  default: function SpeakerCardMock({ name }: { name: string }) {
-    return <div data-testid="speaker-card">{name}</div>;
+  default: function SpeakerCardMock({ name, speakerId }: { name: string; speakerId: string }) {
+    return <div data-testid={`speaker-card-${speakerId}`}>{name}</div>;
   },
 }));
 
@@ -46,20 +46,21 @@ describe("SpeakersList", () => {
   const year = 2025;
 
   it("renders search filter and speaker list", () => {
+    // Wrap in Suspense since SpeakersList uses useSearchParams
     render(<SpeakersList speakers={mockSpeakers} year={year} />);
 
-    expect(screen.getByTestId("search-filter")).toBeInTheDocument();
-    expect(screen.getByText("Speaker One")).toBeInTheDocument();
-    expect(screen.getByText("Speaker Two")).toBeInTheDocument();
+    expect(screen.getByTestId("speakers-filter-bar")).toBeInTheDocument();
+    expect(screen.getByTestId("speaker-card-1")).toBeInTheDocument();
+    expect(screen.getByTestId("speaker-card-2")).toBeInTheDocument();
   });
 
   it("renders correct layout structure", () => {
     const { container } = render(<SpeakersList speakers={mockSpeakers} year={year} />);
 
-    const filterWrapper = container.querySelector(".blog-details-section");
+    const filterWrapper = container.querySelector(".container");
     expect(filterWrapper).toBeInTheDocument();
 
-    const speakerColumns = container.querySelectorAll(".col-lg-3");
-    expect(speakerColumns.length).toBe(2);
+    const speakerColums = container.querySelectorAll(".col-lg-3");
+    expect(speakerColums.length).toBe(2);
   });
 });
