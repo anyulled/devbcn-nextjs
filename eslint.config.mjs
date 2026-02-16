@@ -211,7 +211,7 @@ const eslintConfig = [
     },
   },
   {
-    files: ["data/AboutContent.ts"],
+    files: ["**/data/AboutContent.ts"],
     rules: {
       "custom/no-generic-names": "off",
     },
