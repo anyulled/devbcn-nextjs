@@ -1,6 +1,7 @@
 import CircleText from "@/components/elements/CircleText";
 import Countdown from "@/components/elements/Countdown";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Section1() {
   return (
@@ -8,12 +9,10 @@ export default function Section1() {
       <div
         className="hero7-section-area"
         style={{
-          backgroundImage: "url(assets/img/bg/header-bg18.png)",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
+          position: "relative",
         }}
       >
+        <Image src="/assets/img/bg/header-bg18.png" alt="Hero Background" fill priority style={{ objectFit: "cover", zIndex: -1 }} />
         <div className="container">
           <div className="row">
             <div className="col-lg-2 col-md-3">
