@@ -22,6 +22,11 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.devbcn.com",
+        pathname: "/**",
+      },
     ],
   },
   // Empty turbopack config to silence webpack/turbopack warning
