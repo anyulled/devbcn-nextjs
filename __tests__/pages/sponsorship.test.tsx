@@ -1,8 +1,8 @@
-import { describe, expect, it, jest } from "@jest/globals";
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
-import SponsorshipPage, { generateMetadata, generateStaticParams } from "@/app/[year]/sponsorship/page";
 import { render, screen } from "@testing-library/react";
+import React from "react";
 
 // Mock client component
 jest.mock("@/app/[year]/sponsorship/SponsorshipClient", () => ({
@@ -12,7 +12,8 @@ jest.mock("@/app/[year]/sponsorship/SponsorshipClient", () => ({
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn((_year: string) => ({
+  __esModule: true,
+  getEditionConfig: jest.fn(() => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
     venue: "Test Venue",
     tickets: { url: "http://test.com" },
@@ -24,7 +25,12 @@ jest.mock("@/config/editions", () => ({
 describe("Sponsorship Page", () => {
   const params = Promise.resolve({ year: "2025" });
 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("renders sponsorship client", async () => {
+    const SponsorshipPage = (await import("@/app/[year]/sponsorship/page")).default;
     const result = await SponsorshipPage({ params });
     render(result);
 
@@ -32,11 +38,13 @@ describe("Sponsorship Page", () => {
   });
 
   it("generates correct metadata", async () => {
+    const { generateMetadata } = await import("@/app/[year]/sponsorship/page");
     const metadata = await generateMetadata({ params });
     expect(metadata.title).toBe("Sponsorship - DevBcn 2025");
   });
 
   it("generates static params", async () => {
+    const { generateStaticParams } = await import("@/app/[year]/sponsorship/page");
     const staticParams = await generateStaticParams();
     expect(staticParams).toEqual([{ year: "2025" }]);
   });

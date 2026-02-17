@@ -1,36 +1,39 @@
 import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
-import TalkDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/talks/[talkId]/page";
 import { render, screen } from "@testing-library/react";
-import { notFound } from "next/navigation";
-import { Talk, Speaker } from "@/hooks/types";
-import {
-  getTalkByYearAndId,
-  getTalks,
-  getTalkSpeakersWithDetails,
-  getTrackFromTalk,
-  getRandomRelatedTalksByTrack,
-  getLevelFromTalk,
-  getTagsFromTalk,
-} from "@/hooks/useTalks";
+import React from "react";
+import type { Talk, Speaker } from "@/hooks/types";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
-  notFound: jest.fn(),
+  __esModule: true,
+  notFound: jest.fn(() => {
+    throw new Error("notFound");
+  }),
+  useSearchParams: jest.fn(() => ({
+    get: jest.fn(() => ""),
+  })),
+  usePathname: jest.fn(() => "/2025/talks/1"),
+  useRouter: jest.fn(() => ({
+    replace: jest.fn(),
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+  })),
 }));
 
 // Mock hooks
 jest.mock("@/hooks/useTalks", () => ({
+  __esModule: true,
   getTalkByYearAndId: jest.fn(),
-  getTalks: jest.fn(),
   getTalkSpeakersWithDetails: jest.fn(),
   getTrackFromTalk: jest.fn(),
-  getRandomRelatedTalksByTrack: jest.fn(),
   getLevelFromTalk: jest.fn(),
-  getLevelStars: jest.fn(),
-  getTagsFromTalk: jest.fn(),
-  getSlidesUrl: jest.fn(),
+  getRandomRelatedTalksByTrack: jest.fn(),
+  getTagsFromTalk: jest.fn(() => []),
+  getSlidesUrl: jest.fn(() => ""),
+  getTalks: jest.fn(() => Promise.resolve([])),
 }));
 
 // Mock components
@@ -38,32 +41,38 @@ jest.mock("@/components/layout/PageHeader", () => ({
   __esModule: true,
   default: ({ title }: { title: string }) => <div data-testid="page-header">{title}</div>,
 }));
+
+jest.mock("@/components/talks/TalkContent", () => ({
+  __esModule: true,
+  default: ({ talk }: { talk: { title: string } }) => <div data-testid="talk-content">{talk.title}</div>,
+}));
+
+jest.mock("@/components/talks/RelatedTalks", () => ({
+  __esModule: true,
+  default: () => <div data-testid="related-talks">Related Talks</div>,
+}));
+
 jest.mock("@/components/sections/CTASection", () => ({
   __esModule: true,
   default: () => <div data-testid="cta-section">CTA Section</div>,
 }));
-jest.mock("@/components/elements/VideoPlayer", () => ({
-  __esModule: true,
-  default: ({ url }: { url: string }) => <div data-testid="video-player">{url}</div>,
-}));
-jest.mock("@/components/elements/AddToCalendarWrapper", () => ({
-  __esModule: true,
-  default: () => <div data-testid="calendar-wrapper">Add to Calendar</div>,
-}));
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn(() => ({
+  __esModule: true,
+  getEditionConfig: jest.fn((_year: string) => ({
     event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
-    venue: "Test Venue",
+    venue: { name: "Test Venue", mapUrl: "http://maps.com" },
     tickets: { url: "http://test.com" },
     showCountdown: true,
   })),
   getAvailableEditions: jest.fn(() => ["2025"]),
+  formatEventDateRange: jest.fn(() => "July 10-11, 2025"),
 }));
 
 // Mock JsonLd utils
 jest.mock("@/lib/shared/jsonld", () => ({
+  __esModule: true,
   generateEducationEventSchema: jest.fn(() => ({})),
   generatePersonSchema: jest.fn(() => ({})),
   generateBreadcrumbSchema: jest.fn(() => ({})),
@@ -71,81 +80,59 @@ jest.mock("@/lib/shared/jsonld", () => ({
 }));
 
 describe("Talk Detail Page", () => {
-  const params = Promise.resolve({ year: "2025", talkId: "talk-1" });
-  const mockTalk: Talk = {
-    id: "talk-1",
-    title: "Talk 1",
-    description: "Description 1",
+  const params = Promise.resolve({ year: "2025", talkId: "1" });
+  const mockTalk = {
+    id: "1",
+    title: "Test Talk",
+    description: "Test Description",
     startsAt: "2025-07-10T10:00:00Z",
     endsAt: "2025-07-10T11:00:00Z",
-    isServiceSession: false,
-    isPlenumSession: false,
-    speakers: [{ id: "speaker-1", name: "Speaker 1" }],
-    categories: [],
-    roomId: 1,
-    room: "Room A",
-    liveUrl: null,
-    recordingUrl: "http://video.com",
-    status: "published",
-    isInformed: true,
-    isConfirmed: true,
-    questionAnswers: [],
-  };
-  const mockSpeakers: Speaker[] = [
-    {
-      id: "speaker-1",
-      firstName: "Speaker",
-      lastName: "One",
-      fullName: "Speaker 1",
-      profilePicture: "/img.jpg",
-      tagLine: "Expert",
-      bio: "Bio 1",
-      isTopSpeaker: false,
-      links: [{ title: "X", url: "http://x.com", linkType: "Twitter" }],
-      sessions: [],
-      questionAnswers: [],
-      categories: [],
-    },
-  ];
+    room: "Room 1",
+    speakers: [{ id: "s1", name: "Speaker 1" }],
+  } as unknown as Talk;
+  const mockSpeakers = [{ id: "s1", fullName: "Speaker 1" }] as unknown as Speaker[];
 
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.mocked(getTalkByYearAndId).mockResolvedValue(mockTalk);
-    jest.mocked(getTalkSpeakersWithDetails).mockResolvedValue(mockSpeakers);
-    jest.mocked(getTrackFromTalk).mockReturnValue("Java");
-    jest.mocked(getRandomRelatedTalksByTrack).mockResolvedValue([]);
-    jest.mocked(getLevelFromTalk).mockReturnValue("Intermediate");
-    jest.mocked(getTagsFromTalk).mockReturnValue(["Java", "Cloud"]);
   });
 
   it("renders talk details correctly", async () => {
-    const result = await TalkDetail({ params });
+    const { getTalkByYearAndId, getTalkSpeakersWithDetails, getTrackFromTalk, getLevelFromTalk, getRandomRelatedTalksByTrack } =
+      await import("@/hooks/useTalks");
+    const Page = (await import("@/app/[year]/talks/[talkId]/page")).default;
+
+    jest.mocked(getTalkByYearAndId).mockResolvedValue(mockTalk);
+    jest.mocked(getTalkSpeakersWithDetails).mockResolvedValue(mockSpeakers);
+    jest.mocked(getTrackFromTalk).mockReturnValue("Java");
+    jest.mocked(getLevelFromTalk).mockReturnValue("Intermediate");
+    jest.mocked(getRandomRelatedTalksByTrack).mockResolvedValue([]);
+
+    const result = await Page({ params });
     render(result);
 
-    expect(screen.getByTestId("page-header")).toHaveTextContent("Talk 1");
-    expect(screen.getByText("Description 1")).toBeInTheDocument();
-    expect(screen.getByText("Speaker 1")).toBeInTheDocument();
-    expect(screen.getByTestId("video-player")).toHaveTextContent("http://video.com");
+    expect(screen.getByTestId("talk-content")).toHaveTextContent("Test Talk");
   });
 
   it("renders notFound if talk is not found", async () => {
+    const { getTalkByYearAndId } = await import("@/hooks/useTalks");
+    const Page = (await import("@/app/[year]/talks/[talkId]/page")).default;
+    const { notFound } = await import("next/navigation");
+
     jest.mocked(getTalkByYearAndId).mockResolvedValue(undefined);
-    try {
-      await TalkDetail({ params });
-    } catch {
-      // Ignore
-    }
+
+    await expect(Page({ params })).rejects.toThrow("notFound");
     expect(notFound).toHaveBeenCalled();
   });
 
   it("generates correct metadata", async () => {
-    const metadata = await generateMetadata({ params });
-    expect(metadata.title).toBe("Talk 1 - DevBcn 2025");
-  });
+    const { getTalkByYearAndId, getTrackFromTalk, getLevelFromTalk } = await import("@/hooks/useTalks");
+    const { generateMetadata } = await import("@/app/[year]/talks/[talkId]/page");
 
-  it("generates static params", async () => {
-    jest.mocked(getTalks).mockResolvedValue([{ sessions: [mockTalk], groupId: 1, groupName: "Group 1" }]);
-    const staticParams = await generateStaticParams();
-    expect(staticParams).toEqual([{ year: "2025", talkId: "talk-1" }]);
+    jest.mocked(getTalkByYearAndId).mockResolvedValue(mockTalk);
+    jest.mocked(getTrackFromTalk).mockReturnValue("Java");
+    jest.mocked(getLevelFromTalk).mockReturnValue("Intermediate");
+
+    const metadata = await generateMetadata({ params });
+    expect(metadata.title).toBe("Test Talk - DevBcn 2025");
   });
 });

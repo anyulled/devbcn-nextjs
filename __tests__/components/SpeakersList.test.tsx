@@ -1,14 +1,23 @@
-import { describe, expect, it, jest } from "@jest/globals";
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
 import { render, screen } from "@testing-library/react";
-import SpeakersList from "@/components/layout/SpeakersList";
-import { Speaker } from "@/hooks/types";
+import React from "react";
+import type { Speaker } from "@/hooks/types";
 
+// Mock next/navigation
 jest.mock("next/navigation", () => ({
-  useSearchParams: () => ({
+  __esModule: true,
+  useSearchParams: jest.fn(() => ({
     get: jest.fn(() => ""),
-  }),
+  })),
+  usePathname: jest.fn(() => "/2025/speakers"),
+  useRouter: jest.fn(() => ({
+    push: jest.fn(),
+    replace: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+  })),
 }));
 
 // Mock child components
@@ -27,7 +36,7 @@ jest.mock("@/components/layout/SpeakerCard", () => ({
 }));
 
 describe("SpeakersList", () => {
-  const mockSpeakers: Speaker[] = [
+  const mockSpeakers = [
     {
       id: "1",
       firstName: "Speaker",
@@ -56,11 +65,15 @@ describe("SpeakersList", () => {
       questionAnswers: [],
       categories: [],
     },
-  ];
+  ] as unknown as Speaker[];
   const year = 2025;
 
-  it("renders search filter and speaker list", () => {
-    // Wrap in Suspense since SpeakersList uses useSearchParams
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("renders search filter and speaker list", async () => {
+    const SpeakersList = (await import("@/components/layout/SpeakersList")).default;
     render(<SpeakersList speakers={mockSpeakers} year={year} />);
 
     expect(screen.getByTestId("speakers-filter-bar")).toBeInTheDocument();
@@ -68,7 +81,8 @@ describe("SpeakersList", () => {
     expect(screen.getByTestId("speaker-card-2")).toBeInTheDocument();
   });
 
-  it("renders correct layout structure", () => {
+  it("renders correct layout structure", async () => {
+    const SpeakersList = (await import("@/components/layout/SpeakersList")).default;
     const { container } = render(<SpeakersList speakers={mockSpeakers} year={year} />);
 
     const filterWrapper = container.querySelector(".container");

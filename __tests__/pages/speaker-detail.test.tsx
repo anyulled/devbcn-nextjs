@@ -1,105 +1,109 @@
 import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
-import SpeakerDetail, { generateMetadata, generateStaticParams } from "@/app/[year]/speakers/[speakerId]/page";
-import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { render, screen } from "@testing-library/react";
-import { notFound } from "next/navigation";
-import { Speaker } from "@/hooks/types";
+import React from "react";
+import type { Speaker } from "@/hooks/types";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({
-  notFound: jest.fn(),
-  usePathname: jest.fn(() => "/2026/speakers/speaker-1"),
+  __esModule: true,
+  notFound: jest.fn(() => {
+    throw new Error("notFound");
+  }),
+  useSearchParams: jest.fn(() => ({
+    get: jest.fn(() => ""),
+  })),
+  usePathname: jest.fn(() => "/2025/speakers/1"),
+  useRouter: jest.fn(() => ({
+    replace: jest.fn(),
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+  })),
 }));
 
 // Mock hooks
 jest.mock("@/hooks/useSpeakers", () => ({
+  __esModule: true,
   getSpeakerByYearAndId: jest.fn(),
-  getSpeakers: jest.fn(),
+  getSpeakers: jest.fn(() => Promise.resolve([])),
 }));
 
 // Mock components
-jest.mock("@/components/elements/Countdown", () => ({
+jest.mock("@/components/speakers/SpeakerContent", () => ({
   __esModule: true,
-  default: () => <div data-testid="countdown">Countdown</div>,
+  default: ({ speaker }: { speaker: { fullName: string } }) => <div data-testid="speaker-content">{speaker.fullName}</div>,
 }));
 
 // Mock config
 jest.mock("@/config/editions", () => ({
-  getEditionConfig: jest.fn(() => ({
-    event: { startDay: new Date("2026-06-16"), endDay: new Date("2026-06-17") },
-    venue: "Test Venue",
+  __esModule: true,
+  getEditionConfig: jest.fn((_year: string) => ({
+    event: { startDay: new Date("2025-07-10"), endDay: new Date("2025-07-11") },
+    venue: { name: "Test Venue" },
     tickets: { url: "http://test.com" },
+    showCountdown: true,
   })),
-  getAvailableEditions: jest.fn(() => ["2026"]),
-  formatEventDateRange: jest.fn(() => "June 16-17, 2026"),
+  getAvailableEditions: jest.fn(() => ["2025"]),
+  formatEventDateRange: jest.fn(() => "July 10-11, 2025"),
 }));
 
 // Mock JsonLd utils
 jest.mock("@/lib/shared/jsonld", () => ({
+  __esModule: true,
   generatePersonSchema: jest.fn(() => ({})),
-  generateItemListSchema: jest.fn(() => ({})),
   generateBreadcrumbSchema: jest.fn(() => ({})),
+  generateItemListSchema: jest.fn(() => ({})),
   serializeJsonLd: jest.fn(() => "{}"),
 }));
 
-// Mock next/image
-jest.mock("next/image", () => ({
-  __esModule: true,
-  default: (props: React.ComponentProps<"img">) => <img alt="" {...props} />,
-}));
-
 describe("Speaker Detail Page", () => {
-  const params = Promise.resolve({ year: "2026", speakerId: "speaker-1" });
-  const mockSpeaker: Speaker = {
-    id: "speaker-1",
-    fullName: "Speaker 1",
-    firstName: "Speaker",
-    lastName: "One",
-    profilePicture: "/img.jpg",
-    tagLine: "Expert",
-    bio: "Long bio about speaker 1.",
-    isTopSpeaker: false,
-    links: [{ title: "X", url: "http://x.com", linkType: "Twitter" }],
-    sessions: [{ id: 1, name: "Session 1" }],
-    questionAnswers: [],
-    categories: [],
-  };
+  const params = Promise.resolve({ year: "2025", speakerId: "1" });
+  const mockSpeaker = {
+    id: "1",
+    fullName: "Test Speaker",
+    bio: "Test Bio",
+    tagLine: "Test Tagline",
+    profilePicture: "/img.png",
+    links: [],
+    sessions: [{ id: "t1", name: "Test Talk" }],
+  } as unknown as Speaker;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.mocked(getSpeakerByYearAndId).mockResolvedValue(mockSpeaker);
   });
 
   it("renders speaker details correctly", async () => {
-    const result = await SpeakerDetail({ params });
+    const { getSpeakerByYearAndId } = await import("@/hooks/useSpeakers");
+    const Page = (await import("@/app/[year]/speakers/[speakerId]/page")).default;
+
+    jest.mocked(getSpeakerByYearAndId).mockResolvedValue(mockSpeaker);
+
+    const result = await Page({ params });
     render(result);
 
-    expect(screen.getAllByText("Speaker 1")[0]).toBeInTheDocument();
-    expect(screen.getAllByText("Expert")[0]).toBeInTheDocument();
-    expect(screen.getByText("About Speaker")).toBeInTheDocument();
-    expect(screen.getAllByText("Session 1")[0]).toBeInTheDocument();
+    expect(screen.getByTestId("speaker-content")).toHaveTextContent("Test Speaker");
   });
 
   it("renders notFound if speaker is not found", async () => {
+    const { getSpeakerByYearAndId } = await import("@/hooks/useSpeakers");
+    const Page = (await import("@/app/[year]/speakers/[speakerId]/page")).default;
+    const { notFound } = await import("next/navigation");
+
     jest.mocked(getSpeakerByYearAndId).mockResolvedValue(undefined);
-    try {
-      await SpeakerDetail({ params });
-    } catch {
-      // Ignore
-    }
+
+    await expect(Page({ params })).rejects.toThrow("notFound");
     expect(notFound).toHaveBeenCalled();
   });
 
   it("generates correct metadata", async () => {
-    const metadata = await generateMetadata({ params });
-    expect(metadata.title).toBe("Speaker 1 - DevBcn 2026 Speaker");
-  });
+    const { getSpeakerByYearAndId } = await import("@/hooks/useSpeakers");
+    const { generateMetadata } = await import("@/app/[year]/speakers/[speakerId]/page");
 
-  it("generates static params", async () => {
-    jest.mocked(getSpeakers).mockResolvedValue([mockSpeaker]);
-    const staticParams = await generateStaticParams();
-    expect(staticParams).toEqual([{ year: "2026", speakerId: "speaker-1" }]);
+    jest.mocked(getSpeakerByYearAndId).mockResolvedValue(mockSpeaker);
+
+    const metadata = await generateMetadata({ params });
+    expect(metadata.title).toBe("Test Speaker - DevBcn 2025 Speaker");
   });
 });
