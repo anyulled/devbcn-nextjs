@@ -22,26 +22,38 @@ interface CountdownProps {
 }
 
 export default function Countdown({ style, eventDate }: Readonly<CountdownProps>) {
-  const [timeDif, setTimeDif] = useState(() => {
-    const now = Date.now();
-    const targetDate = new Date(eventDate);
-    return targetDate.getTime() - now;
-  });
+  /*
+   * Initialize with null to ensure server and initial client render match (empty)
+   * This avoids hydration errors caused by Date.now() mismatch
+   */
+  const [timeDif, setTimeDif] = useState<number | null>(null);
 
   useEffect(() => {
+    const calculateTimeDif = () => {
+      const now = Date.now();
+      const targetDate = new Date(eventDate);
+      const diff = targetDate.getTime() - now;
+      return Math.max(0, diff);
+    };
+
+    // Set initial time immediately on mount
+    setTimeDif(calculateTimeDif());
+
     const interval = setInterval(() => {
-      setTimeDif((prev) => {
-        const updatedTime = prev - 1000;
-        if (updatedTime <= 0) {
-          clearInterval(interval);
-          return 0;
-        }
-        return updatedTime;
-      });
+      const diff = calculateTimeDif();
+      setTimeDif(diff);
+      if (diff <= 0) {
+        clearInterval(interval);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [eventDate]);
+
+  // Don't render anything until we have calculated the time on the client
+  if (timeDif === null) {
+    return null;
+  }
 
   const timeParts = getPartsOfTimeDuration(timeDif);
 
