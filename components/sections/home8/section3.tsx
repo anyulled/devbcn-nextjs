@@ -1,18 +1,12 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3() {
   return (
-    <div
-      className="event8-section-area sp1"
-      style={{
-        backgroundImage: "url(assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="event8-section-area sp1" style={{ position: "relative" }}>
+      <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} quality={80} />
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">
@@ -50,7 +44,14 @@ export default function Section3() {
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/devbcn-1.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/devbcn-1.webp"
+                                alt="DevBcn"
+                                width={500}
+                                height={300}
+                                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: "4px" }}
+                                sizes="(max-width: 992px) 100vw, 40vw"
+                              />
                             </div>
                           </div>
                         </div>
@@ -78,7 +79,14 @@ export default function Section3() {
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/devbcn2.webp"
+                                alt="DevBcn"
+                                width={500}
+                                height={300}
+                                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: "4px" }}
+                                sizes="(max-width: 992px) 100vw, 40vw"
+                              />
                             </div>
                           </div>
                         </div>
@@ -117,7 +125,14 @@ export default function Section3() {
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/FaqsImage1.webp"
+                                alt="DevBcn"
+                                width={500}
+                                height={300}
+                                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: "4px" }}
+                                sizes="(max-width: 992px) 100vw, 40vw"
+                              />
                             </div>
                           </div>
                         </div>
@@ -145,7 +160,14 @@ export default function Section3() {
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/FaqsImage0.webp"
+                                alt="DevBcn"
+                                width={500}
+                                height={300}
+                                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: "4px" }}
+                                sizes="(max-width: 992px) 100vw, 40vw"
+                              />
                             </div>
                           </div>
                         </div>
