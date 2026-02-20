@@ -3,6 +3,7 @@ import Countdown from "@/components/elements/Countdown";
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/layout/PageHeader";
 import BrandSlider from "@/components/slider/BrandSlider";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
@@ -18,19 +19,19 @@ export default function About() {
               <div className="col-lg-6">
                 <div className="about-imges">
                   <div className="img1 reveal image-anime">
-                    <img src="/assets/img/all-images/about/about-img1.png" alt="" />
+                    <Image src="/assets/img/all-images/about/about-img1.png" alt="" width={570} height={350} />
                   </div>
                   <div className="row">
                     <div className="col-lg-6 col-md-6">
                       <div className="space30" />
                       <div className="img1 reveal image-anime">
-                        <img src="/assets/img/all-images/about/about-img2.png" alt="" />
+                        <Image src="/assets/img/all-images/about/about-img2.png" alt="" width={270} height={260} />
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
                       <div className="space30" />
                       <div className="img1 reveal image-anime">
-                        <img src="/assets/img/all-images/about/about-img3.png" alt="" />
+                        <Image src="/assets/img/all-images/about/about-img3.png" alt="" width={270} height={260} />
                       </div>
                     </div>
                   </div>
@@ -112,7 +113,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -129,7 +130,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -146,7 +147,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -163,7 +164,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -180,7 +181,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -197,7 +198,7 @@ export default function About() {
               <div className="col-lg-4 col-md-6">
                 <div className="choose-widget-boxarea">
                   <div className="icons">
-                    <img src="/assets/img/icons/choose-icons1.svg" alt="" />
+                    <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={41} height={40} />
                   </div>
                   <div className="space24" />
                   <div className="content-area">
@@ -232,13 +233,13 @@ export default function About() {
                   <ul>
                     <li>
                       <Link href="/#">
-                        <img src="/assets/img/icons/calender1.svg" alt="" />
+                        <Image src="/assets/img/icons/calender1.svg" alt="" width={20} height={22} />
                         30 January 2025 - 6pm to 11:30pm
                       </Link>
                     </li>
                     <li className="m-0">
                       <Link href="/#">
-                        <img src="/assets/img/icons/location1.svg" alt="" />
+                        <Image src="/assets/img/icons/location1.svg" alt="" width={24} height={24} />
                         Secret Location In The UK
                       </Link>
                     </li>
