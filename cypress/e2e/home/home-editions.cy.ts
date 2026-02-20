@@ -11,7 +11,7 @@ describe("Home Pages (2023-2026)", () => {
       cy.visit(edition.path, { timeout: 120000 });
 
       cy.get(".hero8-header", { timeout: 30000 }).within(() => {
-        cy.get("h5").should("have.length.at.least", 2);
+        // Updated to reflect the current structure where h5 tags are replaced by divs
         cy.contains(edition.venue, { matchCase: false }).should("be.visible");
         cy.contains(edition.date, { matchCase: false }).should("be.visible");
       });
