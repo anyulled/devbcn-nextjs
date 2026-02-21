@@ -12,3 +12,8 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-02-01 - Misuse of Priority Prop on Images
+
+**Learning:** Found `priority` prop used on images in `Section2` and `Section4`, which are below the fold. This causes them to compete with the LCP element (hero image) for bandwidth, degrading performance.
+**Action:** Only use `priority` on the Largest Contentful Paint (LCP) element (usually the hero image). Remove it from all other images, especially those below the fold.

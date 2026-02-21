@@ -22,7 +22,7 @@ export default function Section4({ sponsors }: Readonly<Section4Props>) {
         backgroundPosition: "center",
       }}
     >
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill />
       <div className="container">
         {!hasSponsors && (
           <>
