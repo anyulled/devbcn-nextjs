@@ -35,6 +35,7 @@ interface BackgroundCarouselProps {
 }
 
 export default function BackgroundCarousel({ children, className = "" }: Readonly<BackgroundCarouselProps>) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof globalThis.window !== "undefined") {
       return globalThis.window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -67,17 +68,29 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
           pauseOnMouseEnter: false,
         }}
         loop={true}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         onSwiper={() => {}}
         className="background-carousel__swiper"
         allowTouchMove={false}
       >
-        {IMAGES.map((image, index) => (
-          <SwiperSlide key={image}>
-            <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
-              <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
-            </div>
-          </SwiperSlide>
-        ))}
+        {IMAGES.map((image, index) => {
+          /*
+           * Only render image if it is the active slide, or the next/prev one (for smooth transition)
+           * We check against IMAGES.length to handle wrap-around with modulo arithmetic
+           */
+          const total = IMAGES.length;
+          const isRelevant = index === activeIndex || index === (activeIndex + 1) % total || index === (activeIndex - 1 + total) % total;
+
+          return (
+            <SwiperSlide key={image}>
+              <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
+                {isRelevant && (
+                  <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
+                )}
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
 
       {/* Animated gradient overlay */}

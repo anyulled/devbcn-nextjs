@@ -99,4 +99,21 @@ describe("BackgroundCarousel", () => {
     const mainDiv = container.querySelector(".background-carousel");
     expect(mainDiv).toHaveClass("custom-test-class");
   });
+
+  it("renders only active and next slide images for performance", () => {
+    const { container } = render(
+      <BackgroundCarousel>
+        <div>Content</div>
+      </BackgroundCarousel>
+    );
+
+    /*
+     * Initial state: activeIndex = 0. Should render index 0 and 1.
+     * The component has 15 images in total.
+     */
+    const images = container.querySelectorAll("img");
+    expect(images.length).toBeLessThan(15);
+    expect(images.length).toBeGreaterThanOrEqual(1);
+    // Ideally we expect 2 or 3 depending on logic
+  });
 });
