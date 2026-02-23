@@ -45,6 +45,16 @@ export default function Footer8() {
                     <i className="fa-brands fa-bluesky"></i>
                   </a>
                 </li>
+                <li>
+                  <a href="https://www.youtube.com/@DevBcn" className="m-0" target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.flickr.com/photos/devbcn" className="m-0" target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-flickr"></i>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
