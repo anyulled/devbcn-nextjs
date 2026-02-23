@@ -35,6 +35,7 @@ interface BackgroundCarouselProps {
 }
 
 export default function BackgroundCarousel({ children, className = "" }: Readonly<BackgroundCarouselProps>) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof globalThis.window !== "undefined") {
       return globalThis.window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,6 +54,13 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
+  const shouldRenderSlide = (index: number) => {
+    const total = IMAGES.length;
+    const nextIndex = (activeIndex + 1) % total;
+    const prevIndex = (activeIndex - 1 + total) % total;
+    return index === activeIndex || index === nextIndex || index === prevIndex;
+  };
+
   return (
     <div className={`background-carousel ${className}`}>
       {/* Swiper Background */}
@@ -68,14 +76,17 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
         }}
         loop={true}
         onSwiper={() => {}}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="background-carousel__swiper"
         allowTouchMove={false}
       >
         {IMAGES.map((image, index) => (
           <SwiperSlide key={image}>
-            <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
-              <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
-            </div>
+            {shouldRenderSlide(index) ? (
+              <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
+                <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
+              </div>
+            ) : null}
           </SwiperSlide>
         ))}
       </Swiper>
