@@ -91,15 +91,7 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
             <SwiperSlide key={image}>
               <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
                 {shouldRender && (
-                  <Image
-                    src={image}
-                    alt="Conference venue background"
-                    fill
-                    priority={index === 0}
-                    sizes="100vw"
-                    style={{ objectFit: "cover" }}
-                    quality={85}
-                  />
+                  <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
                 )}
               </div>
             </SwiperSlide>
