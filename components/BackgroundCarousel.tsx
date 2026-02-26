@@ -35,6 +35,7 @@ interface BackgroundCarouselProps {
 }
 
 export default function BackgroundCarousel({ children, className = "" }: Readonly<BackgroundCarouselProps>) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (globalThis.window !== undefined) {
       return globalThis.window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -68,16 +69,42 @@ export default function BackgroundCarousel({ children, className = "" }: Readonl
         }}
         loop={true}
         onSwiper={() => {}}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="background-carousel__swiper"
         allowTouchMove={false}
       >
-        {IMAGES.map((image, index) => (
-          <SwiperSlide key={image}>
-            <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
-              <Image src={image} alt="Conference venue background" fill priority={index === 0} sizes="100vw" style={{ objectFit: "cover" }} quality={85} />
-            </div>
-          </SwiperSlide>
-        ))}
+        {IMAGES.map((image, index) => {
+          const isActive = index === activeIndex;
+          const isNext = index === (activeIndex + 1) % IMAGES.length;
+          const isPrev = index === (activeIndex - 1 + IMAGES.length) % IMAGES.length;
+
+          /*
+           * Always render the first 2 and last 2 slides to ensure loop duplicates have content
+           * This prevents flickering during loop transitions as Swiper clones these slides
+           */
+          const isStart = index < 2;
+          const isEnd = index >= IMAGES.length - 2;
+
+          const shouldRender = isActive || isNext || isPrev || isStart || isEnd;
+
+          return (
+            <SwiperSlide key={image}>
+              <div className={`background-carousel__slide ${prefersReducedMotion ? "" : "ken-burns"}`}>
+                {shouldRender && (
+                  <Image
+                    src={image}
+                    alt="Conference venue background"
+                    fill
+                    priority={index === 0}
+                    sizes="100vw"
+                    style={{ objectFit: "cover" }}
+                    quality={85}
+                  />
+                )}
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
 
       {/* Animated gradient overlay */}
