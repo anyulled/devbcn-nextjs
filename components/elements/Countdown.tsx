@@ -22,13 +22,18 @@ interface CountdownProps {
 }
 
 export default function Countdown({ style, eventDate }: Readonly<CountdownProps>) {
-  const [timeDif, setTimeDif] = useState(() => {
-    const now = Date.now();
-    const targetDate = new Date(eventDate);
-    return targetDate.getTime() - now;
-  });
+  const [timeDif, setTimeDif] = useState(0);
 
   useEffect(() => {
+    // Initialize time difference on client side to avoid hydration mismatch
+    const updateTime = () => {
+      const now = Date.now();
+      const targetDate = new Date(eventDate);
+      setTimeDif(Math.max(0, targetDate.getTime() - now));
+    };
+
+    updateTime();
+
     const interval = setInterval(() => {
       setTimeDif((prev) => {
         const updatedTime = prev - 1000;
@@ -41,7 +46,7 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [eventDate]);
 
   const timeParts = getPartsOfTimeDuration(timeDif);
 
