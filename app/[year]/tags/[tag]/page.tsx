@@ -18,27 +18,28 @@ interface TagPageProps {
 
 export async function generateStaticParams() {
   const years = getAvailableEditions();
-  const params = [];
 
-  for (const year of years) {
-    try {
-      const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
-      const allTags = new Set<string>();
+  // ⚡ Bolt: Fetch talk data for all years in parallel to speed up static generation
+  const results = await Promise.all(
+    years.map(async (year) => {
+      try {
+        const sessionGroups = await getTalks(year);
+        const allTalks = sessionGroups.flatMap((group) => group.sessions);
+        const allTags = new Set<string>();
 
-      for (const talk of allTalks) {
-        getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        for (const talk of allTalks) {
+          getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        }
+
+        return Array.from(allTags).map((tag) => ({ year, tag: encodeURIComponent(tag) }));
+      } catch (error) {
+        console.warn(`Failed to fetch talks for year ${year}:`, error);
+        return [];
       }
+    })
+  );
 
-      for (const tag of allTags) {
-        params.push({ year, tag: encodeURIComponent(tag) });
-      }
-    } catch (error) {
-      console.warn(`Failed to fetch talks for year ${year}:`, error);
-    }
-  }
-
-  return params;
+  return results.flat();
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
