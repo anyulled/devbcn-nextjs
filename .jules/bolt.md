@@ -12,8 +12,3 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
-
-## 2026-03-01 - Sitemap Generation Bottleneck
-
-**Learning:** `app/sitemap.ts` generated the sitemap using an `O(N)` sequential loop where it awaited speaker and talk fetching for each year. This blocked the event loop and prolonged build time significantly as the number of years grew.
-**Action:** When working on Server Actions or static generation functions like `sitemap`, replace sequential `await` calls inside loops with a `Promise.all` combined with array `.map` to fetch data in parallel. Ensure individual fetches are wrapped in `.catch()` to prevent one failure from breaking the whole process.
