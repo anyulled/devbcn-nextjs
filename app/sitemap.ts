@@ -28,8 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
-    urls.push({
+  const yearPromises = years.map(async (year) => {
+    const yearUrls: MetadataRoute.Sitemap = [];
+
+    yearUrls.push({
       url: `${baseUrl}/${year}`,
       lastModified: new Date(),
       changeFrequency: "daily",
@@ -38,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
     for (const page of yearPages) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/${page}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
@@ -46,9 +48,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const speakers = await getSpeakers(year);
+    const [speakers, sessionGroups] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => [])]);
+
     for (const speaker of speakers) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
@@ -56,10 +59,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
-        urls.push({
+        yearUrls.push({
           url: `${baseUrl}/${year}/talks/${talk.id}`,
           lastModified: new Date(),
           changeFrequency: "weekly",
@@ -70,13 +72,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const companies = getJobOffersByYear(year);
     for (const company of companies) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.5,
       });
     }
+
+    return yearUrls;
+  });
+
+  const yearsUrlsArrays = await Promise.all(yearPromises);
+  for (const yearUrls of yearsUrlsArrays) {
+    urls.push(...yearUrls);
   }
 
   return urls;
