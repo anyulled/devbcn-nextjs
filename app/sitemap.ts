@@ -28,7 +28,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
+  const yearsData = await Promise.all(
+    years.map(async (year) => {
+      const [speakers, sessionGroups] = await Promise.all([
+        getSpeakers(year).catch(() => []),
+        getTalks(year).catch(() => []),
+      ]);
+      return { year, speakers, sessionGroups };
+    })
+  );
+
+  for (const { year, speakers, sessionGroups } of yearsData) {
     urls.push({
       url: `${baseUrl}/${year}`,
       lastModified: new Date(),
@@ -46,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const speakers = await getSpeakers(year);
     for (const speaker of speakers) {
       urls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
@@ -56,7 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
         urls.push({
