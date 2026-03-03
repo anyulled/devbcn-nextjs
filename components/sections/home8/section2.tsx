@@ -13,7 +13,7 @@ export default function Section2({ eventDate, showCountdown }: Readonly<Section2
     <div className="conference-stats">
       {/* Background with reused image */}
       <div className="conference-stats__bg">
-        <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover" }} priority />
+        <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover" }} />
       </div>
 
       <div className="container">

@@ -1,18 +1,12 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3() {
   return (
-    <div
-      className="event8-section-area sp1"
-      style={{
-        backgroundImage: "url(assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="event8-section-area sp1">
+      <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">

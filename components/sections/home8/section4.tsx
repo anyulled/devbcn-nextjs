@@ -12,17 +12,9 @@ export default function Section4({ sponsors }: Readonly<Section4Props>) {
   const hasSponsors = sponsors && Object.values(sponsors).some((arr) => arr && arr.length > 0);
 
   return (
-    <div
-      id="sponsors"
-      className="brands8-section-area sp8"
-      style={{
-        backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
+    <div id="sponsors" className="brands8-section-area sp8">
+      <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover", zIndex: -1 }} />
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill />
       <div className="container">
         {!hasSponsors && (
           <>
