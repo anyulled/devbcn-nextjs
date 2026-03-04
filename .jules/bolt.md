@@ -12,3 +12,8 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-03-04 - Sequential Awaits in Server Files
+
+**Learning:** Found sequential data fetching using `await` inside loops within the `app/sitemap.ts` file. This severely degraded sitemap generation performance by blocking consecutive API requests, particularly when traversing multiple years and resources.
+**Action:** Replace sequential `await` loops with `Promise.all` for parallel execution of independent data-fetching calls, applying `.catch(() => [])` locally to prevent partial request failures from crashing the entire build.
