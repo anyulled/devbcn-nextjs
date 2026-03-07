@@ -25,9 +25,16 @@
     height: 100%;
     position: relative;
 
-    &.ken-burns {
-      animation: kenBurns 7000ms ease-out both;
-      animation-delay: 0s;
+    /* ⚡ Bolt: Scope expensive animation to active/transitioning slides only.
+       Prevents animation from running on hidden slides and ensures it starts
+       exactly when the slide becomes visible. */
+    .swiper-slide-active &,
+    .swiper-slide-prev &,
+    .swiper-slide-duplicate-active & {
+      &.ken-burns {
+        animation: kenBurns 7000ms ease-out both;
+        animation-delay: 0s;
+      }
     }
   }
 
