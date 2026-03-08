@@ -11,7 +11,7 @@ describe("Home Pages (2023-2026)", () => {
       cy.visit(edition.path, { timeout: 120000 });
 
       cy.get(".hero8-header", { timeout: 30000 }).within(() => {
-        cy.get("h5").should("have.length.at.least", 2);
+        cy.get(".hero8-header__event-line").should("have.length.at.least", 2);
         cy.contains(edition.venue, { matchCase: false }).should("be.visible");
         cy.contains(edition.date, { matchCase: false }).should("be.visible");
       });
