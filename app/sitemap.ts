@@ -50,8 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
 
-      // Fetch speakers and talks in parallel for each year, gracefully handling failures
-      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => [])]);
+      // Fetch speakers and talks in parallel for each year
+      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
 
       for (const speaker of speakers) {
         yearUrls.push({
