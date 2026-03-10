@@ -75,8 +75,10 @@ export default function Section5({ year, speakers, totalSpeakers }: Readonly<Sec
       className="team8-section-rea sp1"
       style={{
         position: "relative",
+        isolation: "isolate",
       }}
     >
+      {/* ⚡ Bolt: Used next/image for background to enable WebP/AVIF formatting and lazy loading instead of unoptimized CSS backgroundImage */}
       <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
         <div className="row">

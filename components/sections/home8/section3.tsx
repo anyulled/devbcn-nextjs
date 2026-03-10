@@ -1,8 +1,7 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
-
-import Image from "next/image";
 
 export default function Section3() {
   return (
@@ -10,8 +9,10 @@ export default function Section3() {
       className="event8-section-area sp1"
       style={{
         position: "relative",
+        isolation: "isolate",
       }}
     >
+      {/* ⚡ Bolt: Used next/image for background to enable WebP/AVIF formatting and lazy loading instead of unoptimized CSS backgroundImage */}
       <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
         <div className="row">
