@@ -52,8 +52,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // ⚡ Bolt: Parallelize independent data fetching per year
     const [speakers, sessionGroups] = await Promise.all([
-      getSpeakers(year).catch(() => []), // Added catch to prevent partial failures from crashing the whole build (as per memory)
-      getTalks(year).catch(() => []),
+      getSpeakers(year),
+      getTalks(year),
     ]);
 
     for (const speaker of speakers) {
