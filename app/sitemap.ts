@@ -28,8 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // ⚡ Bolt: Parallelize year processing to avoid sequential request waterfalls
-  // Expected impact: ~10x speedup in sitemap generation time (e.g. from 5.4s to 0.6s)
+  /*
+   * ⚡ Bolt: Parallelize year processing to avoid sequential request waterfalls
+   * Expected impact: ~10x speedup in sitemap generation time (e.g. from 5.4s to 0.6s)
+   */
   const yearPromises = years.map(async (year) => {
     const yearUrls: MetadataRoute.Sitemap = [];
 
@@ -52,8 +54,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // ⚡ Bolt: Parallelize independent data fetching per year
     const [speakers, sessionGroups] = await Promise.all([
-      getSpeakers(year),
-      getTalks(year),
+      // Added catch to prevent partial failures from crashing the whole build (as per memory)
+      getSpeakers(year).catch(() => []),
+      getTalks(year).catch(() => []),
     ]);
 
     for (const speaker of speakers) {
