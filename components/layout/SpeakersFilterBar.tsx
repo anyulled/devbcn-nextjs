@@ -50,6 +50,7 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
             />
             <input
               type="text"
+              name="q"
               placeholder={placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}

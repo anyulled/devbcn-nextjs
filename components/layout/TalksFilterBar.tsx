@@ -79,6 +79,7 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
             />
             <input
               type="text"
+              name="q"
               placeholder="Search talks..."
               value={searchQuery}
               onChange={handleSearchChange}
