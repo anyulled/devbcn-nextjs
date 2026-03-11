@@ -1,19 +1,19 @@
 # AI Harness Scorecard: devbcn-nextjs
 
-**Grade: F** (20.3/100) | No meaningful harness. AI output is essentially unaudited.
+**Grade: F** (31.8/100) | No meaningful harness. AI output is essentially unaudited.
 
 - **Repository**: `/home/runner/work/devbcn-nextjs/devbcn-nextjs`
 - **Languages**: javascript, typescript
-- **Assessed**: 2026-03-09 07:12 UTC
-- **Checks**: 8/31 passed
+- **Assessed**: 2026-03-11 18:59 UTC
+- **Checks**: 10/31 passed
 
 ## Summary
 
 | Category | Weight | Score | Checks |
 |----------|--------|-------|--------|
 | Architectural Documentation | 20% | 0% [----------] | 0/5 |
-| Mechanical Constraints | 25% | 27% [###-------] | 2/7 |
-| Testing & Stability | 25% | 34% [###-------] | 4/8 |
+| Mechanical Constraints | 25% | 59% [######----] | 4/7 |
+| Testing & Stability | 25% | 48% [#####-----] | 4/8 |
 | Review & Drift Prevention | 15% | 33% [###-------] | 2/6 |
 | AI-Specific Safeguards | 15% | 0% [----------] | 0/5 |
 
@@ -60,7 +60,7 @@ _DORA 2025 - AI-accessible documentation_
 **Remediation**: Add doc generation to CI (cargo doc, typedoc, sphinx) or maintain OpenAPI/Swagger specs.
 
 
-## Mechanical Constraints (27%)
+## Mechanical Constraints (59%)
 
 ### [PASS] CI Pipeline (3/3)
 
@@ -68,21 +68,17 @@ _DORA 2025 Report_
 
 **Evidence**: CI detected: github, github, github
 
-### [FAIL] Linter Enforcement (0/4)
+### [PASS] Linter Enforcement (4/4)
 
 _OpenAI Harness Engineering - mechanical constraints_
 
-**Evidence**: No linter found in CI
+**Evidence**: Blocking linter found in CI: eslint
 
-**Remediation**: Add a linter to CI that blocks merges on violations (e.g. cargo clippy -- -D warnings, eslint --max-warnings 0).
-
-### [FAIL] Formatter Enforcement (0/3)
+### [PASS] Formatter Enforcement (3/3)
 
 _OpenAI Harness Engineering - mechanical constraints_
 
-**Evidence**: No formatter check found in CI
-
-**Remediation**: Add a formatter check to CI (e.g. cargo fmt --all -- --check, prettier --check).
+**Evidence**: Formatter check found in CI: prettier\s+--check
 
 ### [PASS] Type Safety (3/3)
 
@@ -115,15 +111,13 @@ _Blog: 80% problem in AI-generated code_
 **Remediation**: Add unsafe_code = forbid (Rust), security linting (semgrep/bandit), or ESLint rules against dangerous patterns.
 
 
-## Testing & Stability (34%)
+## Testing & Stability (48%)
 
-### [PASS] Test Suite (2/3)
+### [PASS] Test Suite (3/3)
 
 _Kent Beck - tests define what correct means_
 
-**Evidence**: Tests found but not confirmed in CI
-
-**Remediation**: Add test execution to your CI pipeline.
+**Evidence**: Tests present and executed in CI
 
 ### [PASS] Feature Matrix Testing (3/3)
 
@@ -131,13 +125,11 @@ _DORA 2025 - stability through comprehensive testing_
 
 **Evidence**: Matrix/parallel testing strategy found in CI
 
-### [PASS] Code Coverage (2/4)
+### [PASS] Code Coverage (4/4)
 
 _DORA 2025 - stability feedback loops_
 
-**Evidence**: Coverage config found (jest.config.js) but not confirmed in CI
-
-**Remediation**: Add coverage reporting to your CI pipeline.
+**Evidence**: Coverage measurement in CI: coverage\.py|pytest-cov|--cov
 
 ### [FAIL] Mutation Testing (0/4)
 
@@ -153,7 +145,7 @@ _Blog: catching edge cases in AI-generated code_
 
 **Evidence**: No property-based testing found
 
-**Remediation**: Add proptest (Rust), hypothesis (Python), or fast-check (JS/TS) for testing invariants with random structured inputs.
+**Remediation**: Add proptest (Rust), hypothesis (Python), fast-check (JS/TS), or jqwik (Java) for testing invariants with random structured inputs.
 
 ### [FAIL] Fuzz Testing (0/3)
 
