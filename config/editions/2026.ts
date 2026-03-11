@@ -89,7 +89,13 @@ export const edition2026: EditionConfig = {
   sponsorsData: {
     top: [],
     premium: [],
-    regular: [],
+    regular: [
+      {
+        name: "Caixabank Tech",
+        website: "https://www.caixabanktech.com/es/pagina-de-inicio/",
+        image: "/assets/img/all-images/sponsors/caixabank-tech.png",
+      },
+    ],
     basic: [],
     communities: [],
     media_partners: [],
