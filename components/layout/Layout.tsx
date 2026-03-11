@@ -79,17 +79,29 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle: _bre
 
   useEffect(() => {
     AOS.init();
+
+    const state = { rafId: 0, isTicking: false };
+
     const handleScroll = (): void => {
-      const scrollCheck: boolean = window.scrollY > 100;
-      if (scrollCheck !== scroll) {
-        setScroll(scrollCheck);
+      if (!state.isTicking) {
+        state.rafId = window.requestAnimationFrame(() => {
+          const scrollCheck: boolean = window.scrollY > 100;
+          if (scrollCheck !== scroll) {
+            setScroll(scrollCheck);
+          }
+          state.isTicking = false;
+        });
+        state.isTicking = true;
       }
     };
 
-    document.addEventListener("scroll", handleScroll);
+    document.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       document.removeEventListener("scroll", handleScroll);
+      if (state.rafId) {
+        window.cancelAnimationFrame(state.rafId);
+      }
     };
   }, [scroll]);
 
