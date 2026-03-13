@@ -16,13 +16,13 @@ export default function Section4({ sponsors }: Readonly<Section4Props>) {
       id="sponsors"
       className="brands8-section-area sp8"
       style={{
-        backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        position: "relative",
+        isolation: "isolate",
       }}
     >
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
+      {/* ⚡ Bolt: Using Next.js Image instead of CSS background-image to enable automatic image optimization and caching. Impact: Eliminates unoptimized duplicate network requests for this background image */}
+      <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority style={{ zIndex: -1 }} />
       <div className="container">
         {!hasSponsors && (
           <>

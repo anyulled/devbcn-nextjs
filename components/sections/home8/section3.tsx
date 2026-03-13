@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3() {
@@ -7,12 +8,12 @@ export default function Section3() {
     <div
       className="event8-section-area sp1"
       style={{
-        backgroundImage: "url(assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        position: "relative",
+        isolation: "isolate",
       }}
     >
+      {/* ⚡ Bolt: Using Next.js Image instead of CSS background-image to enable automatic image optimization and caching. Impact: Eliminates unoptimized duplicate network requests for this background image */}
+      <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">
