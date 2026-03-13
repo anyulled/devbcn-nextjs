@@ -7,6 +7,7 @@ import globals from "globals";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import securityPlugin from "eslint-plugin-security";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import noGenericNames from "./.eslint-rules/no-generic-names.js";
@@ -42,6 +43,7 @@ const eslintConfig = [
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
       "jsx-a11y": jsxA11yPlugin,
+      security: securityPlugin,
       custom: {
         rules: {
           "no-generic-names": noGenericNames,
@@ -52,6 +54,7 @@ const eslintConfig = [
       ...tsPlugin.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
+      ...securityPlugin.configs.recommended.rules,
 
       // Custom rules
       "custom/no-generic-names": "error",

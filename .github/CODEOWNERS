@@ -1,0 +1,10 @@
+*       @anyulled
+
+# Documentation and Architecture
+/ARCHITECTURE.md      @anyulled
+/SECURITY.md          @anyulled
+/docs/                @anyulled
+
+# Core Configuration
+/package.json         @anyulled
+/.github/workflows/   @anyulled

@@ -22,6 +22,14 @@ jobs:
         run: npm run lint
       - name: Format Check
         run: npm run format:check
+      - name: Security Audit
+        run: npm audit --audit-level=high || true
+      - name: Docs Sync Check
+        run: npm run check:docs
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline '*.md' '**/*.md'
 
   test:
     runs-on: ubuntu-latest

@@ -145,3 +145,11 @@ per-edition in `config/editions/`. Data is cached at the `fetch` level
 4. Styles use SCSS exclusively — no CSS Modules, no Tailwind.
 5. Every edition must implement the full `EditionConfig` interface.
 6. Git hooks (pre-commit, commit-msg, pre-push) are never bypassed.
+
+## Module Boundaries
+
+- `components/` never depends on `app/`.
+- `hooks/` never depends on `components/` or `app/`.
+- `config/` never depends on any other workspace module.
+- `styles/` never depends on any other workspace module.
+- `lib/` never depends on `app/` or `components/`.
