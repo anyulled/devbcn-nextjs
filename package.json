@@ -99,7 +99,6 @@
     "serialize-javascript": "^7.0.3",
     "axios": "^1.13.6",
     "qs": "^6.15.0",
-    "minimatch": "^10.0.1",
     "systeminformation": "^5.31.1"
   }
 }
