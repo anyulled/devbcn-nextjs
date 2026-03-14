@@ -29,10 +29,11 @@ export default function Countdown({ style, eventDate }: Readonly<CountdownProps>
   const [timeDif, setTimeDif] = useState<number | null>(null);
 
   useEffect(() => {
+    const targetTime = new Date(eventDate).getTime();
+
     const calculateTimeDif = () => {
       const now = Date.now();
-      const targetDate = new Date(eventDate);
-      const diff = targetDate.getTime() - now;
+      const diff = targetTime - now;
       return Math.max(0, diff);
     };
 
