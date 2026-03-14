@@ -227,6 +227,9 @@ const eslintConfig = [
         ServiceWorkerGlobalScope: "readonly",
       },
     },
+    rules: {
+      "spaced-comment": ["error", "always", { markers: ["/"] }],
+    },
   },
   {
     ignores: [
