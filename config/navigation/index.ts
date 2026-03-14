@@ -38,7 +38,7 @@ export const yearSpecificNavLinks: NavItem[] = [
  * News dropdown links
  */
 export const newsDropdownLinks: NavItem[] = [
-  { label: "CFP", href: "/cfp", requiresYear: true },
+  { label: "CFP Committee", href: "/cfp", requiresYear: true },
   { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
   { label: "Diversity", href: "/diversity", requiresYear: true },
   { label: "Job Offers", href: "/job-offers", requiresYear: true },

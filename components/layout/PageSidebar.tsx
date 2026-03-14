@@ -4,7 +4,7 @@ interface PageSidebarProps {
   year: string;
 }
 
-export default function PageSidebar({ year }: PageSidebarProps) {
+export default function PageSidebar({ year }: Readonly<PageSidebarProps>) {
   return (
     <div className="blog-auhtor-details">
       <div className="blog-categories">

@@ -13,6 +13,7 @@ export const edition2026: EditionConfig = {
     main: [
       { label: "About Us", href: "/about-us", requiresYear: false },
       { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
+      { label: "Sponsors", href: "#sponsors", requiresYear: false },
       { label: "Travel", href: "/2026/travel", requiresYear: true },
     ],
     yearSpecific: [

@@ -15,8 +15,8 @@ interface HeaderProps {
 
 export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
   const pathname = usePathname();
-  const segments = pathname.split("/").filter(Boolean);
-  const yearFromPath = segments[0] && /^\d{4}$/.test(segments[0]) ? segments[0] : new Date().getFullYear().toString();
+  const segment = pathname.split("/").find(Boolean);
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
 
   return (
     <header>
