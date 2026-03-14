@@ -29,7 +29,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --offline '*.md' '**/*.md'
+          args: --offline --base . --exclude-path node_modules '**/*.md'
 
   test:
     runs-on: ubuntu-latest
