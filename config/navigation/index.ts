@@ -23,13 +23,13 @@ export const editionLinks: NavItem[] = [
 export const mainNavLinks: NavItem[] = [
   { label: "About Us", href: "/about-us", requiresYear: false },
   { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
+  { label: "Sponsors", href: "#sponsors", requiresYear: false },
 ];
 
 /**
  * Year-specific navigation links
  */
 export const yearSpecificNavLinks: NavItem[] = [
-  { label: "Sponsors", href: "/#sponsors", requiresYear: true },
   { label: "Speakers", href: "/speakers", requiresYear: true },
   { label: "Talks", href: "/talks", requiresYear: true },
 ];

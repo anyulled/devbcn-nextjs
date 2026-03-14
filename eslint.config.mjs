@@ -217,6 +217,21 @@ const eslintConfig = [
     },
   },
   {
+    files: ["worker/**/*.ts"],
+    languageOptions: {
+      parserOptions: {
+        project: null,
+      },
+      globals: {
+        ...globals.serviceworker,
+        ServiceWorkerGlobalScope: "readonly",
+      },
+    },
+    rules: {
+      "no-undef": "off",
+    },
+  },
+  {
     ignores: [
       ".next/**",
       "node_modules/**",
