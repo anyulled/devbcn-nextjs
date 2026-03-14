@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TeamMemberCard Component matches snapshot with all social links 1`] = `
+<div>
+  <div
+    class="team-card h-100"
+    style="background: rgba(255, 255, 255, 0.8); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s ease;"
+  >
+    <div
+      class="member-image-wrapper position-relative"
+      style="padding-top: 100%; overflow: hidden;"
+    >
+      <img
+        alt="Jane Smith"
+        class="member-image"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        src="/_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=3840&q=75"
+        srcset="/_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; transition: transform 0.3s ease;"
+      />
+    </div>
+    <div
+      class="member-content p-4 d-flex flex-column flex-grow-1"
+      style="gap: 12px; text-align: center;"
+    >
+      <h4
+        class="member-name mb-0"
+        style="font-size: 1.1rem; font-weight: 700;"
+      >
+        <span
+          style="color: rgb(17, 24, 39);"
+        >
+          Jane Smith
+        </span>
+      </h4>
+      <p
+        class="member-job text-muted mb-0"
+        style="font-size: 0.9rem; line-height: 1.4; flex-grow: 1;"
+      >
+        Lead Developer
+      </p>
+      <div
+        class="member-socials d-flex justify-content-center gap-3 mt-2"
+      >
+        <a
+          class="social-link text-secondary hover-primary"
+          href="https://twitter.com/janesmith"
+          target="_blank"
+        >
+          <i
+            class="fa-brands fa-twitter fa-lg"
+          />
+        </a>
+        <a
+          class="social-link text-secondary hover-primary"
+          href="https://linkedin.com/in/janesmith"
+          target="_blank"
+        >
+          <i
+            class="fa-brands fa-linkedin-in fa-lg"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamMemberCard Component matches snapshot without social links 1`] = `
+<div>
+  <div
+    class="team-card h-100"
+    style="background: rgba(255, 255, 255, 0.8); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s ease;"
+  >
+    <div
+      class="member-image-wrapper position-relative"
+      style="padding-top: 100%; overflow: hidden;"
+    >
+      <img
+        alt="Jane Smith"
+        class="member-image"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        src="/_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=3840&q=75"
+        srcset="/_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fteam%2Fjane.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; transition: transform 0.3s ease;"
+      />
+    </div>
+    <div
+      class="member-content p-4 d-flex flex-column flex-grow-1"
+      style="gap: 12px; text-align: center;"
+    >
+      <h4
+        class="member-name mb-0"
+        style="font-size: 1.1rem; font-weight: 700;"
+      >
+        <span
+          style="color: rgb(17, 24, 39);"
+        >
+          Jane Smith
+        </span>
+      </h4>
+      <p
+        class="member-job text-muted mb-0"
+        style="font-size: 0.9rem; line-height: 1.4; flex-grow: 1;"
+      >
+        Lead Developer
+      </p>
+      <div
+        class="member-socials d-flex justify-content-center gap-3 mt-2"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PageSidebar Component matches snapshot 1`] = `
+<div>
+  <div
+    class="blog-auhtor-details"
+  >
+    <div
+      class="blog-categories"
+    >
+      <h3>
+        Quick Links
+      </h3>
+      <div
+        class="space12"
+      />
+      <ul>
+        <li>
+          <a
+            href="/code-of-conduct"
+          >
+            Code of Conduct
+             
+            <span>
+              <i
+                class="fa-solid fa-angle-right"
+              />
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about-us"
+          >
+            About Us
+             
+            <span>
+              <i
+                class="fa-solid fa-angle-right"
+              />
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/2026/travel"
+          >
+            Travel
+             
+            <span>
+              <i
+                class="fa-solid fa-angle-right"
+              />
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="space32"
+    />
+    <div
+      class="tags-area"
+    >
+      <h3>
+        Related Topics
+      </h3>
+      <div
+        class="space12"
+      />
+      <ul>
+        <li>
+          <a
+            href="#"
+          >
+            #Diversity
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            #Inclusion
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            #Community
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a
+            href="#"
+          >
+            #DevBcn
+            2026
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            #Sponsorship
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

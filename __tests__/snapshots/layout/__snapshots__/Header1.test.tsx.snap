@@ -1,0 +1,1431 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Header1 Component matches snapshot with scroll 1`] = `
+<div>
+  <header>
+    <div
+      class="header-area homepage1 header header-sticky d-none d-lg-block sticky"
+      id="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-12"
+          >
+            <div
+              class="header-elements"
+            >
+              <div
+                class="site-logo"
+              >
+                <a
+                  href="/"
+                >
+                  <img
+                    alt="Logo"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=384&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=384&q=75 2x"
+                    style="color: transparent; width: auto; height: auto;"
+                    width="150"
+                  />
+                </a>
+              </div>
+              <div
+                class="main-menu"
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Home 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <div
+                      class="tp-submenu"
+                    >
+                      <div
+                        class="row"
+                      >
+                        <div
+                          class="col-lg-12"
+                        >
+                          <div
+                            class="all-images-menu"
+                          >
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/"
+                                >
+                                  Eventify-Homepage 01
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index2"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index2"
+                                >
+                                  Eventify-Homepage 02
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index3"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index3"
+                                >
+                                  Eventify-Homepage 03
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index4"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index4"
+                                >
+                                  Eventify-Homepage 04
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                              style="margin: 0px;"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index5"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index5"
+                                >
+                                  Eventify-Homepage 05
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="all-images-menu"
+                          >
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index6"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index6"
+                                >
+                                  Eventify-Homepage 06
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index7"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index7"
+                                >
+                                  Eventify-Homepage 07
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index8"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index8"
+                                >
+                                  Eventify-Homepage 08
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index9"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index9"
+                                >
+                                  Eventify-Homepage 09
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                              style="margin: 0px;"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index10"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index10"
+                                >
+                                  Eventify-Homepage 10
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a
+                      href="/about"
+                    >
+                      About Event
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Speakers 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/speakers"
+                        >
+                          Speakers
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/speakers-single"
+                        >
+                          Speakers Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Schedule 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/event"
+                        >
+                          Our Event
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/event-schedule"
+                        >
+                          Event Schedule
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/event-single"
+                        >
+                          Event Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Blogs 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/blog"
+                        >
+                          Our Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/blog-single"
+                        >
+                          Blog Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Pages 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/memories"
+                        >
+                          Our Memories
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/pricing-plan"
+                        >
+                          Pricing Plan
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/faq"
+                        >
+                          FAQ,s
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/contact"
+                        >
+                          Contact Us
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="btn-area"
+              >
+                <div
+                  class="search-icon header__search header-search-btn"
+                >
+                  <a>
+                    <img
+                      alt=""
+                      data-nimg="1"
+                      decoding="async"
+                      height="20"
+                      loading="lazy"
+                      src="/assets/img/icons/search1.svg"
+                      style="color: transparent;"
+                      width="20"
+                    />
+                  </a>
+                </div>
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-pinterest-p"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="header-search-form-wrapper "
+              >
+                <div
+                  class="tx-search-close tx-close"
+                >
+                  <i
+                    class="fa-solid fa-xmark"
+                  />
+                </div>
+                <div
+                  class="header-search-container"
+                >
+                  <form
+                    class="search-form"
+                    role="search"
+                  >
+                    <input
+                      class="search-field"
+                      name="s"
+                      placeholder="Search …"
+                      type="search"
+                    />
+                    <button
+                      class="search-submit"
+                      type="submit"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="20"
+                        loading="lazy"
+                        src="/assets/img/icons/search1.svg"
+                        style="color: transparent;"
+                        width="20"
+                      />
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`Header1 Component matches snapshot without scroll 1`] = `
+<div>
+  <header>
+    <div
+      class="header-area homepage1 header header-sticky d-none d-lg-block "
+      id="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-12"
+          >
+            <div
+              class="header-elements"
+            >
+              <div
+                class="site-logo"
+              >
+                <a
+                  href="/"
+                >
+                  <img
+                    alt="Logo"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=384&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Flogo%2Flogo1.png&w=384&q=75 2x"
+                    style="color: transparent; width: auto; height: auto;"
+                    width="150"
+                  />
+                </a>
+              </div>
+              <div
+                class="main-menu"
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Home 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <div
+                      class="tp-submenu"
+                    >
+                      <div
+                        class="row"
+                      >
+                        <div
+                          class="col-lg-12"
+                        >
+                          <div
+                            class="all-images-menu"
+                          >
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img1.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/"
+                                >
+                                  Eventify-Homepage 01
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img2.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index2"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index2"
+                                >
+                                  Eventify-Homepage 02
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img3.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index3"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index3"
+                                >
+                                  Eventify-Homepage 03
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img4.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index4"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index4"
+                                >
+                                  Eventify-Homepage 04
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                              style="margin: 0px;"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img5.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index5"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index5"
+                                >
+                                  Eventify-Homepage 05
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="all-images-menu"
+                          >
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img6.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index6"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index6"
+                                >
+                                  Eventify-Homepage 06
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img7.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index7"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index7"
+                                >
+                                  Eventify-Homepage 07
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img8.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index8"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index8"
+                                >
+                                  Eventify-Homepage 08
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img9.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index9"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index9"
+                                >
+                                  Eventify-Homepage 09
+                                </a>
+                              </div>
+                            </div>
+                            <div
+                              class="homemenu-thumb"
+                              style="margin: 0px;"
+                            >
+                              <div
+                                class="img1"
+                              >
+                                <img
+                                  alt=""
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="300"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=640&q=75"
+                                  srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=384&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fdemo%2Fdemo-img10.png&w=640&q=75 2x"
+                                  style="color: transparent; width: 100%; height: auto;"
+                                  width="300"
+                                />
+                              </div>
+                              <div
+                                class="homemenu-btn"
+                              >
+                                <a
+                                  class="vl-btn1"
+                                  href="/index10"
+                                >
+                                  View Demo
+                                   
+                                </a>
+                              </div>
+                              <div
+                                class="homemenu-text"
+                              >
+                                <a
+                                  href="/index10"
+                                >
+                                  Eventify-Homepage 10
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a
+                      href="/about"
+                    >
+                      About Event
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Speakers 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/speakers"
+                        >
+                          Speakers
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/speakers-single"
+                        >
+                          Speakers Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Schedule 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/event"
+                        >
+                          Our Event
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/event-schedule"
+                        >
+                          Event Schedule
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/event-single"
+                        >
+                          Event Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Blogs 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/blog"
+                        >
+                          Our Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/blog-single"
+                        >
+                          Blog Details
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      Pages 
+                      <i
+                        class="fa-solid fa-angle-down"
+                      />
+                    </a>
+                    <ul
+                      class="dropdown-padding"
+                    >
+                      <li>
+                        <a
+                          href="/memories"
+                        >
+                          Our Memories
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/pricing-plan"
+                        >
+                          Pricing Plan
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/faq"
+                        >
+                          FAQ,s
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/contact"
+                        >
+                          Contact Us
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="btn-area"
+              >
+                <div
+                  class="search-icon header__search header-search-btn"
+                >
+                  <a>
+                    <img
+                      alt=""
+                      data-nimg="1"
+                      decoding="async"
+                      height="20"
+                      loading="lazy"
+                      src="/assets/img/icons/search1.svg"
+                      style="color: transparent;"
+                      width="20"
+                    />
+                  </a>
+                </div>
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-pinterest-p"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="header-search-form-wrapper "
+              >
+                <div
+                  class="tx-search-close tx-close"
+                >
+                  <i
+                    class="fa-solid fa-xmark"
+                  />
+                </div>
+                <div
+                  class="header-search-container"
+                >
+                  <form
+                    class="search-form"
+                    role="search"
+                  >
+                    <input
+                      class="search-field"
+                      name="s"
+                      placeholder="Search …"
+                      type="search"
+                    />
+                    <button
+                      class="search-submit"
+                      type="submit"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="20"
+                        loading="lazy"
+                        src="/assets/img/icons/search1.svg"
+                        style="color: transparent;"
+                        width="20"
+                      />
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;

@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`JobOffersAccordion Component matches snapshot with empty offers 1`] = `
+<div>
+  <div
+    class="job-offers-accordion"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-lg-12"
+      >
+        <div
+          class="accordian-area"
+        >
+          <div
+            class="accordion"
+            id="jobOffersAccordion"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`JobOffersAccordion Component matches snapshot with multiple offers 1`] = `
+<div>
+  <div
+    class="job-offers-accordion"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-lg-12"
+      >
+        <div
+          class="accordian-area"
+        >
+          <div
+            class="accordion"
+            id="jobOffersAccordion"
+          >
+            <div>
+              <div
+                class="accordion-item"
+              >
+                <h2
+                  class="accordion-header"
+                >
+                  <button
+                    aria-controls="collapse1"
+                    aria-expanded="true"
+                    class="accordion-button"
+                    data-bs-target="#collapse1"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      class="job-title"
+                    >
+                      Senior React Developer
+                    </span>
+                    <span
+                      class="job-location"
+                    >
+                      Barcelona, Spain
+                    </span>
+                  </button>
+                </h2>
+                <div
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#jobOffersAccordion"
+                  data-testid="collapse1"
+                  id="collapse1"
+                >
+                  <div
+                    class="accordion-body"
+                  >
+                    <div
+                      class="job-details"
+                    >
+                      <div
+                        class="job-description"
+                      >
+                        <p
+                          class="mb-3"
+                        >
+                          We are looking for an experienced React developer...
+                        </p>
+                      </div>
+                      <div
+                        class="apply-section"
+                      >
+                        <a
+                          class="btn btn-primary apply-btn"
+                          href="https://example.com/apply"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Apply Now 
+                          <i
+                            class="fa-solid fa-arrow-right"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="space20"
+              />
+            </div>
+            <div>
+              <div
+                class="accordion-item"
+              >
+                <h2
+                  class="accordion-header"
+                >
+                  <button
+                    aria-controls="collapse2"
+                    aria-expanded="false"
+                    class="accordion-button collapsed"
+                    data-bs-target="#collapse2"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      class="job-title"
+                    >
+                      DevOps Engineer
+                    </span>
+                    <span
+                      class="job-location"
+                    >
+                      Remote
+                    </span>
+                  </button>
+                </h2>
+                <div
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#jobOffersAccordion"
+                  data-testid="collapse2"
+                  id="collapse2"
+                >
+                  <div
+                    class="accordion-body"
+                  >
+                    <div
+                      class="job-details"
+                    >
+                      <div
+                        class="job-description"
+                      >
+                        <p
+                          class="mb-3"
+                        >
+                          Join our infrastructure team...
+                        </p>
+                      </div>
+                      <div
+                        class="apply-section"
+                      >
+                        <a
+                          class="btn btn-primary apply-btn"
+                          href="https://example.com/apply2"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Apply Now 
+                          <i
+                            class="fa-solid fa-arrow-right"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`JobOffersAccordion Component matches snapshot with single offer 1`] = `
+<div>
+  <div
+    class="job-offers-accordion"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-lg-12"
+      >
+        <div
+          class="accordian-area"
+        >
+          <div
+            class="accordion"
+            id="jobOffersAccordion"
+          >
+            <div>
+              <div
+                class="accordion-item"
+              >
+                <h2
+                  class="accordion-header"
+                >
+                  <button
+                    aria-controls="collapse1"
+                    aria-expanded="true"
+                    class="accordion-button"
+                    data-bs-target="#collapse1"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    <span
+                      class="job-title"
+                    >
+                      Senior React Developer
+                    </span>
+                    <span
+                      class="job-location"
+                    >
+                      Barcelona, Spain
+                    </span>
+                  </button>
+                </h2>
+                <div
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#jobOffersAccordion"
+                  data-testid="collapse1"
+                  id="collapse1"
+                >
+                  <div
+                    class="accordion-body"
+                  >
+                    <div
+                      class="job-details"
+                    >
+                      <div
+                        class="job-description"
+                      >
+                        <p
+                          class="mb-3"
+                        >
+                          We are looking for an experienced React developer...
+                        </p>
+                      </div>
+                      <div
+                        class="apply-section"
+                      >
+                        <a
+                          class="btn btn-primary apply-btn"
+                          href="https://example.com/apply"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Apply Now 
+                          <i
+                            class="fa-solid fa-arrow-right"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
