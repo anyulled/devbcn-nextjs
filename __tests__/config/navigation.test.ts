@@ -43,14 +43,14 @@ describe("Navigation Configuration", () => {
 
   describe("mainNavLinks", () => {
     it("should contain main navigation items", () => {
-      expect(mainNavLinks).toHaveLength(2);
-      expect(mainNavLinks.map((link) => link.label)).toEqual(["About Us", "Code of Conduct"]);
+      expect(mainNavLinks).toHaveLength(3);
+      expect(mainNavLinks.map((link) => link.label)).toEqual(["About Us", "Code of Conduct", "Sponsors"]);
     });
 
     it("should have valid hrefs", () => {
       mainNavLinks.forEach((link) => {
         expect(link.href).toBeTruthy();
-        expect(link.href).toMatch(/^\//);
+        expect(link.href).toMatch(/^[/#]/);
       });
     });
 
@@ -63,8 +63,8 @@ describe("Navigation Configuration", () => {
 
   describe("yearSpecificNavLinks", () => {
     it("should contain year-specific navigation items", () => {
-      expect(yearSpecificNavLinks).toHaveLength(3);
-      expect(yearSpecificNavLinks.map((link) => link.label)).toEqual(["Sponsors", "Speakers", "Talks"]);
+      expect(yearSpecificNavLinks).toHaveLength(2);
+      expect(yearSpecificNavLinks.map((link) => link.label)).toEqual(["Speakers", "Talks"]);
     });
 
     it("should require year prefix", () => {
@@ -131,9 +131,8 @@ describe("Navigation Configuration", () => {
       const years = ["2023", "2024", "2025", "2026"];
       years.forEach((year) => {
         const result = getNavLinksWithYear(year);
-        expect(result[0].href).toBe(`/${year}/#sponsors`);
-        expect(result[1].href).toBe(`/${year}/speakers`);
-        expect(result[2].href).toBe(`/${year}/talks`);
+        expect(result[0].href).toBe(`/${year}/speakers`);
+        expect(result[1].href).toBe(`/${year}/talks`);
       });
     });
   });
