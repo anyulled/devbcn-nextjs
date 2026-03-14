@@ -270,13 +270,14 @@
 
   .brand-box {
     border-radius: 16px;
-    border: 1px solid rgb(255 255 255 / 0.1);
-    background: rgb(255 255 255 / 0.2);
-    backdrop-filter: blur(0);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    background: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(10px);
     text-align: center;
     padding: 32px;
     transition: all 0.4s;
     margin-bottom: 30px;
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 0.08);
 
     &:hover {
       transition: all 0.4s;
@@ -396,7 +397,9 @@
   justify-content: center;
   padding: 1rem;
   transition: transform 0.3s ease;
-  background-color: rgb(255 255 255 / 0.05);
+  background-color: rgb(255 255 255 / 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 0.1);
   border-radius: 8px;
   height: 100%;
   min-height: 100px;
