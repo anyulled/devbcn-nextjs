@@ -227,9 +227,6 @@ const eslintConfig = [
         ServiceWorkerGlobalScope: "readonly",
       },
     },
-    rules: {
-      "no-undef": "off",
-    },
   },
   {
     ignores: [
