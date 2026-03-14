@@ -26,6 +26,7 @@ export const cfpData2026: CfpTrack[] = [
       {
         name: "François Martin",
         linkedIn: "https://www.linkedin.com/in/frlan%C3%A7oismartin/",
+        twitter: "https://x.com/fmartin_",
         photo: "/assets/img/all-images/cfp/francois_martin.jpg",
       },
     ],
