@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ThemeSwitch Component matches snapshot 1`] = `
+<div>
+  <nav
+    class="switcher__tab"
+  >
+    <span
+      class="switcher__btn light-mode"
+    >
+      <i
+        class="flaticon-sun"
+      />
+    </span>
+    <span
+      class="switcher__mode"
+    />
+    <span
+      class="switcher__btn dark-mode"
+    >
+      <i
+        class="flaticon-moon"
+      />
+    </span>
+  </nav>
+</div>
+`;
