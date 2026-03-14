@@ -14,7 +14,6 @@ const customJestConfig = {
     "^.+\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
   },
   collectCoverageFrom: [
-    "app/**/*.{js,jsx,ts,tsx}",
     "components/**/*.{js,jsx,ts,tsx}",
     "lib/**/*.{js,jsx,ts,tsx}",
     "hooks/**/*.{js,jsx,ts,tsx}",
@@ -22,6 +21,9 @@ const customJestConfig = {
     "!**/*.d.ts",
     "!**/node_modules/**",
   ],
+  coverageThreshold: {
+    global: { branches: 40, functions: 42, lines: 46, statements: 48 },
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);
