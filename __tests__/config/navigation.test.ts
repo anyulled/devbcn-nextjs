@@ -43,8 +43,8 @@ describe("Navigation Configuration", () => {
 
   describe("mainNavLinks", () => {
     it("should contain main navigation items", () => {
-      expect(mainNavLinks).toHaveLength(3);
-      expect(mainNavLinks.map((link) => link.label)).toEqual(["About Us", "Code of Conduct", "Sponsors"]);
+      expect(mainNavLinks).toHaveLength(4);
+      expect(mainNavLinks.map((link) => link.label)).toEqual(["About Us", "Code of Conduct", "Sponsors", "Travel"]);
     });
 
     it("should have valid hrefs", () => {
@@ -54,17 +54,18 @@ describe("Navigation Configuration", () => {
       });
     });
 
-    it("should not require year prefix", () => {
-      mainNavLinks.forEach((link) => {
-        expect(link.requiresYear).toBe(false);
-      });
+    it("should correctly handle year prefix requirement", () => {
+      expect(mainNavLinks[0].requiresYear).toBe(false);
+      expect(mainNavLinks[1].requiresYear).toBe(false);
+      expect(mainNavLinks[2].requiresYear).toBe(false);
+      expect(mainNavLinks[3].requiresYear).toBe(true);
     });
   });
 
   describe("yearSpecificNavLinks", () => {
     it("should contain year-specific navigation items", () => {
-      expect(yearSpecificNavLinks).toHaveLength(2);
-      expect(yearSpecificNavLinks.map((link) => link.label)).toEqual(["Speakers", "Talks"]);
+      expect(yearSpecificNavLinks).toHaveLength(3);
+      expect(yearSpecificNavLinks.map((link) => link.label)).toEqual(["Speakers", "Talks", "Schedule"]);
     });
 
     it("should require year prefix", () => {
@@ -76,8 +77,8 @@ describe("Navigation Configuration", () => {
 
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
-      expect(newsDropdownLinks).toHaveLength(5);
-      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Sponsorship", "Diversity", "Job Offers", "Travel"]);
+      expect(newsDropdownLinks).toHaveLength(4);
+      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Sponsorship", "Diversity", "Job Offers"]);
     });
 
     it("should have correct year requirement flags", () => {
@@ -89,8 +90,6 @@ describe("Navigation Configuration", () => {
       expect(newsDropdownLinks[2].requiresYear).toBe(true);
       // Job Offers
       expect(newsDropdownLinks[3].requiresYear).toBe(true);
-      // Travel
-      expect(newsDropdownLinks[4].requiresYear).toBe(true);
     });
   });
 
@@ -122,8 +121,9 @@ describe("Navigation Configuration", () => {
 
       expect(result).toHaveLength(yearSpecificNavLinks.length);
       result.forEach((link, index) => {
-        expect(link.href).toBe(`/${year}${yearSpecificNavLinks[index].href}`);
-        expect(link.label).toBe(yearSpecificNavLinks[index].label);
+        const sourceLink = yearSpecificNavLinks.at(index);
+        expect(link.href).toBe(`/${year}${sourceLink?.href}`);
+        expect(link.label).toBe(sourceLink?.label);
       });
     });
 
@@ -148,8 +148,9 @@ describe("Navigation Configuration", () => {
       expect(result[0].label).toBe("About Us");
       expect(result[1].label).toBe("Code of Conduct");
       expect(result[2].label).toBe("Sponsors");
-      expect(result[3].label).toBe("Speakers");
-      expect(result[4].label).toBe("Talks");
+      expect(result[3].label).toBe("Travel");
+      expect(result[4].label).toBe("Speakers");
+      expect(result[5].label).toBe("Talks");
     });
   });
 });

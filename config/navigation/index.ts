@@ -24,25 +24,26 @@ export const mainNavLinks: NavItem[] = [
   { label: "About Us", href: "/about-us", requiresYear: false },
   { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
   { label: "Sponsors", href: "#sponsors", requiresYear: false },
+  { label: "Travel", href: "/travel", requiresYear: true },
 ];
 
 /**
  * Year-specific navigation links
  */
 export const yearSpecificNavLinks: NavItem[] = [
-  { label: "Speakers", href: "/speakers", requiresYear: true },
-  { label: "Talks", href: "/talks", requiresYear: true },
+  { label: "Speakers", href: "/speakers", requiresYear: true, condition: "hasSpeakers" },
+  { label: "Talks", href: "/talks", requiresYear: true, condition: "hasTalks" },
+  { label: "Schedule", href: "/schedule", requiresYear: true, condition: "hasSchedule" },
 ];
 
 /**
  * News dropdown links
  */
 export const newsDropdownLinks: NavItem[] = [
-  { label: "CFP Committee", href: "/cfp", requiresYear: true },
+  { label: "CFP", href: "/cfp", requiresYear: true, condition: "hasCfp" },
   { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
-  { label: "Diversity", href: "/diversity", requiresYear: true },
-  { label: "Job Offers", href: "/job-offers", requiresYear: true },
-  { label: "Travel", href: "/travel", requiresYear: true },
+  { label: "Diversity", href: "/diversity", requiresYear: true, condition: "hasDiversity" },
+  { label: "Job Offers", href: "/job-offers", requiresYear: true, condition: "hasJobOffers" },
 ];
 
 /**
