@@ -46,7 +46,7 @@ const withPWA = withPWAInit({
         urlPattern: ({ request }) => request.mode === "navigate",
         handler: "NetworkFirst",
         options: {
-          cacheName: "pages-cache",
+          cacheName: "workbox-pages-cache",
           expiration: {
             maxEntries: 32,
             maxAgeSeconds: 24 * 60 * 60,
@@ -58,7 +58,7 @@ const withPWA = withPWAInit({
         urlPattern: /^https:\/\/sessionize\.com\/.*/i,
         handler: "CacheFirst",
         options: {
-          cacheName: "sessionize-images",
+          cacheName: "workbox-sessionize-images",
           expiration: {
             maxEntries: 64,
             maxAgeSeconds: 30 * 24 * 60 * 60,
@@ -69,7 +69,7 @@ const withPWA = withPWAInit({
         urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
         handler: "CacheFirst",
         options: {
-          cacheName: "static-images",
+          cacheName: "workbox-static-images",
           expiration: {
             maxEntries: 64,
             maxAgeSeconds: 7 * 24 * 60 * 60,
