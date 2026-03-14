@@ -21,8 +21,8 @@ export const teamMembers: Member[] = [
   {
     id: 2,
     name: "Nacho Cougil",
-    job: "Java Engineer",
-    profileUrl: "https://www.devbcn.com/images/nacho.webp",
+    job: "Principal Software Engineer",
+    profileUrl: "/assets/img/all-images/team/nacho-cougil.jpg",
     twitterUrl: "https://twitter.com/icougil",
     linkedinUrl: "https://www.linkedin.com/in/icougil",
   },
