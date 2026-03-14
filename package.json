@@ -115,6 +115,12 @@
     "axios": "^1.13.6",
     "qs": "^6.15.0",
     "minimatch": "^10.0.1",
+    "test-exclude": {
+      "minimatch": "^3.0.4"
+    },
+    "glob": {
+      "minimatch": "^3.0.4"
+    },
     "systeminformation": "^5.31.1"
   }
 }
