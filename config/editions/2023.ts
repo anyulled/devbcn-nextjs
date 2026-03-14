@@ -1,3 +1,4 @@
+import { mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "../navigation";
 import { EditionConfig } from "./types";
 
 /**
@@ -9,22 +10,9 @@ export const edition2023: EditionConfig = {
   edition: "2023",
   title: "DevBcn - Barcelona Developers Conference ",
   navigation: {
-    main: [
-      { label: "About Us", href: "/about-us", requiresYear: false },
-      { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-      { label: "Travel", href: "/2023/travel", requiresYear: true },
-    ],
-    yearSpecific: [
-      { label: "Speakers", href: "/2023/speakers", requiresYear: true, condition: "hasSpeakers" },
-      { label: "Talks", href: "/2023/talks", requiresYear: true, condition: "hasTalks" },
-      { label: "Schedule", href: "/2023/schedule", requiresYear: true, condition: "hasSchedule" },
-    ],
-    news: [
-      { label: "CFP", href: "/2023/cfp", requiresYear: true, condition: "hasCfp" },
-      { label: "Sponsorship", href: "/2023/sponsorship", requiresYear: true },
-      { label: "Diversity", href: "/2023/diversity", requiresYear: true, condition: "hasDiversity" },
-      { label: "Job Offers", href: "/2023/job-offers", requiresYear: true, condition: "hasJobOffers" },
-    ],
+    main: mainNavLinks,
+    yearSpecific: yearSpecificNavLinks,
+    news: newsDropdownLinks,
   },
   email: "info@devbcn.com",
   venue: {

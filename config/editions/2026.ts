@@ -1,3 +1,4 @@
+import { mainNavLinks, newsDropdownLinks, yearSpecificNavLinks } from "../navigation";
 import { EditionConfig } from "./types";
 
 /**
@@ -10,22 +11,9 @@ export const edition2026: EditionConfig = {
   edition: "2026",
   title: "DevBcn - Barcelona Developers Conference ",
   navigation: {
-    main: [
-      { label: "About Us", href: "/about-us", requiresYear: false },
-      { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-      { label: "Travel", href: "/2026/travel", requiresYear: true },
-    ],
-    yearSpecific: [
-      { label: "Speakers", href: "/2026/speakers", requiresYear: false, condition: "hasSpeakers" },
-      { label: "Talks", href: "/2026/talks", requiresYear: false, condition: "hasTalks" },
-      { label: "Schedule", href: "/2026/schedule", requiresYear: false, condition: "hasSchedule" },
-    ],
-    news: [
-      { label: "CFP", href: "/2026/cfp", requiresYear: false, condition: "hasCfp" },
-      { label: "Sponsorship", href: "/2026/sponsorship", requiresYear: true },
-      { label: "Diversity", href: "/2026/diversity", requiresYear: false, condition: "hasDiversity" },
-      { label: "Job Offers", href: "/2026/job-offers", requiresYear: false, condition: "hasJobOffers" },
-    ],
+    main: mainNavLinks,
+    yearSpecific: yearSpecificNavLinks,
+    news: newsDropdownLinks,
   },
   email: "info@devbcn.com",
   venue: {
@@ -89,7 +77,18 @@ export const edition2026: EditionConfig = {
   sponsorsData: {
     top: [],
     premium: [],
-    regular: [],
+    regular: [
+      {
+        name: "Caixabank Tech",
+        website: "https://www.caixabanktech.com/es/pagina-de-inicio/",
+        image: "/assets/img/all-images/sponsors/caixabank-tech.png",
+      },
+      {
+        name: "Elastic",
+        image: "/assets/img/all-images/sponsors/logo-elastic-horizontal-color.png",
+        website: "https://www.elastic.co/",
+      },
+    ],
     basic: [],
     communities: [],
     media_partners: [],

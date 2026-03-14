@@ -36,7 +36,7 @@ interface BackgroundCarouselProps {
 
 export default function BackgroundCarousel({ children, className = "" }: Readonly<BackgroundCarouselProps>) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
-    if (typeof globalThis.window !== "undefined") {
+    if (globalThis.window !== undefined) {
       return globalThis.window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     }
     return false;

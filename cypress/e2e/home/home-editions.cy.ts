@@ -11,6 +11,7 @@ describe("Home Pages (2023-2026)", () => {
       cy.visit(edition.path, { timeout: 120000 });
 
       cy.get(".hero8-header", { timeout: 30000 }).within(() => {
+        // Venue and date are now in span elements or nested divs, so we use cy.contains directly
         cy.contains(edition.venue, { matchCase: false }).should("be.visible");
         cy.contains(edition.date, { matchCase: false }).should("be.visible");
       });

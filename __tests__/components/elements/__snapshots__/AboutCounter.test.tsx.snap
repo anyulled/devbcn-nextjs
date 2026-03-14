@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AboutCounter Component matches snapshot 1`] = `
+<div>
+  <div
+    class="about-counter-area"
+  >
+    <div
+      class="counter-box"
+    >
+      <h2>
+        <span
+          class="odometer"
+        >
+          0
+        </span>
+        +
+      </h2>
+      <div
+        class="space18"
+      />
+      <p>
+        Our Journalist
+      </p>
+    </div>
+    <div
+      class="counter-box box2"
+    >
+      <h2>
+        <span
+          class="odometer"
+        >
+          0
+        </span>
+        +
+      </h2>
+      <div
+        class="space18"
+      />
+      <p>
+        Our Speaker
+      </p>
+    </div>
+    <div
+      class="counter-box box3"
+    >
+      <h2>
+        <span
+          class="odometer"
+        >
+          0
+        </span>
+        K+
+      </h2>
+      <div
+        class="space18"
+      />
+      <p>
+        Attendees
+      </p>
+    </div>
+  </div>
+</div>
+`;

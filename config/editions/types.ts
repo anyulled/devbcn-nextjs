@@ -7,16 +7,10 @@ import { NavItem } from "@/config/navigation/types";
  * Each edition has its own config file that implements EditionConfig.
  */
 
-export type NavCondition = "hasSpeakers" | "hasCfp" | "hasDiversity" | "hasSchedule" | "hasTalks" | "hasJobOffers";
-
-export interface EditionNavItem extends NavItem {
-  condition?: NavCondition;
-}
-
 export interface EditionNavigation {
-  main: EditionNavItem[];
-  yearSpecific: EditionNavItem[];
-  news: EditionNavItem[];
+  main: NavItem[];
+  yearSpecific: NavItem[];
+  news: NavItem[];
 }
 
 /**
