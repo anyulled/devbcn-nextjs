@@ -42,7 +42,7 @@ exports[`Countdown Component matches snapshot 1`] = `
         class="time-value"
         id="minutes1"
       >
-        27
+        25
       </span>
       <br />
       Minutes
@@ -58,7 +58,7 @@ exports[`Countdown Component matches snapshot 1`] = `
         class="time-value"
         id="seconds1"
       >
-        10
+        0
       </span>
       <br />
       Seconds

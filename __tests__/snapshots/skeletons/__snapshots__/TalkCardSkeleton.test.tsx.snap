@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TalkCardSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="skeleton-card"
+  >
+    <div
+      class="skeleton skeleton-text skeleton-title"
+    />
+    <div
+      class="skeleton skeleton-text"
+      style="width: 90%;"
+    />
+    <div
+      class="skeleton skeleton-text"
+      style="width: 70%;"
+    />
+    <div
+      style="display: flex; gap: 8px; margin-top: 16px;"
+    >
+      <div
+        class="skeleton skeleton-text"
+        style="width: 80px; height: 24px;"
+      />
+      <div
+        class="skeleton skeleton-text"
+        style="width: 100px; height: 24px;"
+      />
+    </div>
+  </div>
+</div>
+`;
