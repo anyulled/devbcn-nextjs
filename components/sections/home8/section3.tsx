@@ -5,10 +5,7 @@ import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3() {
   return (
-    <div
-      className="event8-section-area sp1"
-      style={{ position: "relative", isolation: "isolate" }}
-    >
+    <div className="event8-section-area sp1" style={{ position: "relative", isolation: "isolate" }}>
       {/* Bolt performance optimization: Replaced static CSS backgroundImage with next/image for format optimization and lazy loading */}
       <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">

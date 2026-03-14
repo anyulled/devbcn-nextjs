@@ -71,10 +71,7 @@ interface Section5Props {
 
 export default function Section5({ year, speakers, totalSpeakers }: Readonly<Section5Props>) {
   return (
-    <div
-      className="team8-section-rea sp1"
-      style={{ position: "relative", isolation: "isolate" }}
-    >
+    <div className="team8-section-rea sp1" style={{ position: "relative", isolation: "isolate" }}>
       {/* Bolt performance optimization: Replaced static CSS backgroundImage with next/image for format optimization and lazy loading */}
       <Image src="/assets/img/bg/header-bg20.png" alt="" fill style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
