@@ -12,4 +12,9 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
-\n## 2026-03-05 - Sitemap Promise.all Performance\n\n**Learning:** The previous implementation used sequential `await` loops to fetch speaker and talk data for all years when generating the sitemap. This resulted in O(N) network requests. \n**Action:** Replaced `for...of` loops with `Promise.all()` and `.map()` to fetch years and speakers/talks in parallel (O(1) batches), and added `.catch(() => [])` to prevent isolated API failures from breaking the entire build step. This change significantly improved page generation speeds during `next build`.
+
+## 2026-03-05 - Sitemap Promise.all Performance
+
+**Learning:** The previous implementation used sequential `await` loops to fetch speaker and talk data for all years when generating the sitemap. This resulted in O(N) network requests.
+
+**Action:** Replaced `for...of` loops with `Promise.all()` and `.map()` to fetch years and speakers/talks in parallel (O(1) batches), and added `.catch(() => [])` to prevent isolated API failures from breaking the entire build step. This change significantly improved page generation speeds during `next build`.

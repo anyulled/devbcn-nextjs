@@ -72,19 +72,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             });
           }
         }
-
-        const companies = getJobOffersByYear(year);
-        for (const company of companies) {
-          yearUrls.push({
-            url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.5,
-          });
-        }
       } catch (error) {
         console.error(`Error generating sitemap for year ${year}:`, error);
       }
+
+      // We push the job offers regardless of remote failures above
+      const companies = getJobOffersByYear(year);
+      for (const company of companies) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
+          lastModified: new Date(),
+          changeFrequency: "monthly",
+          priority: 0.5,
+        });
+      }
+
       return yearUrls;
     })
   );
