@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Section1 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="hero10-section-area"
+    style="background-image: url("assets/img/bg/header-bg23.png"); background-repeat: no-repeat; background-size: cover; background-position: center top;"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row align-items-center"
+      >
+        <div
+          class="col-lg-7"
+        >
+          <div
+            class="hero6-header"
+          >
+            <h5>
+              <img
+                alt=""
+                src="/assets/img/icons/sub-logo1.svg"
+              />
+              12th Technology Forum Conference
+            </h5>
+            <div
+              class="space24"
+            />
+            <h1
+              class="text-anime-style-3"
+            >
+              Technology
+            </h1>
+            <h1
+              class="text-anime-style-3"
+            >
+              <span>
+                Forum “2025”
+              </span>
+            </h1>
+            <div
+              class="space32"
+            />
+            <p>
+              Explore cutting-edge innovations, network 
+              <br
+                class="d-lg-block d-none"
+              />
+              with industry leaders and gain insight.
+            </p>
+            <div
+              class="space16"
+            />
+            <ul>
+              <li>
+                <a
+                  href="/#"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/icons/calender1.svg"
+                  />
+                   15th, 16th, & 17th January “2025”
+                </a>
+              </li>
+            </ul>
+            <div
+              class="space32"
+            />
+            <div
+              class="btn-area1"
+            >
+              <a
+                class="vl-btn10"
+                href="/contact"
+              >
+                Register now 
+                <img
+                  alt=""
+                  src="/assets/img/icons/arrow2.svg"
+                />
+              </a>
+            </div>
+            <div
+              class="arrow-btn"
+            >
+              <div
+                class="content"
+              >
+                <div
+                  class="circle rotateme"
+                >
+                  <span
+                    style="transform: rotate(0deg);"
+                  >
+                    B
+                  </span>
+                  <span
+                    style="transform: rotate(17deg);"
+                  >
+                    u
+                  </span>
+                  <span
+                    style="transform: rotate(34deg);"
+                  >
+                    i
+                  </span>
+                  <span
+                    style="transform: rotate(51deg);"
+                  >
+                    l
+                  </span>
+                  <span
+                    style="transform: rotate(68deg);"
+                  >
+                    d
+                  </span>
+                  <span
+                    style="transform: rotate(85deg);"
+                  >
+                     
+                  </span>
+                  <span
+                    style="transform: rotate(102deg);"
+                  >
+                    S
+                  </span>
+                  <span
+                    style="transform: rotate(119deg);"
+                  >
+                    u
+                  </span>
+                  <span
+                    style="transform: rotate(136deg);"
+                  >
+                    c
+                  </span>
+                  <span
+                    style="transform: rotate(153deg);"
+                  >
+                    c
+                  </span>
+                  <span
+                    style="transform: rotate(170deg);"
+                  >
+                    e
+                  </span>
+                  <span
+                    style="transform: rotate(187deg);"
+                  >
+                    s
+                  </span>
+                  <span
+                    style="transform: rotate(204deg);"
+                  >
+                    s
+                  </span>
+                  <span
+                    style="transform: rotate(221deg);"
+                  >
+                     
+                  </span>
+                  <span
+                    style="transform: rotate(238deg);"
+                  >
+                    B
+                  </span>
+                  <span
+                    style="transform: rotate(255deg);"
+                  >
+                    r
+                  </span>
+                  <span
+                    style="transform: rotate(272deg);"
+                  >
+                    a
+                  </span>
+                  <span
+                    style="transform: rotate(289deg);"
+                  >
+                    n
+                  </span>
+                  <span
+                    style="transform: rotate(306deg);"
+                  >
+                    d
+                  </span>
+                  <span
+                    style="transform: rotate(323deg);"
+                  >
+                    .
+                  </span>
+                </div>
+              </div>
+              <div
+                class="arrow"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/icons/arrow2.svg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-5"
+        >
+          <div
+            class="hero10-images"
+          >
+            <div
+              class="img1"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/hero/hero-img12.png"
+              />
+            </div>
+            <div
+              class="img2"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/hero/hero-img13.png"
+              />
+            </div>
+            <div
+              class="img3"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/hero/hero-img14.png"
+              />
+            </div>
+            <div
+              class="img4"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/hero/hero-img15.png"
+              />
+            </div>
+            <img
+              alt=""
+              class="elements38 keyframe5"
+              src="/assets/img/elements/elements38.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

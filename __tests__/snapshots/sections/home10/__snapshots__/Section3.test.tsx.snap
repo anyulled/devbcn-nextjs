@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Section3 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="attent10-section-area sp3"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-8 m-auto"
+        >
+          <div
+            class="heading13 text-center space-margin60"
+          >
+            <h5>
+              <img
+                alt=""
+                src="/assets/img/icons/sub-logo1.svg"
+              />
+              WHY ATTEND
+            </h5>
+            <div
+              class="space20"
+            />
+            <h2
+              class="text-anime-style-3"
+            >
+              Why You Shouldn’t Miss This Event
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-12"
+        >
+          <div
+            class="event6-widget-boxarea"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="row align-items-center"
+            >
+              <div
+                class="col-lg-5"
+              >
+                <div
+                  class="content-area"
+                >
+                  <h3
+                    class="text-anime-style-3"
+                  >
+                    “The Technology Forum Summit 2025 will be hosted at the iconic Grand Convention Center.”
+                  </h3>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    Hear from top industry experts and get exclusive insights into emerging technologies. Participate in workshops that offer real-world applications of today’s technology. Connect with peers, investors, and tech pioneers to expand your professional network.
+                  </p>
+                  <div
+                    class="space32"
+                  />
+                  <div
+                    class="btn-area1"
+                  >
+                    <a
+                      class="vl-btn10"
+                      href="/event"
+                    >
+                      See Eventify 
+                      <img
+                        alt=""
+                        src="/assets/img/icons/arrow2.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-1"
+              />
+              <div
+                class="col-lg-6"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/event/event-img25.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="space30"
+      />
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-4 col-md-6"
+        >
+          <div
+            class="schedule-boxarea"
+          >
+            <h4>
+              15 - 17 January
+            </h4>
+            <div
+              class="space40"
+            />
+            <div
+              class="images"
+            >
+              <img
+                alt=""
+                class="elements37"
+                src="/assets/img/elements/elements39.png"
+              />
+              <img
+                alt=""
+                class="elements38"
+                src="/assets/img/elements/elements39.png"
+              />
+              <img
+                alt=""
+                class="elements39"
+                src="/assets/img/elements/elements39.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 col-md-6"
+        >
+          <div
+            class="schedule-boxarea"
+          >
+            <h4>
+              20 Speakers
+            </h4>
+            <div
+              class="space16"
+            />
+            <div
+              class="images2"
+            >
+              <img
+                alt=""
+                class="elements37"
+                src="/assets/img/elements/elements40.png"
+              />
+              <img
+                alt=""
+                class="elements38"
+                src="/assets/img/elements/elements40.png"
+              />
+              <img
+                alt=""
+                class="elements39"
+                src="/assets/img/elements/elements40.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 col-md-6"
+        >
+          <div
+            class="schedule-boxarea"
+          >
+            <h4>
+              550 Tickets
+            </h4>
+            <div
+              class="space74"
+            />
+            <div
+              class="images3"
+            >
+              <img
+                alt=""
+                class="elements37"
+                src="/assets/img/elements/elements41.png"
+              />
+              <img
+                alt=""
+                class="elements38"
+                src="/assets/img/elements/elements41.png"
+              />
+              <img
+                alt=""
+                class="elements39"
+                src="/assets/img/elements/elements41.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

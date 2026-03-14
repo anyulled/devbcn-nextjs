@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`LaFargaVenue Component matches snapshot 1`] = `
+<div>
+  <div
+    class="img1"
+  >
+    <img
+      alt="La Farga"
+      src="/assets/img/all-images/venue/la-farga.webp"
+      style="width: 100%; height: auto; border-radius: 8px;"
+    />
+  </div>
+  <div
+    class="space16"
+  />
+  <p>
+    <a
+      href="https://www.lafarga.com/corporatiu/lafarga-hospitalet/"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <strong>
+        La Farga Centre d'Activitats
+      </strong>
+    </a>
+  </p>
+  <p>
+    carrer Barcelona, 2. 08901 L'Hospitalet de Llobregat
+  </p>
+  <p>
+    Telf. 932615200
+  </p>
+  <div
+    class="space40"
+  />
+  <h4>
+    Venue Entrance
+  </h4>
+  <div
+    class="space16"
+  />
+  <p>
+    <a
+      href="https://maps.app.goo.gl/2zao7ynr4wE7UYDn8"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <strong>
+        A) Talks:
+      </strong>
+       Carrer Barcelona, 12
+    </a>
+  </p>
+  <p>
+    <a
+      href="https://maps.app.goo.gl/YwU14LoRvWmtXk138"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <strong>
+        B) Workshops:
+      </strong>
+       Carrer Girona, 15
+    </a>
+  </p>
+  <div
+    class="space40"
+  />
+  <h4>
+    Access by Public Transportation
+  </h4>
+  <div
+    class="space16"
+  />
+  <p>
+    🚝 
+    <strong>
+      Cercanías R5:
+    </strong>
+     Estación Hospitalet de Llobregat
+  </p>
+  <p>
+    🚇 
+    <strong>
+      Metro:
+    </strong>
+     Parada Rambla Just Oliveras
+  </p>
+  <p>
+    🚍 
+    <strong>
+      Bus:
+    </strong>
+     Líneas L12 – LH2
+  </p>
+  <p>
+    🚝 
+    <img
+      alt="FGC"
+      src="/assets/img/all-images/venue/fgc.png"
+      style="display: inline; vertical-align: middle;"
+      width="20"
+    />
+     
+    <strong>
+      FGC:
+    </strong>
+     
+    Estación Sant Josep
+  </p>
+  <div
+    class="space40"
+  />
+  <h4>
+    Access by Car
+  </h4>
+  <div
+    class="space16"
+  />
+  <p>
+    🚙 Access by 
+    <strong>
+      car:
+    </strong>
+     via C-31 (20 minutes from the Airport)
+  </p>
+  <div
+    class="space40"
+  />
+  <h4>
+    Paid Parking Options
+  </h4>
+  <div
+    class="space16"
+  />
+  <p>
+    <a
+      href="https://centrolafarga.com/"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <strong>
+        La Farga Centre Comercial
+      </strong>
+    </a>
+  </p>
+  <div
+    class="space40"
+  />
+  <div
+    class="img1"
+  >
+    <img
+      alt="Venue entrance map"
+      src="/assets/img/all-images/venue/venue-entrance.webp"
+      style="width: 100%; height: auto; border-radius: 8px;"
+    />
+  </div>
+</div>
+`;

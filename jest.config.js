@@ -22,7 +22,7 @@ const customJestConfig = {
     "!**/node_modules/**",
   ],
   coverageThreshold: {
-    global: { branches: 40, functions: 42, lines: 46, statements: 48 },
+    global: { branches: 41, functions: 43, lines: 48, statements: 50 },
   },
 };
 
