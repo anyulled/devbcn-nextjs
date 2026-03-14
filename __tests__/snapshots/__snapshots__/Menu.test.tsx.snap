@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Menu Component matches the snapshot 1`] = `
+<div>
+  <ul
+    class="sub-menu"
+  >
+    <a
+      class=""
+      href="/#"
+    >
+      Home Default
+    </a>
+    <a
+      class=""
+      href="/#"
+    >
+      Home Interior
+    </a>
+  </ul>
+</div>
+`;

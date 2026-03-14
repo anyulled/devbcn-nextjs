@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Footer8() {
   const pathname = usePathname();
 
-  const yearMatch = pathname.match(/^\/(\d{4})/);
+  const yearMatch = /^\/(\d{4})/.exec(pathname);
   const currentYear = yearMatch ? yearMatch[1] : "2026";
   const basePath = `/${currentYear}`;
   const rootPath = "";
@@ -15,12 +15,12 @@ export default function Footer8() {
   return (
     <div className="footer8-sertion-area">
       <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill style={{ objectFit: "cover", zIndex: -3 }} />
-      <img src="/assets/img/elements/layer1.png" alt="" className="layer1" />
+      <Image src="/assets/img/elements/layer1.png" alt="" width={1440} height={230} className="layer1" loading="lazy" />
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-12">
             <div className="footer-logo-area">
-              <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
+              <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={150} height={76} />
               <div className="space16" />
               <p>Barcelona Developers Conference</p>
               <div className="space24" />
@@ -86,19 +86,19 @@ export default function Footer8() {
               <ul>
                 <li>
                   <Link href="#">
-                    <img src="/assets/img/icons/location1.svg" alt="" />
+                    <Image src="/assets/img/icons/location1.svg" alt="" width={16} height={16} />
                     World Trade Center, Barceclona
                   </Link>
                 </li>
                 <li>
                   <Link href="mailto:info@devbcn.com">
-                    <img src="/assets/img/icons/mail1.svg" alt="" />
+                    <Image src="/assets/img/icons/mail1.svg" alt="" width={16} height={16} />
                     info@devbcn.com
                   </Link>
                 </li>
                 <li>
                   <Link href="https://devbcn.com" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/img/icons/world1.svg" alt="" />
+                    <Image src="/assets/img/icons/world1.svg" alt="" width={16} height={16} />
                     devbcn.com
                   </Link>
                 </li>

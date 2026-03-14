@@ -5,6 +5,8 @@
  * Header, MobileMenu, and other navigation components.
  */
 
+export type NavCondition = "hasSpeakers" | "hasCfp" | "hasDiversity" | "hasSchedule" | "hasTalks" | "hasJobOffers";
+
 /**
  * Single navigation item
  */
@@ -17,6 +19,8 @@ export interface NavItem {
   isExternal?: boolean;
   /** Whether this link requires year prefix (e.g., /2026/speakers) */
   requiresYear?: boolean;
+  /** Visibility condition based on edition data */
+  condition?: NavCondition;
 }
 
 /**

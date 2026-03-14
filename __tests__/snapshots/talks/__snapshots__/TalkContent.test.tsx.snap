@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TalkContent Component matches snapshot with full data 1`] = `
+<div>
+  <div>
+    <div
+      class="inner-page-header"
+      style="position: relative;"
+    >
+      <img
+        alt="Background"
+        data-nimg="fill"
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg7.png&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; z-index: -1;"
+      />
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-5 m-auto"
+          >
+            <div
+              class="heading1 text-center"
+            >
+              <h1>
+                Introduction to React
+              </h1>
+              <div
+                class="space20"
+              />
+              <a
+                href="/"
+              >
+                Home
+                <i
+                  class="fa-solid fa-angle-right"
+                />
+
+                <span>
+                  Talks
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="event-sidepage-section-area sp8"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-7"
+          >
+            <div
+              class="event-side-images"
+            >
+              <div
+                class="space16"
+              />
+              <p
+                style="line-height: 1.8; white-space: pre-line;"
+              >
+                Learn the basics of React
+              </p>
+              <div
+                class="space24"
+              />
+              <div
+                style="margin-bottom: 32px;"
+              >
+                <div
+                  class="video-player-container"
+                  style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 8px;"
+                >
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen=""
+                    frameborder="0"
+                    height="100%"
+                    loading="lazy"
+                    src="https://youtube.com/watch?v=test"
+                    title="Introduction to React"
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <div
+                class="space40"
+              />
+              <h4>
+                Session Speakers
+              </h4>
+              <div
+                class="row"
+              >
+                <div
+                  class="col-lg-4 col-md-6"
+                >
+                  <div
+                    class="our-team-boxarea"
+                  >
+                    <div
+                      class="team-widget-area"
+                    >
+                      <img
+                        alt=""
+                        class="elements21"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=256&q=75"
+                        srcset="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=128&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="elements22"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=256&q=75"
+                        srcset="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=128&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <div
+                        class="img1"
+                      >
+                        <a
+                          href="/2026/speakers/speaker-1"
+                        >
+                          <img
+                            alt="John Doe"
+                            class="team-img4"
+                            data-nimg="1"
+                            decoding="async"
+                            height="150"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=384&q=75"
+                            srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=384&q=75 2x"
+                            style="color: transparent; object-fit: cover;"
+                            width="150"
+                          />
+                        </a>
+                        <div
+                          class="share"
+                        >
+                          <a
+                            href="#"
+                          >
+                            <img
+                              alt=""
+                              src="/assets/img/icons/share1.svg"
+                            />
+                          </a>
+                        </div>
+                        <ul>
+                          <li>
+                            <a
+                              class="icon1"
+                              href="https://twitter.com/johndoe"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                              title="Twitter"
+                            >
+                              <i
+                                class="fa-brands fa-twitter"
+                              />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      class="space28"
+                    />
+                    <div
+                      class="content-area"
+                    >
+                      <a
+                        href="/2026/speakers/speaker-1"
+                      >
+                        John Doe
+                      </a>
+                      <div
+                        class="space16"
+                      />
+                      <p>
+                        Senior Developer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-5"
+          >
+            <div
+              class="shedule-listarea"
+            >
+              <div
+                class="content-area"
+              >
+                <h4
+                  style="margin-bottom: 20px;"
+                >
+                  Session Details
+                </h4>
+                <ul>
+                  <li>
+                    <strong>
+                      Start
+                      :
+                    </strong>
+
+                    <span>
+                      <img
+                        alt=""
+                        src="/assets/img/icons/calender1.svg"
+                        style="width: 16px; margin-right: 8px;"
+                      />
+                      June 15, 2026
+                    </span>
+                  </li>
+                  <li>
+                    <strong>
+                      Time
+                      :
+                    </strong>
+
+                    <span>
+                      <img
+                        alt=""
+                        src="/assets/img/icons/clock1.svg"
+                        style="width: 16px; margin-right: 8px;"
+                      />
+                      10:00 AM - 11:00 AM
+                    </span>
+                  </li>
+                  <li>
+                    <strong>
+                      Room
+                      :
+                    </strong>
+
+                    <span>
+                      <img
+                        alt=""
+                        src="/assets/img/icons/location1.svg"
+                        style="width: 16px; margin-right: 8px;"
+                      />
+                      Room A
+                    </span>
+                  </li>
+                  <li>
+                    <strong>
+                      Track
+                      :
+                    </strong>
+
+                    <span>
+                      <img
+                        alt=""
+                        src="/assets/img/icons/tag1.svg"
+                        style="width: 16px; margin-right: 8px;"
+                      />
+                      Web Development
+                    </span>
+                  </li>
+                  <li>
+                    <strong>
+                      Level:
+                    </strong>
+
+                    <span>
+                      Beginner
+                    </span>
+                  </li>
+                </ul>
+                <h5>
+                  Tags:
+                </h5>
+                <div
+                  style="margin-bottom: 24px; margin-top: 16px;"
+                >
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px;"
+                  >
+                    <a
+                      href="/2026/tags/React"
+                      style="display: inline-block; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: rgb(255, 255, 255); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; text-decoration: none;"
+                    >
+                      React
+                    </a>
+                    <a
+                      href="/2026/tags/JavaScript"
+                      style="display: inline-block; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: rgb(255, 255, 255); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; text-decoration: none;"
+                    >
+                      JavaScript
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="space24"
+                />
+                <div
+                  class="btn-area1"
+                  style="display: flex; flex-direction: column; gap: 12px;"
+                >
+                  <add-to-calendar-button
+                    buttonstyle="round"
+                    description="Learn the basics of React"
+                    enddate="2026-06-15"
+                    endtime="11:00"
+                    lightmode="bodyScheme"
+                    location="Room A"
+                    name="Introduction to React"
+                    options="["Google","Apple","iCal","Outlook.com"]"
+                    size="4"
+                    startdate="2026-06-15"
+                    starttime="10:00"
+                    timezone="Europe/Madrid"
+                  />
+                  <a
+                    class="vl-btn1"
+                    href="https://openfeedback.io"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <span
+                      class="demo"
+                    >
+                      <i
+                        class="fa-solid fa-thumbs-up"
+                        style="margin-right: 8px;"
+                      />
+                      Vote on OpenFeedback
+                    </span>
+                  </a>
+                  <a
+                    class="vl-btn1"
+                    href="https://tickets.devbcn.com"
+                  >
+                    <span
+                      class="demo"
+                    >
+                      Get Tickets
+                    </span>
+                  </a>
+                  <a
+                    class="vl-btn1"
+                    href="https://slides.com"
+                    rel="noopener noreferrer"
+                    style="background-color: rgb(37, 99, 235);"
+                    target="_blank"
+                  >
+                    <span
+                      class="demo"
+                    >
+                      <i
+                        class="fa-solid fa-file-powerpoint"
+                        style="margin-right: 8px;"
+                      />
+                      View Slides
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="space30"
+              />
+              <div
+                class="mapouter"
+              >
+                <div
+                  class="gmap_canvas"
+                >
+                  <iframe
+                    allowfullscreen=""
+                    height="350"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com"
+                    style="border: 0px;"
+                    title="World Trade Center Barcelona"
+                    width="460"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

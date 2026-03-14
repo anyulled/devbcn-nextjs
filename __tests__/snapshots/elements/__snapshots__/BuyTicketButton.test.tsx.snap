@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`BuyTicketButton Component matches snapshot with custom href 1`] = `
+<div>
+  <a
+    class="vl-btn8"
+    href="https://example.com/tickets"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      class="demo"
+    >
+      Buy Ticket Now
+    </span>
+  </a>
+</div>
+`;
+
+exports[`BuyTicketButton Component matches snapshot with custom text 1`] = `
+<div>
+  <a
+    class="vl-btn8"
+    href="https://tickets.devbcn.com/event/devbcn-2026"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      class="demo"
+    >
+      Get Your Ticket
+    </span>
+  </a>
+</div>
+`;
+
+exports[`BuyTicketButton Component matches snapshot with default props 1`] = `
+<div>
+  <a
+    class="vl-btn8"
+    href="https://tickets.devbcn.com/event/devbcn-2026"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      class="demo"
+    >
+      Buy Ticket Now
+    </span>
+  </a>
+</div>
+`;

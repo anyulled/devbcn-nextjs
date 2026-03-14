@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Popup Component matches snapshot 1`] = `
+<div>
+  <div
+    class="popup-overlay"
+    id="popup"
+  >
+    <div
+      class="popup-content"
+    >
+      <span
+        class="close-btn"
+        id="close-popup"
+      >
+        ×
+      </span>
+      <div
+        class="popup-icon"
+      >
+        <img
+          alt=""
+          src="/assets/img/logo/popup-logo.png"
+        />
+      </div>
+      <div
+        class="space32"
+      />
+      <div
+        class="heading2"
+      >
+        <h2>
+          Grow your business with our agency
+        </h2>
+        <div
+          class="space8"
+        />
+        <ul>
+          <li>
+            <img
+              alt="Elevate User Experience Expertise"
+              src="/assets/img/icons/check3.svg"
+            />
+            Elevate User Experience Expertise
+          </li>
+          <li>
+            <img
+              alt="Elevate Your UI/UX Skills Designer"
+              src="/assets/img/icons/check3.svg"
+            />
+             Elevate Your UI/UX Skills Designer
+          </li>
+          <li>
+            <img
+              alt="Join Leading UI/UX Event the Year"
+              src="/assets/img/icons/check3.svg"
+            />
+            Join Leading UI/UX Event the Year
+          </li>
+        </ul>
+      </div>
+      <div
+        class="space50"
+      />
+      <a
+        class="vl-btn2"
+        href="/contact"
+      >
+        <span
+          class="demo"
+        >
+          Buy Ticket Now
+        </span>
+        <span
+          class="arrow"
+        >
+          <i
+            class="fa-solid fa-arrow-right"
+          />
+        </span>
+      </a>
+      <p
+        class="no-thanks"
+      >
+        No thanks
+      </p>
+    </div>
+  </div>
+</div>
+`;

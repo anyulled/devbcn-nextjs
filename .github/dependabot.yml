@@ -5,15 +5,55 @@ updates:
     schedule:
       interval: "daily"
     groups:
-      react:
+      eslint:
         patterns:
-          - "react*"
-          - "@types/react*"
+          - "eslint*"
+          - "@eslint*"
+          - "@typescript-eslint*"
+          - "@next/eslint-plugin-next"
+      vercel:
+        patterns:
+          - "@vercel/*"
       testing:
         patterns:
           - "@testing-library*"
           - "cypress*"
           - "jest*"
+          - "@stryker-mutator*"
+          - "@jazzer.js*"
+          - "ts-jest"
+          - "fast-check"
+      lint-and-format:
+        patterns:
+          - "stylelint*"
+          - "prettier"
+          - "husky"
+          - "lint-staged"
+          - "@commitlint*"
+      animations:
+        patterns:
+          - "framer-motion"
+          - "gsap"
+          - "aos"
+          - "@types/aos"
+          - "wowjs"
+      sliders-and-ui:
+        patterns:
+          - "swiper"
+          - "slick-carousel"
+          - "react-slick"
+          - "@types/react-slick"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-countup"
+          - "react-modal-video"
+          - "@types/react*"
+      typescript:
+        patterns:
+          - "typescript"
+          - "@types/*"
       all-others:
         patterns:
           - "*"

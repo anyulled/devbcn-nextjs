@@ -5,7 +5,7 @@ import AOS from "aos";
 import { useEffect } from "react";
 import AddClassBody from "../elements/AddClassBody";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   useEffect(() => {
     AOS.init();
   }, []);

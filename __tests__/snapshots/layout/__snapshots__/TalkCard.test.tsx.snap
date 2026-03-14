@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TalkCard Component matches snapshot with complete talk data 1`] = `
+<div>
+  <div
+    class="talk-card h-100"
+    style="background: rgba(255, 255, 255, 0.8); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s ease;"
+  >
+    <div
+      class="talk-card-content p-4 d-flex flex-column h-100"
+      style="gap: 16px;"
+    >
+      <div
+        class="d-flex justify-content-between align-items-center"
+      >
+        <span
+          class="badge"
+          style="background-color: rgb(224, 231, 255); color: rgb(67, 56, 202); font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; font-weight: 600;"
+        >
+          Core Java
+        </span>
+        <span
+          class="text-muted d-flex align-items-center gap-1"
+          style="font-size: 0.875rem;"
+          title="Beginner"
+        >
+          <span
+            style="color: rgb(251, 191, 36);"
+          >
+            ★
+          </span>
+          <span
+            class="d-none d-sm-inline"
+          >
+            Beginner
+          </span>
+        </span>
+      </div>
+      <h4
+        class="talk-title mb-0"
+        style="font-size: 1.25rem; font-weight: 700; line-height: 1.4;"
+      >
+        <a
+          class="text-hover-primary"
+          href="/2026/talks/talk-123"
+          style="color: rgb(17, 24, 39); text-decoration: none;"
+        >
+          Test Driven Development
+        </a>
+      </h4>
+      <div
+        class="d-flex align-items-center gap-2 text-secondary"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-users"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+          />
+          <path
+            d="M16 3.128a4 4 0 0 1 0 7.744"
+          />
+          <path
+            d="M22 21v-2a4 4 0 0 0-3-3.87"
+          />
+          <circle
+            cx="9"
+            cy="7"
+            r="4"
+          />
+        </svg>
+        <div
+          class="talk-speakers"
+          style="font-size: 0.95rem; font-weight: 500;"
+        >
+          <span>
+            <a
+              class="text-secondary text-decoration-none hover-underline"
+              href="/2026/speakers/speaker-1"
+              style="transition: color 0.2s;"
+            >
+              John Doe
+            </a>
+          </span>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-wrap gap-2 mt-auto pt-3 border-top"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-tag text-muted mt-1"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+          />
+          <circle
+            cx="7.5"
+            cy="7.5"
+            fill="currentColor"
+            r=".5"
+          />
+        </svg>
+        <div
+          class="d-flex flex-wrap gap-2"
+        >
+          <a
+            href="/2026/tags/Java"
+            style="font-size: 0.75rem; color: rgb(107, 114, 128); background: rgb(243, 244, 246); padding: 2px 8px; border-radius: 4px; text-decoration: none;"
+          >
+            Java
+          </a>
+          <a
+            href="/2026/tags/Testing"
+            style="font-size: 0.75rem; color: rgb(107, 114, 128); background: rgb(243, 244, 246); padding: 2px 8px; border-radius: 4px; text-decoration: none;"
+          >
+            Testing
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

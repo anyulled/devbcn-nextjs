@@ -12,8 +12,3 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
-
-## 2026-02-01 - Ken Burns Animation Optimization
-
-**Learning:** When using resource-intensive CSS animations (e.g., Ken Burns effect) in a Swiper carousel, avoid tracking the active slide state in React (`onSlideChange`) to apply conditional classes. This causes redundant re-renders of the entire carousel and degrades performance.
-**Action:** Always scope the animation via pure CSS using Swiper's native classes (e.g., `.swiper-slide-active &`, `.swiper-slide-prev &`, `.swiper-slide-duplicate-active &`) to ensure only visible slides are animated without any JavaScript overhead.

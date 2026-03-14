@@ -99,8 +99,8 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle: _bre
     news: newsDropdownLinks,
   };
 
-  const resolvedHeaderStyle = headerStyle ? headerStyle : 1;
-  const resolvedFooterStyle = footerStyle ? footerStyle : 1;
+  const resolvedHeaderStyle = headerStyle || 1;
+  const resolvedFooterStyle = footerStyle || 1;
   const headerRenderer = headerRenderers[resolvedHeaderStyle] ?? headerRenderers[1];
   const headerElement = headerRenderer({ scroll, isSearch, handleSearch }, defaultNavigation);
   const footerElement = footerComponents[resolvedFooterStyle] ?? footerComponents[1];

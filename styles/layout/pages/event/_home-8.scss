@@ -133,6 +133,8 @@
     .tab-pane {
       .event-widget-area {
         .row {
+          row-gap: 72px;
+
           .col-lg-6 {
             display: flex;
             flex-direction: column;
@@ -143,7 +145,7 @@
           background: var(--ztc-bg-bg-1);
           backdrop-filter: blur(5px);
           border-radius: 8px;
-          padding: 32px 32px 68px;
+          padding: 32px;
           position: relative;
           z-index: 1;
           height: 100%;
@@ -202,9 +204,12 @@
 
             .btn-area1 {
               position: absolute;
-              bottom: -36px;
-              left: 37%;
-              right: 37%;
+              bottom: -10px;
+              left: 0;
+              right: 0;
+              display: flex;
+              justify-content: center;
+              transform: translateY(100%);
 
               @media #{$xs} {
                 left: 10%;

@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Footer8 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="footer8-sertion-area"
+  >
+    <img
+      alt="Footer Background"
+      data-nimg="fill"
+      decoding="async"
+      loading="lazy"
+      sizes="100vw"
+      src="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=3840&q=75"
+      srcset="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg21.png&w=3840&q=75 3840w"
+      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; z-index: -3;"
+    />
+    <img
+      alt=""
+      class="layer1"
+      data-nimg="1"
+      decoding="async"
+      height="230"
+      loading="lazy"
+      src="/_next/image?url=%2Fassets%2Fimg%2Felements%2Flayer1.png&w=3840&q=75"
+      srcset="/_next/image?url=%2Fassets%2Fimg%2Felements%2Flayer1.png&w=1920&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Felements%2Flayer1.png&w=3840&q=75 2x"
+      style="color: transparent;"
+      width="1440"
+    />
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-3 col-md-12"
+        >
+          <div
+            class="footer-logo-area"
+          >
+            <img
+              alt="devBcn"
+              data-nimg="1"
+              decoding="async"
+              height="76"
+              loading="lazy"
+              src="/_next/image?url=%2Fassets%2Fimg%2Flogo%2FdevBcn.webp&w=384&q=75"
+              srcset="/_next/image?url=%2Fassets%2Fimg%2Flogo%2FdevBcn.webp&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Flogo%2FdevBcn.webp&w=384&q=75 2x"
+              style="color: transparent;"
+              width="150"
+            />
+            <div
+              class="space16"
+            />
+            <p>
+              Barcelona Developers Conference
+            </p>
+            <div
+              class="space24"
+            />
+            <ul>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://twitter.com/dev_bcn"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-twitter"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://www.instagram.com/devbcn.conf/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-instagram"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://www.linkedin.com/company/devbcn/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://bsky.app/profile/devbcn.bsky.social"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-bluesky"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://www.youtube.com/@DevBcn"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-youtube"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  class="m-0"
+                  href="https://www.flickr.com/photos/devbcn"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-flickr"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+        >
+          <div
+            class="link-content"
+          >
+            <h3>
+              Quick Links
+            </h3>
+            <ul>
+              <li>
+                <a
+                  href="/2026/travel"
+                >
+                  Travel to Barcelona
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/2026/speakers"
+                >
+                  Speakers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/2026/talks"
+                >
+                  Talks
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/2026/sponsorship"
+                >
+                  Sponsorship
+                  2026
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about-us"
+                >
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="col-lg-6 col-md-6"
+        >
+          <div
+            class="link-content2"
+          >
+            <h3>
+              Contact Us
+            </h3>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                >
+                  <img
+                    alt=""
+                    data-nimg="1"
+                    decoding="async"
+                    height="16"
+                    loading="lazy"
+                    src="/assets/img/icons/location1.svg"
+                    style="color: transparent;"
+                    width="16"
+                  />
+                  World Trade Center, Barceclona
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@devbcn.com"
+                >
+                  <img
+                    alt=""
+                    data-nimg="1"
+                    decoding="async"
+                    height="16"
+                    loading="lazy"
+                    src="/assets/img/icons/mail1.svg"
+                    style="color: transparent;"
+                    width="16"
+                  />
+                  info@devbcn.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://devbcn.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img
+                    alt=""
+                    data-nimg="1"
+                    decoding="async"
+                    height="16"
+                    loading="lazy"
+                    src="/assets/img/icons/world1.svg"
+                    style="color: transparent;"
+                    width="16"
+                  />
+                  devbcn.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="space60"
+      />
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-12"
+        >
+          <div
+            class="copyright"
+          >
+            <p>
+              © Copyright
+              2026
+               - DevBcn. All Right Reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

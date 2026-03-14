@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`RelatedTalks Component matches snapshot with talks 1`] = `
+<div>
+  <div
+    class="event-single-section-area sp1"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-6 m-auto"
+        >
+          <div
+            class="event2-header heading2 text-center"
+          >
+            <h2>
+              More Talks from This Track
+            </h2>
+          </div>
+        </div>
+        <div
+          class="space32"
+        />
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-12"
+        >
+          <div
+            class="tab-content"
+          >
+            <div
+              class="tab-pane fade show active"
+            >
+              <div
+                class="event-widget-area"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-lg-10 m-auto"
+                  >
+                    <div
+                      class="event2-boxarea box1"
+                      style="margin-bottom: 24px;"
+                    >
+                      <h1
+                        class="active"
+                      >
+                        01
+                      </h1>
+                      <div
+                        class="row align-items-center"
+                      >
+                        <div
+                          class="col-lg-12"
+                        >
+                          <div
+                            class="content-area"
+                          >
+                            <ul>
+                              <li>
+                                <span>
+                                  <img
+                                    alt=""
+                                    src="/assets/img/icons/clock1.svg"
+                                  />
+                                  2:00 PM - 3:00 PM
+                                  <span>
+                                     |
+                                  </span>
+                                </span>
+                              </li>
+                              <li>
+                                <span>
+                                  <img
+                                    alt=""
+                                    src="/assets/img/icons/location1.svg"
+                                  />
+                                  Room B
+                                </span>
+                              </li>
+                            </ul>
+                            <div
+                              class="space20"
+                            />
+                            <a
+                              class="head"
+                              href="/2026/talks/talk-2"
+                            >
+                              Advanced React Patterns
+                            </a>
+                            <div
+                              class="space24"
+                            />
+                            <div
+                              class="author-area"
+                            >
+                              <div
+                                class="autho-name-area"
+                              >
+                                <div
+                                  class="img1"
+                                >
+                                  <img
+                                    alt="John Doe"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="50"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=75"
+                                    srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=64&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=75 2x"
+                                    style="color: transparent; border-radius: 50%; object-fit: cover;"
+                                    width="50"
+                                  />
+                                </div>
+                                <div
+                                  class="text"
+                                >
+                                  <a
+                                    href="/2026/speakers/speaker-1"
+                                  >
+                                    John Doe
+                                  </a>
+                                  <div
+                                    class="space8"
+                                  />
+                                  <p>
+                                    Senior Developer
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="space24"
+                            />
+                            <div
+                              class="btn-area1"
+                            >
+                              <a
+                                class="vl-btn1"
+                                href="/2026/talks/talk-2"
+                              >
+                                <span
+                                  class="demo"
+                                >
+                                  View Session Details
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedTalks Component returns null when no talks 1`] = `<div />`;

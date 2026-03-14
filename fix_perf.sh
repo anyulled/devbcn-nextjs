@@ -1,0 +1,116 @@
+cat << 'INNER_EOF' > styles/components/_background-carousel.scss
+@use "../utils" as *;
+
+.background-carousel {
+  position: relative;
+  padding: 70px 0 40px;
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__swiper {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  &__gradient {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(-45deg, rgb(0 75 135 / 0.7), rgb(255 204 0 / 0.4), rgb(138 43 226 / 0.6), rgb(0 36 84 / 0.8));
+    background-size: 400% 400%;
+    background-position: 0 50%;
+    animation: gradient 20s ease infinite;
+    z-index: 1;
+  }
+
+  &__vignette {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.7));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+
+  @media #{$md} {
+    padding: 60px 0 30px;
+    min-height: 100dvh;
+  }
+
+  @media #{$xs} {
+    padding: 60px 0 30px;
+    min-height: 100dvh;
+  }
+}
+
+/* ⚡ Bolt: Scope expensive animation to active/transitioning slides only.
+   Prevents animation from running on hidden slides and ensures it starts
+   exactly when the slide becomes visible. By placing it at the root level,
+   we avoid SCSS parent-selector nesting bugs. */
+.swiper-slide-active .background-carousel__slide.ken-burns,
+.swiper-slide-prev .background-carousel__slide.ken-burns,
+.swiper-slide-duplicate-active .background-carousel__slide.ken-burns {
+  animation: kenBurns 7000ms ease-out both;
+  animation-delay: 0s;
+}
+
+/* Ken Burns zoom effect */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-carousel__slide.ken-burns {
+    animation: none;
+  }
+
+  .background-carousel__gradient {
+    animation: none;
+  }
+}
+INNER_EOF

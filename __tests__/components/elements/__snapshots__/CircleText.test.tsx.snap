@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CircleText Component matches snapshot 1`] = `
+<div>
+  <div
+    class="circle rotateme"
+  >
+    <span
+      style="transform: rotate(0deg);"
+    >
+      t
+    </span>
+    <span
+      style="transform: rotate(17deg);"
+    >
+      e
+    </span>
+    <span
+      style="transform: rotate(34deg);"
+    >
+      s
+    </span>
+    <span
+      style="transform: rotate(51deg);"
+    >
+      t
+    </span>
+    <span
+      style="transform: rotate(68deg);"
+    >
+       
+    </span>
+    <span
+      style="transform: rotate(85deg);"
+    >
+      c
+    </span>
+    <span
+      style="transform: rotate(102deg);"
+    >
+      i
+    </span>
+    <span
+      style="transform: rotate(119deg);"
+    >
+      r
+    </span>
+    <span
+      style="transform: rotate(136deg);"
+    >
+      c
+    </span>
+    <span
+      style="transform: rotate(153deg);"
+    >
+      l
+    </span>
+    <span
+      style="transform: rotate(170deg);"
+    >
+      e
+    </span>
+    <span
+      style="transform: rotate(187deg);"
+    >
+       
+    </span>
+    <span
+      style="transform: rotate(204deg);"
+    >
+      t
+    </span>
+    <span
+      style="transform: rotate(221deg);"
+    >
+      e
+    </span>
+    <span
+      style="transform: rotate(238deg);"
+    >
+      x
+    </span>
+    <span
+      style="transform: rotate(255deg);"
+    >
+      t
+    </span>
+  </div>
+</div>
+`;
