@@ -55,6 +55,17 @@ const withPWA = withPWAInit({
         },
       },
       {
+        urlPattern: /\/_next\/image\?url=.*/i,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "workbox-next-image-cache",
+          expiration: {
+            maxEntries: 128,
+            maxAgeSeconds: 7 * 24 * 60 * 60,
+          },
+        },
+      },
+      {
         urlPattern: /^https:\/\/sessionize\.com\/.*/i,
         handler: "CacheFirst",
         options: {
