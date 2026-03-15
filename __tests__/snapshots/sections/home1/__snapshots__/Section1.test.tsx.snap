@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home1 Section1 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="hero1-section-area"
+  >
+    <div
+      class="bg1"
+    >
+      <img
+        alt=""
+        class="header-bg1"
+        data-nimg="fill"
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=3840&q=75"
+        srcset="/_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fbg%2Fheader-bg2.png&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+      />
+    </div>
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-6"
+        >
+          <div
+            class="hero1-header heading1"
+          >
+            <h5
+              data-aos="fade-left"
+              data-aos-duration="800"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="20"
+                loading="lazy"
+                src="/assets/img/icons/sub-logo1.svg"
+                style="color: transparent;"
+                width="20"
+              />
+              Lead Purpose, Innovate with Passion
+            </h5>
+            <div
+              class="space16"
+            />
+            <h1
+              class="text-anime-style-3"
+            >
+              Business Forward 2025 Strategies 
+              <br
+                class="d-lg-block d-none"
+              />
+              for a New Era
+            </h1>
+            <div
+              class="space16"
+            />
+            <p
+              data-aos="fade-left"
+              data-aos-duration="900"
+            >
+              Welcome Innovate 2025 Shaping the Future of Business, 
+              <br
+                class="d-lg-block d-none"
+              />
+              where industry leaders, innovators, and visionaries come.
+            </p>
+            <div
+              class="space32"
+            />
+            <div
+              class="btn-area1"
+              data-aos="fade-left"
+              data-aos-duration="1100"
+            >
+              <a
+                class="vl-btn1"
+                href="/event-schedule"
+              >
+                Reserve My Seat
+              </a>
+              <a
+                class="vl-btn2"
+                href="/about"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-5"
+        >
+          <div
+            class="header-images"
+          >
+            <div
+              class="img1"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="500"
+                src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fhero%2Fhero-img1.png&w=1080&q=75"
+                srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fhero%2Fhero-img1.png&w=640&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fhero%2Fhero-img1.png&w=1080&q=75 2x"
+                style="color: transparent; width: 100%; height: auto;"
+                width="500"
+              />
+            </div>
+            <div
+              class="images-content-area"
+              data-aos="fade-up"
+              data-aos-duration="900"
+            >
+              <h3>
+                THE INNOVATION SUMMIT
+              </h3>
+              <div
+                class="space12"
+              />
+              <a
+                href="/#"
+              >
+                January 15-16, 2025
+              </a>
+              <div
+                class="space12"
+              />
+              <a
+                href="/#"
+              >
+                CITY CENTER CONVENTION CENTER, NEW YORK CITY
+              </a>
+              <div
+                class="space16"
+              />
+              <p>
+                Join us for an extraordinary two-day journey into the realm of innovation at The Innovation Summit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-1"
+        >
+          <div
+            class="timer"
+          >
+            <div
+              class="time-box"
+            >
+              <span
+                class="time-value"
+                id="days1"
+              >
+                -1
+              </span>
+              <br />
+              Days
+            </div>
+            <div
+              class="space14"
+            />
+            <div
+              class="time-box"
+            >
+              <span
+                class="time-value"
+                id="hours1"
+              >
+                -1
+              </span>
+              <br />
+              Hours
+            </div>
+            <div
+              class="space14"
+            />
+            <div
+              class="time-box"
+            >
+              <span
+                class="time-value"
+                id="minutes1"
+              >
+                -1
+              </span>
+              <br />
+              Minutes
+            </div>
+            <div
+              class="space14"
+            />
+            <div
+              class="time-box"
+              style="margin: 0px 26px 0px 0px;"
+            >
+              <span
+                class="time-value"
+                id="seconds1"
+              >
+                -1
+              </span>
+              <br />
+              Seconds
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
