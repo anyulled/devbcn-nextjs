@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home3 Section1 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="hero3-section-area"
+  >
+    <img
+      alt=""
+      class="elements18"
+      src="/assets/img/elements/elements18.png"
+    />
+    <img
+      alt=""
+      class="elements9"
+      src="/assets/img/elements/elements9.png"
+    />
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-8 m-auto"
+        >
+          <div
+            class="hero3-header text-center"
+          >
+            <h5>
+              <img
+                alt=""
+                src="/assets/img/icons/sub-logo1.svg"
+              />
+              Join the the Future of Design
+            </h5>
+            <div
+              class="space32"
+            />
+            <h1
+              class="text-anime-style-3"
+            >
+              Yearly designer
+            </h1>
+            <div
+              class="space24"
+            />
+            <h1
+              class="text-anime-style-3"
+            >
+              <span
+                class="conferences"
+              >
+                Conferences
+              </span>
+               ‘
+              <span>
+                25
+              </span>
+            </h1>
+            <div
+              class="space40"
+            />
+            <div
+              class="btn-area1"
+            >
+              <a
+                class="vl-btn3"
+                href="/event-schedule"
+              >
+                Reserve premium Seat
+              </a>
+              <a
+                class="vl-btn3 btn2"
+                href="/pricing-plan"
+              >
+                buy ticket now
+              </a>
+            </div>
+            <div
+              class="arrow-btnarea"
+            >
+              <a
+                href="/about"
+              >
+                <div
+                  class="content"
+                >
+                  <div
+                    class="circle rotateme"
+                  >
+                    <span
+                      style="transform: rotate(0deg);"
+                    >
+                      B
+                    </span>
+                    <span
+                      style="transform: rotate(17deg);"
+                    >
+                      u
+                    </span>
+                    <span
+                      style="transform: rotate(34deg);"
+                    >
+                      i
+                    </span>
+                    <span
+                      style="transform: rotate(51deg);"
+                    >
+                      l
+                    </span>
+                    <span
+                      style="transform: rotate(68deg);"
+                    >
+                      d
+                    </span>
+                    <span
+                      style="transform: rotate(85deg);"
+                    >
+                       
+                    </span>
+                    <span
+                      style="transform: rotate(102deg);"
+                    >
+                      S
+                    </span>
+                    <span
+                      style="transform: rotate(119deg);"
+                    >
+                      u
+                    </span>
+                    <span
+                      style="transform: rotate(136deg);"
+                    >
+                      c
+                    </span>
+                    <span
+                      style="transform: rotate(153deg);"
+                    >
+                      c
+                    </span>
+                    <span
+                      style="transform: rotate(170deg);"
+                    >
+                      e
+                    </span>
+                    <span
+                      style="transform: rotate(187deg);"
+                    >
+                      s
+                    </span>
+                    <span
+                      style="transform: rotate(204deg);"
+                    >
+                      s
+                    </span>
+                    <span
+                      style="transform: rotate(221deg);"
+                    >
+                       
+                    </span>
+                    <span
+                      style="transform: rotate(238deg);"
+                    >
+                      B
+                    </span>
+                    <span
+                      style="transform: rotate(255deg);"
+                    >
+                      r
+                    </span>
+                    <span
+                      style="transform: rotate(272deg);"
+                    >
+                      a
+                    </span>
+                    <span
+                      style="transform: rotate(289deg);"
+                    >
+                      n
+                    </span>
+                    <span
+                      style="transform: rotate(306deg);"
+                    >
+                      d
+                    </span>
+                    <span
+                      style="transform: rotate(323deg);"
+                    >
+                      .
+                    </span>
+                  </div>
+                </div>
+                <img
+                  alt=""
+                  class="arrow1"
+                  src="/assets/img/icons/arrow1.svg"
+                />
+              </a>
+            </div>
+            <div
+              class="date-btn aniamtion-key-1"
+            >
+              <h4>
+                15
+              </h4>
+              <div
+                class="space14"
+              />
+              <p>
+                January
+              </p>
+              <div
+                class="space20"
+              />
+              <a
+                href="/pricing-plan"
+              >
+                Buy Ticket
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

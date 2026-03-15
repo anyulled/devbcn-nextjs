@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home3 Section2 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="about3-section-area sp1"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row align-items-center"
+      >
+        <div
+          class="col-lg-6"
+        >
+          <div
+            class="about3-images"
+          >
+            <img
+              alt=""
+              class="about-img10 aniamtion-key-1"
+              src="/assets/img/all-images/about/about-img10.png"
+            />
+            <div
+              class="img1"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/about/about-img7.png"
+              />
+            </div>
+            <div
+              class="img2"
+              data-aos="zoom-in"
+              data-aos-duration="1100"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/about/about-img8.png"
+              />
+            </div>
+            <div
+              class="img3"
+              data-aos="zoom-in"
+              data-aos-duration="1200"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/about/about-img9.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-6"
+        >
+          <div
+            class="about-header heading5"
+          >
+            <h5
+              data-aos="fade-left"
+              data-aos-duration="800"
+            >
+              about our Designer conferences
+            </h5>
+            <div
+              class="space18"
+            />
+            <h2
+              class="text-anime-style-3"
+            >
+              Explore Future Of Design At Our Yearly Conference
+            </h2>
+            <div
+              class="space18"
+            />
+            <p
+              data-aos="fade-left"
+              data-aos-duration="900"
+            >
+              The Yearly Designer Conferences designed to challenge, Event inspire, and push the boundaries of what is possible in design. From emerging technologies to sustainable design practices.
+            </p>
+            <div
+              class="space12"
+            />
+            <div
+              class="counter-area"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <div
+                class="counter-box"
+              >
+                <h3>
+                  <span
+                    class="odometer"
+                  >
+                    0
+                  </span>
+                  +
+                </h3>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Our Journalist
+                </p>
+              </div>
+              <div
+                class="counter-box"
+              >
+                <h3>
+                  <span
+                    class="odometer"
+                  >
+                    0
+                  </span>
+                  +
+                </h3>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Our Speaker
+                </p>
+              </div>
+              <div
+                class="counter-box"
+              >
+                <h3>
+                  <span
+                    class="odometer"
+                  >
+                    0
+                  </span>
+                  K+
+                </h3>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Attendees
+                </p>
+              </div>
+            </div>
+            <div
+              class="space32"
+            />
+            <div
+              class="btn-area1"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+            >
+              <a
+                class="vl-btn3"
+                href="/event-schedule"
+              >
+                Reserve premium Seat
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
