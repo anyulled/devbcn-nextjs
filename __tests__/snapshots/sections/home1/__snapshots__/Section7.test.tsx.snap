@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Section7 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="brands1-section-area sp2"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-5 m-auto"
+        >
+          <div
+            class="brand-header heading2 space-margin60 text-center"
+          >
+            <h5
+              data-aos="fade-left"
+              data-aos-duration="800"
+            >
+              general sponsors
+            </h5>
+            <div
+              class="space16"
+            />
+            <h2
+              class="text-anime-style-3"
+            >
+              Our Official Sponsors
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="800"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img1.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="900"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img2.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img3.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="1100"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img4.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="900"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img5.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img6.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="1100"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img7.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-md-6"
+          data-aos="zoom-in"
+          data-aos-duration="1200"
+        >
+          <div
+            class="brand-box"
+          >
+            <img
+              alt=""
+              src="/assets/img/elements/brand-img8.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
