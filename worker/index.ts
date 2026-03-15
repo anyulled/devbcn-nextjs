@@ -12,6 +12,7 @@ sw.addEventListener("activate", (event: ExtendableEvent) => {
       .then(() => sw.clients.claim())
       .catch((error) => {
         console.error("Service worker activation failed:", error);
+        throw error;
       })
   );
 });
