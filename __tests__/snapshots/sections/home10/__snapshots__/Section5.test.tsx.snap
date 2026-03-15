@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Section5 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="team10-section-area sp3"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-6 m-auto"
+        >
+          <div
+            class="heading13 text-center space-margin60"
+          >
+            <h5>
+              <img
+                alt=""
+                src="/assets/img/icons/sub-logo1.svg"
+              />
+              our speaker
+            </h5>
+            <div
+              class="space20"
+            />
+            <h2>
+              Meet Our 2025 Speakers
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-4"
+        >
+          <div
+            class="team10-widget-boxarea"
+          >
+            <div
+              class="img1 image-anime"
+            >
+              <img
+                alt=""
+                src="/assets/img/all-images/team/team-img38.png"
+              />
+            </div>
+            <div
+              class="text-area"
+            >
+              <a
+                href="/speakers-single"
+              >
+                Alex Carter
+              </a>
+              <div
+                class="space16"
+              />
+              <p>
+                CEO, TechX Solution
+              </p>
+            </div>
+          </div>
+          <div
+            class="space30"
+          />
+        </div>
+        <div
+          class="col-lg-8"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img39.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    Autumn Phillips
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    AI Research Lead
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img40.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    James Hall
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    Cybersecurity Expert
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img41.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    Alex Buckmaster
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    Branding
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img42.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    Jerry Helfer
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    Quantum Technologies
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img43.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    Dennis Callis
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    GreenTech Innovations
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+            >
+              <div
+                class="team10-widget-boxarea2"
+              >
+                <div
+                  class="img1 image-anime"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/team/team-img44.png"
+                  />
+                </div>
+                <div
+                  class="text-area"
+                >
+                  <a
+                    href="/speakers-single"
+                  >
+                    Chris Glasser
+                  </a>
+                  <div
+                    class="space16"
+                  />
+                  <p>
+                    Head of User Experience
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

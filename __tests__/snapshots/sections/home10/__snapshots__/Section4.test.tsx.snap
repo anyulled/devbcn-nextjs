@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Section4 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="event10-section-area sp3"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-8 m-auto"
+        >
+          <div
+            class="event-heading heading13 text-center space-margin60"
+          >
+            <h5>
+              <img
+                alt=""
+                src="/assets/img/icons/sub-logo1.svg"
+              />
+              Event Schedule
+            </h5>
+            <div
+              class="space20"
+            />
+            <h2
+              class="text-anime-style-3"
+            >
+              Event Location & How to Get There
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-12"
+        >
+          <div
+            class="event6-widget-boxarea"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="row align-items-center"
+            >
+              <div
+                class="col-lg-7"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/event/event-img25.png"
+                  />
+                </div>
+              </div>
+              <div
+                class="col-lg-5"
+              >
+                <div
+                  class="content-area"
+                >
+                  <h3
+                    class="text-anime-style-3"
+                  >
+                    “The Future of AI in Everyday Life with Emily Chang, CEO of TechX Solutions.”
+                  </h3>
+                  <div
+                    class="space24"
+                  />
+                  <ul>
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/clock1.svg"
+                        />
+                        10:00 AM -12:00 PM
+                      </a>
+                    </li>
+                    <li
+                      class="space14"
+                    />
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/location1.svg"
+                        />
+                        26/C Asana, New York
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    class="space32"
+                  />
+                  <div
+                    class="btn-area1"
+                  >
+                    <a
+                      class="vl-btn10"
+                      href="/pricing-plan"
+                    >
+                      Buy Tickets Now 
+                      <img
+                        alt=""
+                        src="/assets/img/icons/arrow2.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="space50"
+          />
+          <div
+            class="event6-widget-boxarea"
+            data-aos="fade-right"
+            data-aos-duration="1100"
+          >
+            <div
+              class="row align-items-center"
+            >
+              <div
+                class="col-lg-7"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/event/event-img26.png"
+                  />
+                </div>
+              </div>
+              <div
+                class="col-lg-5"
+              >
+                <div
+                  class="content-area"
+                >
+                  <h3
+                    class="text-anime-style-3"
+                  >
+                    “Cybersecurity Trends and Threats" by Rachel Wong, Cybersecurity Expert at SecureNet.”
+                  </h3>
+                  <div
+                    class="space24"
+                  />
+                  <ul>
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/clock1.svg"
+                        />
+                        10:00 AM -12:00 PM
+                      </a>
+                    </li>
+                    <li
+                      class="space14"
+                    />
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/location1.svg"
+                        />
+                        26/C Asana, New York
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    class="space32"
+                  />
+                  <div
+                    class="btn-area1"
+                  >
+                    <a
+                      class="vl-btn10"
+                      href="/pricing-plan"
+                    >
+                      Buy Tickets Now 
+                      <img
+                        alt=""
+                        src="/assets/img/icons/arrow2.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="space50"
+          />
+          <div
+            class="event6-widget-boxarea"
+            data-aos="fade-left"
+            data-aos-duration="1200"
+          >
+            <div
+              class="row align-items-center"
+            >
+              <div
+                class="col-lg-7"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/event/event-img14.png"
+                  />
+                </div>
+              </div>
+              <div
+                class="col-lg-5"
+              >
+                <div
+                  class="content-area"
+                >
+                  <h3
+                    class="text-anime-style-3"
+                  >
+                    “Join us at the State Plaza Conference Hall, a premier location equipped with modern amenities.”
+                  </h3>
+                  <div
+                    class="space24"
+                  />
+                  <ul>
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/clock1.svg"
+                        />
+                        10:00 AM -12:00 PM
+                      </a>
+                    </li>
+                    <li
+                      class="space14"
+                    />
+                    <li>
+                      <a
+                        href="/#"
+                      >
+                        <img
+                          alt=""
+                          src="/assets/img/icons/location1.svg"
+                        />
+                        26/C Asana, New York
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    class="space32"
+                  />
+                  <div
+                    class="btn-area1"
+                  >
+                    <a
+                      class="vl-btn10"
+                      href="/pricing-plan"
+                    >
+                      Buy Tickets Now 
+                      <img
+                        alt=""
+                        src="/assets/img/icons/arrow2.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="space30"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
