@@ -9,8 +9,6 @@ import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema,
 
 import SpeakerContent from "@/components/speakers/SpeakerContent";
 
-export const revalidate = 21600;
-
 interface SpeakerDetailProps {
   params: Promise<{
     year: string;

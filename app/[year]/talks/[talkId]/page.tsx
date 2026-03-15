@@ -18,8 +18,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
-export const revalidate = 21600;
-
 interface TalkDetailProps {
   params: Promise<{
     year: string;

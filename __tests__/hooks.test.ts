@@ -32,7 +32,7 @@ describe("Hooks", () => {
 
       const speakers = await getSpeakers("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: 3600 },
+        next: { revalidate: false },
       });
       expect(speakers).toEqual(mockSpeakers);
     });
@@ -46,7 +46,7 @@ describe("Hooks", () => {
       await getSpeakers("2023");
       // Ttsitynd - 2023 endpoint
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
-        next: { revalidate: 3600 },
+        next: { revalidate: false },
       });
     });
 
@@ -134,7 +134,7 @@ describe("Hooks", () => {
 
       const groups = await getTalks("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: 3600 },
+        next: { revalidate: false },
       });
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);

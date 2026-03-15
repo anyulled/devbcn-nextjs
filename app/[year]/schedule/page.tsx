@@ -6,8 +6,6 @@ import { ScheduleProvider } from "@/context/ScheduleContext";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 
-export const revalidate = 3600;
-
 interface ScheduleProps {
   params: Promise<{ year: string }>;
 }

@@ -3,6 +3,8 @@ import { getEditionConfig } from "@/config/editions";
 import { SessionGroup, Speaker, Talk } from "./types";
 import { getSpeakers } from "./useSpeakers";
 
+import { getRevalidateInterval } from "@/lib/revalidate";
+
 /**
  * Get the Sessionize sessions URL for a given edition year
  */
@@ -14,9 +16,10 @@ const getSessionsUrl = (year: string | number): string => {
 export const getTalks = cache(async (year: string | number = "default"): Promise<SessionGroup[]> => {
   try {
     const url = getSessionsUrl(year);
+    const revalidateInterval = getRevalidateInterval(year);
 
     const response = await fetch(url, {
-      next: { revalidate: 3600 },
+      next: { revalidate: revalidateInterval },
     });
     if (!response.ok) {
       console.error(`Failed to fetch talks for year ${year}: ${response.statusText}`);

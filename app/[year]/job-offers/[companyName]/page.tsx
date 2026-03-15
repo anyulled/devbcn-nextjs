@@ -12,8 +12,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
-export const revalidate = 604800;
-
 interface CompanyJobOffersPageProps {
   params: Promise<{ year: string; companyName: string }>;
 }

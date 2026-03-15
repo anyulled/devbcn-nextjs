@@ -12,8 +12,6 @@ import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from
 import type { Metadata } from "next";
 import Script from "next/script";
 
-export const revalidate = 86400;
-
 interface PageProps {
   params: Promise<{
     year: string;

@@ -7,8 +7,6 @@ import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-export const revalidate = 21600;
-
 interface TalksProps {
   params: Promise<{
     year: number;
