@@ -12,3 +12,8 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-03-15 - Parallel Data Fetching in Sitemap
+
+**Learning:** Sequential data fetching inside loops (like `for...of`) significantly delays sitemap generation or static param generation as the number of years/entries grows.
+**Action:** Always use `Promise.all` mapped over the loop iterations and apply `.catch(() => [])` to individual fetches to prevent a single API failure from breaking the whole process.
