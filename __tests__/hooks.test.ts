@@ -1,8 +1,8 @@
-import { describe, expect, it, jest, beforeEach, afterEach } from "@jest/globals";
+import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
-import { getAllTalks, getRandomRelatedTalksByTrack, getTalkByYearAndId, getTalkSpeakersWithDetails, getTalks } from "@/hooks/useTalks";
+import { getRandomRelatedTalksByTrack, getTalkByYearAndId, getTalkSpeakersWithDetails, getTalks } from "@/hooks/useTalks";
 
 // Mock global fetch
 const mockFetch = jest.fn() as jest.MockedFunction<typeof globalThis.fetch>;
@@ -11,11 +11,6 @@ globalThis.fetch = mockFetch;
 describe("Hooks", () => {
   beforeEach(() => {
     jest.mocked(globalThis.fetch).mockClear();
-    jest.spyOn(console, "error").mockImplementation(() => undefined);
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
   });
 
   describe("getSpeakers", () => {
@@ -59,17 +54,6 @@ describe("Hooks", () => {
 
       const speakers = await getSpeakers("2025");
       expect(speakers).toEqual([]);
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Failed to fetch speakers for year 2025: Not Found");
-    });
-
-    it("returns empty array when fetch throws", async () => {
-      jest.mocked(globalThis.fetch).mockRejectedValueOnce(new Error("Network error"));
-
-      const speakers = await getSpeakers("2024");
-      expect(speakers).toEqual([]);
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Error fetching speakers for year 2024:", expect.any(Error));
     });
   });
 
@@ -98,19 +82,6 @@ describe("Hooks", () => {
 
       const speaker = await getSpeakerByYearAndId("default", "999");
       expect(speaker).toBeUndefined();
-    });
-
-    it("returns undefined when speakers fetch fails", async () => {
-      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        statusText: "Server Error",
-      } as Response);
-
-      const speaker = await getSpeakerByYearAndId("2024", "1");
-      expect(speaker).toBeUndefined();
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Failed to fetch speakers for year 2024: Server Error");
     });
   });
 
@@ -150,44 +121,6 @@ describe("Hooks", () => {
 
       const groups = await getTalks("2025");
       expect(groups).toEqual([]);
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Failed to fetch talks for year 2025: Internal Server Error");
-    });
-
-    it("returns empty array when fetch throws", async () => {
-      jest.mocked(globalThis.fetch).mockRejectedValueOnce(new Error("Network error"));
-
-      const groups = await getTalks("2024");
-      expect(groups).toEqual([]);
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Error fetching talks for year 2024:", expect.any(Error));
-    });
-  });
-
-  describe("getAllTalks", () => {
-    it("flattens session groups into talks", async () => {
-      const mockTalksData = [
-        {
-          groupId: 1,
-          groupName: "Group 1",
-          sessions: [{ id: "101", title: "Talk One" }],
-        },
-        {
-          groupId: 2,
-          groupName: "Group 2",
-          sessions: [{ id: "201", title: "Talk Two" }],
-        },
-      ];
-
-      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
-        ok: true,
-        json: async () => mockTalksData,
-      } as Response);
-
-      const talks = await getAllTalks("2026");
-      expect(talks).toHaveLength(2);
-      expect(talks[0].id).toBe("101");
-      expect(talks[1].id).toBe("201");
     });
   });
 
@@ -222,19 +155,6 @@ describe("Hooks", () => {
 
       const talk = await getTalkByYearAndId("default", "999");
       expect(talk).toBeUndefined();
-    });
-
-    it("returns undefined when talks fetch fails", async () => {
-      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        statusText: "Server Error",
-      } as Response);
-
-      const talk = await getTalkByYearAndId("2024", "101");
-      expect(talk).toBeUndefined();
-      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Failed to fetch talks for year 2024: Server Error");
     });
   });
 

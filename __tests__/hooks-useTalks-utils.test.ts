@@ -178,7 +178,7 @@ describe("useTalks helpers", () => {
     const sessionGroups: SessionGroup[] = [{ groupId: 1, groupName: "Main", sessions: [buildTalk({ id: "talk-1" }), buildTalk({ id: "talk-2" })] }];
     const mockFetch = jest.fn() as jest.MockedFunction<typeof globalThis.fetch>;
     globalThis.fetch = mockFetch;
-    mockFetch.mockResolvedValue({
+    mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => sessionGroups,
     } as Response);
@@ -205,7 +205,7 @@ describe("useTalks helpers", () => {
     ];
     const mockFetch = jest.fn() as jest.MockedFunction<typeof globalThis.fetch>;
     globalThis.fetch = mockFetch;
-    mockFetch.mockResolvedValue({
+    mockFetch.mockResolvedValueOnce({
       ok: true,
       json: async () => sessionGroups,
     } as Response);

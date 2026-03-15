@@ -48,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const [speakers, sessionGroups] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => [])]);
+    const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
 
     for (const speaker of speakers) {
       yearUrls.push({
@@ -83,8 +83,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return yearUrls;
   });
 
-  const yearsUrlsArrays = await Promise.all(yearPromises);
-  urls.push(...yearsUrlsArrays.flat());
+  try {
+    const yearsUrlsArrays = await Promise.all(yearPromises);
+    urls.push(...yearsUrlsArrays.flat());
+  } catch (error) {
+    console.error("Failed to generate sitemap for some years:", error);
+  }
 
   return urls;
 }
