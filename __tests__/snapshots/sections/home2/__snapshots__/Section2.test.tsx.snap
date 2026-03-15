@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home2 Section2 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="about2-section-area sp1"
+  >
+    <img
+      alt=""
+      class="elements12"
+      src="/assets/img/elements/elements13.png"
+    />
+    <div
+      class="container"
+    >
+      <div
+        class="row align-items-center"
+      >
+        <div
+          class="col-lg-6"
+        >
+          <div
+            class="about-images-area"
+          >
+            <img
+              alt=""
+              class="elements14"
+              src="/assets/img/elements/elements14.png"
+            />
+            <div
+              class="row align-items-center"
+            >
+              <div
+                class="col-lg-6 col-md-6"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/about/about-img4.png"
+                  />
+                </div>
+                <div
+                  class="space24 d-md-none d-block"
+                />
+              </div>
+              <div
+                class="col-lg-6 col-md-6"
+              >
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/about/about-img5.png"
+                  />
+                </div>
+                <div
+                  class="space24"
+                />
+                <div
+                  class="img1 image-anime reveal"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/all-images/about/about-img6.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-1"
+        />
+        <div
+          class="col-lg-5"
+        >
+          <div
+            class="about2-header heading4"
+          >
+            <h5
+              data-aos="fade-left"
+              data-aos-duration="800"
+            >
+              about our business conferences
+            </h5>
+            <div
+              class="space18"
+            />
+            <h2
+              class="text-anime-style-3"
+            >
+              Growth Through World Class And Conferences
+            </h2>
+            <div
+              class="space16"
+            />
+            <p
+              data-aos="fade-left"
+              data-aos-duration="900"
+            >
+              At Business, we bring together brightest minds, leaders, and trailblazers from across industries to explore latest trends, technologies, and strategies shaping the future.
+            </p>
+            <div
+              class="others-boxarea"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <div
+                class="icons-box"
+              >
+                <div
+                  class="icons"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/icons/about-icon1.svg"
+                  />
+                </div>
+                <p>
+                  <span
+                    class="odometer"
+                  >
+                    0
+                  </span>
+                  + Speakers
+                </p>
+              </div>
+              <div
+                class="icons-box"
+              >
+                <div
+                  class="icons"
+                >
+                  <img
+                    alt=""
+                    src="/assets/img/icons/about-icon2.svg"
+                  />
+                </div>
+                <p>
+                  <span
+                    class="odometer"
+                  >
+                    0
+                  </span>
+                  + Sponsors
+                </p>
+              </div>
+            </div>
+            <div
+              class="space32"
+            />
+            <div
+              class="btn-area1"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+            >
+              <a
+                class="vl-btn2"
+                href="/contact"
+              >
+                <span
+                  class="demo"
+                >
+                  Become an Attendee
+                </span>
+                <span
+                  class="arrow"
+                >
+                  <i
+                    class="fa-solid fa-arrow-right"
+                  />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

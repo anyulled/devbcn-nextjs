@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Home2 Section3 Component matches snapshot 1`] = `
+<div>
+  <div
+    class="brands2-section-area sp2"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-5 m-auto"
+        >
+          <div
+            class="brand-header heading4 space-margin60 text-center"
+          >
+            <h3>
+              Join 4,000+ companies already growing
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-lg-12"
+          data-aos="zoom-in"
+          data-aos-duration="800"
+        >
+          <div
+            class="swiper swiper-initialized swiper-horizontal brand-slider-area owl-carousel"
+          >
+            <div
+              class="swiper-wrapper"
+            >
+              <div
+                class="swiper-slide swiper-slide-active brand-box"
+                data-swiper-slide-index="0"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2023/job-offers/gft"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="GFT"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2FGFT.jpg&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide swiper-slide-next brand-box"
+                data-swiper-slide-index="1"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2024/job-offers/barcelona-jug"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Barcelona JUG"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fbcn-jug.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="2"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2023/job-offers/adevinta"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Adevinta"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fadevinta.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="3"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2023/job-offers/red-hat"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Red Hat"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fred-hat.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="4"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2024/job-offers/revolut"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Revolut"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Frevolut.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="5"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2024/job-offers/datastax"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="DATASTAX"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdatastax.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="6"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2024/job-offers/allianz"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Allianz"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fallianz.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="7"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2024/job-offers/premai"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="PREM.AI"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fprem-ai.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+              <div
+                class="swiper-slide brand-box"
+                data-swiper-slide-index="8"
+                style="margin-right: 30px;"
+              >
+                <a
+                  href="/2025/job-offers/dynatrace"
+                >
+                  <div
+                    style="position: relative; width: 100%; height: 80px;"
+                  >
+                    <img
+                      alt="Dynatrace"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      src="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fall-images%2Fsponsors%2Fdynatrace.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent;"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
