@@ -41,202 +41,190 @@ exports[`Home1 Section6 Component matches snapshot 1`] = `
           class="col-lg-12 memory-slider-area"
         >
           <div
-            class="swiper swiper-initialized swiper-horizontal owl-carousel"
+            data-testid="swiper"
           >
             <div
-              class="swiper-wrapper"
+              data-testid="swiper-slide"
             >
               <div
-                class="swiper-slide swiper-slide-active memory-boxarea"
-                data-swiper-slide-index="0"
-                style="margin-right: 30px;"
+                class="img1 image-anime"
               >
-                <div
-                  class="img1 image-anime"
-                >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/memory/memory-img1.png"
-                  />
-                </div>
-                <div
-                  class="content-area"
-                >
-                  <img
-                    alt=""
-                    class="logo1 keyframe5"
-                    src="/assets/img/icons/logo1.svg"
-                  />
-                  <div
-                    class="arrow"
-                  >
-                    <a
-                      href="/memories"
-                    >
-                      <i
-                        class="fa-solid fa-arrow-right"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="space18"
-                  />
-                  <p>
-                    Event 2024
-                  </p>
-                  <div
-                    class="space12"
-                  />
-                  <a
-                    href="/memories"
-                  >
-                    Event Conferences
-                  </a>
-                </div>
+                <img
+                  alt=""
+                  src="/assets/img/all-images/memory/memory-img1.png"
+                />
               </div>
               <div
-                class="swiper-slide swiper-slide-next memory-boxarea"
-                data-swiper-slide-index="1"
-                style="margin-right: 30px;"
+                class="content-area"
               >
+                <img
+                  alt=""
+                  class="logo1 keyframe5"
+                  src="/assets/img/icons/logo1.svg"
+                />
                 <div
-                  class="img1 image-anime"
+                  class="arrow"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/memory/memory-img2.png"
-                  />
-                </div>
-                <div
-                  class="content-area"
-                >
-                  <img
-                    alt=""
-                    class="logo1 keyframe5"
-                    src="/assets/img/icons/logo1.svg"
-                  />
-                  <div
-                    class="arrow"
-                  >
-                    <a
-                      href="/memories"
-                    >
-                      <i
-                        class="fa-solid fa-arrow-right"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="space18"
-                  />
-                  <p>
-                    Event 2024
-                  </p>
-                  <div
-                    class="space12"
-                  />
                   <a
                     href="/memories"
                   >
-                    Event Conferences
+                    <i
+                      class="fa-solid fa-arrow-right"
+                    />
                   </a>
                 </div>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Event 2024
+                </p>
+                <div
+                  class="space12"
+                />
+                <a
+                  href="/memories"
+                >
+                  Event Conferences
+                </a>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/memory/memory-img2.png"
+                />
               </div>
               <div
-                class="swiper-slide memory-boxarea"
-                data-swiper-slide-index="2"
-                style="margin-right: 30px;"
+                class="content-area"
               >
+                <img
+                  alt=""
+                  class="logo1 keyframe5"
+                  src="/assets/img/icons/logo1.svg"
+                />
                 <div
-                  class="img1 image-anime"
+                  class="arrow"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/memory/memory-img3.png"
-                  />
-                </div>
-                <div
-                  class="content-area"
-                >
-                  <img
-                    alt=""
-                    class="logo1 keyframe5"
-                    src="/assets/img/icons/logo1.svg"
-                  />
-                  <div
-                    class="arrow"
-                  >
-                    <a
-                      href="/memories"
-                    >
-                      <i
-                        class="fa-solid fa-arrow-right"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="space18"
-                  />
-                  <p>
-                    Event 2024
-                  </p>
-                  <div
-                    class="space12"
-                  />
                   <a
                     href="/memories"
                   >
-                    Event Conferences
+                    <i
+                      class="fa-solid fa-arrow-right"
+                    />
                   </a>
                 </div>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Event 2024
+                </p>
+                <div
+                  class="space12"
+                />
+                <a
+                  href="/memories"
+                >
+                  Event Conferences
+                </a>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/memory/memory-img3.png"
+                />
               </div>
               <div
-                class="swiper-slide memory-boxarea"
-                data-swiper-slide-index="3"
-                style="margin-right: 30px;"
+                class="content-area"
               >
+                <img
+                  alt=""
+                  class="logo1 keyframe5"
+                  src="/assets/img/icons/logo1.svg"
+                />
                 <div
-                  class="img1 image-anime"
+                  class="arrow"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/memory/memory-img1.png"
-                  />
-                </div>
-                <div
-                  class="content-area"
-                >
-                  <img
-                    alt=""
-                    class="logo1 keyframe5"
-                    src="/assets/img/icons/logo1.svg"
-                  />
-                  <div
-                    class="arrow"
-                  >
-                    <a
-                      href="/memories"
-                    >
-                      <i
-                        class="fa-solid fa-arrow-right"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    class="space18"
-                  />
-                  <p>
-                    Event 2024
-                  </p>
-                  <div
-                    class="space12"
-                  />
                   <a
                     href="/memories"
                   >
-                    Event Conferences
+                    <i
+                      class="fa-solid fa-arrow-right"
+                    />
                   </a>
                 </div>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Event 2024
+                </p>
+                <div
+                  class="space12"
+                />
+                <a
+                  href="/memories"
+                >
+                  Event Conferences
+                </a>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/memory/memory-img1.png"
+                />
+              </div>
+              <div
+                class="content-area"
+              >
+                <img
+                  alt=""
+                  class="logo1 keyframe5"
+                  src="/assets/img/icons/logo1.svg"
+                />
+                <div
+                  class="arrow"
+                >
+                  <a
+                    href="/memories"
+                  >
+                    <i
+                      class="fa-solid fa-arrow-right"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="space18"
+                />
+                <p>
+                  Event 2024
+                </p>
+                <div
+                  class="space12"
+                />
+                <a
+                  href="/memories"
+                >
+                  Event Conferences
+                </a>
               </div>
             </div>
           </div>
@@ -244,7 +232,7 @@ exports[`Home1 Section6 Component matches snapshot 1`] = `
             class="owl-nav"
           >
             <button
-              class="owl-prev h1p swiper-button-lock"
+              class="owl-prev h1p"
               role="presentation"
               type="button"
             >
@@ -253,7 +241,7 @@ exports[`Home1 Section6 Component matches snapshot 1`] = `
               />
             </button>
             <button
-              class="owl-next h1n swiper-button-lock"
+              class="owl-next h1n"
               role="presentation"
               type="button"
             >

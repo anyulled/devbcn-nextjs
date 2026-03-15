@@ -41,436 +41,420 @@ exports[`Home1 Section4 Component matches snapshot 1`] = `
           class="col-lg-12 position-relative"
         >
           <div
-            class="swiper swiper-initialized swiper-horizontal team-slider-area"
+            data-testid="swiper"
           >
             <div
-              class="swiper-wrapper"
+              data-testid="swiper-slide"
             >
               <div
-                class="swiper-slide swiper-slide-active team-widget-boxarea"
-                data-swiper-slide-index="0"
-                style="margin-right: 30px;"
+                class="img1 image-anime"
               >
-                <div
-                  class="img1 image-anime"
-                >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img2.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  class="space20"
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img2.png"
                 />
-                <div
-                  class="text-area"
-                >
-                  <a
-                    href="/speakers"
-                  >
-                    Kendra Cremin
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    Business Consultant
-                  </p>
-                </div>
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div
-                class="swiper-slide swiper-slide-next team-widget-boxarea"
-                data-swiper-slide-index="1"
-                style="margin-right: 30px;"
+                class="space20"
+              />
+              <div
+                class="text-area"
               >
-                <div
-                  class="img1 image-anime"
+                <a
+                  href="/speakers"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img1.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  Kendra Cremin
+                </a>
                 <div
-                  class="space20"
+                  class="space16"
                 />
-                <div
-                  class="text-area"
-                >
-                  <a
-                    href="/speakers"
-                  >
-                    Dennis Jacobson
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    Finance Consultant
-                  </p>
-                </div>
+                <p>
+                  Business Consultant
+                </p>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img1.png"
+                />
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div
-                class="swiper-slide team-widget-boxarea"
-                data-swiper-slide-index="2"
-                style="margin-right: 30px;"
+                class="space20"
+              />
+              <div
+                class="text-area"
               >
-                <div
-                  class="img1 image-anime"
+                <a
+                  href="/speakers"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img3.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  Dennis Jacobson
+                </a>
                 <div
-                  class="space20"
+                  class="space16"
                 />
-                <div
-                  class="text-area"
-                >
-                  <a
-                    href="/speakers"
-                  >
-                    Patricia Wilkinson
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    HR Consultant
-                  </p>
-                </div>
+                <p>
+                  Finance Consultant
+                </p>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img3.png"
+                />
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div
-                class="swiper-slide team-widget-boxarea"
-                data-swiper-slide-index="3"
-                style="margin-right: 30px;"
+                class="space20"
+              />
+              <div
+                class="text-area"
               >
-                <div
-                  class="img1 image-anime"
+                <a
+                  href="/speakers"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img2.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  Patricia Wilkinson
+                </a>
                 <div
-                  class="space20"
+                  class="space16"
                 />
-                <div
-                  class="text-area"
-                >
-                  <a
-                    href="/speakers"
-                  >
-                    Kendra Cremin
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    Business Consultant
-                  </p>
-                </div>
+                <p>
+                  HR Consultant
+                </p>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img2.png"
+                />
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div
-                class="swiper-slide team-widget-boxarea"
-                data-swiper-slide-index="4"
-                style="margin-right: 30px;"
+                class="space20"
+              />
+              <div
+                class="text-area"
               >
-                <div
-                  class="img1 image-anime"
+                <a
+                  href="/speakers"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img1.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  Kendra Cremin
+                </a>
                 <div
-                  class="space20"
+                  class="space16"
                 />
-                <div
-                  class="text-area"
-                >
-                  <a
-                    href="/speakers"
-                  >
-                    Dennis Jacobson
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    Finance Consultant
-                  </p>
-                </div>
+                <p>
+                  Business Consultant
+                </p>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img1.png"
+                />
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div
-                class="swiper-slide team-widget-boxarea"
-                data-swiper-slide-index="5"
-                style="margin-right: 30px;"
+                class="space20"
+              />
+              <div
+                class="text-area"
               >
-                <div
-                  class="img1 image-anime"
+                <a
+                  href="/speakers"
                 >
-                  <img
-                    alt=""
-                    src="/assets/img/all-images/team/team-img3.png"
-                  />
-                  <ul>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-facebook-f"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-linkedin-in"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-instagram"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        class="m-0"
-                        href="/#"
-                      >
-                        <i
-                          class="fa-brands fa-youtube"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  Dennis Jacobson
+                </a>
                 <div
-                  class="space20"
+                  class="space16"
                 />
-                <div
-                  class="text-area"
+                <p>
+                  Finance Consultant
+                </p>
+              </div>
+            </div>
+            <div
+              data-testid="swiper-slide"
+            >
+              <div
+                class="img1 image-anime"
+              >
+                <img
+                  alt=""
+                  src="/assets/img/all-images/team/team-img3.png"
+                />
+                <ul>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-facebook-f"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-linkedin-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-instagram"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="m-0"
+                      href="/#"
+                    >
+                      <i
+                        class="fa-brands fa-youtube"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="space20"
+              />
+              <div
+                class="text-area"
+              >
+                <a
+                  href="/speakers"
                 >
-                  <a
-                    href="/speakers"
-                  >
-                    Patricia Wilkinson
-                  </a>
-                  <div
-                    class="space16"
-                  />
-                  <p>
-                    HR Consultant
-                  </p>
-                </div>
+                  Patricia Wilkinson
+                </a>
+                <div
+                  class="space16"
+                />
+                <p>
+                  HR Consultant
+                </p>
               </div>
             </div>
           </div>
@@ -478,7 +462,7 @@ exports[`Home1 Section4 Component matches snapshot 1`] = `
             class="owl-nav"
           >
             <button
-              class="owl-prev h1p swiper-button-lock"
+              class="owl-prev h1p"
               role="presentation"
               type="button"
             >
@@ -487,7 +471,7 @@ exports[`Home1 Section4 Component matches snapshot 1`] = `
               />
             </button>
             <button
-              class="owl-next h1n swiper-button-lock"
+              class="owl-next h1n"
               role="presentation"
               type="button"
             >

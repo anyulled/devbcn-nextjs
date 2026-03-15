@@ -8,10 +8,9 @@ jest.mock("swiper/react", () => ({
 }));
 jest.mock("swiper/modules", () => ({}));
 
-import Section5 from "@/components/sections/home1/section5";
-
 describe("Home1 Section5 Component", () => {
-  it("matches snapshot", () => {
+  it("matches snapshot", async () => {
+    const Section5 = (await import("@/components/sections/home1/section5")).default;
     const { container } = render(<Section5 />);
     expect(container).toMatchSnapshot();
   });

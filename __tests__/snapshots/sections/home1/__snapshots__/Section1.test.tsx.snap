@@ -154,67 +154,8 @@ exports[`Home1 Section1 Component matches snapshot 1`] = `
           class="col-lg-1"
         >
           <div
-            class="timer"
-          >
-            <div
-              class="time-box"
-            >
-              <span
-                class="time-value"
-                id="days1"
-              >
-                -1
-              </span>
-              <br />
-              Days
-            </div>
-            <div
-              class="space14"
-            />
-            <div
-              class="time-box"
-            >
-              <span
-                class="time-value"
-                id="hours1"
-              >
-                -1
-              </span>
-              <br />
-              Hours
-            </div>
-            <div
-              class="space14"
-            />
-            <div
-              class="time-box"
-            >
-              <span
-                class="time-value"
-                id="minutes1"
-              >
-                -1
-              </span>
-              <br />
-              Minutes
-            </div>
-            <div
-              class="space14"
-            />
-            <div
-              class="time-box"
-              style="margin: 0px 26px 0px 0px;"
-            >
-              <span
-                class="time-value"
-                id="seconds1"
-              >
-                -1
-              </span>
-              <br />
-              Seconds
-            </div>
-          </div>
+            data-testid="countdown"
+          />
         </div>
       </div>
     </div>
