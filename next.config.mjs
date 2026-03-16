@@ -38,7 +38,7 @@ const withPWA = withPWAInit({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
-  cacheOnFrontendNav: true,
+  cacheOnFrontendNav: false,
   workboxOptions: {
     cleanupOutdatedCaches: true,
     runtimeCaching: [

@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: TalkDetailProps): Promise<Met
   };
 }
 
-export default async function TalkDetail({ params }: TalkDetailProps) {
+export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) {
   const { year, talkId } = await params;
   const talk = await getTalkByYearAndId(year, talkId);
   const eventData = getEditionConfig(year);

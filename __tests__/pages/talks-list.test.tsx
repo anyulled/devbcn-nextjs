@@ -68,7 +68,7 @@ jest.mock("@/lib/shared/jsonld", () => ({
 }));
 
 describe("Talks List Page", () => {
-  const params = Promise.resolve({ year: 2025 });
+  const params = Promise.resolve({ year: "2025" });
 
   beforeEach(() => {
     jest.clearAllMocks();

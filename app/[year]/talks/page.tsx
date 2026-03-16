@@ -9,7 +9,7 @@ import Script from "next/script";
 
 interface TalksProps {
   params: Promise<{
-    year: number;
+    year: string;
   }>;
 }
 
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: TalksProps): Promise<Metadata
   };
 }
 
-export default async function Talks({ params }: TalksProps) {
+export default async function Talks({ params }: Readonly<TalksProps>) {
   const { year } = await params;
   const sessionGroups = await getTalks(year);
   const talks = sessionGroups.flatMap((group) => group.sessions);
