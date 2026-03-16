@@ -67,6 +67,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
       >
+        {children}
         <button
           onClick={onDismiss}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors z-50"
@@ -85,12 +86,12 @@ export default function Modal({ children }: { children: React.ReactNode }) {
             cursor: "pointer",
             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
             fontSize: "1.25rem",
+            zIndex: 100,
           }}
           aria-label="Close modal"
         >
           <i className="fa-solid fa-xmark"></i>
         </button>
-        {children}
       </div>
     </div>
   );
