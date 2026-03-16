@@ -26,6 +26,8 @@ jobs:
         run: npm audit --audit-level=high || true
       - name: Docs Sync Check
         run: npm run check:docs
+      - name: Generate Documentation
+        run: npm run build:docs
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:

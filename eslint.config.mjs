@@ -247,6 +247,7 @@ const eslintConfig = [
       "out/**",
       ".agent/**",
       "__mocks__/**",
+      "docs/api/**",
     ],
   },
 ];

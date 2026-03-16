@@ -1,0 +1,11 @@
+{
+  "entryPoints": ["app", "components", "lib", "worker", "types", "hooks"],
+  "entryPointStrategy": "expand",
+  "out": "docs/api",
+  "name": "DevBcn Documentation",
+  "includeVersion": true,
+  "readme": "README.md",
+  "cleanOutputDir": true,
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/__tests__/**"],
+  "githubPages": false
+}
