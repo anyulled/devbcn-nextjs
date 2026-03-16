@@ -1,55 +1,47 @@
 # AI Harness Scorecard: devbcn-nextjs
 
-**Grade: F** (31.8/100) | No meaningful harness. AI output is essentially unaudited.
+**Grade: A** (85.1/100) | Strong harness. AI-generated code has robust mechanical safeguards.
 
 - **Repository**: `/home/runner/work/devbcn-nextjs/devbcn-nextjs`
 - **Languages**: javascript, typescript
-- **Assessed**: 2026-03-11 20:03 UTC
-- **Checks**: 10/31 passed
+- **Assessed**: 2026-03-16 18:29 UTC
+- **Checks**: 27/31 passed
 
 ## Summary
 
-| Category                    | Weight | Score            | Checks |
-| --------------------------- | ------ | ---------------- | ------ |
-| Architectural Documentation | 20%    | 0% [----------]  | 0/5    |
-| Mechanical Constraints      | 25%    | 59% [######----] | 4/7    |
-| Testing & Stability         | 25%    | 48% [#####-----] | 4/8    |
-| Review & Drift Prevention   | 15%    | 33% [###-------] | 2/6    |
-| AI-Specific Safeguards      | 15%    | 0% [----------]  | 0/5    |
+| Category | Weight | Score | Checks |
+|----------|--------|-------|--------|
+| Architectural Documentation | 20% | 85% [########--] | 4/5 |
+| Mechanical Constraints | 25% | 86% [#########-] | 6/7 |
+| Testing & Stability | 25% | 72% [#######---] | 6/8 |
+| Review & Drift Prevention | 15% | 100% [##########] | 6/6 |
+| AI-Specific Safeguards | 15% | 90% [#########-] | 5/5 |
 
-## Architectural Documentation (0%)
+## Architectural Documentation (85%)
 
-### [FAIL] Architecture Documentation (0/5)
+### [PASS] Architecture Documentation (5/5)
 
 _matklad ARCHITECTURE.md guide_
 
-**Evidence**: No architecture documentation found
+**Evidence**: Found: ARCHITECTURE.md
 
-**Remediation**: Create ARCHITECTURE.md at repo root following matklad's pattern: short, stable, focused on module boundaries and constraints.
-
-### [FAIL] Agent Instructions (0/5)
+### [PASS] Agent Instructions (5/5)
 
 _OpenAI Harness Engineering (2026)_
 
-**Evidence**: No AI agent instruction files found
+**Evidence**: Found: AGENTS.md
 
-**Remediation**: Create CLAUDE.md or AGENTS.md with project context, code style, and constraints so AI agents produce consistent output.
-
-### [FAIL] Architecture Decision Records (0/3)
+### [PASS] Architecture Decision Records (3/3)
 
 _DORA 2025 Report - AI-accessible documentation_
 
-**Evidence**: No Architecture Decision Records found
+**Evidence**: Found ADR directory: docs/adr
 
-**Remediation**: Create docs/adr/ directory with numbered markdown decision records. Use adr-tools or a simple template.
-
-### [FAIL] Module Boundary Documentation (0/4)
+### [PASS] Module Boundary Documentation (4/4)
 
 _matklad ARCHITECTURE.md - constraints as absences_
 
-**Evidence**: No module boundary constraints documented
-
-**Remediation**: Document which modules must NOT depend on each other in ARCHITECTURE.md. Example: 'The fields crate never depends on any other workspace crate.'
+**Evidence**: Module boundary constraints found in ARCHITECTURE.md
 
 ### [FAIL] API Documentation (0/3)
 
@@ -59,13 +51,14 @@ _DORA 2025 - AI-accessible documentation_
 
 **Remediation**: Add doc generation to CI (cargo doc, typedoc, sphinx) or maintain OpenAPI/Swagger specs.
 
-## Mechanical Constraints (59%)
+
+## Mechanical Constraints (86%)
 
 ### [PASS] CI Pipeline (3/3)
 
 _DORA 2025 Report_
 
-**Evidence**: CI detected: github, github, github
+**Evidence**: CI detected: github, github, github, github
 
 ### [PASS] Linter Enforcement (4/4)
 
@@ -85,21 +78,17 @@ _SlopCodeBench - preventing subtle type errors_
 
 **Evidence**: TypeScript strict mode enabled
 
-### [FAIL] Dependency Auditing (0/4)
+### [PASS] Dependency Auditing (4/4)
 
 _Blog: security infrastructure reliability_
 
-**Evidence**: No dependency auditing found
+**Evidence**: Blocking dependency audit in CI: npm\s+audit
 
-**Remediation**: Add cargo deny/audit, npm audit, pip-audit, or Snyk to CI as a blocking check.
-
-### [FAIL] Conventional Commits (0/2)
+### [PASS] Conventional Commits (2/2)
 
 _DORA 2025 - working in small batches_
 
-**Evidence**: No conventional commit enforcement found
-
-**Remediation**: Add commitlint or equivalent to CI to enforce consistent commit message format.
+**Evidence**: Commit lint config found: commitlint.config.js
 
 ### [FAIL] Unsafe Code Policy (0/3)
 
@@ -109,7 +98,8 @@ _Blog: 80% problem in AI-generated code_
 
 **Remediation**: Add unsafe_code = forbid (Rust), security linting (semgrep/bandit), or ESLint rules against dangerous patterns.
 
-## Testing & Stability (48%)
+
+## Testing & Stability (72%)
 
 ### [PASS] Test Suite (3/3)
 
@@ -137,13 +127,11 @@ _SlopCodeBench - code that 'appears correct but is unreliable'_
 
 **Remediation**: Add cargo-mutants (Rust), Stryker (JS/TS), mutmut (Python), or PIT (Java). Mutation testing catches tests that pass without verifying behavior.
 
-### [FAIL] Property-Based Testing (0/3)
+### [PASS] Property-Based Testing (3/3)
 
 _Blog: catching edge cases in AI-generated code_
 
-**Evidence**: No property-based testing found
-
-**Remediation**: Add proptest (Rust), hypothesis (Python), fast-check (JS/TS), or jqwik (Java) for testing invariants with random structured inputs.
+**Evidence**: Property-based testing library found in package.json
 
 ### [FAIL] Fuzz Testing (0/3)
 
@@ -153,13 +141,11 @@ _Blog: 80% problem - catching what AI misses_
 
 **Remediation**: Add fuzz targets for parsing-heavy and input-handling code paths.
 
-### [FAIL] Contract / Compatibility Tests (0/3)
+### [PASS] Contract / Compatibility Tests (3/3)
 
 _OpenAI Harness Engineering - mechanical constraints_
 
-**Evidence**: No contract or compatibility tests found
-
-**Remediation**: Add contract tests that verify external interface stability (golden fixtures, snapshot tests, wire-format checks).
+**Evidence**: Contract/compatibility tests found: __tests__/components/elements/__snapshots__/AboutCounter.test.tsx.snap, __tests__/components/elements/__snapshots__/BuyTicketButton.test.tsx.snap, __tests__/components/elements/__snapshots__/CircleText.test.tsx.snap
 
 ### [PASS] Tests Block Merge (2/2)
 
@@ -167,15 +153,14 @@ _DORA 2025 - stability metrics_
 
 **Evidence**: All test jobs are blocking: test
 
-## Review & Drift Prevention (33%)
 
-### [FAIL] Code Review Required (0/4)
+## Review & Drift Prevention (100%)
+
+### [PASS] Code Review Required (4/4)
 
 _OpenAI Harness Engineering - author/reviewer separation_
 
-**Evidence**: Cannot verify branch protection without API access. Run with --github-token or --gitlab-token for full assessment.
-
-**Remediation**: Enable required reviews in branch protection settings and add CODEOWNERS.
+**Evidence**: CODEOWNERS file found: .github/CODEOWNERS
 
 ### [PASS] Scheduled CI Jobs (3/3)
 
@@ -183,21 +168,17 @@ _OpenAI Harness Engineering - garbage collection agents_
 
 **Evidence**: Scheduled CI pipeline found
 
-### [FAIL] Stale Documentation Detection (0/2)
+### [PASS] Stale Documentation Detection (2/2)
 
 _OpenAI Harness Engineering - quality drift_
 
-**Evidence**: No stale documentation detection found
+**Evidence**: Documentation quality check in CI: link.check|markdown.link|lychee|linkinator
 
-**Remediation**: Add TODO/FIXME scanning, link checking (lychee), or prose linting (vale) to CI.
-
-### [FAIL] PR/MR Template (0/2)
+### [PASS] PR/MR Template (2/2)
 
 _DORA 2025 - working in small batches_
 
-**Evidence**: No PR/MR template found
-
-**Remediation**: Add .github/PULL_REQUEST_TEMPLATE.md or .gitlab/merge_request_templates/Default.md with sections for description, testing, and impact.
+**Evidence**: PR/MR template found: .github/PULL_REQUEST_TEMPLATE.md
 
 ### [PASS] Automated Code Review (2/2)
 
@@ -205,55 +186,47 @@ _OpenAI Harness Engineering - separate authoring and reviewing agents_
 
 **Evidence**: Automated review tool configured: .github/dependabot.yml
 
-### [FAIL] Documentation Sync Check (0/2)
+### [PASS] Documentation Sync Check (2/2)
 
 _OpenAI Harness Engineering - curated knowledge base_
 
-**Evidence**: No documentation sync checks found in CI
+**Evidence**: Doc sync check found in CI: doc.*sync
 
-**Remediation**: Add CI jobs that verify related docs stay in sync (e.g. diff AGENTS.md CLAUDE.md, golden fixture checks).
 
-## AI-Specific Safeguards (0%)
+## AI-Specific Safeguards (90%)
 
-### [FAIL] AI Usage Norms (0/4)
+### [PASS] AI Usage Norms (4/4)
 
 _DORA 2025 - clear organizational stance on AI use_
 
-**Evidence**: No AI usage norms documented
+**Evidence**: AI usage norms found in AGENTS.md
 
-**Remediation**: Document AI usage policies: review expectations for AI-generated code, when manual implementation is required, testing-before-implementation norms.
-
-### [FAIL] Small Batch Enforcement (0/3)
+### [PASS] Small Batch Enforcement (3/3)
 
 _DORA 2025 - working in small batches_
 
-**Evidence**: No small batch enforcement found
+**Evidence**: Small batch guidelines found in CONTRIBUTING.md
 
-**Remediation**: Add PR size checks (Danger, pr-size-labeler) or document size guidelines in CONTRIBUTING.md. Large AI-generated PRs are harder to review.
-
-### [FAIL] Design-Before-Code Culture (0/3)
+### [PASS] Design-Before-Code Culture (3/3)
 
 _Blog: cognitive offloading guardrails_
 
-**Evidence**: No design-before-code process found
+**Evidence**: RFC/design document directory found: docs/rfcs
 
-**Remediation**: Create docs/rfcs/ or docs/designs/ directory. Document a process where significant changes start with a design doc or plan before implementation.
-
-### [FAIL] Error Handling Policy (0/3)
+### [PASS] Error Handling Policy (2/3)
 
 _Blog: AI agents deleting tests, using expect()_
 
-**Evidence**: No error handling policy found
+**Evidence**: Error handling guidelines found in AGENTS.md
 
-**Remediation**: Add clippy lints (unwrap_used, expect_used) for Rust, ESLint rules for JS/TS, or document error handling patterns in agent instructions.
+**Remediation**: Enforce error handling rules mechanically via lints, not just documentation.
 
-### [FAIL] Security-Critical Path Marking (0/2)
+### [PASS] Security-Critical Path Marking (2/2)
 
 _Blog: 80% problem in security infrastructure_
 
-**Evidence**: No security-critical path marking found
+**Evidence**: CODEOWNERS found: .github/CODEOWNERS
 
-**Remediation**: Add CODEOWNERS for sensitive directories, SECURITY.md for vuln reporting, or SAST scanning in CI.
 
 ## References
 
@@ -286,5 +259,4 @@ _Blog: 80% problem in security infrastructure_
 - matklad ARCHITECTURE.md guide
 
 ---
-
-_Generated by [ai-harness-scorecard](https://github.com/markmishaev/ai-harness-scorecard)_
+*Generated by [ai-harness-scorecard](https://github.com/markmishaev/ai-harness-scorecard)*

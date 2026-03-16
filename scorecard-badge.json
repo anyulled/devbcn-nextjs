@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "AI Harness Scorecard",
-  "message": "F 32/100",
-  "color": "red",
+  "message": "A 85/100",
+  "color": "brightgreen",
   "namedLogo": "shield"
 }
