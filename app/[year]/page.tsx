@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: Readonly<PageProps>) {
   const { year } = await params;
   const config = getEditionConfig(year);
 
@@ -87,7 +87,7 @@ export default async function Page({ params }: PageProps) {
       <Section1 year={year} />
       <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
       <Section3 />
-      <Section4 sponsors={config.sponsorsData} />
+      <Section4 sponsors={config.sponsorsData} eventVenue={config.venue} />
       <Section5 year={year} speakers={randomSpeakers} totalSpeakers={totalSpeakers} />
       <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
     </>

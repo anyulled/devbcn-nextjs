@@ -17,7 +17,8 @@ export const edition2025: EditionConfig = {
   email: "info@devbcn.com",
   venue: {
     name: "La Farga, Hospitalet de Llobregat",
-    mapUrl: "https://maps.app.goo.gl/2zao7ynr4wE7UYDn8",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.8637503463385!2d2.1054363765660873!3d41.360156971302824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498d7809623c7%3A0x9480bc67261a86b0!2sLa%20Farga%20Centre%20d'Activitats!5e0!3m2!1sen!2ses!4v1710620000000!5m2!1sen!2ses",
   },
   trackNumber: 5,
   tracks:
