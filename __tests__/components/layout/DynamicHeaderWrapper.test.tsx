@@ -51,9 +51,16 @@ describe("DynamicHeaderWrapper", () => {
 
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "false");
 
+    const rafMock = jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+      cb(0);
+      return 1;
+    });
+
     Object.defineProperty(window, "scrollY", { value: 120, writable: true, configurable: true });
     fireEvent.scroll(document);
 
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "true");
+
+    rafMock.mockRestore();
   });
 });

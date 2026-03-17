@@ -12,3 +12,8 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-03-17 - Scroll Event Listener Anti-Pattern
+
+**Learning:** Found multiple instances of `scroll` event listeners attached to the `window` or `document` object without debouncing or throttling. These events can trigger frequently and block the main thread.
+**Action:** When adding scroll event listeners, use `{ passive: true }` options and throttle execution using `requestAnimationFrame` to prevent main-thread blocking. Ensure local state variables used for throttling are wrapped in a constant object to satisfy ESLint `no-restricted-syntax`.
