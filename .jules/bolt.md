@@ -12,3 +12,7 @@
 
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
+
+## 2026-03-18 - Avoid O(N^2) array operations in loops
+**Learning:** Found an O(N^2) array spread operation (`grouped.set(track, [...existing, talk])`) inside a hot loop in `groupTalksByTrack`. This causes excessive memory allocation and performance degradation as the array grows.
+**Action:** Always mutate arrays directly with `.push(item)` instead of spreading when grouping or building arrays inside loops.
