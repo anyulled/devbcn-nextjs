@@ -1,23 +1,23 @@
 # AI Harness Scorecard: devbcn-nextjs
 
-**Grade: A** (85.1/100) | Strong harness. AI-generated code has robust mechanical safeguards.
+**Grade: A** (88.1/100) | Strong harness. AI-generated code has robust mechanical safeguards.
 
 - **Repository**: `/home/runner/work/devbcn-nextjs/devbcn-nextjs`
 - **Languages**: javascript, typescript
-- **Assessed**: 2026-03-17 13:50 UTC
-- **Checks**: 27/31 passed
+- **Assessed**: 2026-03-18 08:30 UTC
+- **Checks**: 28/31 passed
 
 ## Summary
 
 | Category | Weight | Score | Checks |
 |----------|--------|-------|--------|
-| Architectural Documentation | 20% | 85% [########--] | 4/5 |
+| Architectural Documentation | 20% | 100% [##########] | 5/5 |
 | Mechanical Constraints | 25% | 86% [#########-] | 6/7 |
 | Testing & Stability | 25% | 72% [#######---] | 6/8 |
 | Review & Drift Prevention | 15% | 100% [##########] | 6/6 |
 | AI-Specific Safeguards | 15% | 90% [#########-] | 5/5 |
 
-## Architectural Documentation (85%)
+## Architectural Documentation (100%)
 
 ### [PASS] Architecture Documentation (5/5)
 
@@ -43,13 +43,11 @@ _matklad ARCHITECTURE.md - constraints as absences_
 
 **Evidence**: Module boundary constraints found in ARCHITECTURE.md
 
-### [FAIL] API Documentation (0/3)
+### [PASS] API Documentation (3/3)
 
 _DORA 2025 - AI-accessible documentation_
 
-**Evidence**: No API documentation generation or spec files found
-
-**Remediation**: Add doc generation to CI (cargo doc, typedoc, sphinx) or maintain OpenAPI/Swagger specs.
+**Evidence**: Doc generation found in CI
 
 
 ## Mechanical Constraints (86%)
