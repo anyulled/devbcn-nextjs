@@ -23,7 +23,7 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
           class="row"
         >
           <div
-            class="col-lg-5 m-auto"
+            class="col-lg-10 m-auto"
           >
             <div
               class="heading1 text-center"
@@ -106,103 +106,67 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
                 class="row"
               >
                 <div
-                  class="col-lg-4 col-md-6"
+                  class="col-lg-4 col-md-6 mb-4"
                 >
                   <div
-                    class="our-team-boxarea"
+                    class="speaker-card h-100"
+                    style="background: rgba(255, 255, 255, 0.8); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s ease;"
                   >
                     <div
-                      class="team-widget-area"
-                    >
-                      <img
-                        alt=""
-                        class="elements21"
-                        data-nimg="1"
-                        decoding="async"
-                        height="100"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=256&q=75"
-                        srcset="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=128&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Felements%2Felements25.png&w=256&q=75 2x"
-                        style="color: transparent;"
-                        width="100"
-                      />
-                      <img
-                        alt=""
-                        class="elements22"
-                        data-nimg="1"
-                        decoding="async"
-                        height="100"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=256&q=75"
-                        srcset="/_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=128&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Felements%2Felements26.png&w=256&q=75 2x"
-                        style="color: transparent;"
-                        width="100"
-                      />
-                      <div
-                        class="img1"
-                      >
-                        <a
-                          href="/2026/speakers/speaker-1"
-                        >
-                          <img
-                            alt="John Doe"
-                            class="team-img4"
-                            data-nimg="1"
-                            decoding="async"
-                            height="150"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=384&q=75"
-                            srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=256&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=384&q=75 2x"
-                            style="color: transparent; object-fit: cover;"
-                            width="150"
-                          />
-                        </a>
-                        <div
-                          class="share"
-                        >
-                          <a
-                            href="#"
-                          >
-                            <img
-                              alt=""
-                              src="/assets/img/icons/share1.svg"
-                            />
-                          </a>
-                        </div>
-                        <ul>
-                          <li>
-                            <a
-                              class="icon1"
-                              href="https://twitter.com/johndoe"
-                              rel="noopener noreferrer"
-                              target="_blank"
-                              title="Twitter"
-                            >
-                              <i
-                                class="fa-brands fa-twitter"
-                              />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div
-                      class="space28"
-                    />
-                    <div
-                      class="content-area"
+                      class="speaker-image-wrapper position-relative"
+                      style="padding-top: 100%; overflow: hidden;"
                     >
                       <a
+                        class="d-block w-100 h-100 position-absolute top-0 start-0"
                         href="/2026/speakers/speaker-1"
                       >
-                        John Doe
+                        <img
+                          alt="John Doe"
+                          class="speaker-image"
+                          data-nimg="fill"
+                          decoding="async"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=3840&q=75"
+                          srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=3840&q=75 3840w"
+                          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; transition: transform 0.3s ease;"
+                        />
                       </a>
-                      <div
-                        class="space16"
-                      />
-                      <p>
+                    </div>
+                    <div
+                      class="speaker-content p-4 d-flex flex-column flex-grow-1"
+                      style="gap: 12px; text-align: center;"
+                    >
+                      <h4
+                        class="speaker-name mb-0"
+                        style="font-size: 1.1rem; font-weight: 700;"
+                      >
+                        <a
+                          class="text-hover-primary"
+                          href="/2026/speakers/speaker-1"
+                          style="color: rgb(17, 24, 39); text-decoration: none;"
+                        >
+                          John Doe
+                        </a>
+                      </h4>
+                      <p
+                        class="speaker-position text-muted mb-0"
+                        style="font-size: 0.9rem; line-height: 1.4; flex-grow: 1;"
+                      >
                         Senior Developer
                       </p>
+                      <div
+                        class="speaker-socials d-flex justify-content-center gap-3 mt-2"
+                      >
+                        <a
+                          class="social-link text-secondary hover-primary"
+                          href="https://twitter.com/johndoe"
+                        >
+                          <i
+                            class="fa-brands fa-twitter fa-lg"
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -2,10 +2,10 @@ import AddToCalendarWrapper from "@/components/elements/AddToCalendarWrapper";
 import VideoPlayer from "@/components/elements/VideoPlayer";
 import { Speaker, Talk } from "@/hooks/types";
 import { format, parseISO } from "date-fns";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import PageHeader from "../layout/PageHeader";
+import SpeakerCard from "../layout/SpeakerCard";
 
 interface TalkContentProps {
   talk: Talk;
@@ -24,25 +24,6 @@ interface TalkContentProps {
   level: string;
 }
 
-const getSocialIcon = (linkType: string): string => {
-  const iconMap: Record<string, string> = {
-    Twitter: "fa-brands fa-twitter",
-    LinkedIn: "fa-brands fa-linkedin-in",
-    Facebook: "fa-brands fa-facebook-f",
-    Instagram: "fa-brands fa-instagram",
-    GitHub: "fa-brands fa-github",
-    Blog: "fa-solid fa-blog",
-    Company_Website: "fa-solid fa-building",
-    Other: "fa-solid fa-link",
-  };
-  return iconMap[linkType] || "fa-solid fa-link";
-};
-
-const getIconClass = (index: number): string => {
-  const classes = ["icon1", "icon2", "icon3", "icon4"];
-  return classes[index % classes.length];
-};
-
 const formatTalkDates = (talk: Talk) => {
   const startDate = talk.startsAt ? format(parseISO(talk.startsAt), "yyyy-MM-dd") : "";
   const startTime = talk.startsAt ? format(parseISO(talk.startsAt), "HH:mm") : "";
@@ -53,46 +34,6 @@ const formatTalkDates = (talk: Talk) => {
 
   return { startDate, startTime, endDate, endTime, startFormatted, timeFormatted };
 };
-
-const SpeakerCard: React.FC<{ speaker: Speaker; year: string }> = ({ speaker, year }) => (
-  <div className="col-lg-4 col-md-6" key={speaker.id}>
-    <div className="our-team-boxarea">
-      <div className="team-widget-area">
-        <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
-        <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
-        <div className="img1">
-          <Link href={`/${year}/speakers/${speaker.id}`}>
-            <Image src={speaker.profilePicture} alt={speaker.fullName} className="team-img4" width={150} height={150} style={{ objectFit: "cover" }} />
-          </Link>
-          {speaker.links.length > 0 && (
-            <>
-              <div className="share">
-                <Link href="#">
-                  <img src="/assets/img/icons/share1.svg" alt="" />
-                </Link>
-              </div>
-              <ul>
-                {speaker.links.slice(0, 4).map((link, idx) => (
-                  <li key={link.title}>
-                    <a href={link.url} className={getIconClass(idx)} target="_blank" rel="noopener noreferrer" title={link.title}>
-                      <i className={getSocialIcon(link.linkType)} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-        </div>
-      </div>
-      <div className="space28" />
-      <div className="content-area">
-        <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
-        <div className="space16" />
-        <p>{speaker.tagLine}</p>
-      </div>
-    </div>
-  </div>
-);
 
 const SessionDetailItem: React.FC<{ icon: string; label: string; value: React.ReactNode }> = ({ icon, label, value }) => (
   <li>
@@ -161,7 +102,16 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                 <h4>Session Speakers</h4>
                 <div className="row">
                   {speakers.map((speaker) => (
-                    <SpeakerCard key={speaker.id} speaker={speaker} year={year} />
+                    <div className="col-lg-4 col-md-6 mb-4" key={speaker.id}>
+                      <SpeakerCard
+                        name={speaker.fullName}
+                        position={speaker.tagLine}
+                        image={speaker.profilePicture}
+                        links={speaker.links}
+                        speakerId={speaker.id}
+                        year={Number.parseInt(year, 10)}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>

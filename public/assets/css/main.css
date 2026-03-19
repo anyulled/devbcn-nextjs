@@ -1732,7 +1732,7 @@ Location:
 }
 
 .sp1 {
-  padding: 100px 0;
+  padding: 100px 0 50px;
 }
 
 @media (max-width: 767px) {
