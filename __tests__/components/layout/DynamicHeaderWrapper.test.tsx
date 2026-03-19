@@ -53,7 +53,8 @@ describe("DynamicHeaderWrapper", () => {
 
     Object.defineProperty(window, "scrollY", { value: 120, writable: true, configurable: true });
     window.requestAnimationFrame = (cb) => {
-      cb();
+      cb(performance.now());
+      return 1;
     };
     fireEvent.scroll(document);
 

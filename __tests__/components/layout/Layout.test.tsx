@@ -97,7 +97,8 @@ describe("Layout", () => {
 
     Object.defineProperty(window, "scrollY", { value: 150, writable: true, configurable: true });
     window.requestAnimationFrame = (cb) => {
-      cb();
+      cb(performance.now());
+      return 1;
     };
     fireEvent.scroll(document);
 
