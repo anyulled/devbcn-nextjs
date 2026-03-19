@@ -77,11 +77,12 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
             />
             <input
               type="text"
+              aria-label="Search talks"
               id="search-talk"
               placeholder="Search talks..."
               value={searchQuery}
               onChange={handleSearchChange}
-              className="form-control"
+              className="form-control mb-3"
               style={{
                 paddingLeft: "40px",
                 height: "50px",
@@ -89,7 +90,6 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
                 border: "1px solid #e5e7eb",
                 fontSize: "16px",
                 width: "100%",
-                marginBottom: "15px",
               }}
             />
           </div>

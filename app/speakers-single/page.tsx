@@ -7,7 +7,7 @@ export default function SpeakersSingle() {
   return (
     <Layout headerStyle={1} footerStyle={1}>
       <div>
-        <PageHeader title="speakers Details" breadcrumbText="Speakers Details" backgroundImageId={7} contentColClass="col-lg-6" />
+        <PageHeader title="Speakers Details" breadcrumbText="Speakers Details" backgroundImageId={7} contentColClass="col-lg-6" />
         {/* ===== HERO AREA ENDS =======*/}
         {/* ===== TEAM AREA STARTS =======*/}
         <div className="team-details-section-area sp1">
@@ -61,7 +61,7 @@ export default function SpeakersSingle() {
                         <div className="space16" />
                         <p>
                           Kireon Pollardy is a renowned business strategist and thought leader with over 15 years of experience in guiding companies through
-                          transformational growth. As and expert in innovation an leadership, Kireon has worked with global brands, helping them navigate the
+                          transformational growth. As an expert in innovation and leadership, Kireon has worked with global brands, helping them navigate the
                           complexities
                         </p>
                         <div className="space32" />

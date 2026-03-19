@@ -75,7 +75,7 @@ exports[`PageHeader Component matches snapshot with default props 1`] = `
         class="row"
       >
         <div
-          class="col-lg-5 m-auto"
+          class="col-lg-10 m-auto"
         >
           <div
             class="heading1 text-center"

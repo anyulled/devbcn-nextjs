@@ -785,15 +785,15 @@
             align-items: center;
             height: 36px;
             width: 36px;
-            font-size: 18px;
-            color: var(--ztc-text-text-2) !important;
+            font-size: var(--ztc-font-size-18, 18px);
+            color: var(--ztc-text-text-2);
             transition: all 0.4s;
             background: rgb(26 23 25 / 0.05);
             border-radius: 50%;
 
             &:hover {
-              color: var(--ztc-text-text-1) !important;
-              background: #ffba00;
+              color: var(--ztc-text-text-1);
+              background: var(--ztc-color-accent, #ffba00);
             }
           }
         }
