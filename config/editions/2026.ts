@@ -96,6 +96,11 @@ export const edition2026: EditionConfig = {
         website: "https://www.mambu.com/en",
         image: "/assets/img/all-images/sponsors/mambu.png",
       },
+      {
+        name: "Aiven",
+        website: "https://aiven.io/",
+        image: "/assets/img/all-images/sponsors/aiven.svg",
+      },
     ],
     communities: [],
     media_partners: [],
