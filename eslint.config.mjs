@@ -248,6 +248,7 @@ const eslintConfig = [
       ".agent/**",
       "__mocks__/**",
       "docs/api/**",
+      "public/sw.js",
     ],
   },
 ];
