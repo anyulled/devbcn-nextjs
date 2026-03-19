@@ -18,3 +18,9 @@ This document provides system instructions for AI coding assistants working on t
 - Do not disable eslint rules.
 - Check the build and tests always pass before completing a task.
 - Check SonarQube findings and resolve them before claiming any task is done.
+
+## Git Commit Conventions
+
+- **Standard**: Follow [Conventional Commits](https://www.conventionalcommits.org/).
+- **Types**: Use `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `perf`, `style`, `ci`, `build`.
+- **Subject Case**: The subject line MUST be entirely lowercase (`subject-case: lower-case`). Avoid using uppercase for acronyms (e.g., use `sw` or `cra` instead of `SW` or `CRA`) as this will cause the `commit-msg` hook to fail.
