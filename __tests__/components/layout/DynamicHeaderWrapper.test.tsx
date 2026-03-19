@@ -52,6 +52,9 @@ describe("DynamicHeaderWrapper", () => {
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "false");
 
     Object.defineProperty(window, "scrollY", { value: 120, writable: true, configurable: true });
+    window.requestAnimationFrame = (cb) => {
+      cb();
+    };
     fireEvent.scroll(document);
 
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "true");
