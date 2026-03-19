@@ -90,7 +90,13 @@ export const edition2026: EditionConfig = {
         website: "https://www.elastic.co/",
       },
     ],
-    basic: [],
+    basic: [
+      {
+        name: "MAMBU",
+        website: "https://www.mambu.com/en",
+        image: "/assets/img/all-images/sponsors/mambu.png",
+      },
+    ],
     communities: [],
     media_partners: [],
     supporters: [],
