@@ -1,5 +1,5 @@
 import { expect, describe, it } from "@jest/globals";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import BackToTop from "@/components/elements/BackToTop";
 
 describe("BackToTop Component", () => {
