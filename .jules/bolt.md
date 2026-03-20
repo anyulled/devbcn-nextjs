@@ -13,7 +13,7 @@
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
 
-## 2026-03-18 - Avoid O(N^2) array operations in loops
+## 2026-03-18 - Prefer Map.groupBy over mutable array push inside loops
 
-**Learning:** Found an O(N^2) array spread operation (`grouped.set(track, [...existing, talk])`) inside a hot loop in `groupTalksByTrack`. This causes excessive memory allocation and performance degradation as the array grows.
-**Action:** Mutate arrays directly with `.push(item)` instead of spreading when grouping or building arrays inside hot loops and performance-sensitive contexts. Always run Prettier/formatting checks before merge to resolve CI failures.
+**Learning:** Found an O(N^2) array spread operation inside a loop for grouping items. While `.push()` avoids the O(N^2) overhead, it introduces mutability. Modern JS provides `Map.groupBy` (and `Object.groupBy`) which offer purely functional, declarative, and highly optimized O(N) grouping.
+**Action:** Use `Map.groupBy(items, keyFn)` instead of manually creating a Map and conditionally pushing into arrays. This preserves immutability while solving performance bottlenecks. Always run Prettier/formatting checks before merge to resolve CI failures.
