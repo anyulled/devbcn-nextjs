@@ -14,7 +14,7 @@ interface PageHeaderProps {
  * @example
  * <PageHeader title="Talks 2026" breadcrumbText="Talks" backgroundImageId={6} />
  */
-export default function PageHeader({ title, breadcrumbText, backgroundImageId = 6, contentColClass = "col-lg-10" }: Readonly<PageHeaderProps>) {
+export default function PageHeader({ title, breadcrumbText, backgroundImageId = 6, contentColClass = "col-lg-5" }: Readonly<PageHeaderProps>) {
   return (
     <div className="inner-page-header" style={{ position: "relative" }}>
       <Image src={`/assets/img/bg/header-bg${backgroundImageId}.png`} alt="Background" fill priority style={{ objectFit: "cover", zIndex: -1 }} />
