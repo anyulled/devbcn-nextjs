@@ -23,7 +23,7 @@ export const editionLinks: NavItem[] = [
 export const mainNavLinks: NavItem[] = [
   { label: "About Us", href: "/about-us", requiresYear: false },
   { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
-  { label: "Sponsors", href: "/#sponsors", requiresYear: true },
+  { label: "Sponsors", href: "#sponsors", requiresYear: false },
   { label: "Travel", href: "/travel", requiresYear: true },
 ];
 

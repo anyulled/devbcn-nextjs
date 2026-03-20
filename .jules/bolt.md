@@ -16,4 +16,4 @@
 ## 2026-03-18 - Avoid O(N^2) array operations in loops
 
 **Learning:** Found an O(N^2) array spread operation (`grouped.set(track, [...existing, talk])`) inside a hot loop in `groupTalksByTrack`. This causes excessive memory allocation and performance degradation as the array grows.
-**Action:** When building arrays inside performance-sensitive loops, prefer mutating them directly with `.push(item)` instead of using spread syntax to avoid O(N^2) complexity.
+**Action:** Mutate arrays directly with `.push(item)` instead of spreading when grouping or building arrays inside hot loops and performance-sensitive contexts. Always run Prettier/formatting checks before merge to resolve CI failures.

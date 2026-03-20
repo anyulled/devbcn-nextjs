@@ -117,23 +117,6 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#007bff" />
         <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
-
-        <Script id="sw-killswitch" strategy="beforeInteractive">
-          {`
-            if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                registrations.forEach(function(registration) {
-                  registration.unregister();
-                });
-              });
-              caches.keys().then(function(cacheNames) {
-                cacheNames.forEach(function(cacheName) {
-                  caches.delete(cacheName);
-                });
-              });
-            }
-          `}
-        </Script>
       </head>
       {/* Google Analytics */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-0BG1LNPT11" strategy="afterInteractive" />

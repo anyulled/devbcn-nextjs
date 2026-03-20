@@ -22,6 +22,7 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
   const [selectedTrack, setSelectedTrack] = useState<string>(searchParams.get("track") || "");
   const [searchQuery, setSearchQuery] = useState<string>(searchParams.get("q") || "");
 
+  // Update state when URL changes
   useEffect(() => {
     setSelectedTrack(searchParams.get("track") || "");
     setSearchQuery(searchParams.get("q") || "");
@@ -69,6 +70,7 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
   return (
     <div className="talks-filter-bar mb-5">
       <div className="row g-4 align-items-center">
+        {/* Search Input */}
         <div className="col-lg-4">
           <div className="search-input-wrapper position-relative">
             <i
@@ -77,12 +79,10 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
             />
             <input
               type="text"
-              aria-label="Search talks"
-              id="search-talk"
               placeholder="Search talks..."
               value={searchQuery}
               onChange={handleSearchChange}
-              className="form-control mb-3"
+              className="form-control"
               style={{
                 paddingLeft: "40px",
                 height: "50px",
@@ -94,9 +94,9 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
             />
           </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-12">
+
+        {/* Track Pills */}
+        <div className="col-lg-8">
           <div
             className="tracks-scroll-container"
             style={{
@@ -122,9 +122,9 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
                 fontSize: "14px",
                 fontWeight: 500,
                 border: "none",
-                backgroundColor: selectedTrack ? "#f3f4f6" : "#4f46e5",
-                color: selectedTrack ? "#4b5563" : "#fff",
-                boxShadow: selectedTrack ? "none" : "0 4px 6px -1px rgba(79, 70, 229, 0.2)",
+                backgroundColor: !selectedTrack ? "#4f46e5" : "#f3f4f6",
+                color: !selectedTrack ? "#fff" : "#4b5563",
+                boxShadow: !selectedTrack ? "0 4px 6px -1px rgba(79, 70, 229, 0.2)" : "none",
               }}
             >
               All Tracks
