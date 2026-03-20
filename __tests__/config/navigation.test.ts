@@ -57,7 +57,7 @@ describe("Navigation Configuration", () => {
     it("should correctly handle year prefix requirement", () => {
       expect(mainNavLinks[0].requiresYear).toBe(false);
       expect(mainNavLinks[1].requiresYear).toBe(false);
-      expect(mainNavLinks[2].requiresYear).toBe(false);
+      expect(mainNavLinks[2].requiresYear).toBe(true);
       expect(mainNavLinks[3].requiresYear).toBe(true);
     });
   });

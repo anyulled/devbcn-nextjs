@@ -11,6 +11,25 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
   const isMinimalLayout = pathname?.includes("/convince-your-boss");
 
   useEffect(() => {
+    const handleHashScroll = () => {
+      const { hash } = window.location;
+      if (hash) {
+        const id = hash.replace("#", "");
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      }
+    };
+
+    handleHashScroll();
+    window.addEventListener("hashchange", handleHashScroll);
+    return () => window.removeEventListener("hashchange", handleHashScroll);
+  }, [pathname]);
+
+  useEffect(() => {
     AOS.init();
   }, []);
 

@@ -42,9 +42,14 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
       })
       .map((link) => {
         if (link.requiresYear && !link.href.startsWith(`/${year}`)) {
+          const strippedHref = link.href.startsWith("/#") ? link.href.substring(1) : link.href;
+          const isHashOnly = strippedHref.startsWith("#");
+          const needsSlash = !isHashOnly && !strippedHref.startsWith("/");
+          const prefix = needsSlash ? "/" : "";
+
           return {
             ...link,
-            href: `/${year}${link.href.startsWith("/") ? "" : "/"}${link.href}`,
+            href: `/${year}${prefix}${strippedHref}`,
           };
         }
         return link;
