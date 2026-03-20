@@ -116,8 +116,15 @@ export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {
  * Group talks by their track
  */
 export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
-  // ⚡ Bolt: Use Map.groupBy for an immutable, declarative, and highly optimized O(N) grouping
-  return Map.groupBy(talks, getTrackFromTalk);
+  const groupedObj = talks.reduce<Record<string, Talk[]>>((acc, talk) => {
+    const track = getTrackFromTalk(talk);
+    return {
+      ...acc,
+      [track]: [...(acc[track] || []), talk],
+    };
+  }, {});
+
+  return new Map(Object.entries(groupedObj));
 };
 
 /**

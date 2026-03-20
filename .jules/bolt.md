@@ -13,7 +13,7 @@
 **Learning:** Found `useEffect` fetching static content (Speakers) in a Client Component (`Section5`) on the homepage. This caused unnecessary layout shifts and delayed LCP.
 **Action:** Move data fetching to the parent Server Component (`page.tsx`) and pass data as props. This leverages ISR caching and eliminates client-side waterfall.
 
-## 2026-03-18 - Prefer Map.groupBy over mutable array push inside loops
+## 2026-03-18 - Immutability constraints over performance in grouping loops
 
-**Learning:** Found an O(N^2) array spread operation inside a loop for grouping items. While `.push()` avoids the O(N^2) overhead, it introduces mutability. Modern JS provides `Map.groupBy` (and `Object.groupBy`) which offer purely functional, declarative, and highly optimized O(N) grouping.
-**Action:** Use `Map.groupBy(items, keyFn)` instead of manually creating a Map and conditionally pushing into arrays. This preserves immutability while solving performance bottlenecks. Always run Prettier/formatting checks before merge to resolve CI failures.
+**Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
+**Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
