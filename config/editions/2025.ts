@@ -57,12 +57,12 @@ export const edition2025: EditionConfig = {
 
   tickets: {
     startDay: new Date("2025-02-01T00:00:00+01:00"),
-    endDay: new Date("2025-07-01T00:00:00+01:00"),
+    endDay: new Date("2025-07-01T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2025",
     categories: [
-      { name: "Early Bird", price: "350€", startDate: new Date("2025-02-01"), endDate: new Date("2025-03-31") },
-      { name: "Regular", price: "450€", startDate: new Date("2025-04-01"), endDate: new Date("2025-05-31") },
-      { name: "Late Bird", price: "550€", startDate: new Date("2025-06-01"), endDate: new Date("2025-07-01") },
+      { name: "Early Bird", price: "350€", startDate: new Date("2025-02-01T00:00:00+01:00"), endDate: new Date("2025-03-31T23:59:59+01:00") },
+      { name: "Regular", price: "450€", startDate: new Date("2025-04-01T00:00:00+01:00"), endDate: new Date("2025-05-31T23:59:59+01:00") },
+      { name: "Late Bird", price: "550€", startDate: new Date("2025-06-01T00:00:00+01:00"), endDate: new Date("2025-07-01T23:59:59+01:00") },
     ],
   },
 

@@ -24,8 +24,8 @@ export const edition2023: EditionConfig = {
   tracks: "Java | JVM | Go, Rust, C++, C# | Cloud, DevOps, VMs, Kubernetes | Frontend | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",
 
   event: {
-    startDay: new Date("2023-07-03T09:00:00"),
-    endDay: new Date("2023-07-05T14:00:00"),
+    startDay: new Date("2023-07-03T09:00:00+02:00"),
+    endDay: new Date("2023-07-05T14:00:00+02:00"),
   },
 
   actionButtons: false,
@@ -54,25 +54,25 @@ export const edition2023: EditionConfig = {
   jobOffers: { enabled: true },
 
   cfp: {
-    startDay: new Date("2022-11-01T00:00:00"),
-    endDay: new Date("2023-03-15T00:00:00"),
+    startDay: new Date("2022-11-01T00:00:00+01:00"),
+    endDay: new Date("2023-03-15T00:00:00+01:00"),
     link: "https://sessionize.com/devbcn23/",
   },
 
   tickets: {
-    startDay: new Date("2022-11-01T00:00:00"),
-    endDay: new Date("2023-06-26T00:00:00"),
+    startDay: new Date("2022-11-01T00:00:00+01:00"),
+    endDay: new Date("2023-06-26T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2023",
     categories: [
-      { name: "Early Bird", price: "350€", startDate: new Date("2022-11-01"), endDate: new Date("2023-01-31") },
-      { name: "Regular", price: "450€", startDate: new Date("2023-02-01"), endDate: new Date("2023-04-30") },
-      { name: "Late Bird", price: "550€", startDate: new Date("2023-05-01"), endDate: new Date("2023-06-26") },
+      { name: "Early Bird", price: "350€", startDate: new Date("2022-11-01T00:00:00+01:00"), endDate: new Date("2023-01-31T23:59:59+01:00") },
+      { name: "Regular", price: "450€", startDate: new Date("2023-02-01T00:00:00+01:00"), endDate: new Date("2023-04-30T23:59:59+01:00") },
+      { name: "Late Bird", price: "550€", startDate: new Date("2023-05-01T00:00:00+01:00"), endDate: new Date("2023-06-26T23:59:59+01:00") },
     ],
   },
 
   sponsors: {
-    startDate: new Date("2022-01-01T09:00:00"),
-    endDate: new Date("2023-07-13T09:00:00"),
+    startDate: new Date("2022-01-01T09:00:00+01:00"),
+    endDate: new Date("2023-07-13T09:00:00+02:00"),
   },
 
   brochure: "https://bit.ly/devbcn25-brochure-v3",

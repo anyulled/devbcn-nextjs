@@ -73,8 +73,8 @@ describe("JSON-LD Schema Generators", () => {
         trackNumber: 8,
         tracks: "Frontend, Backend, Cloud, AI, DevOps, Mobile, Data, Security",
         event: {
-          startDay: new Date("2026-06-16"),
-          endDay: new Date("2026-06-17"),
+          startDay: new Date("2026-06-16T08:00:00+02:00"),
+          endDay: new Date("2026-06-17T19:00:00+02:00"),
         },
         actionButtons: true,
         showCountdown: true,
@@ -94,22 +94,22 @@ describe("JSON-LD Schema Generators", () => {
         schedule: { enabled: true },
         jobOffers: { enabled: true },
         cfp: {
-          startDay: new Date("2025-12-01"),
-          endDay: new Date("2026-03-31"),
+          startDay: new Date("2025-12-01T00:00:00+01:00"),
+          endDay: new Date("2026-03-31T23:59:59+02:00"),
           link: "https://sessionize.com/devbcn2026",
         },
         tickets: {
-          startDay: new Date("2026-01-01"),
-          endDay: new Date("2026-06-17"),
+          startDay: new Date("2026-01-01T00:00:00+01:00"),
+          endDay: new Date("2026-06-17T23:59:59+01:00"),
           url: "https://tickets.devbcn.com",
           categories: [
-            { name: "Early Bird", price: "350€", startDate: new Date("2026-03-01"), endDate: new Date("2026-03-31") },
-            { name: "Regular", price: "450€", startDate: new Date("2026-04-01"), endDate: new Date("2026-04-30") },
+            { name: "Early Bird", price: "350€", startDate: new Date("2026-03-01T00:00:00+01:00"), endDate: new Date("2026-03-31T23:59:59+01:00") },
+            { name: "Regular", price: "450€", startDate: new Date("2026-04-01T00:00:00+01:00"), endDate: new Date("2026-04-30T23:59:59+01:00") },
           ],
         },
         sponsors: {
-          startDate: new Date("2026-01-01"),
-          endDate: new Date("2026-06-17"),
+          startDate: new Date("2026-01-01T09:00:00+01:00"),
+          endDate: new Date("2026-06-17T09:00:00+01:00"),
         },
         sponsorsData: {
           top: null,

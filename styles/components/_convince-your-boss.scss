@@ -61,6 +61,20 @@
           border-color: #0056b3;
         }
       }
+
+      .active-ticket-info {
+        margin-top: 10px;
+        padding: 12px;
+        background: rgb(0, 86, 179, 0.05);
+        border-radius: 8px;
+        border-left: 4px solid #0056b3;
+        font-size: 1rem;
+        color: #333;
+
+        strong {
+          color: #0056b3;
+        }
+      }
     }
   }
 
@@ -148,6 +162,7 @@
           background: #333;
           color: white;
           border: none;
+
           &:hover {
             opacity: 0.9;
           }
@@ -157,6 +172,7 @@
           background: #0056b3;
           color: white;
           border: none;
+
           &:hover {
             background: #004494;
           }
@@ -177,8 +193,22 @@
     display: none !important;
   }
 
+  .container,
+  .col-lg-7 {
+    width: 100&;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  #back-home {
+    display: none;
+  }
+
   body {
     background: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
   .convince-your-boss-section {
@@ -190,13 +220,38 @@
     position: static;
 
     .letter-paper {
-      box-shadow: none;
-      padding: 30px;
+      box-shadow: none !important;
+      padding: 10px 20px !important;
       min-height: auto;
+      width: 100% !important;
 
       &::before {
         display: none;
       }
+    }
+  }
+}
+
+.minimal-layout {
+  background-color: var(--ztc-bg-bg-1, white);
+  min-height: 100vh;
+  width: 100%;
+
+  .btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    color: #0056b3;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: rgb(0, 86, 179, 0.1);
+
+    &:hover {
+      background: #0056b3;
+      color: #fff;
+      transform: translateX(-5px);
     }
   }
 }

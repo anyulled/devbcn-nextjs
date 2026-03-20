@@ -29,8 +29,8 @@ export const edition2024: EditionConfig = {
     "Java & JVM | Cloud, DevOps, VMs, Kubernetes | Frontend, JavaScript, TypeScript, Angular, WASM | Leadership, Agile, Diversity | Big Data, Machine Learning, AI, Python",
 
   event: {
-    startDay: new Date("2024-06-13T09:00:00"),
-    endDay: new Date("2024-06-14T14:00:00"),
+    startDay: new Date("2024-06-13T09:00:00+02:00"),
+    endDay: new Date("2024-06-14T14:00:00+02:00"),
   },
 
   actionButtons: false,
@@ -54,25 +54,25 @@ export const edition2024: EditionConfig = {
   jobOffers: { enabled: true },
 
   cfp: {
-    startDay: new Date("2024-01-01T00:00:00"),
-    endDay: new Date("2024-04-01T00:00:00"),
+    startDay: new Date("2024-01-01T00:00:00+01:00"),
+    endDay: new Date("2024-04-01T00:00:00+02:00"),
     link: "https://sessionize.com/devbcn-2024/",
   },
 
   tickets: {
-    startDay: new Date("2024-01-01T00:00:00"),
-    endDay: new Date("2024-06-01T00:00:00"),
+    startDay: new Date("2024-01-01T00:00:00+01:00"),
+    endDay: new Date("2024-06-14T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2024",
     categories: [
-      { name: "Early Bird", price: "350€", startDate: new Date("2024-01-01"), endDate: new Date("2024-03-31") },
-      { name: "Regular", price: "450€", startDate: new Date("2024-04-01"), endDate: new Date("2024-05-31") },
-      { name: "Late Bird", price: "550€", startDate: new Date("2024-06-01"), endDate: new Date("2024-06-14") },
+      { name: "Early Bird", price: "350€", startDate: new Date("2024-01-01T00:00:00+01:00"), endDate: new Date("2024-03-31T23:59:59+01:00") },
+      { name: "Regular", price: "450€", startDate: new Date("2024-04-01T00:00:00+01:00"), endDate: new Date("2024-05-31T23:59:59+01:00") },
+      { name: "Late Bird", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
     ],
   },
 
   sponsors: {
-    startDate: new Date("2023-12-01T09:00:00"),
-    endDate: new Date("2024-05-13T09:00:00"),
+    startDate: new Date("2023-12-01T09:00:00+01:00"),
+    endDate: new Date("2024-05-13T09:00:00+02:00"),
   },
 
   brochure: "https://bit.ly/devbcn25-brochure-v3",
