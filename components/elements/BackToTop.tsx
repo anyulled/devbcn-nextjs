@@ -5,12 +5,29 @@ export default function BackToTop({ target }: Readonly<{ target: string }>) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    /*
+     * ⚡ Bolt Optimization:
+     * - Throttles scroll events using requestAnimationFrame to prevent main-thread blocking and excessive re-renders.
+     * - Uses passive event listener to allow the browser to perform smooth scrolling without waiting for JS execution.
+     * Expected impact: Significant reduction in CPU usage and jank during fast scrolling.
+     */
+    const state = { isTicking: false, tickingId: 0 };
+
     const onScroll = () => {
-      setHasScrolled(window.scrollY > 100);
+      if (!state.isTicking) {
+        state.tickingId = window.requestAnimationFrame(() => {
+          setHasScrolled(window.scrollY > 100);
+          state.isTicking = false;
+        });
+        state.isTicking = true;
+      }
     };
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.cancelAnimationFrame(state.tickingId);
+    };
   }, []);
 
   const handleClick = () => {
