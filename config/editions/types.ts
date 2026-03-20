@@ -43,11 +43,19 @@ export interface SponsorConfig {
   endDate: Date;
 }
 
+export interface TicketCategory {
+  name: string;
+  price: string;
+  startDate: Date;
+  endDate: Date;
+}
+
 /**
  * Tickets configuration with sale period and purchase URL
  */
 export interface TicketsConfig extends DateRangeConfig {
   url: string;
+  categories: TicketCategory[];
 }
 
 /**

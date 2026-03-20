@@ -102,6 +102,10 @@ describe("JSON-LD Schema Generators", () => {
           startDay: new Date("2026-01-01"),
           endDay: new Date("2026-06-17"),
           url: "https://tickets.devbcn.com",
+          categories: [
+            { name: "Early Bird", price: "350€", startDate: new Date("2026-03-01"), endDate: new Date("2026-03-31") },
+            { name: "Regular", price: "450€", startDate: new Date("2026-04-01"), endDate: new Date("2026-04-30") },
+          ],
         },
         sponsors: {
           startDate: new Date("2026-01-01"),

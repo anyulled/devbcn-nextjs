@@ -63,6 +63,11 @@ export const edition2024: EditionConfig = {
     startDay: new Date("2024-01-01T00:00:00"),
     endDay: new Date("2024-06-01T00:00:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2024",
+    categories: [
+      { name: "Early Bird", price: "350€", startDate: new Date("2024-01-01"), endDate: new Date("2024-03-31") },
+      { name: "Regular", price: "450€", startDate: new Date("2024-04-01"), endDate: new Date("2024-05-31") },
+      { name: "Late Bird", price: "550€", startDate: new Date("2024-06-01"), endDate: new Date("2024-06-14") },
+    ],
   },
 
   sponsors: {
