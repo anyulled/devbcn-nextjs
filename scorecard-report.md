@@ -4,7 +4,7 @@
 
 - **Repository**: `/home/runner/work/devbcn-nextjs/devbcn-nextjs`
 - **Languages**: javascript, typescript
-- **Assessed**: 2026-03-20 17:53 UTC
+- **Assessed**: 2026-03-20 18:42 UTC
 - **Checks**: 28/31 passed
 
 ## Summary
@@ -86,7 +86,7 @@ _Blog: security infrastructure reliability_
 
 _DORA 2025 - working in small batches_
 
-**Evidence**: Commit lint config found: .commitlintrc.yml
+**Evidence**: Commit lint config found: commitlint.config.js
 
 ### [FAIL] Unsafe Code Policy (0/3)
 
