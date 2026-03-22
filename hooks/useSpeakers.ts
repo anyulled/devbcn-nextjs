@@ -44,10 +44,19 @@ export function getRandomSpeakers(speakers: Speaker[], count: number): Speaker[]
   if (!speakers || speakers.length === 0) return [];
   if (speakers.length <= count) return speakers;
 
-  const shuffled = [...speakers]
-    .map((speaker) => ({ speaker, sortKey: Math.random() }))
-    .sort((a, b) => a.sortKey - b.sortKey)
-    .map((item) => item.speaker);
+  const shuffled = [...speakers];
+  shuffled.forEach((_, index) => {
+    const i = shuffled.length - 1 - index;
+    if (i > 0) {
+      const j = Math.floor(Math.random() * (i + 1));
+      // eslint-disable-next-line security/detect-object-injection
+      const temp = shuffled[i];
+      // eslint-disable-next-line security/detect-object-injection
+      shuffled[i] = shuffled[j];
+      // eslint-disable-next-line security/detect-object-injection
+      shuffled[j] = temp;
+    }
+  });
 
   return shuffled.slice(0, count);
 }

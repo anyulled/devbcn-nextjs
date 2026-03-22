@@ -139,10 +139,20 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
  * Shuffle an array using Fisher-Yates algorithm
  */
 const shuffleArray = <T>(array: T[]): T[] => {
-  return [...array]
-    .map((item) => ({ item, sortKey: Math.random() }))
-    .sort((a, b) => a.sortKey - b.sortKey)
-    .map((entry) => entry.item);
+  const result = [...array];
+  result.forEach((_, index) => {
+    const i = result.length - 1 - index;
+    if (i > 0) {
+      const j = Math.floor(Math.random() * (i + 1));
+      // eslint-disable-next-line security/detect-object-injection
+      const temp = result[i];
+      // eslint-disable-next-line security/detect-object-injection
+      result[i] = result[j];
+      // eslint-disable-next-line security/detect-object-injection
+      result[j] = temp;
+    }
+  });
+  return result;
 };
 
 /**

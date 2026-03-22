@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-03-22 - Array Shuffling Performance
+
+**Learning:** The O(N log N) \`[...array].map().sort().map()\` pattern with \`Math.random()\` creates multiple intermediate arrays and objects, causing unnecessary memory allocation and GC overhead when shuffling arrays. The project's ESLint rules strictly forbid the use of \`let\` (\`Use const. Avoid mutation\`), preventing the traditional Fisher-Yates \`for (let i = ...)\` loop.
+**Action:** Use the O(N) Fisher-Yates algorithm with \`forEach\` on a shallow copy of the array (\`const result = [...array]; result.forEach((_, index) => { const i = result.length - 1 - index; ... })\`) to achieve in-place shuffling while satisfying the strict immutability linting constraints. Ensure object injection sink warnings are bypassed with \`// eslint-disable-next-line security/detect-object-injection\`.
