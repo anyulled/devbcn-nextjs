@@ -1,0 +1,31 @@
+name: Documentation and Quality Checks
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  link-checker:
+    name: Link Checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --exclude-mail --verbose --no-progress './**/*.md'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  todo-scanner:
+    name: TODO/FIXME Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan for TODO/FIXME
+        run: |
+          echo "Scanning for TODO and FIXME comments in the codebase..."
+          # Exclude common meta-directories and the .github folder to avoid matching this workflow file
+          grep -rnEi "TODO|FIXME" . --exclude-dir={node_modules,.git,.next,.agent,.jules,.github} || echo "No TODO/FIXME comments found."

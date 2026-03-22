@@ -1,0 +1,7 @@
+# Exclude LinkedIn because it often returns 999 or 403 in CI
+https://www.linkedin.com/.*
+# Exclude Twitter/X
+https://twitter.com/.*
+https://x.com/.*
+# Exclude local development URLs
+http://localhost:.*
