@@ -4,13 +4,15 @@ import React from "react";
 import type { EditionNavigation } from "@/config/editions/types";
 
 beforeAll(() => {
-  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => cb());
+  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+    cb(0);
+    return 0;
+  });
 });
 
 afterAll(() => {
   (window.requestAnimationFrame as jest.Mock).mockRestore();
 });
-
 
 jest.mock("@/components/layout/header/Header8", () => ({
   __esModule: true,

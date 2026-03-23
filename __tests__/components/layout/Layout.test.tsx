@@ -3,13 +3,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
 beforeAll(() => {
-  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => cb());
+  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+    cb(0);
+    return 0;
+  });
 });
 
 afterAll(() => {
   (window.requestAnimationFrame as jest.Mock).mockRestore();
 });
-
 
 const aosInit = jest.fn();
 
