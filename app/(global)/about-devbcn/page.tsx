@@ -23,19 +23,19 @@ export default function About() {
             <div className="col-lg-6">
               <div className="about-imges">
                 <div className="img1 reveal image-anime">
-                  <Image src="/assets/img/all-images/about/about-img1.png" alt="" width={600} height={600} />
+                  <Image src="/assets/img/all-images/about/about-img1.png" alt="DevBcn" width={600} height={600} />
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-6">
                     <div className="space30" />
                     <div className="img1 reveal image-anime">
-                      <Image src="/assets/img/all-images/about/about-img2.png" alt="" width={600} height={600} />
+                      <Image src="/assets/img/all-images/about/about-img2.png" alt="Speakers 1" width={600} height={600} />
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6">
                     <div className="space30" />
                     <div className="img1 reveal image-anime">
-                      <Image src="/assets/img/all-images/about/about-img3.png" alt="" width={600} height={600} />
+                      <Image src="/assets/img/all-images/about/about-img3.png" alt="Speakers 2" width={600} height={600} />
                     </div>
                   </div>
                 </div>
