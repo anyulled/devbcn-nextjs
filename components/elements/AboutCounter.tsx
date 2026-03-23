@@ -6,22 +6,21 @@ export default function AboutCounter() {
     <div className="about-counter-area">
       <div className="counter-box">
         <h2>
-          <CountUp className="odometer" enableScrollSpy={true} end={250} />+
+          <CountUp className="odometer" enableScrollSpy={true} end={80} />+
         </h2>
         <div className="space18" />
-        <p>Our Journalist</p>
+        <p>Sessions</p>
       </div>
       <div className="counter-box box2">
         <h2>
-          <CountUp className="odometer" enableScrollSpy={true} end={15} />+
+          <CountUp className="odometer" enableScrollSpy={true} end={70} />+
         </h2>
         <div className="space18" />
-        <p>Our Speaker</p>
+        <p>Speakers</p>
       </div>
       <div className="counter-box box3" style={{ border: "none" }}>
         <h2>
-          <CountUp className="odometer" enableScrollSpy={true} end={7} />
-          K+
+          <CountUp className="odometer" enableScrollSpy={true} end={700} />+
         </h2>
         <div className="space18" />
         <p>Attendees</p>

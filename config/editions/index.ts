@@ -40,12 +40,14 @@ export const CURRENT_EDITION: EditionYear = "2026";
  * const config = getEditionConfig("2025");
  * console.log(config.cfp.link);
  */
+const editionsMap = new Map<string, EditionConfig>(Object.entries(editions));
+
 export const getEditionConfig = (year: string | number): EditionConfig => {
   const yearStr = String(year);
   if (isValidEditionYear(yearStr)) {
-    return editions[yearStr];
+    return editionsMap.get(yearStr) || editionsMap.get(CURRENT_EDITION)!;
   }
-  return editions[CURRENT_EDITION];
+  return editionsMap.get(CURRENT_EDITION)!;
 };
 
 /**
@@ -54,7 +56,7 @@ export const getEditionConfig = (year: string | number): EditionConfig => {
  * @returns The current edition configuration
  */
 export const getCurrentEditionConfig = (): EditionConfig => {
-  return editions[CURRENT_EDITION];
+  return editionsMap.get(CURRENT_EDITION)!;
 };
 
 /**
