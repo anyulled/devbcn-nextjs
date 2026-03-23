@@ -18,6 +18,18 @@ export default function Section1({ year }: Readonly<Section1Props>) {
   const config = getEditionConfig(year);
   const router = useRouter();
 
+  const currentDate = new Date();
+  const isCfpOpen = currentDate >= config.cfp.startDay && currentDate <= config.cfp.endDay;
+
+  // Find ticket start and end dates based on categories if available
+  const blindBird = config.tickets.categories?.find((c) => c.name.toLowerCase().includes("blind bird"));
+  const superLastMinute = config.tickets.categories?.find((c) => c.name.toLowerCase().includes("super last minute"));
+
+  const ticketsStart = blindBird ? blindBird.startDate : config.tickets.startDay;
+  const ticketsEnd = superLastMinute ? superLastMinute.endDate : config.tickets.endDay;
+
+  const isTicketsOpen = currentDate >= ticketsStart && currentDate <= ticketsEnd;
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -90,18 +102,22 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                 </motion.div>
 
                 <motion.div className="btn-area1" variants={containerVariants}>
-                  <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
-                    <Link href={config.tickets.url} className="hero-cta hero-cta--primary" onClick={() => trackTicketClick("hero", year)}>
-                      <Ticket className="hero-cta__icon" />
-                      <span className="hero-cta__text">Reserve Your Seat</span>
-                    </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
-                    <Link href={config.cfp.link} className="hero-cta hero-cta--secondary">
-                      <Mic className="hero-cta__icon" />
-                      <span className="hero-cta__text">Become a Speaker</span>
-                    </Link>
-                  </motion.div>
+                  {isTicketsOpen && (
+                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
+                      <Link href={config.tickets.url} className="hero-cta hero-cta--primary" onClick={() => trackTicketClick("hero", year)}>
+                        <Ticket className="hero-cta__icon" />
+                        <span className="hero-cta__text">Reserve Your Seat</span>
+                      </Link>
+                    </motion.div>
+                  )}
+                  {isCfpOpen && (
+                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
+                      <Link href={config.cfp.link} className="hero-cta hero-cta--secondary">
+                        <Mic className="hero-cta__icon" />
+                        <span className="hero-cta__text">Become a Speaker</span>
+                      </Link>
+                    </motion.div>
+                  )}
                   <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
                     <Link href={`/${year}/sponsorship`} className="hero-cta hero-cta--tertiary">
                       <Handshake className="hero-cta__icon" />
