@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
+<div>
+  <div>
+    <div
+      data-testid="page-header"
+    >
+      Pricing Plan
+    </div>
+    <div
+      class="pricing-lan-section-area sp1"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-5 m-auto"
+          >
+            <div
+              class="heading2 text-center space-margin60"
+            >
+              <h5>
+                ticket pricing
+              </h5>
+              <div
+                class="space18"
+              />
+              <h2>
+                Event Pass & Tickets
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div
+              class="pricing-boxarea h-100 d-flex flex-column"
+            >
+              <h5>
+                Test Bird
+              </h5>
+              <div
+                class="space20"
+              />
+              <h2>
+                100€
+              </h2>
+              <div
+                class="space8"
+              />
+              <p
+                class="validity-dates"
+                style="font-size: 14px; color: rgb(102, 102, 102); margin-bottom: 15px;"
+              >
+                Valid: 
+                01/01/2026
+                 - 
+                31/01/2026
+              </p>
+              <ul>
+                <li>
+                  <img
+                    alt="Checkmark icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="24"
+                    loading="lazy"
+                    src="/assets/img/icons/check2.svg"
+                    style="color: transparent;"
+                    width="24"
+                  />
+                  career grow opportunities
+                </li>
+                <li>
+                  <img
+                    alt="Checkmark icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="24"
+                    loading="lazy"
+                    src="/assets/img/icons/check2.svg"
+                    style="color: transparent;"
+                    width="24"
+                  />
+                  Networking with top speakers
+                </li>
+                <li>
+                  <img
+                    alt="Checkmark icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="24"
+                    loading="lazy"
+                    src="/assets/img/icons/check2.svg"
+                    style="color: transparent;"
+                    width="24"
+                  />
+                  Incredible swag from sponsoring companies
+                </li>
+                <li>
+                  <img
+                    alt="Checkmark icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="24"
+                    loading="lazy"
+                    src="/assets/img/icons/check2.svg"
+                    style="color: transparent;"
+                    width="24"
+                  />
+                  Summer in Barcelona
+                </li>
+                <li>
+                  <img
+                    alt="Checkmark icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="24"
+                    loading="lazy"
+                    src="/assets/img/icons/check2.svg"
+                    style="color: transparent;"
+                    width="24"
+                  />
+                  Top class well-located venue
+                </li>
+              </ul>
+              <div
+                class="space28"
+              />
+              <div
+                class="btn-area1 mt-auto pt-4"
+              >
+                <a
+                  class="vl-btn1"
+                  href="https://tickets.test.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  buy a ticket
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="cta-section"
+    >
+      CTA Section
+    </div>
+  </div>
+</div>
+`;

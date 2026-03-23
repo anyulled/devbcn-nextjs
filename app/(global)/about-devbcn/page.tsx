@@ -46,7 +46,7 @@ export default function About() {
                       fill="#FFBA00"
                     />
                   </svg>
-                  <Link href="/pricing-plan">
+                  <Link href={`/${eventData.edition}/pricing-plan`}>
                     <span>
                       <i className="fa-solid fa-arrow-right" />
                     </span>
