@@ -2,6 +2,15 @@ import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
+beforeAll(() => {
+  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => cb());
+});
+
+afterAll(() => {
+  (window.requestAnimationFrame as jest.Mock).mockRestore();
+});
+
+
 const aosInit = jest.fn();
 
 const createHeaderMock = (id: number) => {

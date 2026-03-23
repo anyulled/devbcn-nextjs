@@ -5,12 +5,22 @@ export default function BackToTop({ target }: Readonly<{ target: string }>) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    const state = { isTicking: false, frameId: 0 };
     const onScroll = () => {
-      setHasScrolled(window.scrollY > 100);
+      if (!state.isTicking) {
+        state.frameId = window.requestAnimationFrame(() => {
+          setHasScrolled(window.scrollY > 100);
+          state.isTicking = false;
+        });
+        state.isTicking = true;
+      }
     };
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (state.frameId) window.cancelAnimationFrame(state.frameId);
+    };
   }, []);
 
   const handleClick = () => {

@@ -3,6 +3,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import type { EditionNavigation } from "@/config/editions/types";
 
+beforeAll(() => {
+  jest.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => cb());
+});
+
+afterAll(() => {
+  (window.requestAnimationFrame as jest.Mock).mockRestore();
+});
+
+
 jest.mock("@/components/layout/header/Header8", () => ({
   __esModule: true,
   default: ({ scroll, isSearch, handleSearch }: { scroll: boolean; isSearch: boolean; handleSearch: () => void }) => (
