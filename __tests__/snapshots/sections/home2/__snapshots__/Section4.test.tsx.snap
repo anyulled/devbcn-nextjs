@@ -40,73 +40,73 @@ exports[`Home2 Section4 Component matches snapshot 1`] = `
           data-aos-duration="900"
         >
           <div
-            class="our-team-boxarea"
+            class="speaker-card"
           >
             <div
-              class="team-widget-area"
-            >
-              <div
-                class="img1"
-              >
-                <img
-                  alt=""
-                  class="team-img4"
-                  src="/assets/img/all-images/team/team-img4.png"
-                />
-                <img
-                  alt=""
-                  class="team-img8"
-                  src="/assets/img/elements/elements16.png"
-                />
-                <ul>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-facebook-f"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-linkedin-in"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="m-0"
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-instagram"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="space28"
-            />
-            <div
-              class="content-area"
+              class="speaker-image-wrapper"
             >
               <a
+                class="speaker-image-link"
                 href="/speakers"
               >
-                Alex Robertson
+                <img
+                  alt=""
+                  class="speaker-image"
+                  src="/assets/img/all-images/team/team-img4.png"
+                />
               </a>
+            </div>
+            <div
+              class="speaker-content"
+            >
+              <h4
+                class="speaker-name mb-0"
+              >
+                <a
+                  href="/speakers"
+                >
+                  Alex Robertson
+                </a>
+              </h4>
               <div
                 class="space16"
               />
-              <p>
+              <p
+                class="speaker-position mb-0"
+              >
                 Finance Consultant
               </p>
+              <div
+                class="space24"
+              />
+              <div
+                class="speaker-socials"
+              >
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-facebook-f"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-instagram"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -116,73 +116,73 @@ exports[`Home2 Section4 Component matches snapshot 1`] = `
           data-aos-duration="1000"
         >
           <div
-            class="our-team-boxarea"
+            class="speaker-card"
           >
             <div
-              class="team-widget-area"
-            >
-              <div
-                class="img1"
-              >
-                <img
-                  alt=""
-                  class="team-img4"
-                  src="/assets/img/all-images/team/team-img5.png"
-                />
-                <img
-                  alt=""
-                  class="team-img8"
-                  src="/assets/img/elements/elements16.png"
-                />
-                <ul>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-facebook-f"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-linkedin-in"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="m-0"
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-instagram"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="space28"
-            />
-            <div
-              class="content-area"
+              class="speaker-image-wrapper"
             >
               <a
+                class="speaker-image-link"
                 href="/speakers"
               >
-                Alexy Sammo
+                <img
+                  alt=""
+                  class="speaker-image"
+                  src="/assets/img/all-images/team/team-img5.png"
+                />
               </a>
+            </div>
+            <div
+              class="speaker-content"
+            >
+              <h4
+                class="speaker-name mb-0"
+              >
+                <a
+                  href="/speakers"
+                >
+                  Alexy Sammo
+                </a>
+              </h4>
               <div
                 class="space16"
               />
-              <p>
+              <p
+                class="speaker-position mb-0"
+              >
                 HR Consultant
               </p>
+              <div
+                class="space24"
+              />
+              <div
+                class="speaker-socials"
+              >
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-facebook-f"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-instagram"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -192,73 +192,73 @@ exports[`Home2 Section4 Component matches snapshot 1`] = `
           data-aos-duration="1100"
         >
           <div
-            class="our-team-boxarea"
+            class="speaker-card"
           >
             <div
-              class="team-widget-area"
-            >
-              <div
-                class="img1"
-              >
-                <img
-                  alt=""
-                  class="team-img4"
-                  src="/assets/img/all-images/team/team-img6.png"
-                />
-                <img
-                  alt=""
-                  class="team-img8"
-                  src="/assets/img/elements/elements16.png"
-                />
-                <ul>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-facebook-f"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-linkedin-in"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="m-0"
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-instagram"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="space28"
-            />
-            <div
-              class="content-area"
+              class="speaker-image-wrapper"
             >
               <a
+                class="speaker-image-link"
                 href="/speakers"
               >
-                Andrew Symonds
+                <img
+                  alt=""
+                  class="speaker-image"
+                  src="/assets/img/all-images/team/team-img6.png"
+                />
               </a>
+            </div>
+            <div
+              class="speaker-content"
+            >
+              <h4
+                class="speaker-name mb-0"
+              >
+                <a
+                  href="/speakers"
+                >
+                  Andrew Symonds
+                </a>
+              </h4>
               <div
                 class="space16"
               />
-              <p>
+              <p
+                class="speaker-position mb-0"
+              >
                 Finance Consultant
               </p>
+              <div
+                class="space24"
+              />
+              <div
+                class="speaker-socials"
+              >
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-facebook-f"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-instagram"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -268,73 +268,73 @@ exports[`Home2 Section4 Component matches snapshot 1`] = `
           data-aos-duration="1200"
         >
           <div
-            class="our-team-boxarea"
+            class="speaker-card"
           >
             <div
-              class="team-widget-area"
-            >
-              <div
-                class="img1"
-              >
-                <img
-                  alt=""
-                  class="team-img4"
-                  src="/assets/img/all-images/team/team-img7.png"
-                />
-                <img
-                  alt=""
-                  class="team-img8"
-                  src="/assets/img/elements/elements16.png"
-                />
-                <ul>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-facebook-f"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-linkedin-in"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="m-0"
-                      href="/#"
-                    >
-                      <i
-                        class="fa-brands fa-instagram"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="space28"
-            />
-            <div
-              class="content-area"
+              class="speaker-image-wrapper"
             >
               <a
+                class="speaker-image-link"
                 href="/speakers"
               >
-                Ben Stokes
+                <img
+                  alt=""
+                  class="speaker-image"
+                  src="/assets/img/all-images/team/team-img7.png"
+                />
               </a>
+            </div>
+            <div
+              class="speaker-content"
+            >
+              <h4
+                class="speaker-name mb-0"
+              >
+                <a
+                  href="/speakers"
+                >
+                  Ben Stokes
+                </a>
+              </h4>
               <div
                 class="space16"
               />
-              <p>
+              <p
+                class="speaker-position mb-0"
+              >
                 Finance Consultant
               </p>
+              <div
+                class="space24"
+              />
+              <div
+                class="speaker-socials"
+              >
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-facebook-f"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in"
+                  />
+                </a>
+                <a
+                  class="social-link"
+                  href="/#"
+                >
+                  <i
+                    class="fa-brands fa-instagram"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>

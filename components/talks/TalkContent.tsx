@@ -25,22 +25,17 @@ interface TalkContentProps {
 }
 
 const getSocialIcon = (linkType: string): string => {
-  const iconMap: Record<string, string> = {
-    Twitter: "fa-brands fa-twitter",
-    LinkedIn: "fa-brands fa-linkedin-in",
-    Facebook: "fa-brands fa-facebook-f",
-    Instagram: "fa-brands fa-instagram",
-    GitHub: "fa-brands fa-github",
-    Blog: "fa-solid fa-blog",
-    Company_Website: "fa-solid fa-building",
-    Other: "fa-solid fa-link",
-  };
-  return iconMap[linkType] || "fa-solid fa-link";
-};
-
-const getIconClass = (index: number): string => {
-  const classes = ["icon1", "icon2", "icon3", "icon4"];
-  return classes[index % classes.length];
+  const iconMap = new Map<string, string>([
+    ["Twitter", "fa-brands fa-twitter"],
+    ["LinkedIn", "fa-brands fa-linkedin-in"],
+    ["Facebook", "fa-brands fa-facebook-f"],
+    ["Instagram", "fa-brands fa-instagram"],
+    ["GitHub", "fa-brands fa-github"],
+    ["Blog", "fa-solid fa-blog"],
+    ["Company_Website", "fa-solid fa-building"],
+    ["Other", "fa-solid fa-link"],
+  ]);
+  return iconMap.get(linkType) ?? "fa-solid fa-link";
 };
 
 const formatTalkDates = (talk: Talk) => {
@@ -54,41 +49,30 @@ const formatTalkDates = (talk: Talk) => {
   return { startDate, startTime, endDate, endTime, startFormatted, timeFormatted };
 };
 
-const SpeakerCard: React.FC<{ speaker: Speaker; year: string }> = ({ speaker, year }) => (
+const SpeakerCard: React.FC<Readonly<{ speaker: Speaker; year: string }>> = ({ speaker, year }) => (
   <div className="col-lg-4 col-md-6" key={speaker.id}>
-    <div className="our-team-boxarea">
-      <div className="team-widget-area">
-        <Image src="/assets/img/elements/elements25.png" alt="" className="elements21" width={100} height={100} />
-        <Image src="/assets/img/elements/elements26.png" alt="" className="elements22" width={100} height={100} />
-        <div className="img1">
-          <Link href={`/${year}/speakers/${speaker.id}`}>
-            <Image src={speaker.profilePicture} alt={speaker.fullName} className="team-img4" width={150} height={150} style={{ objectFit: "cover" }} />
-          </Link>
-          {speaker.links.length > 0 && (
-            <>
-              <div className="share">
-                <Link href="#">
-                  <img src="/assets/img/icons/share1.svg" alt="" />
-                </Link>
-              </div>
-              <ul>
-                {speaker.links.slice(0, 4).map((link, idx) => (
-                  <li key={link.title}>
-                    <a href={link.url} className={getIconClass(idx)} target="_blank" rel="noopener noreferrer" title={link.title}>
-                      <i className={getSocialIcon(link.linkType)} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-        </div>
+    <div className="speaker-card">
+      <div className="speaker-image-wrapper">
+        <Link href={`/${year}/speakers/${speaker.id}`} className="speaker-image-link">
+          <Image src={speaker.profilePicture} alt={speaker.fullName} fill className="speaker-image" sizes="(max-width: 768px) 100vw, 400px" />
+        </Link>
       </div>
-      <div className="space28" />
-      <div className="content-area">
-        <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
+      <div className="speaker-content">
+        <h4 className="speaker-name mb-0">
+          <Link href={`/${year}/speakers/${speaker.id}`}>{speaker.fullName}</Link>
+        </h4>
         <div className="space16" />
-        <p>{speaker.tagLine}</p>
+        <p className="speaker-position mb-0">{speaker.tagLine}</p>
+        <div className="space24" />
+        {speaker.links.length > 0 && (
+          <div className="speaker-socials">
+            {speaker.links.slice(0, 4).map((link) => (
+              <a key={link.title} href={link.url} className="social-link" target="_blank" rel="noopener noreferrer" title={link.title}>
+                <i className={getSocialIcon(link.linkType)} />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   </div>
@@ -107,9 +91,9 @@ const SessionDetailItem: React.FC<{ icon: string; label: string; value: React.Re
 const TagList: React.FC<{ tags: string[]; year: string }> = ({ tags, year }) => (
   <div style={{ marginBottom: "24px", marginTop: "16px" }}>
     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-      {tags.map((tag, index) => (
+      {tags.map((tag) => (
         <Link
-          key={index}
+          key={tag}
           href={`/${year}/tags/${tag}`}
           style={{
             display: "inline-block",
@@ -211,7 +195,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     {/* OpenFeedback Vote Button */}
                     <a href={voteUrl} target="_blank" rel="noopener noreferrer" className="vl-btn1">
                       <span className="demo">
-                        <i className="fa-solid fa-thumbs-up" style={{ marginRight: "8px" }} />
+                        <i className="fa-solid fa-thumbs-up me-2" />
                         Vote on OpenFeedback
                       </span>
                     </a>

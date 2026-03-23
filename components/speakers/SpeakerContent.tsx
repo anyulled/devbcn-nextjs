@@ -22,25 +22,20 @@ interface SpeakerContentProps {
 }
 
 const getSocialIcon = (linkType: string): string => {
-  const iconMap: Record<string, string> = {
-    Twitter: "fa-brands fa-twitter",
-    LinkedIn: "fa-brands fa-linkedin-in",
-    Facebook: "fa-brands fa-facebook-f",
-    Instagram: "fa-brands fa-instagram",
-    GitHub: "fa-brands fa-github",
-    Blog: "fa-solid fa-blog",
-    Company_Website: "fa-solid fa-building",
-    Other: "fa-solid fa-link",
-  };
-  return iconMap[linkType] || "fa-solid fa-link";
+  const iconMap = new Map<string, string>([
+    ["Twitter", "fa-brands fa-twitter"],
+    ["LinkedIn", "fa-brands fa-linkedin-in"],
+    ["Facebook", "fa-brands fa-facebook-f"],
+    ["Instagram", "fa-brands fa-instagram"],
+    ["GitHub", "fa-brands fa-github"],
+    ["Blog", "fa-solid fa-blog"],
+    ["Company_Website", "fa-solid fa-building"],
+    ["Other", "fa-solid fa-link"],
+  ]);
+  return iconMap.get(linkType) || "fa-solid fa-link";
 };
 
-const getIconClass = (index: number): string => {
-  const classes = ["icon1", "icon2", "icon3", "icon4"];
-  return classes[index % classes.length];
-};
-
-const SpeakerContent: React.FC<SpeakerContentProps> = ({ speaker, year, eventData }) => {
+const SpeakerContent: React.FC<Readonly<SpeakerContentProps>> = ({ speaker, year, eventData }) => {
   return (
     <div>
       {/* Header Section */}
@@ -55,34 +50,27 @@ const SpeakerContent: React.FC<SpeakerContentProps> = ({ speaker, year, eventDat
                 <div className="row align-items-center">
                   {/* Speaker Image and Info Card */}
                   <div className="col-lg-5">
-                    <div className="our-team-boxarea">
-                      <div className="team-widget-area">
-                        <div className="img1">
-                          <Image
-                            src={speaker.profilePicture}
-                            alt={speaker.fullName}
-                            className="team-img4"
-                            width={300}
-                            height={300}
-                            style={{ objectFit: "cover", borderRadius: "8px" }}
-                          />
+                    <div className="speaker-card">
+                      <div className="speaker-image-wrapper">
+                        <div className="speaker-image-link">
+                          <Image src={speaker.profilePicture} alt={speaker.fullName} fill className="speaker-image" sizes="(max-width: 768px) 100vw, 400px" />
                         </div>
                       </div>
-                      <div className="content-area">
-                        <Link href="#">{speaker.fullName}</Link>
+                      <div className="speaker-content">
+                        <h4 className="speaker-name mb-0">
+                          <Link href="#">{speaker.fullName}</Link>
+                        </h4>
                         <div className="space16" />
-                        <p>{speaker.tagLine}</p>
+                        <p className="speaker-position mb-0">{speaker.tagLine}</p>
                         <div className="space24" />
                         {speaker.links.length > 0 && (
-                          <ul>
-                            {speaker.links.map((link, index) => (
-                              <li key={link.title}>
-                                <a href={link.url} className={getIconClass(index)} target="_blank" rel="noopener noreferrer" title={link.title}>
-                                  <i className={getSocialIcon(link.linkType)} />
-                                </a>
-                              </li>
+                          <div className="speaker-socials">
+                            {speaker.links.map((link) => (
+                              <a key={link.title} href={link.url} className="social-link" target="_blank" rel="noopener noreferrer" title={link.title}>
+                                <i className={getSocialIcon(link.linkType)} />
+                              </a>
                             ))}
-                          </ul>
+                          </div>
                         )}
                       </div>
                     </div>
