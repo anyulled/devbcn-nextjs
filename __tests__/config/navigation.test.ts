@@ -77,8 +77,8 @@ describe("Navigation Configuration", () => {
 
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
-      expect(newsDropdownLinks).toHaveLength(4);
-      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Sponsorship", "Diversity", "Job Offers"]);
+      expect(newsDropdownLinks).toHaveLength(5);
+      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["CFP", "Sponsorship", "Diversity", "Job Offers", "Contact Us"]);
     });
 
     it("should have correct year requirement flags", () => {
@@ -90,6 +90,8 @@ describe("Navigation Configuration", () => {
       expect(newsDropdownLinks[2].requiresYear).toBe(true);
       // Job Offers
       expect(newsDropdownLinks[3].requiresYear).toBe(true);
+      // Contact Us
+      expect(newsDropdownLinks[4].requiresYear).toBe(false);
     });
   });
 
