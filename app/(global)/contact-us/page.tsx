@@ -1,3 +1,4 @@
+import ContactForm from "@/components/forms/ContactForm";
 import CTASection from "@/components/sections/CTASection";
 import PageHeader from "@/components/layout/PageHeader";
 import { getCurrentEditionConfig } from "@/config/editions";
@@ -35,43 +36,7 @@ export default function Contact() {
                 <div className="contact4-boxarea">
                   <h3 className="text-anime-style-3">Get In Touch Now</h3>
                   <div className="space8" />
-                  <form action={`mailto:${config.email}`} method="post" encType="text/plain">
-                    <div className="row">
-                      <div className="col-lg-6 col-md-6">
-                        <div className="input-area">
-                          <input type="text" name="name" placeholder="Name" required />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6">
-                        <div className="input-area">
-                          <input type="text" name="phone" placeholder="Phone" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12 col-md-6">
-                        <div className="input-area">
-                          <input type="email" name="email" placeholder="Email" required />
-                        </div>
-                      </div>
-                      <div className="col-lg-12 col-md-6">
-                        <div className="input-area">
-                          <input type="text" name="subject" placeholder="Subjects" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="input-area">
-                          <textarea name="message" placeholder="Message" required />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="space24" />
-                        <div className="input-area text-end">
-                          <button type="submit" className="vl-btn1">
-                            Submit Now
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
+                  <ContactForm email={config.email} />
                 </div>
               </div>
             </div>
