@@ -44,6 +44,7 @@ export const newsDropdownLinks: NavItem[] = [
   { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
   { label: "Diversity", href: "/diversity", requiresYear: true, condition: "hasDiversity" },
   { label: "Job Offers", href: "/job-offers", requiresYear: true, condition: "hasJobOffers" },
+  { label: "Contact Us", href: "/contact-us", requiresYear: false },
 ];
 
 /**
