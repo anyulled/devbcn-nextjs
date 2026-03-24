@@ -33,6 +33,17 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+
+    if (!url.searchParams.has("devbcn-sw-cleanup")) {
+      return;
+    }
+
+    url.searchParams.delete("devbcn-sw-cleanup");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }, []);
+
   return (
     <>
       <div id="top" />

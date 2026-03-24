@@ -117,6 +117,30 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#007bff" />
         <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+
+        <Script id="sw-killswitch" strategy="beforeInteractive">
+          {`
+            (async function () {
+              try {
+                if ('serviceWorker' in navigator) {
+                  const registrations = await navigator.serviceWorker.getRegistrations();
+                  await Promise.all(registrations.map(function (registration) {
+                    return registration.unregister();
+                  }));
+                }
+
+                if ('caches' in window) {
+                  const cacheNames = await caches.keys();
+                  await Promise.all(cacheNames.map(function (cacheName) {
+                    return caches.delete(cacheName);
+                  }));
+                }
+              } catch (error) {
+                console.error("Service worker cleanup failed:", error);
+              }
+            })();
+          `}
+        </Script>
       </head>
       {/* Google Analytics */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-0BG1LNPT11" strategy="afterInteractive" />
