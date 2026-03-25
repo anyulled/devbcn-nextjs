@@ -2,7 +2,7 @@
 import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
-export default function Section3() {
+export default function Section3({ year = "2026" }: { year?: string }) {
   return (
     <div
       className="event8-section-area sp1"
@@ -62,17 +62,17 @@ export default function Section3() {
                         <div className="row align-items-center">
                           <div className="col-lg-7">
                             <div className="content-area">
-                              <Link href="/event-single" className="head">
-                                Why should i participate?
+                              <Link href={`/${year}/convince-your-boss`} className="head">
+                                Convince your Boss
                               </Link>
                               <div className="space20" />
                               <p>
-                                Discover how others use your favorite technologies. From Backend and Frontend to Cloud, AI, and DevOps, there's something for
-                                every tech enthusiast to learn and share.
+                                Do you need help to convince your boss to attend the conference? We have prepared a template for you to use and some tips to
+                                help you get approval.
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
-                                <BuyTicketButton />
+                                <BuyTicketButton text="Convince your Boss" href={`/${year}/convince-your-boss`} target="_self" />
                               </div>
                             </div>
                           </div>

@@ -82,7 +82,7 @@ function buildLegacyManifest(): string {
   );
 }
 
-export function middleware(request: NextRequest): NextResponse {
+export function proxy(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
 
   if (pathname.endsWith("/registerSW.js")) {

@@ -86,7 +86,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
       <Script id="organization-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationSchema) }} />
       <Section1 year={year} />
       <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
-      <Section3 />
+      <Section3 year={year} />
       <Section4 sponsors={config.sponsorsData} eventVenue={config.venue} />
       <Section5 year={year} speakers={randomSpeakers} totalSpeakers={totalSpeakers} />
       <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
