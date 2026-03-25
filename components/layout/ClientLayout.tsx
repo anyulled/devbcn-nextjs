@@ -8,7 +8,7 @@ import AddClassBody from "../elements/AddClassBody";
 
 export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
-  const isMinimalLayout = pathname?.includes("/convince-your-boss");
+  const isMinimalLayout = pathname?.includes("/convince-your-boss") || pathname === "/sw-reset";
 
   useEffect(() => {
     const handleHashScroll = () => {
