@@ -23,7 +23,8 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
         backgroundPosition: "center",
       }}
     >
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
+      {/* Bolt: Removed priority from below-the-fold image to prioritize LCP hero image */}
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill />
       <div className="container">
         {!hasSponsors && (
           <>
