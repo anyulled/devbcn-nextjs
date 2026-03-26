@@ -64,9 +64,12 @@ export const edition2024: EditionConfig = {
     endDay: new Date("2024-06-14T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2024",
     categories: [
-      { name: "Early Bird", price: "350€", startDate: new Date("2024-01-01T00:00:00+01:00"), endDate: new Date("2024-03-31T23:59:59+01:00") },
-      { name: "Regular", price: "450€", startDate: new Date("2024-04-01T00:00:00+01:00"), endDate: new Date("2024-05-31T23:59:59+01:00") },
-      { name: "Late Bird", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
+      { name: "Blind", price: "350€", startDate: new Date("2024-01-01T00:00:00+01:00"), endDate: new Date("2024-03-31T23:59:59+01:00") },
+      { name: "Early Bird", price: "450€", startDate: new Date("2024-04-01T00:00:00+01:00"), endDate: new Date("2024-05-31T23:59:59+01:00") },
+      { name: "Regular", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
+      { name: "Late", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
+      { name: "Last Minute", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
+      { name: "Super Last Minute", price: "550€", startDate: new Date("2024-06-01T00:00:00+01:00"), endDate: new Date("2024-06-14T23:59:59+01:00") },
     ],
   },
 

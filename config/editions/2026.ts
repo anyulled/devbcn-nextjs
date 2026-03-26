@@ -55,10 +55,10 @@ export const edition2026: EditionConfig = {
     endDay: new Date("2026-06-10T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2026",
     categories: [
-      { name: "Blind Bird", price: "300€", startDate: new Date("2026-02-01T00:00:00+01:00"), endDate: new Date("2026-02-28T23:59:59+01:00") },
+      { name: "Blind", price: "300€", startDate: new Date("2026-02-01T00:00:00+01:00"), endDate: new Date("2026-02-28T23:59:59+01:00") },
       { name: "Early Bird", price: "370€", startDate: new Date("2026-03-01T00:00:00+01:00"), endDate: new Date("2026-03-31T23:59:59+01:00") },
       { name: "Regular", price: "440€", startDate: new Date("2026-04-01T00:00:00+01:00"), endDate: new Date("2026-04-30T23:59:59+01:00") },
-      { name: "Late Bird", price: "600€", startDate: new Date("2026-05-01T00:00:00+01:00"), endDate: new Date("2026-05-14T23:59:59+01:00") },
+      { name: "Late", price: "600€", startDate: new Date("2026-05-01T00:00:00+01:00"), endDate: new Date("2026-05-14T23:59:59+01:00") },
       { name: "Last Minute", price: "700€", startDate: new Date("2026-05-15T00:00:00+01:00"), endDate: new Date("2026-05-31T23:59:59+01:00") },
       { name: "Super Last Minute", price: "800€", startDate: new Date("2026-06-01T00:00:00+01:00"), endDate: new Date("2026-06-10T23:59:59+01:00") },
     ],

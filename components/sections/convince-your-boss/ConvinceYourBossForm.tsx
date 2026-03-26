@@ -4,8 +4,9 @@ import { EditionConfig } from "@/config/editions/types";
 import { formatEventDateRange } from "@/config/editions";
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { Printer, Copy, AlertCircle, Check } from "lucide-react";
-import { findCurrentCategory, formatDateWithOrdinal } from "@/lib/shared/convince-your-boss";
+import { Printer, Copy, AlertCircle, Check, ArrowLeft } from "lucide-react";
+import { isTicketSaleActive, findCurrentCategory, formatDateWithOrdinal } from "@/lib/shared/convince-your-boss";
+import Link from "next/link";
 
 interface ConvinceYourBossFormProps {
   config: EditionConfig;
@@ -13,6 +14,7 @@ interface ConvinceYourBossFormProps {
 }
 
 export default function ConvinceYourBossForm({ config, year }: Readonly<ConvinceYourBossFormProps>) {
+  const isActive = isTicketSaleActive(config);
   const currentCategory = findCurrentCategory(config);
 
   const [formData, setFormData] = useState({
@@ -52,43 +54,63 @@ export default function ConvinceYourBossForm({ config, year }: Readonly<Convince
     globalThis.print();
   };
 
-  const renderForm = () => (
+  const renderUnavailableMessage = () => (
     <div className="form-container">
-      <div className="disclaimer">
-        <AlertCircle size={18} style={{ marginRight: "8px", verticalAlign: "middle" }} />
-        <span>We do not store this data in our databases. It&apos;s only used to populate the preview.</span>
+      <div className="disclaimer" style={{ borderLeftColor: "#dc3545", backgroundColor: "rgba(220, 53, 69, 0.05)" }}>
+        <AlertCircle size={18} style={{ marginRight: "8px", verticalAlign: "middle", color: "#dc3545" }} />
+        <span style={{ color: "#dc3545", fontWeight: "600" }}>Tickets are not currently available for this edition.</span>
       </div>
-
-      <div className="form-group">
-        <label htmlFor="managerName">Manager&apos;s Name</label>
-        <input type="text" id="managerName" name="managerName" value={formData.managerName} onChange={handleChange} placeholder="e.g. Jane Smith" />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="userName">Your Name</label>
-        <input type="text" id="userName" name="userName" value={formData.userName} onChange={handleChange} placeholder="e.g. John Doe" />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="initiative">Project/Initiative</label>
-        <input
-          type="text"
-          id="initiative"
-          name="initiative"
-          value={formData.initiative}
-          onChange={handleChange}
-          placeholder="e.g. migration to microservices"
-        />
-      </div>
-
-      <div className="form-group">
-        <span className="form-label">Active Ticket Category</span>
-        <div className="active-ticket-info">
-          <strong>{currentCategory?.name}</strong> ({currentCategory?.price})
-        </div>
-      </div>
+      <p style={{ marginBottom: "20px" }}>
+        The ticket sale period for DevBcn {year} has ended or hasn&apos;t started yet. You can check the conference details on the main page.
+      </p>
+      <Link href={`/${year}`} className="btn-back-home" style={{ display: "inline-flex", width: "auto" }}>
+        <ArrowLeft size={18} style={{ marginRight: "8px" }} />
+        Go back to DevBcn {year}
+      </Link>
     </div>
   );
+
+  const renderForm = () => {
+    if (!isActive) return renderUnavailableMessage();
+
+    return (
+      <div className="form-container">
+        <div className="disclaimer">
+          <AlertCircle size={18} style={{ marginRight: "8px", verticalAlign: "middle" }} />
+          <span>We do not store this data in our databases. It&apos;s only used to populate the preview.</span>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="managerName">Manager&apos;s Name</label>
+          <input type="text" id="managerName" name="managerName" value={formData.managerName} onChange={handleChange} placeholder="e.g. Jane Smith" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="userName">Your Name</label>
+          <input type="text" id="userName" name="userName" value={formData.userName} onChange={handleChange} placeholder="e.g. John Doe" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="initiative">Project/Initiative</label>
+          <input
+            type="text"
+            id="initiative"
+            name="initiative"
+            value={formData.initiative}
+            onChange={handleChange}
+            placeholder="e.g. migration to microservices"
+          />
+        </div>
+
+        <div className="form-group">
+          <span className="form-label">Active Ticket Category</span>
+          <div className="active-ticket-info">
+            <strong>{currentCategory?.name || "None"}</strong> ({currentCategory?.price || "TBD"})
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   const renderPreview = () => (
     <div className="letter-preview-container">
@@ -126,7 +148,6 @@ export default function ConvinceYourBossForm({ config, year }: Readonly<Convince
 
             {config.brochure && (
               <p>
-                If we&apos;re interested in sponsorship, you can find more information in the{" "}
                 <a href={config.brochure} target="_blank" rel="noopener noreferrer" className="highlight underline">
                   Sponsorship Brochure
                 </a>
@@ -149,16 +170,18 @@ export default function ConvinceYourBossForm({ config, year }: Readonly<Convince
         </div>
       </div>
 
-      <div className="actions">
-        <button className="btn-copy" onClick={handleCopy}>
-          {copied ? <Check size={18} /> : <Copy size={18} />}
-          {copied ? "Copied!" : "Copy to Clipboard"}
-        </button>
-        <button className="btn-print" onClick={handlePrint}>
-          <Printer size={18} />
-          Print Letter / PDF
-        </button>
-      </div>
+      {isActive && (
+        <div className="actions">
+          <button className="btn-copy" onClick={handleCopy}>
+            {copied ? <Check size={18} /> : <Copy size={18} />}
+            {copied ? "Copied!" : "Copy to Clipboard"}
+          </button>
+          <button className="btn-print" onClick={handlePrint}>
+            <Printer size={18} />
+            Print Letter / PDF
+          </button>
+        </div>
+      )}
     </div>
   );
 

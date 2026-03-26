@@ -64,9 +64,12 @@ export const edition2023: EditionConfig = {
     endDay: new Date("2023-06-26T23:59:59+01:00"),
     url: "https://tickets.devbcn.com/event/devbcn-2023",
     categories: [
-      { name: "Early Bird", price: "350€", startDate: new Date("2022-11-01T00:00:00+01:00"), endDate: new Date("2023-01-31T23:59:59+01:00") },
-      { name: "Regular", price: "450€", startDate: new Date("2023-02-01T00:00:00+01:00"), endDate: new Date("2023-04-30T23:59:59+01:00") },
-      { name: "Late Bird", price: "550€", startDate: new Date("2023-05-01T00:00:00+01:00"), endDate: new Date("2023-06-26T23:59:59+01:00") },
+      { name: "Blind Bird", price: "350€", startDate: new Date("2023-01-01T00:00:00+01:00"), endDate: new Date("2023-01-31T23:59:59+01:00") },
+      { name: "Early Bird", price: "450€", startDate: new Date("2023-02-01T00:00:00+01:00"), endDate: new Date("2023-02-28T23:59:59+01:00") },
+      { name: "Regular Bird", price: "550€", startDate: new Date("2023-03-01T00:00:00+01:00"), endDate: new Date("2023-03-31T23:59:59+01:00") },
+      { name: "Late", price: "550€", startDate: new Date("2023-04-01T00:00:00+01:00"), endDate: new Date("2023-04-30T23:59:59+01:00") },
+      { name: "Last Minute", price: "550€", startDate: new Date("2023-05-01T00:00:00+01:00"), endDate: new Date("2023-05-30T23:59:59+01:00") },
+      { name: "Super Last Minute", price: "550€", startDate: new Date("2023-06-01T00:00:00+01:00"), endDate: new Date("2023-06-26T23:59:59+01:00") },
     ],
   },
 

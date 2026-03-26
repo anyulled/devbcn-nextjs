@@ -24,7 +24,18 @@ export const formatDateWithOrdinal = (date: Date): string => {
   return `${month} ${getOrdinal(day)}`;
 };
 
+export const isTicketSaleActive = (config: EditionConfig): boolean => {
+  const now = new Date();
+  const categories = config.tickets.categories;
+  if (!categories || categories.length === 0) return false;
+
+  const earlyBird = categories.find((c) => c.name.toLowerCase().includes("early bird")) || categories[0];
+  const lastMinute = categories.find((c) => c.name.toLowerCase().includes("super last minute")) || categories.at(-1)!;
+
+  return now >= new Date(earlyBird.startDate) && now <= new Date(lastMinute.endDate);
+};
+
 export const findCurrentCategory = (config: EditionConfig) => {
   const now = new Date();
-  return config.tickets.categories.find((cat) => now >= new Date(cat.startDate) && now <= new Date(cat.endDate)) || config.tickets.categories[0];
+  return config.tickets.categories.find((cat) => now >= new Date(cat.startDate) && now <= new Date(cat.endDate));
 };
