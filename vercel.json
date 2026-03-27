@@ -68,5 +68,22 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:year/talk/:id",
+      "destination": "/:year/talks/:id",
+      "permanent": true
+    },
+    {
+      "source": "/:year/speaker/:id",
+      "destination": "/:year/speakers/:id",
+      "permanent": true
+    },
+    {
+      "source": "/:year/workshop/:id",
+      "destination": "/:year/workshops/:id",
+      "permanent": true
+    }
   ]
 }
