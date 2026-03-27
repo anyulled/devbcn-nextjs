@@ -115,8 +115,8 @@ exports[`RelatedTalks Component matches snapshot with talks 1`] = `
                                     decoding="async"
                                     height="50"
                                     loading="lazy"
-                                    src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=85"
-                                    srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=64&q=85 1x, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=85 2x"
+                                    src="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=75"
+                                    srcset="/_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=64&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Fspeakers%2Fjohn.jpg&w=128&q=75 2x"
                                     style="color: transparent; border-radius: 50%; object-fit: cover;"
                                     width="50"
                                   />
