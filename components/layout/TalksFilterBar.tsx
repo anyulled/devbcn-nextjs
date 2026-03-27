@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { motion } from "framer-motion";
 
 interface TalksFilterBarProps {
@@ -21,12 +21,21 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
 
   const [selectedTrack, setSelectedTrack] = useState<string>(searchParams.get("track") || "");
   const [searchQuery, setSearchQuery] = useState<string>(searchParams.get("q") || "");
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Update state when URL changes
   useEffect(() => {
     setSelectedTrack(searchParams.get("track") || "");
     setSearchQuery(searchParams.get("q") || "");
   }, [searchParams]);
+
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const updateFilters = useCallback(
     (track: string, query: string) => {
@@ -60,11 +69,15 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
     setSearchQuery(newQuery);
+
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
     // Debounce the URL update for search
-    const timeoutId = setTimeout(() => {
+    searchTimeoutRef.current = setTimeout(() => {
       updateFilters(selectedTrack, newQuery);
     }, 300);
-    return () => clearTimeout(timeoutId);
   };
 
   return (
