@@ -91,7 +91,7 @@ export default function TalkCard({ talk, year }: Readonly<TalkCardProps>) {
               {tags.map((tag, index) => (
                 <Link
                   key={tag + index}
-                  href={`/${year}/tags/${tag}`}
+                  href={`/${year}/tags/${tag.replaceAll(" ", "-").toLowerCase()}`}
                   style={{
                     fontSize: "0.75rem",
                     color: "#6b7280",

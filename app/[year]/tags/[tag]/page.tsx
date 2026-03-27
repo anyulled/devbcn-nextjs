@@ -29,7 +29,7 @@ export async function generateStaticParams() {
       }
 
       for (const tag of allTags) {
-        params.push({ year, tag: encodeURIComponent(tag) });
+        params.push({ year, tag: tag.replaceAll(" ", "-").toLowerCase() });
       }
     } catch (error) {
       console.warn(`Failed to fetch talks for year ${year}:`, error);
@@ -39,17 +39,22 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Readonly<TagPageProps>): Promise<Metadata> {
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
 
+  const sessionGroups = await getTalks(year);
+  const allTalks = sessionGroups.flatMap((group) => group.sessions);
+  const displayTag =
+    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+
   return {
-    title: `Talks tagged "${decodedTag}" - DevBcn ${year}`,
-    description: `Browse all sessions tagged with ${decodedTag} at DevBcn ${year}`,
+    title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
+    description: `Browse all sessions tagged with ${displayTag} at DevBcn ${year}`,
   };
 }
 
-export default async function TagPage({ params }: TagPageProps) {
+export default async function TagPage({ params }: Readonly<TagPageProps>) {
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
   const eventData = getEditionConfig(year);
@@ -57,10 +62,13 @@ export default async function TagPage({ params }: TagPageProps) {
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
+  const displayTag =
+    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.toLowerCase() === decodedTag.toLowerCase());
+    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
   });
 
   if (filteredTalks.length === 0) {
@@ -70,7 +78,7 @@ export default async function TagPage({ params }: TagPageProps) {
   return (
     <div>
       {/* Header */}
-      <PageHeader breadcrumbText={`Talks tagged "${decodedTag}"`} backgroundImageId={6} title={decodedTag} />
+      <PageHeader breadcrumbText={`Talks tagged "${displayTag}"`} backgroundImageId={6} title={displayTag} />
 
       {/* Talks List */}
       <div className="case-study-elements-area sp1">

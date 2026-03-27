@@ -90,7 +90,7 @@ describe("TagPage", () => {
         return tags.split(",").map((t) => t.trim());
       });
 
-      const params = Promise.resolve({ year: "2025", tag: "Cloud" });
+      const params = Promise.resolve({ year: "2025", tag: "cloud" });
       const result = await TagPage({ params });
       render(result);
 
@@ -137,10 +137,10 @@ describe("TagPage", () => {
       const params = await generateStaticParams();
       expect(params).toEqual(
         expect.arrayContaining([
-          { year: "2025", tag: "Java" },
-          { year: "2025", tag: "Cloud" },
-          { year: "2025", tag: "Kubernetes" },
-          { year: "2025", tag: "JavaScript" },
+          { year: "2025", tag: "java" },
+          { year: "2025", tag: "cloud" },
+          { year: "2025", tag: "kubernetes" },
+          { year: "2025", tag: "javascript" },
         ])
       );
     });

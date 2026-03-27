@@ -270,13 +270,13 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
                     style="display: flex; flex-wrap: wrap; gap: 8px;"
                   >
                     <a
-                      href="/2026/tags/React"
+                      href="/2026/tags/react"
                       style="display: inline-block; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: rgb(255, 255, 255); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; text-decoration: none;"
                     >
                       React
                     </a>
                     <a
-                      href="/2026/tags/JavaScript"
+                      href="/2026/tags/javascript"
                       style="display: inline-block; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: rgb(255, 255, 255); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; text-decoration: none;"
                     >
                       JavaScript
@@ -316,7 +316,7 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
                       <i
                         class="fa-solid fa-thumbs-up me-2"
                       />
-                      Vote on OpenFeedback
+                       Vote on OpenFeedback
                     </span>
                   </a>
                   <a
@@ -343,7 +343,7 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
                         class="fa-solid fa-file-powerpoint"
                         style="margin-right: 8px;"
                       />
-                      View Slides
+                       View Slides
                     </span>
                   </a>
                 </div>

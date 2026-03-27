@@ -94,7 +94,7 @@ const TagList: React.FC<{ tags: string[]; year: string }> = ({ tags, year }) => 
       {tags.map((tag) => (
         <Link
           key={tag}
-          href={`/${year}/tags/${tag}`}
+          href={`/${year}/tags/${tag.replaceAll(" ", "-").toLowerCase()}`}
           style={{
             display: "inline-block",
             background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -195,8 +195,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     {/* OpenFeedback Vote Button */}
                     <a href={voteUrl} target="_blank" rel="noopener noreferrer" className="vl-btn1">
                       <span className="demo">
-                        <i className="fa-solid fa-thumbs-up me-2" />
-                        Vote on OpenFeedback
+                        <i className="fa-solid fa-thumbs-up me-2" /> Vote on OpenFeedback
                       </span>
                     </a>
 
@@ -209,8 +208,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     {slidesUrl && (
                       <a href={slidesUrl} target="_blank" rel="noopener noreferrer" className="vl-btn1" style={{ backgroundColor: "#2563eb" }}>
                         <span className="demo">
-                          <i className="fa-solid fa-file-powerpoint" style={{ marginRight: "8px" }} />
-                          View Slides
+                          <i className="fa-solid fa-file-powerpoint" style={{ marginRight: "8px" }} /> View Slides
                         </span>
                       </a>
                     )}

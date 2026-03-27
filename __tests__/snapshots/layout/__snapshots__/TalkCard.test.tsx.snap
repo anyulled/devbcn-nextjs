@@ -124,13 +124,13 @@ exports[`TalkCard Component matches snapshot with complete talk data 1`] = `
           class="d-flex flex-wrap gap-2"
         >
           <a
-            href="/2026/tags/Java"
+            href="/2026/tags/java"
             style="font-size: 0.75rem; color: rgb(107, 114, 128); background: rgb(243, 244, 246); padding: 2px 8px; border-radius: 4px; text-decoration: none;"
           >
             Java
           </a>
           <a
-            href="/2026/tags/Testing"
+            href="/2026/tags/testing"
             style="font-size: 0.75rem; color: rgb(107, 114, 128); background: rgb(243, 244, 246); padding: 2px 8px; border-radius: 4px; text-decoration: none;"
           >
             Testing
