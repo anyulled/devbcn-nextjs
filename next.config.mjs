@@ -4,7 +4,7 @@ import withPWAInit from "@ducanh2912/next-pwa";
 const nextConfig = {
   images: {
     unoptimized: false,
-    qualities: [85],
+    qualities: [75, 85],
     minimumCacheTTL: 2678400,
     remotePatterns: [
       {
