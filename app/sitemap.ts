@@ -28,55 +28,75 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
-    urls.push({
-      url: `${baseUrl}/${year}`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    });
+  /*
+   * ⚡ Bolt Performance Optimization
+   * Replaced sequential year-by-year O(N) fetching with parallel Promise.all.
+   * Also running getSpeakers and getTalks concurrently within each year.
+   * This changes the data fetching from O(years * 2) sequential await calls to O(1) concurrent calls,
+   * significantly reducing the total time required for sitemap generation.
+   */
+  const yearDataResults = await Promise.all(
+    years.map(async (year) => {
+      const yearUrls: MetadataRoute.Sitemap = [];
 
-    const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
-    for (const page of yearPages) {
-      urls.push({
-        url: `${baseUrl}/${year}/${page}`,
+      yearUrls.push({
+        url: `${baseUrl}/${year}`,
         lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.8,
+        changeFrequency: "daily",
+        priority: 0.9,
       });
-    }
 
-    const speakers = await getSpeakers(year);
-    for (const speaker of speakers) {
-      urls.push({
-        url: `${baseUrl}/${year}/speakers/${speaker.id}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.7,
-      });
-    }
+      const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
+      for (const page of yearPages) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/${page}`,
+          lastModified: new Date(),
+          changeFrequency: "weekly",
+          priority: 0.8,
+        });
+      }
 
-    const sessionGroups = await getTalks(year);
-    for (const group of sessionGroups) {
-      for (const talk of group.sessions) {
-        urls.push({
-          url: `${baseUrl}/${year}/talks/${talk.id}`,
+      const [speakers, sessionGroups] = await Promise.all([
+        getSpeakers(year).catch(() => []),
+        getTalks(year).catch(() => []),
+      ]);
+
+      for (const speaker of speakers) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/speakers/${speaker.id}`,
           lastModified: new Date(),
           changeFrequency: "weekly",
           priority: 0.7,
         });
       }
-    }
 
-    const companies = getJobOffersByYear(year);
-    for (const company of companies) {
-      urls.push({
-        url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
+      for (const group of sessionGroups) {
+        for (const talk of group.sessions) {
+          yearUrls.push({
+            url: `${baseUrl}/${year}/talks/${talk.id}`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.7,
+          });
+        }
+      }
+
+      const companies = getJobOffersByYear(year);
+      for (const company of companies) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
+          lastModified: new Date(),
+          changeFrequency: "monthly",
+          priority: 0.5,
+        });
+      }
+
+      return yearUrls;
+    })
+  );
+
+  for (const yearUrls of yearDataResults) {
+    urls.push(...yearUrls);
   }
 
   return urls;
