@@ -4,7 +4,7 @@
 
 - **Repository**: `/home/runner/work/devbcn-nextjs/devbcn-nextjs`
 - **Languages**: javascript, typescript
-- **Assessed**: 2026-03-27 14:50 UTC
+- **Assessed**: 2026-03-28 13:06 UTC
 - **Checks**: 28/31 passed
 
 ## Summary
@@ -56,7 +56,7 @@ _DORA 2025 - AI-accessible documentation_
 
 _DORA 2025 Report_
 
-**Evidence**: CI detected: github, github, github, github
+**Evidence**: CI detected: github, github, github, github, github
 
 ### [PASS] Linter Enforcement (4/4)
 
