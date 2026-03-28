@@ -14,6 +14,8 @@ interface TagPageProps {
   }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   const params = [];

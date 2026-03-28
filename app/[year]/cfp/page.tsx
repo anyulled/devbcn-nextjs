@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { cfpData } from "./cfpData";
 
+export const dynamicParams = false;
+
 interface CFPProps {
   params: Promise<{ year: string }>;
 }

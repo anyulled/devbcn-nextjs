@@ -19,7 +19,7 @@ export const getTalks = cache(async (year: string | number = "default"): Promise
     const revalidateInterval = getRevalidateInterval(year);
 
     const response = await fetch(url, {
-      next: { revalidate: revalidateInterval },
+      next: { revalidate: revalidateInterval, tags: ["sessionize"] },
     });
     if (!response.ok) {
       console.error(`Failed to fetch talks for year ${year}: ${response.statusText}`);
@@ -135,21 +135,8 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
   return speakers.filter((s) => speakerIds.includes(s.id));
 };
 
-/**
- * Shuffle an array using Fisher-Yates algorithm
- */
-const shuffleArray = <T>(array: T[]): T[] => {
-  return [...array]
-    .map((item) => ({ item, sortKey: Math.random() }))
-    .sort((a, b) => a.sortKey - b.sortKey)
-    .map((entry) => entry.item);
-};
-
-/**
- * Get random related talks from the same track (excluding current talk)
- */
-export const getRandomRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 3): Promise<Talk[]> => {
+export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
   const allTalks = await getAllTalks(year);
   const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
-  return shuffleArray(sameTracks).slice(0, limit);
+  return sameTracks.slice(0, limit);
 };

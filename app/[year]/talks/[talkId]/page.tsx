@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import CTASection from "@/components/sections/CTASection";
 import RelatedTalks from "@/components/talks/RelatedTalks";
 import TalkContent from "@/components/talks/TalkContent";
@@ -5,7 +7,7 @@ import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import {
   getLevelFromTalk,
-  getRandomRelatedTalksByTrack,
+  getRelatedTalksByTrack,
   getSlidesUrl,
   getTagsFromTalk,
   getTalkByYearAndId,
@@ -95,7 +97,7 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
   const speakers = await getTalkSpeakersWithDetails(year, speakerIds);
   const track = getTrackFromTalk(talk);
   const level = getLevelFromTalk(talk);
-  const relatedTalks = await getRandomRelatedTalksByTrack(year, track, talk.id, 3);
+  const relatedTalks = await getRelatedTalksByTrack(year, track, talk.id, 5);
 
   const relatedTalksSpeakers: Map<string, Speaker[]> = new Map();
   await Promise.all(
@@ -112,7 +114,10 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
 
   const baseUrl = "https://www.devbcn.com";
   const educationEventSchema = generateEducationEventSchema(talk, year, eventData.venue);
-  const speakerSchemas = speakers.map((speaker) => generatePersonSchema(speaker, year));
+  const speakerSchemas = speakers.map((speaker) => ({
+    speakerId: speaker.id,
+    schema: generatePersonSchema(speaker, year),
+  }));
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: `${baseUrl}/${year}` },
     { name: "Talks", url: `${baseUrl}/${year}/talks` },
@@ -122,10 +127,10 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
   return (
     <div>
       <Script id="talk-education-event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(educationEventSchema) }} />
-      {speakerSchemas.map((schema, idx) => (
+      {speakerSchemas.map(({ speakerId, schema }) => (
         <Script
-          key={`speaker-${idx}`}
-          id={`talk-speaker-${idx}-jsonld`}
+          key={`speaker-${speakerId}`}
+          id={`talk-speaker-${speakerId}-jsonld`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
         />

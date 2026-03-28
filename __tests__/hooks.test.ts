@@ -2,7 +2,7 @@ import { describe, expect, it, jest, beforeEach, afterEach } from "@jest/globals
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
-import { getAllTalks, getRandomRelatedTalksByTrack, getTalkByYearAndId, getTalkSpeakersWithDetails, getTalks } from "@/hooks/useTalks";
+import { getAllTalks, getRelatedTalksByTrack, getTalkByYearAndId, getTalkSpeakersWithDetails, getTalks } from "@/hooks/useTalks";
 
 // Mock global fetch
 const mockFetch = jest.fn() as jest.MockedFunction<typeof globalThis.fetch>;
@@ -32,7 +32,7 @@ describe("Hooks", () => {
 
       const speakers = await getSpeakers("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: false },
+        next: { revalidate: false, tags: ["sessionize"] },
       });
       expect(speakers).toEqual(mockSpeakers);
     });
@@ -46,7 +46,7 @@ describe("Hooks", () => {
       await getSpeakers("2023");
       // Ttsitynd - 2023 endpoint
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
-        next: { revalidate: false },
+        next: { revalidate: false, tags: ["sessionize"] },
       });
     });
 
@@ -134,7 +134,7 @@ describe("Hooks", () => {
 
       const groups = await getTalks("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: false },
+        next: { revalidate: false, tags: ["sessionize"] },
       });
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);
@@ -268,7 +268,7 @@ describe("Hooks", () => {
     });
   });
 
-  describe("getRandomRelatedTalksByTrack", () => {
+  describe("getRelatedTalksByTrack", () => {
     const mockTalksData = [
       {
         groupId: 1,
@@ -299,8 +299,7 @@ describe("Hooks", () => {
         json: async () => mockTalksData,
       } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "Frontend", "101", 3);
-      // Only talk 102 matches
+      const relatedTalks = await getRelatedTalksByTrack("2025", "Frontend", "101", 3);
       expect(relatedTalks).toHaveLength(1);
       expect(relatedTalks[0].id).toBe("102");
     });
@@ -311,7 +310,7 @@ describe("Hooks", () => {
         json: async () => mockTalksData,
       } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "DevOps", "101", 3);
+      const relatedTalks = await getRelatedTalksByTrack("2025", "DevOps", "101", 3);
       expect(relatedTalks).toHaveLength(0);
     });
 
@@ -333,8 +332,8 @@ describe("Hooks", () => {
         json: async () => manyTalks,
       } as Response);
 
-      const relatedTalks = await getRandomRelatedTalksByTrack("2025", "Frontend", "0", 3);
-      expect(relatedTalks.length).toBeLessThanOrEqual(3);
+      const relatedTalks = await getRelatedTalksByTrack("2025", "Frontend", "0", 3);
+      expect(relatedTalks).toHaveLength(3);
     });
   });
 });

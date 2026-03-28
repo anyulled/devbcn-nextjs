@@ -7,6 +7,8 @@ import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
 
+export const dynamicParams = false;
+
 interface SpeakersProps {
   params: Promise<{
     year: number;

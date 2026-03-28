@@ -30,7 +30,7 @@ jest.mock("@/hooks/useTalks", () => ({
   getTalkSpeakersWithDetails: jest.fn(),
   getTrackFromTalk: jest.fn(),
   getLevelFromTalk: jest.fn(),
-  getRandomRelatedTalksByTrack: jest.fn(),
+  getRelatedTalksByTrack: jest.fn(),
   getTagsFromTalk: jest.fn(() => []),
   getSlidesUrl: jest.fn(() => ""),
   getTalks: jest.fn(() => Promise.resolve([])),
@@ -97,15 +97,14 @@ describe("Talk Detail Page", () => {
   });
 
   it("renders talk details correctly", async () => {
-    const { getTalkByYearAndId, getTalkSpeakersWithDetails, getTrackFromTalk, getLevelFromTalk, getRandomRelatedTalksByTrack } =
-      await import("@/hooks/useTalks");
+    const { getTalkByYearAndId, getTalkSpeakersWithDetails, getTrackFromTalk, getLevelFromTalk, getRelatedTalksByTrack } = await import("@/hooks/useTalks");
     const Page = (await import("@/app/[year]/talks/[talkId]/page")).default;
 
     jest.mocked(getTalkByYearAndId).mockResolvedValue(mockTalk);
     jest.mocked(getTalkSpeakersWithDetails).mockResolvedValue(mockSpeakers);
     jest.mocked(getTrackFromTalk).mockReturnValue("Java");
     jest.mocked(getLevelFromTalk).mockReturnValue("Intermediate");
-    jest.mocked(getRandomRelatedTalksByTrack).mockResolvedValue([]);
+    jest.mocked(getRelatedTalksByTrack).mockResolvedValue([]);
 
     const result = await Page({ params });
     render(result);

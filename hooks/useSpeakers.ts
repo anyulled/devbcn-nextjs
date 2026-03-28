@@ -17,7 +17,7 @@ export const getSpeakers = cache(async (year: string | number = "default"): Prom
     const revalidateInterval = getRevalidateInterval(year);
 
     const response = await fetch(url, {
-      next: { revalidate: revalidateInterval },
+      next: { revalidate: revalidateInterval, tags: ["sessionize"] },
     });
     if (!response.ok) {
       console.error(`Failed to fetch speakers for year ${year}: ${response.statusText}`);
@@ -40,14 +40,7 @@ export const getSpeakerByYearAndId = async (year: string | number, speakerId: st
  * Get random speakers from the list
  * Always returns an array, even if empty or fewer than requested
  */
-export function getRandomSpeakers(speakers: Speaker[], count: number): Speaker[] {
+export function getFeaturedSpeakers(speakers: Speaker[], count: number): Speaker[] {
   if (!speakers || speakers.length === 0) return [];
-  if (speakers.length <= count) return speakers;
-
-  const shuffled = [...speakers]
-    .map((speaker) => ({ speaker, sortKey: Math.random() }))
-    .sort((a, b) => a.sortKey - b.sortKey)
-    .map((item) => item.speaker);
-
-  return shuffled.slice(0, count);
+  return speakers.slice(0, count);
 }

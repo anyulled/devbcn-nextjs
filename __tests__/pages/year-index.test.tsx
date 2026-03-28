@@ -80,7 +80,7 @@ jest.mock("@/components/sections/home8/section6", () => ({
 jest.mock("@/hooks/useSpeakers", () => ({
   __esModule: true,
   getSpeakers: jest.fn(() => Promise.resolve([{ id: "1", fullName: "Test Speaker" } as Speaker])),
-  getRandomSpeakers: jest.fn((speakers: Speaker[]) => speakers),
+  getFeaturedSpeakers: jest.fn((speakers: Speaker[]) => speakers),
 }));
 
 jest.mock("@/lib/shared/jsonld", () => ({

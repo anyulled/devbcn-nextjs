@@ -5,6 +5,8 @@ import { getTalks } from "@/hooks/useTalks";
 import { slugify } from "@/lib/shared/slugify";
 import type { MetadataRoute } from "next";
 
+const BUILD_TIME = new Date();
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.devbcn.com";
   const years = getAvailableEditions();
@@ -13,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   urls.push({
     url: baseUrl,
-    lastModified: new Date(),
+    lastModified: BUILD_TIME,
     changeFrequency: "monthly",
     priority: 1,
   });
@@ -22,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const page of staticPages) {
     urls.push({
       url: `${baseUrl}/${page}`,
-      lastModified: new Date(),
+      lastModified: BUILD_TIME,
       changeFrequency: "monthly",
       priority: 0.6,
     });
@@ -31,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const year of years) {
     urls.push({
       url: `${baseUrl}/${year}`,
-      lastModified: new Date(),
+      lastModified: BUILD_TIME,
       changeFrequency: "daily",
       priority: 0.9,
     });
@@ -40,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const page of yearPages) {
       urls.push({
         url: `${baseUrl}/${year}/${page}`,
-        lastModified: new Date(),
+        lastModified: BUILD_TIME,
         changeFrequency: "weekly",
         priority: 0.8,
       });
@@ -50,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const speaker of speakers) {
       urls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
-        lastModified: new Date(),
+        lastModified: BUILD_TIME,
         changeFrequency: "weekly",
         priority: 0.7,
       });
@@ -61,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       for (const talk of group.sessions) {
         urls.push({
           url: `${baseUrl}/${year}/talks/${talk.id}`,
-          lastModified: new Date(),
+          lastModified: BUILD_TIME,
           changeFrequency: "weekly",
           priority: 0.7,
         });
@@ -72,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const company of companies) {
       urls.push({
         url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
-        lastModified: new Date(),
+        lastModified: BUILD_TIME,
         changeFrequency: "monthly",
         priority: 0.5,
       });

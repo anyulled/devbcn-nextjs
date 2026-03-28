@@ -1,13 +1,15 @@
 import Section1 from "@/components/sections/home8/section1";
 import dynamic from "next/dynamic";
 
+export const dynamicParams = false;
+
 const Section2 = dynamic(() => import("@/components/sections/home8/section2"));
 const Section3 = dynamic(() => import("@/components/sections/home8/section3"));
 const Section4 = dynamic(() => import("@/components/sections/home8/section4"));
 const Section5 = dynamic(() => import("@/components/sections/home8/section5"));
 const Section6 = dynamic(() => import("@/components/sections/home8/section6"));
 import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
-import { getRandomSpeakers, getSpeakers } from "@/hooks/useSpeakers";
+import { getFeaturedSpeakers, getSpeakers } from "@/hooks/useSpeakers";
 import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -77,7 +79,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
   const organizationSchema = generateOrganizationSchema();
 
   const allSpeakers = await getSpeakers(year);
-  const randomSpeakers = getRandomSpeakers(allSpeakers, 6);
+  const featuredSpeakers = getFeaturedSpeakers(allSpeakers, 10);
   const totalSpeakers = allSpeakers.length;
 
   return (
@@ -88,7 +90,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
       <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
       <Section3 year={year} />
       <Section4 sponsors={config.sponsorsData} eventVenue={config.venue} />
-      <Section5 year={year} speakers={randomSpeakers} totalSpeakers={totalSpeakers} />
+      <Section5 year={year} speakers={featuredSpeakers} totalSpeakers={totalSpeakers} />
       <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
     </>
   );

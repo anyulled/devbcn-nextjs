@@ -9,6 +9,8 @@ interface DiversityProps {
   params: Promise<{ year: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));

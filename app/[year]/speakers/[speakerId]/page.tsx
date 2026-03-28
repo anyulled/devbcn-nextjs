@@ -9,6 +9,8 @@ import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema,
 
 import SpeakerContent from "@/components/speakers/SpeakerContent";
 
+export const dynamicParams = false;
+
 interface SpeakerDetailProps {
   params: Promise<{
     year: string;

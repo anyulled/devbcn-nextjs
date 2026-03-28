@@ -190,16 +190,16 @@ describe("useTalks helpers", () => {
     expect(missing).toBeUndefined();
   });
 
-  it("getRandomRelatedTalksByTrack excludes current talk and limits results", async () => {
+  it("getRelatedTalksByTrack excludes current talk and limits results", async () => {
     const sessionGroups: SessionGroup[] = [
       {
         groupId: 1,
         groupName: "Main",
         sessions: [
-          buildTalk({ id: "t1", categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] }),
-          buildTalk({ id: "t2", categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] }),
-          buildTalk({ id: "t3", categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] }),
-          buildTalk({ id: "t4", categories: [{ id: 2, name: "Track", categoryItems: [{ id: 2, name: "Cloud" }], sort: 1 }] }),
+          { ...buildTalk({ id: "t1" }), categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] },
+          { ...buildTalk({ id: "t2" }), categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] },
+          { ...buildTalk({ id: "t3" }), categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] },
+          { ...buildTalk({ id: "t4" }), categories: [{ id: 2, name: "Track", categoryItems: [{ id: 2, name: "Cloud" }], sort: 1 }] },
         ],
       },
     ];
@@ -210,13 +210,11 @@ describe("useTalks helpers", () => {
       json: async () => sessionGroups,
     } as Response);
 
-    jest.spyOn(Math, "random").mockReturnValue(0.1);
-
-    const related = await talks.getRandomRelatedTalksByTrack("2027", "Java", "t1", 2);
+    const related = await talks.getRelatedTalksByTrack("2027", "Java", "t1", 2);
     const ids = related.map((t) => t.id);
 
     expect(ids).not.toContain("t1");
     expect(ids).toHaveLength(2);
-    (Math.random as jest.Mock).mockRestore();
+    expect(ids).toEqual(["t2", "t3"]);
   });
 });

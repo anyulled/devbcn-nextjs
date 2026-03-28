@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { getRandomSpeakers } from "@/hooks/useSpeakers";
+import { getFeaturedSpeakers } from "@/hooks/useSpeakers";
 import { Speaker } from "@/hooks/types";
 
 const mockSpeakers: Speaker[] = [
@@ -75,29 +75,31 @@ const mockSpeakers: Speaker[] = [
   },
 ];
 
-describe("getRandomSpeakers", () => {
+describe("getFeaturedSpeakers", () => {
   it("returns empty array when input is empty", () => {
-    const result = getRandomSpeakers([], 3);
+    const result = getFeaturedSpeakers([], 3);
     expect(result).toEqual([]);
   });
 
   it("returns empty array when input is null/undefined", () => {
-    expect(getRandomSpeakers(null as unknown as Speaker[], 3)).toEqual([]);
-    expect(getRandomSpeakers(undefined as unknown as Speaker[], 3)).toEqual([]);
+    expect(getFeaturedSpeakers(null as unknown as Speaker[], 3)).toEqual([]);
+    expect(getFeaturedSpeakers(undefined as unknown as Speaker[], 3)).toEqual([]);
   });
 
   it("returns all speakers when count >= length", () => {
-    const result = getRandomSpeakers(mockSpeakers, 10);
+    const result = getFeaturedSpeakers(mockSpeakers, 10);
     expect(result).toHaveLength(5);
   });
 
-  it("returns requested number of speakers when count < length", () => {
-    const result = getRandomSpeakers(mockSpeakers, 2);
+  it("returns first N speakers when count < length", () => {
+    const result = getFeaturedSpeakers(mockSpeakers, 2);
     expect(result).toHaveLength(2);
+    expect(result[0].id).toBe("1");
+    expect(result[1].id).toBe("2");
   });
 
   it("returns unique speakers", () => {
-    const result = getRandomSpeakers(mockSpeakers, 3);
+    const result = getFeaturedSpeakers(mockSpeakers, 3);
     const ids = result.map((s) => s.id);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(result.length);
@@ -105,7 +107,7 @@ describe("getRandomSpeakers", () => {
 
   it("does not modify original array", () => {
     const original = [...mockSpeakers];
-    getRandomSpeakers(mockSpeakers, 2);
+    getFeaturedSpeakers(mockSpeakers, 2);
     expect(mockSpeakers).toEqual(original);
   });
 });

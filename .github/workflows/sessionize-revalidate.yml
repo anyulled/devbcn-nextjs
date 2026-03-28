@@ -1,0 +1,56 @@
+name: Sessionize Cache Revalidation
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch current Sessionize fingerprint
+        id: current
+        env:
+          SESSIONIZE_URL: ${{ secrets.SESSIONIZE_URL }}
+        run: |
+          FINGERPRINT=$(curl -s "${SESSIONIZE_URL}/view/Speakers" | sha256sum | awk '{print $1}')
+          echo "fingerprint=${FINGERPRINT}" >> "$GITHUB_OUTPUT"
+
+      - name: Restore cached fingerprint
+        id: restore-cache
+        uses: actions/cache@v4
+        with:
+          path: .sessionize-fingerprint
+          key: sessionize-fingerprint
+
+      - name: Read cached fingerprint
+        id: cached
+        run: |
+          if [ -f .sessionize-fingerprint ]; then
+            echo "fingerprint=$(cat .sessionize-fingerprint)" >> "$GITHUB_OUTPUT"
+          else
+            echo "fingerprint=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger revalidation if data changed
+        if: steps.current.outputs.fingerprint != steps.cached.outputs.fingerprint
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "${SITE_URL}/api/revalidate" \
+            -H "Authorization: Bearer ${REVALIDATE_SECRET}" \
+            -H "Content-Type: application/json" | grep -q "200" && echo "Revalidation triggered" || exit 1
+
+      - name: Update cached fingerprint
+        if: steps.current.outputs.fingerprint != steps.cached.outputs.fingerprint
+        run: echo "${{ steps.current.outputs.fingerprint }}" > .sessionize-fingerprint
+
+      - name: Save fingerprint cache
+        if: steps.current.outputs.fingerprint != steps.cached.outputs.fingerprint
+        uses: actions/cache/save@v4
+        with:
+          path: .sessionize-fingerprint
+          key: sessionize-fingerprint

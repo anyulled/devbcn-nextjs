@@ -2,7 +2,7 @@ import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const revalidate = 604800;
 
 export const alt = "DevBcn - Barcelona Developers Conference";
 export const size = {

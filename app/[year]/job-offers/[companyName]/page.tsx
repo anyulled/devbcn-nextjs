@@ -16,6 +16,8 @@ interface CompanyJobOffersPageProps {
   params: Promise<{ year: string; companyName: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   const params = [];
