@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-03-29 - React Event Handler Cleanup Illusion
+
+**Learning:** Returning a cleanup function (like `() => clearTimeout(id)`) from a React event handler (e.g., `onChange`) does absolutely nothing. React ignores the return value of event handlers. In `TalksFilterBar`, this caused debouncing to fail completely, creating N timeouts for N keystrokes and leading to excessive state updates.
+**Action:** When debouncing or throttling inside event handlers without a custom hook, always store the timeout ID in a `useRef` and explicitly call `clearTimeout(ref.current)` before setting the new timeout.

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { motion } from "framer-motion";
 
 interface TalksFilterBarProps {
@@ -11,6 +11,7 @@ interface TalksFilterBarProps {
 
 export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarProps) {
   const router = useRouter();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const formatTrackName = (track: string) => {
     return track.split("(")[0].trim();
@@ -60,11 +61,16 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
     setSearchQuery(newQuery);
+
+    // Clear the previous timeout if it exists
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+
     // Debounce the URL update for search
-    const timeoutId = setTimeout(() => {
+    debounceRef.current = setTimeout(() => {
       updateFilters(selectedTrack, newQuery);
     }, 300);
-    return () => clearTimeout(timeoutId);
   };
 
   return (
