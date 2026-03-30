@@ -93,7 +93,7 @@
     "stylelint-max-lines": "^0.1.0",
     "ts-jest": "^29.4.6",
     "typedoc": "^0.28.18",
-    "typescript": "^5",
+    "typescript": "^6",
     "whatwg-fetch": "^3.6.20"
   },
   "lint-staged": {
