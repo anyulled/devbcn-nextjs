@@ -30,8 +30,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
-    urls.push({
+  // Parallelize data fetching to optimize sitemap generation time across all years
+  const yearPromises = years.map(async (year) => {
+    const yearUrls: MetadataRoute.Sitemap = [];
+
+    yearUrls.push({
       url: `${baseUrl}/${year}`,
       lastModified: BUILD_TIME,
       changeFrequency: "daily",
@@ -40,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
     for (const page of yearPages) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/${page}`,
         lastModified: BUILD_TIME,
         changeFrequency: "weekly",
@@ -48,9 +51,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const speakers = await getSpeakers(year);
+    // Parallel fetch speakers and talks for the given year, and catch errors to prevent partial failures from breaking the whole build
+    const [speakers, sessionGroups] = await Promise.all([
+      getSpeakers(year).catch(() => []),
+      getTalks(year).catch(() => []),
+    ]);
+
     for (const speaker of speakers) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
         lastModified: BUILD_TIME,
         changeFrequency: "weekly",
@@ -58,10 +66,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
-        urls.push({
+        yearUrls.push({
           url: `${baseUrl}/${year}/talks/${talk.id}`,
           lastModified: BUILD_TIME,
           changeFrequency: "weekly",
@@ -72,13 +79,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const companies = getJobOffersByYear(year);
     for (const company of companies) {
-      urls.push({
+      yearUrls.push({
         url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
         lastModified: BUILD_TIME,
         changeFrequency: "monthly",
         priority: 0.5,
       });
     }
+
+    return yearUrls;
+  });
+
+  const yearUrlsArrays = await Promise.all(yearPromises);
+  for (const yearUrls of yearUrlsArrays) {
+    urls.push(...yearUrls);
   }
 
   return urls;
