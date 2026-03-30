@@ -85,7 +85,13 @@ export const edition2026: EditionConfig = {
   },
   sponsorsData: {
     top: [],
-    premium: [],
+    premium: [
+      {
+        name: "Edpuzzle",
+        website: "https://edpuzzle.com/",
+        image: "/assets/img/all-images/sponsors/edpuzzle.svg",
+      },
+    ],
     regular: [
       {
         name: "Caixabank Tech",
