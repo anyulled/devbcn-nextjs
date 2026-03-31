@@ -26,7 +26,8 @@
     "e2e:run": "start-server-and-test start http://localhost:3000 cypress:run",
     "build:docs": "typedoc",
     "check:docs": "bash -c 'echo \"Checking docs sync...\" && ([ -f AGENTS.md ] && [ -f CLAUDE.md ] || cp AGENTS.md CLAUDE.md)'",
-    "migrate": "tsx scripts/migrate-sponsors.ts"
+    "migrate": "tsx scripts/migrate-sponsors.ts",
+    "migrate:logos": "tsx scripts/migrate-logos-to-storage.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

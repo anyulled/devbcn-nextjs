@@ -7,10 +7,11 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { createClient } from "@/lib/supabase/client";
+import LogoUpload from "@/components/ui/LogoUpload";
 
 const sponsorProfileSchema = z.object({
-  website: z.string().pipe(z.string().url("Invalid URL")).optional().or(z.literal("")),
-  logo_url: z.string().pipe(z.string().url("Invalid URL")).optional().or(z.literal("")),
+  website: z.string().url("Invalid URL").optional().or(z.literal("")),
+  logo_url: z.string().url("Invalid URL").optional().or(z.literal("")),
   description: z.string().max(2000, "Description cannot exceed 2000 characters").optional(),
   twitter: z.string().max(255).optional().or(z.literal("")),
   linkedin: z.string().max(255).optional().or(z.literal("")),
@@ -38,7 +39,19 @@ function BasicInfoSection({
   register,
   errors,
   edition,
-}: Readonly<{ register: UseFormRegister<SponsorProfileValues>; errors: FieldErrors<SponsorProfileValues>; edition?: string }>) {
+  supabase,
+  sponsorId,
+  logoUrl,
+  setValue,
+}: Readonly<{
+  register: UseFormRegister<SponsorProfileValues>;
+  errors: FieldErrors<SponsorProfileValues>;
+  edition?: string;
+  supabase: SupabaseClient;
+  sponsorId: string;
+  logoUrl?: string;
+  setValue: (name: keyof SponsorProfileValues, value: string) => void;
+}>) {
   return (
     <>
       <div className="form-row">
@@ -48,9 +61,14 @@ function BasicInfoSection({
           {errors.website && <p className="field-error">{errors.website.message}</p>}
         </div>
 
-        <div className="form-group flex-1">
-          <label htmlFor="logo_url">Logo URL</label>
-          <input id="logo_url" type="url" {...register("logo_url")} placeholder="https://yourcompany.com/logo.png" />
+        <div className="flex-1">
+          <LogoUpload
+            supabase={supabase}
+            sponsorId={sponsorId}
+            currentLogoUrl={logoUrl}
+            onUploadSuccess={(url) => setValue("logo_url", url)}
+            onRemove={() => setValue("logo_url", "")}
+          />
           {errors.logo_url && <p className="field-error">{errors.logo_url.message}</p>}
         </div>
       </div>
@@ -145,8 +163,12 @@ export default function SponsorProfileForm({ initialData }: Readonly<SponsorProf
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useSponsorProfileForm(initialData);
+
+  const logoUrl = watch("logo_url");
 
   const onSubmit = async (values: SponsorProfileValues) => {
     setIsSubmitting(true);
@@ -175,7 +197,15 @@ export default function SponsorProfileForm({ initialData }: Readonly<SponsorProf
       {errorMessage && <div className="error-alert">{errorMessage}</div>}
       {successMessage && <div className="success-alert">{successMessage}</div>}
 
-      <BasicInfoSection register={register} errors={errors} edition={initialData.edition} />
+      <BasicInfoSection
+        register={register}
+        errors={errors}
+        edition={initialData.edition}
+        supabase={supabase}
+        sponsorId={initialData.id}
+        logoUrl={logoUrl}
+        setValue={setValue}
+      />
       <SocialSection register={register} />
 
       <div className="form-actions">
