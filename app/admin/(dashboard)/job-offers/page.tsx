@@ -1,7 +1,6 @@
 import React from "react";
 import { createClient } from "@/lib/supabase/server";
-import { JobOffersClient } from "./JobOffersClient";
-import { editions } from "@/config/editions";
+import Link from "next/link";
 
 export default async function AdminJobOffersPage() {
   const supabase = await createClient();
@@ -17,8 +16,6 @@ export default async function AdminJobOffersPage() {
     )
     .order("created_at", { ascending: false });
 
-  const availableYears = Object.keys(editions).sort((a, b) => Number(b) - Number(a));
-
   return (
     <div className="admin-job-offers-page">
       <div className="admin-content-header">
@@ -29,7 +26,55 @@ export default async function AdminJobOffersPage() {
       {error ? (
         <div className="error-alert">Error loading job offers: {error.message}</div>
       ) : (
-        <JobOffersClient jobOffers={jobOffers || []} availableYears={availableYears} />
+        <div className="table-container">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Edition</th>
+                <th>Sponsor</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Created At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jobOffers?.map((offer) => (
+                <tr key={offer.id}>
+                  <td className="edition-cell">
+                    <strong>{offer.sponsor?.edition}</strong>
+                  </td>
+                  <td>{offer.sponsor?.name}</td>
+                  <td>
+                    <div className="job-title-cell">
+                      <strong>{offer.title}</strong>
+                      <span className="text-muted block text-xs">{offer.url ? "Has Link" : "No Link"}</span>
+                    </div>
+                  </td>
+                  <td>{offer.location || "Remote/TBD"}</td>
+                  <td className="date-cell">{new Date(offer.created_at).toLocaleDateString()}</td>
+                  <td className="actions-cell">
+                    <div className="action-group">
+                      <Link href={`/admin/job-offers/${offer.id}`} className="icon-button edit" title="Edit">
+                        <i className="fas fa-edit"></i>
+                      </Link>
+                      <button className="icon-button delete" title="Delete">
+                        <i className="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+              {jobOffers?.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="empty-table-cell">
+                    No job offers found in the system.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
