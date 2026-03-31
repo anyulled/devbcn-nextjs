@@ -10,7 +10,7 @@ export default function SponsorLoginPage() {
   const [error, setError] = useState<string | null>(null);
   const supabase = createClient();
 
-  const handleLogin: React.FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleLogin: React.ComponentProps<"form">["onSubmit"] = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);

@@ -2,8 +2,8 @@ import Section1 from "@/components/sections/home8/section1";
 import dynamic from "next/dynamic";
 
 export const dynamicParams = false;
-/** Revalidate every hour for fresh sponsor data */
-export const revalidate = 3600;
+/** Revalidate daily for fresh sponsor data */
+export const revalidate = 86400;
 
 const Section2 = dynamic(() => import("@/components/sections/home8/section2"));
 const Section3 = dynamic(() => import("@/components/sections/home8/section3"));

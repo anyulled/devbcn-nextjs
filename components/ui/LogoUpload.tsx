@@ -49,7 +49,7 @@ export default function LogoUpload({ sponsorId, currentLogoUrl, onUploadSuccess,
   };
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files?.[0]) {
       handleFile(e.target.files[0]);
     }
   };
@@ -66,7 +66,7 @@ export default function LogoUpload({ sponsorId, currentLogoUrl, onUploadSuccess,
   const onDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+    if (e.dataTransfer.files?.[0]) {
       handleFile(e.dataTransfer.files[0]);
     }
   };
