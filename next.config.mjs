@@ -27,6 +27,11 @@ const nextConfig = {
         hostname: "www.devbcn.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "fukvfjejcwkjuxahpbxx.supabase.co",
+        pathname: "/**",
+      },
     ],
   },
   turbopack: {},
