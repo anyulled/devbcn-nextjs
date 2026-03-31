@@ -5,9 +5,9 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 
 // Mock the config modules BEFORE any other code
-jest.mock("@/config/job-offers/job-offers", () => ({
+jest.mock("@/lib/supabase/public-queries", () => ({
   __esModule: true,
-  getJobOffersByYear: jest.fn(),
+  getJobOffersForEdition: jest.fn(),
 }));
 
 jest.mock("@/config/editions", () => ({
@@ -45,7 +45,7 @@ describe("Job Offers Page", () => {
 
   it("renders job offers list when companies are available", async () => {
     // Dynamic import inside the test to ensure it uses the mocks
-    const { getJobOffersByYear } = await import("@/config/job-offers/job-offers");
+    const { getJobOffersForEdition } = await import("@/lib/supabase/public-queries");
     const JobOffersPage = (await import("@/app/[year]/job-offers/page")).default;
 
     const mockCompanies = [
@@ -58,7 +58,7 @@ describe("Job Offers Page", () => {
       },
     ];
 
-    jest.mocked(getJobOffersByYear).mockReturnValue(mockCompanies);
+    jest.mocked(getJobOffersForEdition).mockResolvedValue(mockCompanies);
 
     const result = await JobOffersPage({ params });
     render(result);
@@ -68,7 +68,7 @@ describe("Job Offers Page", () => {
   });
 
   it("generates correct metadata", async () => {
-    const { getJobOffersByYear } = await import("@/config/job-offers/job-offers");
+    const { getJobOffersForEdition } = await import("@/lib/supabase/public-queries");
     const { generateMetadata } = await import("@/app/[year]/job-offers/page");
 
     const mockCompanies = [
@@ -80,7 +80,7 @@ describe("Job Offers Page", () => {
         offers: [{ id: "j1", title: "Job 1", location: "Location 1", text: "Text 1" }],
       },
     ];
-    jest.mocked(getJobOffersByYear).mockReturnValue(mockCompanies);
+    jest.mocked(getJobOffersForEdition).mockResolvedValue(mockCompanies);
 
     const metadata = await generateMetadata({ params });
     expect(metadata.title).toBe("Job Opportunities - DevBcn 2025");
