@@ -1,11 +1,10 @@
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { findCompanyBySlug, getJobOffersByYear } from "@/config/job-offers/job-offers";
+import { getJobOffersForEdition } from "@/lib/supabase/public-queries";
 import { Company } from "@/config/job-offers/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/shared/jsonld";
-import { slugify } from "@/lib/shared/slugify";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,17 +16,18 @@ interface CompanyJobOffersPageProps {
 }
 
 export const dynamicParams = false;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   const params = [];
 
   for (const year of years) {
-    const companies = getJobOffersByYear(year);
+    const companies = await getJobOffersForEdition(year);
     for (const company of companies) {
       params.push({
         year,
-        companyName: slugify(company.name),
+        companyName: company.id,
       });
     }
   }
@@ -37,7 +37,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
   const { year, companyName: companySlug } = await params;
-  const company = findCompanyBySlug(year, companySlug);
+  const companies = await getJobOffersForEdition(year);
+  const company = companies.find((c) => c.id === companySlug);
 
   if (!company) {
     return {
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: CompanyJobOffersPageProps): P
   const jobCount = company.offers.length;
 
   const positionsText = jobCount === 1 ? "1 position" : `${jobCount} positions`;
-  const descriptionPreview = company.description.length > 120 ? `${company.description.substring(0, 120)}...` : company.description;
+  const descriptionPreview = company.description?.length > 120 ? `${company.description.substring(0, 120)}...` : company.description || "";
 
   return {
     title: `${company.name} - Job Offers at DevBcn ${year}`,
@@ -96,7 +97,8 @@ function generateJsonLDSchema(company: Company, year: string, companySlug: strin
 
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {
   const { year, companyName: companySlug } = await params;
-  const company = findCompanyBySlug(year, companySlug);
+  const companies = await getJobOffersForEdition(year);
+  const company = companies.find((c) => c.id === companySlug);
   const eventData = getEditionConfig(year);
 
   if (!company) {
@@ -120,7 +122,13 @@ export default async function CompanyJobOffers({ params }: CompanyJobOffersPageP
             <div className="col-lg-10 m-auto">
               <div className="text-center pb-4 border-bottom border-2">
                 <div className="d-flex justify-content-center align-items-center mb-4" style={{ minHeight: "125px" }}>
-                  <Image src={company.logo} alt={`${company.name} logo`} width={250} height={125} style={{ objectFit: "contain" }} />
+                  <Image
+                    src={company.logo || "/assets/img/logo/logo.png"}
+                    alt={`${company.name} logo`}
+                    width={250}
+                    height={125}
+                    style={{ objectFit: "contain" }}
+                  />
                 </div>
                 <h2 className="display-5 fw-bold mb-4">{company.name}</h2>
                 <p className="fs-5 lh-lg text-muted mb-4 mx-auto" style={{ maxWidth: "800px" }}>
