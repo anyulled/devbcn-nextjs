@@ -98,7 +98,7 @@ export default function RootLayout({
   const shouldEnableVercelTelemetry = process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS !== "false";
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <GoogleTagManager gtmId="GTM-M23ZQZR2" />
         {/* Resource Hints */}
