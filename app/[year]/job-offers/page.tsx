@@ -1,6 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { getJobOffersByYear } from "@/config/job-offers/job-offers";
+import { getJobOffersForEdition } from "@/lib/supabase/public-queries";
 import { Company } from "@/config/job-offers/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
@@ -15,7 +15,7 @@ interface JobOffersPageProps {
 }
 
 export const dynamicParams = false;
-
+export const revalidate = 3600;
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: JobOffersPageProps): Promise<Metadata> {
   const { year } = await params;
-  const companies = getJobOffersByYear(year);
+  const companies = await getJobOffersForEdition(year);
   const companyCount = companies.length;
 
   return {
@@ -66,7 +66,7 @@ function generateJsonLDSchema(companies: Company[], year: string) {
 
 export default async function JobOffers({ params }: JobOffersPageProps) {
   const { year } = await params;
-  const companies = getJobOffersByYear(year);
+  const companies = await getJobOffersForEdition(year);
   const eventData = getEditionConfig(year);
 
   const companiesListSchema = generateJsonLDSchema(companies, year);
@@ -105,7 +105,7 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
                       <div className="border rounded p-4 h-100 d-flex flex-column bg-white transition-all hover-shadow">
                         <div className="d-flex align-items-center justify-content-center mb-4" style={{ height: "100px" }}>
                           <Image
-                            src={company.logo}
+                            src={company.logo || "/assets/img/logo/logo.png"}
                             alt={`${company.name} logo`}
                             width={200}
                             height={100}
@@ -118,7 +118,7 @@ export default async function JobOffers({ params }: JobOffersPageProps) {
                           <p className="text-primary fw-medium mb-3 small">
                             {jobCount} {jobCount === 1 ? "position" : "positions"} available
                           </p>
-                          <p className="text-muted small lh-base mb-0">{company.description.substring(0, 150)}...</p>
+                          <p className="text-muted small lh-base mb-0">{company.description ? company.description.substring(0, 150) : ""}...</p>
                         </div>
                       </div>
                     </Link>
