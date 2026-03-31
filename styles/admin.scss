@@ -1,120 +1,6 @@
 // Admin & Sponsor Portal Styles
 
-.admin-login-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ecfeff; // Fallback to a soft cyan if available
-  background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
-  padding: 20px;
-  font-family: var(--figtree);
-
-  .admin-login-card {
-    background: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgb(0, 0, 0, 0.05);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-
-    .admin-login-header {
-      margin-bottom: 30px;
-
-      .login-logo {
-        height: 60px;
-        margin-bottom: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-        color: #164e63;
-        margin-bottom: 8px;
-        font-weight: 700;
-      }
-
-      p {
-        color: #475569; // Darker slate (slate-600)
-        font-size: 14px;
-      }
-    }
-
-    .admin-login-form {
-      text-align: left;
-
-      .error-message {
-        background: #fef2f2;
-        color: #991b1b;
-        padding: 12px;
-        border-radius: 8px;
-        font-size: 14px;
-        margin-bottom: 20px;
-        border: 1px solid #fee2e2;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-
-        label {
-          display: block;
-          font-size: 14px;
-          font-weight: 600;
-          color: #475569;
-          margin-bottom: 6px;
-        }
-
-        input {
-          width: 100%;
-          padding: 12px;
-          border: 1px solid #e2e8f0;
-          border-radius: 8px;
-          font-size: 16px;
-          transition: border-color 0.2s;
-
-          &:focus {
-            outline: none;
-            border-color: #0891b2;
-            box-shadow: 0 0 0 3px rgb(8, 145, 178, 0.1);
-          }
-        }
-      }
-
-      .login-button {
-        width: 100%;
-        padding: 14px;
-        background: #0891b2;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s;
-
-        &:hover {
-          background: #0e7490;
-        }
-
-        &:disabled {
-          background: #94a3b8;
-          cursor: not-allowed;
-        }
-      }
-    }
-
-    .admin-login-footer {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #f1f5f9;
-
-      p {
-        font-size: 12px;
-        color: #94a3b8;
-      }
-    }
-  }
-}
+@import "admin-login";
 
 // Sidebar Design
 .admin-layout {
@@ -493,6 +379,98 @@
         &:hover {
           background: #fee2e2;
         }
+      }
+    }
+
+    .logo-upload-container {
+      border: 2px dashed #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.2s;
+      background: #f8fafc;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #0891b2;
+        background: #f0fdfa;
+      }
+
+      &.dragging {
+        border-color: #0891b2;
+        background: #ecfeff;
+      }
+
+      &.has-error {
+        border-color: #ef4444;
+        background: #fef2f2;
+      }
+
+      .upload-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        color: #64748b;
+
+        i {
+          font-size: 32px;
+          color: #94a3b8;
+        }
+
+        .upload-text {
+          font-weight: 600;
+          color: #475569;
+        }
+
+        .upload-hint {
+          font-size: 12px;
+          color: #94a3b8;
+        }
+      }
+
+      .logo-preview-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        .logo-preview {
+          max-width: 200px;
+          max-height: 120px;
+          object-fit: contain;
+          border-radius: 8px;
+          background: white;
+          padding: 8px;
+          box-shadow: 0 2px 4px rgb(0, 0, 0, 0.05);
+        }
+
+        .remove-logo {
+          background: #fee2e2;
+          color: #ef4444;
+          border: none;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #fecaca;
+          }
+        }
+      }
+
+      .upload-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background: #0891b2;
+        transition: width 0.2s;
+        border-radius: 0 0 12px 12px;
       }
     }
   }
