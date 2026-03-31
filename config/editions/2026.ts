@@ -108,6 +108,11 @@ export const edition2026: EditionConfig = {
         website: "https://aiven.io/",
         image: "/assets/img/all-images/sponsors/aiven.svg",
       },
+      {
+        name: "Mews",
+        website: "https://developers.mews.com/",
+        image: "/assets/img/all-images/sponsors/mews.png",
+      },
     ],
     basic: [
       {
