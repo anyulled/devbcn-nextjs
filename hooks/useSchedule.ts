@@ -63,8 +63,10 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
           if (!existing) {
             sessionsByTime.set(timeKey, [session]);
           } else {
-            // ⚡ Bolt: Use amortized O(1) Array.prototype.push instead of O(N) array spread
-            // Eliminates O(N^2) time complexity and excess garbage collection in inner loop
+            /*
+             * ⚡ Bolt: Use amortized O(1) Array.prototype.push instead of O(N) array spread.
+             * Eliminates O(N^2) time complexity and excess garbage collection in inner loop.
+             */
             existing.push(session);
           }
         });
