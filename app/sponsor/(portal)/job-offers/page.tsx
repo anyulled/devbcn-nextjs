@@ -1,6 +1,8 @@
 import React from "react";
-import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+
+import { createClient } from "@/lib/supabase/server";
 
 interface JobOffer {
   id: string;
@@ -69,7 +71,9 @@ export default async function SponsorJobOffersPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return null;
+  if (!user) {
+    redirect("/sponsor/login");
+  }
 
   // Get the sponsor linked to this user
   const { data: sponsorUsers } = await supabase
@@ -81,7 +85,9 @@ export default async function SponsorJobOffersPage() {
   const sponsorData = (sponsorUsers as unknown as { sponsor: unknown })?.sponsor;
   const sponsor = (Array.isArray(sponsorData) ? sponsorData[0] : sponsorData) as { id: string; edition: string; category_id: string };
 
-  if (!sponsor) return null;
+  if (!sponsor) {
+    redirect("/admin");
+  }
 
   // Fetch job offers for this sponsor
   const { data: jobOffers, error } = await supabase.from("job_offers").select("*").eq("sponsor_id", sponsor.id).order("created_at", { ascending: false });
@@ -92,6 +98,7 @@ export default async function SponsorJobOffersPage() {
   const maxOffers = category?.max_job_offers || 0;
   const currentCount = jobOffers?.length || 0;
   const canAddMore = currentCount < maxOffers;
+  const usagePercentage = maxOffers > 0 ? Math.min(100, (currentCount / maxOffers) * 100) : 0;
 
   return (
     <div className="sponsor-job-offers-page">
@@ -117,7 +124,7 @@ export default async function SponsorJobOffersPage() {
             Usage: <strong>{currentCount}</strong> / {maxOffers} offers
           </span>
           <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${(currentCount / maxOffers) * 100}%` }}></div>
+            <div className="progress-fill" style={{ width: `${usagePercentage}%` }}></div>
           </div>
         </div>
       </div>

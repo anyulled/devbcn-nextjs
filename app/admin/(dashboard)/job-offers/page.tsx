@@ -1,6 +1,5 @@
 import React from "react";
 import { createClient } from "@/lib/supabase/server";
-import Link from "next/link";
 
 export default async function AdminJobOffersPage() {
   const supabase = await createClient();
@@ -35,7 +34,6 @@ export default async function AdminJobOffersPage() {
                 <th>Title</th>
                 <th>Location</th>
                 <th>Created At</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -53,21 +51,11 @@ export default async function AdminJobOffersPage() {
                   </td>
                   <td>{offer.location || "Remote/TBD"}</td>
                   <td className="date-cell">{new Date(offer.created_at).toLocaleDateString()}</td>
-                  <td className="actions-cell">
-                    <div className="action-group">
-                      <Link href={`/admin/job-offers/${offer.id}`} className="icon-button edit" title="Edit">
-                        <i className="fas fa-edit"></i>
-                      </Link>
-                      <button className="icon-button delete" title="Delete">
-                        <i className="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               ))}
               {jobOffers?.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="empty-table-cell">
+                  <td colSpan={5} className="empty-table-cell">
                     No job offers found in the system.
                   </td>
                 </tr>

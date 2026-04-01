@@ -356,6 +356,28 @@
       padding: 2px;
     }
 
+    .website-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: 600;
+      max-width: 100%;
+
+      &:hover {
+        color: #115e59;
+      }
+
+      i {
+        flex: 0 0 auto;
+      }
+
+      span {
+        overflow-wrap: anywhere;
+      }
+    }
+
     .icon-button {
       background: none;
       border: none;

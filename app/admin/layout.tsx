@@ -1,6 +1,6 @@
 import "@/styles/admin.scss";
 
-export default function SponsorRootLayout({
+export default function AdminRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -10,7 +10,9 @@ export default async function SponsorProfilePage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return null;
+  if (!user) {
+    redirect("/sponsor/login");
+  }
 
   // Get the sponsor linked to this user
   const { data: sponsorUsers } = await supabase

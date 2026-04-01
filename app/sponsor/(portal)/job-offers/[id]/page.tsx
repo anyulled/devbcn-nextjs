@@ -15,7 +15,9 @@ export default async function EditJobOfferPage({
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return null;
+  if (!user) {
+    redirect("/sponsor/login");
+  }
 
   // Fetch the job offer and ensure ownership (via sponsor_users)
   const { data: jobOffer, error } = await supabase

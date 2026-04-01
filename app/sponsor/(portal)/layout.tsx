@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { getAdminRedirectPath, getPortalAccess } from "@/lib/auth/portal-access";
+import { getSponsorRedirectPath, getPortalAccess } from "@/lib/auth/portal-access";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function AdminLayout({
+export default async function SponsorLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const supabase = await createClient();
   const access = await getPortalAccess(supabase);
-  const redirectPath = getAdminRedirectPath(access);
+  const redirectPath = getSponsorRedirectPath(access);
 
   if (redirectPath) {
     redirect(redirectPath);
@@ -24,31 +24,33 @@ export default async function AdminLayout({
       <aside className="admin-sidebar">
         <div className="sidebar-header">
           <Image src="/assets/img/logo/logo.png" alt="DevBcn" width={120} height={40} />
-          <span>DevBcn Admin</span>
+          <span>Sponsor Portal</span>
         </div>
 
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <Link href="/admin">
-                <i className="fas fa-chart-line"></i> Dashboard
+              <Link href="/sponsor">
+                <i className="fas fa-home"></i> Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/admin/sponsors">
-                <i className="fas fa-handshake"></i> Sponsors
+              <Link href="/sponsor/job-offers">
+                <i className="fas fa-briefcase"></i> My Job Offers
               </Link>
             </li>
             <li>
-              <Link href="/admin/categories">
-                <i className="fas fa-tags"></i> Categories
+              <Link href="/sponsor/profile">
+                <i className="fas fa-building"></i> Company Profile
               </Link>
             </li>
-            <li>
-              <Link href="/admin/job-offers">
-                <i className="fas fa-briefcase"></i> Job Offers
-              </Link>
-            </li>
+            {access.isGlobalAdmin && (
+              <li>
+                <Link href="/admin">
+                  <i className="fas fa-user-shield"></i> Back to Admin
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
 
