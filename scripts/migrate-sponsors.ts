@@ -85,6 +85,7 @@ async function migrateSponsorsForYear(year: string, sponsorsData: Sponsors) {
           logo_url: sponsor.image || null,
           category_id: categoryId,
           description: null,
+          status: "published",
         },
         { onConflict: "edition,name" }
       );
@@ -118,6 +119,7 @@ async function getOrCreateSponsorForJob(year: string, company: { name: string; l
         website: company.url,
         category_id: catId,
         description: company.description,
+        status: "published",
       })
       .select("id")
       .single();

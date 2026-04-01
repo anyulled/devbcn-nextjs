@@ -12,6 +12,21 @@ function getWebsiteLabel(website: string): string {
   }
 }
 
+function getCategoryName(category: unknown): string {
+  if (Array.isArray(category)) {
+    const firstCategory = category[0];
+    if (firstCategory && typeof firstCategory === "object" && "name" in firstCategory && typeof firstCategory.name === "string") {
+      return firstCategory.name;
+    }
+  }
+
+  if (category && typeof category === "object" && "name" in category && typeof category.name === "string") {
+    return category.name;
+  }
+
+  return "Uncategorized";
+}
+
 export default async function AdminSponsorsPage({
   searchParams,
 }: Readonly<{
@@ -33,8 +48,14 @@ export default async function AdminSponsorsPage({
         .from("sponsors")
         .select(
           `
-          *,
-          category:sponsor_categories(name)
+          id,
+          edition,
+          name,
+          website,
+          logo_url,
+          status,
+          category:sponsor_categories(name),
+          contacts:sponsor_users(email)
         `
         )
         .eq("edition", selectedEdition)
@@ -43,8 +64,14 @@ export default async function AdminSponsorsPage({
         .from("sponsors")
         .select(
           `
-          *,
-          category:sponsor_categories(name)
+          id,
+          edition,
+          name,
+          website,
+          logo_url,
+          status,
+          category:sponsor_categories(name),
+          contacts:sponsor_users(email)
         `
         )
         .order("name");
@@ -81,8 +108,10 @@ export default async function AdminSponsorsPage({
                 <th>Edition</th>
                 <th>Sponsor</th>
                 <th>Category</th>
+                <th>Status</th>
                 <th>Website</th>
-                <th>Contact</th>
+                <th>Contacts</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -96,7 +125,10 @@ export default async function AdminSponsorsPage({
                     </div>
                   </td>
                   <td>
-                    <span className="badge category">{sponsor.category?.name || "Uncategorized"}</span>
+                    <span className="badge category">{getCategoryName(sponsor.category)}</span>
+                  </td>
+                  <td>
+                    <span className={`badge status ${sponsor.status || "published"}`}>{sponsor.status || "published"}</span>
                   </td>
                   <td>
                     {sponsor.website && (
@@ -106,12 +138,30 @@ export default async function AdminSponsorsPage({
                       </a>
                     )}
                   </td>
-                  <td>{sponsor.contact_person || <span className="text-muted">No contact</span>}</td>
+                  <td>
+                    {sponsor.contacts && sponsor.contacts.length > 0 ? (
+                      <div className="contact-list">
+                        {sponsor.contacts
+                          .map((contact) => contact.email)
+                          .filter((email): email is string => Boolean(email))
+                          .map((email) => (
+                            <span key={email}>{email}</span>
+                          ))}
+                      </div>
+                    ) : (
+                      <span className="text-muted">No contact</span>
+                    )}
+                  </td>
+                  <td className="table-actions">
+                    <Link href={`/admin/sponsors/${sponsor.id}`} className="action-button secondary">
+                      Edit
+                    </Link>
+                  </td>
                 </tr>
               ))}
               {sponsors?.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="empty-table-cell">
+                  <td colSpan={7} className="empty-table-cell">
                     No sponsors found for this edition.
                   </td>
                 </tr>

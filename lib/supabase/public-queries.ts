@@ -13,6 +13,7 @@ interface SponsorRow {
   name: string;
   website: string | null;
   logo_url: string | null;
+  status: "draft" | "published" | "needs_review" | null;
   category: { name: string } | null;
 }
 
@@ -41,10 +42,12 @@ export async function getSponsorsForEdition(edition: string): Promise<Sponsors> 
       name,
       website,
       logo_url,
+      status,
       category:sponsor_categories(name)
     `
     )
-    .eq("edition", edition);
+    .eq("edition", edition)
+    .in("status", ["published", "needs_review"]);
 
   const sponsorsData = data as unknown as SponsorRow[];
 
@@ -118,6 +121,7 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
       website,
       logo_url,
       description,
+      status,
       twitter,
       linkedin,
       bluesky,
@@ -125,6 +129,7 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
     `
     )
     .eq("edition", edition)
+    .in("status", ["published", "needs_review"])
     .order("name");
 
   if (sponsorsError || !sponsors) {

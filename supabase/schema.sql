@@ -1,5 +1,6 @@
 -- Enum for roles
 CREATE TYPE user_role AS ENUM ('global_admin', 'contact');
+CREATE TYPE sponsor_status AS ENUM ('draft', 'published', 'needs_review');
 
 -- Table: sponsor_categories
 CREATE TABLE sponsor_categories (
@@ -16,6 +17,8 @@ CREATE TABLE sponsors (
     edition VARCHAR(50) NOT NULL,
     category_id INT REFERENCES sponsor_categories(id) ON DELETE RESTRICT,
     name VARCHAR(255) NOT NULL,
+    status sponsor_status NOT NULL DEFAULT 'published',
+    internal_owner_user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
     website VARCHAR(255),
     logo_url text,
     description TEXT,
@@ -40,9 +43,15 @@ CREATE TABLE sponsor_users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     sponsor_id UUID REFERENCES sponsors(id) ON DELETE CASCADE,
     user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    email VARCHAR(255),
+    name VARCHAR(255),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     UNIQUE(sponsor_id, user_id)
 );
+
+CREATE UNIQUE INDEX sponsor_users_sponsor_id_email_unique
+ON sponsor_users (sponsor_id, lower(email))
+WHERE email IS NOT NULL;
 
 -- Table: job_offers
 CREATE TABLE job_offers (
@@ -109,8 +118,10 @@ CREATE POLICY "Admins can manage user_roles" ON user_roles FOR ALL USING (is_glo
 
 
 -- 4. sponsor_users
--- Admins can do anything, Users can see their own assignments
-CREATE POLICY "Admins can see and manage sponsor users" ON sponsor_users FOR ALL USING (is_global_admin(auth.uid()));
+CREATE POLICY "Admins can view sponsor users" ON sponsor_users FOR SELECT USING (is_global_admin(auth.uid()));
+CREATE POLICY "Admins can insert sponsor users" ON sponsor_users FOR INSERT WITH CHECK (is_global_admin(auth.uid()));
+CREATE POLICY "Admins can update sponsor users" ON sponsor_users FOR UPDATE USING (is_global_admin(auth.uid())) WITH CHECK (is_global_admin(auth.uid()));
+CREATE POLICY "Admins can delete sponsor users" ON sponsor_users FOR DELETE USING (is_global_admin(auth.uid()));
 CREATE POLICY "Users can see their own sponsor assignments" ON sponsor_users FOR SELECT USING (auth.uid() = user_id);
 
 

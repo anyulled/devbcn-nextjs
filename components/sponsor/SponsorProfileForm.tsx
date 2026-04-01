@@ -141,16 +141,22 @@ function useSponsorProfileForm(initialData: SponsorProfileFormProps["initialData
   });
 }
 
-async function handleSponsorProfileSubmit({ values, supabase, initialId }: { values: SponsorProfileValues; supabase: SupabaseClient; initialId: string }) {
-  const { error } = await supabase
-    .from("sponsors")
-    .update({
+async function handleSponsorProfileSubmit({ values, initialId }: { values: SponsorProfileValues; initialId: string }) {
+  const response = await fetch("/api/sponsor/profile", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      sponsorId: initialId,
       ...values,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", initialId);
+    }),
+  });
 
-  if (error) throw error;
+  if (!response.ok) {
+    const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+    throw new Error(payload?.error || "Failed to update sponsor profile");
+  }
 }
 
 export default function SponsorProfileForm({ initialData }: Readonly<SponsorProfileFormProps>) {
@@ -178,7 +184,6 @@ export default function SponsorProfileForm({ initialData }: Readonly<SponsorProf
     try {
       await handleSponsorProfileSubmit({
         values,
-        supabase,
         initialId: initialData.id,
       });
 
