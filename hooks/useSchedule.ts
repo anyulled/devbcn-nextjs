@@ -63,7 +63,6 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
           if (!existing) {
             sessionsByTime.set(timeKey, [session]);
           } else {
-            // ⚡ Bolt: Mutating the array directly avoids O(n²) spread overhead
             existing.push(session);
           }
         });
