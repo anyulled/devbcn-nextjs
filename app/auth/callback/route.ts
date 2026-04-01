@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { createAdminClient } from "@/lib/supabase/admin";
 import { resolvePostLoginDestination, getPortalAccess } from "@/lib/auth/portal-access";
 import { createRouteHandlerClient } from "@/lib/supabase/server";
 
@@ -18,6 +19,20 @@ export async function GET(request: Request) {
         status: 303,
       });
     }
+  }
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user?.email) {
+    const adminClient = createAdminClient();
+    await adminClient
+      .from("sponsor_users")
+      .update({
+        user_id: user.id,
+      })
+      .eq("email", user.email.toLowerCase());
   }
 
   const access = await getPortalAccess(supabase);

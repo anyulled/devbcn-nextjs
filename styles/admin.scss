@@ -1,8 +1,6 @@
-// Admin & Sponsor Portal Styles
-
 @use "admin-login";
+@use "admin-portal-components";
 
-// Sidebar Design
 .admin-layout {
   display: flex;
   min-height: 100vh;
