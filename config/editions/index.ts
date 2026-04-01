@@ -68,6 +68,10 @@ export const getAvailableEditions = (): EditionYear[] => {
   return Object.keys(editions) as EditionYear[];
 };
 
+export const getArchivedEditions = (): EditionYear[] => {
+  return getAvailableEditions().filter((year) => year !== CURRENT_EDITION);
+};
+
 /**
  * Check if CFP is currently open for an edition
  *

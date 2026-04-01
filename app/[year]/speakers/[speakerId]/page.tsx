@@ -2,7 +2,7 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getArchivedEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import { getSpeakerByYearAndId, getSpeakers } from "@/hooks/useSpeakers";
 import { generateBreadcrumbSchema, generateItemListSchema, generatePersonSchema, serializeJsonLd } from "@/lib/shared/jsonld";
@@ -19,7 +19,7 @@ interface SpeakerDetailProps {
 }
 
 export async function generateStaticParams() {
-  const years = getAvailableEditions();
+  const years = getArchivedEditions();
   const params = [];
 
   for (const year of years) {

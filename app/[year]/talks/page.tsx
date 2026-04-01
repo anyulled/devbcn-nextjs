@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TalksList from "@/components/layout/TalksList";
 import CTASection from "@/components/sections/CTASection";
-import { getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getArchivedEditions, getEditionConfig } from "@/config/editions";
 import { getTalks, getUniqueTracks } from "@/hooks/useTalks";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
@@ -16,7 +16,7 @@ interface TalksProps {
 }
 
 export async function generateStaticParams() {
-  const years = getAvailableEditions();
+  const years = getArchivedEditions();
   return years.map((year) => ({ year }));
 }
 

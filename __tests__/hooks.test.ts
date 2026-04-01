@@ -32,9 +32,21 @@ describe("Hooks", () => {
 
       const speakers = await getSpeakers("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: false, tags: ["sessionize"] },
+        next: { revalidate: false, tags: ["sessionize:2025"] },
       });
       expect(speakers).toEqual(mockSpeakers);
+    });
+
+    it("revalidates current edition speakers every 12 hours", async () => {
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockSpeakers,
+      } as Response);
+
+      await getSpeakers("2026");
+      expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("prcjw6ue"), {
+        next: { revalidate: 43200, tags: ["sessionize:2026"] },
+      });
     });
 
     it("fetches speakers for specific year", async () => {
@@ -46,7 +58,7 @@ describe("Hooks", () => {
       await getSpeakers("2023");
       // Ttsitynd - 2023 endpoint
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("ttsitynd"), {
-        next: { revalidate: false, tags: ["sessionize"] },
+        next: { revalidate: false, tags: ["sessionize:2023"] },
       });
     });
 
@@ -134,11 +146,23 @@ describe("Hooks", () => {
 
       const groups = await getTalks("2025");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("xhudniix"), {
-        next: { revalidate: false, tags: ["sessionize"] },
+        next: { revalidate: false, tags: ["sessionize:2025"] },
       });
       expect(groups).toHaveLength(1);
       expect(groups[0].sessions).toHaveLength(2);
       expect(groups[0].sessions[0].id).toEqual("101");
+    });
+
+    it("revalidates current edition talks every 12 hours", async () => {
+      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockTalksData,
+      } as Response);
+
+      await getTalks("2026");
+      expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("prcjw6ue"), {
+        next: { revalidate: 43200, tags: ["sessionize:2026"] },
+      });
     });
 
     it("returns empty array when fetch fails", async () => {

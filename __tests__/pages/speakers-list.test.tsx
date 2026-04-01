@@ -52,6 +52,7 @@ jest.mock("@/config/editions", () => ({
     showCountdown: true,
   })),
   getAvailableEditions: jest.fn(() => ["2025"]),
+  getArchivedEditions: jest.fn(() => ["2025"]),
   formatEventDateRange: jest.fn(() => "July 10-11, 2025"),
 }));
 

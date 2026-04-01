@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import SpeakersList from "@/components/layout/SpeakersList";
 import CTASection from "@/components/sections/CTASection";
-import { getAvailableEditions, getEditionConfig } from "@/config/editions";
+import { getArchivedEditions, getEditionConfig } from "@/config/editions";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { generateItemListSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
@@ -16,7 +16,7 @@ interface SpeakersProps {
 }
 
 export async function generateStaticParams() {
-  const years = getAvailableEditions();
+  const years = getArchivedEditions();
   return years.map((year) => ({ year }));
 }
 

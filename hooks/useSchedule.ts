@@ -1,6 +1,7 @@
 import { getEditionConfig } from "@/config/editions";
 import { format, parseISO } from "date-fns";
 import { cache } from "react";
+import { getSessionizeFetchOptions } from "@/lib/revalidate";
 
 export interface GridSession {
   id: string;
@@ -46,7 +47,7 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
   const url = `${config.sessionizeUrl}/view/GridSmart`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, getSessionizeFetchOptions(year));
     if (!response.ok) {
       throw new Error(`Failed to fetch schedule: ${response.statusText}`);
     }
