@@ -1,7 +1,7 @@
 import { getEditionConfig } from "@/config/editions";
 import { Speaker } from "./types";
 import { cache } from "react";
-import { getSessionizeFetchOptions } from "@/lib/revalidate";
+import { getRevalidateInterval } from "@/lib/revalidate";
 
 /**
  * Get the Sessionize speakers URL for a given edition year
@@ -14,8 +14,11 @@ const getSpeakersUrl = (year: string | number): string => {
 export const getSpeakers = cache(async (year: string | number = "default"): Promise<Speaker[]> => {
   try {
     const url = getSpeakersUrl(year);
+    const revalidateInterval = getRevalidateInterval(year);
 
-    const response = await fetch(url, getSessionizeFetchOptions(year));
+    const response = await fetch(url, {
+      next: { revalidate: revalidateInterval, tags: ["sessionize"] },
+    });
     if (!response.ok) {
       console.error(`Failed to fetch speakers for year ${year}: ${response.statusText}`);
       return [];

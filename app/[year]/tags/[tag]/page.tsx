@@ -1,7 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TalkCard from "@/components/layout/TalkCard";
 import CTASection from "@/components/sections/CTASection";
-import { getArchivedEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getTagsFromTalk, getTalks } from "@/hooks/useTalks";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -17,7 +17,7 @@ interface TagPageProps {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const years = getArchivedEditions();
+  const years = getAvailableEditions();
   const params = [];
 
   for (const year of years) {

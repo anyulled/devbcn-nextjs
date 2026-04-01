@@ -3,7 +3,7 @@ export const dynamicParams = false;
 import CTASection from "@/components/sections/CTASection";
 import RelatedTalks from "@/components/talks/RelatedTalks";
 import TalkContent from "@/components/talks/TalkContent";
-import { getArchivedEditions, getEditionConfig } from "@/config/editions";
+import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { Speaker } from "@/hooks/types";
 import {
   getLevelFromTalk,
@@ -28,7 +28,7 @@ interface TalkDetailProps {
 }
 
 export async function generateStaticParams() {
-  const years = getArchivedEditions();
+  const years = getAvailableEditions();
   const params = [];
 
   for (const year of years) {

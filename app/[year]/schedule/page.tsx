@@ -1,4 +1,4 @@
-import { formatEventDateRange, getArchivedEditions, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 import { getSchedule } from "@/hooks/useSchedule";
 import ScheduleContainer from "@/components/schedule/ScheduleContainer";
@@ -13,7 +13,7 @@ interface ScheduleProps {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const years = getArchivedEditions();
+  const years = getAvailableEditions();
   return years.map((year) => ({ year }));
 }
 

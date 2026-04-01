@@ -42,7 +42,6 @@ jest.mock("@/config/editions", () => ({
   }),
   formatEventDateRange: jest.fn(() => "July 8-10, 2025"),
   getAvailableEditions: jest.fn(() => ["2025"]),
-  getArchivedEditions: jest.fn(() => ["2025"]),
 }));
 
 describe("TagPage", () => {

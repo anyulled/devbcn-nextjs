@@ -8,7 +8,7 @@ const Section3 = dynamic(() => import("@/components/sections/home8/section3"));
 const Section4 = dynamic(() => import("@/components/sections/home8/section4"));
 const Section5 = dynamic(() => import("@/components/sections/home8/section5"));
 const Section6 = dynamic(() => import("@/components/sections/home8/section6"));
-import { formatEventDateRange, getArchivedEditions, getEditionConfig } from "@/config/editions";
+import { formatEventDateRange, getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { getFeaturedSpeakers, getSpeakers } from "@/hooks/useSpeakers";
 import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
@@ -21,7 +21,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const years = getArchivedEditions();
+  const years = getAvailableEditions();
   return years.map((year) => ({ year }));
 }
 

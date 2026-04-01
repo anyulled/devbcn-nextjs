@@ -141,3 +141,4 @@ public/swe-worker-*.js.map
 
 # Documentation
 docs/api/
+*.orig
