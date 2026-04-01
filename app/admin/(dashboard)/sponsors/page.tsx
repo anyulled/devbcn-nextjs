@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import { getSelectedEdition, getUniqueEditions } from "@/lib/admin/sponsors";
 
 function getWebsiteLabel(website: string): string {
   try {
@@ -33,14 +34,13 @@ export default async function AdminSponsorsPage({
   searchParams: Promise<{ edition?: string }>;
 }>) {
   const params = await searchParams;
-  const selectedEdition = params.edition;
   const supabase = await createClient();
 
   // Fetch all available editions for the filter
   const { data: editionsData } = await supabase.from("sponsors").select("edition").order("edition", { ascending: false });
 
-  // Deduplicate editions and ensure they are strings
-  const uniqueEditions: string[] = Array.from(new Set((editionsData || []).map((e) => String(e.edition))));
+  const uniqueEditions = getUniqueEditions((editionsData || []).map((editionRow) => editionRow.edition));
+  const selectedEdition = getSelectedEdition(uniqueEditions, params.edition);
 
   // Fetch sponsors based on filter
   const query = selectedEdition
