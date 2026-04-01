@@ -24,7 +24,6 @@ export default async function AdminCategoriesPage() {
                 <th>Category Name</th>
                 <th>Max Job Offers</th>
                 <th>Sponsor Count</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -41,15 +40,7 @@ export default async function AdminCategoriesPage() {
                   </td>
                   <td>
                     <div className="sponsor-loading-count">
-                      {/* We could fetch this in a separate query or join if needed */}
                       <span className="text-muted italic">Check Sponsors tab</span>
-                    </div>
-                  </td>
-                  <td className="actions-cell">
-                    <div className="action-group">
-                      <button className="icon-button edit" title="Edit Limit">
-                        <i className="fas fa-cog"></i>
-                      </button>
                     </div>
                   </td>
                 </tr>

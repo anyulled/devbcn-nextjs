@@ -1,6 +1,7 @@
 import React from "react";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 function SponsorStats({
   jobOfferCount,
@@ -54,8 +55,7 @@ export default async function SponsorPortalPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    /** Middleware handles redirect */
-    return null;
+    redirect("/sponsor/login");
   }
 
   // Get the sponsor(s) associated with this user
@@ -80,15 +80,7 @@ export default async function SponsorPortalPage() {
   const sponsor = (Array.isArray(sponsorData) ? sponsorData[0] : sponsorData) as { id: string; name: string; edition: string; category: unknown };
 
   if (!sponsor) {
-    return (
-      <div className="sponsor-no-access">
-        <h2>No Sponsor Account Linked</h2>
-        <p>Your account is not currently linked to any sponsor for any active edition.</p>
-        <p>
-          Please contact the conference organizers at <a href="mailto:info@devbcn.com">info@devbcn.com</a> if you believe this is an error.
-        </p>
-      </div>
-    );
+    redirect("/admin");
   }
 
   // Fetch job offers for this sponsor

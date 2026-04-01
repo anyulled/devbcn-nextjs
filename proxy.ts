@@ -1,3 +1,4 @@
+import { createServerClient } from "@supabase/ssr";
 import { NextRequest, NextResponse } from "next/server";
 
 const SW_CLEANUP_QUERY_PARAM = "devbcn-sw-cleanup";
@@ -82,7 +83,31 @@ function buildLegacyManifest(): string {
   );
 }
 
-export function proxy(request: NextRequest): NextResponse {
+async function updateSupabaseSession(request: NextRequest): Promise<NextResponse> {
+  const response = NextResponse.next({
+    request,
+  });
+
+  const supabase = createServerClient(process.env.NEXT_PUBLIC_STORAGE_SUPABASE_URL!, process.env.NEXT_PUBLIC_STORAGE_SUPABASE_ANON_KEY!, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          request.cookies.set(name, value);
+          response.cookies.set(name, value, options);
+        });
+      },
+    },
+  });
+
+  await supabase.auth.getUser();
+
+  return response;
+}
+
+export async function proxy(request: NextRequest): Promise<NextResponse> {
   const { pathname } = request.nextUrl;
 
   if (pathname.endsWith("/registerSW.js")) {
@@ -108,9 +133,9 @@ export function proxy(request: NextRequest): NextResponse {
     });
   }
 
-  return NextResponse.next();
+  return updateSupabaseSession(request);
 }
 
 export const config = {
-  matcher: ["/registerSW.js", "/service-worker.js", "/manifest.json"],
+  matcher: ["/admin/:path*", "/sponsor/:path*", "/auth/:path*", "/registerSW.js", "/service-worker.js", "/manifest.json"],
 };

@@ -1,6 +1,16 @@
 import React from "react";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+
+function getWebsiteLabel(website: string): string {
+  try {
+    const url = new URL(website);
+    return `${url.hostname}${url.pathname === "/" ? "" : url.pathname}`;
+  } catch {
+    return website;
+  }
+}
 
 export default async function AdminSponsorsPage({
   searchParams,
@@ -45,9 +55,6 @@ export default async function AdminSponsorsPage({
     <div className="admin-sponsors-page">
       <div className="admin-content-header">
         <h2>Sponsors Management</h2>
-        <Link href="/admin/sponsors/new" className="action-button primary">
-          <i className="fas fa-plus"></i> Add Sponsor
-        </Link>
       </div>
 
       <div className="filters-bar">
@@ -76,7 +83,6 @@ export default async function AdminSponsorsPage({
                 <th>Category</th>
                 <th>Website</th>
                 <th>Contact</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -85,7 +91,7 @@ export default async function AdminSponsorsPage({
                   <td className="edition-cell">{sponsor.edition}</td>
                   <td className="sponsor-cell">
                     <div className="sponsor-info">
-                      {sponsor.logo_url && <img src={sponsor.logo_url} alt={sponsor.name} className="sponsor-logo-sm" />}
+                      {sponsor.logo_url && <Image src={sponsor.logo_url} alt={sponsor.name} className="sponsor-logo-sm" width={64} height={64} />}
                       <strong>{sponsor.name}</strong>
                     </div>
                   </td>
@@ -93,28 +99,19 @@ export default async function AdminSponsorsPage({
                     <span className="badge category">{sponsor.category?.name || "Uncategorized"}</span>
                   </td>
                   <td>
-                    {sponsor.website_url && (
-                      <a href={sponsor.website_url} target="_blank" rel="noreferrer" className="website-link">
+                    {sponsor.website && (
+                      <a href={sponsor.website} target="_blank" rel="noreferrer" className="website-link">
                         <i className="fas fa-external-link-alt"></i>
+                        <span>{getWebsiteLabel(sponsor.website)}</span>
                       </a>
                     )}
                   </td>
                   <td>{sponsor.contact_person || <span className="text-muted">No contact</span>}</td>
-                  <td className="actions-cell">
-                    <div className="action-group">
-                      <Link href={`/admin/sponsors/${sponsor.id}`} className="icon-button edit" title="Edit">
-                        <i className="fas fa-edit"></i>
-                      </Link>
-                      <button className="icon-button delete" title="Delete">
-                        <i className="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               ))}
               {sponsors?.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="empty-table-cell">
+                  <td colSpan={5} className="empty-table-cell">
                     No sponsors found for this edition.
                   </td>
                 </tr>

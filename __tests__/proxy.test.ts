@@ -11,7 +11,7 @@ const createRequest = (url: string) =>
 
 describe("middleware", () => {
   it("serves a cleanup script for legacy registerSW.js requests", async () => {
-    const response = proxy(createRequest("https://www.devbcn.com/registerSW.js"));
+    const response = await proxy(createRequest("https://www.devbcn.com/registerSW.js"));
     const body = await response.text();
 
     expect(response.headers.get("content-type")).toBe("application/javascript; charset=utf-8");
@@ -21,7 +21,7 @@ describe("middleware", () => {
   });
 
   it("serves a legacy manifest for manifest.json requests", async () => {
-    const response = proxy(createRequest("https://www.devbcn.com/manifest.json"));
+    const response = await proxy(createRequest("https://www.devbcn.com/manifest.json"));
     const body = await response.text();
     const manifest = JSON.parse(body) as {
       background_color: string;
@@ -65,8 +65,8 @@ describe("middleware", () => {
     ]);
   });
 
-  it("rewrites service-worker.js to the kill-switch worker", () => {
-    const response = proxy(createRequest("https://www.devbcn.com/service-worker.js"));
+  it("rewrites service-worker.js to the kill-switch worker", async () => {
+    const response = await proxy(createRequest("https://www.devbcn.com/service-worker.js"));
 
     expect(response.headers.get("x-middleware-rewrite")).toBe("https://www.devbcn.com/sw.js");
   });
