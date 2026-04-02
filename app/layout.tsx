@@ -2,15 +2,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import "@/styles/main.scss";
 import "@/styles/vendor/aos.css";
 import "@/styles/vendor/bootstrap.min.css";
 import "@/styles/vendor/magnific-popup.css";
 import "@/styles/vendor/mobile.css";
-import "@/styles/vendor/sidebar.css";
-import "@/styles/vendor/slick-slider.css";
 import "@/styles/vendor/nice-select.css";
 import "@/styles/vendor/odometer.css";
-import "@/styles/main.scss";
+import "@/styles/vendor/sidebar.css";
+import "@/styles/vendor/slick-slider.css";
 
 import ClientLayout from "@/components/layout/ClientLayout";
 import { Analytics } from "@vercel/analytics/react";
@@ -104,6 +104,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <meta name="google-site-verification" content="LNQXre5kOuyrkwaHjRRuLOzesEtCyoYisEXYwhi3ENY" />
 
         {/* Link vendor CSS served from public/ */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
