@@ -82,6 +82,10 @@ export default async function AdminSponsorsPage({
     <div className="admin-sponsors-page">
       <div className="admin-content-header">
         <h2>Sponsors Management</h2>
+        <Link href={selectedEdition ? `/admin/sponsors/new?edition=${selectedEdition}` : "/admin/sponsors/new"} className="action-button primary">
+          <i className="fas fa-plus"></i>
+          New Sponsor
+        </Link>
       </div>
 
       <div className="filters-bar">

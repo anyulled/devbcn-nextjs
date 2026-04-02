@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useFieldArray, useForm, type Control, type FieldArrayWithId, type FieldErrors, type UseFormRegister } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import type { AdminSponsorRecord } from "@/lib/admin/sponsors";
 
 const sponsorContactSchema = z.object({
   email: z.string().email("Enter a valid email address"),
@@ -31,25 +32,7 @@ const adminSponsorSchema = z.object({
 type AdminSponsorValues = z.infer<typeof adminSponsorSchema>;
 
 interface AdminSponsorFormProps {
-  sponsor: {
-    id: string;
-    name: string;
-    edition: string;
-    category_id: number | null;
-    status: "draft" | "published" | "needs_review" | null;
-    internal_owner_user_id: string | null;
-    website: string | null;
-    logo_url: string | null;
-    description: string | null;
-    twitter: string | null;
-    linkedin: string | null;
-    bluesky: string | null;
-    instagram: string | null;
-    contacts: Array<{
-      email: string | null;
-      name: string | null;
-    }> | null;
-  };
+  sponsor: AdminSponsorRecord;
   categories: Array<{
     id: number;
     name: string;
@@ -58,6 +41,7 @@ interface AdminSponsorFormProps {
     userId: string;
     label: string;
   }>;
+  submitMode?: "create" | "edit";
 }
 
 function toInputValue(value: string | null | undefined) {
@@ -309,7 +293,7 @@ function ContactsSection({
   );
 }
 
-export default function AdminSponsorForm({ sponsor, categories, ownerOptions }: Readonly<AdminSponsorFormProps>) {
+export default function AdminSponsorForm({ sponsor, categories, ownerOptions, submitMode = "edit" }: Readonly<AdminSponsorFormProps>) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -331,8 +315,8 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions }: 
     setSuccessMessage(null);
 
     try {
-      const response = await fetch(`/api/admin/sponsors/${sponsor.id}`, {
-        method: "PUT",
+      const response = await fetch(submitMode === "create" ? "/api/admin/sponsors" : `/api/admin/sponsors/${sponsor.id}`, {
+        method: submitMode === "create" ? "POST" : "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -342,6 +326,14 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions }: 
       if (!response.ok) {
         const payload = (await response.json().catch(() => null)) as { error?: string } | null;
         throw new Error(payload?.error || "Failed to update sponsor");
+      }
+
+      const payload = (await response.json()) as { sponsorId?: string };
+
+      if (submitMode === "create" && payload.sponsorId) {
+        router.push(`/admin/sponsors/${payload.sponsorId}`);
+        router.refresh();
+        return;
       }
 
       setSuccessMessage("Sponsor updated successfully.");
@@ -368,7 +360,7 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions }: 
           Back to Sponsors
         </Link>
         <button type="submit" className="action-button primary" disabled={isSubmitting}>
-          {isSubmitting ? "Saving..." : "Save Sponsor"}
+          {isSubmitting ? "Saving..." : submitMode === "create" ? "Create Sponsor" : "Save Sponsor"}
         </button>
       </div>
     </form>
