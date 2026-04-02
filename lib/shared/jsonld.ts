@@ -7,9 +7,9 @@
  * Uses schema-dts for TypeScript type safety and autocomplete support.
  */
 
-import type { Company, JobOffer } from "@/config/job-offers/job-offers/types";
 import type { EditionConfig } from "@/config/editions/types";
-import type { Speaker, Talk } from "@/hooks/types";
+import type { Company, JobOffer } from "@/config/job-offers/job-offers/types";
+import type { Speaker, Talk, TalkSpeaker } from "@/hooks/types";
 import type { BreadcrumbList, EducationEvent, Event, ItemList, JobPosting, Organization, Person, WithContext } from "schema-dts";
 
 /**
@@ -29,8 +29,10 @@ export function generateOrganizationSchema(): WithContext<Organization> {
 /**
  * Generate Event schema for the conference
  */
-export function generateEventSchema(config: EditionConfig, year: string): WithContext<Event> {
+export function generateEventSchema(config: EditionConfig, year: string, speakers: Speaker[]): WithContext<Event> {
   const baseUrl = "https://www.devbcn.com";
+
+  const eventSpeakers = speakers.map((speaker) => mapSpeakerToPersonSchema(speaker, year, baseUrl));
 
   return {
     "@context": "https://schema.org",
@@ -63,76 +65,54 @@ export function generateEventSchema(config: EditionConfig, year: string): WithCo
           "@type": "AggregateOffer",
           url: config.tickets.url,
           priceCurrency: "EUR",
-          lowPrice: "300",
-          highPrice: "800",
+          lowPrice: Math.min(...config.tickets.categories.map((c) => Number.parseInt(c.price.replaceAll(/[^\d]/g, ""), 10))).toString(),
+          highPrice: Math.max(...config.tickets.categories.map((c) => Number.parseInt(c.price.replaceAll(/[^\d]/g, ""), 10))).toString(),
           availability: "https://schema.org/InStock",
           validFrom: config.tickets.startDay.toISOString(),
-          offers: [
-            {
-              "@type": "Offer",
-              name: "Blind Bird Ticket",
-              price: "300",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-01-10T00:00:00.000Z",
-              priceValidUntil: "2026-01-31T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-            {
-              "@type": "Offer",
-              name: "Early Bird Ticket",
-              price: "370",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-02-01T00:00:00.000Z",
-              priceValidUntil: "2026-02-28T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-            {
-              "@type": "Offer",
-              name: "Regular Ticket",
-              price: "440",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-03-01T00:00:00.000Z",
-              priceValidUntil: "2026-03-31T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-            {
-              "@type": "Offer",
-              name: "Late Ticket",
-              price: "600",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-04-01T00:00:00.000Z",
-              priceValidUntil: "2026-04-30T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-            {
-              "@type": "Offer",
-              name: "Last Minute Ticket",
-              price: "700",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-05-01T00:00:00.000Z",
-              priceValidUntil: "2026-05-31T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-            {
-              "@type": "Offer",
-              name: "Super Last Minute Ticket",
-              price: "800",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/InStock",
-              validFrom: "2026-06-01T00:00:00.000Z",
-              priceValidUntil: "2026-06-15T23:59:59.999Z",
-              url: config.tickets.url,
-            },
-          ],
+          offers: config.tickets.categories.map((category) => ({
+            "@type": "Offer",
+            name: `${category.name} Ticket`,
+            price: category.price.replaceAll(/[^\d]/g, ""),
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+            validFrom: category.startDate.toISOString(),
+            priceValidUntil: category.endDate.toISOString(),
+            url: config.tickets.url,
+          })),
         }
       : undefined,
+    performer: eventSpeakers,
     url: `${baseUrl}/${year}`,
   };
+}
+
+/**
+ * Shared helper to map speaker types to Person schema
+ */
+function mapSpeakerToPersonSchema(speaker: Speaker | TalkSpeaker, year: string, baseUrl: string): Person {
+  const isFullSpeaker = "fullName" in speaker;
+  const name = isFullSpeaker ? speaker.fullName : speaker.name;
+  const id = speaker.id;
+
+  const person: Person = {
+    "@type": "Person",
+    name,
+    url: `${baseUrl}/${year}/speakers/${id}`,
+  };
+
+  if (isFullSpeaker) {
+    const s = speaker;
+    if (s.profilePicture) person.image = s.profilePicture;
+    if (s.tagLine) person.jobTitle = s.tagLine;
+    if (s.bio) person.description = s.bio;
+
+    if (s.links) {
+      const sameAs = s.links.filter((link) => ["LinkedIn", "Twitter", "Company_Website", "Blog"].includes(link.linkType)).map((link) => link.url);
+      if (sameAs.length > 0) person.sameAs = sameAs;
+    }
+  }
+
+  return person;
 }
 
 /**
@@ -140,18 +120,9 @@ export function generateEventSchema(config: EditionConfig, year: string): WithCo
  */
 export function generatePersonSchema(speaker: Speaker, year: string): WithContext<Person> {
   const baseUrl = "https://www.devbcn.com";
-  const sameAs = speaker.links.filter((link) => ["LinkedIn", "Twitter", "Company_Website", "Blog"].includes(link.linkType)).map((link) => link.url);
+  const personSchema = mapSpeakerToPersonSchema(speaker, year, baseUrl);
 
-  return {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: speaker.fullName,
-    jobTitle: speaker.tagLine || undefined,
-    description: speaker.bio || undefined,
-    image: speaker.profilePicture || undefined,
-    url: `${baseUrl}/${year}/speakers/${speaker.id}`,
-    sameAs: sameAs.length > 0 ? sameAs : undefined,
-  };
+  return Object.assign({ "@context": "https://schema.org" as const }, personSchema) as WithContext<Person>;
 }
 
 /**
@@ -180,10 +151,7 @@ export function generateEducationEventSchema(talk: Talk, year: string, venue: { 
         addressCountry: "ES",
       },
     },
-    performer: talk.speakers.map((speaker) => ({
-      "@type": "Person",
-      name: speaker.name,
-    })),
+    performer: talk.speakers.map((speaker) => mapSpeakerToPersonSchema(speaker, year, baseUrl)),
     organizer: {
       "@type": "Organization",
       name: "DevBcn",

@@ -75,10 +75,10 @@ export default async function Page({ params }: Readonly<PageProps>) {
   const { year } = await params;
   const config = getEditionConfig(year);
 
-  const eventSchema = generateEventSchema(config, year);
+  const allSpeakers = await getSpeakers(year);
+  const eventSchema = generateEventSchema(config, year, allSpeakers);
   const organizationSchema = generateOrganizationSchema();
 
-  const allSpeakers = await getSpeakers(year);
   const featuredSpeakers = getFeaturedSpeakers(allSpeakers, 10);
   const totalSpeakers = allSpeakers.length;
 

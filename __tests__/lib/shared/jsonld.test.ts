@@ -129,7 +129,7 @@ describe("JSON-LD Schema Generators", () => {
         },
       };
 
-      const schema = generateEventSchema(mockConfig, "2026") as unknown as SchemaObject;
+      const schema = generateEventSchema(mockConfig, "2026", []) as unknown as SchemaObject;
 
       expect(schema["@context"]).toBe("https://schema.org");
       expect(schema["@type"]).toBe("Event");
@@ -140,6 +140,7 @@ describe("JSON-LD Schema Generators", () => {
       expect(schema.eventAttendanceMode).toBe("https://schema.org/OfflineEventAttendanceMode");
       expect(schema.location).toBeDefined();
       expect(schema.organizer).toBeDefined();
+      expect(Array.isArray(schema.performer)).toBe(true);
     });
   });
 
