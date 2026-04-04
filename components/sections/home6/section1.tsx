@@ -8,13 +8,7 @@ export default function Section1() {
         {/* ⚡ Bolt Optimization: Replaced CSS background-image with next/image.
             Using priority=true preloads the LCP hero image, and fill allows it to behave like a background.
             Parent div requires position: relative to contain the absolute positioned image. */}
-        <Image
-          src="/assets/img/bg/header-bg17.png"
-          alt="Background"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center top", zIndex: -1 }}
-        />
+        <Image src="/assets/img/bg/header-bg17.png" alt="Background" fill priority style={{ objectFit: "cover", objectPosition: "center top", zIndex: -1 }} />
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-7">
