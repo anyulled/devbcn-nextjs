@@ -1,17 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Section1() {
   return (
     <>
-      <div
-        className="hero6-section-area"
-        style={{
-          backgroundImage: "url(assets/img/bg/header-bg17.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-        }}
-      >
+      <div className="hero6-section-area" style={{ position: "relative" }}>
+        {/* ⚡ Bolt Optimization: Replaced CSS background-image with next/image.
+            Using priority=true preloads the LCP hero image, and fill allows it to behave like a background.
+            Parent div requires position: relative to contain the absolute positioned image. */}
+        <Image
+          src="/assets/img/bg/header-bg17.png"
+          alt="Background"
+          fill
+          priority
+          style={{ objectFit: "cover", objectPosition: "center top", zIndex: -1 }}
+        />
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-7">
