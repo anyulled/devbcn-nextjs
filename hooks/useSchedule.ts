@@ -63,8 +63,10 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
           if (!existing) {
             sessionsByTime.set(timeKey, [session]);
           } else {
-            // ⚡ Bolt: Use amortized O(1) push instead of O(N^2) array spread inside loop
-            // Impact: Decreases memory consumption and GC pauses for large schedule datasets
+            /*
+             * ⚡ Bolt: Use amortized O(1) push instead of O(N^2) array spread inside loop
+             * Impact: Decreases memory consumption and GC pauses for large schedule datasets
+             */
             existing.push(session);
           }
         });
