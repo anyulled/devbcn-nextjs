@@ -144,7 +144,7 @@ describe("Edition Configuration", () => {
       expect(edition2025.cfp.startDay).toBeInstanceOf(Date);
     });
 
-    it("2026 edition includes Preply and Jetbrains as regular sponsors", () => {
+    it("2026 edition includes Preply and JetBrains as regular sponsors", () => {
       expect(edition2026.sponsorsData.regular).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
