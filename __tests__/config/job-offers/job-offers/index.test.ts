@@ -18,6 +18,18 @@ describe("Job Offers Data Access", () => {
       expect(companyNames).toContain("Revolut");
     });
 
+    it("should return companies for 2026", () => {
+      const companies = getJobOffersByYear("2026");
+      expect(companies).toHaveLength(1);
+      expect(companies[0].name).toBe("Edpuzzle");
+      expect(companies[0].offers).toHaveLength(1);
+      expect(companies[0].offers[0]).toMatchObject({
+        title: "Software Engineer",
+        location: "Full remote",
+        url: "https://jobs.lever.co/edpuzzle/f600c94a-c402-46d1-b414-c7d18dd30464",
+      });
+    });
+
     it("should return empty array for non-existent year", () => {
       const companies = getJobOffersByYear("2030");
       expect(companies).toEqual([]);
@@ -74,6 +86,10 @@ describe("Job Offers Data Access", () => {
   describe("hasJobOffers", () => {
     it("should return true for 2023", () => {
       expect(hasJobOffers("2023")).toBe(true);
+    });
+
+    it("should return true for 2026", () => {
+      expect(hasJobOffers("2026")).toBe(true);
     });
 
     it("should return false for non-existent year", () => {
