@@ -157,7 +157,7 @@ describe("Edition Configuration", () => {
             website: "https://www.jetbrains.com",
             image: "/assets/img/all-images/sponsors/jetbrains.png",
           }),
-        ]),
+        ])
       );
     });
 
@@ -174,7 +174,7 @@ describe("Edition Configuration", () => {
             website: "https://www.meetup.com/barcelonajug/",
             image: "/assets/img/all-images/sponsors/bcn-jug.png",
           }),
-        ]),
+        ])
       );
     });
   });
