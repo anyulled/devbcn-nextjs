@@ -23,11 +23,13 @@ describe("Job Offers Data Access", () => {
       expect(companies.length).toBeGreaterThan(0);
       const edpuzzle = companies.find((c) => c.name === "Edpuzzle");
       expect(edpuzzle).toBeDefined();
-      expect(edpuzzle?.offers).toContainEqual(expect.objectContaining({
-        title: "Software Engineer",
-        location: "Full remote",
-        url: "https://jobs.lever.co/edpuzzle/f600c94a-c402-46d1-b414-c7d18dd30464",
-      }));
+      expect(edpuzzle?.offers).toContainEqual(
+        expect.objectContaining({
+          title: "Software Engineer",
+          location: "Full remote",
+          url: "https://jobs.lever.co/edpuzzle/f600c94a-c402-46d1-b414-c7d18dd30464",
+        })
+      );
     });
 
     it("should return empty array for non-existent year", () => {
