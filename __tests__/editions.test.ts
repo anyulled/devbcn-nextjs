@@ -143,6 +143,40 @@ describe("Edition Configuration", () => {
       expect(edition2025.event.endDay).toBeInstanceOf(Date);
       expect(edition2025.cfp.startDay).toBeInstanceOf(Date);
     });
+
+    it("2026 edition includes Preply and Jetbrains as regular sponsors", () => {
+      expect(edition2026.sponsorsData.regular).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            name: "Preply",
+            website: "https://preply.com/en/careers",
+            image: "/assets/img/all-images/sponsors/preply.svg",
+          }),
+          expect.objectContaining({
+            name: "Jetbrains",
+            website: "https://www.jetbrains.com",
+            image: "/assets/img/all-images/sponsors/jetbrains.png",
+          }),
+        ]),
+      );
+    });
+
+    it("2026 edition includes Step4ward and Barcelona JUG as community sponsors", () => {
+      expect(edition2026.sponsorsData.communities).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            name: "Step4ward",
+            website: "https://bit.ly/step4wardhome",
+            image: "/assets/img/all-images/sponsors/step4ward.png",
+          }),
+          expect.objectContaining({
+            name: "Barcelona JUG",
+            website: "https://www.meetup.com/barcelonajug/",
+            image: "/assets/img/all-images/sponsors/bcn-jug.png",
+          }),
+        ]),
+      );
+    });
   });
 
   describe("formatEventDateRange", () => {
