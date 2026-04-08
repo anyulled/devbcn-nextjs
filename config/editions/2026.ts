@@ -42,7 +42,7 @@ export const edition2026: EditionConfig = {
 
   carrousel: { enabled: false },
   schedule: { enabled: false },
-  jobOffers: { enabled: false },
+  jobOffers: { enabled: true },
 
   cfp: {
     startDay: new Date("2026-01-01T00:00:00+01:00"),
