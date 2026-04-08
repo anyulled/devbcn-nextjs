@@ -153,7 +153,7 @@ describe("Edition Configuration", () => {
             image: "/assets/img/all-images/sponsors/preply.svg",
           }),
           expect.objectContaining({
-            name: "Jetbrains",
+            name: "JetBrains",
             website: "https://www.jetbrains.com",
             image: "/assets/img/all-images/sponsors/jetbrains.png",
           }),
