@@ -49,10 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
 
-      const [speakers, sessionGroups] = await Promise.all([
-        getSpeakers(year).catch(() => []),
-        getTalks(year).catch(() => []),
-      ]);
+      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => [])]);
 
       for (const speaker of speakers) {
         urls.push({
