@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-04-08 - Parallelize Data Fetching in Static Generation
+
+**Learning:** Static generation endpoints like `sitemap.ts` or `generateStaticParams` executing sequential API fetches inside `for...of` loops (e.g., iterating through multiple event years) creates massive blocking waterfalls, significantly delaying Next.js build times.
+**Action:** When generating static params or sitemaps involving multiple iterations, replace sequential `for...of` loops with parallel `Promise.all` across `.map()` loops. Additionally, wrap fetch promises with `.catch(() => [])` to ensure partial API failures do not break the entire build.
