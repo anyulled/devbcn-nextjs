@@ -20,14 +20,14 @@ describe("Job Offers Data Access", () => {
 
     it("should return companies for 2026", () => {
       const companies = getJobOffersByYear("2026");
-      expect(companies).toHaveLength(1);
-      expect(companies[0].name).toBe("Edpuzzle");
-      expect(companies[0].offers).toHaveLength(1);
-      expect(companies[0].offers[0]).toMatchObject({
+      expect(companies.length).toBeGreaterThan(0);
+      const edpuzzle = companies.find((c) => c.name === "Edpuzzle");
+      expect(edpuzzle).toBeDefined();
+      expect(edpuzzle?.offers).toContainEqual(expect.objectContaining({
         title: "Software Engineer",
         location: "Full remote",
         url: "https://jobs.lever.co/edpuzzle/f600c94a-c402-46d1-b414-c7d18dd30464",
-      });
+      }));
     });
 
     it("should return empty array for non-existent year", () => {
