@@ -113,6 +113,16 @@ export const edition2026: EditionConfig = {
         website: "https://developers.mews.com/",
         image: "/assets/img/all-images/sponsors/mews.png",
       },
+      {
+        name: "Preply",
+        website: "https://preply.com/en/careers",
+        image: "/assets/img/all-images/sponsors/preply.svg",
+      },
+      {
+        name: "Jetbrains",
+        website: "https://www.jetbrains.com",
+        image: "/assets/img/all-images/sponsors/jetbrains.png",
+      },
     ],
     basic: [
       {
@@ -121,7 +131,18 @@ export const edition2026: EditionConfig = {
         image: "/assets/img/all-images/sponsors/mambu.png",
       },
     ],
-    communities: [],
+    communities: [
+      {
+        name: "Step4ward",
+        image: "/assets/img/all-images/sponsors/step4ward.png",
+        website: "https://bit.ly/step4wardhome",
+      },
+      {
+        name: "Barcelona JUG",
+        image: "/assets/img/all-images/sponsors/bcn-jug.png",
+        website: "https://www.meetup.com/barcelonajug/",
+      },
+    ],
     media_partners: [],
     supporters: [],
   },
