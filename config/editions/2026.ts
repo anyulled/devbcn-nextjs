@@ -119,7 +119,7 @@ export const edition2026: EditionConfig = {
         image: "/assets/img/all-images/sponsors/preply.svg",
       },
       {
-        name: "Jetbrains",
+        name: "JetBrains",
         website: "https://www.jetbrains.com",
         image: "/assets/img/all-images/sponsors/jetbrains.png",
       },
