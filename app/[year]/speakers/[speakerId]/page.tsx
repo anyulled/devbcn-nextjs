@@ -21,22 +21,27 @@ interface SpeakerDetailProps {
 export async function generateStaticParams() {
   const years = getArchivedEditions();
 
-  const yearParams = await Promise.all(
-    years.map(async (year) => {
-      try {
-        const speakers = await getSpeakers(year);
-        return speakers.map((speaker) => ({
-          year,
-          speakerId: speaker.id,
-        }));
-      } catch (error) {
-        console.warn(`Failed to fetch speakers for year ${year}:`, error);
-        return [];
-      }
-    })
-  );
+  try {
+    const yearParams = await Promise.all(
+      years.map(async (year) => {
+        try {
+          const speakers = await getSpeakers(year, { throwOnError: true });
+          return speakers.map((speaker) => ({
+            year,
+            speakerId: speaker.id,
+          }));
+        } catch (error) {
+          console.warn(`Skipping year ${year} due to fetch error:`, error instanceof Error ? error.message : error);
+          return [];
+        }
+      })
+    );
 
-  return yearParams.flat();
+    return yearParams.flat();
+  } catch (error) {
+    console.error("Unexpected error in generateStaticParams for speakers:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: SpeakerDetailProps): Promise<Metadata> {
