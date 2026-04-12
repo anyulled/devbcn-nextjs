@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-04-12 - React Event Handler Debouncing Anti-Pattern
+
+**Learning:** Found a broken debounce implementation in `TalksFilterBar.tsx` where `setTimeout` was called inside an event handler (`handleSearchChange`), and a cleanup function was returned. React event handlers (unlike `useEffect`) do not consume returned cleanup functions. As a result, every keystroke queued a new timer and state update, completely failing to debounce and causing redundant renders/URL updates.
+**Action:** Always use a `useRef` to store the timeout ID for debouncing inside event handlers, manually clear it before setting a new one, and clean it up in a `useEffect` on component unmount.
