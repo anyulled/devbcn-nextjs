@@ -40,7 +40,7 @@ export async function generateStaticParams() {
     return yearParams.flat();
   } catch (error) {
     console.error("Unexpected error in generateStaticParams for speakers:", error);
-    return [];
+    throw new Error(`generateStaticParams for speakerId failed: ${error instanceof Error ? error.message : String(error)}`);
   }
 }
 
