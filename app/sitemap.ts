@@ -52,10 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // ⚡ Bolt: Fetch speakers and talks in parallel to eliminate N+1 query problem
-    const [speakers, sessionGroups] = await Promise.all([
-      getSpeakers(year),
-      getTalks(year)
-    ]);
+    const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
 
     for (const speaker of speakers) {
       yearUrls.push({
