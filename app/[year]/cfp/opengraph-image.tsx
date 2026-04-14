@@ -1,5 +1,6 @@
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
+import { getOpenGraphCacheControl } from "@/lib/revalidate";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -16,6 +17,7 @@ export default async function Image({ params }: { params: Promise<{ year: string
   const { year } = await params;
   const config = getEditionConfig(year);
   const eventDate = formatEventDateRange(config.event.startDay, config.event.endDay);
+  const cacheControl = getOpenGraphCacheControl(year);
 
   return new ImageResponse(
     <div
@@ -133,6 +135,9 @@ export default async function Image({ params }: { params: Promise<{ year: string
     </div>,
     {
       ...size,
+      headers: {
+        "Cache-Control": cacheControl,
+      },
     }
   );
 }

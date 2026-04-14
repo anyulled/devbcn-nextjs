@@ -4,6 +4,7 @@ import ArchivePage, {
 } from "@/app/[year]/talks/[talkId]/page";
 
 export const revalidate = 43200;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const params = await generateArchiveStaticParams();

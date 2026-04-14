@@ -38,6 +38,5 @@ export function trackTicketClick(location: string, year?: string, talkId?: strin
     location,
     year,
     talk_id: talkId,
-    timestamp: new Date().toISOString(),
   });
 }

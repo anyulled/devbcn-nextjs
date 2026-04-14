@@ -112,5 +112,5 @@ export function proxy(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: ["/registerSW.js", "/service-worker.js", "/manifest.json"],
 };
