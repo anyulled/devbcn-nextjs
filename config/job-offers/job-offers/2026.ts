@@ -24,7 +24,7 @@ export const jobOffers2026: Company[] = [
         text: `Forma parte de CaixaBank Tech, el terreno de juego en el que podrás crecer profesionalmente y dejar tu huella en el proceso de transformación digital del Grupo CaixaBank.
 
 Responsabilidades:
-Gestionar y desarrollar todo el ciclo de vida de pruebas de concepto y pilotos del uso usando Inteligencia artificial, Metaverso, blockchain, quantum computing, etc.
+Gestionar y desarrollar todo el ciclo de vida de pruebas de concepto y pilotos del uso de Inteligencia Artificial, Metaverso, blockchain, computación cuántica, etc.
 Comprensión de documentación científico/técnica en inglés
 Identificar entregables a desarrollar y desarrollo de documentos con calidad
 Estudiar y evaluar el estado del arte de nuevas técnicas de IA sacando conclusiones y estructurando argumentaciones en base a lo analizado. Esto puede requerir leer y sintetizar artículos científicos.
@@ -33,7 +33,7 @@ Proponer casos de uso donde las nuevas técnicas de IA puedan impactar al grupo 
 Divulgar los resultados internamente (charlas, formaciones, etc.) adaptando el lenguaje al público adecuado (en ocasiones público técnico y en otras no).
 
 Ventajas:
-A tu manera_ Encuentra el equilibrio que necesitas entre trabajo y vida personal con nuestro moldeo de trabajo híbrido. Hasta un 60% de trabajo en remoto dependiendo del proyecto.
+A tu manera_ Encuentra el equilibrio que necesitas entre trabajo y vida personal con nuestro modelo de trabajo híbrido. Hasta un 60% de trabajo en remoto dependiendo del proyecto.
 Descansa_ Podrás irte de vacaciones 27 días al año con la flexibilidad para escoger la mejor época del año para ti.
 Be Tech, be healthy_ Se acabaron las excusas. Aprovéchate de nuestro programa de Wellbeing. Podrás disfrutar de descuentos en gimnasios, servicio de fisio en la oficina, torneos deportivos, fruta …
 Crece_ Nuestro ADN está pensado para que puedas desarrollar todo tu potencial técnico a través de nuestras formaciones e iniciativas. Mantente siempre a la última y aprende de un equipo que te guiará en todas tus misiones.
@@ -48,7 +48,7 @@ Trabajar aquí compensa_ Saca más partido a tu nómina con el Programa de Retri
       "Mews builds cloud-native software for hospitality, helping hotels and other stays move on from clunky legacy systems. We create modern tools that automate the boring stuff, make operations smoother, and improve the guest experience.",
     logo: "/assets/img/all-images/sponsors/mews.png",
     url: "https://developers.mewssystems.com",
-    linkedin: "https://linkedin.com/company/mewsrnd",
+    linkedin: "https://www.linkedin.com/company/mewsrnd",
     offers: [
       {
         id: "mews-lead-product-builder-2026",
