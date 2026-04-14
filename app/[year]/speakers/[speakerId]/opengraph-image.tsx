@@ -1,5 +1,6 @@
 import { getSpeakerByYearAndId } from "@/hooks/useSpeakers";
 import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
+import { getOpenGraphCacheControl } from "@/lib/revalidate";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -14,6 +15,7 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: Promise<{ year: string; speakerId: string }> }) {
   const { year, speakerId } = await params;
+  const cacheControl = getOpenGraphCacheControl(year);
   const speaker = await getSpeakerByYearAndId(year, speakerId);
 
   if (!speaker) {
@@ -32,7 +34,12 @@ export default async function Image({ params }: { params: Promise<{ year: string
       >
         Speaker Not Found
       </div>,
-      { ...size }
+      {
+        ...size,
+        headers: {
+          "Cache-Control": cacheControl,
+        },
+      }
     );
   }
 
@@ -200,6 +207,9 @@ export default async function Image({ params }: { params: Promise<{ year: string
     </div>,
     {
       ...size,
+      headers: {
+        "Cache-Control": cacheControl,
+      },
     }
   );
 }

@@ -42,7 +42,8 @@ jobs:
           curl -s -o /dev/null -w "%{http_code}" \
             -X POST "${SITE_URL}/api/revalidate" \
             -H "Authorization: Bearer ${REVALIDATE_SECRET}" \
-            -H "Content-Type: application/json" | grep -q "200" && echo "Revalidation triggered" || exit 1
+            -H "Content-Type: application/json" \
+            -d '{"year":"2026"}' | grep -q "200" && echo "Revalidation triggered" || exit 1
 
       - name: Update cached fingerprint
         if: steps.current.outputs.fingerprint != steps.cached.outputs.fingerprint

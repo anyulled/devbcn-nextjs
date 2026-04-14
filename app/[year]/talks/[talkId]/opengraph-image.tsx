@@ -1,5 +1,6 @@
 import { getLevelFromTalk, getTalkByYearAndId, getTrackFromTalk } from "@/hooks/useTalks";
 import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
+import { getOpenGraphCacheControl } from "@/lib/revalidate";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -14,6 +15,7 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: Promise<{ year: string; talkId: string }> }) {
   const { year, talkId } = await params;
+  const cacheControl = getOpenGraphCacheControl(year);
   const talk = await getTalkByYearAndId(year, talkId);
 
   if (!talk) {
@@ -32,7 +34,12 @@ export default async function Image({ params }: { params: Promise<{ year: string
       >
         Talk Not Found
       </div>,
-      { ...size }
+      {
+        ...size,
+        headers: {
+          "Cache-Control": cacheControl,
+        },
+      }
     );
   }
 
@@ -185,6 +192,9 @@ export default async function Image({ params }: { params: Promise<{ year: string
     </div>,
     {
       ...size,
+      headers: {
+        "Cache-Control": cacheControl,
+      },
     }
   );
 }

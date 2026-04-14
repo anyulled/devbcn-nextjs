@@ -51,7 +51,27 @@ describe("POST /api/revalidate", () => {
     expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2026", "default");
   });
 
-  it("revalidates the requested edition when the payload includes a valid year", async () => {
+  it("revalidates the requested current edition when the payload includes a valid year", async () => {
+    const { POST } = await import("@/app/api/revalidate/route");
+    const request = new Request("https://www.devbcn.com/api/revalidate", {
+      method: "POST",
+      headers: {
+        authorization: "Bearer test-secret",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ year: "2026" }),
+    });
+
+    const response = await POST(request as never);
+    const payload = (await response.json()) as { revalidated: boolean; year: string };
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated).toBe(true);
+    expect(payload.year).toBe("2026");
+    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2026", "default");
+  });
+
+  it("rejects archived editions", async () => {
     const { POST } = await import("@/app/api/revalidate/route");
     const request = new Request("https://www.devbcn.com/api/revalidate", {
       method: "POST",
@@ -63,12 +83,11 @@ describe("POST /api/revalidate", () => {
     });
 
     const response = await POST(request as never);
-    const payload = (await response.json()) as { revalidated: boolean; year: string };
+    const payload = (await response.json()) as { message: string };
 
-    expect(response.status).toBe(200);
-    expect(payload.revalidated).toBe(true);
-    expect(payload.year).toBe("2025");
-    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2025", "default");
+    expect(response.status).toBe(400);
+    expect(payload.message).toBe("Archived editions cannot be revalidated");
+    expect(revalidateTagMock).not.toHaveBeenCalled();
   });
 
   it("rejects invalid edition years", async () => {

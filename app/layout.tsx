@@ -94,6 +94,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const shouldEnableVercelTelemetry = process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS !== "false";
+
   return (
     <html lang="en">
       <head>
@@ -156,8 +158,12 @@ export default function RootLayout({
       <body className={`${figtree.variable} ${grotesk.variable}`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
-      <SpeedInsights />
-      <Analytics />
+      {shouldEnableVercelTelemetry ? (
+        <>
+          <SpeedInsights />
+          <Analytics />
+        </>
+      ) : null}
     </html>
   );
 }
