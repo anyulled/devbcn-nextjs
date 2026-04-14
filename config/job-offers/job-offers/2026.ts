@@ -8,6 +8,71 @@ import { Company } from "./types";
  */
 export const jobOffers2026: Company[] = [
   {
+    name: "CAIXABANK TECH S.L.",
+    id: "caixabank-tech-2026",
+    description:
+      "Somos el motor de la transformación tecnológica del grupo CaixaBank. Desarrollamos soluciones financieras end to end con un claro objetivo: reinventar las reglas de juego a nivel tecnológico de una forma inteligente, flexible y con un impacto real en la sociedad.",
+    logo: "/assets/img/all-images/sponsors/caixabank-tech.png",
+    url: "https://caixabanktech.com/",
+    linkedin: "https://www.linkedin.com/company/cabktech/",
+    offers: [
+      {
+        id: "caixabank-tech-technical-solution-ia-2026",
+        title: "Technical Solution IA",
+        location: "Hybrid Barcelona",
+        url: "https://caixabanktech.com/es/join-us-es/",
+        text: `Forma parte de CaixaBank Tech, el terreno de juego en el que podrás crecer profesionalmente y dejar tu huella en el proceso de transformación digital del Grupo CaixaBank.
+
+Responsabilidades:
+Gestionar y desarrollar todo el ciclo de vida de pruebas de concepto y pilotos del uso usando Inteligencia artificial, Metaverso, blockchain, quantum computing, etc.
+Comprensión de documentación científico/técnica en inglés
+Identificar entregables a desarrollar y desarrollo de documentos con calidad
+Estudiar y evaluar el estado del arte de nuevas técnicas de IA sacando conclusiones y estructurando argumentaciones en base a lo analizado. Esto puede requerir leer y sintetizar artículos científicos.
+Sintetizar y/o materializar lo investigado sobre, al menos, una tecnología incipiente/áreas de interacción en el formato entregable definido (de forma simple y estructurada)
+Proponer casos de uso donde las nuevas técnicas de IA puedan impactar al grupo CaixaBank.
+Divulgar los resultados internamente (charlas, formaciones, etc.) adaptando el lenguaje al público adecuado (en ocasiones público técnico y en otras no).
+
+Ventajas:
+A tu manera_ Encuentra el equilibrio que necesitas entre trabajo y vida personal con nuestro moldeo de trabajo híbrido. Hasta un 60% de trabajo en remoto dependiendo del proyecto.
+Descansa_ Podrás irte de vacaciones 27 días al año con la flexibilidad para escoger la mejor época del año para ti.
+Be Tech, be healthy_ Se acabaron las excusas. Aprovéchate de nuestro programa de Wellbeing. Podrás disfrutar de descuentos en gimnasios, servicio de fisio en la oficina, torneos deportivos, fruta …
+Crece_ Nuestro ADN está pensado para que puedas desarrollar todo tu potencial técnico a través de nuestras formaciones e iniciativas. Mantente siempre a la última y aprende de un equipo que te guiará en todas tus misiones.
+Trabajar aquí compensa_ Saca más partido a tu nómina con el Programa de Retribución Flexible y aprovéchate de las ventajas financieras de pertenecer a un grupo bancario.`,
+      },
+    ],
+  },
+  {
+    name: "Mews",
+    id: "mews-2026",
+    description:
+      "Mews builds cloud-native software for hospitality, helping hotels and other stays move on from clunky legacy systems. We create modern tools that automate the boring stuff, make operations smoother, and improve the guest experience.",
+    logo: "/assets/img/all-images/sponsors/mews.png",
+    url: "https://developers.mewssystems.com",
+    linkedin: "https://linkedin.com/company/mewsrnd",
+    offers: [
+      {
+        id: "mews-lead-product-builder-2026",
+        title: "Lead Product Builder",
+        location: "Full remote",
+        url: "https://www.mews.com/en/careers/jobs/4780557101?gh_jid=4780557101",
+        text: `🧑🏻‍💻 About the role
+
+At Mews, we're redefining how hospitality software is built. In our Back of House division, we've introduced a new role: Lead Product Builder.
+
+This is for high-agency engineers who shape not just how things are built, but what gets built and why—combining technical depth, product thinking, and ownership.
+
+You'll take end-to-end ownership of product initiatives, from problem definition to production, working across teams to deliver high-impact outcomes. You'll move fast, run experiments, and build AI-native products that improve how our customers operate.
+
+From product-led growth and onboarding to automation, BI, and AI-powered features—you'll focus on solving real problems and shipping value.
+
+You'll collaborate with Product and Design, but operate with strong autonomy. Beyond delivery, you'll define scalable patterns, mentor others, and help drive a culture of experimentation and AI-native development.
+
+You bring:
+7+ years in software engineering, strong product mindset, experience leading initiatives, comfort with ambiguity, and a track record of shipping.`,
+      },
+    ],
+  },
+  {
     name: "Edpuzzle",
     id: "edpuzzle-2026",
     description:
