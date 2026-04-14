@@ -17,3 +17,13 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2025-05-18 - Build-Time Parallel Data Fetching & Error Propagation
+
+**Learning:** During static generation or sitemap generation, sequential fetching inside `for...of` loops severely impacts build performance. However, when refactoring to use `Promise.all` for concurrent fetching, it is critical NOT to swallow errors (e.g. by adding `.catch(() => [])` or leaving unhandled promise rejections). Swallowing these errors leads to silently missing dynamic pages (like talk or speaker pages) instead of properly failing the build when an API or dependency is down.
+**Action:** Use `Promise.all` to parallelize data fetching in build scripts, and ensure the `.map` is wrapped in a `try/catch` that explicitly `throw error;` so build-time failures are visible and fail correctly.
+
+## 2025-05-18 - Promise Error Propagation
+
+**Learning:** When using `await Promise.all()` inside an `async` function, explicitly catching and rethrowing the error is redundant (e.g. `try { await Promise.all() } catch(e) { throw e; }`) because unhandled rejected promises automatically propagate up to the caller in async contexts.
+**Action:** Avoid using `try/catch` wrappers purely for rethrowing errors when using `await`; let the rejection propagate naturally.
