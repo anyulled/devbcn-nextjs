@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-03-22 - generateStaticParams Optimization
+
+**Learning:** When `generateStaticParams` uses a sequential `for...of` loop to fetch data for multiple years (N+1 query pattern), it increases build time unnecessarily since the fetches are independent and can be run concurrently.
+**Action:** Replace `for...of` loops in `generateStaticParams` and `sitemap.ts` with `await Promise.all(years.map(async (year) => { ... }))` to fetch data and build parameter lists in parallel, improving build-time efficiency.
