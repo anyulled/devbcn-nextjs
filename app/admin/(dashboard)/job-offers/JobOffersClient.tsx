@@ -75,10 +75,7 @@ export function JobOffersClient({ jobOffers, availableYears }: JobOffersClientPr
                 </td>
                 <td>{offer.sponsor?.name}</td>
                 <td>
-                  <div className="job-title-cell">
-                    <strong>{offer.title}</strong>
-                    <span className="text-muted block text-xs">{offer.url ? "Has Link" : "No Link"}</span>
-                  </div>
+                  <strong>{offer.title}</strong>
                 </td>
                 <td>{offer.location || "Remote/TBD"}</td>
                 <td className="date-cell">{new Date(offer.created_at).toLocaleDateString()}</td>
