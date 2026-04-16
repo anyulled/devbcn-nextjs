@@ -35,7 +35,8 @@ export default function Section1() {
                 <ul>
                   <li>
                     <Link href="/#">
-                      <img src="/assets/img/icons/calender1.svg" alt="" /> 15th, 16th, &amp; 17th January “2025”
+                      <img src="/assets/img/icons/calender1.svg" alt="" />
+                      15th, 16th, &amp; 17th January “2025”
                     </Link>
                   </li>
                 </ul>
