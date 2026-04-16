@@ -3,17 +3,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useFieldArray, useForm, type Control, type FieldArrayWithId, type FieldErrors, type UseFormRegister } from "react-hook-form";
+import { useForm, type UseFormRegister, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import type { AdminSponsorRecord } from "@/lib/admin/sponsors";
 import LogoUpload from "@/components/ui/LogoUpload";
 import { createClient } from "@/lib/supabase/client";
+import { ContactsSection } from "./ContactsSection";
 
-const sponsorContactSchema = z.object({
+export const sponsorContactSchema = z.object({
   email: z.string().email("Enter a valid email address"),
   name: z.string().max(255, "Name is too long").optional().or(z.literal("")),
 });
+
+export type SponsorContact = z.infer<typeof sponsorContactSchema>;
 
 const adminSponsorSchema = z.object({
   name: z.string().min(2, "Name is too short").max(255, "Name is too long"),
@@ -31,18 +34,12 @@ const adminSponsorSchema = z.object({
   contacts: z.array(sponsorContactSchema),
 });
 
-type AdminSponsorValues = z.infer<typeof adminSponsorSchema>;
+export type AdminSponsorValues = z.infer<typeof adminSponsorSchema>;
 
 interface AdminSponsorFormProps {
   sponsor: AdminSponsorRecord;
-  categories: Array<{
-    id: number;
-    name: string;
-  }>;
-  ownerOptions: Array<{
-    userId: string;
-    label: string;
-  }>;
+  categories: Array<{ id: number; name: string }>;
+  ownerOptions: Array<{ userId: string; label: string }>;
   submitMode?: "create" | "edit";
 }
 
@@ -51,14 +48,7 @@ function toInputValue(value: string | null | undefined) {
 }
 
 function getContactDefaults(contacts: AdminSponsorFormProps["sponsor"]["contacts"]) {
-  return (
-    contacts
-      ?.filter((contact) => Boolean(contact.email))
-      .map((contact) => ({
-        email: toInputValue(contact.email),
-        name: toInputValue(contact.name),
-      })) ?? []
-  );
+  return contacts?.filter(Boolean).map((contact) => ({ email: toInputValue(contact.email), name: toInputValue(contact.name) })) ?? [];
 }
 
 function getDefaultValues(sponsor: AdminSponsorFormProps["sponsor"]): AdminSponsorValues {
@@ -79,16 +69,8 @@ function getDefaultValues(sponsor: AdminSponsorFormProps["sponsor"]): AdminSpons
   };
 }
 
-function FieldError({ message }: Readonly<{ message?: string }>) {
+function FieldError({ message }: { message?: string }) {
   return message ? <p className="field-error">{message}</p> : null;
-}
-
-function getContactError(errors: FieldErrors<AdminSponsorValues>, index: number) {
-  if (!errors.contacts || !Array.isArray(errors.contacts)) {
-    return undefined;
-  }
-
-  return errors.contacts.slice(index, index + 1)[0];
 }
 
 function GeneralSection({
@@ -96,12 +78,12 @@ function GeneralSection({
   errors,
   logoUrl,
   onLogoChange,
-}: Readonly<{
+}: {
   register: UseFormRegister<AdminSponsorValues>;
   errors: FieldErrors<AdminSponsorValues>;
   logoUrl?: string;
   onLogoChange: (url: string | null) => void;
-}>) {
+}) {
   return (
     <>
       <div className="form-row">
@@ -110,21 +92,18 @@ function GeneralSection({
           <input id="name" {...register("name")} />
           <FieldError message={errors.name?.message} />
         </div>
-
         <div className="form-group form-group-small">
           <label htmlFor="edition">Edition</label>
           <input id="edition" {...register("edition")} />
           <FieldError message={errors.edition?.message} />
         </div>
       </div>
-
       <div className="form-row">
         <div className="form-group flex-1">
           <label htmlFor="website">Website</label>
           <input id="website" type="url" {...register("website")} placeholder="https://company.com" />
           <FieldError message={errors.website?.message} />
         </div>
-
         <div className="form-group flex-1">
           <LogoUpload
             sponsorId="new-sponsor"
@@ -135,7 +114,6 @@ function GeneralSection({
           />
         </div>
       </div>
-
       <div className="form-group">
         <label htmlFor="description">Description</label>
         <textarea id="description" {...register("description")} rows={5} />
@@ -150,27 +128,26 @@ function GovernanceSection({
   errors,
   categories,
   ownerOptions,
-}: Readonly<{
+}: {
   register: UseFormRegister<AdminSponsorValues>;
   errors: FieldErrors<AdminSponsorValues>;
   categories: AdminSponsorFormProps["categories"];
   ownerOptions: AdminSponsorFormProps["ownerOptions"];
-}>) {
+}) {
   return (
     <div className="form-row">
       <div className="form-group flex-1">
         <label htmlFor="categoryId">Category</label>
         <select id="categoryId" {...register("categoryId", { valueAsNumber: true })}>
           <option value="">Choose a category</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
             </option>
           ))}
         </select>
         <FieldError message={errors.categoryId?.message} />
       </div>
-
       <div className="form-group flex-1">
         <label htmlFor="status">Status</label>
         <select id="status" {...register("status")}>
@@ -180,30 +157,22 @@ function GovernanceSection({
         </select>
         <FieldError message={errors.status?.message} />
       </div>
-
       <div className="form-group flex-1">
         <label htmlFor="internalOwnerUserId">Internal Owner</label>
         <select id="internalOwnerUserId" {...register("internalOwnerUserId")}>
           <option value="">Unassigned</option>
-          {ownerOptions.map((owner) => (
-            <option key={owner.userId} value={owner.userId}>
-              {owner.label}
+          {ownerOptions.map((opt) => (
+            <option key={opt.userId} value={opt.userId}>
+              {opt.label}
             </option>
           ))}
         </select>
-        <FieldError message={errors.internalOwnerUserId?.message} />
       </div>
     </div>
   );
 }
 
-function SocialSection({
-  register,
-  errors,
-}: Readonly<{
-  register: UseFormRegister<AdminSponsorValues>;
-  errors: FieldErrors<AdminSponsorValues>;
-}>) {
+function SocialSection({ register, errors }: { register: UseFormRegister<AdminSponsorValues>; errors: FieldErrors<AdminSponsorValues> }) {
   return (
     <div className="social-grid">
       <div className="form-group">
@@ -211,19 +180,16 @@ function SocialSection({
         <input id="linkedin" {...register("linkedin")} />
         <FieldError message={errors.linkedin?.message} />
       </div>
-
       <div className="form-group">
         <label htmlFor="twitter">Twitter / X</label>
         <input id="twitter" {...register("twitter")} />
         <FieldError message={errors.twitter?.message} />
       </div>
-
       <div className="form-group">
         <label htmlFor="bluesky">Bluesky</label>
         <input id="bluesky" {...register("bluesky")} />
         <FieldError message={errors.bluesky?.message} />
       </div>
-
       <div className="form-group">
         <label htmlFor="instagram">Instagram</label>
         <input id="instagram" {...register("instagram")} />
@@ -233,120 +199,71 @@ function SocialSection({
   );
 }
 
-function ContactRow({
-  field,
-  index,
-  register,
-  remove,
-  error,
-}: Readonly<{
-  field: FieldArrayWithId<AdminSponsorValues, "contacts", "id">;
-  index: number;
-  register: UseFormRegister<AdminSponsorValues>;
-  remove: (index: number) => void;
-  error?: FieldErrors<AdminSponsorValues["contacts"][number]>;
-}>) {
-  return (
-    <div className="contact-row">
-      <div className="form-group flex-1">
-        <label htmlFor={`contact-email-${field.id}`}>Email</label>
-        <input id={`contact-email-${field.id}`} type="email" {...register(`contacts.${index}.email`)} placeholder="name@company.com" />
-        <FieldError message={error?.email?.message} />
-      </div>
-
-      <div className="form-group flex-1">
-        <label htmlFor={`contact-name-${field.id}`}>Name</label>
-        <input id={`contact-name-${field.id}`} {...register(`contacts.${index}.name`)} placeholder="Optional" />
-        <FieldError message={error?.name?.message} />
-      </div>
-
-      <button type="button" className="icon-button delete" onClick={() => remove(index)} aria-label="Remove contact">
-        <i className="fas fa-trash-alt"></i>
-      </button>
-    </div>
-  );
-}
-
-function ContactsSection({
-  control,
-  register,
-  errors,
-}: Readonly<{
-  control: Control<AdminSponsorValues>;
-  register: UseFormRegister<AdminSponsorValues>;
-  errors: FieldErrors<AdminSponsorValues>;
-}>) {
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "contacts",
-  });
-
-  return (
-    <div className="contacts-section">
-      <div className="section-heading">
-        <div>
-          <h3>Portal Contacts</h3>
-          <p>These emails can access the sponsor portal with a magic link.</p>
-        </div>
-        <button type="button" className="action-button secondary" onClick={() => append({ email: "", name: "" })}>
-          Add Contact
-        </button>
-      </div>
-
-      <div className="contacts-grid">
-        {fields.length === 0 && <p className="text-muted">No sponsor contacts configured yet.</p>}
-        {fields.map((field, index) => (
-          <ContactRow key={field.id} field={field} index={index} register={register} remove={remove} error={getContactError(errors, index)} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default function AdminSponsorForm({ sponsor, categories, ownerOptions, submitMode = "edit" }: Readonly<AdminSponsorFormProps>) {
+export default function AdminSponsorForm({ sponsor, categories, ownerOptions, submitMode = "edit" }: AdminSponsorFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [logoUrl, setLogoUrl] = useState<string | undefined>(sponsor.logo_url ?? undefined);
+  const [magicLinkStates, setMagicLinkStates] = useState<Record<string, { isSending: boolean; sendSuccess: boolean; sendError: string | null }>>({});
 
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<AdminSponsorValues>({
-    resolver: zodResolver(adminSponsorSchema),
-    defaultValues: getDefaultValues(sponsor),
-  });
+  } = useForm<AdminSponsorValues>({ resolver: zodResolver(adminSponsorSchema), defaultValues: getDefaultValues(sponsor) });
+
+  const handleSendMagicLink = async (email: string) => {
+    if (!sponsor.id) return;
+    const contactId = `email-${email}`;
+    setMagicLinkStates((prev) => ({ ...prev, [contactId]: { isSending: true, sendSuccess: false, sendError: null } }));
+    try {
+      const response = await fetch(`/api/admin/sponsors/${sponsor.id}/send-magic-link`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (!response.ok || data.error) {
+        setMagicLinkStates((prev) => ({ ...prev, [contactId]: { isSending: false, sendSuccess: false, sendError: data.error || "Failed" } }));
+      } else {
+        setMagicLinkStates((prev) => ({ ...prev, [contactId]: { isSending: false, sendSuccess: true, sendError: null } }));
+        setTimeout(
+          () =>
+            setMagicLinkStates((prev) => {
+              const ns = { ...prev };
+              delete ns[contactId];
+              return ns;
+            }),
+          3000
+        );
+      }
+    } catch {
+      setMagicLinkStates((prev) => ({ ...prev, [contactId]: { isSending: false, sendSuccess: false, sendError: "Network error" } }));
+    }
+  };
 
   const onSubmit = async (values: AdminSponsorValues) => {
     setIsSubmitting(true);
     setErrorMessage(null);
     setSuccessMessage(null);
-
     try {
       const response = await fetch(submitMode === "create" ? "/api/admin/sponsors" : `/api/admin/sponsors/${sponsor.id}`, {
         method: submitMode === "create" ? "POST" : "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...values, logo_url: logoUrl }),
       });
-
       if (!response.ok) {
         const payload = (await response.json().catch(() => null)) as { error?: string } | null;
         throw new Error(payload?.error || "Failed to update sponsor");
       }
-
       const payload = (await response.json()) as { sponsorId?: string };
-
       if (submitMode === "create" && payload.sponsorId) {
         router.push(`/admin/sponsors/${payload.sponsorId}`);
         router.refresh();
         return;
       }
-
       setSuccessMessage("Sponsor updated successfully.");
       router.refresh();
     } catch (error) {
@@ -360,12 +277,17 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
     <form onSubmit={handleSubmit(onSubmit)} className="sponsor-form-container admin-sponsor-form">
       {errorMessage && <div className="error-alert">{errorMessage}</div>}
       {successMessage && <div className="success-alert">{successMessage}</div>}
-
       <GeneralSection register={register} errors={errors} logoUrl={logoUrl} onLogoChange={(url) => setLogoUrl(url ?? undefined)} />
       <GovernanceSection register={register} errors={errors} categories={categories} ownerOptions={ownerOptions} />
       <SocialSection register={register} errors={errors} />
-      <ContactsSection control={control} register={register} errors={errors} />
-
+      <ContactsSection
+        control={control}
+        register={register}
+        errors={errors}
+        sponsorId={sponsor.id}
+        magicLinkStates={magicLinkStates}
+        onSendMagicLink={handleSendMagicLink}
+      />
       <div className="form-actions">
         <Link href="/admin/sponsors" className="action-button secondary">
           Back to Sponsors
