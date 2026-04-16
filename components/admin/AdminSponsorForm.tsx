@@ -7,6 +7,8 @@ import { useFieldArray, useForm, type Control, type FieldArrayWithId, type Field
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import type { AdminSponsorRecord } from "@/lib/admin/sponsors";
+import LogoUpload from "@/components/ui/LogoUpload";
+import { createClient } from "@/lib/supabase/client";
 
 const sponsorContactSchema = z.object({
   email: z.string().email("Enter a valid email address"),
@@ -20,7 +22,7 @@ const adminSponsorSchema = z.object({
   status: z.enum(["draft", "published", "needs_review"]),
   internalOwnerUserId: z.string().uuid().optional().or(z.literal("")),
   website: z.string().url("Invalid URL").optional().or(z.literal("")),
-  logo_url: z.string().url("Invalid URL").optional().or(z.literal("")),
+  logo_url: z.string().optional(),
   description: z.string().max(2000, "Description cannot exceed 2000 characters").optional().or(z.literal("")),
   twitter: z.string().max(255).optional().or(z.literal("")),
   linkedin: z.string().max(255).optional().or(z.literal("")),
@@ -92,9 +94,13 @@ function getContactError(errors: FieldErrors<AdminSponsorValues>, index: number)
 function GeneralSection({
   register,
   errors,
+  logoUrl,
+  onLogoChange,
 }: Readonly<{
   register: UseFormRegister<AdminSponsorValues>;
   errors: FieldErrors<AdminSponsorValues>;
+  logoUrl?: string;
+  onLogoChange: (url: string | null) => void;
 }>) {
   return (
     <>
@@ -120,9 +126,13 @@ function GeneralSection({
         </div>
 
         <div className="form-group flex-1">
-          <label htmlFor="logo_url">Logo URL</label>
-          <input id="logo_url" type="url" {...register("logo_url")} placeholder="https://company.com/logo.png" />
-          <FieldError message={errors.logo_url?.message} />
+          <LogoUpload
+            sponsorId="new-sponsor"
+            currentLogoUrl={logoUrl}
+            onUploadSuccess={(url) => onLogoChange(url)}
+            onRemove={() => onLogoChange(null)}
+            supabase={createClient()}
+          />
         </div>
       </div>
 
@@ -298,6 +308,7 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [logoUrl, setLogoUrl] = useState<string | undefined>(sponsor.logo_url ?? undefined);
 
   const {
     register,
@@ -320,7 +331,7 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, logo_url: logoUrl }),
       });
 
       if (!response.ok) {
@@ -350,7 +361,7 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
       {errorMessage && <div className="error-alert">{errorMessage}</div>}
       {successMessage && <div className="success-alert">{successMessage}</div>}
 
-      <GeneralSection register={register} errors={errors} />
+      <GeneralSection register={register} errors={errors} logoUrl={logoUrl} onLogoChange={(url) => setLogoUrl(url ?? undefined)} />
       <GovernanceSection register={register} errors={errors} categories={categories} ownerOptions={ownerOptions} />
       <SocialSection register={register} errors={errors} />
       <ContactsSection control={control} register={register} errors={errors} />
