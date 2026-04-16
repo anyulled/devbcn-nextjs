@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useForm, UseFormRegister, FieldErrors } from "react-hook-form";
-import { SupabaseClient } from "@supabase/supabase-js";
+import { useForm, type UseFormRegister, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { SupabaseClient } from "@supabase/supabase-js";
 import * as z from "zod";
+
 import { createClient } from "@/lib/supabase/client";
 import LogoUpload from "@/components/ui/LogoUpload";
 
@@ -171,8 +172,14 @@ export default function SponsorProfileForm({ initialData }: Readonly<SponsorProf
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors },
   } = useSponsorProfileForm(initialData);
+
+  // Reset form when initialData changes (after router.refresh())
+  useEffect(() => {
+    reset(getSponsorDefaultValues(initialData));
+  }, [initialData, reset]);
 
   const logoUrl = watch("logo_url");
 
