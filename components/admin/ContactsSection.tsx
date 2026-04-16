@@ -166,27 +166,35 @@ export function ContactsSection({ control, register, errors, sponsorId, magicLin
           const state = key ? magicLinkStates[key] : undefined;
 
           if (sponsorId && email) {
-            return renderContactRow({
-              field,
-              index,
-              register,
-              remove,
-              error: getContactError(index),
-              sponsorId,
-              onSendMagicLink,
-              isSending: state?.isSending ?? false,
-              sendSuccess: state?.sendSuccess ?? false,
-              sendError: state?.sendError ?? null,
-            });
+            return (
+              <React.Fragment key={field.id}>
+                {renderContactRow({
+                  field,
+                  index,
+                  register,
+                  remove,
+                  error: getContactError(index),
+                  sponsorId,
+                  onSendMagicLink,
+                  isSending: state?.isSending ?? false,
+                  sendSuccess: state?.sendSuccess ?? false,
+                  sendError: state?.sendError ?? null,
+                })}
+              </React.Fragment>
+            );
           }
 
-          return renderContactRowNoMagic({
-            field,
-            index,
-            register,
-            remove,
-            error: getContactError(index),
-          });
+          return (
+            <React.Fragment key={field.id}>
+              {renderContactRowNoMagic({
+                field,
+                index,
+                register,
+                remove,
+                error: getContactError(index),
+              })}
+            </React.Fragment>
+          );
         })}
       </div>
     </div>
