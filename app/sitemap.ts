@@ -30,56 +30,67 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
-    urls.push({
-      url: `${baseUrl}/${year}`,
-      lastModified: BUILD_TIME,
-      changeFrequency: "daily",
-      priority: 0.9,
-    });
+  const yearUrlsSets = await Promise.all(
+    years.map(async (year) => {
+      const yearUrls: MetadataRoute.Sitemap = [];
 
-    const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
-    for (const page of yearPages) {
-      urls.push({
-        url: `${baseUrl}/${year}/${page}`,
+      yearUrls.push({
+        url: `${baseUrl}/${year}`,
         lastModified: BUILD_TIME,
-        changeFrequency: "weekly",
-        priority: 0.8,
+        changeFrequency: "daily",
+        priority: 0.9,
       });
-    }
 
-    const speakers = await getSpeakers(year);
-    for (const speaker of speakers) {
-      urls.push({
-        url: `${baseUrl}/${year}/speakers/${speaker.id}`,
-        lastModified: BUILD_TIME,
-        changeFrequency: "weekly",
-        priority: 0.7,
-      });
-    }
+      const yearPages = ["speakers", "talks", "schedule", "job-offers", "cfp", "diversity", "sponsorship", "travel"];
+      for (const page of yearPages) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/${page}`,
+          lastModified: BUILD_TIME,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        });
+      }
 
-    const sessionGroups = await getTalks(year);
-    for (const group of sessionGroups) {
-      for (const talk of group.sessions) {
-        urls.push({
-          url: `${baseUrl}/${year}/talks/${talk.id}`,
+      const [speakers, sessionGroups] = await Promise.all([
+        getSpeakers(year),
+        getTalks(year),
+      ]);
+
+      for (const speaker of speakers) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/speakers/${speaker.id}`,
           lastModified: BUILD_TIME,
           changeFrequency: "weekly",
           priority: 0.7,
         });
       }
-    }
 
-    const companies = getJobOffersByYear(year);
-    for (const company of companies) {
-      urls.push({
-        url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
-        lastModified: BUILD_TIME,
-        changeFrequency: "monthly",
-        priority: 0.5,
-      });
-    }
-  }
+      for (const group of sessionGroups) {
+        for (const talk of group.sessions) {
+          yearUrls.push({
+            url: `${baseUrl}/${year}/talks/${talk.id}`,
+            lastModified: BUILD_TIME,
+            changeFrequency: "weekly",
+            priority: 0.7,
+          });
+        }
+      }
+
+      const companies = getJobOffersByYear(year);
+      for (const company of companies) {
+        yearUrls.push({
+          url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
+          lastModified: BUILD_TIME,
+          changeFrequency: "monthly",
+          priority: 0.5,
+        });
+      }
+
+      return yearUrls;
+    })
+  );
+
+  urls.push(...yearUrlsSets.flat());
 
   return urls;
 }
