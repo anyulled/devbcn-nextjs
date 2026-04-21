@@ -28,14 +28,14 @@
     "check:docs": "bash -c 'echo \"Checking docs sync...\" && ([ -f AGENTS.md ] && [ -f CLAUDE.md ] || cp AGENTS.md CLAUDE.md)'"
   },
   "dependencies": {
-    "add-to-calendar-button-react": "^2.13.5",
+    "add-to-calendar-button-react": "^2.13.9",
     "aos": "^2.3.4",
-    "baseline-browser-mapping": "^2.10.18",
+    "baseline-browser-mapping": "^2.10.20",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.8.0",
-    "next": "16.2.3",
+    "next": "16.2.4",
     "react": "^19.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.0",
