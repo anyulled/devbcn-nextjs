@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-04-21 - Consecutive Comments Linter Error
+
+**Learning:** The ESLint configuration uses `multiline-comment-style` which strictly forbids consecutive single-line comments (`//`). This will break the build if multiple `//` lines are used for explanations.
+**Action:** Always use block comments (`/* */`) when adding multi-line performance explanations or annotations in the code.

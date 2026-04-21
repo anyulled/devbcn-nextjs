@@ -30,7 +30,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const year of years) {
+  /*
+   * ⚡ Bolt: Fetch all years and their associated data in parallel
+   * This reduces sitemap generation time by eliminating sequential await waterfalls.
+   */
+  const yearData = await Promise.all(
+    years.map(async (year) => {
+      // Fetch speakers and talks for a specific year in parallel
+      const [speakers, sessionGroups] = await Promise.all([
+        getSpeakers(year),
+        getTalks(year)
+      ]);
+      const companies = getJobOffersByYear(year);
+      return { year, speakers, sessionGroups, companies };
+    })
+  );
+
+  for (const data of yearData) {
+    const { year, speakers, sessionGroups, companies } = data;
+
     urls.push({
       url: `${baseUrl}/${year}`,
       lastModified: BUILD_TIME,
@@ -48,7 +66,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const speakers = await getSpeakers(year);
     for (const speaker of speakers) {
       urls.push({
         url: `${baseUrl}/${year}/speakers/${speaker.id}`,
@@ -58,7 +75,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    const sessionGroups = await getTalks(year);
     for (const group of sessionGroups) {
       for (const talk of group.sessions) {
         urls.push({
@@ -70,7 +86,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
 
-    const companies = getJobOffersByYear(year);
     for (const company of companies) {
       urls.push({
         url: `${baseUrl}/${year}/job-offers/${slugify(company.name)}`,
