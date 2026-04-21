@@ -37,10 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const yearData = await Promise.all(
     years.map(async (year) => {
       // Fetch speakers and talks for a specific year in parallel
-      const [speakers, sessionGroups] = await Promise.all([
-        getSpeakers(year),
-        getTalks(year)
-      ]);
+      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
       const companies = getJobOffersByYear(year);
       return { year, speakers, sessionGroups, companies };
     })
