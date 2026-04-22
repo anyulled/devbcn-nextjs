@@ -91,6 +91,22 @@ jest.mock("@/lib/shared/jsonld", () => ({
   serializeJsonLd: jest.fn(() => "{}"),
 }));
 
+jest.mock("@/lib/supabase/public-queries", () => ({
+  __esModule: true,
+  getSponsorsForEdition: jest.fn(() =>
+    Promise.resolve({
+      top: [],
+      premium: [],
+      regular: [],
+      communities: [],
+      basic: [],
+      media_partners: [],
+      supporters: [],
+    })
+  ),
+  getJobOffersForEdition: jest.fn(() => Promise.resolve([])),
+}));
+
 describe("Year Index Page", () => {
   const params = Promise.resolve({ year: "2025" });
 
