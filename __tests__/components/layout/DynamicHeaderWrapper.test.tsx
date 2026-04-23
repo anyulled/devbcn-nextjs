@@ -52,8 +52,19 @@ describe("DynamicHeaderWrapper", () => {
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "false");
 
     Object.defineProperty(window, "scrollY", { value: 120, writable: true, configurable: true });
+
+    // Mock requestAnimationFrame
+    const originalRAF = window.requestAnimationFrame;
+    window.requestAnimationFrame = (callback) => {
+      callback(0);
+      return 0;
+    };
+
     fireEvent.scroll(document);
 
     expect(screen.getByTestId("header8")).toHaveAttribute("data-scroll", "true");
+
+    // Restore original requestAnimationFrame
+    window.requestAnimationFrame = originalRAF;
   });
 });
