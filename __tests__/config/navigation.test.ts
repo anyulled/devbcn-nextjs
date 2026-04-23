@@ -44,7 +44,7 @@ describe("Navigation Configuration", () => {
   describe("mainNavLinks", () => {
     it("should contain main navigation items", () => {
       expect(mainNavLinks).toHaveLength(4);
-      expect(mainNavLinks.map((link) => link.label)).toEqual(["About Us", "Code of Conduct", "Sponsors", "Travel"]);
+      expect(mainNavLinks.map((link) => link.label)).toEqual(["About DevBcn", "Code of Conduct", "Sponsors", "Travel"]);
     });
 
     it("should have valid hrefs", () => {
@@ -78,7 +78,7 @@ describe("Navigation Configuration", () => {
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
       expect(newsDropdownLinks).toHaveLength(6);
-      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["About DevBcn", "CFP", "Sponsorship", "Diversity", "Job Offers", "Contact Us"]);
+      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["About Us", "CFP", "Sponsorship", "Diversity", "Job Offers", "Contact Us"]);
     });
 
     it("should have correct year requirement flags", () => {
@@ -149,7 +149,7 @@ describe("Navigation Configuration", () => {
 
     it("should maintain order: main nav first, then year-specific", () => {
       const result = getAllMainNavLinks();
-      expect(result[0].label).toBe("About Us");
+      expect(result[0].label).toBe("About DevBcn");
       expect(result[1].label).toBe("Code of Conduct");
       expect(result[2].label).toBe("Sponsors");
       expect(result[3].label).toBe("Travel");

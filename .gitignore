@@ -141,3 +141,5 @@ public/swe-worker-*.js.map
 
 # Documentation
 docs/api/
+.vercel
+.env*.local

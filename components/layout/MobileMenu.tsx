@@ -78,12 +78,12 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
               </li>
             ))}
 
-            {/* News with submenu */}
+            {/* +Info with submenu */}
             <li className={isAccordion === 2 ? "has-sub hash-has-sub active" : "has-sub hash-has-sub"}>
               <span className="submenu-button" onClick={() => handleAccordion(2)}>
                 <em />
               </span>
-              <a className="hash-nav">News</a>
+              <a className="hash-nav">+Info</a>
               <ul className="sub-menu" style={{ display: isAccordion === 2 ? "block" : "none" }}>
                 {navigation.news.map((link) => (
                   <li key={link.href}>

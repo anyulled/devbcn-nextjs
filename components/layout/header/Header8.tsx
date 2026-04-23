@@ -74,7 +74,7 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
                     ))}
                     <li>
                       <Link href="/#">
-                        News <i className="fa-solid fa-angle-down" />
+                        +Info <i className="fa-solid fa-angle-down" />
                       </Link>
                       <ul className="dropdown-padding">
                         {navigation.news.map((link) => (
