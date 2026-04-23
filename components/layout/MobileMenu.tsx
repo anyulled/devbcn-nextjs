@@ -2,6 +2,7 @@
 import { EditionNavigation } from "@/config/editions/types";
 import { editionLinks, socialLinks } from "@/config/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 interface MobileMenuProps {
@@ -24,7 +25,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
             <div className="mobile-header-elements">
               <div className="mobile-logo">
                 <Link href="//">
-                  <img src="/assets/img/logo/devBcn.webp" alt="devBcn" />
+                  <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} priority />
                 </Link>
               </div>
               <div className="mobile-nav-icon dots-menu" onClick={handleMobileMenu}>

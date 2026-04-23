@@ -45,7 +45,7 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} style={{ width: "auto", height: "auto" }} />
+                    <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} style={{ width: "auto", height: "auto" }} priority />
                   </Link>
                 </div>
                 <div className="main-menu">
