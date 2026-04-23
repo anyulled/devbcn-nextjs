@@ -22,7 +22,6 @@ export const editionLinks: NavItem[] = [
  */
 export const mainNavLinks: NavItem[] = [
   { label: "About DevBcn", href: "/about-devbcn", requiresYear: false },
-  { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
   { label: "Sponsors", href: "#sponsors", requiresYear: true },
   { label: "Travel", href: "/travel", requiresYear: true },
 ];
@@ -41,6 +40,7 @@ export const yearSpecificNavLinks: NavItem[] = [
  */
 export const newsDropdownLinks: NavItem[] = [
   { label: "About Us", href: "/about-us", requiresYear: false },
+  { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
   { label: "CFP", href: "/cfp", requiresYear: true, condition: "hasCfp" },
   { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
   { label: "Diversity", href: "/diversity", requiresYear: true, condition: "hasDiversity" },

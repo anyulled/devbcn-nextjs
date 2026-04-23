@@ -14,9 +14,10 @@ export const edition2024: EditionConfig = {
     yearSpecific: [...yearSpecificNavLinks, { label: "Workshops", href: "/workshops", requiresYear: true }],
     news: [
       newsDropdownLinks[0],
+      newsDropdownLinks[1],
       { label: "CFP", href: "/cfp", requiresYear: true, condition: "hasCfp" },
       { label: "KCD", href: "/kcd", requiresYear: false },
-      ...newsDropdownLinks.slice(2),
+      ...newsDropdownLinks.slice(3),
     ],
   },
   email: "info@devbcn.com",

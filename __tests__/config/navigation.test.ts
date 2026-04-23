@@ -43,8 +43,8 @@ describe("Navigation Configuration", () => {
 
   describe("mainNavLinks", () => {
     it("should contain main navigation items", () => {
-      expect(mainNavLinks).toHaveLength(4);
-      expect(mainNavLinks.map((link) => link.label)).toEqual(["About DevBcn", "Code of Conduct", "Sponsors", "Travel"]);
+      expect(mainNavLinks).toHaveLength(3);
+      expect(mainNavLinks.map((link) => link.label)).toEqual(["About DevBcn", "Sponsors", "Travel"]);
     });
 
     it("should have valid hrefs", () => {
@@ -56,9 +56,8 @@ describe("Navigation Configuration", () => {
 
     it("should correctly handle year prefix requirement", () => {
       expect(mainNavLinks[0].requiresYear).toBe(false);
-      expect(mainNavLinks[1].requiresYear).toBe(false);
+      expect(mainNavLinks[1].requiresYear).toBe(true);
       expect(mainNavLinks[2].requiresYear).toBe(true);
-      expect(mainNavLinks[3].requiresYear).toBe(true);
     });
   });
 
@@ -77,23 +76,33 @@ describe("Navigation Configuration", () => {
 
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
-      expect(newsDropdownLinks).toHaveLength(6);
-      expect(newsDropdownLinks.map((link) => link.label)).toEqual(["About Us", "CFP", "Sponsorship", "Diversity", "Job Offers", "Contact Us"]);
+      expect(newsDropdownLinks).toHaveLength(7);
+      expect(newsDropdownLinks.map((link) => link.label)).toEqual([
+        "About Us",
+        "Code of Conduct",
+        "CFP",
+        "Sponsorship",
+        "Diversity",
+        "Job Offers",
+        "Contact Us",
+      ]);
     });
 
     it("should have correct year requirement flags", () => {
-      // About DevBcn
+      // About Us
       expect(newsDropdownLinks[0].requiresYear).toBe(false);
+      // Code of Conduct
+      expect(newsDropdownLinks[1].requiresYear).toBe(false);
       // CFP
-      expect(newsDropdownLinks[1].requiresYear).toBe(true);
-      // Sponsorship
       expect(newsDropdownLinks[2].requiresYear).toBe(true);
-      // Diversity
+      // Sponsorship
       expect(newsDropdownLinks[3].requiresYear).toBe(true);
-      // Job Offers
+      // Diversity
       expect(newsDropdownLinks[4].requiresYear).toBe(true);
+      // Job Offers
+      expect(newsDropdownLinks[5].requiresYear).toBe(true);
       // Contact Us
-      expect(newsDropdownLinks[5].requiresYear).toBe(false);
+      expect(newsDropdownLinks[6].requiresYear).toBe(false);
     });
   });
 
@@ -150,11 +159,11 @@ describe("Navigation Configuration", () => {
     it("should maintain order: main nav first, then year-specific", () => {
       const result = getAllMainNavLinks();
       expect(result[0].label).toBe("About DevBcn");
-      expect(result[1].label).toBe("Code of Conduct");
-      expect(result[2].label).toBe("Sponsors");
-      expect(result[3].label).toBe("Travel");
-      expect(result[4].label).toBe("Speakers");
-      expect(result[5].label).toBe("Talks");
+      expect(result[1].label).toBe("Sponsors");
+      expect(result[2].label).toBe("Travel");
+      expect(result[3].label).toBe("Speakers");
+      expect(result[4].label).toBe("Talks");
+      expect(result[5].label).toBe("Schedule");
     });
   });
 });
