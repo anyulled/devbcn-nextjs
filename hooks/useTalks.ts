@@ -129,7 +129,8 @@ export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
  */
 export const getTalkSpeakersWithDetails = async (year: string | number, speakerIds: string[]): Promise<Speaker[]> => {
   const speakers = await getSpeakers(year);
-  return speakers.filter((s) => speakerIds.includes(s.id));
+  const speakerIdsSet = new Set(speakerIds);
+  return speakers.filter((s) => speakerIdsSet.has(s.id));
 };
 
 export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
