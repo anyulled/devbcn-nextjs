@@ -20,5 +20,5 @@
 
 ## 2026-04-29 - Formatting matters for comments
 
-**Learning:** When adding multi-line comments in `/* */` style in Next.js codebases, always ensure the text begins on a new line after the opening `/*` (e.g., `/*\n * text\n */`) to avoid 'Expected a linebreak after /*' and consecutive single-line comment errors.
+**Learning:** When adding multi-line comments in `/* */` style in Next.js codebases, always ensure the text begins on a new line after the opening `/*` (e.g., `/*\n * text\n */`) to avoid 'Expected a linebreak after /\*' and consecutive single-line comment errors.
 **Action:** Validate comment structures via `npm run lint` closely when documenting Bolt optimizations.
