@@ -91,6 +91,11 @@ export const edition2026: EditionConfig = {
         website: "https://edpuzzle.com/",
         image: "/assets/img/all-images/sponsors/edpuzzle.svg",
       },
+      {
+        name: "Revolut",
+        website: "https://www.revolut.com/",
+        image: "/assets/img/all-images/sponsors/revolut-2026.png",
+      },
     ],
     regular: [
       {
