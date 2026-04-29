@@ -1,14 +1,12 @@
-import ArchivePage, {
-  generateMetadata as generateArchiveMetadata,
-  generateStaticParams as generateArchiveStaticParams,
-} from "@/app/[year]/speakers/[speakerId]/page";
+import ArchivePage, { generateMetadata as generateArchiveMetadata } from "@/app/[year]/speakers/[speakerId]/page";
+import { getSpeakers } from "@/hooks/useSpeakers";
 
 export const revalidate = 43200;
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const params = await generateArchiveStaticParams();
-  return params.filter((param) => param.year === "2026").map(({ speakerId }) => ({ speakerId }));
+  const speakers = await getSpeakers("2026");
+  return speakers.map(({ id }) => ({ speakerId: id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ speakerId: string }> }) {
