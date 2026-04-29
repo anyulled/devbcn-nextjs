@@ -135,6 +135,11 @@ export const edition2026: EditionConfig = {
         website: "https://www.mambu.com/en",
         image: "/assets/img/all-images/sponsors/mambu.png",
       },
+      {
+        name: "FOR GOOD AI",
+        website: "https://zencoder.ai/",
+        image: "/assets/img/all-images/sponsors/zencoder.png",
+      },
     ],
     communities: [
       {
