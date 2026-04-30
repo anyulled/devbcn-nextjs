@@ -6,7 +6,7 @@ import { trackTicketClick } from "@/lib/shared/analytics";
 
 export default function Section9() {
   const pathname = usePathname();
-  const segment = pathname.split("/").find(Boolean);
+  const segment = pathname?.split("/").find(Boolean);
   const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
 
   return (
