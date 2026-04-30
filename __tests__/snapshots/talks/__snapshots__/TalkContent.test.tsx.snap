@@ -323,6 +323,8 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
                   <a
                     class="vl-btn1"
                     href="https://tickets.devbcn.com"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     <span
                       class="demo"
