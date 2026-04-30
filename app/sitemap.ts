@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
 
-      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
+      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year, { strict: true }), getTalks(year, { strict: true })]);
 
       for (const speaker of speakers) {
         yearUrls.push({
