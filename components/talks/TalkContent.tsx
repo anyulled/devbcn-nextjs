@@ -201,7 +201,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     </a>
 
                     {/* Buy Tickets Link */}
-                    <BuyTicketButton href={eventData.tickets.url} className="vl-btn1" location="talk_detail" year={year} talkId={talk.id} text="Get Tickets" />
+                    <BuyTicketButton href={eventData.tickets.url} className="vl-btn1" location="talk_detail" year={year} text="Get Tickets" />
 
                     {/* Slides Link */}
                     {slidesUrl && (

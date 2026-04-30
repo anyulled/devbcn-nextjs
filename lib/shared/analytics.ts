@@ -31,12 +31,10 @@ export function trackEvent(eventName: string, eventParams?: Record<string, unkno
  * Track a ticket purchase button click
  * @param location - Where the button was clicked (e.g., 'header', 'hero', 'cta', 'talk_detail')
  * @param year - Optional year parameter
- * @param talkId - Optional talk ID if clicked from talk detail page
  */
-export function trackTicketClick(location: string, year?: string, talkId?: string) {
+export function trackTicketClick(location: string, year?: string) {
   trackEvent("buy_ticket_click", {
     location,
     year,
-    talk_id: talkId,
   });
 }
