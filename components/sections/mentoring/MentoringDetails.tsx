@@ -80,7 +80,7 @@ export default function MentoringDetails({ year }: Readonly<MentoringDetailsProp
             </div>
 
             <div className="cta-area">
-              <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} />
+              <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} location="mentoring_details" />
             </div>
 
             <div style={{ marginTop: "20px", fontSize: "14px", fontStyle: "italic", color: "var(--theme-color-body)" }}>* Mentors to be confirmed soon.</div>

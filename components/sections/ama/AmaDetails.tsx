@@ -79,7 +79,7 @@ export default function AmaDetails({ year }: Readonly<AmaDetailsProps>) {
             </div>
 
             <div className="cta-area">
-              <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} />
+              <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} location="ama_details" />
             </div>
           </div>
         </div>

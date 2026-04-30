@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { trackTicketClick } from "@/lib/shared/analytics";
 
 export default function Popup() {
+  const pathname = usePathname();
+  const segment = pathname.split("/").find(Boolean);
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+
   useEffect(() => {
     const popup = document.getElementById("popup");
     const closeBtn = document.getElementById("close-popup");
@@ -68,7 +74,7 @@ export default function Popup() {
           </ul>
         </div>
         <div className="space50" />
-        <Link className="vl-btn2" href="/contact">
+        <Link className="vl-btn2" href="/contact" onClick={() => trackTicketClick("popup", yearFromPath)}>
           <span className="demo">Buy Ticket Now</span>
           <span className="arrow">
             <i className="fa-solid fa-arrow-right" />

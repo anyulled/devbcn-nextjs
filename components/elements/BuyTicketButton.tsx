@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import { usePathname } from "next/navigation";
+import { trackTicketClick } from "@/lib/shared/analytics";
 
 interface BuyTicketButtonProps {
   href?: string;
@@ -6,6 +9,7 @@ interface BuyTicketButtonProps {
   text?: string;
   target?: string;
   rel?: string;
+  location?: string;
   children?: React.ReactNode;
 }
 
@@ -15,10 +19,19 @@ const BuyTicketButton: React.FC<BuyTicketButtonProps> = ({
   text = "Buy Ticket Now",
   target = "_blank",
   rel = "noopener noreferrer",
+  location = "generic_button",
   children,
 }) => {
+  const pathname = usePathname();
+  const segment = pathname.split("/").find(Boolean);
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+
+  const handleClick = () => {
+    trackTicketClick(location, yearFromPath);
+  };
+
   return (
-    <a href={href} className={className} target={target} rel={rel}>
+    <a href={href} className={className} target={target} rel={rel} onClick={handleClick}>
       <span className="demo">{text}</span>
       {children}
     </a>

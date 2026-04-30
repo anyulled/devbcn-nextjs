@@ -5,6 +5,7 @@ import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { trackTicketClick } from "@/lib/shared/analytics";
 import PageHeader from "../layout/PageHeader";
 
 interface TalkContentProps {
@@ -200,7 +201,7 @@ const TalkContent: React.FC<TalkContentProps> = ({ talk, speakers, year, tags, s
                     </a>
 
                     {/* Buy Tickets Link */}
-                    <Link href={eventData.tickets.url} className="vl-btn1">
+                    <Link href={eventData.tickets.url} className="vl-btn1" onClick={() => trackTicketClick("talk_detail", year, talk.id)}>
                       <span className="demo">Get Tickets</span>
                     </Link>
 

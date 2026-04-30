@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";
+import BuyTicketButton from "@/components/elements/BuyTicketButton";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   const eventData = getEditionConfig("2026");
+
   return (
     <div>
       <PageHeader title="About DevBcn" breadcrumbText="About DevBcn" backgroundImageId={5} contentColClass="col-lg-8" />
@@ -46,14 +48,10 @@ export default function About() {
                       fill="#FFBA00"
                     />
                   </svg>
-                  <Link href={`/${eventData.edition}/pricing-plan`}>
-                    <span>
-                      <i className="fa-solid fa-arrow-right" />
-                    </span>
+                  <BuyTicketButton href={`/${eventData.edition}/pricing-plan`} location="about_hero" className="" text="Buy Ticket">
                     <br />
                     <div className="space12" />
-                    Buy Ticket
-                  </Link>
+                  </BuyTicketButton>
                 </div>
               </div>
             </div>
@@ -73,9 +71,7 @@ export default function About() {
                 <AboutCounter />
                 <div className="space32" />
                 <div className="btn-area1" data-aos="fade-left" data-aos-duration={1200}>
-                  <Link href={eventData.tickets.url} className="vl-btn1">
-                    Buy Ticket
-                  </Link>
+                  <BuyTicketButton href={eventData.tickets.url} location="about_content" className="vl-btn1" text="Buy Ticket" />
                 </div>
               </div>
             </div>

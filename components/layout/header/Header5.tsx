@@ -1,7 +1,14 @@
+"use client";
 import { HeaderProps } from "@/types";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { trackTicketClick } from "@/lib/shared/analytics";
 
 export default function Header5({ scroll, isSearch, handleSearch }: Readonly<HeaderProps>) {
+  const pathname = usePathname();
+  const segment = pathname.split("/").find(Boolean);
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+
   return (
     <header>
       <div className={`header-area homepage5 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
@@ -264,7 +271,7 @@ export default function Header5({ scroll, isSearch, handleSearch }: Readonly<Hea
                     </a>
                   </div>
                   <div className="btn-area1">
-                    <Link className="vl-btn5" href="/pricing-plan">
+                    <Link className="vl-btn5" href="/pricing-plan" onClick={() => trackTicketClick("header_button", yearFromPath)}>
                       <span className="demo">Buy Ticket</span>
                       <span className="arrow">
                         <i className="fa-solid fa-arrow-right" />

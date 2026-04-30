@@ -1,8 +1,15 @@
+"use client";
 import { HeaderProps } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { trackTicketClick } from "@/lib/shared/analytics";
 
 export default function Header2({ scroll, isSearch, handleSearch }: Readonly<HeaderProps>) {
+  const pathname = usePathname();
+  const segment = pathname.split("/").find(Boolean);
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+
   return (
     <header>
       <div className={`header-area homepage2 header header-sticky d-none d-lg-block ${scroll ? "sticky" : ""}`} id="header">
@@ -13,7 +20,9 @@ export default function Header2({ scroll, isSearch, handleSearch }: Readonly<Hea
                 <div className="top-menu-area">
                   <p>
                     Are you Ready to Enenify Conferences?
-                    <Link href="/#">Buy Ticket</Link>
+                    <Link href="/#" onClick={() => trackTicketClick("header_top", yearFromPath)}>
+                      Buy Ticket
+                    </Link>
                   </p>
                   <ul>
                     <li>
