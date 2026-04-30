@@ -1,26 +1,20 @@
-/**
- * Analytics tracking utilities for Google Analytics and Vercel Analytics
- */
-
-declare global {
-  interface Window {
-    gtag?: (command: string, ...args: unknown[]) => void;
-  }
-}
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import { track } from "@vercel/analytics";
 
 /**
- * Track a custom event to Google Analytics and Vercel Analytics
+ * Track a custom event to Google Analytics, Google Tag Manager and Vercel Analytics
  * @param eventName - Name of the event (e.g., 'buy_ticket_click')
  * @param eventParams - Additional parameters for the event
  */
-export function trackEvent(eventName: string, eventParams?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", eventName, eventParams);
-  }
+export function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | null | undefined>) {
+  // Track to Google Tag Manager
+  sendGTMEvent({ event: eventName, ...eventParams });
 
-  if (typeof window !== "undefined" && (window as unknown as { va: (event: string, name: string, params?: Record<string, unknown>) => void }).va) {
-    (window as unknown as { va: (event: string, name: string, params?: Record<string, unknown>) => void }).va("track", eventName, eventParams);
-  }
+  // Track to Google Analytics
+  sendGAEvent("event", eventName, eventParams ?? {});
+
+  // Track to Vercel Analytics
+  track(eventName, eventParams ?? undefined);
 
   if (process.env.NODE_ENV === "development") {
     console.log("[Analytics]", eventName, eventParams);
