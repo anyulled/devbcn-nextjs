@@ -27,6 +27,7 @@ exports[`TalkContent Component matches snapshot with full data 1`] = `
           >
             <div
               class="heading1 text-center"
+              style="margin-top: 1.5rem;"
             >
               <h1>
                 Introduction to React

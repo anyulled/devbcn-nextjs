@@ -26,6 +26,7 @@ exports[`PageHeader Component matches snapshot with custom background 1`] = `
         >
           <div
             class="heading1 text-center"
+            style="margin-top: 1.5rem;"
           >
             <h1>
               Talks 2026
@@ -79,6 +80,7 @@ exports[`PageHeader Component matches snapshot with default props 1`] = `
         >
           <div
             class="heading1 text-center"
+            style="margin-top: 1.5rem;"
           >
             <h1>
               Test Page
