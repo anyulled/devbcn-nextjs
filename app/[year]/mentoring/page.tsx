@@ -47,7 +47,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
     getEditionConfig(year);
     return (
       <main className="main-content">
-        <PageHeader title="AMA Sessions" breadcrumbText="AMA Sessions" backgroundImageId={12} />
+        <PageHeader title="Mentoring" breadcrumbText="Mentoring" backgroundImageId={12} />
         <MentoringDetails year={year} />
         <CTASection
           eventStartDate={eventData.event.startDay}
