@@ -1,6 +1,32 @@
 import React from "react";
-import { createClient } from "@/lib/supabase/server";
+import Image from "next/image";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
+import { getSelectedEdition, getUniqueEditions } from "@/lib/admin/sponsors";
+
+function getWebsiteLabel(website: string): string {
+  try {
+    const url = new URL(website);
+    return `${url.hostname}${url.pathname === "/" ? "" : url.pathname}`;
+  } catch {
+    return website;
+  }
+}
+
+function getCategoryName(category: unknown): string {
+  if (Array.isArray(category)) {
+    const firstCategory = category[0];
+    if (firstCategory && typeof firstCategory === "object" && "name" in firstCategory && typeof firstCategory.name === "string") {
+      return firstCategory.name;
+    }
+  }
+
+  if (category && typeof category === "object" && "name" in category && typeof category.name === "string") {
+    return category.name;
+  }
+
+  return "Uncategorized";
+}
 
 export default async function AdminSponsorsPage({
   searchParams,
@@ -8,36 +34,47 @@ export default async function AdminSponsorsPage({
   searchParams: Promise<{ edition?: string }>;
 }>) {
   const params = await searchParams;
-  const selectedEdition = params.edition;
   const supabase = await createClient();
 
   // Fetch all available editions for the filter
   const { data: editionsData } = await supabase.from("sponsors").select("edition").order("edition", { ascending: false });
 
-  // Deduplicate editions and ensure they are strings
-  const uniqueEditions: string[] = Array.from(new Set((editionsData || []).map((e) => String(e.edition))));
+  const uniqueEditions = getUniqueEditions((editionsData || []).map((editionRow) => editionRow.edition));
+  const selectedEdition = getSelectedEdition(uniqueEditions, params.edition);
 
   // Fetch sponsors based on filter
   const query = selectedEdition
     ? supabase
-      .from("sponsors")
-      .select(
+        .from("sponsors")
+        .select(
+          `
+          id,
+          edition,
+          name,
+          website,
+          logo_url,
+          status,
+          category:sponsor_categories(name),
+          contacts:sponsor_users(email)
         `
-          *,
-          category:sponsor_categories(name)
-        `
-      )
-      .eq("edition", selectedEdition)
-      .order("name")
+        )
+        .eq("edition", selectedEdition)
+        .order("name")
     : supabase
-      .from("sponsors")
-      .select(
+        .from("sponsors")
+        .select(
+          `
+          id,
+          edition,
+          name,
+          website,
+          logo_url,
+          status,
+          category:sponsor_categories(name),
+          contacts:sponsor_users(email)
         `
-          *,
-          category:sponsor_categories(name)
-        `
-      )
-      .order("name");
+        )
+        .order("name");
 
   const { data: sponsors, error } = await query;
 
@@ -45,8 +82,9 @@ export default async function AdminSponsorsPage({
     <div className="admin-sponsors-page">
       <div className="admin-content-header">
         <h2>Sponsors Management</h2>
-        <Link href="/admin/sponsors/new" className="action-button primary">
-          <i className="fas fa-plus"></i> Add Sponsor
+        <Link href={selectedEdition ? `/admin/sponsors/new?edition=${selectedEdition}` : "/admin/sponsors/new"} className="action-button primary">
+          <i className="fas fa-plus"></i>
+          New Sponsor
         </Link>
       </div>
 
@@ -74,9 +112,10 @@ export default async function AdminSponsorsPage({
                 <th>Edition</th>
                 <th>Sponsor</th>
                 <th>Category</th>
+                <th>Status</th>
                 <th>Website</th>
-                <th>Contact</th>
-                <th>Actions</th>
+                <th>Contacts</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -85,36 +124,49 @@ export default async function AdminSponsorsPage({
                   <td className="edition-cell">{sponsor.edition}</td>
                   <td className="sponsor-cell">
                     <div className="sponsor-info">
-                      {sponsor.logo_url && <img src={sponsor.logo_url} alt={sponsor.name} className="sponsor-logo-sm" />}
+                      {sponsor.logo_url && <Image src={sponsor.logo_url} alt={sponsor.name} className="sponsor-logo-sm" width={64} height={64} />}
                       <strong>{sponsor.name}</strong>
                     </div>
                   </td>
                   <td>
-                    <span className="badge category">{sponsor.category?.name || "Uncategorized"}</span>
+                    <span className="badge category">{getCategoryName(sponsor.category)}</span>
                   </td>
                   <td>
-                    {sponsor.website_url && (
-                      <a href={sponsor.website_url} target="_blank" rel="noreferrer" className="website-link">
+                    <span className={`badge status ${sponsor.status || "published"}`}>{sponsor.status || "published"}</span>
+                  </td>
+                  <td>
+                    {sponsor.website && (
+                      <a href={sponsor.website} target="_blank" rel="noreferrer" className="website-link">
                         <i className="fas fa-external-link-alt"></i>
+                        <span>{getWebsiteLabel(sponsor.website)}</span>
                       </a>
                     )}
                   </td>
-                  <td>{sponsor.contact_person || <span className="text-muted">No contact</span>}</td>
-                  <td className="actions-cell">
-                    <div className="action-group">
-                      <Link href={`/admin/sponsors/${sponsor.id}`} className="icon-button edit" title="Edit">
-                        <i className="fas fa-edit"></i>
-                      </Link>
-                      <button className="icon-button delete" title="Delete">
-                        <i className="fas fa-trash"></i>
-                      </button>
-                    </div>
+                  <td>
+                    {sponsor.contacts && (sponsor.contacts as { email: string | null; name: string | null }[]).length > 0 ? (
+                      <div className="contact-list">
+                        {(sponsor.contacts as { email: string | null; name: string | null }[])
+                          .map((contact) => contact.email)
+                          .filter((email): email is string => Boolean(email))
+                          .map((email) => (
+                            <span key={email}>{email}</span>
+                          ))}
+                      </div>
+                    ) : (
+                      <span className="text-muted">No contact</span>
+                    )}
+                  </td>
+
+                  <td className="table-actions">
+                    <Link href={`/admin/sponsors/${sponsor.id}`} className="action-button secondary">
+                      Edit
+                    </Link>
                   </td>
                 </tr>
               ))}
               {sponsors?.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="empty-table-cell">
+                  <td colSpan={7} className="empty-table-cell">
                     No sponsors found for this edition.
                   </td>
                 </tr>
