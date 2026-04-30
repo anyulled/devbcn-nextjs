@@ -21,7 +21,7 @@ export default function PageHeader({ title, breadcrumbText, backgroundImageId = 
       <div className="container">
         <div className="row">
           <div className={`${contentColClass} m-auto`}>
-            <div className="heading1 text-center">
+            <div className="heading1 text-center" style={{ marginTop: "1.5rem" }}>
               <h1>{title}</h1>
               <div className="space20" />
               <Link href="/">

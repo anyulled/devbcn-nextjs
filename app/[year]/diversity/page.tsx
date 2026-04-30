@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: DiversityProps): Promise<Meta
   };
 }
 
-export default async function Diversity({ params }: DiversityProps) {
+export default async function Diversity({ params }: Readonly<DiversityProps>) {
   const { year } = await params;
   const eventData = getEditionConfig(year);
   return (
