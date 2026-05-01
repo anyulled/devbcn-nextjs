@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-05-01 - Build time parallelization
+
+**Learning:** Sitemaps and static generation tools typically use `for` loops across large collections (like 'years' -> 'speakers'/'talks'). This serializes network/disk operations.
+**Action:** When optimizing build processes, replace outer `for...of` loops over collections with `Promise.all(collection.map(...))` to parallelize data fetching. Use `.flat()` or `.flatMap()` to handle arrays of arrays correctly. Remember to preserve error handling if any exists.
