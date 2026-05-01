@@ -53,10 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
 
       // ⚡ Bolt Optimization: Parallelize speakers and talks fetching within each year
-      const [speakers, sessionGroups] = await Promise.all([
-        getSpeakers(year),
-        getTalks(year),
-      ]);
+      const [speakers, sessionGroups] = await Promise.all([getSpeakers(year), getTalks(year)]);
 
       for (const speaker of speakers) {
         yearUrls.push({
