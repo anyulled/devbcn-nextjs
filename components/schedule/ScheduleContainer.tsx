@@ -20,7 +20,13 @@ export default function ScheduleContainer({ initialSchedule, year }: Readonly<Sc
       return initialSchedule;
     }
 
-    const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedSessionIds.includes(s.id) || s.isServiceSession);
+    /*
+     * ⚡ Bolt: Convert array to Set for O(1) lookups instead of O(N) array includes
+     * Expected impact: Time complexity improves from O(N*M) to O(N+M)
+     * Measurement: Schedule renders faster when large numbers of sessions are saved
+     */
+    const savedIdsSet = new Set(savedSessionIds);
+    const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedIdsSet.has(s.id) || s.isServiceSession);
 
     return initialSchedule.map((day) => ({
       ...day,

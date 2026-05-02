@@ -1,0 +1,4 @@
+💡 What: Converted the `savedSessionIds` array into a `Set` prior to running the filter operation on grid sessions.
+🎯 Why: To improve time complexity from O(N*M) (using `Array.includes()`) to O(N+M) (using `Set.has()`) during the filtering of sessions, where N is the total sessions and M is the number of saved sessions.
+📊 Impact: Faster UI rendering and recalculations when filtering schedules by saved sessions, preventing sluggishness as arrays grow.
+🔬 Measurement: Verify by interacting with "My Schedule" on pages with numerous sessions saved.
