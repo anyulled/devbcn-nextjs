@@ -13,19 +13,21 @@ const getSessionsUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Sessions`;
 };
 
-export const getTalks = cache(async (year: string | number = "default"): Promise<SessionGroup[]> => {
+export const getTalks = cache(async (year: string | number = "default", throwOnError: boolean = false): Promise<SessionGroup[]> => {
   try {
     const url = getSessionsUrl(year);
 
     const response = await fetch(url, getSessionizeFetchOptions(year));
     if (!response.ok) {
       console.error(`Failed to fetch talks for year ${year}: ${response.statusText}`);
+      if (throwOnError) throw new Error(`Failed to fetch talks for year ${year}: ${response.statusText}`);
       return [];
     }
     const data: SessionGroup[] = await response.json();
     return data;
   } catch (error) {
     console.error(`Error fetching talks for year ${year}:`, error);
+    if (throwOnError) throw error;
     return [];
   }
 });

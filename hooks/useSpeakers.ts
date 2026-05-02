@@ -11,19 +11,21 @@ const getSpeakersUrl = (year: string | number): string => {
   return `${config.sessionizeUrl}/view/Speakers`;
 };
 
-export const getSpeakers = cache(async (year: string | number = "default"): Promise<Speaker[]> => {
+export const getSpeakers = cache(async (year: string | number = "default", throwOnError: boolean = false): Promise<Speaker[]> => {
   try {
     const url = getSpeakersUrl(year);
 
     const response = await fetch(url, getSessionizeFetchOptions(year));
     if (!response.ok) {
       console.error(`Failed to fetch speakers for year ${year}: ${response.statusText}`);
+      if (throwOnError) throw new Error(`Failed to fetch speakers for year ${year}: ${response.statusText}`);
       return [];
     }
     const speakers: Speaker[] = await response.json();
     return speakers;
   } catch (error) {
     console.error(`Error fetching speakers for year ${year}:`, error);
+    if (throwOnError) throw error;
     return [];
   }
 });
