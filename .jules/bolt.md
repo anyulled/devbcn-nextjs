@@ -17,3 +17,9 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+## 2026-05-03 - Array filtering with repeated includes()
+**Learning:** Found an O(N*M) performance bottleneck in `ScheduleContainer.tsx` where `Array.includes()` was being called inside a  function on every re-render or schedule update.
+**Action:** Convert the lookup array into a `Set` outside the iteration loop and use `Set.has()` to achieve O(N+M) time complexity. Ensure this pattern is verified during profiling.
+## 2026-03-24 - Array filtering with repeated includes()
+**Learning:** Found an O(N*M) performance bottleneck in `ScheduleContainer.tsx` where `Array.includes()` was being called inside a `.filter()` function on every re-render or schedule update.
+**Action:** Convert the lookup array into a `Set` outside the iteration loop and use `Set.has()` to achieve O(N+M) time complexity. Ensure this pattern is verified during profiling.
