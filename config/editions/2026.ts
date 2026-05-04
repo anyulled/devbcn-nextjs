@@ -144,7 +144,7 @@ export const edition2026: EditionConfig = {
     communities: [
       {
         name: "Step4ward",
-        image: "/assets/img/all-images/sponsors/step4ward.png",
+        image: "/assets/img/all-images/sponsors/step.webp",
         website: "https://bit.ly/step4wardhome",
       },
       {
