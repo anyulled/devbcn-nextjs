@@ -167,7 +167,7 @@ describe("Edition Configuration", () => {
           expect.objectContaining({
             name: "Step4ward",
             website: "https://bit.ly/step4wardhome",
-            image: "/assets/img/all-images/sponsors/step4ward.png",
+            image: "/assets/img/all-images/sponsors/step.webp",
           }),
           expect.objectContaining({
             name: "Barcelona JUG",
