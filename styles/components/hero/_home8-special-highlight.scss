@@ -1,0 +1,124 @@
+@use "../../utils" as *;
+
+.hero8-slider-area {
+  .hero8-header {
+    &__special-highlight {
+      margin: 0 auto;
+      max-width: 52rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgb(81 53 146 / 0.95), rgb(62 40 128 / 0.95));
+      border: 1px solid rgb(255 255 255 / 0.3);
+      box-shadow:
+        0 18px 45px rgb(0 0 0 / 0.35),
+        0 0 0 4px rgb(137 92 255 / 0.22);
+      color: #fff;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      animation: hero-special-float 3.6s ease-in-out infinite;
+
+      @media #{$xs} {
+        margin-top: 0.25rem;
+        padding: 1rem;
+        border-radius: 14px;
+      }
+    }
+
+    &__special-kicker {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-family: var(--grotesk);
+      font-size: 0.8rem;
+      font-weight: var(--ztc-weight-bold);
+      line-height: 1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgb(255 255 255 / 0.16);
+      color: rgb(250 246 255 / 0.98);
+      margin-bottom: 0.65rem;
+    }
+
+    &__special-title {
+      color: #fff;
+      font-family: var(--grotesk);
+      font-size: 1.8rem;
+      font-weight: var(--ztc-weight-bold);
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin: 0;
+
+      @media #{$xs} {
+        font-size: 1.15rem;
+        line-height: 1.25;
+      }
+    }
+
+    &__special-copy {
+      color: rgb(246 240 255 / 0.96);
+      font-family: var(--figtree);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 0.7rem 0 0;
+
+      @media #{$xs} {
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+    }
+
+    &__special-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    &__special-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      font-family: var(--grotesk);
+      font-size: 0.9rem;
+      font-weight: var(--ztc-weight-bold);
+      line-height: 1;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      box-shadow: 0 8px 22px rgb(37 99 235 / 0.32);
+      transition: all 0.3s ease;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        color: #fff;
+      }
+
+      &--alt {
+        background: linear-gradient(135deg, #ec4899, #c026d3);
+        box-shadow: 0 8px 22px rgb(192 38 211 / 0.3);
+      }
+    }
+  }
+}
+
+@keyframes hero-special-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}

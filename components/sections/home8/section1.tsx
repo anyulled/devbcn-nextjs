@@ -5,7 +5,7 @@ import VideoOverlay from "@/components/elements/VideoOverlay";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
 import { trackTicketClick } from "@/lib/shared/analytics";
 import { motion, Variants } from "framer-motion";
-import { CalendarDays, Handshake, MapPin, Mic, Ticket } from "lucide-react";
+import { ArrowRight, CalendarDays, Handshake, MapPin, Mic, Ticket } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -97,6 +97,22 @@ export default function Section1({ year }: Readonly<Section1Props>) {
               <div className="hero8-header__spacer" />
 
               <div className="hero8-header__actions">
+                <motion.div className="hero8-header__special-highlight" variants={itemVariants}>
+                  <span className="hero8-header__special-kicker">New at DevBcn {year}</span>
+                  <h5 className="hero8-header__special-title">Private AMA Sessions + Public Speaking Mentoring</h5>
+                  <p className="hero8-header__special-copy">Limited seats and direct access to speakers. Book your spot before sessions fill up.</p>
+                  <div className="hero8-header__special-actions">
+                    <Link href={`/${year}/ama`} className="hero8-header__special-link">
+                      Explore AMA
+                      <ArrowRight />
+                    </Link>
+                    <Link href={`/${year}/mentoring`} className="hero8-header__special-link hero8-header__special-link--alt">
+                      Explore Mentoring
+                      <ArrowRight />
+                    </Link>
+                  </div>
+                </motion.div>
+
                 <motion.div variants={itemVariants}>
                   <TrackBadges onTrackClick={handleTrackClick} />
                 </motion.div>
