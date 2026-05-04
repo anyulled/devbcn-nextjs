@@ -23,6 +23,7 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
   const hasDiversity = config.diversity.sponsors.length > 0;
 
   const hasJobOffers = checkJobOffers(year);
+  const hasAmaMentoring = year === "2026";
 
   const conditions: Record<NavCondition, boolean> = {
     hasSpeakers,
@@ -31,6 +32,7 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
     hasCfp,
     hasDiversity,
     hasJobOffers,
+    hasAmaMentoring,
   };
 
   const filterAndProcessLinks = (links: NavItem[]): NavItem[] => {

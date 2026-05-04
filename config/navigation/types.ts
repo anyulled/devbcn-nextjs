@@ -5,7 +5,7 @@
  * Header, MobileMenu, and other navigation components.
  */
 
-export type NavCondition = "hasSpeakers" | "hasCfp" | "hasDiversity" | "hasSchedule" | "hasTalks" | "hasJobOffers";
+export type NavCondition = "hasSpeakers" | "hasCfp" | "hasDiversity" | "hasSchedule" | "hasTalks" | "hasJobOffers" | "hasAmaMentoring";
 
 /**
  * Single navigation item

@@ -41,6 +41,8 @@ export const yearSpecificNavLinks: NavItem[] = [
 export const newsDropdownLinks: NavItem[] = [
   { label: "About Us", href: "/about-us", requiresYear: false },
   { label: "Code of Conduct", href: "/code-of-conduct", requiresYear: false },
+  { label: "AMA Sessions", href: "/ama", requiresYear: true, condition: "hasAmaMentoring" },
+  { label: "Speaking Mentoring", href: "/mentoring", requiresYear: true, condition: "hasAmaMentoring" },
   { label: "CFP", href: "/cfp", requiresYear: true, condition: "hasCfp" },
   { label: "Sponsorship", href: "/sponsorship", requiresYear: true },
   { label: "Diversity", href: "/diversity", requiresYear: true, condition: "hasDiversity" },
