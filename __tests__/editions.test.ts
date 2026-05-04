@@ -1,6 +1,3 @@
-import { describe, expect, it } from "@jest/globals";
-import "@testing-library/jest-dom";
-import "@testing-library/jest-dom/jest-globals";
 import {
   areTicketsOnSale,
   CURRENT_EDITION,
@@ -14,6 +11,9 @@ import {
 } from "@/config/editions";
 import { edition2025 } from "@/config/editions/2025";
 import { edition2026 } from "@/config/editions/2026";
+import { describe, expect, it } from "@jest/globals";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/jest-globals";
 
 describe("Edition Configuration", () => {
   describe("getEditionConfig", () => {
