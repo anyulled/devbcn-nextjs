@@ -76,10 +76,12 @@ describe("Navigation Configuration", () => {
 
   describe("newsDropdownLinks", () => {
     it("should contain news dropdown items", () => {
-      expect(newsDropdownLinks).toHaveLength(7);
+      expect(newsDropdownLinks).toHaveLength(9);
       expect(newsDropdownLinks.map((link) => link.label)).toEqual([
         "About Us",
         "Code of Conduct",
+        "AMA Sessions",
+        "Speaking Mentoring",
         "CFP",
         "Sponsorship",
         "Diversity",
@@ -93,16 +95,20 @@ describe("Navigation Configuration", () => {
       expect(newsDropdownLinks[0].requiresYear).toBe(false);
       // Code of Conduct
       expect(newsDropdownLinks[1].requiresYear).toBe(false);
-      // CFP
+      // AMA Sessions
       expect(newsDropdownLinks[2].requiresYear).toBe(true);
-      // Sponsorship
+      // Speaking Mentoring
       expect(newsDropdownLinks[3].requiresYear).toBe(true);
-      // Diversity
+      // CFP
       expect(newsDropdownLinks[4].requiresYear).toBe(true);
-      // Job Offers
+      // Sponsorship
       expect(newsDropdownLinks[5].requiresYear).toBe(true);
+      // Diversity
+      expect(newsDropdownLinks[6].requiresYear).toBe(true);
+      // Job Offers
+      expect(newsDropdownLinks[7].requiresYear).toBe(true);
       // Contact Us
-      expect(newsDropdownLinks[6].requiresYear).toBe(false);
+      expect(newsDropdownLinks[8].requiresYear).toBe(false);
     });
   });
 

@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.2.4",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.105.1",
     "add-to-calendar-button-react": "^2.13.9",
     "aos": "^2.3.4",
     "baseline-browser-mapping": "^2.10.24",
