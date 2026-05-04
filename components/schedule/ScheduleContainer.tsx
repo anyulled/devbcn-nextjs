@@ -20,8 +20,7 @@ export default function ScheduleContainer({ initialSchedule, year }: Readonly<Sc
       return initialSchedule;
     }
 
-    // ⚡ Bolt: Convert array to Set to reduce time complexity from O(N*M) to O(N+M) during filtering
-    const savedSessionIdsSet = new Set(savedSessionIds);
+    const savedSessionIdsSet = new Set(savedSessionIds || []);
 
     const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedSessionIdsSet.has(s.id) || s.isServiceSession);
 
