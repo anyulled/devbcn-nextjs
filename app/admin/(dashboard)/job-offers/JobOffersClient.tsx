@@ -78,7 +78,7 @@ export function JobOffersClient({ jobOffers, availableYears }: JobOffersClientPr
                   <strong>{offer.title}</strong>
                 </td>
                 <td>{offer.location || "Remote/TBD"}</td>
-                <td className="date-cell">{new Date(offer.created_at).toLocaleDateString()}</td>
+                <td className="date-cell" suppressHydrationWarning>{new Date(offer.created_at).toLocaleDateString()}</td>
                 <td>
                   <div className="action-buttons">
                     <Link href={`/admin/job-offers/${offer.id}`} className="btn-icon" title="Edit job offer">
