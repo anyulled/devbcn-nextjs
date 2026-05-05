@@ -136,6 +136,11 @@ export const edition2026: EditionConfig = {
         image: "/assets/img/all-images/sponsors/mambu.png",
       },
       {
+        name: "Grupo Castilla",
+        image: "/assets/img/all-images/sponsors/grupo-castilla.png",
+        website: "https://www.grupocastilla.es/servicios-rrhh/consultoria-tecnologica/",
+      },
+      {
         name: "FOR GOOD AI",
         website: "https://zencoder.ai/",
         image: "/assets/img/all-images/sponsors/zencoder.png",
