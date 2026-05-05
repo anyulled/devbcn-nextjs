@@ -15,6 +15,12 @@ const sponsorProfileSchema = z.object({
   instagram: z.string().max(255).or(z.literal("")).optional(),
 });
 
+function normalizeOptionalString(value: string | undefined): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
 export async function PUT(request: Request) {
   const supabase = await createRouteHandlerClient();
   const access = await getPortalAccess(supabase);
@@ -48,18 +54,34 @@ export async function PUT(request: Request) {
 
   console.log("[Profile Update] Updating sponsor:", sponsorId, "with values:", profileValues);
 
-  const { error } = await supabase
+  const normalizedValues = {
+    website: normalizeOptionalString(profileValues.website),
+    logo_url: normalizeOptionalString(profileValues.logo_url),
+    description: normalizeOptionalString(profileValues.description),
+    twitter: normalizeOptionalString(profileValues.twitter),
+    linkedin: normalizeOptionalString(profileValues.linkedin),
+    bluesky: normalizeOptionalString(profileValues.bluesky),
+    instagram: normalizeOptionalString(profileValues.instagram),
+  };
+
+  const { data: updatedSponsor, error } = await supabase
     .from("sponsors")
     .update({
-      ...profileValues,
+      ...normalizedValues,
       status: nextStatus,
       updated_at: new Date().toISOString(),
     })
-    .eq("id", sponsorId);
+    .eq("id", sponsorId)
+    .select("id")
+    .maybeSingle();
 
   if (error) {
     console.error("[Profile Update] Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  if (!updatedSponsor) {
+    return NextResponse.json({ error: "Update was blocked or no matching sponsor record was found." }, { status: 403 });
   }
 
   console.log("[Profile Update] Success");
