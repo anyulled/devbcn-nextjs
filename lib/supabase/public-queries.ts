@@ -2,10 +2,13 @@ import { createClient } from "@supabase/supabase-js";
 import { Sponsors, Sponsor } from "@/config/editions/types";
 import { Company, JobOffer } from "@/config/job-offers/job-offers/types";
 
-const PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_URL!;
-const PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_ANON_KEY!;
+const PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_URL;
+const PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_ANON_KEY;
 
 function getPublicClient() {
+  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) {
+    return null;
+  }
   return createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
 }
 
@@ -34,6 +37,17 @@ function mapCategory(categoryName: string): keyof Sponsors {
  */
 export async function getSponsorsForEdition(edition: string): Promise<Sponsors> {
   const supabase = getPublicClient();
+  if (!supabase) {
+    return {
+      top: null,
+      premium: null,
+      regular: null,
+      communities: null,
+      basic: null,
+      media_partners: null,
+      supporters: null,
+    };
+  }
 
   const { data, error } = await supabase
     .from("sponsors")
@@ -110,6 +124,9 @@ export async function getSponsorsForEdition(edition: string): Promise<Sponsors> 
  */
 export async function getJobOffersForEdition(edition: string): Promise<Company[]> {
   const supabase = getPublicClient();
+  if (!supabase) {
+    return [];
+  }
 
   // Find all sponsors for the given edition
   const { data: sponsors, error: sponsorsError } = await supabase
