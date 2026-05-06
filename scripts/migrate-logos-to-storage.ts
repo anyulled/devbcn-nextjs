@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable security/detect-non-literal-fs-filename */
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import * as dotenv from "dotenv";
 import * as fs from "node:fs";
@@ -95,19 +93,19 @@ function getConfigLogoPath(edition: string, sponsorName: string): string | null 
 }
 
 async function migrateSponsorLogo(sponsor: { id: string; name: string; logo_url: string | null; edition: string }) {
-  const { id, name, logo_url, edition } = sponsor;
+  const { id, name, logo_url: logoUrl, edition } = sponsor;
 
-  if (!logo_url) {
+  if (!logoUrl) {
     console.log(`Skipping ${name} (${edition}): No logo URL.`);
     return;
   }
 
-  if (!FORCED && isSupabaseLogo(logo_url)) {
+  if (!FORCED && isSupabaseLogo(logoUrl)) {
     console.log(`Skipping ${name} (${edition}): Already in Supabase Storage.`);
     return;
   }
 
-  const localFilePath = !isSupabaseLogo(logo_url) ? filePathFromLogoUrl(logo_url) : getConfigLogoPath(edition, name);
+  const localFilePath = !isSupabaseLogo(logoUrl) ? filePathFromLogoUrl(logoUrl) : getConfigLogoPath(edition, name);
 
   if (!localFilePath) {
     console.warn(`Skipping ${name} (${edition}): Could not resolve local logo path from edition config.`);
@@ -137,7 +135,7 @@ async function migrateSponsorLogo(sponsor: { id: string; name: string; logo_url:
   const { data: urlData } = supabase.storage.from(BUCKET_NAME).getPublicUrl(objectPath);
   const publicUrl = urlData.publicUrl;
 
-  if (logo_url === publicUrl) {
+  if (logoUrl === publicUrl) {
     console.log(`No DB change needed for ${name} (${edition}): URL already up-to-date.`);
     return;
   }
