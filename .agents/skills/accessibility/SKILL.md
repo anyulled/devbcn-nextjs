@@ -11,6 +11,8 @@ metadata:
 
 Comprehensive accessibility guidelines based on WCAG 2.2 and Lighthouse accessibility audits. Goal: make content usable by everyone, including people with disabilities.
 
+Companion skill: [SEO](../seo/SKILL.md)
+
 ## WCAG Principles: POUR
 
 | Principle | Description |
@@ -435,6 +437,6 @@ See the [screen reader commands reference](references/A11Y-PATTERNS.md#screen-re
 - [WCAG 2.2 Quick Reference](https://www.w3.org/WAI/WCAG22/quickref/)
 - [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 - [Deque axe Rules](https://dequeuniversity.com/rules/axe/)
-- [Web Quality Audit](../web-quality-audit/SKILL.md)
+- [SEO](../seo/SKILL.md)
 - [WCAG criteria reference](references/WCAG.md)
 - [Accessibility code patterns](references/A11Y-PATTERNS.md)

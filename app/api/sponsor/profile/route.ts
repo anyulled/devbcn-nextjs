@@ -25,8 +25,6 @@ export async function PUT(request: Request) {
   const supabase = await createRouteHandlerClient();
   const access = await getPortalAccess(supabase);
 
-  console.log("[Profile Update] User:", access.user?.id, "isSponsorContact:", access.isSponsorContact, "sponsorIds:", access.sponsorIds);
-
   if (!access.user || !access.isSponsorContact) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -36,8 +34,6 @@ export async function PUT(request: Request) {
   if (!payload.success) {
     return NextResponse.json({ error: "Invalid sponsor profile payload" }, { status: 400 });
   }
-
-  console.log("[Profile Update] Payload sponsorId:", payload.data.sponsorId, "User sponsorIds:", access.sponsorIds);
 
   if (!access.sponsorIds.includes(payload.data.sponsorId)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
@@ -51,8 +47,6 @@ export async function PUT(request: Request) {
 
   const nextStatus = currentSponsor.status === "published" ? "needs_review" : currentSponsor.status;
   const { sponsorId, ...profileValues } = payload.data;
-
-  console.log("[Profile Update] Updating sponsor:", sponsorId, "with values:", profileValues);
 
   const normalizedValues = {
     website: normalizeOptionalString(profileValues.website),
@@ -76,7 +70,6 @@ export async function PUT(request: Request) {
     .maybeSingle();
 
   if (error) {
-    console.error("[Profile Update] Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
@@ -84,6 +77,5 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: "Update was blocked or no matching sponsor record was found." }, { status: 403 });
   }
 
-  console.log("[Profile Update] Success");
   return NextResponse.json({ ok: true });
 }

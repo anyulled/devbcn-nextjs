@@ -20,7 +20,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
   };
 
   if (sponsorId) {
-    updates.sponsorId = sponsorId;
+    updates.sponsor_id = sponsorId;
   }
 
   const { data, error } = await supabase.from("job_offers").update(updates).eq("id", id).select().single();

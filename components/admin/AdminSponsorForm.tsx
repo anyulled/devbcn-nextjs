@@ -78,11 +78,13 @@ function GeneralSection({
   errors,
   logoUrl,
   onLogoChange,
+  sponsorId,
 }: {
   register: UseFormRegister<AdminSponsorValues>;
   errors: FieldErrors<AdminSponsorValues>;
   logoUrl?: string;
   onLogoChange: (url: string | null) => void;
+  sponsorId: string | null;
 }) {
   return (
     <>
@@ -105,13 +107,20 @@ function GeneralSection({
           <FieldError message={errors.website?.message} />
         </div>
         <div className="form-group flex-1">
-          <LogoUpload
-            sponsorId="new-sponsor"
-            currentLogoUrl={logoUrl}
-            onUploadSuccess={(url) => onLogoChange(url)}
-            onRemove={() => onLogoChange(null)}
-            supabase={createClient()}
-          />
+          {sponsorId ? (
+            <LogoUpload
+              sponsorId={sponsorId}
+              currentLogoUrl={logoUrl}
+              onUploadSuccess={(url) => onLogoChange(url)}
+              onRemove={() => onLogoChange(null)}
+              supabase={createClient()}
+            />
+          ) : (
+            <div className="form-group">
+              <label>Company Logo</label>
+              <p className="text-muted mb-0">Save the sponsor first to enable logo uploads.</p>
+            </div>
+          )}
         </div>
       </div>
       <div className="form-group">
@@ -277,7 +286,7 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
     <form onSubmit={handleSubmit(onSubmit)} className="sponsor-form-container admin-sponsor-form">
       {errorMessage && <div className="error-alert">{errorMessage}</div>}
       {successMessage && <div className="success-alert">{successMessage}</div>}
-      <GeneralSection register={register} errors={errors} logoUrl={logoUrl} onLogoChange={(url) => setLogoUrl(url ?? undefined)} />
+      <GeneralSection register={register} errors={errors} logoUrl={logoUrl} onLogoChange={(url) => setLogoUrl(url ?? undefined)} sponsorId={sponsor.id} />
       <GovernanceSection register={register} errors={errors} categories={categories} ownerOptions={ownerOptions} />
       <SocialSection register={register} errors={errors} />
       <ContactsSection
