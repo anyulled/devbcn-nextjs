@@ -12,6 +12,10 @@ function getPublicClient() {
   return createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
 }
 
+function sponsorSlugFromName(name: string): string {
+  return name.toLowerCase().replaceAll(/\s+/g, "-");
+}
+
 interface SponsorRow {
   name: string;
   website: string | null;
@@ -185,7 +189,7 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
       }));
 
       companies.push({
-        id: sponsor.name.toLowerCase().replaceAll(/\s+/g, "-"),
+        id: sponsorSlugFromName(sponsor.name),
         name: sponsor.name,
         description: sponsor.description ?? "",
         logo: sponsor.logo_url ?? "",
@@ -198,4 +202,92 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
   });
 
   return companies;
+}
+
+/**
+ * Fetches a single company and its job offers for a specific edition using the company slug.
+ */
+export async function getCompanyJobOffersForEditionBySlug(edition: string, companySlug: string): Promise<Company | null> {
+  const supabase = getPublicClient();
+  if (!supabase) {
+    return null;
+  }
+
+  const { data: sponsors, error: sponsorsError } = await supabase
+    .from("sponsors")
+    .select(
+      `
+      id,
+      name,
+      website,
+      logo_url,
+      description,
+      status,
+      twitter,
+      linkedin,
+      bluesky,
+      instagram
+    `
+    )
+    .eq("edition", edition)
+    .in("status", ["published", "needs_review"]);
+
+  if (sponsorsError || !sponsors) {
+    console.error("Error fetching sponsor for job offers", sponsorsError);
+    return null;
+  }
+
+  const sponsor = sponsors.find((currentSponsor) => sponsorSlugFromName(currentSponsor.name) === companySlug);
+  if (!sponsor) {
+    return null;
+  }
+
+  return buildCompanyFromSponsorAndOffers(supabase, sponsor);
+}
+
+async function buildCompanyFromSponsorAndOffers(
+  supabase: NonNullable<ReturnType<typeof getPublicClient>>,
+  sponsor: {
+    id: string;
+    name: string;
+    website: string | null;
+    logo_url: string | null;
+    description: string | null;
+    twitter: string | null;
+    linkedin: string | null;
+  }
+): Promise<Company | null> {
+  const { data: offers, error: offersError } = await supabase
+    .from("job_offers")
+    .select("*")
+    .eq("sponsor_id", sponsor.id)
+    .order("created_at", { ascending: false });
+
+  if (offersError) {
+    console.error("Error fetching company job offers", offersError);
+    return null;
+  }
+
+  if (!offers || offers.length === 0) {
+    return null;
+  }
+
+  const mappedOffers: JobOffer[] = offers.map((offer) => ({
+    id: String(offer.id),
+    title: String(offer.title),
+    url: String(offer.url ?? ""),
+    text: String(offer.text ?? ""),
+    location: String(offer.location ?? ""),
+  }));
+
+  return {
+    id: sponsorSlugFromName(sponsor.name),
+    name: sponsor.name,
+    description: sponsor.description ?? "",
+    logo: sponsor.logo_url ?? "",
+    url: sponsor.website ?? "",
+    linkedin: sponsor.linkedin ?? "",
+    twitter: sponsor.twitter ?? "",
+    offers: mappedOffers,
+  };
 }
