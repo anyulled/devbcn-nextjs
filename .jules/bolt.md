@@ -17,3 +17,8 @@
 
 **Learning:** When attempting to optimize an O(N^2) array spread operation (`[...existing, talk]`) inside a grouping loop in `groupTalksByTrack`, the purely functional/immutable constraint specified by the team (and the lack of `Map.groupBy` support in Node 20.x Jest environments) means that we must fall back to immutable reductions.
 **Action:** When constraints require strict immutability without mutation of objects, use `reduce` with object and array spreads (e.g., `{ ...acc, [key]: [...(acc[key] || []), item] }`) even if it introduces O(N^2) overhead for large arrays. Avoid using `push()` or modifying accumulators directly. Always run Prettier/formatting checks before merge to resolve CI failures.
+
+## 2026-04-29 - Formatting matters for comments
+
+**Learning:** When adding multi-line comments in `/* */` style in Next.js codebases, always ensure the text begins on a new line after the opening `/*` (e.g., `/*\n * text\n */`) to avoid 'Expected a linebreak after /\*' and consecutive single-line comment errors.
+**Action:** Validate comment structures via `npm run lint` closely when documenting Bolt optimizations.
