@@ -10,13 +10,13 @@ export default function SponsorLoginPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const supabase = createClient();
 
   const handleLogin: React.ComponentProps<"form">["onSubmit"] = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setMessage(null);
+    const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
