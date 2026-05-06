@@ -1,7 +1,7 @@
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
-import { getJobOffersForEdition } from "@/lib/supabase/public-queries";
+import { getCompanyJobOffersForEditionBySlug, getJobOffersForEdition } from "@/lib/supabase/public-queries";
 import { Company } from "@/config/job-offers/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/shared/jsonld";
@@ -37,8 +37,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
   const { year, companyName: companySlug } = await params;
-  const companies = await getJobOffersForEdition(year);
-  const company = companies.find((c) => c.id === companySlug);
+  const company = await getCompanyJobOffersForEditionBySlug(year, companySlug);
 
   if (!company) {
     return {
@@ -97,8 +96,7 @@ function generateJsonLDSchema(company: Company, year: string, companySlug: strin
 
 export default async function CompanyJobOffers({ params }: CompanyJobOffersPageProps) {
   const { year, companyName: companySlug } = await params;
-  const companies = await getJobOffersForEdition(year);
-  const company = companies.find((c) => c.id === companySlug);
+  const company = await getCompanyJobOffersForEditionBySlug(year, companySlug);
   const eventData = getEditionConfig(year);
 
   if (!company) {
