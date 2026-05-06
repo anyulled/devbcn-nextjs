@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface JobOffer {
   id: string;
@@ -22,6 +23,7 @@ interface JobOfferEditFormProps {
 }
 
 export function JobOfferEditForm({ jobOffer, currentSponsor }: JobOfferEditFormProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     title: jobOffer.title,
     location: jobOffer.location || "",
@@ -53,7 +55,8 @@ export function JobOfferEditForm({ jobOffer, currentSponsor }: JobOfferEditFormP
         throw new Error("Failed to update job offer");
       }
 
-      window.location.reload();
+      router.push("/admin/job-offers");
+      router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
@@ -97,7 +100,7 @@ export function JobOfferEditForm({ jobOffer, currentSponsor }: JobOfferEditFormP
       {error && <div className="error-alert mb-4">{error}</div>}
 
       <div className="form-actions">
-        <button type="button" className="btn-secondary" onClick={() => window.history.back()}>
+        <button type="button" className="btn-secondary" onClick={() => router.back()}>
           Cancel
         </button>
         <button type="submit" className="btn-primary" disabled={saving}>
