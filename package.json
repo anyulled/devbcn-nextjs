@@ -103,9 +103,10 @@
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-max-lines": "^0.1.0",
     "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.18",
-    "typescript": "^5",
+    "typescript": "^5.9.3",
     "whatwg-fetch": "^3.6.20"
   },
   "lint-staged": {

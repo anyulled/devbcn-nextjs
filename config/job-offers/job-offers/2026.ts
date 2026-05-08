@@ -8,7 +8,7 @@ import { Company } from "./types";
  */
 export const jobOffers2026: Company[] = [
   {
-    name: "CAIXABANK TECH S.L.",
+    name: "Caixabank Tech",
     id: "caixabank-tech-2026",
     description:
       "Somos el motor de la transformación tecnológica del grupo CaixaBank. Desarrollamos soluciones financieras end to end con un claro objetivo: reinventar las reglas de juego a nivel tecnológico de una forma inteligente, flexible y con un impacto real en la sociedad.",
