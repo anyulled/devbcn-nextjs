@@ -18,3 +18,5 @@ This document provides system instructions for AI coding assistants working on t
 - Do not disable eslint rules.
 - Check the build and tests always pass before completing a task.
 - Check SonarQube findings and resolve them before claiming any task is done.
+- For Supabase-related verification, inspection, or project operations, prefer using the installed `supabase` CLI when it helps validate the real environment.
+- For Vercel-related verification, deployment, environment, or project operations, prefer using the installed `vercel` CLI when it helps validate the real environment.

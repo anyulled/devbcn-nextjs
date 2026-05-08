@@ -59,8 +59,16 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
       day.rooms.forEach((room) => {
         room.sessions.forEach((session) => {
           const timeKey = format(parseISO(session.startsAt), "HH:mm");
-          const existing = sessionsByTime.get(timeKey) || [];
-          sessionsByTime.set(timeKey, [...existing, session]);
+          const existing = sessionsByTime.get(timeKey);
+          if (!existing) {
+            sessionsByTime.set(timeKey, [session]);
+          } else {
+            /*
+             * ⚡ Bolt: Use .push instead of array spread [...existing, session]
+             * to avoid O(N^2) memory allocations and improve iteration performance
+             */
+            existing.push(session);
+          }
         });
       });
 

@@ -2,6 +2,8 @@ import Section1 from "@/components/sections/home8/section1";
 import dynamic from "next/dynamic";
 
 export const dynamicParams = false;
+/** Revalidate daily for fresh sponsor data */
+export const revalidate = 86400;
 
 const Section2 = dynamic(() => import("@/components/sections/home8/section2"));
 const Section3 = dynamic(() => import("@/components/sections/home8/section3"));
@@ -13,6 +15,7 @@ import { getFeaturedSpeakers, getSpeakers } from "@/hooks/useSpeakers";
 import { generateEventSchema, generateOrganizationSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { getSponsorsForEdition } from "@/lib/supabase/public-queries";
 
 interface PageProps {
   params: Promise<{
@@ -82,6 +85,8 @@ export default async function Page({ params }: Readonly<PageProps>) {
   const featuredSpeakers = getFeaturedSpeakers(allSpeakers, 10);
   const totalSpeakers = allSpeakers.length;
 
+  const sponsorsData = await getSponsorsForEdition(year);
+
   return (
     <>
       <Script id="event-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventSchema) }} />
@@ -89,7 +94,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
       <Section1 year={year} />
       <Section2 eventDate={config.event.startDay.toISOString()} showCountdown={config.showCountdown} />
       <Section3 year={year} />
-      <Section4 sponsors={config.sponsorsData} eventVenue={config.venue} />
+      <Section4 sponsors={sponsorsData} eventVenue={config.venue} />
       <Section5 year={year} speakers={featuredSpeakers} totalSpeakers={totalSpeakers} />
       <Section6 eventVenue={config.venue} eventDate={config.event.startDay.toISOString()} />
     </>
