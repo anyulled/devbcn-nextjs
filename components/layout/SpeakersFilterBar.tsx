@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 const SEARCH_DEBOUNCE_MS = 300;
 
@@ -15,6 +15,7 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
 
   const [query, setQuery] = useState(searchParams.get("q") || "");
 
@@ -38,14 +39,16 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
         params.delete("q");
       }
 
-      router.push(`${pathname}?${params.toString()}`, { scroll: false });
+      startTransition(() => {
+        router.push(`${pathname}?${params.toString()}`, { scroll: false });
+      });
     }, SEARCH_DEBOUNCE_MS);
 
     return () => window.clearTimeout(timeoutId);
-  }, [query, pathname, router, searchParams]);
+  }, [pathname, query, router, searchParams, startTransition]);
 
   return (
-    <div className={`talks-filter-bar mb-5 ${className}`}>
+    <div className={`talks-filter-bar mb-5 ${className}`} style={{ opacity: isPending ? 0.7 : 1, transition: "opacity 0.2s" }}>
       <div className="row g-4 align-items-center justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
           <div className="search-input-wrapper position-relative">
