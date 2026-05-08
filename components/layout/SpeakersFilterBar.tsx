@@ -3,6 +3,8 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const SEARCH_DEBOUNCE_MS = 300;
+
 interface SpeakersFilterBarProps {
   label?: string;
   placeholder?: string;
@@ -17,21 +19,29 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
   const [query, setQuery] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setQuery(searchParams.get("q") || "");
+  }, [searchParams]);
+
+  useEffect(() => {
+    const currentQuery = searchParams.get("q") || "";
+
+    if (currentQuery === query) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
+
       if (query) {
         params.set("q", query);
       } else {
         params.delete("q");
       }
 
-      const currentQ = searchParams.get("q") || "";
-      if (currentQ !== query) {
-        router.push(`${pathname}?${params.toString()}`, { scroll: false });
-      }
-    }, 400);
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    }, SEARCH_DEBOUNCE_MS);
 
-    return () => clearTimeout(timer);
+    return () => window.clearTimeout(timeoutId);
   }, [query, pathname, router, searchParams]);
 
   return (

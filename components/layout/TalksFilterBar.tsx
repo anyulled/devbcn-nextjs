@@ -4,6 +4,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import { motion } from "framer-motion";
 
+const SEARCH_DEBOUNCE_MS = 300;
+
 interface TalksFilterBarProps {
   readonly tracks: string[];
   readonly year: number | string;
@@ -22,7 +24,6 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
   const [selectedTrack, setSelectedTrack] = useState<string>(searchParams.get("track") || "");
   const [searchQuery, setSearchQuery] = useState<string>(searchParams.get("q") || "");
 
-  // Update state when URL changes
   useEffect(() => {
     setSelectedTrack(searchParams.get("track") || "");
     setSearchQuery(searchParams.get("q") || "");
@@ -57,15 +58,19 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
     updateFilters(newTrack, searchQuery);
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuery = e.target.value;
-    setSearchQuery(newQuery);
-    // Debounce the URL update for search
-    const timeoutId = setTimeout(() => {
-      updateFilters(selectedTrack, newQuery);
-    }, 300);
-    return () => clearTimeout(timeoutId);
-  };
+  useEffect(() => {
+    const currentQuery = searchParams.get("q") || "";
+
+    if (searchQuery === currentQuery) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      updateFilters(selectedTrack, searchQuery);
+    }, SEARCH_DEBOUNCE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [searchParams, searchQuery, selectedTrack, updateFilters]);
 
   return (
     <div className="talks-filter-bar mb-5">
@@ -81,7 +86,7 @@ export default function TalksFilterBar({ tracks, year: _year }: TalksFilterBarPr
               type="text"
               placeholder="Search talks..."
               value={searchQuery}
-              onChange={handleSearchChange}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="form-control"
               style={{
                 paddingLeft: "40px",
