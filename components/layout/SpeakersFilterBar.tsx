@@ -15,7 +15,7 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const [query, setQuery] = useState(searchParams.get("q") || "");
 
@@ -48,7 +48,7 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
   }, [pathname, query, router, searchParams, startTransition]);
 
   return (
-    <div className={`talks-filter-bar mb-5 ${className}`} style={{ opacity: isPending ? 0.7 : 1, transition: "opacity 0.2s" }}>
+    <div className={`talks-filter-bar mb-5 ${className}`}>
       <div className="row g-4 align-items-center justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
           <div className="search-input-wrapper position-relative">
