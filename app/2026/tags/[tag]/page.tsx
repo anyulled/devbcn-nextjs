@@ -58,14 +58,28 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const decodedTagLower = decodedTag.toLowerCase();
+  const state = {
+    displayTag: decodedTag.replaceAll("-", " "),
+    filteredTalks: [] as typeof allTalks,
+  };
 
-  const filteredTalks = allTalks.filter((talk) => {
+  allTalks.forEach((talk) => {
     const talkTags = getTagsFromTalk(talk);
+    const hasTag = talkTags.some((t) => {
+      const matches = t.replaceAll(" ", "-").toLowerCase() === decodedTagLower;
+      if (matches) {
+        state.displayTag = t;
+      }
+      return matches;
+    });
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+    if (hasTag) {
+      state.filteredTalks.push(talk);
+    }
   });
+
+  const { displayTag, filteredTalks } = state;
 
   if (filteredTalks.length === 0) {
     notFound();
