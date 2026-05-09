@@ -63,11 +63,13 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
             />
             <input
               type="text"
+              id="speaker-filter-input"
               placeholder={placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="form-control"
               style={{
+                marginTop: "2rem",
                 paddingLeft: "40px",
                 height: "50px",
                 borderRadius: "12px",
