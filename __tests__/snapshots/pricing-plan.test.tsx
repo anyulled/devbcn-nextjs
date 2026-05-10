@@ -27,7 +27,7 @@ jest.mock("@/config/editions", () => ({
     showCountdown: true,
   })),
   getAvailableEditions: jest.fn(() => ["2026"]),
-  isValidEditionYear: jest.fn((year) => year === "2026"),
+  isValidEditionYear: jest.fn((year: string) => year === "2026"),
 }));
 
 /*

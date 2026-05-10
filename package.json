@@ -61,6 +61,7 @@
     "@ducanh2912/next-pwa": "^10.2.9",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
     "@eslint/js": "^10.0.1",
+    "@jest/globals": "^30.3.0",
     "@jazzer.js/core": "^4.0.0",
     "@jazzer.js/jest-runner": "^4.0.0",
     "@next/eslint-plugin-next": "^16.2.5",
