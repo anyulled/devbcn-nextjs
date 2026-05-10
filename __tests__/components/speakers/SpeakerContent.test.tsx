@@ -13,6 +13,11 @@ jest.mock("@/components/sections/CTASection", () => ({
   default: () => <div data-testid="cta-section" />,
 }));
 
+jest.mock("next/navigation", () => ({
+  __esModule: true,
+  usePathname: () => "/2026/speakers/speaker-1",
+}));
+
 const mockEventData = {
   showCountdown: true,
   venue: { name: "La Farga", mapUrl: "https://example.com/map" },
@@ -65,17 +70,27 @@ describe("SpeakerContent", () => {
     expect(container.querySelector(".event-single-section-area.sp1")).toBeNull();
   });
 
-  it("matches snapshot when speaker has sessions", () => {
+  it("matches inline snapshot when speaker has sessions", () => {
     const speaker = createSpeaker([{ id: 1, name: "Killing iframe flicker" }]);
 
-    const { container } = render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
-    expect(container).toMatchSnapshot();
+    render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
+    expect(screen.getByRole("heading", { name: "Sessions by Carles Nuñez" })).toMatchInlineSnapshot(`
+<h2>
+  Sessions by Carles Nuñez
+</h2>
+`);
   });
 
-  it("matches snapshot when speaker has no sessions", () => {
+  it("matches inline snapshot when speaker has no sessions", () => {
     const speaker = createSpeaker([]);
 
-    const { container } = render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
-    expect(container).toMatchSnapshot();
+    render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
+    expect(screen.getByTestId("page-header")).toMatchInlineSnapshot(`
+<div
+  data-testid="page-header"
+>
+  Carles Nuñez
+</div>
+`);
   });
 });
