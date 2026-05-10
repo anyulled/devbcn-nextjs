@@ -51,7 +51,7 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
     <div className={`talks-filter-bar mb-5 ${className}`}>
       <div className="row g-4 align-items-center justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <div className="search-input-wrapper position-relative">
+          <div className="search-input-wrapper position-relative mt-4">
             <i
               className="fa-solid fa-magnifying-glass position-absolute"
               style={{
@@ -69,7 +69,6 @@ export default function SpeakersFilterBar({ placeholder = "Search by name, tagli
               onChange={(e) => setQuery(e.target.value)}
               className="form-control"
               style={{
-                marginTop: "2rem",
                 paddingLeft: "40px",
                 height: "50px",
                 borderRadius: "12px",
