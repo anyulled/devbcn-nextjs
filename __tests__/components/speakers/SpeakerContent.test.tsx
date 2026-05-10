@@ -8,7 +8,7 @@ jest.mock("@/components/layout/PageHeader", () => ({
   default: ({ title }: { title: string }) => <div data-testid="page-header">{title}</div>,
 }));
 
-jest.mock("@/components/sections/CTASection", () => ({
+jest.mock("../../../components/sections/CTASection", () => ({
   __esModule: true,
   default: () => <div data-testid="cta-section" />,
 }));
