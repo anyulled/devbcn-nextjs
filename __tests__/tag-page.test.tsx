@@ -4,6 +4,7 @@ import "@testing-library/jest-dom/jest-globals";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import type { Talk } from "@/hooks/types";
+type TalkQuestionAnswer = Talk["questionAnswers"][number];
 
 // Mock modules
 jest.mock("@/hooks/useTalks", () => ({
@@ -86,9 +87,9 @@ describe("TagPage", () => {
       const TagPage = (await import("@/app/[year]/tags/[tag]/page")).default;
 
       jest.mocked(getTalks).mockResolvedValue([{ sessions: mockTalks, groupId: 1, groupName: "Group 1" }]);
-      jest.mocked(getTagsFromTalk).mockImplementation((talk) => {
-        const tags = talk.questionAnswers?.find((qa) => qa.question === "Tags/Topics")?.answer || "";
-        return tags.split(",").map((t) => t.trim());
+      jest.mocked(getTagsFromTalk).mockImplementation((talk: Talk) => {
+        const tags = talk.questionAnswers?.find((qa: TalkQuestionAnswer) => qa.question === "Tags/Topics")?.answer || "";
+        return tags.split(",").map((tag: string) => tag.trim());
       });
 
       const params = Promise.resolve({ year: "2025", tag: "cloud" });
@@ -130,9 +131,9 @@ describe("TagPage", () => {
       const { generateStaticParams } = await import("@/app/[year]/tags/[tag]/page");
 
       jest.mocked(getTalks).mockResolvedValue([{ sessions: mockTalks, groupId: 1, groupName: "Group 1" }]);
-      jest.mocked(getTagsFromTalk).mockImplementation((talk) => {
-        const tags = talk.questionAnswers?.find((qa) => qa.question === "Tags/Topics")?.answer || "";
-        return tags.split(",").map((t) => t.trim());
+      jest.mocked(getTagsFromTalk).mockImplementation((talk: Talk) => {
+        const tags = talk.questionAnswers?.find((qa: TalkQuestionAnswer) => qa.question === "Tags/Topics")?.answer || "";
+        return tags.split(",").map((tag: string) => tag.trim());
       });
 
       const params = await generateStaticParams();

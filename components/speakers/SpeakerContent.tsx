@@ -93,62 +93,67 @@ const SpeakerContent: React.FC<Readonly<SpeakerContentProps>> = ({ speaker, year
 
       {/* Sessions Section */}
       {speaker.sessions.length > 0 && (
-        <div className="event-team-area sp10">
+        <div className="event-single-section-area sp1">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 m-auto">
-                <div className="heading2 text-center space-margin60">
+                <div className="event2-header heading2 text-center">
                   <h2>Sessions by {speaker.fullName}</h2>
                 </div>
               </div>
+              <div className="space32" />
             </div>
             <div className="row">
-              <div className="col-lg-12 m-auto">
-                <div className="event-widget-area">
-                  {speaker.sessions.map((session, index) => (
-                    <div className="row" key={session.id}>
-                      <div className="col-lg-10 m-auto">
-                        <div className="event2-boxarea box1" style={{ marginBottom: "24px" }}>
-                          <h1 className="active">{String(index + 1).padStart(2, "0")}</h1>
-                          <div className="row align-items-center">
-                            <div className="col-lg-12">
-                              <div className="content-area">
-                                <div className="space20" />
-                                <Link href={`/${year}/talks/${session.id}`} className="head">
-                                  {session.name}
-                                </Link>
-                                <div className="space24" />
-                                <div className="author-area">
-                                  <div className="autho-name-area">
-                                    <div className="img1">
-                                      <Image
-                                        src={speaker.profilePicture}
-                                        alt={speaker.fullName}
-                                        width={50}
-                                        height={50}
-                                        style={{ borderRadius: "50%", objectFit: "cover" }}
-                                      />
+              <div className="col-lg-12">
+                <div className="tab-content">
+                  <div className="tab-pane fade show active">
+                    <div className="event-widget-area">
+                      {speaker.sessions.map((session, index) => (
+                        <div className="row" key={session.id}>
+                          <div className="col-lg-10 m-auto">
+                            <div className="event2-boxarea box1" style={{ marginBottom: "24px" }}>
+                              <h1 className="active">{String(index + 1).padStart(2, "0")}</h1>
+                              <div className="row align-items-center">
+                                <div className="col-lg-12">
+                                  <div className="content-area">
+                                    <div className="space20" />
+                                    <Link href={`/${year}/talks/${session.id}`} className="head">
+                                      {session.name}
+                                    </Link>
+                                    <div className="space24" />
+                                    <div className="author-area">
+                                      <div className="autho-name-area">
+                                        <div className="img1">
+                                          <Image
+                                            src={speaker.profilePicture}
+                                            alt={speaker.fullName}
+                                            width={50}
+                                            height={50}
+                                            style={{ borderRadius: "50%", objectFit: "cover" }}
+                                          />
+                                        </div>
+                                        <div className="text">
+                                          <span>{speaker.fullName}</span>
+                                          <div className="space8" />
+                                          <p>{speaker.tagLine}</p>
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div className="text">
-                                      <span>{speaker.fullName}</span>
-                                      <div className="space8" />
-                                      <p>{speaker.tagLine}</p>
+                                    <div className="space24" />
+                                    <div className="btn-area1">
+                                      <Link href={`/${year}/talks/${session.id}`} className="vl-btn1">
+                                        <span className="demo">View Session Details</span>
+                                      </Link>
                                     </div>
                                   </div>
-                                </div>
-                                <div className="space24" />
-                                <div className="btn-area1">
-                                  <Link href={`/${year}/talks/${session.id}`} className="vl-btn1">
-                                    <span className="demo">View Session Details</span>
-                                  </Link>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>
