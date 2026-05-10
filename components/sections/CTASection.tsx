@@ -14,7 +14,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({ ticketUrl, eventStartDate, eventEndDate, eventLocation, showCountdown = true }: CTASectionProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const yearMatch = pathname.match(/^\/(\d{4})/);
   const currentYear = yearMatch ? yearMatch[1] : "2026";
   const travelPath = `/${currentYear}/travel`;
