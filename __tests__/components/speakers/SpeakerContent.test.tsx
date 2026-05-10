@@ -76,7 +76,8 @@ describe("SpeakerContent", () => {
     render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
     expect(screen.getByRole("heading", { name: "Sessions by Carles Nuñez" })).toMatchInlineSnapshot(`
 <h2>
-  Sessions by Carles Nuñez
+  Sessions by 
+  Carles Nuñez
 </h2>
 `);
   });
@@ -85,12 +86,10 @@ describe("SpeakerContent", () => {
     const speaker = createSpeaker([]);
 
     render(<SpeakerContent speaker={speaker} year="2026" eventData={mockEventData} />);
-    expect(screen.getByTestId("page-header")).toMatchInlineSnapshot(`
-<div
-  data-testid="page-header"
->
+    expect(screen.getByRole("heading", { name: "Carles Nuñez", level: 1 })).toMatchInlineSnapshot(`
+<h1>
   Carles Nuñez
-</div>
+</h1>
 `);
   });
 });
