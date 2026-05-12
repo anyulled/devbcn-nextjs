@@ -4,7 +4,7 @@ import withPWAInit from "@ducanh2912/next-pwa";
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
+    contentDispositionType: "inline",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
     qualities: [75, 85],
