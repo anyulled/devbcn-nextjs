@@ -41,7 +41,8 @@ exports[`Home1 Section1 Component matches snapshot 1`] = `
                 decoding="async"
                 height="20"
                 loading="lazy"
-                src="/assets/img/icons/sub-logo1.svg"
+                src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fsub-logo1.svg&w=48&q=75"
+                srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fsub-logo1.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fsub-logo1.svg&w=48&q=75 2x"
                 style="color: transparent;"
                 width="20"
               />

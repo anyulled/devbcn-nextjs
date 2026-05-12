@@ -75,7 +75,8 @@ exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
                     decoding="async"
                     height="24"
                     loading="lazy"
-                    src="/assets/img/icons/check2.svg"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75 2x"
                     style="color: transparent;"
                     width="24"
                   />
@@ -88,7 +89,8 @@ exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
                     decoding="async"
                     height="24"
                     loading="lazy"
-                    src="/assets/img/icons/check2.svg"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75 2x"
                     style="color: transparent;"
                     width="24"
                   />
@@ -101,7 +103,8 @@ exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
                     decoding="async"
                     height="24"
                     loading="lazy"
-                    src="/assets/img/icons/check2.svg"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75 2x"
                     style="color: transparent;"
                     width="24"
                   />
@@ -114,7 +117,8 @@ exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
                     decoding="async"
                     height="24"
                     loading="lazy"
-                    src="/assets/img/icons/check2.svg"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75 2x"
                     style="color: transparent;"
                     width="24"
                   />
@@ -127,7 +131,8 @@ exports[`PricingPlan Page Snapshot matches the snapshot for 2026 edition 1`] = `
                     decoding="async"
                     height="24"
                     loading="lazy"
-                    src="/assets/img/icons/check2.svg"
+                    src="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75"
+                    srcset="/_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=32&q=75 1x, /_next/image?url=%2Fassets%2Fimg%2Ficons%2Fcheck2.svg&w=48&q=75 2x"
                     style="color: transparent;"
                     width="24"
                   />

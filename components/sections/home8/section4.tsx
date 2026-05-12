@@ -52,7 +52,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
               </div>
             </div>
 
-            <SponsorGroup title="Top" items={sponsors.top} sizeClass="col-lg-12 col-md-12 mb-4 d-flex justify-content-center" />
+            <SponsorGroup title="Top" items={sponsors.top} sizeClass="col-lg-4 col-md-6 mb-4" />
             <SponsorGroup title="Premium" items={sponsors.premium} sizeClass="col-lg-3 col-md-6 col-6 mb-4" />
             <SponsorGroup title="Regular" items={sponsors.regular} sizeClass="col-lg-2 col-md-4 col-4 mb-4" />
             <SponsorGroup title="Basic" items={sponsors.basic} sizeClass="col-lg-2 col-md-3 col-4 mb-4" />
