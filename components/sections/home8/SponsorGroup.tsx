@@ -4,6 +4,12 @@ import Image from "next/image";
 export const SponsorGroup = ({ title, items, sizeClass }: { title: string; items: Sponsor[] | null; sizeClass: string }) => {
   if (!items || items.length === 0) return null;
 
+  const sizeMap: Record<string, string> = {
+    top: "5.775rem",
+    premium: "5.25rem",
+  };
+  const imageHeight = sizeMap[title.toLowerCase()] || "5rem";
+
   return (
     <>
       <div className="row">
@@ -16,7 +22,7 @@ export const SponsorGroup = ({ title, items, sizeClass }: { title: string; items
           <div key={item.name} className={sizeClass}>
             <div className="sponsor-card">
               <a href={item.website} target="_blank" rel="noopener noreferrer" className="w-100 d-block text-center">
-                <div style={{ position: "relative", width: "100%", height: "80px" }}>
+                <div style={{ position: "relative", width: "100%", height: imageHeight }}>
                   <Image
                     src={item.image}
                     alt={item.name}
