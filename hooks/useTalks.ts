@@ -120,15 +120,20 @@ export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {
  * Group talks by their track
  */
 export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
-  const groupedObj = talks.reduce<Record<string, Talk[]>>((acc, talk) => {
-    const track = getTrackFromTalk(talk);
-    return {
-      ...acc,
-      [track]: [...(acc[track] || []), talk],
-    };
-  }, {});
+  const map = new Map<string, Talk[]>();
 
-  return new Map(Object.entries(groupedObj));
+  talks.forEach((talk) => {
+    const track = getTrackFromTalk(talk);
+    const existing = map.get(track);
+
+    if (!existing) {
+      map.set(track, [talk]);
+    } else {
+      existing.push(talk);
+    }
+  });
+
+  return map;
 };
 
 /**
