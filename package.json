@@ -136,6 +136,6 @@
     "glob": {
       "minimatch": "^3.0.4"
     },
-    "systeminformation": "^5.31.1"
+    "systeminformation": "^5.31.6"
   }
 }
