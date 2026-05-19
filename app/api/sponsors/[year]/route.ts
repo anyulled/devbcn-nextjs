@@ -1,18 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
-import { editions, isValidEditionYear, EditionYear } from "@/config/editions";
+import { timingSafeEqual } from "node:crypto";
+import { isValidEditionYear } from "@/config/editions";
 import { Sponsor } from "@/config/editions/types";
-
-const SPONSOR_CATEGORY_MAPPING: Record<string, string> = {
-  top: "Top Sponsor",
-  premium: "Premium Sponsor",
-  regular: "Regular Sponsor",
-  basic: "Basic Sponsor",
-  communities: "Community",
-  media_partners: "Media Partner",
-  supporters: "Supporter",
-};
+import { getSponsorsForEdition } from "@/lib/supabase/public-queries";
 
 const BASE_URL = "https://www.devbcn.com";
+
+function mapSponsorCategory(key: string): string {
+  switch (key) {
+    case "top":
+      return "Top Sponsor";
+    case "premium":
+      return "Premium Sponsor";
+    case "regular":
+      return "Regular Sponsor";
+    case "basic":
+      return "Basic Sponsor";
+    case "communities":
+      return "Community";
+    case "media_partners":
+      return "Media Partner";
+    case "supporters":
+      return "Supporter";
+    default:
+      return "Sponsor";
+  }
+}
+
+function isAuthorizedToken(token: string | null, expectedToken: string): boolean {
+  const safeToken = token ?? "";
+  const safeExpectedToken = expectedToken ?? "";
+  const tokenBuffer = Buffer.from(safeToken);
+  const expectedBuffer = Buffer.from(safeExpectedToken);
+
+  if (tokenBuffer.length !== expectedBuffer.length) {
+    return false;
+  }
+
+  return timingSafeEqual(tokenBuffer, expectedBuffer);
+}
 
 function checkAuthentication(authHeader: string | null): NextResponse | null {
   const expectedToken = process.env.API_AUTH_TOKEN;
@@ -23,8 +49,7 @@ function checkAuthentication(authHeader: string | null): NextResponse | null {
 
   const token = authHeader?.startsWith("Bearer ") ? authHeader.substring(7) : authHeader;
 
-  // eslint-disable-next-line security/detect-possible-timing-attacks
-  if (token !== expectedToken) {
+  if (!isAuthorizedToken(token, expectedToken)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -36,8 +61,7 @@ function processSponsorLists(sponsorsData: Record<string, Sponsor[] | null>): Ar
 
   for (const [key, sponsorsList] of Object.entries(sponsorsData)) {
     if (sponsorsList && Array.isArray(sponsorsList)) {
-      // eslint-disable-next-line security/detect-object-injection
-      const categoryName = SPONSOR_CATEGORY_MAPPING[key] || "Sponsor";
+      const categoryName = mapSponsorCategory(key);
       flatSponsors.push(
         ...sponsorsList.map((sponsor) => {
           const imageUrl = sponsor.image.startsWith("http") ? sponsor.image : `${BASE_URL}${sponsor.image.startsWith("/") ? "" : "/"}${sponsor.image}`;
@@ -66,14 +90,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     return NextResponse.json({ error: "Edition not found" }, { status: 404 });
   }
 
-  const validYear = year as EditionYear;
-  // eslint-disable-next-line security/detect-object-injection
-  const editionConfig = editions[validYear];
-  if (!editionConfig) {
-    return NextResponse.json({ error: "Edition not found" }, { status: 404 });
-  }
-
-  const sponsorsData = editionConfig.sponsorsData as unknown as Record<string, Sponsor[] | null>;
+  const sponsorsData = (await getSponsorsForEdition(year)) as unknown as Record<string, Sponsor[] | null>;
   const flatSponsors = processSponsorLists(sponsorsData);
 
   return NextResponse.json(flatSponsors, { status: 200 });

@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, jest } from "@jest/globals";
+import { Sponsors } from "@/config/editions/types";
 
 jest.mock("next/server", () => ({
   __esModule: true,
@@ -11,6 +12,13 @@ jest.mock("next/server", () => ({
         status: init?.status ?? 200,
       }),
   },
+}));
+
+const mockGetSponsorsForEdition = jest.fn<(year: string) => Promise<Sponsors>>();
+
+jest.mock("@/lib/supabase/public-queries", () => ({
+  __esModule: true,
+  getSponsorsForEdition: (year: string) => mockGetSponsorsForEdition(year),
 }));
 
 interface ErrorPayload {
@@ -29,6 +37,22 @@ describe("GET /api/sponsors/[year]", () => {
   beforeEach(() => {
     process.env.API_AUTH_TOKEN = "test-secret-token";
     jest.resetModules();
+    mockGetSponsorsForEdition.mockReset();
+    mockGetSponsorsForEdition.mockResolvedValue({
+      top: null,
+      premium: [
+        {
+          name: "Edpuzzle",
+          website: "https://edpuzzle.com",
+          image: "/assets/img/all-images/sponsors/edpuzzle.svg",
+        },
+      ],
+      regular: null,
+      communities: null,
+      basic: null,
+      media_partners: null,
+      supporters: null,
+    });
   });
 
   afterEach(() => {
