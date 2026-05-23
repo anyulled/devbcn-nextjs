@@ -20,7 +20,8 @@ export default function ScheduleContainer({ initialSchedule, year }: Readonly<Sc
       return initialSchedule;
     }
 
-    const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedSessionIds.includes(s.id) || s.isServiceSession);
+    const savedSessionIdsSet = new Set(savedSessionIds);
+    const filterSessions = (sessions: GridSession[]) => sessions.filter((s) => savedSessionIdsSet.has(s.id) || s.isServiceSession);
 
     return initialSchedule.map((day) => ({
       ...day,
