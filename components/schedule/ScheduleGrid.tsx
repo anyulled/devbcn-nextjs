@@ -19,6 +19,9 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
   const hasSchedule = schedule && schedule.length > 0;
   const currentDay = hasSchedule ? schedule[activeTab] : null;
   const rooms = currentDay ? currentDay.rooms : EMPTY_ROOMS;
+  const nonPlenumRooms = rooms.filter((room) => room.sessions.some((session) => !session.isPlenumSession));
+  const displayRooms = nonPlenumRooms.length > 0 ? nonPlenumRooms : rooms;
+  const roomColumnIndexById = new Map(displayRooms.map((room, index) => [room.id, index]));
 
   const { minTime, totalRows, timeLabels } = useMemo(() => {
     if (!rooms || rooms.length === 0) {
@@ -80,13 +83,13 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
         <div
           className={styles.scheduleGrid}
           style={{
-            gridTemplateColumns: `80px repeat(${rooms.length}, 1fr)`,
+            gridTemplateColumns: `80px repeat(${displayRooms.length}, 1fr)`,
             gridTemplateRows: `50px repeat(${totalRows * 2}, 30px)`,
           }}
         >
           {/* Header Row */}
           <div className="grid-header-corner"></div>
-          {rooms.map((room) => (
+          {displayRooms.map((room) => (
             <div key={room.id} className={styles.gridHeaderRoom}>
               {room.name}
             </div>
@@ -107,8 +110,9 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
           {(() => {
             const renderedPlenumSessionIds = new Set<string>();
 
-            return rooms.map((room, colIndex) => {
-              const gridColumn = colIndex + 2;
+            return rooms.map((room) => {
+              const roomColumnIndex = roomColumnIndexById.get(room.id);
+              const gridColumn = typeof roomColumnIndex === "number" ? roomColumnIndex + 2 : -1;
 
               return room.sessions.map((session) => {
                 const start = parseISO(session.startsAt);
@@ -132,7 +136,7 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
                       key={session.id}
                       className={`${styles.gridSessionCell} ${styles.plenumSession}`}
                       style={{
-                        gridColumn: `2 / span ${rooms.length}`,
+                        gridColumn: `2 / span ${displayRooms.length}`,
                         gridRow: `${rowStart} / span ${rowSpan}`,
                       }}
                     >
@@ -140,6 +144,8 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
                     </div>
                   );
                 }
+
+                if (gridColumn < 2) return null;
 
                 return (
                   <div

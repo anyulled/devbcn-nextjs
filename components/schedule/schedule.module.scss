@@ -29,6 +29,8 @@
   border-radius: 8px;
   border-left: 4px solid #ddd;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .serviceTitle {
@@ -81,6 +83,11 @@
   margin-bottom: 8px;
   line-height: 1.4;
   color: var(--heading-color, #1a1a1a);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardLink:hover .sessionTitle {
@@ -91,6 +98,9 @@
   margin-bottom: 12px;
   font-size: 0.9rem;
   flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .talkMetaLine {
@@ -116,9 +126,24 @@
     color: var(--primary-color, #5f3afc);
     text-decoration: underline;
   }
+}
+
+.speakerExtras {
+  display: inline;
+}
+
+.speakerExtraLink {
+  color: #666;
+  margin-right: 8px;
+
+  &:hover {
+    color: var(--primary-color, #5f3afc);
+    text-decoration: underline;
+  }
 
   &:not(:last-child)::after {
     content: ",";
+    margin-left: 2px;
   }
 }
 
@@ -208,10 +233,38 @@
 .gridSessionCell {
   height: 100%;
   min-height: 0;
+  overflow: hidden;
 }
 
 .plenumSession {
   z-index: 2;
+  overflow: hidden;
+}
+
+@media (width >= 992px) {
+  .speakers {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .speakerExtras {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition:
+      max-width 0.2s ease,
+      opacity 0.2s ease;
+    margin-left: 0;
+  }
+
+  .speakers:hover .speakerExtras,
+  .speakers:focus-within .speakerExtras {
+    max-width: 300px;
+    opacity: 1;
+    margin-left: 2px;
+  }
 }
 
 /* Schedule Mobile */

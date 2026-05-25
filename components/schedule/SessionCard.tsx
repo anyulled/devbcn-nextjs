@@ -95,11 +95,20 @@ function TalkSessionCard({ session, year, showTime, showExtendedMeta }: Readonly
       </Link>
 
       <div className={styles.speakers}>
-        {session.speakers.map((speaker) => (
-          <Link key={speaker.id} href={`/${year}/speakers/${speaker.id}`} className={styles.speakerLink}>
-            {speaker.name}
+        {session.speakers[0] && (
+          <Link href={`/${year}/speakers/${session.speakers[0].id}`} className={styles.speakerLink}>
+            {session.speakers[0].name}
           </Link>
-        ))}
+        )}
+        {session.speakers.length > 1 && (
+          <span className={styles.speakerExtras}>
+            {session.speakers.slice(1).map((speaker) => (
+              <Link key={speaker.id} href={`/${year}/speakers/${speaker.id}`} className={styles.speakerExtraLink}>
+                {speaker.name}
+              </Link>
+            ))}
+          </span>
+        )}
       </div>
 
       {showExtendedMeta && talkMeta.length > 0 && (
