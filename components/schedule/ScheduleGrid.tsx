@@ -104,53 +104,58 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
           })}
 
           {/* Sessions */}
-          {rooms.map((room, colIndex) => {
-            const gridColumn = colIndex + 2;
+          {(() => {
+            const renderedPlenumSessionIds = new Set<string>();
 
-            return room.sessions.map((session) => {
-              const start = parseISO(session.startsAt);
-              const end = parseISO(session.endsAt);
+            return rooms.map((room, colIndex) => {
+              const gridColumn = colIndex + 2;
 
-              const startMinutes = start.getHours() * 60 + start.getMinutes();
-              const endMinutes = end.getHours() * 60 + end.getMinutes();
+              return room.sessions.map((session) => {
+                const start = parseISO(session.startsAt);
+                const end = parseISO(session.endsAt);
 
-              const offset = startMinutes - minTime;
-              const duration = endMinutes - startMinutes;
+                const startMinutes = start.getHours() * 60 + start.getMinutes();
+                const endMinutes = end.getHours() * 60 + end.getMinutes();
 
-              const rowStart = Math.floor(offset / 15) + 2;
-              const rowSpan = Math.ceil(duration / 15);
+                const offset = startMinutes - minTime;
+                const duration = endMinutes - startMinutes;
 
-              if (session.isPlenumSession) {
-                if (colIndex !== 0) return null;
+                const rowStart = Math.floor(offset / 15) + 2;
+                const rowSpan = Math.ceil(duration / 15);
+
+                if (session.isPlenumSession) {
+                  if (renderedPlenumSessionIds.has(session.id)) return null;
+                  renderedPlenumSessionIds.add(session.id);
+
+                  return (
+                    <div
+                      key={session.id}
+                      className={`${styles.gridSessionCell} ${styles.plenumSession}`}
+                      style={{
+                        gridColumn: `2 / span ${rooms.length}`,
+                        gridRow: `${rowStart} / span ${rowSpan}`,
+                      }}
+                    >
+                      <SessionCard session={session} year={year} />
+                    </div>
+                  );
+                }
 
                 return (
                   <div
                     key={session.id}
-                    className={`${styles.gridSessionCell} ${styles.plenumSession}`}
+                    className={styles.gridSessionCell}
                     style={{
-                      gridColumn: `2 / span ${rooms.length}`,
+                      gridColumn: gridColumn,
                       gridRow: `${rowStart} / span ${rowSpan}`,
                     }}
                   >
                     <SessionCard session={session} year={year} />
                   </div>
                 );
-              }
-
-              return (
-                <div
-                  key={session.id}
-                  className={styles.gridSessionCell}
-                  style={{
-                    gridColumn: gridColumn,
-                    gridRow: `${rowStart} / span ${rowSpan}`,
-                  }}
-                >
-                  <SessionCard session={session} year={year} />
-                </div>
-              );
+              });
             });
-          })}
+          })()}
         </div>
       </div>
     </div>
