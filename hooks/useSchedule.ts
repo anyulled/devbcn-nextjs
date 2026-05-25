@@ -2,6 +2,7 @@ import { getEditionConfig } from "@/config/editions";
 import { format, parseISO } from "date-fns";
 import { cache } from "react";
 import { getSessionizeFetchOptions } from "@/lib/revalidate";
+import { Category } from "./types";
 
 export interface GridSession {
   id: string;
@@ -12,6 +13,7 @@ export interface GridSession {
   isServiceSession: boolean;
   isPlenumSession: boolean;
   speakers: { id: string; name: string }[];
+  categories?: Category[];
   roomId: number;
   room: string;
   status: string | null;

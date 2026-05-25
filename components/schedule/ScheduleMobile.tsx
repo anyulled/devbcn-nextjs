@@ -43,7 +43,7 @@ export default function ScheduleMobile({ schedule, year }: Readonly<ScheduleMobi
               <div className={styles.sessionsList}>
                 {slot.sessions.map((session) => (
                   <div key={session.id} className={styles.mobileSessionWrapper}>
-                    <SessionCard session={session} year={year} />
+                    <SessionCard session={session} year={year} showExtendedMeta />
                   </div>
                 ))}
               </div>
