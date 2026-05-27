@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
   });
 
   const displayTag = matchedTalk
-    ? getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ")
+    ? (getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
 
   return {
@@ -84,7 +84,8 @@ export default async function TagPage({ params }: Readonly<TagPageProps>) {
     notFound();
   }
 
-  const displayTag = getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ");
+  const displayTag =
+    getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ");
 
   return (
     <div>

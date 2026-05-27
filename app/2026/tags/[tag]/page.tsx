@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   });
 
   const displayTag = matchedTalk
-    ? getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ")
+    ? (getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
 
   return {
@@ -78,7 +78,8 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
     notFound();
   }
 
-  const displayTag = getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ");
+  const displayTag =
+    getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagNormalized) ?? decodedTag.replaceAll("-", " ");
 
   return (
     <div>
