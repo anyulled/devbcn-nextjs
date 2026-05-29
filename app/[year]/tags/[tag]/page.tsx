@@ -18,27 +18,30 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const years = getArchivedEditions();
-  const params = [];
 
-  for (const year of years) {
-    try {
-      const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
-      const allTags = new Set<string>();
+  const nestedParams = await Promise.all(
+    years.map(async (year) => {
+      try {
+        const sessionGroups = await getTalks(year);
+        const allTalks = sessionGroups.flatMap((group) => group.sessions);
+        const allTags = new Set<string>();
 
-      for (const talk of allTalks) {
-        getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        for (const talk of allTalks) {
+          getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        }
+
+        return Array.from(allTags).map((tag) => ({
+          year,
+          tag: tag.replaceAll(" ", "-").toLowerCase()
+        }));
+      } catch (error) {
+        console.warn(`Failed to fetch talks for year ${year}:`, error);
+        return [];
       }
+    })
+  );
 
-      for (const tag of allTags) {
-        params.push({ year, tag: tag.replaceAll(" ", "-").toLowerCase() });
-      }
-    } catch (error) {
-      console.warn(`Failed to fetch talks for year ${year}:`, error);
-    }
-  }
-
-  return params;
+  return nestedParams.flat();
 }
 
 export async function generateMetadata({ params }: Readonly<TagPageProps>): Promise<Metadata> {
