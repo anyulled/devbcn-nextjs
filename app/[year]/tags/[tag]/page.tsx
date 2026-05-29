@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 
         return Array.from(allTags).map((tag) => ({
           year,
-          tag: tag.replaceAll(" ", "-").toLowerCase()
+          tag: tag.replaceAll(" ", "-").toLowerCase(),
         }));
       } catch (error) {
         console.warn(`Failed to fetch talks for year ${year}:`, error);
