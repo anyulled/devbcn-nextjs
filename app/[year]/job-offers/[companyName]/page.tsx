@@ -20,19 +20,22 @@ export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const years = getAvailableEditions();
-  const params = [];
 
-  for (const year of years) {
-    const companies = await getJobOffersForEdition(year);
-    for (const company of companies) {
-      params.push({
-        year,
-        companyName: company.id,
-      });
-    }
-  }
+  const nestedParams = await Promise.all(
+    years.map(async (year) => {
+      const params: { year: string; companyName: string }[] = [];
+      const companies = await getJobOffersForEdition(year);
+      for (const company of companies) {
+        params.push({
+          year,
+          companyName: company.id,
+        });
+      }
+      return params;
+    })
+  );
 
-  return params;
+  return nestedParams.flat();
 }
 
 export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
