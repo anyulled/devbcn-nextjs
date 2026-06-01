@@ -2,6 +2,7 @@ import TalkContent from "@/components/talks/TalkContent";
 import Modal from "@/components/ui/Modal";
 import { getEditionConfig } from "@/config/editions";
 import { getLevelFromTalk, getSlidesUrl, getTagsFromTalk, getTalkByYearAndId, getTalkSpeakersWithDetails, getTrackFromTalk } from "@/hooks/useTalks";
+import { buildOpenFeedbackTalkUrl } from "@/lib/shared/openfeedback";
 import { notFound } from "next/navigation";
 
 interface TalkDetailProps {
@@ -24,7 +25,7 @@ export default async function InterceptedTalkDetail({ params }: TalkDetailProps)
   const speakers = await getTalkSpeakersWithDetails(year, speakerIds);
   const tags = getTagsFromTalk(talk);
   const slidesUrl = getSlidesUrl(talk);
-  const voteUrl = `https://openfeedback.io/${talk.id}`;
+  const voteUrl = buildOpenFeedbackTalkUrl(eventData.openFeedbackId, talk.startsAt, talk.id);
   const track = getTrackFromTalk(talk);
   const level = getLevelFromTalk(talk);
 

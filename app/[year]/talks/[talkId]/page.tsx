@@ -15,6 +15,7 @@ import {
   getTalkSpeakersWithDetails,
   getTrackFromTalk,
 } from "@/hooks/useTalks";
+import { buildOpenFeedbackTalkUrl } from "@/lib/shared/openfeedback";
 import { generateBreadcrumbSchema, generateEducationEventSchema, generatePersonSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -110,7 +111,7 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
 
   const tags = getTagsFromTalk(talk);
   const slidesUrl = getSlidesUrl(talk);
-  const voteUrl = `https://openfeedback.io/${talk.id}`;
+  const voteUrl = buildOpenFeedbackTalkUrl(eventData.openFeedbackId, talk.startsAt, talk.id);
 
   const baseUrl = "https://www.devbcn.com";
   const educationEventSchema = generateEducationEventSchema(talk, year, eventData.venue);
