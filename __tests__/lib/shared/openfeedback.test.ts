@@ -9,4 +9,8 @@ describe("buildOpenFeedbackTalkUrl", () => {
   it("falls back to legacy url when date is invalid", () => {
     expect(buildOpenFeedbackTalkUrl("devbcn26", "invalid-date", "1188843")).toBe("https://openfeedback.io/1188843");
   });
+
+  it("falls back to legacy url when date is missing", () => {
+    expect(buildOpenFeedbackTalkUrl("devbcn26", null, "1188843")).toBe("https://openfeedback.io/1188843");
+  });
 });
