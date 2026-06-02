@@ -56,8 +56,8 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.1",
-    "@commitlint/config-conventional": "^21.0.1",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
     "@eslint/js": "^10.0.1",
@@ -94,7 +94,7 @@
     "husky": "^9.1.7",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
-    "lint-staged": "^17.0.5",
+    "lint-staged": "^17.0.7",
     "portless": "^0.13.0",
     "prettier": "^3.8.3",
     "schema-dts": "^2.0.0",
