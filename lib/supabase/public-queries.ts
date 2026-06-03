@@ -176,8 +176,18 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
 
   const companies: Company[] = [];
 
+  const offersBySponsor = new Map<string, typeof offers>();
+  offers?.forEach((o) => {
+    const existing = offersBySponsor.get(o.sponsor_id);
+    if (!existing) {
+      offersBySponsor.set(o.sponsor_id, [o]);
+    } else {
+      existing.push(o);
+    }
+  });
+
   sponsors.forEach((sponsor) => {
-    const sponsorOffers = offers?.filter((o) => o.sponsor_id === sponsor.id) || [];
+    const sponsorOffers = offersBySponsor.get(sponsor.id) || [];
 
     if (sponsorOffers.length > 0) {
       const mappedOffers: JobOffer[] = sponsorOffers.map((o) => ({
