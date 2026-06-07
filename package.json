@@ -27,7 +27,8 @@
     "build:docs": "typedoc",
     "check:docs": "bash -c 'echo \"Checking docs sync...\" && ([ -f AGENTS.md ] && [ -f CLAUDE.md ] || cp AGENTS.md CLAUDE.md)'",
     "migrate": "tsx scripts/migrate-sponsors.ts",
-    "migrate:logos": "tsx scripts/migrate-logos-to-storage.ts"
+    "migrate:logos": "tsx scripts/migrate-logos-to-storage.ts",
+    "generate:ama-mentoring": "python3 scripts/generate-ama-mentoring-schedule.py"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
