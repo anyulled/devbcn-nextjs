@@ -6,8 +6,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { createRouteHandlerClient } from "@/lib/supabase/server";
 
 const sponsorContactSchema = z.object({
-  email: z.string().email(),
-  name: z.string().max(255).optional().or(z.literal("")),
+  email: z.string().trim().email(),
+  name: z.string().trim().max(255).optional().or(z.literal("")),
 });
 
 const adminSponsorSchema = z.object({
@@ -26,7 +26,7 @@ const adminSponsorSchema = z.object({
   contacts: z.array(sponsorContactSchema),
 });
 
-function normalizeOptionalString(value: string | undefined) {
+function normalizeOptionalString(value: string | null | undefined) {
   return value ? value.trim() || null : null;
 }
 

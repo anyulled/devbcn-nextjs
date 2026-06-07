@@ -12,8 +12,8 @@ import { createClient } from "@/lib/supabase/client";
 import { ContactsSection } from "./ContactsSection";
 
 export const sponsorContactSchema = z.object({
-  email: z.string().email("Enter a valid email address"),
-  name: z.string().max(255, "Name is too long").optional().or(z.literal("")),
+  email: z.string().trim().email("Enter a valid email address"),
+  name: z.string().trim().max(255, "Name is too long").optional().or(z.literal("")),
 });
 
 export type SponsorContact = z.infer<typeof sponsorContactSchema>;
@@ -47,8 +47,15 @@ function toInputValue(value: string | null | undefined) {
   return value ?? "";
 }
 
-function getContactDefaults(contacts: AdminSponsorFormProps["sponsor"]["contacts"]) {
-  return contacts?.filter(Boolean).map((contact) => ({ email: toInputValue(contact.email), name: toInputValue(contact.name) })) ?? [];
+export function getContactDefaults(contacts: AdminSponsorFormProps["sponsor"]["contacts"]) {
+  return (
+    contacts
+      ?.filter((contact): contact is NonNullable<typeof contact> => typeof contact?.email === "string" && contact.email.trim().length > 0)
+      .map((contact) => ({
+        email: toInputValue(contact.email).trim(),
+        name: toInputValue(contact.name).trim(),
+      })) ?? []
+  );
 }
 
 function getDefaultValues(sponsor: AdminSponsorFormProps["sponsor"]): AdminSponsorValues {
@@ -241,9 +248,9 @@ export default function AdminSponsorForm({ sponsor, categories, ownerOptions, su
         setTimeout(
           () =>
             setMagicLinkStates((prev) => {
-              const ns = { ...prev };
-              delete ns[contactId];
-              return ns;
+              const { [contactId]: removedContact, ...remaining } = prev;
+              void removedContact;
+              return remaining;
             }),
           3000
         );
