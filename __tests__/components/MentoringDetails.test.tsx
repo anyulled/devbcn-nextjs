@@ -43,8 +43,8 @@ describe("MentoringDetails Component", () => {
 
     const speakerLink = timeBlockQueries.getByRole("link", { name: "Victor Rentea" });
     expect(speakerLink).toHaveAttribute("href", "/2026/speakers/8f5f4c31-232b-4e04-b736-6b2775c939cf");
-    expect(timeBlockQueries.getByRole("link", { name: "Bruno Souza" })).toHaveAttribute("href", "/2026/speakers/1595afca-83d0-4893-afa1-a6b8d832aee5");
-    expect(timeBlockQueries.getByRole("link", { name: "Paolo Ricciuti" })).toHaveAttribute("href", "/2026/speakers/8c35e745-682e-4f8d-9b98-127459a8849d");
-    expect(container.querySelectorAll(".session-schedule-speaker-avatar-image")).toHaveLength(22);
+    expect(timeBlockQueries.queryByRole("link", { name: "Bruno Souza" })).not.toBeInTheDocument();
+    expect(timeBlockQueries.queryByRole("link", { name: "Paolo Ricciuti" })).not.toBeInTheDocument();
+    expect(container.querySelectorAll(".session-schedule-speaker-avatar-image")).toHaveLength(8);
   });
 });

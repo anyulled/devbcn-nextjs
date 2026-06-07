@@ -65,19 +65,9 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
     sessionType: "mentoring",
     speakers: [
       {
-        id: "1595afca-83d0-4893-afa1-a6b8d832aee5",
-        name: "Bruno Souza",
-        avatarUrl: "https://sessionize.com/image/f5ea-400o400o1-7PDkcAx4GvdyyQxXxcu1NL.jpg",
-      },
-      {
         id: "8f5f4c31-232b-4e04-b736-6b2775c939cf",
         name: "Victor Rentea",
         avatarUrl: "https://sessionize.com/image/470a-400o400o1-MwrDEbm44NuY3zi63tM8En.png",
-      },
-      {
-        id: "8c35e745-682e-4f8d-9b98-127459a8849d",
-        name: "Paolo Ricciuti",
-        avatarUrl: "https://sessionize.com/image/17ec-400o400o1-H1AauBKT5HiWfsQAFsv9AB.jpg",
       },
     ],
   },
@@ -144,16 +134,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         name: "Dennis Schulz",
         avatarUrl: "https://sessionize.com/image/3214-400o400o1-3roWdPd8kYSRG2a95F4pJZ.jpg",
       },
-      {
-        id: "3c1fc4c2-4844-48ae-bf90-ff7749e4fc94",
-        name: "Thomas Hugle",
-        avatarUrl: "https://sessionize.com/image/af80-400o400o1-35Kt8FWHxm95N6PpEMKpqZ.jpg",
-      },
-      {
-        id: "5ecff6ff-7704-433e-a38f-a057d05eacec",
-        name: "Olena Kutsenko",
-        avatarUrl: "https://sessionize.com/image/926f-400o400o1-QJxA1DujA7NtvobmMfB4M1.jpg",
-      },
     ],
   },
   {
@@ -219,11 +199,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         name: "Fran\u00e7ois Martin",
         avatarUrl: "https://sessionize.com/image/0277-400o400o1-9gcFoW7JGxVoMKM2pyAMb5.jpg",
       },
-      {
-        id: "b7a3c411-a293-4d94-9cf7-312d7ce22201",
-        name: "David Agbolade",
-        avatarUrl: "https://sessionize.com/image/2843-400o400o1-Y74gpyAVzXMg326enJW8MZ.jpg",
-      },
     ],
   },
   {
@@ -288,16 +263,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         id: "4df937d9-565b-48db-94d3-efd4e5d15c62",
         name: "David vonThenen",
         avatarUrl: "https://sessionize.com/image/e236-400o400o1-aB4pRvvcSJd5i47a5Ts9rT.png",
-      },
-      {
-        id: "2f4018fc-6f1a-484c-9297-383fb1a5c4ae",
-        name: "Fran\u00e7ois Martin",
-        avatarUrl: "https://sessionize.com/image/0277-400o400o1-9gcFoW7JGxVoMKM2pyAMb5.jpg",
-      },
-      {
-        id: "8c35e745-682e-4f8d-9b98-127459a8849d",
-        name: "Paolo Ricciuti",
-        avatarUrl: "https://sessionize.com/image/17ec-400o400o1-H1AauBKT5HiWfsQAFsv9AB.jpg",
       },
     ],
   },
@@ -364,16 +329,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         name: "Cedric Clyburn",
         avatarUrl: "https://sessionize.com/image/b0e7-400o400o1-R4Hy2t7at2cLL45scPSfBB.png",
       },
-      {
-        id: "2f4018fc-6f1a-484c-9297-383fb1a5c4ae",
-        name: "Fran\u00e7ois Martin",
-        avatarUrl: "https://sessionize.com/image/0277-400o400o1-9gcFoW7JGxVoMKM2pyAMb5.jpg",
-      },
-      {
-        id: "5ecff6ff-7704-433e-a38f-a057d05eacec",
-        name: "Olena Kutsenko",
-        avatarUrl: "https://sessionize.com/image/926f-400o400o1-QJxA1DujA7NtvobmMfB4M1.jpg",
-      },
     ],
   },
   {
@@ -438,11 +393,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         id: "7a6d377f-3ce1-4b32-9014-c70c87022fd0",
         name: "Steve Poole",
         avatarUrl: "https://sessionize.com/image/3c6a-400o400o1-XkNbyjMjw7RAqZi5Lfe41H.jpg",
-      },
-      {
-        id: "2f4018fc-6f1a-484c-9297-383fb1a5c4ae",
-        name: "Fran\u00e7ois Martin",
-        avatarUrl: "https://sessionize.com/image/0277-400o400o1-9gcFoW7JGxVoMKM2pyAMb5.jpg",
       },
     ],
   },
@@ -509,16 +459,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         name: "Bruno Souza",
         avatarUrl: "https://sessionize.com/image/f5ea-400o400o1-7PDkcAx4GvdyyQxXxcu1NL.jpg",
       },
-      {
-        id: "41e5cbbd-e2cf-46b7-8243-9dddbb4fe253",
-        name: "Sofia Lescano Carroll",
-        avatarUrl: "https://sessionize.com/image/d67e-400o400o1-G6ku2xeqtmU7k5DLF8gSf7.jpg",
-      },
-      {
-        id: "23b3908b-1d6b-479a-9531-996db27aefd6",
-        name: "Rachid Zarouali",
-        avatarUrl: "https://sessionize.com/image/a6e1-400o400o1-3AvJVeaoWoXnDmXPjvcDGE.jpg",
-      },
     ],
   },
   {
@@ -583,16 +523,6 @@ export const sessionSchedule2026: SessionScheduleSlot[] = [
         id: "086de2f4-8bfc-47ab-8f65-c623a5753fcf",
         name: "Ana Maria Mihalceanu",
         avatarUrl: "https://sessionize.com/image/02cb-400o400o1-Lawur2AKGny32MmkpG69jQ.JPG",
-      },
-      {
-        id: "8c35e745-682e-4f8d-9b98-127459a8849d",
-        name: "Paolo Ricciuti",
-        avatarUrl: "https://sessionize.com/image/17ec-400o400o1-H1AauBKT5HiWfsQAFsv9AB.jpg",
-      },
-      {
-        id: "5ecff6ff-7704-433e-a38f-a057d05eacec",
-        name: "Olena Kutsenko",
-        avatarUrl: "https://sessionize.com/image/926f-400o400o1-QJxA1DujA7NtvobmMfB4M1.jpg",
       },
     ],
   },

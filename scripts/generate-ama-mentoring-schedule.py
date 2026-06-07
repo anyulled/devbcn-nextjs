@@ -126,22 +126,16 @@ def parse_schedule_sheet(archive: zipfile.ZipFile, sheet_filename: str) -> list[
 def read_workbook_schedule(workbook_path: Path, lookup: dict[str, list[dict[str, str]]]) -> list[dict[str, object]]:
     with zipfile.ZipFile(workbook_path) as archive:
         iteration1_rows = parse_schedule_sheet(archive, "sheet1.xml")
-        iteration0_rows = parse_schedule_sheet(archive, "sheet2.xml")
-
-    iteration0_by_slot = {
-        (row["day"], row["time"]): row for row in iteration0_rows
-    }
     slots: list[dict[str, object]] = []
 
     for row in iteration1_rows:
         day = str(row["day"])
         time = str(row["time"])
-        mentoring_row = iteration0_by_slot.get((day, time))
         labels = ["AMA 1", "AMA 2", "AMA 3", "AMA 4", "Public Speaking"]
         session_types = ["ama", "ama", "ama", "ama", "mentoring"]
 
         for label, session_type, key in zip(labels, session_types, ["ama1", "ama2", "ama3", "ama4", "publicSpeaking"]):
-            raw_value = str(mentoring_row.get(key) if session_type == "mentoring" and mentoring_row else row.get(key) or "")
+            raw_value = str(row.get(key) or "")
             if not raw_value:
                 continue
 
