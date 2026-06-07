@@ -30,7 +30,25 @@ export async function generateMetadata({ params }: Readonly<PageProps>): Promise
     openGraph: {
       title: `AMA Sessions - DevBcn ${year}`,
       description: `Join exclusive Ask Me Anything sessions with world-class speakers at DevBcn ${year}.`,
+      url: `https://www.devbcn.com/${year}/ama`,
+      type: "website",
+      images: [
+        {
+          url: "/assets/img/features/ama-sessions.png",
+          width: 1200,
+          height: 630,
+          alt: `AMA Sessions - DevBcn ${year}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `AMA Sessions - DevBcn ${year}`,
+      description: `Join exclusive Ask Me Anything sessions with world-class speakers at DevBcn ${year}.`,
       images: ["/assets/img/features/ama-sessions.png"],
+    },
+    alternates: {
+      canonical: `https://www.devbcn.com/${year}/ama`,
     },
   };
 }
