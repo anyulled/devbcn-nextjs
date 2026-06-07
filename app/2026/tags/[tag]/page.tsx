@@ -40,8 +40,16 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const targetTag = decodedTag.toLowerCase();
+
+  const foundDisplayTag = allTalks.reduce<string | null>((acc, talk) => {
+    if (acc) return acc;
+    const talkTags = getTagsFromTalk(talk);
+    const matchedTag = talkTags.find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag);
+    return matchedTag ?? null;
+  }, null);
+
+  const displayTag = foundDisplayTag ?? decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -58,14 +66,21 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const targetTag = decodedTag.toLowerCase();
+  const filteredTalks: typeof allTalks = [];
 
-  const filteredTalks = allTalks.filter((talk) => {
+  const foundDisplayTag = allTalks.reduce<string | null>((acc, talk) => {
     const talkTags = getTagsFromTalk(talk);
+    const matchedTag = talkTags.find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
-  });
+    if (matchedTag) {
+      filteredTalks.push(talk);
+    }
+
+    return acc ?? matchedTag ?? null;
+  }, null);
+
+  const displayTag = foundDisplayTag ?? decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
     notFound();
