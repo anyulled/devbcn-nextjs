@@ -3,65 +3,38 @@
 import { GridSession } from "@/hooks/useSchedule";
 import { useScheduleContext } from "@/context/ScheduleContext";
 import Link from "next/link";
-import { differenceInMinutes, format, parseISO } from "date-fns";
+import { format, parseISO } from "date-fns";
+import type { MouseEvent } from "react";
 import styles from "./schedule.module.scss";
 
 interface SessionCardProps {
   session: GridSession;
   year: string;
   showTime?: boolean;
+  showRoom?: boolean;
   showExtendedMeta?: boolean;
 }
 
-interface SessionCardMeta {
+interface ServiceSessionCardProps {
+  session: GridSession;
+  shouldShowTime: boolean;
   startTime: string;
   endTime: string;
-  duration: string;
 }
 
-const getCategoryValue = (session: GridSession, categoryName: string): string | null => {
-  const category = session.categories?.find((item) => item.name.toLowerCase() === categoryName.toLowerCase());
-  return category?.categoryItems[0]?.name ?? null;
-};
+interface SaveButtonProps {
+  saved: boolean;
+  onToggle: (event: MouseEvent<HTMLButtonElement>) => void;
+}
 
-const formatDuration = (startIso: string, endIso: string): string => {
-  const minutes = differenceInMinutes(parseISO(endIso), parseISO(startIso));
-  if (minutes < 60) {
-    return `${minutes} min`;
-  }
-
-  const hours = Math.floor(minutes / 60);
-  const remainingMinutes = minutes % 60;
-  if (remainingMinutes === 0) {
-    return `${hours} h`;
-  }
-
-  return `${hours} h ${remainingMinutes} min`;
-};
-
-const buildMeta = (session: GridSession): SessionCardMeta => ({
-  startTime: format(parseISO(session.startsAt), "HH:mm"),
-  endTime: format(parseISO(session.endsAt), "HH:mm"),
-  duration: formatDuration(session.startsAt, session.endsAt),
-});
-
-function ServiceSessionCard({ session, showTime, showExtendedMeta }: Readonly<Pick<SessionCardProps, "session" | "showTime" | "showExtendedMeta">>) {
-  const { startTime, endTime, duration } = buildMeta(session);
-
+function ServiceSessionCard({ session, shouldShowTime, startTime, endTime }: Readonly<ServiceSessionCardProps>) {
   return (
     <div className={`${styles.scheduleCard} ${styles.serviceCard}`}>
       <div className="card-content">
-        {showTime && (
+        {shouldShowTime && (
           <span className={styles.timeBadge}>
             {startTime} - {endTime}
           </span>
-        )}
-        {showExtendedMeta && (
-          <p className={styles.sessionMetaLine}>
-            <span>{duration}</span>
-            <span>•</span>
-            <span>{session.room}</span>
-          </p>
         )}
         <h4 className={styles.serviceTitle}>{session.title}</h4>
       </div>
@@ -69,18 +42,34 @@ function ServiceSessionCard({ session, showTime, showExtendedMeta }: Readonly<Pi
   );
 }
 
-function TalkSessionCard({ session, year, showTime, showExtendedMeta }: Readonly<SessionCardProps>) {
+function SaveButton({ saved, onToggle }: Readonly<SaveButtonProps>) {
+  return (
+    <button onClick={onToggle} className={styles.saveBtn} title={saved ? "Remove from my schedule" : "Add to my schedule"}>
+      <i className={`fa-${saved ? "solid" : "regular"} fa-heart`} />
+    </button>
+  );
+}
+
+export default function SessionCard({ session, year, showTime = false, showRoom = true, showExtendedMeta = false }: Readonly<SessionCardProps>) {
   const { isSaved, toggleSession } = useScheduleContext();
   const saved = isSaved(session.id);
-  const { startTime, endTime, duration } = buildMeta(session);
-  const sessionFormat = getCategoryValue(session, "Session format");
-  const sessionTrack = getCategoryValue(session, "Track");
-  const sessionLevel = getCategoryValue(session, "Level");
-  const talkMeta = [sessionTrack, sessionFormat, sessionLevel].filter((item): item is string => Boolean(item));
+  const shouldShowTime = showTime || showExtendedMeta;
+
+  const startTime = format(parseISO(session.startsAt), "HH:mm");
+  const endTime = format(parseISO(session.endsAt), "HH:mm");
+
+  if (session.isServiceSession) {
+    return <ServiceSessionCard session={session} shouldShowTime={shouldShowTime} startTime={startTime} endTime={endTime} />;
+  }
+
+  const onToggle = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    toggleSession(session.id);
+  };
 
   return (
     <div className={`${styles.scheduleCard} ${saved ? styles.saved : ""}`}>
-      {showTime && (
+      {shouldShowTime && (
         <div className={styles.cardHeader}>
           <span className={styles.timeBadge}>
             {startTime} - {endTime}
@@ -95,61 +84,21 @@ function TalkSessionCard({ session, year, showTime, showExtendedMeta }: Readonly
       </Link>
 
       <div className={styles.speakers}>
-        {session.speakers[0] && (
-          <Link href={`/${year}/speakers/${session.speakers[0].id}`} className={styles.speakerLink}>
-            {session.speakers[0].name}
+        {session.speakers.map((speaker) => (
+          <Link key={speaker.id} href={`/${year}/speakers/${speaker.id}`} className={styles.speakerLink}>
+            {speaker.name}
           </Link>
-        )}
-        {session.speakers.length > 1 && (
-          <span className={styles.speakerExtras}>
-            {session.speakers.slice(1).map((speaker) => (
-              <Link key={speaker.id} href={`/${year}/speakers/${speaker.id}`} className={styles.speakerExtraLink}>
-                {speaker.name}
-              </Link>
-            ))}
-          </span>
-        )}
+        ))}
       </div>
 
-      {showExtendedMeta && talkMeta.length > 0 && (
-        <p className={styles.talkMetaLine}>
-          {talkMeta.map((meta) => (
-            <span key={meta}>{meta}</span>
-          ))}
-        </p>
-      )}
-
       <div className={styles.cardFooter}>
-        <div className={styles.roomInfo} aria-label={showExtendedMeta ? "Session timing and room" : "Session room"}>
-          {showExtendedMeta ? (
-            <>
-              <span>{startTime}</span>
-              <span>•</span>
-              <span>{duration}</span>
-              <span>•</span>
-            </>
-          ) : null}
-          <i className="fa-solid fa-location-dot" /> {session.room}
-        </div>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            toggleSession(session.id);
-          }}
-          className={styles.saveBtn}
-          title={saved ? "Remove from my schedule" : "Add to my schedule"}
-        >
-          <i className={`fa-${saved ? "solid" : "regular"} fa-heart`} />
-        </button>
+        {showRoom && (
+          <div className={styles.roomInfo}>
+            <i className="fa-solid fa-location-dot" /> {session.room}
+          </div>
+        )}
+        <SaveButton saved={saved} onToggle={onToggle} />
       </div>
     </div>
   );
-}
-
-export default function SessionCard({ session, year, showTime = false, showExtendedMeta = false }: Readonly<SessionCardProps>) {
-  if (session.isServiceSession) {
-    return <ServiceSessionCard session={session} showTime={showTime} showExtendedMeta={showExtendedMeta} />;
-  }
-
-  return <TalkSessionCard session={session} year={year} showTime={showTime} showExtendedMeta={showExtendedMeta} />;
 }
