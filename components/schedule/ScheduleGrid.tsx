@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { DailySchedule, GridRoom } from "@/hooks/useSchedule";
 import SessionCard from "./SessionCard";
-import { format, parseISO, addMinutes, startOfDay } from "date-fns";
+import { format, parseISO } from "date-fns";
 import styles from "./schedule.module.scss";
 
 interface ScheduleGridProps {
@@ -12,56 +12,55 @@ interface ScheduleGridProps {
 }
 
 const EMPTY_ROOMS: GridRoom[] = [];
+const HIDDEN_ROOM_NAMES = new Set(["Exhibit Hall", "Reception"]);
+
+const getSessionMinutes = (date: string): number => {
+  const parsedDate = parseISO(date);
+  return parsedDate.getHours() * 60 + parsedDate.getMinutes();
+};
+
+const formatMinutes = (minutes: number): string => {
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return `${hours.toString().padStart(2, "0")}:${remainingMinutes.toString().padStart(2, "0")}`;
+};
 
 export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridProps>) {
   const [activeTab, setActiveTab] = useState(0);
 
   const hasSchedule = schedule && schedule.length > 0;
-  const currentDay = hasSchedule ? schedule[activeTab] : null;
+  const currentDay = hasSchedule ? (schedule.at(activeTab) ?? null) : null;
   const rooms = currentDay ? currentDay.rooms : EMPTY_ROOMS;
-  const nonPlenumRooms = rooms.filter((room) => room.sessions.some((session) => !session.isPlenumSession));
-  const displayRooms = nonPlenumRooms.length > 0 ? nonPlenumRooms : rooms;
-  const roomColumnIndexById = new Map(displayRooms.map((room, index) => [room.id, index]));
 
-  const { minTime, totalRows, timeLabels } = useMemo(() => {
+  const filteredRooms = useMemo(() => {
+    return rooms.filter((room) => !HIDDEN_ROOM_NAMES.has(room.name));
+  }, [rooms]);
+
+  const roomColumnIndexById = useMemo(() => {
+    return new Map(filteredRooms.map((room, index) => [room.id, index]));
+  }, [filteredRooms]);
+
+  const { timeBoundaries, rowTemplate, boundaryIndexes } = useMemo(() => {
     if (!rooms || rooms.length === 0) {
-      return { minTime: 0, totalRows: 0, timeLabels: [] };
+      return { timeBoundaries: [], rowTemplate: "50px", boundaryIndexes: new Map<number, number>() };
     }
 
-    const { minTime: rawMinTime, maxTime: rawMaxTime } = rooms.reduce(
-      (acc, room) => {
-        return room.sessions.reduce(
-          (sessionAcc, session) => {
-            const start = parseISO(session.startsAt);
-            const end = parseISO(session.endsAt);
-            const startMinutes = start.getHours() * 60 + start.getMinutes();
-            const endMinutes = end.getHours() * 60 + end.getMinutes();
-            return {
-              minTime: Math.min(sessionAcc.minTime, startMinutes),
-              maxTime: Math.max(sessionAcc.maxTime, endMinutes),
-            };
-          },
-          { minTime: acc.minTime, maxTime: acc.maxTime }
-        );
-      },
-      { minTime: 24 * 60, maxTime: 0 }
-    );
-
-    const minTime = Math.floor(rawMinTime / 60) * 60;
-    const maxTime = Math.ceil(rawMaxTime / 60) * 60;
-
-    const totalMinutes = maxTime - minTime;
-    const slotDuration = 30;
-    const totalRows = Math.ceil(totalMinutes / slotDuration);
-
-    const today = startOfDay(new Date());
-    const timeLabels = Array.from({ length: totalRows + 1 }, (_, i) => {
-      const minutes = minTime + i * slotDuration;
-      const date = addMinutes(today, minutes);
-      return format(date, "HH:mm");
+    const uniqueBoundaries = new Set<number>();
+    rooms.forEach((room) => {
+      room.sessions.forEach((session) => {
+        uniqueBoundaries.add(getSessionMinutes(session.startsAt));
+        uniqueBoundaries.add(getSessionMinutes(session.endsAt));
+      });
     });
 
-    return { minTime, totalRows, timeLabels };
+    const timeBoundaries = Array.from(uniqueBoundaries).sort((a, b) => a - b);
+    const boundaryIndexes = new Map(timeBoundaries.map((time, index) => [time, index]));
+    const rowHeights = timeBoundaries.slice(0, -1).map((boundary, index) => {
+      const duration = timeBoundaries[index + 1] - boundary;
+      return `minmax(${Math.max(48, duration * 2.4)}px, auto)`;
+    });
+
+    return { timeBoundaries, rowTemplate: `50px ${rowHeights.join(" ")}`, boundaryIndexes };
   }, [rooms]);
 
   if (!hasSchedule) {
@@ -70,7 +69,6 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
 
   return (
     <div className={styles.scheduleGridContainer}>
-      {/* Day Tabs */}
       <div className={styles.scheduleTabs}>
         {schedule.map((day, index) => (
           <button key={day.date} className={`${styles.tabBtn} ${activeTab === index ? styles.active : ""} `} onClick={() => setActiveTab(index)}>
@@ -82,81 +80,93 @@ export default function ScheduleGrid({ schedule, year }: Readonly<ScheduleGridPr
       <div className={styles.gridScrollWrapper}>
         <div
           className={styles.scheduleGrid}
+          data-testid="schedule-grid"
           style={{
-            gridTemplateColumns: `80px repeat(${displayRooms.length}, 1fr)`,
-            gridTemplateRows: `50px repeat(${totalRows * 2}, 30px)`,
+            gridTemplateColumns: `80px repeat(${filteredRooms.length}, 1fr)`,
+            gridTemplateRows: rowTemplate,
           }}
         >
-          {/* Header Row */}
-          <div className="grid-header-corner"></div>
-          {displayRooms.map((room) => (
-            <div key={room.id} className={styles.gridHeaderRoom}>
+          <div
+            className={styles.gridHeaderBackground}
+            style={{
+              gridRow: "1 / span 1",
+              gridColumn: `1 / span ${filteredRooms.length + 1}`,
+            }}
+          />
+          <div className={styles.gridHeaderCorner} style={{ gridRow: "1 / span 1", gridColumn: "1 / span 1" }} />
+          {filteredRooms.map((room, colIndex) => (
+            <div
+              key={room.id}
+              className={styles.gridHeaderRoom}
+              style={{
+                gridRow: "1 / span 1",
+                gridColumn: `${colIndex + 2} / span 1`,
+              }}
+            >
               {room.name}
             </div>
           ))}
 
-          {/* Time Column + Grid Lines */}
-          {timeLabels.map((time, i) => {
-            if (i === timeLabels.length - 1) return null;
-            const rowStart = i * 2 + 2;
-            return (
-              <div key={time} className={styles.gridTimeLabel} style={{ gridRow: `${rowStart} / span 2` }}>
-                {time}
-              </div>
-            );
-          })}
+          {timeBoundaries.slice(0, -1).map((time, index) => (
+            <div key={time} className={styles.gridTimeLabel} style={{ gridRow: `${index + 2} / span 1` }}>
+              {formatMinutes(time)}
+            </div>
+          ))}
 
-          {/* Sessions */}
           {(() => {
-            const renderedPlenumSessionIds = new Set<string>();
-
+            const renderedSharedSessions = new Set<string>();
             return rooms.map((room) => {
-              const roomColumnIndex = roomColumnIndexById.get(room.id);
-              const gridColumn = typeof roomColumnIndex === "number" ? roomColumnIndex + 2 : -1;
+              const colIndex = roomColumnIndexById.get(room.id) ?? -1;
+              const gridColumn = colIndex + 2;
 
               return room.sessions.map((session) => {
-                const start = parseISO(session.startsAt);
-                const end = parseISO(session.endsAt);
+                const startMinutes = getSessionMinutes(session.startsAt);
+                const endMinutes = getSessionMinutes(session.endsAt);
+                const startIndex = boundaryIndexes.get(startMinutes) ?? -1;
+                const endIndex = boundaryIndexes.get(endMinutes) ?? -1;
 
-                const startMinutes = start.getHours() * 60 + start.getMinutes();
-                const endMinutes = end.getHours() * 60 + end.getMinutes();
+                if (startIndex === -1 || endIndex === -1) {
+                  return null;
+                }
 
-                const offset = startMinutes - minTime;
-                const duration = endMinutes - startMinutes;
+                const rowSpan = Math.max(1, endIndex - startIndex);
+                const gridRow = `${startIndex + 2} / span ${rowSpan}`;
+                const isSharedSession = session.isPlenumSession || session.isServiceSession;
 
-                const rowStart = Math.floor(offset / 15) + 2;
-                const rowSpan = Math.ceil(duration / 15);
-
-                if (session.isPlenumSession) {
-                  if (renderedPlenumSessionIds.has(session.id)) return null;
-                  renderedPlenumSessionIds.add(session.id);
+                if (isSharedSession) {
+                  if (renderedSharedSessions.has(session.id)) {
+                    return null;
+                  }
+                  renderedSharedSessions.add(session.id);
 
                   return (
                     <div
                       key={session.id}
                       className={`${styles.gridSessionCell} ${styles.plenumSession}`}
                       style={{
-                        gridColumn: `2 / span ${displayRooms.length}`,
-                        gridRow: `${rowStart} / span ${rowSpan}`,
+                        gridColumn: `2 / span ${filteredRooms.length}`,
+                        gridRow,
                       }}
                     >
-                      <SessionCard session={session} year={year} />
+                      <SessionCard session={session} year={year} showRoom={false} />
                     </div>
                   );
                 }
 
-                if (gridColumn < 2) return null;
+                if (colIndex === -1) {
+                  return null;
+                }
 
                 return (
                   <div
                     key={session.id}
                     className={styles.gridSessionCell}
                     style={{
-                      gridColumn: gridColumn,
-                      gridRow: `${rowStart} / span ${rowSpan}`,
+                      gridColumn,
+                      gridRow,
                     }}
                   >
-                    <SessionCard session={session} year={year} />
+                    <SessionCard session={session} year={year} showRoom={false} />
                   </div>
                 );
               });
