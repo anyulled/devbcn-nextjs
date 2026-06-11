@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { getEditionConfig } from "@/config/editions";
 import { SessionGroup, Speaker, Talk } from "./types";
-import { getSpeakers } from "./useSpeakers";
+import { getSpeakersMap } from "./useSpeakers";
 
 import { getSessionizeFetchOptions } from "@/lib/revalidate";
 
@@ -139,11 +139,15 @@ export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
  * Get full speaker details (with profile pictures) for a talk's speakers
  */
 export const getTalkSpeakersWithDetails = async (year: string | number, speakerIds: string[]): Promise<Speaker[]> => {
-  const speakers = await getSpeakers(year);
-
-  /* Use a Set to keep speaker membership checks fast as speaker lists grow. */
-  const speakerIdsSet = new Set(speakerIds);
-  return speakers.filter((s) => speakerIdsSet.has(s.id));
+  const speakersMap = await getSpeakersMap(year);
+  const result: Speaker[] = [];
+  speakerIds.forEach((id) => {
+    const speaker = speakersMap.get(id);
+    if (speaker) {
+      result.push(speaker);
+    }
+  });
+  return result;
 };
 
 export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
