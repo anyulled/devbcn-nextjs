@@ -14,10 +14,13 @@ interface SpeakerCardProps {
 }
 
 export default function SpeakerCard({ name, position, image, links, speakerId, year }: Readonly<SpeakerCardProps>) {
-  const socialLinks = links.reduce((acc, link) => {
-    acc[link.linkType] = link.url;
-    return acc;
-  }, {} as Record<string, string>);
+  const socialLinks = links.reduce(
+    (acc, link) => {
+      acc[link.linkType] = link.url;
+      return acc;
+    },
+    {} as Record<string, string>
+  );
 
   return (
     <motion.div whileHover={{ y: -5, transition: { duration: 0.2 } }} className="speaker-card">
