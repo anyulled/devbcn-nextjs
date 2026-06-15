@@ -97,7 +97,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "lint-staged": "^17.0.7",
     "portless": "^0.13.0",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "schema-dts": "^2.0.0",
     "start-server-and-test": "^3.0.5",
     "stylelint": "^17.13.0",
