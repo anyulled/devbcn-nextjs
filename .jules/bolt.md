@@ -2,3 +2,11 @@
 
 **Learning:** In Next.js/React applications, when grouping items (like schedules or talks) into a `Map` where the values are arrays, using the array spread operator `[...existing, item]` inside a loop (like `forEach` or `map`) causes amortized O(N^2) memory allocations and unnecessary Garbage Collection overhead.
 **Action:** Always use `.push()` on the existing array reference if the data structure permits local mutation. For strict ESLint configurations enforcing `no-restricted-syntax`, extract the existing array, push to it, and handle the fallback elegantly (`if (!existing) { map.set(key, [item]); } else { existing.push(item); }`).
+
+## 2024-05-18 - Avoid array spreads inside loops for Map grouping
+**Learning:** In Next.js/React applications, when grouping items (like schedules or talks) into a `Map` where the values are arrays, using the array spread operator `[...existing, item]` inside a loop (like `forEach` or `map`) causes amortized O(N^2) memory allocations and unnecessary Garbage Collection overhead.
+**Action:** Always use `.push()` on the existing array reference if the data structure permits local mutation. For strict ESLint configurations enforcing `no-restricted-syntax`, extract the existing array, push to it, and handle the fallback elegantly (`if (!existing) { map.set(key, [item]); } else { existing.push(item); }`).
+
+## 2024-06-23 - Fast Dictionary Lookups
+**Learning:** In Next.js/React applications, when looking up static configuration values from objects, using `Object.entries(obj).find(([key]) => key === target)?.[1]` introduces unnecessary array allocations and linear search overhead.
+**Action:** Use direct property lookups `obj[target]` (with appropriate typescript type casts if necessary like `target as keyof typeof obj`) for O(1) performance and clearer, less-allocating code.
