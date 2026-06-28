@@ -2,3 +2,7 @@
 
 **Learning:** In Next.js/React applications, when grouping items (like schedules or talks) into a `Map` where the values are arrays, using the array spread operator `[...existing, item]` inside a loop (like `forEach` or `map`) causes amortized O(N^2) memory allocations and unnecessary Garbage Collection overhead.
 **Action:** Always use `.push()` on the existing array reference if the data structure permits local mutation. For strict ESLint configurations enforcing `no-restricted-syntax`, extract the existing array, push to it, and handle the fallback elegantly (`if (!existing) { map.set(key, [item]); } else { existing.push(item); }`).
+## 2024-05-18 - Single-Pass Tag Filtering Optimization
+
+**Learning:** When retrieving a specific tag for display from a large dataset of array-mapped items (like tags nested in talks), using `allTalks.flatMap(...).find(...)` in combination with a subsequent `allTalks.filter(...)` forces V8 to allocate massive intermediary flattened arrays just to extract a single string, and then run O(N) array traversals twice.
+**Action:** Replace `flatMap().find()` loops with nested `.some()` checks using a shared mutating state object (e.g., `const state: { displayTag?: string } = {};`). This enables single-pass execution and O(1) early break-outs when the first match is found, eliminating the excessive memory bloat of intermediary `.flatMap()` allocations. Always incorporate this search state directly within the necessary array filtering iterations if both are executing the identical `.some()` logic.
