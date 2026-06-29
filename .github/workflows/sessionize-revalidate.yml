@@ -19,7 +19,7 @@ jobs:
 
       - name: Restore cached fingerprint
         id: restore-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .sessionize-fingerprint
           key: sessionize-fingerprint
@@ -51,7 +51,7 @@ jobs:
 
       - name: Save fingerprint cache
         if: steps.current.outputs.fingerprint != steps.cached.outputs.fingerprint
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .sessionize-fingerprint
           key: sessionize-fingerprint
