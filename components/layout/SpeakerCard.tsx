@@ -13,11 +13,15 @@ interface SpeakerCardProps {
   year: number;
 }
 
-const extractSocialLink = (links: LinkType[], linkType: string) => {
-  return links.find((link) => link.linkType === linkType)?.url;
-};
-
 export default function SpeakerCard({ name, position, image, links, speakerId, year }: Readonly<SpeakerCardProps>) {
+  const socialLinks = links.reduce(
+    (acc, link) => {
+      acc[link.linkType] = link.url;
+      return acc;
+    },
+    {} as Record<string, string>
+  );
+
   return (
     <motion.div whileHover={{ y: -5, transition: { duration: 0.2 } }} className="speaker-card">
       <div className="speaker-image-wrapper">
@@ -34,23 +38,23 @@ export default function SpeakerCard({ name, position, image, links, speakerId, y
         {position && <p className="speaker-position mb-0">{position}</p>}
 
         <div className="speaker-socials">
-          {extractSocialLink(links, "Twitter") && (
-            <Link href={extractSocialLink(links, "Twitter")!} className="social-link">
+          {socialLinks.Twitter && (
+            <Link href={socialLinks.Twitter} className="social-link">
               <i className="fa-brands fa-twitter fa-lg" />
             </Link>
           )}
-          {extractSocialLink(links, "LinkedIn") && (
-            <Link href={extractSocialLink(links, "LinkedIn")!} className="social-link">
+          {socialLinks.LinkedIn && (
+            <Link href={socialLinks.LinkedIn} className="social-link">
               <i className="fa-brands fa-linkedin-in fa-lg" />
             </Link>
           )}
-          {extractSocialLink(links, "Instagram") && (
-            <Link href={extractSocialLink(links, "Instagram")!} className="social-link">
+          {socialLinks.Instagram && (
+            <Link href={socialLinks.Instagram} className="social-link">
               <i className="fa-brands fa-instagram fa-lg" />
             </Link>
           )}
-          {extractSocialLink(links, "bluesky") && (
-            <Link href={extractSocialLink(links, "bluesky")!} className="social-link">
+          {socialLinks.bluesky && (
+            <Link href={socialLinks.bluesky} className="social-link">
               <i className="fa-brands fa-bluesky fa-lg" />
             </Link>
           )}
