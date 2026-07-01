@@ -73,8 +73,7 @@ export default async function TagPage({ params }: Readonly<TagPageProps>) {
 
   const displayTag =
     filteredTalks.length > 0
-      ? getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ??
-        decodedTag.replaceAll("-", " ")
+      ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
       : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
