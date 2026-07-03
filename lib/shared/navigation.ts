@@ -17,7 +17,9 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
 
   const hasSchedule = schedule.length > 0;
 
-  const editionCfp = Object.entries(cfpData).find(([y]) => y === year)?.[1];
+  const editionCfp = Object.prototype.hasOwnProperty.call(cfpData, year)
+    ? (cfpData as Record<string, (typeof cfpData)[keyof typeof cfpData] | undefined>)[year]
+    : undefined;
   const hasCfp = editionCfp ? editionCfp.some((track) => track.members && track.members.length > 0) : false;
 
   const hasDiversity = config.diversity.sponsors.length > 0;
@@ -39,7 +41,9 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
     return links
       .filter((link) => {
         if (!link.condition) return true;
-        const conditionValue = Object.entries(conditions).find(([key]) => key === link.condition)?.[1];
+        const conditionValue = Object.prototype.hasOwnProperty.call(conditions, link.condition)
+          ? (conditions as Record<string, boolean | undefined>)[link.condition]
+          : undefined;
         return !!conditionValue;
       })
       .map((link) => {
