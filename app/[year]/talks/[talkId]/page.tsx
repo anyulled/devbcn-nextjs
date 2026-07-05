@@ -30,21 +30,24 @@ interface TalkDetailProps {
 
 export async function generateStaticParams() {
   const years = getArchivedEditions();
-  const params = [];
-
-  for (const year of years) {
-    try {
-      const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
-      for (const talk of allTalks) {
-        params.push({ year, talkId: talk.id });
+  const paramsArrays = await Promise.all(
+    years.map(async (year) => {
+      const yearParams = [];
+      try {
+        const sessionGroups = await getTalks(year);
+        for (const group of sessionGroups) {
+          for (const talk of group.sessions) {
+            yearParams.push({ year, talkId: talk.id });
+          }
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch talks for year ${year}:`, error);
       }
-    } catch (error) {
-      console.warn(`Failed to fetch talks for year ${year}:`, error);
-    }
-  }
+      return yearParams;
+    })
+  );
 
-  return params;
+  return paramsArrays.flat();
 }
 
 export async function generateMetadata({ params }: TalkDetailProps): Promise<Metadata> {
@@ -138,7 +141,6 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
       ))}
       <Script id="talk-breadcrumb-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
 
-      {/* Main Content from Reusable Component */}
       <TalkContent
         talk={talk}
         speakers={speakers}
@@ -151,7 +153,6 @@ export default async function TalkDetail({ params }: Readonly<TalkDetailProps>) 
         level={level}
       />
 
-      {/* Related Talks Section */}
       <RelatedTalks relatedTalks={relatedTalks} relatedTalksSpeakers={relatedTalksSpeakers} year={year} />
 
       <CTASection
