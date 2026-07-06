@@ -17,7 +17,7 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
 
   const hasSchedule = schedule.length > 0;
 
-  const editionCfp = Object.prototype.hasOwnProperty.call(cfpData, year) ? cfpData[year as keyof typeof cfpData] : undefined;
+  const editionCfp = Object.hasOwn(cfpData, year) ? cfpData[year] : undefined;
   const hasCfp = editionCfp ? editionCfp.some((track) => track.members && track.members.length > 0) : false;
 
   const hasDiversity = config.diversity.sponsors.length > 0;
