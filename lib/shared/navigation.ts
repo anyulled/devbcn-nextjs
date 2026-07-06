@@ -39,7 +39,7 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
     return links
       .filter((link) => {
         if (!link.condition) return true;
-        const conditionValue = link.condition && Object.prototype.hasOwnProperty.call(conditions, link.condition) ? conditions[link.condition as keyof typeof conditions] : undefined;
+        const conditionValue = Object.hasOwn(conditions, link.condition) ? conditions[link.condition] : undefined;
         return !!conditionValue;
       })
       .map((link) => {
