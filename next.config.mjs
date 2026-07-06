@@ -17,6 +17,16 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cdn.sessionize.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cache.sessionize.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "devbcn-nextjs.vercel.app",
         pathname: "/**",
       },
