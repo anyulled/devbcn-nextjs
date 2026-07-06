@@ -30,21 +30,21 @@ interface TalkDetailProps {
 
 export async function generateStaticParams() {
   const years = getArchivedEditions();
-  const params = [];
 
-  for (const year of years) {
-    try {
-      const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
-      for (const talk of allTalks) {
-        params.push({ year, talkId: talk.id });
+  const nestedParams = await Promise.all(
+    years.map(async (year) => {
+      try {
+        const sessionGroups = await getTalks(year);
+        const allTalks = sessionGroups.flatMap((group) => group.sessions);
+        return allTalks.map((talk) => ({ year, talkId: talk.id }));
+      } catch (error) {
+        console.warn(`Failed to fetch talks for year ${year}:`, error);
+        return [];
       }
-    } catch (error) {
-      console.warn(`Failed to fetch talks for year ${year}:`, error);
-    }
-  }
+    })
+  );
 
-  return params;
+  return nestedParams.flat();
 }
 
 export async function generateMetadata({ params }: TalkDetailProps): Promise<Metadata> {
