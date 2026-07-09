@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-05-25 - Avoid repeated .find lookups inside loops
+
+**Learning:** Repeated lookups in arrays using `.find` inside loops is a major O(N^2) bottleneck.
+**Action:** Use a cached `Map` derived from the array for O(1) time complexity.
