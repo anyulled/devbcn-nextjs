@@ -74,8 +74,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: authUsersError.message }, { status: 500 });
   }
 
-  const userIdByEmail = new Map(authUsersPage.users.filter((user) => Boolean(user.email)).map((user) => [user.email!.toLowerCase(), user.id]));
-
   const { data: sponsor, error: sponsorInsertError } = await supabase
     .from("sponsors")
     .insert({
@@ -105,7 +103,7 @@ export async function POST(request: Request) {
         sponsor_id: sponsor.id,
         email: contact.email,
         name: contact.name,
-        user_id: userIdByEmail.get(contact.email) ?? null,
+        user_id: authUsersPage.users.find((u) => u.email?.toLowerCase() === contact.email)?.id ?? null,
       }))
     );
 

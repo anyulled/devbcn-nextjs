@@ -81,8 +81,6 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     return NextResponse.json({ error: authUsersError.message }, { status: 500 });
   }
 
-  const userIdByEmail = new Map(authUsersPage.users.filter((user) => Boolean(user.email)).map((user) => [user.email!.toLowerCase(), user.id]));
-
   const { error: sponsorUpdateError } = await supabase
     .from("sponsors")
     .update({
@@ -118,7 +116,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
         sponsor_id: parsedId.data,
         email: contact.email,
         name: contact.name,
-        user_id: userIdByEmail.get(contact.email) ?? null,
+        user_id: authUsersPage.users.find((u) => u.email?.toLowerCase() === contact.email)?.id ?? null,
       }))
     );
 
