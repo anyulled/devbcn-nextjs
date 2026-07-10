@@ -91,7 +91,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  urls.push(...yearUrlsArrays.flat());
+  for (const url of yearUrlsArrays.flat()) {
+    urls.push(url);
+  }
 
   return urls;
 }
