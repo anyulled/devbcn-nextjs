@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2026-07-13 - Avoid flatMap followed by find for string matching in loops
+
+**Learning:** Using `array.flatMap(fn).find(fn)` pattern inside a page component to find a specific string match across nested arrays (like finding a matching tag for a talk) creates unnecessary full array traversals and string allocations, especially when dealing with large datasets during build time (e.g. `generateMetadata` or page rendering). This causes O(N\*M) string replacements and allocations.
+**Action:** Use a nested `for...of` loop or `.find()` with `.some()` internally to allow for early break/return as soon as the match is found, eliminating unnecessary array flattening and string manipulation overhead.
