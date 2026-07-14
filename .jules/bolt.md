@@ -7,3 +7,7 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-05-18 - Optimize array derivations to avoid redundant traversals
+**Learning:** In React components and Next.js route handlers, when extracting a specific property (like a display name) from an item that is already part of a derived, filtered array, chained methods (e.g., `flatMap().find()`) create unnecessary array allocations and duplicate O(N) traversals.
+**Action:** Use a single filtering traversal that caches or extracts the derived information upon finding a match, or directly extract the value from the returned filtered array (e.g., `filteredArray[0]`) instead of traversing the entire original array again.

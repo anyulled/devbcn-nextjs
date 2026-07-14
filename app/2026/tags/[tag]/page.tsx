@@ -37,11 +37,16 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const { tag } = await params;
   const year = "2026";
   const decodedTag = decodeURIComponent(tag);
+  const decodedTagNormalized = decodedTag.toLowerCase();
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+
+  const matchedTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTagNormalized));
+
+  const displayTag = matchedTalk
+    ? (getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTagNormalized) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -58,14 +63,18 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const decodedTagNormalized = decodedTag.toLowerCase();
 
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTagNormalized);
   });
+
+  const matchedTalk = filteredTalks[0];
+  const displayTag = matchedTalk
+    ? (getTagsFromTalk(matchedTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTagNormalized) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
     notFound();
