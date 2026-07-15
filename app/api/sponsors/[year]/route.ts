@@ -62,17 +62,14 @@ function processSponsorLists(sponsorsData: Record<string, Sponsor[] | null>): Ar
   for (const [key, sponsorsList] of Object.entries(sponsorsData)) {
     if (sponsorsList && Array.isArray(sponsorsList)) {
       const categoryName = mapSponsorCategory(key);
-      flatSponsors.push(
-        ...sponsorsList.map((sponsor) => {
-          const imageUrl = sponsor.image.startsWith("http") ? sponsor.image : `${BASE_URL}${sponsor.image.startsWith("/") ? "" : "/"}${sponsor.image}`;
-
-          return {
-            name: sponsor.name,
-            category: categoryName,
-            image: imageUrl,
-          };
-        })
-      );
+      for (const sponsor of sponsorsList) {
+        const imageUrl = sponsor.image.startsWith("http") ? sponsor.image : `${BASE_URL}${sponsor.image.startsWith("/") ? "" : "/"}${sponsor.image}`;
+        flatSponsors.push({
+          name: sponsor.name,
+          category: categoryName,
+          image: imageUrl,
+        });
+      }
     }
   }
 
