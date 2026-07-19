@@ -7,3 +7,7 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-03-24 — [Next.js Build Parallelization with Nested Array Traversal Optimization]
+**Learning:** When using Next.js build-time functions like `generateStaticParams` and `generateMetadata` with complex nested data structures (e.g. `allTalks.flatMap(getTagsFromTalk).find(...)`), redundant full-array flat-mapping and repeated lowercasing of search strings inside the callbacks can significantly inflate memory usage and processing time, leading to O(N) traversals per request.
+**Action:** Always pre-compute invariant strings (like lowercasing the target tag) outside the loop. Use a combination of `.find()` with `.some()` (e.g., `allTalks.find(talk => getTagsFromTalk(talk).some(...))`) to lazily locate matching parents without instantiating massive flattened child arrays, thereby optimizing React Server Components and build-time metadata generation.
