@@ -41,8 +41,10 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const talkWithTag = allTalks.find(talk => getTagsFromTalk(talk).some(t => t.replaceAll(" ", "-").toLowerCase() === targetTag));
-  const displayTag = talkWithTag ? getTagsFromTalk(talkWithTag).find(t => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " ") : decodedTag.replaceAll("-", " ");
+  const talkWithTag = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag));
+  const displayTag = talkWithTag
+    ? (getTagsFromTalk(talkWithTag).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -66,7 +68,7 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   });
 
   const displayTag = filteredTalks[0]
-    ? getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " ")
+    ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
