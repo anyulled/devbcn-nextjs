@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
-    "@supabase/ssr": "^0.12.0",
+    "@supabase/ssr": "^0.12.3",
     "@supabase/supabase-js": "^2.110.3",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@uiw/react-md-editor": "^4.1.1",
@@ -42,12 +42,12 @@
     "date-fns": "^4.4.0",
     "framer-motion": "^12.42.2",
     "gsap": "^3.15.0",
-    "lucide-react": "^1.24.0",
+    "lucide-react": "^1.25.0",
     "next": "16.2.10",
     "react": "^19.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.0",
-    "react-hook-form": "^7.81.0",
+    "react-hook-form": "^7.82.0",
     "react-modal-video": "^2.0.2",
     "react-slick": "^0.31.0",
     "sass": "^1.101.0",
@@ -96,7 +96,7 @@
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
     "lint-staged": "^17.0.7",
-    "portless": "^0.15.1",
+    "portless": "^0.15.4",
     "prettier": "^3.8.3",
     "schema-dts": "^2.0.0",
     "start-server-and-test": "^3.0.11",
@@ -137,6 +137,6 @@
     "glob": {
       "minimatch": "^3.0.4"
     },
-    "systeminformation": "^5.31.6"
+    "systeminformation": "^5.33.0"
   }
 }
