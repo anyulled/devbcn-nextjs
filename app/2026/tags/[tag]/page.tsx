@@ -3,6 +3,7 @@ import TalkCard from "@/components/layout/TalkCard";
 import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";
 import { getTagsFromTalk, getTalks } from "@/hooks/useTalks";
+import { Talk } from "@/hooks/types";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -39,9 +40,21 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const decodedTag = decodeURIComponent(tag);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const targetTagLower = decodedTag.toLowerCase();
+
+  const state = { matchedTag: undefined as string | undefined };
+  sessionGroups.some((group) =>
+    group.sessions.some((talk) => {
+      const found = getTagsFromTalk(talk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagLower);
+      if (found) {
+        state.matchedTag = found;
+        return true;
+      }
+      return false;
+    })
+  );
+
+  const displayTag = state.matchedTag ?? decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -56,16 +69,28 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const eventData = getEditionConfig(year);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const targetTagLower = decodedTag.toLowerCase();
 
-  const filteredTalks = allTalks.filter((talk) => {
-    const talkTags = getTagsFromTalk(talk);
+  const state = {
+    filteredTalks: [] as Talk[],
+    displayTag: undefined as string | undefined,
+  };
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+  sessionGroups.forEach((group) => {
+    group.sessions.forEach((talk) => {
+      const matchedTag = getTagsFromTalk(talk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTagLower);
+      if (matchedTag) {
+        if (!state.displayTag) {
+          state.displayTag = matchedTag;
+        }
+        state.filteredTalks.push(talk);
+      }
+    });
   });
+
+  const displayTag = state.displayTag ?? decodedTag.replaceAll("-", " ");
+  const filteredTalks = state.filteredTalks;
 
   if (filteredTalks.length === 0) {
     notFound();
