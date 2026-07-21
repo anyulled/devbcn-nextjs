@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-07-21 - Avoiding flatMap().find() for O(N) traversals
+
+**Learning:** The pattern `array.flatMap(mapFn).find(findFn)` causes unnecessary O(N) memory allocations for intermediate arrays and forces full linear traversal. This is highly inefficient in hot paths or large datasets.
+**Action:** Replaced `flatMap().find()` with a localized `Array.find()` incorporating `Array.some()` for early breakout when extracting specific values from nested arrays without allocating massive intermediate structures.
