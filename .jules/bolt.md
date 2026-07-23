@@ -7,3 +7,13 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-05-18 - Replacing Object.entries() map + spread with direct push
+
+**Learning:** Using `...sponsorsList.map(...)` inside an array `.push()` creates unnecessary intermediate array allocations and risks "Maximum call stack size exceeded" for very large lists. Using `Object.entries(sponsorsData)` also incurs an `O(N)` array allocation.
+**Action:** Use a `for...of` loop with `Object.entries()` (or standard `for...in` + `hasOwnProperty`) and push items individually to the accumulator array to optimize memory overhead.
+
+## 2024-05-18 - Optimizing deep lookups instead of flatMap
+
+**Learning:** Using `array.flatMap(fn).find(fn)` allocates a massive temporary array unnecessarily, consuming memory.
+**Action:** Use `array.find(item => item.children.some(fn))` to lazily short-circuit lookups without allocating a flattened intermediate array, minimizing memory consumption and garbage collection overhead.
