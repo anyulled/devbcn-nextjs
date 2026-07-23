@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-05-24 — [Avoid flatMap and find chain in large arrays]
+
+**Learning:** When filtering and searching large datasets to derive multiple outputs (e.g., a filtered list and a specific matching item for display) in Next.js page generation, using `flatMap` followed by `find` creates unnecessary intermediate arrays, leading to O(N) allocation overhead. Using `reduce` to mutate an accumulator object allows single-pass execution.
+**Action:** Use a single iteration with `reduce` and an accumulator object instead of multiple `flatMap` or `filter` calls in performance-critical paths.
