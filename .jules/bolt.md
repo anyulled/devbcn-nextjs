@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2026-07-07 - Avoid redundant string operations and full array traversal in find/filter
+
+**Learning:** When searching for an element in an array and filtering items, calling `.toLowerCase()` or `.replaceAll()` on the target string inside the loop creates redundant string allocations. Additionally, chaining `.flatMap().find()` traverses the entire array, whereas `.some()` with a state object allows for O(1) early breakout while safely adhering to \`no-restricted-syntax\` (no \`let\`) rules.
+**Action:** Pre-calculate target variables outside the loop. Avoid \`.flatMap().find()\` in favor of nested \`some()\` with an external state object to safely store the found item and exit early, without mutating an outer variable directly.
