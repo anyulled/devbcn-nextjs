@@ -23,12 +23,13 @@ export async function generateStaticParams() {
   for (const year of years) {
     try {
       const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
       const allTags = new Set<string>();
 
-      for (const talk of allTalks) {
-        getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
-      }
+      sessionGroups.forEach((group) => {
+        group.sessions.forEach((talk) => {
+          getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        });
+      });
 
       for (const tag of allTags) {
         params.push({ year, tag: tag.replaceAll(" ", "-").toLowerCase() });
@@ -44,11 +45,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Readonly<TagPageProps>): Promise<Metadata> {
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
+  const targetTag = decodedTag.toLowerCase();
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const matchingTalk = allTalks.find((talk) =>
+    getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag)
+  );
+  const displayTag = matchingTalk
+    ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -59,18 +65,23 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
 export default async function TagPage({ params }: Readonly<TagPageProps>) {
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
+  const targetTag = decodedTag.toLowerCase();
   const eventData = getEditionConfig(year);
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const matchingTalk = allTalks.find((talk) =>
+    getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag)
+  );
+  const displayTag = matchingTalk
+    ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag);
   });
 
   if (filteredTalks.length === 0) {
