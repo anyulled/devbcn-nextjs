@@ -111,9 +111,13 @@ export const getSlidesUrl = (talk: Talk): string | null => {
  * Get all unique track names from session groups
  */
 export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const tracks = allTalks.map((talk) => getTrackFromTalk(talk));
-  return [...new Set(tracks)].sort();
+  const tracksSet = new Set<string>();
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      tracksSet.add(getTrackFromTalk(talk));
+    }
+  }
+  return [...tracksSet].sort();
 };
 
 /**
