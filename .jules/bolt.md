@@ -7,6 +7,7 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
 ## 2024-05-19 - Avoid flatMap().find() for early exit searches
 
 **Learning:** Using `array.flatMap().find()` forces the creation of a completely new array, mapping over every single item even if the matching item is found immediately. This leads to O(N) full array traversals and excessive memory allocations.

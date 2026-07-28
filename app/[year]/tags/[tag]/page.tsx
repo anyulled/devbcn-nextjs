@@ -49,9 +49,7 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const matchingTalk = allTalks.find((talk) =>
-    getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag)
-  );
+  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag));
   const displayTag = matchingTalk
     ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
@@ -71,9 +69,7 @@ export default async function TagPage({ params }: Readonly<TagPageProps>) {
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const matchingTalk = allTalks.find((talk) =>
-    getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag)
-  );
+  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag));
   const displayTag = matchingTalk
     ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === targetTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
