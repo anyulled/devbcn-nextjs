@@ -23,7 +23,10 @@ export async function generateStaticParams() {
   for (const year of years) {
     try {
       const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
+      const allTalks = [];
+      for (const group of sessionGroups) {
+      allTalks.push(...group.sessions);
+    }
       const allTags = new Set<string>();
 
       for (const talk of allTalks) {
@@ -45,10 +48,19 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
 
+  const normalizedTarget = decodedTag.toLowerCase();
+
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const allTalks = [];
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      allTalks.push(talk);
+    }
+  }
+  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTarget));
+  const displayTag = matchingTalk
+    ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTarget) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -59,19 +71,26 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
 export default async function TagPage({ params }: Readonly<TagPageProps>) {
   const { year, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
+  const normalizedTarget = decodedTag.toLowerCase();
   const eventData = getEditionConfig(year);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const allTalks = [];
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      allTalks.push(talk);
+    }
+  }
 
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTarget);
   });
+
+  const displayTag = filteredTalks[0]
+    ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTarget) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
     notFound();
