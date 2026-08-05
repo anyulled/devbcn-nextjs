@@ -3,8 +3,6 @@ import { DEVBCN_LOGO_BASE64 } from "@/lib/og-logo";
 import { getOpenGraphCacheControl } from "@/lib/revalidate";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 export const alt = "DevBcn Speaker";
 export const size = {
   width: 1200,
