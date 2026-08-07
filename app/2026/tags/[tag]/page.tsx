@@ -37,11 +37,14 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const { tag } = await params;
   const year = "2026";
   const decodedTag = decodeURIComponent(tag);
+  const normalizedTag = decodedTag.toLowerCase();
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
+  const talkWithTag = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTag));
+  const displayTag = talkWithTag
+    ? (getTagsFromTalk(talkWithTag).find((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTag) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   return {
     title: `Talks tagged "${displayTag}" - DevBcn ${year}`,
@@ -54,18 +57,20 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const year = "2026";
   const decodedTag = decodeURIComponent(tag);
   const eventData = getEditionConfig(year);
+  const normalizedTag = decodedTag.toLowerCase();
 
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
-  const displayTag =
-    allTalks.flatMap(getTagsFromTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase()) ?? decodedTag.replaceAll("-", " ");
-
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === decodedTag.toLowerCase());
+    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTag);
   });
+
+  const displayTag = filteredTalks[0]
+    ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === normalizedTag) ?? decodedTag.replaceAll("-", " "))
+    : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
     notFound();
