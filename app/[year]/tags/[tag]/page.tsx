@@ -23,11 +23,12 @@ export async function generateStaticParams() {
   for (const year of years) {
     try {
       const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
       const allTags = new Set<string>();
 
-      for (const talk of allTalks) {
-        getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+      for (const group of sessionGroups) {
+        group.sessions.forEach((talk) => {
+          getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
+        });
       }
 
       for (const tag of allTags) {
@@ -46,9 +47,11 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
   const decodedTag = decodeURIComponent(tag);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
   const searchTag = decodedTag.toLowerCase();
-  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag));
+  const matchingGroup = sessionGroups.find((group) =>
+    group.sessions.some((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag))
+  );
+  const matchingTalk = matchingGroup?.sessions.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag));
   const displayTag = matchingTalk
     ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
@@ -65,15 +68,16 @@ export default async function TagPage({ params }: Readonly<TagPageProps>) {
   const eventData = getEditionConfig(year);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-
   const searchTag = decodedTag.toLowerCase();
+  const filteredTalks: import("@/hooks/types").Talk[] = [];
 
-  const filteredTalks = allTalks.filter((talk) => {
-    const talkTags = getTagsFromTalk(talk);
-
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag);
-  });
+  for (const group of sessionGroups) {
+    group.sessions.forEach((talk) => {
+      if (getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag)) {
+        filteredTalks.push(talk);
+      }
+    });
+  }
 
   const displayTag = filteredTalks[0]
     ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag) ?? decodedTag.replaceAll("-", " "))
