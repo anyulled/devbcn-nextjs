@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2024-08-10 — Avoid flatMap with conditional checks for intermediate arrays
+
+**Learning:** Using chained array methods or `.flatMap()` that iterate and conditionally extract values adds O(N) memory allocation and garbage collection overhead. In Next.js/React apps where large payloads process frequently, allocating temporary intermediate arrays degrades memory efficiency.
+**Action:** Use nested `for...of` loops and push conditionally to a pre-allocated array instead of chained array operations for filtering/extracting.
