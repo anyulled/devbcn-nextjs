@@ -10,23 +10,19 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Footer8", () => {
-  it("renders optimized background image", async () => {
+  it("uses a CSS background instead of rendering a background image", async () => {
     const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
     render(<Footer8 />);
 
-    const img = screen.getByRole("img", { name: "Footer Background" });
-    expect(img).toBeInTheDocument();
-    expect(img.getAttribute("src")).toContain("header-bg21.png");
+    expect(screen.queryByRole("img", { name: "Footer Background" })).not.toBeInTheDocument();
   });
 
-  it("renders layer1 decorative image with explicit dimensions", async () => {
+  it("does not render a decorative footer background image", async () => {
     const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
     const { container } = render(<Footer8 />);
 
     const layer1 = container.querySelector('img[src*="layer1.png"]');
-    expect(layer1).toBeInTheDocument();
-    expect(layer1?.getAttribute("width")).toBe("1440");
-    expect(layer1?.getAttribute("height")).toBe("230");
+    expect(layer1).not.toBeInTheDocument();
   });
 
   it("renders logo image with explicit dimensions", async () => {

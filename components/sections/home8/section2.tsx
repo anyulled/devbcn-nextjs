@@ -1,7 +1,6 @@
 "use client";
 import CountUp from "react-countup";
 import Countdown from "@/components/elements/Countdown";
-import Image from "next/image";
 
 interface Section2Props {
   eventDate: string;
@@ -10,12 +9,7 @@ interface Section2Props {
 
 export default function Section2({ eventDate, showCountdown }: Readonly<Section2Props>) {
   return (
-    <div className="conference-stats">
-      {/* Background with reused image */}
-      <div className="conference-stats__bg">
-        <Image src="/assets/img/bg/header-bg20.png" alt="Background Texture" fill style={{ objectFit: "cover" }} priority />
-      </div>
-
+    <div className="conference-stats home8-purple-surface">
       <div className="container">
         <div className="conference-stats__content">
           {/* Intro Section */}

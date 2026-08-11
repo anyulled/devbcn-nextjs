@@ -1769,17 +1769,25 @@
 // Homepage 08 //
 
 .footer8-sertion-area {
+  background-color: #401277;
+  isolation: isolate;
   position: relative;
   z-index: 1;
   padding: 200px 0 32px;
 
-  .layer1 {
+  &::before {
+    background: linear-gradient(180deg, #f4f1f7 0%, rgb(223 211 230 / 0.8) 14%, rgb(64 18 119 / 0) 100%);
+    content: "";
+    height: 190px;
     position: absolute;
-    top: -190px;
+    top: 0;
     width: 100%;
-    z-index: -2;
-    height: 250px;
-    aspect-ratio: 1440 / 230;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
   }
 
   .footer-logo-area {

@@ -1,18 +1,11 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3({ year = "2026" }: Readonly<{ year?: string }>) {
   return (
-    <div
-      className="event8-section-area sp1"
-      style={{
-        backgroundImage: "url(assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="event8-section-area home8-purple-surface sp1">
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">
@@ -179,8 +172,14 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                                 </div>
                               </div>
                               <div className="col-lg-5">
-                                <div className="img1">
-                                  <img src="/assets/img/features/ama-sessions.png" alt="AMA Sessions" />
+                                <div className="img1 event-feature-image">
+                                  <Image
+                                    src="/assets/img/features/ama-sessions.png"
+                                    alt="AMA Sessions"
+                                    width={1024}
+                                    height={1024}
+                                    sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1199px) 33vw, 20vw"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -206,8 +205,14 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                                 </div>
                               </div>
                               <div className="col-lg-5">
-                                <div className="img1">
-                                  <img src="/assets/img/features/speaking-mentoring.png" alt="Speaking Mentoring" />
+                                <div className="img1 event-feature-image">
+                                  <Image
+                                    src="/assets/img/features/speaking-mentoring.png"
+                                    alt="Speaking Mentoring"
+                                    width={1024}
+                                    height={1024}
+                                    sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1199px) 33vw, 20vw"
+                                  />
                                 </div>
                               </div>
                             </div>

@@ -1,7 +1,6 @@
 "use client";
 import BackToTop from "@/components/elements/BackToTop";
 import Footer8 from "@/components/layout/footer/Footer8";
-import AOS from "aos";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AddClassBody from "../elements/AddClassBody";
@@ -9,7 +8,7 @@ import AddClassBody from "../elements/AddClassBody";
 export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
   const isPortalLayout = pathname?.startsWith("/admin") || pathname?.startsWith("/sponsor");
-  const isMinimalLayout = isPortalLayout || pathname?.includes("/convince-your-boss") || pathname === "/sw-reset";
+  const isMinimalLayout = isPortalLayout || pathname?.includes("/convince-your-boss");
 
   useEffect(() => {
     const handleHashScroll = () => {
@@ -31,18 +30,13 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
   }, [pathname]);
 
   useEffect(() => {
-    AOS.init();
-  }, []);
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-
-    if (!url.searchParams.has("devbcn-sw-cleanup")) {
-      return;
-    }
-
-    url.searchParams.delete("devbcn-sw-cleanup");
-    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    void import("aos")
+      .then(({ default: aos }) => {
+        aos.init();
+      })
+      .catch((error: unknown) => {
+        console.error("Unable to initialize animations:", error);
+      });
   }, []);
 
   return (

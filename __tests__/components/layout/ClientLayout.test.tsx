@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, jest } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 
 const aosInit = jest.fn();
@@ -41,6 +41,8 @@ describe("ClientLayout", () => {
     expect(screen.getByTestId("child")).toBeInTheDocument();
     expect(screen.getByTestId("footer-8")).toBeInTheDocument();
     expect(screen.getByTestId("back-to-top")).toHaveAttribute("data-target", "#top");
-    expect(aosInit).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(aosInit).toHaveBeenCalledTimes(1);
+    });
   });
 });
