@@ -248,6 +248,12 @@ const eslintConfig = [
       ".agent/**",
       "__mocks__/**",
       "docs/api/**",
+      "public/sw.js",
+      "public/sw.js.map",
+      "public/workbox-*.js",
+      "public/workbox-*.js.map",
+      "public/swe-worker-*.js",
+      "public/swe-worker-*.js.map",
     ],
   },
 ];
