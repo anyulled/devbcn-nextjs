@@ -39,7 +39,12 @@ export async function getPortalAccess(supabase: SupabaseClient): Promise<PortalA
   ]);
 
   const role = normalizeRole(roleRow?.role);
-  const sponsorIds = (sponsorRows ?? []).flatMap((row) => (typeof row.sponsor_id === "string" ? [row.sponsor_id] : []));
+  const sponsorIds: string[] = [];
+  for (const row of sponsorRows ?? []) {
+    if (typeof row.sponsor_id === "string") {
+      sponsorIds.push(row.sponsor_id);
+    }
+  }
 
   return {
     user,
