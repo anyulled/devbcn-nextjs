@@ -10,7 +10,7 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Footer8", () => {
-  it("uses a CSS background instead of rendering a background image", async () => {
+  it("does not render a footer background image", async () => {
     const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
     render(<Footer8 />);
 

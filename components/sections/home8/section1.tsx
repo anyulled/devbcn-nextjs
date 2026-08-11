@@ -40,9 +40,9 @@ export default function Section1({ year }: Readonly<Section1Props>) {
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">
-            <motion.div className="hero8-header text-center">
+            <div className="hero8-header text-center">
               <div className="hero8-header__branding">
-                <motion.h1 className="text-anime-style-3 d-flex justify-content-center align-items-center flex-wrap gap-4">
+                <h1 className="text-anime-style-3 d-flex justify-content-center align-items-center flex-wrap gap-4">
                   <Image
                     src="/assets/img/logo/logo.png"
                     alt="DevBcn - Barcelona Developers Conference"
@@ -56,11 +56,11 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                       <Image src="/assets/img/logo/KCD-logo-white.webp" alt="KCD Barcelona" width={400} height={120} priority className="hero-logo-kcd" />
                     </Link>
                   )}
-                </motion.h1>
+                </h1>
 
-                <motion.h4 className="hero8-header__subtitle">The Barcelona Developers Conference</motion.h4>
+                <h4 className="hero8-header__subtitle">The Barcelona Developers Conference</h4>
 
-                <motion.div className="hero8-header__event-info">
+                <div className="hero8-header__event-info">
                   <div className="hero8-header__event-line">
                     <MapPin className="hero8-header__event-icon" />
                     <span>{config.venue.name}</span>
@@ -69,13 +69,13 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                     <CalendarDays className="hero8-header__event-icon" />
                     <span>{formatEventDateRange(config.event.startDay, config.event.endDay)}</span>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <div className="hero8-header__spacer" />
 
               <div className="hero8-header__actions">
-                <motion.div className="hero8-header__special-highlight">
+                <div className="hero8-header__special-highlight">
                   <span className="hero8-header__special-kicker">New at DevBcn {year}</span>
                   <h5 className="hero8-header__special-title">Private AMA Sessions + Public Speaking Mentoring</h5>
                   <p className="hero8-header__special-copy">Limited seats and direct access to speakers. Book your spot before sessions fill up.</p>
@@ -89,11 +89,11 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                       <ArrowRight />
                     </Link>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div>
+                <div>
                   <TrackBadges onTrackClick={handleTrackClick} />
-                </motion.div>
+                </div>
 
                 <motion.div className="btn-area1">
                   {isTicketsOpen && (
@@ -120,7 +120,7 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                   </motion.div>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
