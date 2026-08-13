@@ -107,13 +107,14 @@ export const getSlidesUrl = (talk: Talk): string | null => {
   return slidesAnswer?.answer || null;
 };
 
-/**
- * Get all unique track names from session groups
- */
 export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
-  const tracks = allTalks.map((talk) => getTrackFromTalk(talk));
-  return [...new Set(tracks)].sort();
+  const tracks = new Set<string>();
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      tracks.add(getTrackFromTalk(talk));
+    }
+  }
+  return [...tracks].sort();
 };
 
 /**
