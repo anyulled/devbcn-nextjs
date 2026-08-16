@@ -46,9 +46,13 @@ export async function generateMetadata({ params }: Readonly<TagPageProps>): Prom
   const decodedTag = decodeURIComponent(tag);
 
   const sessionGroups = await getTalks(year);
-  const allTalks = sessionGroups.flatMap((group) => group.sessions);
   const searchTag = decodedTag.toLowerCase();
-  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag));
+
+  const matchingGroup = sessionGroups.find((group) =>
+    group.sessions.some((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag))
+  );
+
+  const matchingTalk = matchingGroup?.sessions.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag));
   const displayTag = matchingTalk
     ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");

@@ -107,7 +107,7 @@ function mapSpeakerToPersonSchema(speaker: Speaker | TalkSpeaker, year: string, 
     if (s.bio) person.description = s.bio;
 
     if (s.links) {
-      const sameAs = s.links.filter((link) => ["LinkedIn", "Twitter", "Company_Website", "Blog"].includes(link.linkType)).map((link) => link.url);
+      const sameAs = s.links.flatMap((link) => (["LinkedIn", "Twitter", "Company_Website", "Blog"].includes(link.linkType) ? [link.url] : []));
       if (sameAs.length > 0) person.sameAs = sameAs;
     }
   }

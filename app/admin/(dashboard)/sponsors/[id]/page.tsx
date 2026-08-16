@@ -58,7 +58,7 @@ export default async function AdminSponsorDetailPage({ params }: Readonly<AdminS
     throw new Error(authUsersError.message);
   }
 
-  const adminUserIds = new Set((roleRows ?? []).map((row) => row.user_id).filter((userId): userId is string => typeof userId === "string"));
+  const adminUserIds = new Set((roleRows ?? []).flatMap((row) => (typeof row.user_id === "string" ? [row.user_id] : [])));
 
   const ownerOptions = authUsersPage.users
     .filter((user) => adminUserIds.has(user.id))

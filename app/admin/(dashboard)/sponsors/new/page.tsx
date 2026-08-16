@@ -30,7 +30,7 @@ export default async function AdminSponsorCreatePage({
 
   const uniqueEditions = getUniqueEditions((editionsData || []).map((editionRow) => editionRow.edition));
   const selectedEdition = getSelectedEdition(uniqueEditions, params.edition);
-  const adminUserIds = new Set((roleRows ?? []).map((row) => row.user_id).filter((userId): userId is string => typeof userId === "string"));
+  const adminUserIds = new Set((roleRows ?? []).flatMap((row) => (typeof row.user_id === "string" ? [row.user_id] : [])));
 
   const ownerOptions = authUsersPage.users
     .filter((user) => adminUserIds.has(user.id))
