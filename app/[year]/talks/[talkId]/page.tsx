@@ -30,7 +30,7 @@ interface TalkDetailProps {
 
 export async function generateStaticParams() {
   const years = getArchivedEditions();
-  const params = [];
+  const params: { year: string; talkId: string }[] = [];
 
   for (const year of years) {
     try {
