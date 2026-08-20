@@ -39,7 +39,13 @@ export const getTalks = cache(async (year: string | number = "default", options?
 
 export const getAllTalks = cache(async (year: string | number): Promise<Talk[]> => {
   const sessionGroups = await getTalks(year);
-  return sessionGroups.flatMap((group) => group.sessions);
+  const talks: Talk[] = [];
+  sessionGroups.forEach((group) => {
+    group.sessions.forEach((talk) => {
+      talks.push(talk);
+    });
+  });
+  return talks;
 });
 
 const getTalksMap = cache(async (year: string | number): Promise<Map<string, Talk>> => {
@@ -149,6 +155,15 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
 
 export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
   const allTalks = await getAllTalks(year);
-  const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
-  return sameTracks.slice(0, limit);
+  const sameTracks: Talk[] = [];
+
+  allTalks.some((t) => {
+    if (getTrackFromTalk(t) === track && t.id !== excludeTalkId) {
+      sameTracks.push(t);
+      if (sameTracks.length >= limit) return true;
+    }
+    return false;
+  });
+
+  return sameTracks;
 };

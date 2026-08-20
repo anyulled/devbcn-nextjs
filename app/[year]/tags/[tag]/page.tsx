@@ -23,12 +23,15 @@ export async function generateStaticParams() {
   for (const year of years) {
     try {
       const sessionGroups = await getTalks(year);
-      const allTalks = sessionGroups.flatMap((group) => group.sessions);
       const allTags = new Set<string>();
 
-      for (const talk of allTalks) {
-        getTagsFromTalk(talk).forEach((tag) => allTags.add(tag));
-      }
+      sessionGroups.forEach((group) => {
+        group.sessions.forEach((talk) => {
+          getTagsFromTalk(talk).forEach((tag) => {
+            allTags.add(tag);
+          });
+        });
+      });
 
       for (const tag of allTags) {
         params.push({ year, tag: tag.replaceAll(" ", "-").toLowerCase() });

@@ -6,9 +6,15 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const sessionGroups = await getTalks("2026");
-  const talks = sessionGroups.flatMap((group) => group.sessions);
+  const params = [];
 
-  return talks.map(({ id }) => ({ talkId: id }));
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      params.push({ talkId: talk.id });
+    }
+  }
+
+  return params;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ talkId: string }> }) {

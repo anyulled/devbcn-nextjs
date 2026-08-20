@@ -23,8 +23,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: TalksProps): Promise<Metadata> {
   const { year } = await params;
   const sessionGroups = await getTalks(year);
-  const talks = sessionGroups.flatMap((group) => group.sessions);
-  const talkCount = talks.length;
+  const talkCount = sessionGroups.reduce((acc, group) => acc + group.sessions.length, 0);
 
   return {
     title: `Talks & Sessions - DevBcn ${year}`,
@@ -51,7 +50,12 @@ export async function generateMetadata({ params }: TalksProps): Promise<Metadata
 export default async function Talks({ params }: Readonly<TalksProps>) {
   const { year } = await params;
   const sessionGroups = await getTalks(year);
-  const talks = sessionGroups.flatMap((group) => group.sessions);
+  const talks = [];
+  for (const group of sessionGroups) {
+    for (const talk of group.sessions) {
+      talks.push(talk);
+    }
+  }
   const tracks = getUniqueTracks(sessionGroups);
   const eventData = getEditionConfig(year);
 
