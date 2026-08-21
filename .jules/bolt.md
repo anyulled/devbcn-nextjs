@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2026-08-21 — Avoid .filter().slice() for extracting limited items
+
+**Learning:** Using `.filter(condition).slice(0, limit)` forces a full O(N) array traversal and allocates a discarded intermediate array. This is especially costly on large datasets.
+**Action:** Use `.some()` to conditionally push matching items to a result array and return `true` to break early once the limit is reached.
