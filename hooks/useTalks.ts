@@ -149,6 +149,20 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
 
 export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
   const allTalks = await getAllTalks(year);
-  const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
-  return sameTracks.slice(0, limit);
+
+  /*
+   * Optimization: Instead of filtering the whole array and slicing,
+   * use a for...of loop to exit early once the limit is reached,
+   * preventing a full array traversal and intermediate array allocation.
+   */
+  const relatedTalks: Talk[] = [];
+  for (const t of allTalks) {
+    if (getTrackFromTalk(t) === track && t.id !== excludeTalkId) {
+      relatedTalks.push(t);
+      if (relatedTalks.length >= limit) {
+        break;
+      }
+    }
+  }
+  return relatedTalks;
 };
