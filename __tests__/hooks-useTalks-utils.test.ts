@@ -190,6 +190,34 @@ describe("useTalks helpers", () => {
     expect(missing).toBeUndefined();
   });
 
+  it("getRelatedTalksByTrack returns empty array for invalid or zero limit", async () => {
+    const sessionGroups = [
+      {
+        groupId: 1,
+        groupName: "Main",
+        sessions: [
+          { ...buildTalk({ id: "t1" }), categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] },
+          { ...buildTalk({ id: "t2" }), categories: [{ id: 1, name: "Track", categoryItems: [{ id: 1, name: "Java" }], sort: 1 }] },
+        ],
+      },
+    ];
+    const mockFetch = jest.fn();
+    globalThis.fetch = mockFetch;
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => sessionGroups,
+    });
+
+    const resultZero = await talks.getRelatedTalksByTrack(2023, "Java", "t1", 0);
+    expect(resultZero).toHaveLength(0);
+
+    const resultNegative = await talks.getRelatedTalksByTrack(2023, "Java", "t1", -5);
+    expect(resultNegative).toHaveLength(0);
+
+    const resultFloat = await talks.getRelatedTalksByTrack(2023, "Java", "t1", 1.5);
+    expect(resultFloat).toHaveLength(0);
+  });
+
   it("getRelatedTalksByTrack excludes current talk and limits results", async () => {
     const sessionGroups: SessionGroup[] = [
       {
