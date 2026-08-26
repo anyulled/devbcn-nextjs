@@ -7,9 +7,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const revalidate = 43200;
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const year = "2026";
   const params = [];

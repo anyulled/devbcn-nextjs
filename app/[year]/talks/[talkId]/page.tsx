@@ -1,5 +1,3 @@
-export const dynamicParams = false;
-
 import CTASection from "@/components/sections/CTASection";
 import RelatedTalks from "@/components/talks/RelatedTalks";
 import TalkContent from "@/components/talks/TalkContent";

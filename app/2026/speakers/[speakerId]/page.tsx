@@ -1,9 +1,6 @@
 import ArchivePage, { generateMetadata as generateArchiveMetadata } from "@/app/[year]/speakers/[speakerId]/page";
 import { getSpeakers } from "@/hooks/useSpeakers";
 
-export const revalidate = 43200;
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const speakers = await getSpeakers("2026");
   return speakers.map(({ id }) => ({ speakerId: id }));

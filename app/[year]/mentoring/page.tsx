@@ -11,8 +11,6 @@ interface PageProps {
   }>;
 }
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return [{ year: "2026" }];
 }

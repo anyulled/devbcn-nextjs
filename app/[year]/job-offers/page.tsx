@@ -14,8 +14,6 @@ interface JobOffersPageProps {
   params: Promise<{ year: string }>;
 }
 
-export const dynamicParams = false;
-export const revalidate = 86400;
 export async function generateStaticParams() {
   const years = getAvailableEditions();
   return years.map((year) => ({ year }));

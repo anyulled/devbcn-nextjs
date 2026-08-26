@@ -3,9 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Footer8() {
   const pathname = usePathname();
+  const [copyrightYear, setCopyrightYear] = useState<number>();
+
+  useEffect(() => {
+    setCopyrightYear(new Date().getFullYear());
+  }, []);
 
   const yearMatch = /^\/(\d{4})/.exec(pathname);
   const currentYear = yearMatch ? yearMatch[1] : "2026";
@@ -110,7 +116,7 @@ export default function Footer8() {
         <div className="row">
           <div className="col-lg-12">
             <div className="copyright">
-              <p>© Copyright {new Date().getFullYear()} - DevBcn. All Right Reserved</p>
+              <p>© Copyright {copyrightYear ?? ""} - DevBcn. All Right Reserved</p>
             </div>
           </div>
         </div>

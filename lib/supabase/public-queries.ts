@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { Sponsors, Sponsor } from "@/config/editions/types";
 import { Company, JobOffer } from "@/config/job-offers/job-offers/types";
+import { unstable_rethrow } from "next/navigation";
 
 const PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_URL;
 const PUBLIC_SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_ANON_KEY;
@@ -71,6 +72,7 @@ export async function getSponsorsForEdition(edition: string): Promise<Sponsors> 
 
   if (error) {
     console.error("Error fetching sponsors for edition", edition, error);
+    unstable_rethrow(error);
     return {
       top: null,
       premium: null,
@@ -155,6 +157,9 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
 
   if (sponsorsError || !sponsors) {
     console.error("Error fetching sponsors for job offers", sponsorsError);
+    if (sponsorsError) {
+      unstable_rethrow(sponsorsError);
+    }
     return [];
   }
 
@@ -171,6 +176,7 @@ export async function getJobOffersForEdition(edition: string): Promise<Company[]
 
   if (offersError) {
     console.error("Error fetching job offers", offersError);
+    unstable_rethrow(offersError);
     return [];
   }
 
@@ -234,6 +240,9 @@ export async function getCompanyJobOffersForEditionBySlug(edition: string, compa
 
   if (sponsorsError || !sponsors) {
     console.error("Error fetching sponsor for job offers", sponsorsError);
+    if (sponsorsError) {
+      unstable_rethrow(sponsorsError);
+    }
     return null;
   }
 
@@ -265,6 +274,7 @@ async function buildCompanyFromSponsorAndOffers(
 
   if (offersError) {
     console.error("Error fetching company job offers", offersError);
+    unstable_rethrow(offersError);
     return null;
   }
 

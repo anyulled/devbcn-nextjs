@@ -10,8 +10,6 @@ interface ScheduleProps {
   params: Promise<{ year: string }>;
 }
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const years = getArchivedEditions();
   return years.map((year) => ({ year }));
