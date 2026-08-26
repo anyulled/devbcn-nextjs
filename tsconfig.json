@@ -23,6 +23,6 @@
     "target": "ES2017",
     "types": ["@testing-library/jest-dom", "@types/jest", "node", "react", "react-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "jest-dom.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "jest-dom.d.ts"],
   "exclude": ["node_modules", "cypress", "worker"]
 }

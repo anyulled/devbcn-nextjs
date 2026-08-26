@@ -4,4 +4,4 @@ import "whatwg-fetch";
 jest.mock("@vercel/analytics", () => ({
   track: jest.fn(),
 }));
-require('./setupTests.js');
+require("./setupTests.js");
