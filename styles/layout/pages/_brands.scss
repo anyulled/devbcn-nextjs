@@ -245,17 +245,6 @@
   position: relative;
   z-index: 1;
 
-  .layer1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-    height: auto;
-    object-fit: cover;
-    opacity: 0.5;
-  }
-
   .brand-header {
     h3 {
       color: var(--ztc-text-text-1);
