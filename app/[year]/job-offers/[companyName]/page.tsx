@@ -21,12 +21,18 @@ export async function generateStaticParams() {
 
   for (const year of years) {
     const companies = await getJobOffersForEdition(year);
+    if (!companies) continue;
     for (const company of companies) {
       params.push({
         year,
         companyName: company.id,
       });
     }
+  }
+
+  if (params.length === 0) {
+    // Next.js requires at least one result when using Cache Components
+    return [{ year: "2024", companyName: "placeholder" }];
   }
 
   return params;
