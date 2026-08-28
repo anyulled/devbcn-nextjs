@@ -149,6 +149,15 @@ export const getTalkSpeakersWithDetails = async (year: string | number, speakerI
 
 export const getRelatedTalksByTrack = async (year: string | number, track: string, excludeTalkId: string, limit: number = 5): Promise<Talk[]> => {
   const allTalks = await getAllTalks(year);
-  const sameTracks = allTalks.filter((t) => getTrackFromTalk(t) === track && t.id !== excludeTalkId);
-  return sameTracks.slice(0, limit);
+  if (limit <= 0) return [];
+  const sameTracks: Talk[] = [];
+  for (const t of allTalks) {
+    if (getTrackFromTalk(t) === track && t.id !== excludeTalkId) {
+      sameTracks.push(t);
+      if (sameTracks.length === limit) {
+        break;
+      }
+    }
+  }
+  return sameTracks;
 };
