@@ -12,3 +12,18 @@
 
 **Learning:** To optimize array extraction with a maximum limit, avoiding `.filter(condition).slice(0, limit)` prevents a full array traversal and allocation of a discarded intermediate array.
 **Action:** Instead, use a standard `for...of` loop with a `break` statement to exit early once the limit is reached.
+
+## 2026-08-28 - Handle empty generateStaticParams gracefully
+
+**Learning:** When modifying Next.js build-time functions like `generateStaticParams`, if the function dynamically returns an array that could be empty, the build will fail with 'empty-generate-static-params'. Next.js Cache Components require at least one result.
+**Action:** Always ensure `generateStaticParams` returns at least one fallback object (e.g. `[{ id: 'default' }]`) if the dynamically generated array is empty to prevent build failures.
+
+## 2026-08-28 - Avoid array extraction with max limit using filter and slice
+
+**Learning:** To optimize array extraction with a maximum limit, avoiding `.filter(condition).slice(0, limit)` prevents a full array traversal and allocation of a discarded intermediate array.
+**Action:** Instead, use a standard `for...of` loop with a `break` statement to exit early once the limit is reached.
+
+## 2026-08-28 - Handle empty generateStaticParams gracefully
+
+**Learning:** When modifying Next.js build-time functions like `generateStaticParams`, if the function dynamically returns an array that could be empty, the build will fail with 'empty-generate-static-params'. Next.js Cache Components require at least one result.
+**Action:** Always ensure `generateStaticParams` returns at least one fallback object (e.g. `[{ id: 'default' }]`) if the dynamically generated array is empty to prevent build failures.
