@@ -20,13 +20,22 @@ export async function generateStaticParams() {
   const params = [];
 
   for (const year of years) {
-    const companies = await getJobOffersForEdition(year);
-    for (const company of companies) {
-      params.push({
-        year,
-        companyName: company.id,
-      });
+    try {
+      const companies = await getJobOffersForEdition(year);
+      for (const company of companies) {
+        params.push({
+          year,
+          companyName: company.id,
+        });
+      }
+    } catch (error) {
+      console.warn(`Failed to fetch job offers for year ${year}:`, error);
     }
+  }
+
+  if (params.length === 0) {
+    // Provide a fallback to avoid "empty generateStaticParams" error
+    params.push({ year: years[0] || "2026", companyName: "fallback" });
   }
 
   return params;
