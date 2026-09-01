@@ -29,6 +29,10 @@ export async function generateStaticParams() {
     }
   }
 
+  if (params.length === 0) {
+    return [{ year: "2024", companyName: "placeholder" }];
+  }
+
   return params;
 }
 
