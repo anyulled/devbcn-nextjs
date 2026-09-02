@@ -38,9 +38,10 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const sessionGroups = await getTalks(year);
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
   const searchTag = decodedTag.toLowerCase();
-  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag));
+  const normalizedSearchTag = searchTag.replaceAll("-", " ");
+  const matchingTalk = allTalks.find((talk) => getTagsFromTalk(talk).some((t) => t.toLowerCase() === normalizedSearchTag));
   const displayTag = matchingTalk
-    ? (getTagsFromTalk(matchingTalk).find((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag) ?? decodedTag.replaceAll("-", " "))
+    ? (getTagsFromTalk(matchingTalk).find((t) => t.toLowerCase() === normalizedSearchTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
 
   return {
@@ -59,15 +60,16 @@ export default async function Page({ params }: { params: Promise<{ tag: string }
   const allTalks = sessionGroups.flatMap((group) => group.sessions);
 
   const searchTag = decodedTag.toLowerCase();
+  const normalizedSearchTag = searchTag.replaceAll("-", " ");
 
   const filteredTalks = allTalks.filter((talk) => {
     const talkTags = getTagsFromTalk(talk);
 
-    return talkTags.some((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag);
+    return talkTags.some((t) => t.toLowerCase() === normalizedSearchTag);
   });
 
   const displayTag = filteredTalks[0]
-    ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.replaceAll(" ", "-").toLowerCase() === searchTag) ?? decodedTag.replaceAll("-", " "))
+    ? (getTagsFromTalk(filteredTalks[0]).find((t) => t.toLowerCase() === normalizedSearchTag) ?? decodedTag.replaceAll("-", " "))
     : decodedTag.replaceAll("-", " ");
 
   if (filteredTalks.length === 0) {
