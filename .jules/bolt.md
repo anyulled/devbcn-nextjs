@@ -7,3 +7,7 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+## 2024-05-18 - Hoist invariant string manipulation out of array traversal loops
+
+**Learning:** When executing URL matching in array methods like `.find()` or `.some()`, performing `.toLowerCase()` and `.replaceAll()` inside the iteration loop causes redundant memory allocations and significant processing overhead on each item.
+**Action:** Always hoist invariant string manipulations outside the iteration loops (e.g. `const normalizedSearchTag = searchTag.replaceAll("-", " ")`) to perform it exactly once, and use strict equality checking on the items inside the iteration to drastically improve traversal time.
