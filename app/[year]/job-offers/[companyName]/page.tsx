@@ -29,6 +29,11 @@ export async function generateStaticParams() {
     }
   }
 
+  // Fallback to prevent "Empty Generate Static Params" build error when there are no job offers
+  if (params.length === 0) {
+    return [{ year: "2024", companyName: "fallback" }];
+  }
+
   return params;
 }
 
