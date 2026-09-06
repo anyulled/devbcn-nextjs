@@ -29,6 +29,10 @@ export async function generateStaticParams() {
     }
   }
 
+  if (params.length === 0) {
+    return [{ year: getAvailableEditions()[0], companyName: "fallback" }];
+  }
+
   return params;
 }
 
