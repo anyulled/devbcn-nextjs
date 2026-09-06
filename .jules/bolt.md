@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2026-07-07 - Use Map for repeated ID lookups
+
+**Learning:** In Next.js server components or hooks, repeatedly calling `.find()` on large arrays (like speakers or talks) to look up items by ID results in repeated O(N) traversals. This causes significant CPU overhead when rendering pages with many cross-referenced items.
+**Action:** Convert the array into a `Map` keyed by ID, and wrap the Map generation function in React's `cache()`. This achieves O(1) lookups while paying the initialization cost only once per request lifecycle.
