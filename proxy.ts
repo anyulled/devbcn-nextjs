@@ -44,6 +44,28 @@ function buildLegacyRegisterSwScript(): string {
   ].join("\n");
 }
 
+function buildLegacyServiceWorkerScript(): string {
+  return [
+    'self.addEventListener("install", () => {',
+    "  self.skipWaiting();",
+    "});",
+    "",
+    'self.addEventListener("activate", (event) => {',
+    "  event.waitUntil(",
+    "    (async () => {",
+    "      const cacheNames = await caches.keys();",
+    "      await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));",
+    "",
+    "      await self.registration.unregister();",
+    "",
+    '      const clients = await self.clients.matchAll({ type: "window" });',
+    "      clients.forEach((client) => client.navigate(client.url));",
+    "    })()",
+    "  );",
+    "});",
+  ].join("\n");
+}
+
 function buildLegacyManifest(): string {
   return JSON.stringify(
     {
@@ -121,7 +143,12 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
   }
 
   if (pathname.endsWith("/service-worker.js")) {
-    return NextResponse.rewrite(new URL("/sw.js", request.url));
+    return new NextResponse(buildLegacyServiceWorkerScript(), {
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Content-Type": "application/javascript; charset=utf-8",
+      },
+    });
   }
 
   if (pathname.endsWith("/manifest.json")) {
