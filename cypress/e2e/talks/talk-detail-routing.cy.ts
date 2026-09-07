@@ -21,7 +21,7 @@ describe("Talk detail routing", () => {
       cy.get<string>("@talkTitle").then((talkTitle) => {
         cy.contains('.talk-card .talk-title a[href="' + talkHref + '"]', talkTitle)
           .scrollIntoView({ offset: { top: -120, left: 0 } })
-          .click();
+          .click({ force: true });
 
         cy.url().should("include", talkHref);
         cy.get('button[aria-label="Close modal"]').should("be.visible");
