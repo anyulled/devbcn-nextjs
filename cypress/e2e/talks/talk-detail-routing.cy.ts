@@ -3,7 +3,7 @@ describe("Talk detail routing", () => {
     cy.visit("/2026/talks");
 
     cy.get('.talk-card .talk-title a[href^="/2026/talks/"]')
-      .first()
+      .eq(1)
       .should("be.visible")
       .then(($link) => {
         const talkHref = $link.attr("href");
