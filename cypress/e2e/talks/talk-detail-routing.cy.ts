@@ -20,7 +20,7 @@ describe("Talk detail routing", () => {
     cy.get<string>("@talkHref").then((talkHref) => {
       cy.get<string>("@talkTitle").then((talkTitle) => {
         cy.contains('.talk-card .talk-title a[href="' + talkHref + '"]', talkTitle)
-          .scrollIntoView()
+          .scrollIntoView({ offset: { top: -120, left: 0 } })
           .click();
 
         cy.url().should("include", talkHref);
