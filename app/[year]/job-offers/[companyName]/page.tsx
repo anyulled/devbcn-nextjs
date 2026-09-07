@@ -17,7 +17,7 @@ interface CompanyJobOffersPageProps {
 
 export async function generateStaticParams() {
   const years = getAvailableEditions();
-  const params = [];
+  const params: Array<{ year: string; companyName: string }> = [];
 
   for (const year of years) {
     const companies = await getJobOffersForEdition(year);
@@ -29,7 +29,16 @@ export async function generateStaticParams() {
     }
   }
 
-  return params;
+  if (params.length > 0) {
+    return params;
+  }
+
+  const fallbackYear = years[0];
+  if (!fallbackYear) {
+    throw new Error("At least one DevBcn edition must be configured");
+  }
+
+  return [{ year: fallbackYear, companyName: "__placeholder__" }];
 }
 
 export async function generateMetadata({ params }: CompanyJobOffersPageProps): Promise<Metadata> {
