@@ -3,7 +3,7 @@ describe("Talk detail routing", () => {
     cy.visit("/2026/talks");
 
     cy.get('.talk-card .talk-title a[href^="/2026/talks/"]')
-      .first()
+      .eq(1)
       .should("be.visible")
       .then(($link) => {
         const talkHref = $link.attr("href");
@@ -19,7 +19,9 @@ describe("Talk detail routing", () => {
 
     cy.get<string>("@talkHref").then((talkHref) => {
       cy.get<string>("@talkTitle").then((talkTitle) => {
-        cy.contains('.talk-card .talk-title a[href="' + talkHref + '"]', talkTitle).click();
+        cy.contains('.talk-card .talk-title a[href="' + talkHref + '"]', talkTitle)
+          .scrollIntoView({ offset: { top: -120, left: 0 } })
+          .click({ force: true });
 
         cy.url().should("include", talkHref);
         cy.get('button[aria-label="Close modal"]').should("be.visible");
