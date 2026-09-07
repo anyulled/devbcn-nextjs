@@ -73,7 +73,7 @@ exports[`WTCVenue Component matches snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-tram-front"
+            class="lucide lucide-tram-front lucide-train"
             fill="none"
             height="24"
             stroke="currentColor"
