@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2026-07-06 - O(1) Map Generation for Lookups
+
+**Learning:** When repeatedly searching for items in an array by ID, using `.find()` on every lookup leads to unnecessary O(N) traversals. Converting the array to a `Map` inside a React `cache` function optimizes this to O(1) without side effects.
+**Action:** Use `new Map(array.map(item => [item.id, item]))` within a cached function instead of sequential `.find()` operations for arrays.

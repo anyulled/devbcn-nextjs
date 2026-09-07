@@ -35,9 +35,14 @@ export const getSpeakers = cache(async (year: string | number = "default", optio
   }
 });
 
-export const getSpeakerByYearAndId = async (year: string | number, speakerId: string): Promise<Speaker | undefined> => {
+const getSpeakersMap = cache(async (year: string | number): Promise<Map<string, Speaker>> => {
   const speakers = await getSpeakers(year);
-  return speakers.find((speaker) => speaker.id === speakerId);
+  return new Map(speakers.map((speaker) => [speaker.id, speaker]));
+});
+
+export const getSpeakerByYearAndId = async (year: string | number, speakerId: string): Promise<Speaker | undefined> => {
+  const speakersMap = await getSpeakersMap(year);
+  return speakersMap.get(speakerId);
 };
 
 /**
