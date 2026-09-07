@@ -65,9 +65,14 @@ describe("middleware", () => {
     ]);
   });
 
-  it("rewrites service-worker.js to the kill-switch worker", async () => {
+  it("serves a self-removing worker for legacy service-worker.js requests", async () => {
     const response = await proxy(createRequest("https://www.devbcn.com/service-worker.js"));
+    const body = await response.text();
 
-    expect(response.headers.get("x-middleware-rewrite")).toBe("https://www.devbcn.com/sw.js");
+    expect(response.headers.get("content-type")).toBe("application/javascript; charset=utf-8");
+    expect(response.headers.get("cache-control")).toBe("no-cache, no-store, must-revalidate");
+    expect(body).toContain("self.registration.unregister()");
+    expect(body).toContain("caches.delete(cacheName)");
+    expect(body).not.toContain('importScripts("/workbox-');
   });
 });
