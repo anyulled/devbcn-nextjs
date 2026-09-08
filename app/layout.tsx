@@ -17,7 +17,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Figtree, Space_Grotesk } from "next/font/google";
-import Script from "next/script";
+
 
 const figtree = Figtree({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
