@@ -7,3 +7,8 @@
 
 **Learning:** Using `Object.entries(obj).find(([key]) => key === target)` creates O(N) array allocations for the entries and traverses them linearly just to do a simple property lookup. This adds unnecessary memory allocation overhead and Garbage Collection.
 **Action:** Use direct property lookup instead: `Object.prototype.hasOwnProperty.call(obj, target) ? obj[target as keyof typeof obj] : undefined`. This maintains O(1) performance while satisfying `security/detect-object-injection` linting rules.
+
+## 2025-02-12 — Array method overhead vs loops
+
+**Learning:** Chained array methods like `.filter().slice()` allocate intermediate arrays and execute the callback for every item in the array, even when fetching a tiny slice (like a limit of 5).
+**Action:** Replace `.filter().slice(0, limit)` with an early-exit `for...of` loop with a `break` when querying a small number of items from a large list to prevent unnecessary iterations and allocations.
