@@ -38,7 +38,7 @@ function TalksListContent({ talks, tracks, year }: Readonly<TalksListProps>) {
           </motion.div>
         ) : (
           <div className="talks-grouped">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               {Array.from(groupedTalks.entries()).map(([track, trackTalks]) => (
                 <motion.div
                   key={track}
