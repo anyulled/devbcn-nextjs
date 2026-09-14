@@ -81,7 +81,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     return NextResponse.json({ error: authUsersError.message }, { status: 500 });
   }
 
-  const userIdByEmail = new Map(authUsersPage.users.filter((user) => Boolean(user.email)).map((user) => [user.email!.toLowerCase(), user.id]));
+  const userIdByEmail = authUsersPage.users.reduce<Map<string, string>>((map, user) => {
+    if (user.email) {
+      map.set(user.email.toLowerCase(), user.id);
+    }
+    return map;
+  }, new Map());
 
   const { error: sponsorUpdateError } = await supabase
     .from("sponsors")
