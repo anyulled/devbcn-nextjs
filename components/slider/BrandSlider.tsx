@@ -2,6 +2,7 @@
 import { edition2023 } from "@/config/editions/2023";
 import { edition2024 } from "@/config/editions/2024";
 import { edition2025 } from "@/config/editions/2025";
+import { edition2026 } from "@/config/editions/2026";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -63,7 +64,7 @@ const swiperOptions = {
 };
 
 const getUniqueSponsors = (): SponsorWithYear[] => {
-  const editions = [edition2023, edition2024, edition2025];
+  const editions = [edition2023, edition2024, edition2025, edition2026];
   const uniqueSponsorsMap = new Map<string, SponsorWithYear>();
 
   editions.forEach((edition) => {

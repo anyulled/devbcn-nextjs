@@ -31,6 +31,12 @@ describe("Countdown", () => {
     expect(container.querySelector("#seconds1")?.textContent).toBe("9");
   });
 
+  it("does not render after the event has started", () => {
+    const { container } = render(<Countdown eventDate="2025-12-31T23:59:59Z" />);
+
+    expect(container.firstChild).toBeNull();
+  });
+
   it("renders style 2 layout", () => {
     const { container } = render(<Countdown style={2} eventDate="2026-01-02T00:00:00Z" />);
 

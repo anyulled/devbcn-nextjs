@@ -53,6 +53,17 @@ jest.mock("@/config/editions/2025", () => ({
   },
 }));
 
+jest.mock("@/config/editions/2026", () => ({
+  __esModule: true,
+  edition2026: {
+    edition: "2026",
+    sponsorsData: {
+      top: [{ name: "Sponsor E", image: "/img/e.png" }],
+      premium: [{ name: "Sponsor F", image: "/img/f.png" }],
+    },
+  },
+}));
+
 describe("BrandSlider", () => {
   it("renders without crashing", async () => {
     const BrandSlider = (await import("../../components/slider/BrandSlider")).default;
@@ -65,16 +76,18 @@ describe("BrandSlider", () => {
     render(<BrandSlider />);
 
     /*
-     * Should contain Sponsor A, B, C, D
+     * Should contain Sponsor A, B, C, D, E and F.
      * Sponsor A is in both 2023 and 2024, so it should appear only once.
-     * Total unique sponsors: 4
+     * Total unique sponsors: 6.
      */
     const slides = screen.getAllByTestId("swiper-slide");
-    expect(slides).toHaveLength(4);
+    expect(slides).toHaveLength(6);
 
     expect(screen.getByAltText("Sponsor A")).toBeInTheDocument();
     expect(screen.getByAltText("Sponsor B")).toBeInTheDocument();
     expect(screen.getByAltText("Sponsor C")).toBeInTheDocument();
     expect(screen.getByAltText("Sponsor D")).toBeInTheDocument();
+    expect(screen.getByAltText("Sponsor E")).toBeInTheDocument();
+    expect(screen.getByAltText("Sponsor F")).toBeInTheDocument();
   });
 });

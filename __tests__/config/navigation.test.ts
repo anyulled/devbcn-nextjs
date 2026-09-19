@@ -9,24 +9,29 @@ import { editionLinks, getAllMainNavLinks, getNavLinksWithYear, mainNavLinks, ne
 
 describe("Navigation Configuration", () => {
   describe("editionLinks", () => {
-    it("should contain past edition links", () => {
-      expect(editionLinks).toHaveLength(4);
+    it("should contain current and upcoming edition links", () => {
+      expect(editionLinks).toHaveLength(5);
       expect(editionLinks[0]).toEqual({
+        label: "2027 Edition",
+        href: "/2027",
+        requiresYear: false,
+      });
+      expect(editionLinks[1]).toEqual({
         label: "Current Edition",
         href: "/2026",
         requiresYear: false,
       });
-      expect(editionLinks[1]).toEqual({
+      expect(editionLinks[2]).toEqual({
         label: "2025 Edition",
         href: "/2025",
         requiresYear: false,
       });
-      expect(editionLinks[2]).toEqual({
+      expect(editionLinks[3]).toEqual({
         label: "2024 Edition",
         href: "/2024",
         requiresYear: false,
       });
-      expect(editionLinks[3]).toEqual({
+      expect(editionLinks[4]).toEqual({
         label: "2023 Edition",
         href: "/2023",
         requiresYear: false,

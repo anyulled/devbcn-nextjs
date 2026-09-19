@@ -3,6 +3,7 @@ import { EditionNavigation } from "@/config/editions/types";
 import { editionLinks, socialLinks } from "@/config/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 interface MobileMenuProps {
@@ -13,6 +14,8 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation }: MobileMenuProps) {
   const [isAccordion, setIsAccordion] = useState<number | null>(null);
+  const pathname = usePathname();
+  const isUpcomingEdition = pathname?.startsWith("/2027");
 
   const handleAccordion = (key: number) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
@@ -96,9 +99,11 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
           </ul>
 
           <div className="allmobilesection">
-            <Link href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn1">
-              Reserve your spot
-            </Link>
+            {!isUpcomingEdition && (
+              <Link href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn1">
+                Reserve your spot
+              </Link>
+            )}
             <div className="single-footer">
               <h3>Contact Info</h3>
               <div className="footer1-contact-info">
