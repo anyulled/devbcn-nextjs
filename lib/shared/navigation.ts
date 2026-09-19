@@ -1,6 +1,7 @@
 import { cfpData } from "@/app/[year]/cfp/cfpData";
 import { hasJobOffers as checkJobOffers } from "@/config/job-offers/job-offers";
 import { getEditionConfig } from "@/config/editions";
+import { edition2027 } from "@/config/editions/2027";
 import { EditionNavigation } from "@/config/editions/types";
 import { NavItem, NavCondition } from "@/config/navigation/types";
 import { getSchedule } from "@/hooks/useSchedule";
@@ -8,12 +9,12 @@ import { getSpeakers } from "@/hooks/useSpeakers";
 import { getTalks } from "@/hooks/useTalks";
 
 export async function getEditionNavigation(year: string): Promise<EditionNavigation> {
-  const config = getEditionConfig(year);
+  const config = year === "2027" ? edition2027 : getEditionConfig(year);
 
   const [speakers, talks, schedule] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => []), getSchedule(year).catch(() => [])]);
 
-  const hasSpeakers = speakers.length > 0;
-  const hasTalks = talks.length > 0;
+  const hasSpeakers = !config.hideSpeakers && speakers.length > 0;
+  const hasTalks = !config.hideTalks && talks.length > 0;
 
   const hasSchedule = schedule.length > 0;
 

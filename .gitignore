@@ -143,5 +143,6 @@ public/swe-worker-*.js.map
 # Documentation
 docs/api/
 .vercel
+.playwright-cli/
 .env*.local
 .vscode/settings.json

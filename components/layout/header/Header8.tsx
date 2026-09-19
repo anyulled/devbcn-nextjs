@@ -17,6 +17,7 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
   const pathname = usePathname();
   const segment = pathname?.split("/").find(Boolean);
   const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+  const isUpcomingEdition = yearFromPath === "2027";
 
   return (
     <header>
@@ -28,9 +29,11 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
                 <div className="top-menu-area">
                   <p>
                     Are you Ready to DevBcn?
-                    <Link href="https://tickets.devbcn.com/event/devbcn-2026" onClick={() => trackTicketClick("header_top", yearFromPath)}>
-                      Buy Ticket
-                    </Link>
+                    {!isUpcomingEdition && (
+                      <Link href="https://tickets.devbcn.com/event/devbcn-2026" onClick={() => trackTicketClick("header_top", yearFromPath)}>
+                        Buy Ticket
+                      </Link>
+                    )}
                   </p>
                   <ul>
                     <li>
@@ -86,17 +89,19 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
                     </li>
                   </ul>
                 </div>
-                <div className="btn-area">
-                  <div className="btn-area1">
-                    <Link
-                      className="vl-btn8"
-                      href="https://tickets.devbcn.com/event/devbcn-2026"
-                      onClick={() => trackTicketClick("header_button", yearFromPath)}
-                    >
-                      <span className="demo">Buy Ticket</span>
-                    </Link>
+                {!isUpcomingEdition && (
+                  <div className="btn-area">
+                    <div className="btn-area1">
+                      <Link
+                        className="vl-btn8"
+                        href="https://tickets.devbcn.com/event/devbcn-2026"
+                        onClick={() => trackTicketClick("header_button", yearFromPath)}
+                      >
+                        <span className="demo">Buy Ticket</span>
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

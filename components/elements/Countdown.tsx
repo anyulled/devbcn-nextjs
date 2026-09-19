@@ -22,26 +22,34 @@ interface CountdownProps {
 }
 
 export default function Countdown({ style, eventDate }: Readonly<CountdownProps>) {
+  const eventTime = new Date(eventDate).getTime();
   const [timeDif, setTimeDif] = useState(() => {
-    const now = Date.now();
-    const targetDate = new Date(eventDate);
-    return targetDate.getTime() - now;
+    return Number.isFinite(eventTime) ? Math.max(0, eventTime - Date.now()) : 0;
   });
 
   useEffect(() => {
+    const updateTimeDifference = () => {
+      const nextTimeDifference = Number.isFinite(eventTime) ? Math.max(0, eventTime - Date.now()) : 0;
+      setTimeDif(nextTimeDifference);
+      return nextTimeDifference;
+    };
+
+    if (updateTimeDifference() === 0) {
+      return undefined;
+    }
+
     const interval = setInterval(() => {
-      setTimeDif((prev) => {
-        const updatedTime = prev - 1000;
-        if (updatedTime <= 0) {
-          clearInterval(interval);
-          return 0;
-        }
-        return updatedTime;
-      });
+      if (updateTimeDifference() === 0) {
+        clearInterval(interval);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [eventDate, eventTime]);
+
+  if (timeDif === 0) {
+    return null;
+  }
 
   const timeParts = getPartsOfTimeDuration(timeDif);
 
