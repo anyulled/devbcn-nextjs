@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState, ReactNode, useCallback } from "react";
+import type { DailySchedule } from "@/hooks/useSchedule";
+import { scheduleFavoriteSessionNotifications } from "@/lib/session-notifications";
 
 interface ScheduleContextType {
   savedSessionIds: string[];
@@ -10,7 +12,12 @@ interface ScheduleContextType {
 
 const ScheduleContext = createContext<ScheduleContextType | undefined>(undefined);
 
-export function ScheduleProvider({ children }: { readonly children: ReactNode }) {
+interface ScheduleProviderProps {
+  readonly children: ReactNode;
+  readonly schedule?: DailySchedule[];
+}
+
+export function ScheduleProvider({ children, schedule = [] }: ScheduleProviderProps) {
   const [savedSessionIds, setSavedSessionIds] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -32,15 +39,33 @@ export function ScheduleProvider({ children }: { readonly children: ReactNode })
     }
   }, [savedSessionIds, isLoaded]);
 
-  const toggleSession = useCallback((sessionId: string) => {
-    setSavedSessionIds((prev) => {
-      if (prev.includes(sessionId)) {
-        return prev.filter((id) => id !== sessionId);
-      } else {
-        return [...prev, sessionId];
-      }
+  useEffect(() => {
+    return scheduleFavoriteSessionNotifications(schedule, savedSessionIds, typeof Notification === "undefined" ? undefined : Notification);
+  }, [schedule, savedSessionIds]);
+
+  const requestNotificationPermission = useCallback(() => {
+    if (typeof Notification === "undefined" || Notification.permission !== "default") {
+      return;
+    }
+
+    Notification.requestPermission().catch((error: unknown) => {
+      console.error("Failed to request notification permission", error);
     });
   }, []);
+
+  const toggleSession = useCallback(
+    (sessionId: string) => {
+      setSavedSessionIds((prev) => {
+        if (prev.includes(sessionId)) {
+          return prev.filter((id) => id !== sessionId);
+        }
+
+        requestNotificationPermission();
+        return [...prev, sessionId];
+      });
+    },
+    [requestNotificationPermission]
+  );
 
   const isSaved = useCallback((sessionId: string) => savedSessionIds.includes(sessionId), [savedSessionIds]);
 
