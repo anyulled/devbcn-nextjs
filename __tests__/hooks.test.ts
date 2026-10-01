@@ -338,7 +338,16 @@ describe("Hooks", () => {
       expect(relatedTalks).toHaveLength(0);
     });
 
-    it("respects the limit parameter", async () => {
+    it.each([
+      [3, 3],
+      [3.9, 3],
+      [0.9, 0],
+      [NaN, 0],
+      [0, 0],
+      [-1, 0],
+      [Infinity, 9],
+    ])("respects limit %s with %s results and stops scanning", async (limit, expectedCount) => {
+      const getCategories = jest.fn(() => [{ name: "Track", categoryItems: [{ name: "Frontend" }] }]);
       const manyTalks = [
         {
           groupId: 1,
@@ -346,18 +355,22 @@ describe("Hooks", () => {
           sessions: Array.from({ length: 10 }, (_, i) => ({
             id: `${i}`,
             title: `Talk ${i}`,
-            categories: [{ name: "Track", categoryItems: [{ name: "Frontend" }] }],
+            get categories() {
+              return getCategories();
+            },
           })),
         },
       ];
 
-      jest.mocked(globalThis.fetch).mockResolvedValueOnce({
+      jest.mocked(globalThis.fetch).mockResolvedValue({
         ok: true,
         json: async () => manyTalks,
       } as Response);
 
-      const relatedTalks = await getRelatedTalksByTrack("2025", "Frontend", "0", 3);
-      expect(relatedTalks).toHaveLength(3);
+      const relatedTalks = await getRelatedTalksByTrack("2025", "Frontend", "0", limit);
+      expect(relatedTalks.map((talk) => talk.id)).toEqual(manyTalks[0].sessions.slice(1, expectedCount + 1).map((talk) => talk.id));
+      expect(getCategories).toHaveBeenCalledTimes(expectedCount);
+      expect(globalThis.fetch).toHaveBeenCalledTimes(expectedCount === 0 ? 0 : 1);
     });
   });
 });
