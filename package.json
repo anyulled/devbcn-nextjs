@@ -97,7 +97,7 @@
     "husky": "^9.1.7",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
-    "lint-staged": "^17.5.1",
+    "lint-staged": "^17.6.0",
     "portless": "^0.15.6",
     "prettier": "^3.9.9",
     "schema-dts": "^2.0.0",
