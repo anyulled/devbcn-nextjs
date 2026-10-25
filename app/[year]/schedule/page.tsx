@@ -56,7 +56,7 @@ export default async function Schedule({ params }: ScheduleProps) {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <ScheduleProvider>
+              <ScheduleProvider schedule={scheduleData}>
                 <ScheduleContainer initialSchedule={scheduleData} year={year} />
               </ScheduleProvider>
             </div>
