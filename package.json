@@ -131,7 +131,7 @@
     "react-dom": "^19.2.0",
     "serialize-javascript": "^7.0.3",
     "axios": "^1.13.6",
-    "qs": "^6.15.0",
+    "qs": "^6.17.1",
     "minimatch": "^10.0.1",
     "test-exclude": {
       "minimatch": "^10.2.2"
