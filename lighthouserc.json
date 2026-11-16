@@ -4,20 +4,20 @@
       "startServerCommand": "npm run start",
       "startServerReadyPattern": "Ready",
       "startServerReadyTimeout": 60000,
-      "url": ["http://localhost:3000"],
-      "numberOfRuns": 3,
-      "settings": {
-        "preset": "desktop"
-      }
+      "url": ["http://localhost:3000/"],
+      "numberOfRuns": 3
     },
     "assert": {
       "assertions": {
-        "categories:performance": ["error", { "minScore": 0.5 }]
+        "categories:performance": ["error", { "minScore": 0.9 }],
+        "first-contentful-paint": ["warn", { "maxNumericValue": 1200 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 1200 }],
+        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.05 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 200 }]
       }
     },
     "upload": {
-      "target": "filesystem",
-      "outputDir": ".lighthouseci"
+      "target": "temporary-public-storage"
     }
   }
 }
