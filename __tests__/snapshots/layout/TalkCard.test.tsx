@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import TalkCard from "@/components/layout/TalkCard";
 import { Talk } from "@/hooks/types";
 
-jest.mock("@/hooks/useTalks", () => ({
+jest.mock("@/lib/shared/talk-metadata", () => ({
   getLevelFromTalk: () => "Beginner",
   getLevelStars: () => "★",
   getTagsFromTalk: () => ["Java", "Testing"],

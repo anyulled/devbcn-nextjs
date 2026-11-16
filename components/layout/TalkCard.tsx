@@ -1,7 +1,7 @@
 "use client";
 
 import { Talk } from "@/hooks/types";
-import { getLevelFromTalk, getLevelStars, getTagsFromTalk, getTrackFromTalk } from "@/hooks/useTalks";
+import { getLevelFromTalk, getLevelStars, getTagsFromTalk, getTrackFromTalk } from "@/lib/shared/talk-metadata";
 import { motion } from "framer-motion";
 import { Tag, Users } from "lucide-react";
 import Link from "next/link";

@@ -45,7 +45,7 @@ describe("Hooks", () => {
 
       await getSpeakers("2026");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("prcjw6ue"), {
-        next: { revalidate: 43200, tags: ["sessionize:2026"] },
+        next: { revalidate: false, tags: ["sessionize:2026"] },
       });
     });
 
@@ -97,7 +97,7 @@ describe("Hooks", () => {
         json: async () => mockSpeakers,
       } as Response);
 
-      const speaker = await getSpeakerByYearAndId("default", "1");
+      const speaker = await getSpeakerByYearAndId("2026", "1");
       expect(speaker).toBeDefined();
       expect(speaker?.id).toEqual("1");
     });
@@ -108,7 +108,7 @@ describe("Hooks", () => {
         json: async () => mockSpeakers,
       } as Response);
 
-      const speaker = await getSpeakerByYearAndId("default", "999");
+      const speaker = await getSpeakerByYearAndId("2026", "999");
       expect(speaker).toBeUndefined();
     });
 
@@ -161,7 +161,7 @@ describe("Hooks", () => {
 
       await getTalks("2026");
       expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining("prcjw6ue"), {
-        next: { revalidate: 43200, tags: ["sessionize:2026"] },
+        next: { revalidate: false, tags: ["sessionize:2026"] },
       });
     });
 
@@ -233,7 +233,7 @@ describe("Hooks", () => {
         json: async () => mockTalksData,
       } as Response);
 
-      const talk = await getTalkByYearAndId("default", "101");
+      const talk = await getTalkByYearAndId("2026", "101");
       expect(talk).toBeDefined();
       expect(talk?.id).toEqual("101");
     });
@@ -244,7 +244,7 @@ describe("Hooks", () => {
         json: async () => mockTalksData,
       } as Response);
 
-      const talk = await getTalkByYearAndId("default", "999");
+      const talk = await getTalkByYearAndId("2026", "999");
       expect(talk).toBeUndefined();
     });
 

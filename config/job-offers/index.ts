@@ -1,0 +1,38 @@
+import { jobOffers2023 } from "./2023";
+import { jobOffers2024 } from "./2024";
+import { jobOffers2025 } from "./2025";
+import { jobOffers2026 } from "./2026";
+import { Company } from "./types";
+
+/**
+ * Job Offers Data Access
+ *
+ * Provides functions to retrieve job offers by year and company.
+ */
+
+const jobOffersMap: Record<string, Company[]> = {
+  "2023": jobOffers2023,
+  "2024": jobOffers2024,
+  "2025": jobOffers2025,
+  "2026": jobOffers2026,
+};
+
+/**
+ * Get all companies with job offers for a specific year
+ *
+ * @param year - The year to get job offers for
+ * @returns Array of companies with job offers, or empty array if no data exists
+ */
+export function getJobOffersByYear(year: string): Company[] {
+  return jobOffersMap[year] || [];
+}
+
+/**
+ * Check if job offers are available for a specific year
+ *
+ * @param year - The year to check
+ * @returns true if job offers exist for the year, false otherwise
+ */
+export function hasJobOffers(year: string): boolean {
+  return jobOffersMap[year] !== undefined && jobOffersMap[year].length > 0;
+}

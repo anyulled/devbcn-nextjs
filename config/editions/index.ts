@@ -9,6 +9,7 @@ import { edition2023 } from "./2023";
 import { edition2024 } from "./2024";
 import { edition2025 } from "./2025";
 import { edition2026 } from "./2026";
+import { edition2027 } from "./2027";
 import { EditionConfig, EditionYear, isValidEditionYear } from "./types";
 
 export type { CFPConfig, DateRangeConfig, EditionConfig, EditionYear, FeatureConfig, SocialLinks, SponsorConfig } from "./types";
@@ -23,12 +24,13 @@ export const editions: Record<EditionYear, EditionConfig> = {
   "2024": edition2024,
   "2025": edition2025,
   "2026": edition2026,
+  "2027": edition2027,
 };
 
 /**
  * The current/default edition
  */
-export const CURRENT_EDITION: EditionYear = "2026";
+export const CURRENT_EDITION: EditionYear = "2027";
 
 /**
  * Get configuration for a specific edition year

@@ -138,16 +138,23 @@ export interface EditionConfig {
   openFeedbackId: string;
 
   socialLinks: SocialLinks;
+  hero?: HeroConfig;
+}
+
+export interface HeroConfig {
+  mobileVideo: string;
+  desktopVideo: string;
+  fallbackImage: string;
 }
 
 /**
  * Supported edition years
  */
-export type EditionYear = "2023" | "2024" | "2025" | "2026";
+export type EditionYear = "2023" | "2024" | "2025" | "2026" | "2027";
 
 /**
  * Type guard to check if a string is a valid edition year
  */
 export const isValidEditionYear = (year: string): year is EditionYear => {
-  return ["2023", "2024", "2025", "2026"].includes(year);
+  return ["2023", "2024", "2025", "2026", "2027"].includes(year);
 };

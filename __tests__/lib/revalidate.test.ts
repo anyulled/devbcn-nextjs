@@ -1,4 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
+import { CURRENT_EDITION } from "@/config/editions";
 import { getOpenGraphCacheControl, getSessionizeFetchOptions, getSessionizeTag, isArchivedEditionYear } from "@/lib/revalidate";
 
 describe("revalidate helpers", () => {
@@ -6,7 +7,8 @@ describe("revalidate helpers", () => {
     expect(isArchivedEditionYear("2023")).toBe(true);
     expect(isArchivedEditionYear("2024")).toBe(true);
     expect(isArchivedEditionYear("2025")).toBe(true);
-    expect(isArchivedEditionYear("2026")).toBe(false);
+    expect(isArchivedEditionYear("2026")).toBe(true);
+    expect(isArchivedEditionYear(CURRENT_EDITION)).toBe(false);
   });
 
   it("returns immutable fetch options for archived editions", () => {
@@ -19,17 +21,17 @@ describe("revalidate helpers", () => {
   });
 
   it("returns timed revalidation for current edition", () => {
-    expect(getSessionizeFetchOptions("2026")).toEqual({
+    expect(getSessionizeFetchOptions(CURRENT_EDITION)).toEqual({
       next: {
         revalidate: 43200,
-        tags: ["sessionize:2026"],
+        tags: [`sessionize:${CURRENT_EDITION}`],
       },
     });
   });
 
   it("keeps stable sessionize tags by year", () => {
     expect(getSessionizeTag("2024")).toBe("sessionize:2024");
-    expect(getSessionizeTag("2026")).toBe("sessionize:2026");
+    expect(getSessionizeTag(CURRENT_EDITION)).toBe(`sessionize:${CURRENT_EDITION}`);
   });
 
   it("returns immutable OpenGraph cache control for archived years", () => {
@@ -37,6 +39,6 @@ describe("revalidate helpers", () => {
   });
 
   it("returns revalidating OpenGraph cache control for current year", () => {
-    expect(getOpenGraphCacheControl("2026")).toBe("public, s-maxage=604800, stale-while-revalidate=86400");
+    expect(getOpenGraphCacheControl(CURRENT_EDITION)).toBe("public, s-maxage=604800, stale-while-revalidate=86400");
   });
 });

@@ -11,6 +11,7 @@ import {
 } from "@/config/editions";
 import { edition2025 } from "@/config/editions/2025";
 import { edition2026 } from "@/config/editions/2026";
+import { edition2027 } from "@/config/editions/2027";
 import { describe, expect, it } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
@@ -47,7 +48,7 @@ describe("Edition Configuration", () => {
     it("returns the current edition config", () => {
       const config = getCurrentEditionConfig();
       expect(config.edition).toBe(CURRENT_EDITION);
-      expect(config).toBe(edition2026);
+      expect(config).toBe(edition2027);
     });
   });
 
@@ -58,7 +59,8 @@ describe("Edition Configuration", () => {
       expect(editions).toContain("2024");
       expect(editions).toContain("2025");
       expect(editions).toContain("2026");
-      expect(editions).toHaveLength(4);
+      expect(editions).toContain("2027");
+      expect(editions).toHaveLength(5);
     });
   });
 
@@ -68,6 +70,7 @@ describe("Edition Configuration", () => {
       expect(isValidEditionYear("2024")).toBe(true);
       expect(isValidEditionYear("2025")).toBe(true);
       expect(isValidEditionYear("2026")).toBe(true);
+      expect(isValidEditionYear("2027")).toBe(true);
     });
 
     it("returns false for invalid years", () => {

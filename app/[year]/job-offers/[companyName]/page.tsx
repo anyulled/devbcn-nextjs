@@ -2,7 +2,7 @@ import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getCompanyJobOffersForEditionBySlug, getJobOffersForEdition } from "@/lib/supabase/public-queries";
-import { Company } from "@/config/job-offers/job-offers/types";
+import { Company } from "@/config/job-offers/types";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import { generateBreadcrumbSchema, generateJobPostingSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";

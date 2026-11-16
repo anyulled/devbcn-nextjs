@@ -1,35 +1,10 @@
-import { getEditionConfig } from "@/config/editions";
-import { Speaker } from "./types";
 import { cache } from "react";
-import { getSessionizeFetchOptions } from "@/lib/revalidate";
+import { fetchSessionizeEndpoint, type SessionizeFetchOptions } from "@/lib/server/sessionize";
+import { Speaker } from "./types";
 
-const getSpeakersUrl = (year: string | number): string => {
-  const config = getEditionConfig(year);
-  return `${config.sessionizeUrl}/view/Speakers`;
-};
-
-export const getSpeakers = cache(async (year: string | number = "default", options?: { strict?: boolean }): Promise<Speaker[]> => {
-  try {
-    const url = getSpeakersUrl(year);
-
-    const response = await fetch(url, getSessionizeFetchOptions(year));
-    if (!response.ok) {
-      const errorMessage = `Failed to fetch speakers for year ${year}: ${response.statusText}`;
-      console.error(errorMessage);
-      if (options?.strict) {
-        throw new Error(errorMessage);
-      }
-      return [];
-    }
-    const speakers: Speaker[] = await response.json();
-    return speakers;
-  } catch (error) {
-    console.error(`Error fetching speakers for year ${year}:`, error);
-    if (options?.strict) {
-      throw error;
-    }
-    return [];
-  }
+export const getSpeakers = cache(async (year: string | number = "default", options?: SessionizeFetchOptions): Promise<Speaker[]> => {
+  const speakers = await fetchSessionizeEndpoint<Speaker[]>(year, "/view/Speakers", "speakers", options);
+  return speakers ?? [];
 });
 
 const getSpeakersMap = cache(async (year: string | number): Promise<Map<string, Speaker>> => {

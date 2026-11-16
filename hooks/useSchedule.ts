@@ -1,7 +1,6 @@
-import { getEditionConfig } from "@/config/editions";
 import { format, parseISO } from "date-fns";
 import { cache } from "react";
-import { getSessionizeFetchOptions } from "@/lib/revalidate";
+import { fetchSessionizeEndpoint, type SessionizeFetchOptions } from "@/lib/server/sessionize";
 import { Category } from "./types";
 
 export interface GridSession {
@@ -43,18 +42,13 @@ export interface DailySchedule {
   timeSlots: TimeSlot[];
 }
 
-export const getSchedule = cache(async (year: string | number): Promise<DailySchedule[]> => {
-  const config = getEditionConfig(year);
-
-  const url = `${config.sessionizeUrl}/view/GridSmart`;
+export const getSchedule = cache(async (year: string | number, options?: SessionizeFetchOptions): Promise<DailySchedule[]> => {
+  const data = await fetchSessionizeEndpoint<GridSchedule[]>(year, "/view/GridSmart", "schedule", options);
+  if (!data) {
+    return [];
+  }
 
   try {
-    const response = await fetch(url, getSessionizeFetchOptions(year));
-    if (!response.ok) {
-      throw new Error(`Failed to fetch schedule: ${response.statusText}`);
-    }
-    const data: GridSchedule[] = await response.json();
-
     return data.map((day) => {
       const sessionsByTime = new Map<string, GridSession[]>();
 
@@ -88,7 +82,10 @@ export const getSchedule = cache(async (year: string | number): Promise<DailySch
       };
     });
   } catch (error) {
-    console.error("Error fetching schedule:", error);
+    console.error(`Error processing schedule for year ${year}:`, error);
+    if (options?.strict) {
+      throw error;
+    }
     return [];
   }
 });

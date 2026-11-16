@@ -8,7 +8,7 @@
  */
 
 import type { EditionConfig } from "@/config/editions/types";
-import type { Company, JobOffer } from "@/config/job-offers/job-offers/types";
+import type { Company, JobOffer } from "@/config/job-offers/types";
 import type { Speaker, Talk, TalkSpeaker } from "@/hooks/types";
 import type { BreadcrumbList, EducationEvent, Event, ItemList, JobPosting, Organization, Person, WithContext } from "schema-dts";
 

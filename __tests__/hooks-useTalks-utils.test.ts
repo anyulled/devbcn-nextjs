@@ -1,12 +1,15 @@
-import { beforeEach, describe, expect, it, jest } from "@jest/globals";
+import { beforeEach, describe, expect, it } from "@jest/globals";
 import type { SessionGroup, Speaker, Talk } from "@/hooks/types";
-import * as talks from "@/hooks/useTalks";
 
 jest.mock("@/config/editions", () => ({
+  CURRENT_EDITION: "2027",
+  isValidEditionYear: jest.fn(() => true),
   getEditionConfig: jest.fn(() => ({
     sessionizeUrl: "https://sessionize.test",
   })),
 }));
+
+import * as talks from "@/hooks/useTalks";
 
 const buildTalk = (overrides: Partial<Talk> = {}): Talk => ({
   id: "talk-1",

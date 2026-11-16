@@ -1,40 +1,22 @@
 import { cache } from "react";
-import { getEditionConfig } from "@/config/editions";
+import { fetchSessionizeEndpoint, type SessionizeFetchOptions } from "@/lib/server/sessionize";
+import { getTrackFromTalk } from "@/lib/shared/talk-metadata";
 import { SessionGroup, Speaker, Talk } from "./types";
 import { getSpeakers } from "./useSpeakers";
 
-import { getSessionizeFetchOptions } from "@/lib/revalidate";
+export {
+  getLevelFromTalk,
+  getLevelStars,
+  getSlidesUrl,
+  getTagsFromTalk,
+  getTrackFromTalk,
+  getUniqueTracks,
+  groupTalksByTrack,
+} from "@/lib/shared/talk-metadata";
 
-/**
- * Get the Sessionize sessions URL for a given edition year
- */
-const getSessionsUrl = (year: string | number): string => {
-  const config = getEditionConfig(year);
-  return `${config.sessionizeUrl}/view/Sessions`;
-};
-
-export const getTalks = cache(async (year: string | number = "default", options?: { strict?: boolean }): Promise<SessionGroup[]> => {
-  try {
-    const url = getSessionsUrl(year);
-
-    const response = await fetch(url, getSessionizeFetchOptions(year));
-    if (!response.ok) {
-      const errorMessage = `Failed to fetch talks for year ${year}: ${response.statusText}`;
-      console.error(errorMessage);
-      if (options?.strict) {
-        throw new Error(errorMessage);
-      }
-      return [];
-    }
-    const data: SessionGroup[] = await response.json();
-    return data;
-  } catch (error) {
-    console.error(`Error fetching talks for year ${year}:`, error);
-    if (options?.strict) {
-      throw error;
-    }
-    return [];
-  }
+export const getTalks = cache(async (year: string | number = "default", options?: SessionizeFetchOptions): Promise<SessionGroup[]> => {
+  const data = await fetchSessionizeEndpoint<SessionGroup[]>(year, "/view/Sessions", "talks", options);
+  return data ?? [];
 });
 
 export const getAllTalks = cache(async (year: string | number): Promise<Talk[]> => {
@@ -50,90 +32,6 @@ const getTalksMap = cache(async (year: string | number): Promise<Map<string, Tal
 export const getTalkByYearAndId = async (year: string | number, talkId: string): Promise<Talk | undefined> => {
   const talksMap = await getTalksMap(year);
   return talksMap.get(talkId);
-};
-
-/**
- * Extract the track name from a talk's categories
- */
-export const getTrackFromTalk = (talk: Talk): string => {
-  const trackCategory = talk.categories.find((cat) => cat.name === "Track");
-  return trackCategory?.categoryItems[0]?.name || "Other";
-};
-
-/**
- * Extract the difficulty level from a talk's categories
- */
-export const getLevelFromTalk = (talk: Talk): string => {
-  const levelCategory = talk.categories.find((cat) => cat.name === "Level");
-  return levelCategory?.categoryItems[0]?.name || "Not specified";
-};
-
-/**
- * Convert difficulty level to emoji stars
- */
-export const getLevelStars = (level: string): string => {
-  const lowerLevel = level.toLowerCase();
-  if (lowerLevel === "introductory" || lowerLevel === "beginner") {
-    return "⭐";
-  }
-  if (lowerLevel === "intermediate") {
-    return "⭐⭐";
-  }
-  if (lowerLevel === "advanced") {
-    return "⭐⭐⭐";
-  }
-  return "";
-};
-
-/**
- * Extract tags from a talk's questionAnswers
- */
-export const getTagsFromTalk = (talk: Talk): string[] => {
-  const tagsAnswer = talk.questionAnswers.find((qa) => qa.question === "Tags/Topics");
-  if (!tagsAnswer?.answer) {
-    return [];
-  }
-  return tagsAnswer.answer
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-};
-
-/**
- * Extract the slides URL from a talk's questionAnswers
- */
-export const getSlidesUrl = (talk: Talk): string | null => {
-  const slidesAnswer = talk.questionAnswers.find((qa) => qa.question === "Slides");
-  return slidesAnswer?.answer || null;
-};
-
-export const getUniqueTracks = (sessionGroups: SessionGroup[]): string[] => {
-  const tracks = new Set<string>();
-  for (const group of sessionGroups) {
-    for (const talk of group.sessions) {
-      tracks.add(getTrackFromTalk(talk));
-    }
-  }
-  return [...tracks].sort();
-};
-
-/**
- * Group talks by their track
- */
-export const groupTalksByTrack = (talks: Talk[]): Map<string, Talk[]> => {
-  const map = new Map<string, Talk[]>();
-
-  talks.forEach((talk) => {
-    const track = getTrackFromTalk(talk);
-    const existing = map.get(track);
-    if (!existing) {
-      map.set(track, [talk]);
-    } else {
-      existing.push(talk);
-    }
-  });
-
-  return map;
 };
 
 /**
