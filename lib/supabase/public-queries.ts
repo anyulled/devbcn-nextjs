@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Sponsors, Sponsor } from "@/config/editions/types";
-import { Company, JobOffer } from "@/config/job-offers/job-offers/types";
+import { Company, JobOffer } from "@/config/job-offers/types";
 import { unstable_rethrow } from "next/navigation";
 
 const PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_STORAGE_SUPABASE_URL;

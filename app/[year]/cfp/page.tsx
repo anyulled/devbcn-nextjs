@@ -3,7 +3,7 @@ import CTASection from "@/components/sections/CTASection";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cfpData } from "./cfpData";
+import { cfpData } from "@/config/cfp";
 
 interface CFPProps {
   params: Promise<{ year: string }>;

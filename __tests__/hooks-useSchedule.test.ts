@@ -67,7 +67,7 @@ describe("useSchedule", () => {
 
       expect(result).toEqual([]);
       const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Error fetching schedule:", expect.any(Error));
+      expect(consoleErrorMock).toHaveBeenCalledWith("Failed to fetch schedule for year 2026: Internal Server Error");
     });
 
     it("returns empty array on exception", async () => {
@@ -77,7 +77,7 @@ describe("useSchedule", () => {
 
       expect(result).toEqual([]);
       const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
-      expect(consoleErrorMock).toHaveBeenCalledWith("Error fetching schedule:", expect.any(Error));
+      expect(consoleErrorMock).toHaveBeenCalledWith("Error fetching schedule for year 2026:", expect.any(Error));
     });
 
     it("sorts time slots and sessions by room name", async () => {
@@ -154,6 +154,28 @@ describe("useSchedule", () => {
       expect(result[0].timeSlots[1].time).toBe("11:00");
       expect(result[0].timeSlots[1].sessions[0].room).toBe("Room A");
       expect(result[0].timeSlots[1].sessions[1].room).toBe("Room B");
+    });
+
+    it("returns empty array when schedule payload processing fails in non-strict mode", async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => [{ date: "2026-06-15", rooms: null }],
+      } as Response);
+
+      const result = await getSchedule("2026");
+
+      expect(result).toEqual([]);
+      const consoleErrorMock = console.error as jest.MockedFunction<typeof console.error>;
+      expect(consoleErrorMock).toHaveBeenCalledWith("Error processing schedule for year 2026:", expect.any(Error));
+    });
+
+    it("rethrows when schedule payload processing fails in strict mode", async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => [{ date: "2026-06-15", rooms: null }],
+      } as Response);
+
+      await expect(getSchedule("2025", { strict: true })).rejects.toThrow();
     });
   });
 });

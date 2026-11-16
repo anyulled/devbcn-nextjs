@@ -18,3 +18,7 @@ export const getAmaScheduleForYear = (year: string): SessionScheduleSlot[] => {
 export const getMentoringScheduleForYear = (year: string): SessionScheduleSlot[] => {
   return getSessionScheduleForYear(year, "mentoring");
 };
+
+export const hasAmaMentoring = (year: string): boolean => {
+  return getAmaScheduleForYear(year).length > 0 || getMentoringScheduleForYear(year).length > 0;
+};

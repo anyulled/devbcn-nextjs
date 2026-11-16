@@ -3,7 +3,7 @@ describe("Home Pages (2023-2026)", () => {
     { year: "2023", path: "/2023", venue: "La Farga", date: "3-5 July 2023" },
     { year: "2024", path: "/2024", venue: "La Farga", date: "13-14 June 2024" },
     { year: "2025", path: "/2025", venue: "La Farga", date: "8-10 July 2025" },
-    { year: "2026", path: "/", venue: "World Trade Center", date: "16-17 June 2026" },
+    { year: "2026", path: "/2026", venue: "World Trade Center", date: "16-17 June 2026" },
   ];
 
   editions.forEach((edition) => {

@@ -1,5 +1,5 @@
 import { Talk } from "@/hooks/types";
-import { getTrackFromTalk } from "@/hooks/useTalks";
+import { getTrackFromTalk } from "@/lib/shared/talk-metadata";
 
 /**
  * Filters talks by track and search query (title and description)

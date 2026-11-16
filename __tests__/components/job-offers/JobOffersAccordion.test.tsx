@@ -2,7 +2,7 @@ import { describe, expect, it } from "@jest/globals";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/jest-globals";
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
-import { JobOffer } from "@/config/job-offers/job-offers/types";
+import { JobOffer } from "@/config/job-offers/types";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 const mockOffers: JobOffer[] = [

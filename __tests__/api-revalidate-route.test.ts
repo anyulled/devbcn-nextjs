@@ -47,8 +47,8 @@ describe("POST /api/revalidate", () => {
 
     expect(response.status).toBe(200);
     expect(payload.revalidated).toBe(true);
-    expect(payload.year).toBe("2026");
-    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2026", "default");
+    expect(payload.year).toBe("2027");
+    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2027", "default");
   });
 
   it("revalidates the requested current edition when the payload includes a valid year", async () => {
@@ -59,7 +59,7 @@ describe("POST /api/revalidate", () => {
         authorization: "Bearer test-secret",
         "content-type": "application/json",
       },
-      body: JSON.stringify({ year: "2026" }),
+      body: JSON.stringify({ year: "2027" }),
     });
 
     const response = await POST(request as never);
@@ -67,8 +67,8 @@ describe("POST /api/revalidate", () => {
 
     expect(response.status).toBe(200);
     expect(payload.revalidated).toBe(true);
-    expect(payload.year).toBe("2026");
-    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2026", "default");
+    expect(payload.year).toBe("2027");
+    expect(revalidateTagMock).toHaveBeenCalledWith("sessionize:2027", "default");
   });
 
   it("rejects archived editions", async () => {

@@ -1,7 +1,7 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import * as dotenv from "dotenv";
 import { editions } from "../config/editions/index";
-import { getJobOffersByYear } from "../config/job-offers/job-offers/index";
+import { getJobOffersByYear } from "../config/job-offers/index";
 import { Sponsor, Sponsors } from "../config/editions/types";
 
 dotenv.config({ path: ".env" });

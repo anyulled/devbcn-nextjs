@@ -1,7 +1,7 @@
 import { expect, describe, it } from "@jest/globals";
 import { render } from "@testing-library/react";
 import JobOffersAccordion from "@/components/job-offers/JobOffersAccordion";
-import { JobOffer } from "@/config/job-offers/job-offers/types";
+import { JobOffer } from "@/config/job-offers/types";
 
 const mockOffers: JobOffer[] = [
   {

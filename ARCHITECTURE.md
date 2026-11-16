@@ -21,32 +21,38 @@ config/editions/ ─────────────────┘
 
 ### `app/`
 
-Next.js App Router routes. Two routing layers:
+Next.js App Router routes. Three routing areas:
 
-- **Top-level** (`app/(global)/`, `app/about/`, `app/blog/`, …): year-independent pages.
-- **`app/[year]/`**: year-scoped pages (speakers, talks, schedule, sponsors, etc.).
-  Contains its own `layout.tsx` that resolves the edition config from the URL param.
-
-The `app/[year]/@modal/` directory uses Next.js parallel routes for modal intercepts.
+- **Top-level** (`app/(global)/`, `app/about-devbcn/`, `app/kcd/`, …): year-independent pages.
+- **`app/[year]/`** (plus `app/<CURRENT_EDITION>/` when needed for current-edition caching): year-scoped pages (speakers, talks, schedule, sponsors, etc.).
+  Contains its own `layout.tsx` that resolves the edition navigation and uses `app/[year]/@modal/` parallel routes for modal intercepts.
+- **Portals & APIs** (`app/admin/`, `app/sponsor/`, `app/auth/`, `app/api/revalidate/`): Supabase-authenticated admin and sponsor portals, auth callbacks, and on-demand Sessionize cache revalidation.
 
 `app/layout.tsx` is the root layout: fonts, global CSS imports, analytics, PWA meta.
 
+### `proxy.ts` and `worker/`
+
+- **`proxy.ts`**: Next.js request proxy handling Supabase session refresh and legacy service-worker cleanup redirects.
+- **`worker/`**: Custom service worker code type-checked via `tsconfig.worker.json`.
+
 ### `config/`
 
-Static, compile-time configuration. Three sub-modules:
+Static, compile-time configuration:
 
-- **`config/editions/`**: Per-year config files (`2023.ts` … `2026.ts`) implementing
+- **`config/editions/`**: Per-year config files (`2023.ts` … `2027.ts`) implementing
   `EditionConfig`. Controls feature flags, dates, sponsor data, Sessionize URLs.
   `CURRENT_EDITION` constant determines the default year.
+- **`config/cfp/`**: Per-year CFP committee data (`cfpData2023.ts` … `cfpData2027.ts`) and `hasCfpCommittee()`.
+- **`config/ama-mentoring/`**: AMA and mentoring session schedules and `hasAmaMentoring()`.
 - **`config/navigation/`**: Centralized nav links consumed by header and mobile menu.
-- **`config/job-offers/`**: Job listing data.
+- **`config/job-offers/`**: Per-year job listing data (`2023.ts` … `2026.ts`).
 
-**Constraint**: `config/` must remain pure data — no React, no side effects, no fetching.
+**Constraint**: `config/` must remain pure data — no React, no side effects, no fetching, and no imports from other workspace modules.
 
 ### `hooks/`
 
 Server-side data-fetching functions (despite the directory name, these are **not**
-React hooks). Each wraps a Sessionize API endpoint with `react.cache()`:
+React hooks). Each wraps a Sessionize API endpoint via `fetchSessionizeEndpoint()` in `lib/server/sessionize.ts` and `react.cache()`:
 
 - `useSpeakers.ts` → `/view/Speakers`
 - `useTalks.ts` → `/view/Sessions`
@@ -55,7 +61,7 @@ React hooks). Each wraps a Sessionize API endpoint with `react.cache()`:
 Types for Sessionize responses live in `hooks/types.ts`.
 
 **Constraint**: these functions are designed for Server Components only. They use
-`fetch` with `next: { revalidate: 3600 }` — do not call them from Client Components.
+`fetch` with `next: { revalidate }` — do not call them from Client Components.
 
 ### `components/`
 
@@ -64,12 +70,11 @@ React components, organized by purpose:
 - **`layout/`**: Shell components — header, footer, mobile menu, breadcrumb, speaker/talk
   cards, filter bars. Most are Client Components (`'use client'`).
 - **`elements/`**: Small interactive widgets — countdown, back-to-top, theme switch,
-  video player, track badges.
-- **`sections/`**: Full page sections composed for home page variants (`home1/` … `home10/`),
-  FAQ, and venue.
-- **`ui/`**: Generic UI primitives (Modal).
-- **`speakers/`**, **`talks/`**, **`schedule/`**, **`slider/`**, **`skeletons/`**: Domain-specific
-  component groups.
+  video player, track badges, `Markdown` renderer.
+- **`sections/`**: Full page sections composed for home page variants (`home8/`),
+  AMA/mentoring, FAQ, and venue.
+- **`admin/`**, **`job-offers/`**, **`speakers/`**, **`talks/`**, **`schedule/`**, **`slider/`**, **`skeletons/`**:
+  Domain-specific component groups.
 
 **Constraint**: components must not import from `app/`. Data flows down from route
 pages through props.
@@ -82,13 +87,16 @@ via `localStorage`. Provided by `ClientLayout` at the root.
 **Constraint**: contexts are always Client Components. Keep them minimal to avoid
 unnecessary re-renders.
 
-### `lib/shared/`
+### `lib/`
 
-Pure utility functions: markdown rendering, JSON-LD generation, analytics helpers,
-slugification, speaker/talk filter logic.
+Application utilities, split by runtime boundary:
 
-**Constraint**: no React imports, no state, no side effects. Must be importable from
-both server and client code.
+- **`lib/shared/`**: Pure utility functions (JSON-LD generation, analytics helpers,
+  slugification, speaker/talk filter & talk metadata helpers, job-offer slug lookup (`talk-metadata.ts`, `job-offers.ts`, etc.)).
+  **Constraint**: no React imports, no server-only imports, no state, no side effects. Must be importable from both server and client code.
+- **`lib/server/`**: Server-only helpers (`navigation.ts` for `getEditionNavigation`, `sessionize.ts` for `fetchSessionizeEndpoint`).
+- **`lib/supabase/`**, **`lib/auth/`**, **`lib/admin/`**: Supabase SSR/admin/browser clients, public queries, storage helpers, and portal access control.
+- **`lib/revalidate.ts`**, **`lib/og-logo.ts`**: Cache revalidation tag/TTL helpers (derived from `CURRENT_EDITION`) and OpenGraph logo utilities.
 
 ### `styles/`
 
