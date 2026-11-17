@@ -23,9 +23,7 @@ interface CountdownProps {
 
 export default function Countdown({ style, eventDate }: Readonly<CountdownProps>) {
   const eventTime = new Date(eventDate).getTime();
-  const [timeDif, setTimeDif] = useState(() => {
-    return Number.isFinite(eventTime) ? Math.max(0, eventTime - Date.now()) : 0;
-  });
+  const [timeDif, setTimeDif] = useState(0);
 
   useEffect(() => {
     const updateTimeDifference = () => {

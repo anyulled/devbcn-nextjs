@@ -1,4 +1,7 @@
 "use client";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { Speaker } from "@/hooks/types";
 import Link from "next/link";
 import Image from "next/image";

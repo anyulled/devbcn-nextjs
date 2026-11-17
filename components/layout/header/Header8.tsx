@@ -1,5 +1,6 @@
 "use client";
 import { EditionNavigation } from "@/config/editions/types";
+import { CURRENT_EDITION } from "@/config/editions";
 import { editionLinks } from "@/config/navigation";
 import { trackTicketClick } from "@/lib/shared/analytics";
 import Link from "next/link";
@@ -16,7 +17,7 @@ interface HeaderProps {
 export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
   const pathname = usePathname();
   const segment = pathname?.split("/").find(Boolean);
-  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
+  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : CURRENT_EDITION;
   const isUpcomingEdition = yearFromPath === "2027";
 
   return (
@@ -48,7 +49,7 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
-                    <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={96} height={49} style={{ width: "auto", height: "auto" }} priority />
+                    <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={96} height={49} style={{ width: "auto", height: "auto" }} />
                   </Link>
                 </div>
                 <div className="main-menu">

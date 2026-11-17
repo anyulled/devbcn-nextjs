@@ -1,4 +1,7 @@
 "use client";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { edition2023 } from "@/config/editions/2023";
 import { edition2024 } from "@/config/editions/2024";
 import { edition2025 } from "@/config/editions/2025";

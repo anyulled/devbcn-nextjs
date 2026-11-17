@@ -9,31 +9,23 @@ import { getSchedule } from "@/hooks/useSchedule";
 import { getSpeakers } from "@/hooks/useSpeakers";
 import { getTalks } from "@/hooks/useTalks";
 
-export async function getEditionNavigation(year: string): Promise<EditionNavigation> {
+interface DynamicNavigationFlags {
+  hasSpeakers: boolean;
+  hasTalks: boolean;
+  hasSchedule: boolean;
+}
+
+function buildEditionNavigation(year: string, flags: DynamicNavigationFlags): EditionNavigation {
   const config = year === "2027" ? edition2027 : getEditionConfig(year);
 
-  const [speakers, talks, schedule] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => []), getSchedule(year).catch(() => [])]);
-
-  const hasSpeakers = !config.hideSpeakers && speakers.length > 0;
-  const hasTalks = !config.hideTalks && talks.length > 0;
-
-  const hasSchedule = schedule.length > 0;
-
-  const hasCfp = hasCfpCommittee(year);
-
-  const hasDiversity = config.diversity.sponsors.length > 0;
-
-  const hasJobOffers = checkJobOffers(year);
-  const hasAmaMentoring = checkAmaMentoring(year);
-
   const conditions: Record<NavCondition, boolean> = {
-    hasSpeakers,
-    hasTalks,
-    hasSchedule,
-    hasCfp,
-    hasDiversity,
-    hasJobOffers,
-    hasAmaMentoring,
+    hasSpeakers: flags.hasSpeakers,
+    hasTalks: flags.hasTalks,
+    hasSchedule: flags.hasSchedule,
+    hasCfp: hasCfpCommittee(year),
+    hasDiversity: config.diversity.sponsors.length > 0,
+    hasJobOffers: checkJobOffers(year),
+    hasAmaMentoring: checkAmaMentoring(year),
   };
 
   const filterAndProcessLinks = (links: NavItem[]): NavItem[] => {
@@ -66,4 +58,24 @@ export async function getEditionNavigation(year: string): Promise<EditionNavigat
     yearSpecific: filterAndProcessLinks(nav.yearSpecific || []),
     news: filterAndProcessLinks(nav.news || []),
   };
+}
+
+export function getStaticEditionNavigation(year: string): EditionNavigation {
+  return buildEditionNavigation(year, {
+    hasSpeakers: false,
+    hasTalks: false,
+    hasSchedule: false,
+  });
+}
+
+export async function getEditionNavigation(year: string): Promise<EditionNavigation> {
+  const config = year === "2027" ? edition2027 : getEditionConfig(year);
+
+  const [speakers, talks, schedule] = await Promise.all([getSpeakers(year).catch(() => []), getTalks(year).catch(() => []), getSchedule(year).catch(() => [])]);
+
+  return buildEditionNavigation(year, {
+    hasSpeakers: !config.hideSpeakers && speakers.length > 0,
+    hasTalks: !config.hideTalks && talks.length > 0,
+    hasSchedule: schedule.length > 0,
+  });
 }

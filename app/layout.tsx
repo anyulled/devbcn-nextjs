@@ -1,16 +1,7 @@
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
 import "@/styles/main.scss";
-import "@/styles/vendor/aos.css";
 import "@/styles/vendor/bootstrap.min.css";
-import "@/styles/vendor/magnific-popup.css";
 import "@/styles/vendor/mobile.css";
-import "@/styles/vendor/nice-select.css";
-import "@/styles/vendor/odometer.css";
 import "@/styles/vendor/sidebar.css";
-import "@/styles/vendor/slick-slider.css";
 
 import ClientLayout from "@/components/layout/ClientLayout";
 import { Analytics } from "@vercel/analytics/react";
@@ -99,12 +90,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Resource Hints */}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <meta name="google-site-verification" content="LNQXre5kOuyrkwaHjRRuLOzesEtCyoYisEXYwhi3ENY" />
-
-        {/* Link vendor CSS served from public/ */}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
 
         {/* PWA Meta Tags */}
         <meta name="application-name" content="DevBcn" />
@@ -116,15 +103,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#007bff" />
         <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
       </head>
-      <body className={`${figtree.variable} ${grotesk.variable}`}>
+      <body className={`${figtree.variable} ${grotesk.variable} homepage8-body`}>
         <ClientLayout>{children}</ClientLayout>
+        {shouldEnableVercelTelemetry ? (
+          <>
+            <SpeedInsights />
+            <Analytics />
+          </>
+        ) : null}
       </body>
-      {shouldEnableVercelTelemetry ? (
-        <>
-          <SpeedInsights />
-          <Analytics />
-        </>
-      ) : null}
     </html>
   );
 }

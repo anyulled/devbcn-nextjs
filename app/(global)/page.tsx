@@ -1,5 +1,1 @@
-import { redirect } from "next/navigation";
-
-export default function Home() {
-  redirect("/2027");
-}
+export { default, metadata } from "../2027/page";

@@ -19,8 +19,8 @@ export default function Footer8() {
   const rootPath = "";
 
   return (
-    <div className="footer8-sertion-area">
-      <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill priority style={{ objectFit: "cover", zIndex: -3 }} />
+    <div className="footer8-sertion-area" style={{ position: "relative" }}>
+      <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -3 }} />
       <Image src="/assets/img/elements/layer1.png" alt="" width={1440} height={230} className="layer1" loading="lazy" />
       <div className="container">
         <div className="row">
