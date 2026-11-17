@@ -227,7 +227,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                     <iframe
                       width="100%"
                       height="450"
-                      src="https://www.youtube.com/embed/AHWSu1WE288"
+                      src="https://www.youtube.com/embed/-zo2Bc1W8oU"
                       title="YouTube video player"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
@@ -242,7 +242,20 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 <p>Access our curated playlists from previous editions:</p>
                 <div className="space24" />
                 <div className="row g-4">
-                  <div className="col-md-4">
+                  <div className="col-md-6 col-lg-3">
+                    <Link
+                      rel="noreferrer"
+                      target="_blank"
+                      href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzlUsubhbfVo5t4ntQZPVyc"
+                      className="vl-btn1 w-100 text-center"
+                      style={{ padding: "14px 10px" }}
+                    >
+                      <span className="demo" style={{ fontSize: "16px" }}>
+                        DevBcn 2026 Sessions
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="col-md-6 col-lg-3">
                     <Link
                       rel="noreferrer"
                       target="_blank"
@@ -255,7 +268,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                       </span>
                     </Link>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-6 col-lg-3">
                     <Link
                       rel="noreferrer"
                       target="_blank"
@@ -268,7 +281,7 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                       </span>
                     </Link>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-6 col-lg-3">
                     <Link
                       href="https://www.youtube.com/playlist?list=PLzJFNZtyAbyzmAAKzx1COeIBEGFgPA_og"
                       rel="noreferrer"

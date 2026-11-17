@@ -1,11 +1,11 @@
 import PageHeader from "@/components/layout/PageHeader";
 import TeamMemberCard from "@/components/layout/TeamMemberCard";
 import CTASection from "@/components/sections/CTASection";
-import { getEditionConfig } from "@/config/editions";
+import { getCurrentEditionConfig } from "@/config/editions";
 import { teamMembers } from "@/team/TeamMembers";
 
 export default function AboutUs() {
-  const eventData = getEditionConfig("2026");
+  const eventData = getCurrentEditionConfig();
   return (
     <div>
       <PageHeader title="About Us" backgroundImageId={15} breadcrumbText="About Us" />

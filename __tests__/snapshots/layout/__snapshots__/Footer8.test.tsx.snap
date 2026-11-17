@@ -148,31 +148,31 @@ exports[`Footer8 Component matches snapshot 1`] = `
             <ul>
               <li>
                 <a
-                  href="/2026/travel"
+                  href="/2027/travel"
                 >
                   Travel to Barcelona
                 </a>
               </li>
               <li>
                 <a
-                  href="/2026/speakers"
+                  href="/2027/speakers"
                 >
                   Speakers
                 </a>
               </li>
               <li>
                 <a
-                  href="/2026/talks"
+                  href="/2027/talks"
                 >
                   Talks
                 </a>
               </li>
               <li>
                 <a
-                  href="/2026/sponsorship"
+                  href="/2027/sponsorship"
                 >
                   Sponsorship 
-                  2026
+                  2027
                 </a>
               </li>
               <li>

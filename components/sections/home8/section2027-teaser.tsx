@@ -1,4 +1,9 @@
+import { formatEventDateRange } from "@/config/editions";
+import { edition2027 } from "@/config/editions/2027";
+
 export default function Section2027Teaser() {
+  const eventDate = formatEventDateRange(edition2027.event.startDay, edition2027.event.endDay);
+
   return (
     <section className="conference-stats conference-stats--2027">
       <div className="conference-stats--2027__orb conference-stats--2027__orb--left" aria-hidden="true" />
@@ -17,12 +22,12 @@ export default function Section2027Teaser() {
           <span>is on the way.</span>
         </h2>
         <p className="conference-stats--2027__intro">
-          The next edition is taking shape at World Trade Center Barcelona. Dates, speakers, talks and sponsorship opportunities will be announced soon.
+          The next edition is taking shape at World Trade Center Barcelona. Speakers, talks and sponsorship opportunities will be announced soon.
         </p>
         <div className="conference-stats--2027__details" aria-label="DevBcn 2027 overview">
           <div>
             <span className="conference-stats--2027__detail-label">When</span>
-            <strong>Summer 2027</strong>
+            <strong>{eventDate}</strong>
           </div>
           <div>
             <span className="conference-stats--2027__detail-label">Where</span>
