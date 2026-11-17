@@ -1,4 +1,7 @@
 "use client";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { format } from "date-fns";

@@ -7,6 +7,7 @@ import CTASection from "@/components/sections/CTASection";
 import { getEditionConfig } from "@/config/editions";
 import BuyTicketButton from "@/components/elements/BuyTicketButton";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "About DevBcn",
@@ -68,7 +69,9 @@ export default function About() {
                   development. From emerging technologies to sustainable software development practices.
                 </p>
                 <div className="space32" />
-                <AboutCounter />
+                <Suspense fallback={null}>
+                  <AboutCounter />
+                </Suspense>
                 <div className="space32" />
                 <div className="btn-area1" data-aos="fade-left" data-aos-duration={1200}>
                   <BuyTicketButton href={eventData.tickets.url} location="about_content" className="vl-btn1" text="Buy Ticket" />
@@ -90,7 +93,9 @@ export default function About() {
           </div>
           <div className="row">
             <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
-              <BrandSlider />
+              <Suspense fallback={null}>
+                <BrandSlider />
+              </Suspense>
             </div>
           </div>
         </div>

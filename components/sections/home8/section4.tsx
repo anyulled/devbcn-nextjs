@@ -1,4 +1,5 @@
-import BrandSlider from "@/components/slider/BrandSlider";
+import LazyMapIframe from "@/components/elements/LazyMapIframe";
+import LazyBrandSlider from "@/components/slider/LazyBrandSlider";
 import { Sponsors } from "@/config/editions/types";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,17 +14,9 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
   const hasSponsors = sponsors && Object.values(sponsors).some((arr) => arr && arr.length > 0);
 
   return (
-    <div
-      id="sponsors"
-      className="brands8-section-area sp8"
-      style={{
-        backgroundImage: "url(/assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill priority />
+    <div id="sponsors" className="brands8-section-area sp8">
+      <Image src="/assets/img/bg/header-bg20.png" alt="" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -2 }} />
+      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill sizes="100vw" />
       <div className="container">
         {!hasSponsors && (
           <>
@@ -36,7 +29,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
             </div>
             <div className="row">
               <div className="col-lg-12" data-aos="zoom-in" data-aos-duration={800}>
-                <BrandSlider />
+                <LazyBrandSlider />
               </div>
             </div>
           </>
@@ -129,16 +122,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
         </div>
         <div className="mapouter">
           <div className="gmap_canvas">
-            <iframe
-              title={eventVenue.name}
-              src={eventVenue.mapUrl}
-              width={600}
-              height={450}
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <LazyMapIframe title={eventVenue.name} src={eventVenue.mapUrl} width={600} height={450} />
           </div>
         </div>
       </div>

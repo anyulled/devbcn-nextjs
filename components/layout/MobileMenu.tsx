@@ -28,7 +28,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
             <div className="mobile-header-elements">
               <div className="mobile-logo">
                 <Link href="//">
-                  <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} priority />
+                  <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} />
                 </Link>
               </div>
               <div className="mobile-nav-icon dots-menu" onClick={handleMobileMenu}>
@@ -41,7 +41,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
       <div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? "mobile-menu-active" : ""}`}>
         <div className="logosicon-area">
           <div className="logos">
-            <img src="/assets/img/logo/logo.png" alt="DevBcn" width={100} />
+            <img src="/assets/img/logo/logo.png" alt="DevBcn" width={100} height={41} />
           </div>
           <div className="menu-close" onClick={handleMobileMenu}>
             <i className="fa-solid fa-xmark" />

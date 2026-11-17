@@ -2,11 +2,13 @@
 import BackToTop from "@/components/elements/BackToTop";
 import Footer8 from "@/components/layout/footer/Footer8";
 import AOS from "aos";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AddClassBody from "../elements/AddClassBody";
 
-export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+const FONTAWESOME_CSS_URL = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css";
+
+function ClientChrome() {
   const pathname = usePathname();
   const isPortalLayout = pathname?.startsWith("/admin") || pathname?.startsWith("/sponsor");
   const isMinimalLayout = isPortalLayout || pathname?.includes("/convince-your-boss") || pathname === "/sw-reset";
@@ -30,8 +32,30 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
     return () => window.removeEventListener("hashchange", handleHashScroll);
   }, [pathname]);
 
+  if (isMinimalLayout) {
+    return null;
+  }
+
+  return (
+    <>
+      <Footer8 />
+      <BackToTop target="#top" />
+    </>
+  );
+}
+
+export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   useEffect(() => {
     AOS.init();
+    void import("@/styles/vendor/aos.css");
+
+    // Load FontAwesome asynchronously after first paint so it never blocks FCP/LCP.
+    if (!document.querySelector(`link[href="${FONTAWESOME_CSS_URL}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = FONTAWESOME_CSS_URL;
+      document.head.appendChild(link);
+    }
   }, []);
 
   useEffect(() => {
@@ -48,14 +72,13 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
   return (
     <>
       <div id="top" />
-      <AddClassBody />
+      <Suspense fallback={null}>
+        <AddClassBody />
+      </Suspense>
       {children}
-      {!isMinimalLayout && (
-        <>
-          <Footer8 />
-          <BackToTop target="#top" />
-        </>
-      )}
+      <Suspense fallback={null}>
+        <ClientChrome />
+      </Suspense>
     </>
   );
 }
