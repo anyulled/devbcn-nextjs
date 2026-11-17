@@ -107,6 +107,11 @@ export const shouldShowSponsors = (config: EditionConfig, now: Date = new Date()
   return now >= config.sponsors.startDate && now <= config.sponsors.endDate;
 };
 
+const EVENT_TIME_ZONE = "Europe/Madrid";
+const eventDayFormatter = new Intl.DateTimeFormat("en-US", { day: "numeric", timeZone: EVENT_TIME_ZONE });
+const eventMonthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", timeZone: EVENT_TIME_ZONE });
+const eventYearFormatter = new Intl.DateTimeFormat("en-US", { year: "numeric", timeZone: EVENT_TIME_ZONE });
+
 /**
  * Format an event date range into a human-readable string
  *
@@ -119,11 +124,11 @@ export const shouldShowSponsors = (config: EditionConfig, now: Date = new Date()
  *
  */
 export const formatEventDateRange = (startDate: Date, endDate: Date): string => {
-  const startDay = startDate.getDate();
-  const endDay = endDate.getDate();
-  const startMonth = startDate.toLocaleString("en-US", { month: "long" });
-  const endMonth = endDate.toLocaleString("en-US", { month: "long" });
-  const year = endDate.getFullYear();
+  const startDay = eventDayFormatter.format(startDate);
+  const endDay = eventDayFormatter.format(endDate);
+  const startMonth = eventMonthFormatter.format(startDate);
+  const endMonth = eventMonthFormatter.format(endDate);
+  const year = eventYearFormatter.format(endDate);
 
   if (startMonth === endMonth) {
     return `${startDay}-${endDay} ${startMonth} ${year}`;
