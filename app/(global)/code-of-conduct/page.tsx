@@ -1,10 +1,10 @@
 import PageHeader from "@/components/layout/PageHeader";
 import PageSidebar from "@/components/layout/PageSidebar";
 import CTASection from "@/components/sections/CTASection";
-import { getEditionConfig } from "@/config/editions";
+import { CURRENT_EDITION, getCurrentEditionConfig } from "@/config/editions";
 
 export default function CodeOfConduct() {
-  const eventData = getEditionConfig("2026");
+  const eventData = getCurrentEditionConfig();
   return (
     <div>
       <PageHeader title="Code of Conduct" backgroundImageId={15} breadcrumbText="Code of Conduct" />
@@ -132,7 +132,7 @@ export default function CodeOfConduct() {
             </div>
             <div className="col-lg-4">
               <div className="space30 d-lg-none d-block" />
-              <PageSidebar year="2026" />
+              <PageSidebar year={CURRENT_EDITION} />
             </div>
           </div>
         </div>

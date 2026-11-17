@@ -1,12 +1,13 @@
 import Section2027 from "@/components/sections/home8/section2027";
 import Section2027Teaser from "@/components/sections/home8/section2027-teaser";
 import Section4 from "@/components/sections/home8/section4";
+import { formatEventDateRange } from "@/config/editions";
 import { edition2027 } from "@/config/editions/2027";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "DevBcn 2027 - Barcelona Developers Conference",
-  description: "DevBcn returns to Barcelona in summer 2027. Dates to be announced.",
+  description: `DevBcn returns to Barcelona on ${formatEventDateRange(edition2027.event.startDay, edition2027.event.endDay)}.`,
 };
 
 export default function Page() {

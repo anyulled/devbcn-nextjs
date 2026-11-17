@@ -4,7 +4,7 @@ import BrandSlider from "@/components/slider/BrandSlider";
 import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
-import { getEditionConfig } from "@/config/editions";
+import { getCurrentEditionConfig } from "@/config/editions";
 import BuyTicketButton from "@/components/elements/BuyTicketButton";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  const eventData = getEditionConfig("2026");
+  const eventData = getCurrentEditionConfig();
 
   return (
     <div>

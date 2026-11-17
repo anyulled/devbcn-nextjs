@@ -1,5 +1,6 @@
 "use client";
 
+import { CURRENT_EDITION } from "@/config/editions";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,7 +15,7 @@ export default function Footer8() {
   }, []);
 
   const yearMatch = /^\/(\d{4})/.exec(pathname);
-  const currentYear = yearMatch ? yearMatch[1] : "2026";
+  const currentYear = yearMatch ? yearMatch[1] : CURRENT_EDITION;
   const basePath = `/${currentYear}`;
   const rootPath = "";
 

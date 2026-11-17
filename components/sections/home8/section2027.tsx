@@ -1,5 +1,6 @@
 "use client";
 
+import { formatEventDateRange } from "@/config/editions";
 import { edition2027 } from "@/config/editions/2027";
 import TrackBadges from "@/components/elements/TrackBadges";
 import { CalendarDays, MapPin } from "lucide-react";
@@ -10,6 +11,7 @@ const DESKTOP_BREAKPOINT = 768;
 
 export default function Section2027() {
   const [videoSource, setVideoSource] = useState<string | null>(null);
+  const eventDate = formatEventDateRange(edition2027.event.startDay, edition2027.event.endDay);
 
   useEffect(() => {
     const desktopQuery = globalThis.window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
@@ -65,7 +67,7 @@ export default function Section2027() {
               <div className="hero8-header__special-highlight hero8-header__special-highlight--2027">
                 <p className="hero8-header__special-kicker">Summer Barcelona 2027</p>
                 <h2 className="hero8-header__special-title">The next edition is taking shape.</h2>
-                <p className="hero8-header__special-copy">Dates to be announced. AMA Sessions and Speaking Mentoring will return.</p>
+                <p className="hero8-header__special-copy">{eventDate}. AMA Sessions and Speaking Mentoring will return.</p>
                 <div className="hero8-header__event-info">
                   <div className="hero8-header__event-line">
                     <MapPin className="hero8-header__event-icon" />
@@ -73,7 +75,7 @@ export default function Section2027() {
                   </div>
                   <div className="hero8-header__event-line">
                     <CalendarDays className="hero8-header__event-icon" />
-                    <span>Dates to be announced</span>
+                    <span>{eventDate}</span>
                   </div>
                 </div>
               </div>
