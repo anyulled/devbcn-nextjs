@@ -49,7 +49,7 @@ export default function About() {
                       fill="#FFBA00"
                     />
                   </svg>
-                  <BuyTicketButton href={`/${eventData.edition}/pricing-plan`} location="about_hero" className="" text="Buy Ticket">
+                  <BuyTicketButton href={`/${eventData.edition}/pricing-plan`} location="about_hero" year={eventData.edition} className="" text="Buy Ticket">
                     <br />
                     <div className="space12" />
                   </BuyTicketButton>
@@ -74,7 +74,7 @@ export default function About() {
                 </Suspense>
                 <div className="space32" />
                 <div className="btn-area1" data-aos="fade-left" data-aos-duration={1200}>
-                  <BuyTicketButton href={eventData.tickets.url} location="about_content" className="vl-btn1" text="Buy Ticket" />
+                  <BuyTicketButton href={eventData.tickets.url} location="about_content" year={eventData.edition} className="vl-btn1" text="Buy Ticket" />
                 </div>
               </div>
             </div>

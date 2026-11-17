@@ -203,5 +203,10 @@ describe("Edition Configuration", () => {
       const formatted = formatEventDateRange(startDate, endDate);
       expect(formatted).toBe("16-16 June 2026");
     });
+
+    it("formats 2027 event range consistently in Europe/Madrid", () => {
+      const formatted = formatEventDateRange(edition2027.event.startDay, edition2027.event.endDay);
+      expect(formatted).toBe("6-7 July 2027");
+    });
   });
 });
