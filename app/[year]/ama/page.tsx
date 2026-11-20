@@ -1,3 +1,4 @@
+import { AMA_MENTORING_YEARS, hasAmaMentoring } from "@/config/ama-mentoring";
 import { getEditionConfig } from "@/config/editions";
 import AmaDetails from "@/components/sections/ama/AmaDetails";
 import type { Metadata } from "next";
@@ -12,13 +13,13 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return [{ year: "2026" }];
+  return AMA_MENTORING_YEARS.map((year) => ({ year }));
 }
 
 export async function generateMetadata({ params }: Readonly<PageProps>): Promise<Metadata> {
   const { year } = await params;
 
-  if (year !== "2026") {
+  if (!hasAmaMentoring(year)) {
     return { title: "Not Found" };
   }
 
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Readonly<PageProps>): Promise
 export default async function Page({ params }: Readonly<PageProps>) {
   const { year } = await params;
 
-  if (year !== "2026") {
+  if (!hasAmaMentoring(year)) {
     notFound();
   }
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { getAmaScheduleForYear, getMentoringScheduleForYear } from "@/config/ama-mentoring";
+import { getAmaScheduleForYear, getMentoringScheduleForYear, hasAmaMentoring } from "@/config/ama-mentoring";
 
 describe("AMA and mentoring schedules", () => {
   it("exposes the normalized AMA schedule for 2026", () => {
@@ -61,5 +61,12 @@ describe("AMA and mentoring schedules", () => {
         },
       ],
     });
+  });
+
+  it("enables AMA and mentoring for 2027 with empty schedules until speakers are announced", () => {
+    expect(hasAmaMentoring("2027")).toBe(true);
+    expect(hasAmaMentoring("2025")).toBe(false);
+    expect(getAmaScheduleForYear("2027")).toEqual([]);
+    expect(getMentoringScheduleForYear("2027")).toEqual([]);
   });
 });

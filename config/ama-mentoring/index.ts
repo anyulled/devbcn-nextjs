@@ -3,6 +3,8 @@ import type { SessionScheduleSlot, SessionType } from "./types";
 
 export type { SessionScheduleSlot, SessionType } from "./types";
 
+export const AMA_MENTORING_YEARS = ["2026", "2027"] as const;
+
 export const getSessionScheduleForYear = (year: string, sessionType: SessionType): SessionScheduleSlot[] => {
   if (year === "2026") {
     return sessionSchedule2026.filter((slot) => slot.sessionType === sessionType);
@@ -20,5 +22,5 @@ export const getMentoringScheduleForYear = (year: string): SessionScheduleSlot[]
 };
 
 export const hasAmaMentoring = (year: string): boolean => {
-  return getAmaScheduleForYear(year).length > 0 || getMentoringScheduleForYear(year).length > 0;
+  return (AMA_MENTORING_YEARS as readonly string[]).includes(year) || getAmaScheduleForYear(year).length > 0 || getMentoringScheduleForYear(year).length > 0;
 };
