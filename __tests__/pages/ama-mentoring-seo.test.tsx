@@ -86,4 +86,20 @@ describe("AMA and mentoring SEO metadata", () => {
       images: ["/assets/img/features/speaking-mentoring.png"],
     });
   });
+
+  it("exposes static params and metadata for 2027 AMA and mentoring", async () => {
+    const { generateStaticParams: getAmaParams, generateMetadata: getAmaMetadata } = await import("@/app/[year]/ama/page");
+    const { generateStaticParams: getMentoringParams, generateMetadata: getMentoringMetadata } = await import("@/app/[year]/mentoring/page");
+
+    await expect(getAmaParams()).resolves.toEqual([{ year: "2026" }, { year: "2027" }]);
+    await expect(getMentoringParams()).resolves.toEqual([{ year: "2026" }, { year: "2027" }]);
+
+    const ama2027 = await getAmaMetadata({ params: Promise.resolve({ year: "2027" }) });
+    const mentoring2027 = await getMentoringMetadata({ params: Promise.resolve({ year: "2027" }) });
+
+    expect(ama2027.title).toBe("AMA Sessions - DevBcn 2027");
+    expect(ama2027.alternates?.canonical).toBe("https://www.devbcn.com/2027/ama");
+    expect(mentoring2027.title).toBe("Speaking Mentoring - DevBcn 2027");
+    expect(mentoring2027.alternates?.canonical).toBe("https://www.devbcn.com/2027/mentoring");
+  });
 });
