@@ -1,3 +1,4 @@
+import Countdown from "@/components/elements/Countdown";
 import { formatEventDateRange } from "@/config/editions";
 import { edition2027 } from "@/config/editions/2027";
 
@@ -21,9 +22,9 @@ export default function Section2027Teaser() {
           DevBcn <em>2027</em>
           <span>is on the way.</span>
         </h2>
-        <p className="conference-stats--2027__intro">
-          The next edition is taking shape at World Trade Center Barcelona. Speakers, talks and sponsorship opportunities will be announced soon.
-        </p>
+        <div className="conference-stats--2027__countdown" aria-label="Countdown to DevBcn 2027">
+          <Countdown style={1} eventDate={edition2027.event.startDay.toISOString()} />
+        </div>
         <div className="conference-stats--2027__details" aria-label="DevBcn 2027 overview">
           <div>
             <span className="conference-stats--2027__detail-label">When</span>

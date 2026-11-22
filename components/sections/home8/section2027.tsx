@@ -3,6 +3,7 @@
 import { formatEventDateRange } from "@/config/editions";
 import { edition2027 } from "@/config/editions/2027";
 import TrackBadges from "@/components/elements/TrackBadges";
+import HeroActions from "./HeroActions";
 import { CalendarDays, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -61,12 +62,11 @@ export default function Section2027() {
                   priority
                   className="hero-logo"
                 />
-                <h1 className="hero8-header__subtitle hero8-header__subtitle--2027">The Barcelona Developers Conference</h1>
+                <h1 className="visually-hidden">The Barcelona Developers Conference</h1>
               </div>
               <div className="hero8-header__spacer" />
               <div className="hero8-header__special-highlight hero8-header__special-highlight--2027">
                 <p className="hero8-header__special-kicker">Summer Barcelona 2027</p>
-                <h2 className="hero8-header__special-title">The next edition is taking shape.</h2>
                 <p className="hero8-header__special-copy">{eventDate}. AMA Sessions and Speaking Mentoring will return.</p>
                 <div className="hero8-header__event-info">
                   <div className="hero8-header__event-line">
@@ -79,6 +79,7 @@ export default function Section2027() {
                   </div>
                 </div>
               </div>
+              <HeroActions config={edition2027} year="2027" />
               <div>
                 <TrackBadges className="hero8-header__tracks--2027" />
               </div>

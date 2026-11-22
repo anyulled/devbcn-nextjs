@@ -338,25 +338,31 @@
   background: rgb(255 255 255 / 0.1);
 
   .mapouter {
-    .gmap_canvas {
-      iframe {
-        width: 47%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 322px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 47%;
 
-        @media #{$xs} {
-          width: 100%;
-          position: relative;
-          height: 325px;
-        }
+    @media #{$xs} {
+      position: relative;
+      width: 100%;
+    }
 
-        @media #{$md} {
-          width: 100%;
-          position: relative;
-          height: 325px;
-        }
+    @media #{$md} {
+      position: relative;
+      width: 100%;
+    }
+
+    .gmap_canvas iframe {
+      height: 322px;
+      width: 100%;
+
+      @media #{$xs} {
+        height: 325px;
+      }
+
+      @media #{$md} {
+        height: 325px;
       }
     }
   }

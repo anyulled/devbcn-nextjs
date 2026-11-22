@@ -29,6 +29,18 @@ describe("Footer8", () => {
     expect(layer1?.getAttribute("height")).toBe("230");
   });
 
+  it.each(["/", "/2027", "/2027/"])("uses the compact footer on the 2027 home page at %s", async (pathname) => {
+    const { usePathname } = await import("next/navigation");
+    jest.mocked(usePathname).mockReturnValue(pathname);
+    const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
+    const { container } = render(<Footer8 />);
+
+    expect(container.querySelector(".footer8-sertion-area--compact")).toBeInTheDocument();
+    expect(container.querySelector('img[src*="layer1.png"]')).not.toBeInTheDocument();
+    expect(screen.getByText("Quick Links")).toBeInTheDocument();
+    jest.mocked(usePathname).mockReturnValue("/2026");
+  });
+
   it("renders logo image with explicit dimensions", async () => {
     const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
     render(<Footer8 />);

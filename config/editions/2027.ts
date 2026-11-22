@@ -44,7 +44,7 @@ export const edition2027: EditionConfig & { hero: HeroConfig } = {
   cfp: {
     startDay: new Date("2027-01-01T00:00:00+01:00"),
     endDay: new Date("2027-03-01T00:00:00+01:00"),
-    link: "https://sessionize.com/devbcn27/",
+    link: "https://sessionize.com/devbcn-2027/?e=f455b8",
   },
 
   tickets: {

@@ -337,13 +337,37 @@
     }
   }
 
-  &__intro {
-    color: rgb(255 255 255 / 0.8);
-    font-family: var(--figtree);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.6;
-    margin: 0;
-    max-width: 640px;
+  &__countdown {
+    width: 100%;
+
+    .timer {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .time-box {
+      border-left: 2px solid #ff67c5;
+      padding-left: 1rem;
+    }
+
+    .time-value {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--grotesk);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1;
+
+      span {
+        color: #8eeaff;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+      }
+    }
   }
 
   &__details {
@@ -371,6 +395,11 @@
 
   @media #{$xs} {
     padding: 4.5rem 0;
+
+    &__countdown .timer {
+      gap: 1.5rem 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     &__details {
       gap: 1.25rem;
