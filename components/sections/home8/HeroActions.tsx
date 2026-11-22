@@ -2,7 +2,6 @@
 
 import type { EditionConfig } from "@/config/editions/types";
 import { trackTicketClick } from "@/lib/shared/analytics";
-import { motion } from "framer-motion";
 import { Handshake, Mic, Ticket } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -37,27 +36,27 @@ export default function HeroActions({ config, year }: Readonly<HeroActionsProps>
   return (
     <div className="btn-area1 hero8-header__primary-actions">
       {showTickets && (
-        <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+        <div>
           <Link href={config.tickets.url} className="hero-cta hero-cta--primary" onClick={() => trackTicketClick("hero", year)}>
             <Ticket className="hero-cta__icon" aria-hidden="true" />
             <span className="hero-cta__text">Reserve Your Seat</span>
           </Link>
-        </motion.div>
+        </div>
       )}
       {showCfp && (
-        <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+        <div>
           <Link href={config.cfp.link} className="hero-cta hero-cta--secondary">
             <Mic className="hero-cta__icon" aria-hidden="true" />
             <span className="hero-cta__text">Become a Speaker</span>
           </Link>
-        </motion.div>
+        </div>
       )}
-      <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-        <Link href={`/${year}/sponsorship`} className="hero-cta hero-cta--tertiary">
+      <div>
+        <Link href={`/${year}/sponsorship`} prefetch={false} className="hero-cta hero-cta--tertiary">
           <Handshake className="hero-cta__icon" aria-hidden="true" />
           <span className="hero-cta__text">Become a Sponsor</span>
         </Link>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,8 @@
 // Homepage 08 //
 .event8-section-area {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   z-index: 1;
 
   @media #{$xs} {
@@ -164,7 +166,7 @@
             }
 
             img {
-              height: 100%;
+              height: auto;
               width: 100%;
               object-fit: cover;
               border-radius: 4px;

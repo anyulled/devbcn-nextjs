@@ -1,0 +1,127 @@
+.track-badges {
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media (width <= 768px) {
+      gap: 0.5rem;
+    }
+  }
+}
+
+@keyframes track-badge-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.track-badge {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  transition: all 0.3s ease;
+  animation: track-badge-fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+
+  &:hover {
+    background: rgb(255 255 255 / 0.15);
+    border-color: rgb(255 255 255 / 0.3);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgb(255 255 255 / 0.5);
+    outline-offset: 2px;
+  }
+
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    transition: opacity 0.3s ease;
+
+    &--java-jvm {
+      background: linear-gradient(135deg, #f97316, #dc2626);
+    }
+
+    &--cloud-devops {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    }
+
+    &--frontend {
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+    }
+
+    &--leadership {
+      background: linear-gradient(135deg, #22c55e, #059669);
+    }
+
+    &--ai-ml {
+      background: linear-gradient(135deg, #6366f1, #7c3aed);
+    }
+  }
+
+  &:hover &__gradient {
+    opacity: 0.25;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+    z-index: 1;
+  }
+
+  &__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    white-space: nowrap;
+  }
+
+  @media (width <= 768px) {
+    padding: 0.625rem 1rem;
+
+    &__content {
+      font-size: 0.8125rem;
+    }
+
+    &__icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+    transition: none;
+
+    &__gradient {
+      transition: none;
+    }
+  }
+}

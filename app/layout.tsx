@@ -84,7 +84,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const shouldEnableVercelTelemetry = process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS !== "false";
+  const shouldEnableVercelTelemetry =
+    process.env.NODE_ENV === "production" &&
+    Boolean(process.env.VERCEL || process.env.NEXT_PUBLIC_VERCEL_ENV) &&
+    process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS !== "false";
 
   return (
     <html lang="en" suppressHydrationWarning>

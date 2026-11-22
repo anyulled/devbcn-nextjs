@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
@@ -6,15 +7,8 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
   const showAmaAndMentoring = year === "2026" || year === "2027";
 
   return (
-    <div
-      className="event8-section-area sp1"
-      style={{
-        backgroundImage: "url(assets/img/bg/header-bg20.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="event8-section-area sp1">
+      <Image src="/assets/img/bg/header-bg20.png" alt="" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -1 }} />
       <div className="container">
         <div className="row">
           <div className="col-lg-10 m-auto">
@@ -53,7 +47,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/devbcn-1.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/devbcn-1.webp"
+                                alt="DevBcn"
+                                width={412}
+                                height={275}
+                                sizes="(max-width: 991px) 90vw, 220px"
+                              />
                             </div>
                           </div>
                         </div>
@@ -81,7 +81,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                           </div>
                           <div className="col-lg-5">
                             <div className="img1">
-                              <img src="/assets/img/all-images/about/devbcn2.webp" alt="DevBcn" />
+                              <Image
+                                src="/assets/img/all-images/about/devbcn2.webp"
+                                alt="DevBcn"
+                                width={529}
+                                height={529}
+                                sizes="(max-width: 991px) 90vw, 220px"
+                              />
                             </div>
                           </div>
                         </div>
@@ -122,7 +128,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/about/FaqsImage1.webp" alt="DevBcn" />
+                                  <Image
+                                    src="/assets/img/all-images/about/FaqsImage1.webp"
+                                    alt="DevBcn"
+                                    width={400}
+                                    height={267}
+                                    sizes="(max-width: 991px) 90vw, 220px"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -150,7 +162,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/all-images/about/FaqsImage0.webp" alt="DevBcn" />
+                                  <Image
+                                    src="/assets/img/all-images/about/FaqsImage0.webp"
+                                    alt="DevBcn"
+                                    width={400}
+                                    height={267}
+                                    sizes="(max-width: 991px) 90vw, 220px"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -182,7 +200,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/features/ama-sessions.png" alt="AMA Sessions" />
+                                  <Image
+                                    src="/assets/img/features/ama-sessions.png"
+                                    alt="AMA Sessions"
+                                    width={567}
+                                    height={567}
+                                    sizes="(max-width: 991px) 90vw, 220px"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -209,7 +233,13 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/features/speaking-mentoring.png" alt="Speaking Mentoring" />
+                                  <Image
+                                    src="/assets/img/features/speaking-mentoring.png"
+                                    alt="Speaking Mentoring"
+                                    width={567}
+                                    height={567}
+                                    sizes="(max-width: 991px) 90vw, 220px"
+                                  />
                                 </div>
                               </div>
                             </div>

@@ -44,6 +44,9 @@ describe("MobileMenu", () => {
     render(<MobileMenu isMobileMenu={true} handleMobileMenu={handleMobileMenu} navigation={navigation} />);
 
     expect(document.querySelector(".mobile-sidebar.mobile-sidebar1.mobile-menu-active")).toBeInTheDocument();
+    const mobileLogo = screen.getByRole("img", { name: "devBcn" });
+    expect(mobileLogo).toHaveAttribute("width", "75");
+    expect(mobileLogo).toHaveAttribute("height", "38");
     expect(screen.getByText("About Us")).toBeInTheDocument();
     expect(screen.getByText("Talks")).toBeInTheDocument();
     expect(screen.getByText("CFP")).toBeInTheDocument();

@@ -9,14 +9,17 @@
     },
     "assert": {
       "assertions": {
-        "categories:performance": ["error", { "minScore": 0.95 }],
-        "categories:accessibility": ["error", { "minScore": 0.94 }],
-        "categories:best-practices": ["error", { "minScore": 0.92 }],
+        "categories:performance": ["error", { "minScore": 0.98 }],
+        "categories:accessibility": ["error", { "minScore": 1 }],
+        "categories:best-practices": ["error", { "minScore": 1 }],
         "categories:seo": ["error", { "minScore": 1 }],
-        "first-contentful-paint": ["warn", { "maxNumericValue": 1000 }],
+        "first-contentful-paint": ["error", { "maxNumericValue": 1000 }],
         "largest-contentful-paint": ["error", { "maxNumericValue": 1000 }],
-        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.03 }],
-        "total-blocking-time": ["warn", { "maxNumericValue": 60 }]
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.01 }],
+        "total-blocking-time": ["error", { "maxNumericValue": 60 }],
+        "speed-index": ["warn", { "maxNumericValue": 2500 }],
+        "errors-in-console": ["error", { "minScore": 1 }],
+        "image-aspect-ratio": ["error", { "minScore": 1 }]
       }
     },
     "upload": {

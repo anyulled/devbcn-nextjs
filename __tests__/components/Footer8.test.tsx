@@ -50,4 +50,13 @@ describe("Footer8", () => {
     expect(logo.getAttribute("width")).toBe("150");
     expect(logo.getAttribute("height")).toBe("76");
   });
+
+  it("renders accessible names for all social links", async () => {
+    const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
+    render(<Footer8 />);
+
+    for (const label of ["DevBcn on X (Twitter)", "DevBcn on Instagram", "DevBcn on LinkedIn", "DevBcn on Bluesky", "DevBcn on YouTube", "DevBcn on Flickr"]) {
+      expect(screen.getByRole("link", { name: label })).toBeInTheDocument();
+    }
+  });
 });

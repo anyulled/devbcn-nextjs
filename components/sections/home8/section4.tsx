@@ -68,7 +68,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
                       <Image src="/assets/img/icons/mail1.svg" alt="" width={40} height={40} />
                     </div>
                     <div className="text">
-                      <h5>Our Email</h5>
+                      <h4>Our Email</h4>
                       <div className="space14" />
                       <Link href="mailto:info@devbcn.com">info@devbcn.com</Link>
                     </div>
@@ -79,7 +79,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
                       <i className="fa-brands fa-linkedin-in" />
                     </div>
                     <div className="text">
-                      <h5>LinkedIn</h5>
+                      <h4>LinkedIn</h4>
                       <div className="space14" />
                       <a href="https://www.linkedin.com/company/devbcn/" target="_blank" rel="noopener noreferrer">
                         DevBcn
@@ -94,7 +94,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
                       <i className="fa-brands fa-twitter" />
                     </div>
                     <div className="text">
-                      <h5>X/ Twitter</h5>
+                      <h4>X/ Twitter</h4>
                       <div className="space14" />
                       <a href="https://twitter.com/dev_bcn" target="_blank" rel="noopener noreferrer">
                         @dev_bcn
@@ -104,10 +104,10 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
                   <div className="space18" />
                   <div className="contact-boxarea" data-aos="zoom-in" data-aos-duration={1200}>
                     <div className="icons">
-                      <img src="/assets/img/icons/instagram.svg" alt="Instagram" />
+                      <Image src="/assets/img/icons/instagram.svg" alt="" width={30} height={30} />
                     </div>
                     <div className="text">
-                      <h5>Instagram</h5>
+                      <h4>Instagram</h4>
                       <div className="space14" />
                       <a href="https://www.instagram.com/devbcn.conf/" target="_blank" rel="noopener noreferrer">
                         devbcn.conf
