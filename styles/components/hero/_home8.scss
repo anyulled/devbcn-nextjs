@@ -439,14 +439,12 @@
     max-width: 720px;
   }
 
-  .hero8-header__subtitle--2027 {
-    font-size: 48px;
-    line-height: 56px;
-
-    @media #{$xs} {
-      font-size: 32px;
-      line-height: 40px;
-    }
+  .hero8-header__primary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
   }
 
   .hero8-header__tracks--2027 {

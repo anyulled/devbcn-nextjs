@@ -122,7 +122,7 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
         </div>
         <div className="mapouter">
           <div className="gmap_canvas">
-            <LazyMapIframe title={eventVenue.name} src={eventVenue.mapUrl} width={600} height={450} />
+            <LazyMapIframe title={eventVenue.name} src={eventVenue.mapUrl} width={600} height={325} />
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@ import TrackBadges from "@/components/elements/TrackBadges";
 import VideoOverlay from "@/components/elements/VideoOverlay";
 import { hasAmaMentoring } from "@/config/ama-mentoring";
 import { formatEventDateRange, getEditionConfig } from "@/config/editions";
-import { trackTicketClick } from "@/lib/shared/analytics";
+import HeroActions from "./HeroActions";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, CalendarDays, Handshake, MapPin, Mic, Ticket } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,18 +18,6 @@ interface Section1Props {
 export default function Section1({ year }: Readonly<Section1Props>) {
   const config = getEditionConfig(year);
   const router = useRouter();
-
-  const currentDate = new Date();
-  const isCfpOpen = currentDate >= config.cfp.startDay && currentDate <= config.cfp.endDay;
-
-  // Find ticket start and end dates based on categories if available
-  const blindBird = config.tickets.categories?.find((c) => c.name.toLowerCase().includes("blind bird"));
-  const superLastMinute = config.tickets.categories?.find((c) => c.name.toLowerCase().includes("super last minute"));
-
-  const ticketsStart = blindBird ? blindBird.startDate : config.tickets.startDay;
-  const ticketsEnd = superLastMinute ? superLastMinute.endDate : config.tickets.endDay;
-
-  const isTicketsOpen = currentDate >= ticketsStart && currentDate <= ticketsEnd;
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -120,30 +108,7 @@ export default function Section1({ year }: Readonly<Section1Props>) {
                   <TrackBadges onTrackClick={handleTrackClick} />
                 </motion.div>
 
-                <motion.div className="btn-area1" variants={containerVariants}>
-                  {isTicketsOpen && (
-                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
-                      <Link href={config.tickets.url} className="hero-cta hero-cta--primary" onClick={() => trackTicketClick("hero", year)}>
-                        <Ticket className="hero-cta__icon" />
-                        <span className="hero-cta__text">Reserve Your Seat</span>
-                      </Link>
-                    </motion.div>
-                  )}
-                  {isCfpOpen && (
-                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
-                      <Link href={config.cfp.link} className="hero-cta hero-cta--secondary">
-                        <Mic className="hero-cta__icon" />
-                        <span className="hero-cta__text">Become a Speaker</span>
-                      </Link>
-                    </motion.div>
-                  )}
-                  <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} variants={itemVariants}>
-                    <Link href={`/${year}/sponsorship`} className="hero-cta hero-cta--tertiary">
-                      <Handshake className="hero-cta__icon" />
-                      <span className="hero-cta__text">Become a Sponsor</span>
-                    </Link>
-                  </motion.div>
-                </motion.div>
+                <HeroActions config={config} year={year} />
               </div>
             </motion.div>
           </div>

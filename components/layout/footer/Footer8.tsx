@@ -14,15 +14,16 @@ export default function Footer8() {
     setCopyrightYear(new Date().getFullYear());
   }, []);
 
+  const is2027Home = pathname === "/" || pathname === "/2027" || pathname === "/2027/";
   const yearMatch = /^\/(\d{4})/.exec(pathname);
   const currentYear = yearMatch ? yearMatch[1] : CURRENT_EDITION;
   const basePath = `/${currentYear}`;
   const rootPath = "";
 
   return (
-    <div className="footer8-sertion-area" style={{ position: "relative" }}>
+    <div className={`footer8-sertion-area${is2027Home ? " footer8-sertion-area--compact" : ""}`} style={{ position: "relative" }}>
       <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -3 }} />
-      <Image src="/assets/img/elements/layer1.png" alt="" width={1440} height={230} className="layer1" loading="lazy" />
+      {!is2027Home && <Image src="/assets/img/elements/layer1.png" alt="" width={1440} height={230} className="layer1" loading="lazy" />}
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-12">
