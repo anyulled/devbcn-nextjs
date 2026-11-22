@@ -1,0 +1,16 @@
+# DevBcn - Barcelona Developers Conference
+
+> DevBcn is the Barcelona Developers Conference taking place on 6-7 July 2027 at the World Trade Center, Barcelona, featuring tracks across Java & JVM, Cloud & DevOps, Frontend, Leadership, and AI & ML.
+
+## 2027 Edition
+
+- [DevBcn 2027 Home](https://www.devbcn.com/2027): Event overview, countdown, tracks, venue information, and sponsorship links.
+- [Sponsorship 2027](https://www.devbcn.com/2027/sponsorship): Sponsorship packages and opportunities for DevBcn 2027.
+- [AMA Sessions](https://www.devbcn.com/2027/ama): Ask Me Anything 1-hour speaker Q&A sessions.
+- [Speaking Mentoring](https://www.devbcn.com/2027/mentoring): 1-hour mentoring sessions on public speaking and abstract preparation.
+- [Convince Your Boss](https://www.devbcn.com/2027/convince-your-boss): Template and tips to request conference attendance approval.
+
+## About
+
+- [About Us](https://www.devbcn.com/about-us): Organizers, mission, and background of the Barcelona Developers Conference.
+- [Code of Conduct](https://www.devbcn.com/code-of-conduct): Community standards and event code of conduct.
