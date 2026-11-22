@@ -3,6 +3,8 @@ import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
 
 export default function Section3({ year = "2026" }: Readonly<{ year?: string }>) {
+  const showAmaAndMentoring = year === "2026" || year === "2027";
+
   return (
     <div
       className="event8-section-area sp1"
@@ -85,7 +87,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                         </div>
                       </div>
                     </div>
-                    {year !== "2026" && (
+                    {!showAmaAndMentoring && (
                       <>
                         {/* More than Java & Cloud */}
                         <div className="col-lg-6 mb-4">
@@ -156,7 +158,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                         </div>
                       </>
                     )}
-                    {year === "2026" && (
+                    {showAmaAndMentoring && (
                       <>
                         {/* AMA Sessions */}
                         <div className="col-lg-6 mb-4">
