@@ -20,11 +20,20 @@ describe("2027 home page", () => {
     render(<HomePage />);
 
     expect(screen.queryByText(/taking shape/i)).not.toBeInTheDocument();
+    expect(screen.queryByAltText("DevBcn - Barcelona Developers Conference")).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "The Barcelona Developers Conference", level: 1 })).toHaveClass("visually-hidden");
     expect(screen.getByRole("link", { name: "Become a Sponsor" })).toHaveAttribute("href", "/2027/sponsorship");
     expect(screen.queryByRole("link", { name: "Reserve Your Seat" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Become a Speaker" })).not.toBeInTheDocument();
     expect(screen.getByText(/AMA Sessions and Speaking Mentoring will return/i)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "What is the Barcelona Developers Conference?" })).toBeInTheDocument();
+    const convinceBossLinks = screen.getAllByRole("link", { name: "Convince your Boss" });
+    expect(convinceBossLinks.length).toBeGreaterThan(0);
+    convinceBossLinks.forEach((link) => expect(link).toHaveAttribute("href", "/2027/convince-your-boss"));
+    expect(screen.getByRole("link", { name: "AMA Sessions" })).toHaveAttribute("href", "/2027/ama");
+    expect(screen.getByRole("link", { name: "Speaking Mentoring" })).toHaveAttribute("href", "/2027/mentoring");
+    expect(screen.queryByText("More than Java & Cloud")).not.toBeInTheDocument();
+    expect(screen.queryByText("Community & Networking")).not.toBeInTheDocument();
     expect(screen.getByLabelText("Countdown to DevBcn 2027")).toHaveTextContent(/10\s+Seconds/);
 
     act(() => jest.advanceTimersByTime(1000));

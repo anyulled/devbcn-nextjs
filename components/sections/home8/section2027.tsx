@@ -53,15 +53,6 @@ export default function Section2027() {
           <div className="col-lg-10 m-auto">
             <div className="hero8-header text-center">
               <div className="hero8-header__branding">
-                <Image
-                  src="/assets/img/logo/logo.png"
-                  alt="DevBcn - Barcelona Developers Conference"
-                  width={800}
-                  height={327}
-                  sizes="(max-width: 767px) 245px, 400px"
-                  priority
-                  className="hero-logo"
-                />
                 <h1 className="visually-hidden">The Barcelona Developers Conference</h1>
               </div>
               <div className="hero8-header__spacer" />
