@@ -400,7 +400,17 @@
 
 .hero8-slider-area--2027 {
   isolation: isolate;
+  justify-content: flex-end;
   overflow: hidden;
+  padding: 160px 0 3rem;
+
+  @media #{$xs} {
+    padding: 120px 0 2rem;
+  }
+
+  @media #{$md} {
+    padding: 140px 0 2.5rem;
+  }
 
   .hero8-video,
   .hero8-video__fallback,
