@@ -30,8 +30,16 @@
     transition: opacity 0.3s ease;
   }
 
-  &:hover::before {
-    opacity: 1;
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 
   &--primary {
@@ -97,6 +105,11 @@
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
 
     &::before {
       transition: none;

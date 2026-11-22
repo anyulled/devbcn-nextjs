@@ -49,13 +49,28 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
     AOS.init();
     void import("@/styles/vendor/aos.css");
 
-    // Load FontAwesome asynchronously after first paint so it never blocks FCP/LCP.
-    if (!document.querySelector(`link[href="${FONTAWESOME_CSS_URL}"]`)) {
+    // Load FontAwesome asynchronously after window load using media=print swap so it never blocks paint or shifts layout.
+    const injectFontAwesome = () => {
+      if (document.querySelector(`link[href="${FONTAWESOME_CSS_URL}"]`)) {
+        return;
+      }
       const link = document.createElement("link");
       link.rel = "stylesheet";
       link.href = FONTAWESOME_CSS_URL;
+      link.media = "print";
+      link.onload = () => {
+        link.media = "all";
+      };
       document.head.appendChild(link);
+    };
+
+    if (document.readyState === "complete") {
+      injectFontAwesome();
+      return undefined;
     }
+
+    window.addEventListener("load", injectFontAwesome, { once: true });
+    return () => window.removeEventListener("load", injectFontAwesome);
   }, []);
 
   useEffect(() => {

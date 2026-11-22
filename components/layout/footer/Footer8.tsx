@@ -34,33 +34,39 @@ export default function Footer8() {
               <div className="space24" />
               <ul>
                 <li>
-                  <a href="https://twitter.com/dev_bcn" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-twitter"></i>
+                  <a href="https://twitter.com/dev_bcn" className="m-0" target="_blank" rel="noopener noreferrer" aria-label="DevBcn on X (Twitter)">
+                    <i className="fa-brands fa-twitter" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/devbcn.conf/" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-instagram"></i>
+                  <a href="https://www.instagram.com/devbcn.conf/" className="m-0" target="_blank" rel="noopener noreferrer" aria-label="DevBcn on Instagram">
+                    <i className="fa-brands fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/devbcn/" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-linkedin-in"></i>
+                  <a href="https://www.linkedin.com/company/devbcn/" className="m-0" target="_blank" rel="noopener noreferrer" aria-label="DevBcn on LinkedIn">
+                    <i className="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://bsky.app/profile/devbcn.bsky.social" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-bluesky"></i>
+                  <a
+                    href="https://bsky.app/profile/devbcn.bsky.social"
+                    className="m-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="DevBcn on Bluesky"
+                  >
+                    <i className="fa-brands fa-bluesky" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/@DevBcn" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-youtube"></i>
+                  <a href="https://www.youtube.com/@DevBcn" className="m-0" target="_blank" rel="noopener noreferrer" aria-label="DevBcn on YouTube">
+                    <i className="fa-brands fa-youtube" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.flickr.com/photos/devbcn" className="m-0" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-flickr"></i>
+                  <a href="https://www.flickr.com/photos/devbcn" className="m-0" target="_blank" rel="noopener noreferrer" aria-label="DevBcn on Flickr">
+                    <i className="fa-brands fa-flickr" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>

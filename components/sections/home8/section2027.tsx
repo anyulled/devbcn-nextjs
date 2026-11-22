@@ -17,15 +17,45 @@ export default function Section2027() {
   useEffect(() => {
     const desktopQuery = globalThis.window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
     const reducedMotionQuery = globalThis.window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateVideoSource = () =>
-      setVideoSource(reducedMotionQuery.matches ? null : desktopQuery.matches ? edition2027.hero.desktopVideo : edition2027.hero.mobileVideo);
+    const connection = (globalThis.navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    const isSaveData = Boolean(connection?.saveData);
+
+    const updateVideoSource = () => {
+      if (reducedMotionQuery.matches || isSaveData) {
+        setVideoSource(null);
+        return;
+      }
+      setVideoSource(desktopQuery.matches ? edition2027.hero.desktopVideo : edition2027.hero.mobileVideo);
+    };
+
+    if (reducedMotionQuery.matches || isSaveData) {
+      return undefined;
+    }
 
     const cleanupTimeouts: Array<() => void> = [];
-    // Defer background video download until after initial load so it doesn't compete with LCP.
+    const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "scroll", "keydown", "touchstart"];
+    const state = { triggered: false };
+
+    const triggerVideo = () => {
+      if (state.triggered) {
+        return;
+      }
+      state.triggered = true;
+      cleanupTimeouts.forEach((cancel) => cancel());
+      interactionEvents.forEach((eventName) => globalThis.window.removeEventListener(eventName, triggerVideo));
+      updateVideoSource();
+    };
+
+    // Defer background video download until user interaction or well after initial load so it doesn't compete with LCP/TBT.
     const scheduleVideo = () => {
-      const id = setTimeout(updateVideoSource, 1500);
+      if (state.triggered) {
+        return;
+      }
+      const id = setTimeout(triggerVideo, 5000);
       cleanupTimeouts.push(() => clearTimeout(id));
     };
+
+    interactionEvents.forEach((eventName) => globalThis.window.addEventListener(eventName, triggerVideo, { once: true, passive: true }));
 
     if (document.readyState === "complete") {
       scheduleVideo();
@@ -37,6 +67,7 @@ export default function Section2027() {
     reducedMotionQuery.addEventListener("change", updateVideoSource);
     return () => {
       cleanupTimeouts.forEach((cancel) => cancel());
+      interactionEvents.forEach((eventName) => globalThis.window.removeEventListener(eventName, triggerVideo));
       globalThis.window.removeEventListener("load", scheduleVideo);
       desktopQuery.removeEventListener("change", updateVideoSource);
       reducedMotionQuery.removeEventListener("change", updateVideoSource);

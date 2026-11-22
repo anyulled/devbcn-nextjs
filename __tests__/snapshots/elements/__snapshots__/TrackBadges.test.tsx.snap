@@ -3,24 +3,24 @@
 exports[`TrackBadges Component matches snapshot 1`] = `
 <div>
   <div
-    class="jsx-43dbfbb12b7734ac track-badges "
+    class="track-badges "
   >
     <div
-      class="jsx-43dbfbb12b7734ac track-badges__container"
+      class="track-badges__container"
     >
       <div
-        class="jsx-43dbfbb12b7734ac track-badge"
+        class="track-badge"
         style="cursor: default; animation-delay: 0ms;"
       >
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__gradient bg-gradient-to-br from-orange-500 to-red-600"
+          class="track-badge__gradient track-badge__gradient--java-jvm"
         />
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__content"
+          class="track-badge__content"
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-coffee jsx-43dbfbb12b7734ac track-badge__icon"
+            class="lucide lucide-coffee track-badge__icon"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -45,25 +45,25 @@ exports[`TrackBadges Component matches snapshot 1`] = `
             />
           </svg>
           <span
-            class="jsx-43dbfbb12b7734ac track-badge__name"
+            class="track-badge__name"
           >
             Java & JVM
           </span>
         </div>
       </div>
       <div
-        class="jsx-43dbfbb12b7734ac track-badge"
+        class="track-badge"
         style="cursor: default; animation-delay: 100ms;"
       >
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__gradient bg-gradient-to-br from-blue-500 to-cyan-600"
+          class="track-badge__gradient track-badge__gradient--cloud-devops"
         />
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__content"
+          class="track-badge__content"
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-cloud jsx-43dbfbb12b7734ac track-badge__icon"
+            class="lucide lucide-cloud track-badge__icon"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -79,25 +79,25 @@ exports[`TrackBadges Component matches snapshot 1`] = `
             />
           </svg>
           <span
-            class="jsx-43dbfbb12b7734ac track-badge__name"
+            class="track-badge__name"
           >
             Cloud & DevOps
           </span>
         </div>
       </div>
       <div
-        class="jsx-43dbfbb12b7734ac track-badge"
+        class="track-badge"
         style="cursor: default; animation-delay: 200ms;"
       >
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__gradient bg-gradient-to-br from-purple-500 to-pink-600"
+          class="track-badge__gradient track-badge__gradient--frontend"
         />
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__content"
+          class="track-badge__content"
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-globe jsx-43dbfbb12b7734ac track-badge__icon"
+            class="lucide lucide-globe track-badge__icon"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -121,25 +121,25 @@ exports[`TrackBadges Component matches snapshot 1`] = `
             />
           </svg>
           <span
-            class="jsx-43dbfbb12b7734ac track-badge__name"
+            class="track-badge__name"
           >
             Frontend
           </span>
         </div>
       </div>
       <div
-        class="jsx-43dbfbb12b7734ac track-badge"
+        class="track-badge"
         style="cursor: default; animation-delay: 300ms;"
       >
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__gradient bg-gradient-to-br from-green-500 to-emerald-600"
+          class="track-badge__gradient track-badge__gradient--leadership"
         />
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__content"
+          class="track-badge__content"
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-users jsx-43dbfbb12b7734ac track-badge__icon"
+            class="lucide lucide-users track-badge__icon"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -166,25 +166,25 @@ exports[`TrackBadges Component matches snapshot 1`] = `
             />
           </svg>
           <span
-            class="jsx-43dbfbb12b7734ac track-badge__name"
+            class="track-badge__name"
           >
             Leadership
           </span>
         </div>
       </div>
       <div
-        class="jsx-43dbfbb12b7734ac track-badge"
+        class="track-badge"
         style="cursor: default; animation-delay: 400ms;"
       >
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__gradient bg-gradient-to-br from-indigo-500 to-violet-600"
+          class="track-badge__gradient track-badge__gradient--ai-ml"
         />
         <div
-          class="jsx-43dbfbb12b7734ac track-badge__content"
+          class="track-badge__content"
         >
           <svg
             aria-hidden="true"
-            class="lucide lucide-brain jsx-43dbfbb12b7734ac track-badge__icon"
+            class="lucide lucide-brain track-badge__icon"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -221,7 +221,7 @@ exports[`TrackBadges Component matches snapshot 1`] = `
             />
           </svg>
           <span
-            class="jsx-43dbfbb12b7734ac track-badge__name"
+            class="track-badge__name"
           >
             AI & ML
           </span>
