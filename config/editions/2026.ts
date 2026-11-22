@@ -33,8 +33,8 @@ export const edition2026: EditionConfig = {
   actionButtons: true,
   showCountdown: true,
   showInfoButtons: false,
-  hideSpeakers: true,
-  hideTalks: true,
+  hideSpeakers: false,
+  hideTalks: false,
   diversity: {
     sponsors: [],
     applicationForm: "TBD",
