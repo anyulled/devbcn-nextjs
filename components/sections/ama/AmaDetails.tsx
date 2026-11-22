@@ -22,7 +22,14 @@ export default function AmaDetails({ year }: Readonly<AmaDetailsProps>) {
 
           <div className="feature-content-wrapper">
             <div className="feature-image">
-              <Image src="/assets/img/features/ama-sessions.png" alt="AMA Sessions at DevBcn" fill className="object-cover" priority />
+              <Image
+                src="/assets/img/features/ama-session-mentoring.jpg"
+                alt="DevBcn AMA and mentoring table session"
+                fill
+                sizes="(max-width: 991px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="feature-info">
               <h3>Interactive Q&A: Dynamic Conversations</h3>
@@ -83,6 +90,16 @@ export default function AmaDetails({ year }: Readonly<AmaDetailsProps>) {
                 <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} location="ama_details" />
               </div>
             </div>
+          </div>
+
+          <div className="feature-secondary-media">
+            <Image
+              src="/assets/img/features/ama-session-discussion.jpg"
+              alt="AMA Sessions at DevBcn"
+              fill
+              sizes="(max-width: 991px) 100vw, 1140px"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>

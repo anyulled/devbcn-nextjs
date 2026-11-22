@@ -123,6 +123,21 @@
     }
   }
 
+  .feature-secondary-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 520px;
+    margin-top: 32px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgb(0, 0, 0, 0.05);
+
+    img {
+      object-fit: cover;
+    }
+  }
+
   @media (width <= 991px) {
     .feature-content-wrapper {
       .feature-info {
@@ -144,6 +159,11 @@
       .feature-image {
         min-height: 300px;
       }
+    }
+
+    .feature-secondary-media {
+      aspect-ratio: 3 / 2;
+      margin-top: 24px;
     }
   }
 }

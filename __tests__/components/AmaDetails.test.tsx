@@ -31,10 +31,12 @@ describe("AmaDetails Component", () => {
     expect(screen.getByText("Up to 6 attendees per session")).toBeInTheDocument();
   });
 
-  it("contains the AMA image and schedule links", () => {
+  it("contains the AMA images and schedule links", () => {
     const { container } = render(<AmaDetails year="2026" />);
-    const image = screen.getByAltText("AMA Sessions at DevBcn");
-    expect(image).toBeInTheDocument();
+    const primaryImage = screen.getByAltText("AMA Sessions at DevBcn");
+    const secondaryImage = screen.getByAltText("DevBcn AMA and mentoring table session");
+    expect(primaryImage).toHaveAttribute("src", "/assets/img/features/ama-session-discussion.jpg");
+    expect(secondaryImage).toHaveAttribute("src", "/assets/img/features/ama-session-mentoring.jpg");
 
     const speakerLinks = screen.getAllByRole("link", { name: /Mauricio/i });
     expect(speakerLinks[0]).toHaveAttribute("href", "/2026/speakers/f44f5308-1287-4e6c-8f48-6ed26ea9f9d3");
