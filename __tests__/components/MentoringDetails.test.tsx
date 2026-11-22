@@ -32,10 +32,12 @@ describe("MentoringDetails Component", () => {
     expect(screen.getByText("Up to 10 attendees per session")).toBeInTheDocument();
   });
 
-  it("contains the mentoring image and schedule links", () => {
+  it("contains the mentoring images and schedule links", () => {
     const { container } = render(<MentoringDetails year="2026" />);
-    const image = screen.getByAltText("Speaking Mentoring at DevBcn");
-    expect(image).toBeInTheDocument();
+    const primaryImage = screen.getByAltText("Speaking Mentoring at DevBcn");
+    const secondaryImage = screen.getByAltText("DevBcn Public Speaking Mentoring banner and session");
+    expect(primaryImage).toHaveAttribute("src", "/assets/img/features/speaking-mentoring-session.jpg");
+    expect(secondaryImage).toHaveAttribute("src", "/assets/img/features/speaking-mentoring-banner.jpg");
 
     const timeBlock = Array.from(container.querySelectorAll(".session-schedule-time-block")).find((node) => node.textContent?.includes("11:25"));
     expect(timeBlock).toBeTruthy();
