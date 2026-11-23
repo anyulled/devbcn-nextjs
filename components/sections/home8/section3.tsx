@@ -182,7 +182,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/features/ama-sessions.png" alt="AMA Sessions" />
+                                  <img src="/assets/img/features/ama-session-discussion.jpg" alt="Attendees at a DevBcn AMA session" />
                                 </div>
                               </div>
                             </div>
@@ -209,7 +209,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </div>
                               <div className="col-lg-5">
                                 <div className="img1">
-                                  <img src="/assets/img/features/speaking-mentoring.png" alt="Speaking Mentoring" />
+                                  <img src="/assets/img/features/speaking-mentoring-session.jpg" alt="Attendees at a DevBcn speaking mentoring session" />
                                 </div>
                               </div>
                             </div>
