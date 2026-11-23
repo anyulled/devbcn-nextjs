@@ -21,16 +21,27 @@ export default function MentoringDetails({ year }: Readonly<MentoringDetailsProp
             <p>Elevate your public speaking skills and master the art of conference abstracts with expert guidance.</p>
           </div>
 
-          <div className="feature-content-wrapper">
-            <div className="feature-image">
-              <Image
-                src="/assets/img/features/speaking-mentoring-session.jpg"
-                alt="Speaking Mentoring at DevBcn"
-                fill
-                sizes="(max-width: 991px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
+          <div className="feature-content-wrapper feature-content-wrapper--photo-grid feature-content-wrapper--mentoring">
+            <div className="feature-photo-grid">
+              <div className="feature-photo">
+                <Image
+                  src="/assets/img/features/speaking-mentoring-session.jpg"
+                  alt="Participants discussing public speaking at DevBcn"
+                  fill
+                  sizes="(max-width: 991px) 50vw, 550px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="feature-photo">
+                <Image
+                  src="/assets/img/features/speaking-mentoring-banner.jpg"
+                  alt="DevBcn public speaking mentoring session"
+                  fill
+                  sizes="(max-width: 991px) 50vw, 550px"
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div className="feature-info">
               <h3>Master Your Message: Expert Mentoring</h3>
@@ -91,16 +102,6 @@ export default function MentoringDetails({ year }: Readonly<MentoringDetailsProp
                 <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} location="mentoring_details" />
               </div>
             </div>
-          </div>
-
-          <div className="feature-secondary-media">
-            <Image
-              src="/assets/img/features/speaking-mentoring-banner.jpg"
-              alt="DevBcn Public Speaking Mentoring banner and session"
-              fill
-              sizes="(max-width: 991px) 100vw, 1140px"
-              className="object-cover"
-            />
           </div>
         </div>
       </section>

@@ -34,8 +34,8 @@ describe("MentoringDetails Component", () => {
 
   it("contains the mentoring images and schedule links", () => {
     const { container } = render(<MentoringDetails year="2026" />);
-    const primaryImage = screen.getByAltText("Speaking Mentoring at DevBcn");
-    const secondaryImage = screen.getByAltText("DevBcn Public Speaking Mentoring banner and session");
+    const primaryImage = screen.getByAltText("Participants discussing public speaking at DevBcn");
+    const secondaryImage = screen.getByAltText("DevBcn public speaking mentoring session");
     expect(primaryImage).toHaveAttribute("src", "/assets/img/features/speaking-mentoring-session.jpg");
     expect(secondaryImage).toHaveAttribute("src", "/assets/img/features/speaking-mentoring-banner.jpg");
 
