@@ -1,3 +1,4 @@
+import BuyTicketButton from "@/components/elements/BuyTicketButton";
 import PageHeader from "@/components/layout/PageHeader";
 import CTASection from "@/components/sections/CTASection";
 import { getAvailableEditions, getEditionConfig } from "@/config/editions";
@@ -38,6 +39,7 @@ export default async function PricingPlan({ params }: Readonly<PageProps>) {
 
   const config = getEditionConfig(year);
   const categories = config.tickets.categories;
+  const respectSaleWindow = year === "2027";
 
   return (
     <div>
@@ -56,7 +58,12 @@ export default async function PricingPlan({ params }: Readonly<PageProps>) {
           </div>
           <div className="row">
             {categories.map((cat, index) => (
-              <div className="col-lg-4 col-md-6 mb-4" key={cat.name} data-aos="fade-up" data-aos-delay={index * 100}>
+              <div
+                className="col-lg-4 col-md-6 mb-4"
+                key={cat.name}
+                data-aos={respectSaleWindow ? undefined : "fade-up"}
+                data-aos-delay={respectSaleWindow ? undefined : index * 100}
+              >
                 <div className="pricing-boxarea h-100 d-flex flex-column">
                   <h5>{cat.name}</h5>
                   <div className="space20" />
@@ -87,12 +94,25 @@ export default async function PricingPlan({ params }: Readonly<PageProps>) {
                       Top class well-located venue
                     </li>
                   </ul>
-                  <div className="space28" />
-                  <div className="btn-area1 mt-auto pt-4">
-                    <Link href={config.tickets.url} target="_blank" rel="noopener noreferrer" className="vl-btn1">
-                      buy a ticket
-                    </Link>
-                  </div>
+                  {respectSaleWindow ? (
+                    <BuyTicketButton
+                      className="vl-btn1 align-self-start mt-auto"
+                      href={config.tickets.url}
+                      location="pricing_plan"
+                      respectSaleWindow
+                      text="Buy a ticket"
+                      year={year}
+                    />
+                  ) : (
+                    <>
+                      <div className="space28" />
+                      <div className="btn-area1 mt-auto pt-4">
+                        <Link href={config.tickets.url} target="_blank" rel="noopener noreferrer" className="vl-btn1">
+                          buy a ticket
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             ))}

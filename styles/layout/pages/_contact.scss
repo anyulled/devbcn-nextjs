@@ -615,6 +615,8 @@
     right: 0;
     top: 0;
     width: 50%;
+    height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
 
     @media #{$xs} {

@@ -4,6 +4,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import { getCurrentEditionConfig } from "@/config/editions";
 import { generateOrganizationSchema, serializeJsonLd } from "@/lib/shared/jsonld";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -46,7 +47,14 @@ export default function Contact() {
         {/* ===== CONTACT AREA STARTS =======*/}
         <div className="contact2-bg-section">
           <div className="img1">
-            <img src="/assets/img/all-images/contact/contact-img1.png" alt="" className="contact-img1" />
+            <Image
+              src="/assets/img/all-images/contact/devbcn-expo.jpg"
+              alt="Attendees chatting at the DevBcn expo"
+              width={2048}
+              height={1365}
+              sizes="(max-width: 991px) 100vw, 50vw"
+              className="contact-img1"
+            />
           </div>
           <div className="container">
             <div className="row">

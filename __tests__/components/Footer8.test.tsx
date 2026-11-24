@@ -10,25 +10,6 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Footer8", () => {
-  it("renders optimized background image", async () => {
-    const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
-    render(<Footer8 />);
-
-    const img = screen.getByRole("img", { name: "Footer Background" });
-    expect(img).toBeInTheDocument();
-    expect(img.getAttribute("src")).toContain("header-bg21.png");
-  });
-
-  it("renders layer1 decorative image with explicit dimensions", async () => {
-    const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
-    const { container } = render(<Footer8 />);
-
-    const layer1 = container.querySelector('img[src*="layer1.png"]');
-    expect(layer1).toBeInTheDocument();
-    expect(layer1?.getAttribute("width")).toBe("1440");
-    expect(layer1?.getAttribute("height")).toBe("230");
-  });
-
   it.each(["/", "/2027", "/2027/"])("uses the compact footer on the 2027 home page at %s", async (pathname) => {
     const { usePathname } = await import("next/navigation");
     jest.mocked(usePathname).mockReturnValue(pathname);
@@ -46,8 +27,19 @@ describe("Footer8", () => {
     render(<Footer8 />);
 
     const logo = screen.getByRole("img", { name: "devBcn" });
+    expect(logo).toHaveAttribute("src", "/assets/img/logo/devBcn.webp");
     expect(logo).toBeInTheDocument();
     expect(logo.getAttribute("width")).toBe("150");
     expect(logo.getAttribute("height")).toBe("76");
+  });
+
+  it.each(["/about-us", "/about-devbcn", "/2026", "/2027/sponsorship"])("omits footer artwork on %s", async (pathname) => {
+    const { usePathname } = await import("next/navigation");
+    jest.mocked(usePathname).mockReturnValue(pathname);
+    const Footer8 = (await import("@/components/layout/footer/Footer8")).default;
+    const { container } = render(<Footer8 />);
+
+    expect(container.querySelector(".footer8-sertion-area > img")).not.toBeInTheDocument();
+    jest.mocked(usePathname).mockReturnValue("/2026");
   });
 });

@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import { trackTicketClick } from "@/lib/shared/analytics";
+import { getEditionConfig, getEditionYearFromPathname } from "@/config/editions";
+import { useEditionActionAvailability } from "@/hooks/useEditionActionAvailability";
+import { usePathname } from "next/navigation";
 
 interface BuyTicketButtonProps {
   href?: string;
@@ -10,27 +13,34 @@ interface BuyTicketButtonProps {
   rel?: string;
   location?: string;
   year?: string;
+  respectSaleWindow?: boolean;
   children?: React.ReactNode;
 }
 
 const BuyTicketButton: React.FC<BuyTicketButtonProps> = ({
-  href = "https://tickets.devbcn.com/event/devbcn-2026",
+  href,
   className = "vl-btn8",
   text = "Buy Ticket Now",
   target = "_blank",
   rel = "noopener noreferrer",
   location = "generic_button",
   year,
+  respectSaleWindow = false,
   children,
 }) => {
+  const pathname = usePathname();
+  const config = getEditionConfig(year ?? getEditionYearFromPathname(pathname));
+  const ticketHref = href ?? config.tickets.url;
+  const { showTickets } = useEditionActionAvailability(config, respectSaleWindow);
+
+  if (respectSaleWindow && !showTickets) return null;
+
   const handleClick = () => {
-    const segment = typeof window === "undefined" ? undefined : window.location.pathname.split("/").find(Boolean);
-    const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : new Date().getFullYear().toString();
-    trackTicketClick(location, year ?? yearFromPath);
+    trackTicketClick(location, config.edition);
   };
 
   return (
-    <a href={href} className={className} target={target} rel={rel} onClick={handleClick}>
+    <a href={ticketHref} className={className} target={target} rel={rel} onClick={handleClick}>
       <span className="demo">{text}</span>
       {children}
     </a>

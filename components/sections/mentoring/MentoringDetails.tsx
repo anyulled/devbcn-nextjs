@@ -99,7 +99,13 @@ export default function MentoringDetails({ year }: Readonly<MentoringDetailsProp
               </div>
 
               <div className="cta-area">
-                <BuyTicketButton text={`Register for DevBcn ${eventData.edition}`} href={eventData.tickets.url} location="mentoring_details" />
+                <BuyTicketButton
+                  text={`Register for DevBcn ${eventData.edition}`}
+                  href={eventData.tickets.url}
+                  location="mentoring_details"
+                  respectSaleWindow={eventData.edition === "2027"}
+                  year={eventData.edition}
+                />
               </div>
             </div>
           </div>

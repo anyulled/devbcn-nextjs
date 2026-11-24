@@ -1,9 +1,10 @@
 "use client";
 import Countdown from "@/components/elements/Countdown";
-import { formatEventDateRange } from "@/config/editions";
+import { formatEventDateRange, getEditionConfig, getEditionYearFromPathname } from "@/config/editions";
 import { trackTicketClick } from "@/lib/shared/analytics";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEditionActionAvailability } from "@/hooks/useEditionActionAvailability";
 
 interface CTASectionProps {
   ticketUrl: string;
@@ -14,10 +15,10 @@ interface CTASectionProps {
 }
 
 export default function CTASection({ ticketUrl, eventStartDate, eventEndDate, eventLocation, showCountdown = true }: CTASectionProps) {
-  const pathname = usePathname() ?? "";
-  const yearMatch = pathname.match(/^\/(\d{4})/);
-  const currentYear = yearMatch ? yearMatch[1] : "2026";
+  const currentYear = getEditionYearFromPathname(usePathname());
   const travelPath = `/${currentYear}/travel`;
+  const { showTickets } = useEditionActionAvailability(getEditionConfig(currentYear), currentYear === "2027");
+  const showTicketButton = showCountdown && (currentYear !== "2027" || showTickets);
 
   return (
     <div className="cta1-section-area d-lg-block d-block">
@@ -29,11 +30,13 @@ export default function CTASection({ ticketUrl, eventStartDate, eventEndDate, ev
                 {showCountdown && (
                   <>
                     <Countdown eventDate={eventStartDate.toISOString()} />
-                    <div className="btn-area1">
-                      <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
-                        Buy Ticket
-                      </Link>
-                    </div>
+                    {showTicketButton && (
+                      <div className="btn-area1">
+                        <Link href={ticketUrl} className="vl-btn1" onClick={() => trackTicketClick("cta")}>
+                          Buy Ticket
+                        </Link>
+                      </div>
+                    )}
                   </>
                 )}
               </div>

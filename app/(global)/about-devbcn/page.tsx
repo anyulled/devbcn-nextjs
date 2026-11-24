@@ -1,3 +1,4 @@
+import { Lightbulb, Mic, Ticket, GraduationCap, BadgeCheck, Wrench } from "lucide-react";
 import AboutCounter from "@/components/elements/AboutCounter";
 import PageHeader from "@/components/layout/PageHeader";
 import BrandSlider from "@/components/slider/BrandSlider";
@@ -26,7 +27,13 @@ export default function About() {
             <div className="col-lg-6">
               <div className="about-imges">
                 <div className="img1 reveal image-anime">
-                  <Image src="/assets/img/all-images/about/about-img1.png" alt="DevBcn" width={600} height={600} />
+                  <Image
+                    src="/assets/img/all-images/venue/wtc-auditorio.webp"
+                    alt="Auditorium at World Trade Center Barcelona"
+                    width={1920}
+                    height={960}
+                    sizes="(max-width: 991px) 100vw, 50vw"
+                  />
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-6">
@@ -116,7 +123,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <Lightbulb aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">
@@ -130,7 +137,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <Mic aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">
@@ -144,7 +151,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <Ticket aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">
@@ -158,7 +165,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <GraduationCap aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">
@@ -172,7 +179,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <BadgeCheck aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">
@@ -186,7 +193,7 @@ export default function About() {
             <div className="col-lg-4 col-md-6">
               <div className="choose-widget-boxarea">
                 <div className="icons">
-                  <Image src="/assets/img/icons/choose-icons1.svg" alt="" width={50} height={50} />
+                  <Wrench aria-hidden="true" size={36} />
                 </div>
                 <div className="space24" />
                 <div className="content-area">

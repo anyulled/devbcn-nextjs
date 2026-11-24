@@ -154,23 +154,19 @@ export default function SponsorshipClient({ year, config }: SponsorshipClientPro
                 <div className="space40" />
                 <h4>Tailored Sponsorship Opportunities</h4>
                 <div className="space16" />
-                <p>
-                  While we're keeping the details of our sponsorship packages exclusive, we promise they're more engaging and impactful than ever. Curious?
-                  Access our{" "}
-                  <strong>
-                    <Link href={config.brochure} target="_blank" rel="noreferrer">
-                      detailed brochure
-                    </Link>
-                  </strong>{" "}
-                  and discover the myriad of ways you can shine at DevBcn {year}.
-                </p>
-
-                <div className="space24" />
-                <div className="btn-area1">
-                  <Link href={config.brochure} target="_blank" rel="noreferrer" className="vl-btn1">
-                    <span className="demo">Get the Brochure</span>
-                  </Link>
-                </div>
+                {config.brochure ? (
+                  <>
+                    <p>Explore the sponsorship packages and ways to meet developers at DevBcn {year}.</p>
+                    <div className="space24" />
+                    <div className="btn-area1">
+                      <Link href={config.brochure} target="_blank" rel="noreferrer" className="vl-btn1">
+                        <span className="demo">Get the Brochure</span>
+                      </Link>
+                    </div>
+                  </>
+                ) : (
+                  <p>Contact the sponsorship team for DevBcn {year} packages and availability.</p>
+                )}
 
                 <div className="space40" />
                 <h4>Why Partner with DevBcn?</h4>

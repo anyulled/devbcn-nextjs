@@ -59,4 +59,20 @@ describe("Header8", () => {
     expect(trackTicketClick).toHaveBeenCalledWith("header_top", "2026");
     expect(trackTicketClick).toHaveBeenCalledWith("header_button", "2026");
   });
+
+  it("omits the utility strip and archived ticket actions for 2027", async () => {
+    usePathname.mockReturnValue("/2027/talks");
+    const Header8 = (await import("@/components/layout/header/Header8")).default;
+    render(
+      <Header8
+        scroll={false}
+        isSearch={false}
+        handleSearch={jest.fn()}
+        navigation={{ main: mainNavLinks, yearSpecific: yearSpecificNavLinks, news: newsDropdownLinks }}
+      />
+    );
+
+    expect(screen.queryByText(/Are you Ready to DevBcn/i)).not.toBeInTheDocument();
+    expect(screen.queryByText("Buy Ticket")).not.toBeInTheDocument();
+  });
 });

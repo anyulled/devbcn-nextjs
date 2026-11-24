@@ -1,0 +1,363 @@
+@keyframes home-2027-heading-reveal {
+  from {
+    opacity: 0.28;
+    filter: blur(4px);
+    inset-block-start: 0.34em;
+  }
+
+  to {
+    opacity: 1;
+    filter: none;
+    inset-block-start: 0;
+  }
+}
+
+@keyframes cfp-2027-track-reveal {
+  from {
+    opacity: 0.28;
+    transform: translateY(0.8em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.edition-2027 .heading13 .cfp-2027__track-title {
+  color: var(--edition-navy);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+@supports (animation-timeline: view()) and (animation-range: cover 0% cover 30%) {
+  @media (prefers-reduced-motion: no-preference) {
+    body.homepage8-body:has(.home-2027, .cfp-2027__track-title) {
+      overflow-x: clip !important;
+    }
+
+    .cfp-2027__track-title {
+      overflow: clip;
+      view-timeline-name: --track-entry;
+
+      > span {
+        display: block;
+        animation: cfp-2027-track-reveal ease-out both;
+        animation-timeline: --track-entry;
+        animation-range: cover 2% cover 28%;
+      }
+    }
+
+    .home-2027__scroll-heading {
+      view-timeline-name: --heading-entry;
+
+      > span {
+        position: relative;
+        animation: home-2027-heading-reveal linear both;
+        animation-timeline: --heading-entry;
+        animation-range: cover var(--word-offset) cover calc(22% + var(--word-offset));
+      }
+    }
+  }
+}
+
+.home-2027 {
+  --home-2027-gutter: clamp(1.25rem, 5vw, 5rem);
+  --home-2027-line: color-mix(in srgb, var(--edition-navy) 20%, transparent);
+
+  background: var(--edition-paper);
+  color: var(--edition-navy);
+  font-family: var(--figtree);
+
+  &__section {
+    padding-block: clamp(3rem, 6.5vw, 6rem);
+    scroll-margin-top: 5rem;
+
+    h2,
+    h3 {
+      color: inherit;
+      font-family: var(--grotesk);
+      font-weight: 700;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(2.25rem, 5.7vw, 5rem);
+      letter-spacing: -0.06em;
+      line-height: 0.98;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+    }
+
+    p {
+      color: inherit;
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 45ch;
+    }
+  }
+
+  &__inner {
+    margin-inline: auto;
+    max-width: 1440px;
+    padding-inline: var(--home-2027-gutter);
+  }
+
+  &__intro,
+  &__venue,
+  &__faq,
+  &__tickets {
+    align-items: center;
+    display: grid;
+    gap: clamp(1.25rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  &__ticket-actions {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    .home-2027__text-link {
+      margin-top: 0;
+    }
+  }
+
+  &__intro {
+    align-items: end;
+  }
+
+  &__experiences {
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 4rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: clamp(2rem, 4vw, 4rem);
+  }
+
+  &__experience {
+    border-bottom: 1px solid var(--home-2027-line);
+    padding-bottom: 1.5rem;
+  }
+
+  &__photo {
+    aspect-ratio: 16 / 9;
+    background: var(--edition-navy);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__photo--mentoring img {
+    filter: brightness(1.32) sepia(0.16) saturate(1.17) contrast(1.035);
+  }
+
+  &__experience-copy {
+    padding-top: 1.25rem;
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    h3 a {
+      align-items: center;
+      color: inherit;
+      display: inline-flex;
+      gap: 0.6em;
+      text-decoration: none;
+
+      svg {
+        background: var(--edition-pink);
+        border-radius: 50%;
+        flex: none;
+        padding: 0.25rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+      }
+    }
+  }
+
+  &__tracks {
+    background: var(--edition-navy);
+    color: var(--edition-paper);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+
+    h2 {
+      color: var(--edition-cyan);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      letter-spacing: -0.045em;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid color-mix(in srgb, var(--edition-cyan) 48%, transparent);
+      border-radius: 99rem;
+      font-size: clamp(0.875rem, 1.35vw, 1.1rem);
+      font-weight: 650;
+      padding: 0.55em 1em;
+    }
+  }
+
+  &__venue-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  &__venue p {
+    margin-top: 1.25rem;
+  }
+
+  &__text-link {
+    align-items: center;
+    color: inherit;
+    display: inline-flex;
+    font-weight: 750;
+    gap: 0.5em;
+    margin-top: 1.25rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+      color: inherit;
+      text-decoration-thickness: 2px;
+    }
+
+    svg {
+      flex: none;
+      width: 1.125rem;
+    }
+  }
+
+  &__ticket-section {
+    background: color-mix(in srgb, var(--edition-cyan) 27%, var(--edition-paper));
+  }
+
+  &__tickets {
+    align-items: start;
+
+    h2 + p {
+      margin-top: 0.75rem;
+    }
+
+    .timer {
+      color: var(--edition-navy);
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 1rem;
+      max-width: 24rem;
+    }
+
+    .time-box {
+      border-left: 2px solid var(--edition-navy);
+      padding-left: 0.55rem;
+    }
+
+    .time-value {
+      display: flex;
+      flex-direction: column;
+      font-family: var(--grotesk);
+      font-size: clamp(1.5rem, 4vw, 2.35rem);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      line-height: 1;
+
+      span {
+        font-family: var(--figtree);
+        font-size: 0.75rem;
+        font-weight: 650;
+        margin-top: 0.4rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &__faq {
+    align-items: start;
+
+    details {
+      border-top: 1px solid var(--home-2027-line);
+      padding-block: 0.9rem;
+
+      &:last-child {
+        border-bottom: 1px solid var(--home-2027-line);
+      }
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 750;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+  }
+
+  &__sponsors {
+    background: var(--edition-navy);
+    color: var(--edition-paper);
+    padding-block: clamp(2.5rem, 5vw, 5rem);
+
+    .sponsor-category-title {
+      color: var(--edition-cyan);
+    }
+  }
+
+  &__past-sponsors {
+    margin-top: 2rem;
+
+    .brand-slider-area {
+      margin-top: 1rem;
+    }
+
+    .brand-box {
+      background: var(--edition-paper);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+  }
+
+  @media (width < 768px) {
+    &__intro,
+    &__venue,
+    &__faq,
+    &__tickets,
+    &__experiences {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__venue-photo {
+      aspect-ratio: 16 / 10;
+    }
+  }
+}

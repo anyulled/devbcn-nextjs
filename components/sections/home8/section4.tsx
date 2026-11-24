@@ -16,7 +16,6 @@ export default function Section4({ sponsors, eventVenue }: Readonly<Section4Prop
   return (
     <div id="sponsors" className="brands8-section-area sp8">
       <Image src="/assets/img/bg/header-bg20.png" alt="" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -2 }} />
-      <Image src="/assets/img/elements/layer1.png" className="layer1" alt="" fill sizes="100vw" />
       <div className="container">
         {!hasSponsors && (
           <>

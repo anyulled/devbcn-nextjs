@@ -4,6 +4,7 @@
 // Homepage 08 //
 
 .footer8-sertion-area {
+  background-color: var(--edition-navy, #002454);
   position: relative;
   z-index: 1;
   padding: 200px 0 32px;
@@ -12,13 +13,23 @@
     padding-top: 64px;
   }
 
-  .layer1 {
-    position: absolute;
-    top: -190px;
-    width: 100%;
-    z-index: -2;
-    height: 250px;
-    aspect-ratio: 1440 / 230;
+  .footer-logo-area ul li a {
+    border: 1px solid rgb(142 234 255 / 0.28);
+    background: rgb(142 234 255 / 0.1);
+
+    &:hover {
+      color: var(--edition-navy, #002454);
+      background: var(--edition-cyan, #8eeaff);
+    }
+  }
+
+  .link-content a:hover,
+  .link-content2 a:hover {
+    color: var(--edition-cyan, #8eeaff);
+  }
+
+  .copyright p {
+    border-color: rgb(142 234 255 / 0.26);
   }
 
   .footer-logo-area {

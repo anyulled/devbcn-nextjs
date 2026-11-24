@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import BuyTicketButton from "../../elements/BuyTicketButton";
+import { getEditionConfig } from "@/config/editions";
 
 export default function Section3({ year = "2026" }: Readonly<{ year?: string }>) {
   const showAmaAndMentoring = year === "2026" || year === "2027";
+  const ticketUrl = getEditionConfig(year).tickets.url;
 
   return (
     <div
@@ -47,7 +49,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                               </p>
                               <div className="space24" />
                               <div className="btn-area1">
-                                <BuyTicketButton />
+                                <BuyTicketButton href={ticketUrl} year={year} />
                               </div>
                             </div>
                           </div>
@@ -116,7 +118,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                                     </a>
                                   </p>
                                   <div className="btn-area1">
-                                    <BuyTicketButton />
+                                    <BuyTicketButton href={ticketUrl} year={year} />
                                   </div>
                                 </div>
                               </div>
@@ -144,7 +146,7 @@ export default function Section3({ year = "2026" }: Readonly<{ year?: string }>)
                                   </p>
                                   <div className="space24" />
                                   <div className="btn-area1">
-                                    <BuyTicketButton />
+                                    <BuyTicketButton href={ticketUrl} year={year} />
                                   </div>
                                 </div>
                               </div>
