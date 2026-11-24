@@ -1,7 +1,11 @@
+"use client";
+
 import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function TalkNotFound() {
+  const { year } = useParams<{ year: string }>();
   return (
     <div>
       <PageHeader title="Talk Not Found" breadcrumbText="404" />
@@ -11,7 +15,7 @@ export default function TalkNotFound() {
           <p style={{ fontSize: "18px", marginBottom: "40px", color: "#666" }}>The talk you're looking for doesn't exist or has been removed.</p>
           <div className="actions" style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="/2026/talks"
+              href={`/${year}/talks`}
               className="btn btn-primary"
               style={{
                 padding: "12px 30px",
@@ -25,7 +29,7 @@ export default function TalkNotFound() {
               View All Talks
             </Link>
             <Link
-              href="/2026/schedule"
+              href={`/${year}/schedule`}
               className="btn btn-secondary"
               style={{
                 padding: "12px 30px",
@@ -39,7 +43,7 @@ export default function TalkNotFound() {
               View Schedule
             </Link>
             <Link
-              href="/2026"
+              href={`/${year}`}
               className="btn btn-secondary"
               style={{
                 padding: "12px 30px",

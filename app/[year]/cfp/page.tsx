@@ -73,7 +73,13 @@ export default async function CFP({ params }: CFPProps) {
                         CFP Committee
                       </h5>
                       <div className="space20" />
-                      <h2 style={{ color: "#1a1a1a" }}>{track.name}</h2>
+                      {year === "2027" ? (
+                        <h2 className="cfp-2027__track-title">
+                          <span>{track.name}</span>
+                        </h2>
+                      ) : (
+                        <h2 style={{ color: "#1a1a1a" }}>{track.name}</h2>
+                      )}
                     </div>
                   </div>
                 </div>

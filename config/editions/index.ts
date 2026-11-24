@@ -61,6 +61,11 @@ export const getCurrentEditionConfig = (): EditionConfig => {
   return editionsMap.get(CURRENT_EDITION)!;
 };
 
+export const getEditionYearFromPathname = (pathname: string | null): EditionYear => {
+  const segment = pathname?.split("/").find(Boolean);
+  return segment && isValidEditionYear(segment) ? segment : CURRENT_EDITION;
+};
+
 /**
  * Get all available edition years
  *
@@ -93,7 +98,14 @@ export const isCFPOpen = (config: EditionConfig, now: Date = new Date()): boolea
  * @returns Whether tickets are currently on sale
  */
 export const areTicketsOnSale = (config: EditionConfig, now: Date = new Date()): boolean => {
-  return now >= config.tickets.startDay && now <= config.tickets.endDay;
+  const { startDate, endDate } = getTicketSaleWindow(config);
+  return now >= startDate && now <= endDate;
+};
+
+export const getTicketSaleWindow = (config: EditionConfig): { startDate: Date; endDate: Date } => {
+  const startDate = config.tickets.categories.find((category) => category.name.toLowerCase().includes("blind bird"))?.startDate ?? config.tickets.startDay;
+  const endDate = config.tickets.categories.find((category) => category.name.toLowerCase().includes("super last minute"))?.endDate ?? config.tickets.endDay;
+  return { startDate, endDate };
 };
 
 /**

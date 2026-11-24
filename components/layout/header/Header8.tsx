@@ -1,6 +1,6 @@
 "use client";
 import { EditionNavigation } from "@/config/editions/types";
-import { CURRENT_EDITION } from "@/config/editions";
+import { getEditionConfig, getEditionYearFromPathname } from "@/config/editions";
 import { editionLinks } from "@/config/navigation";
 import { trackTicketClick } from "@/lib/shared/analytics";
 import Link from "next/link";
@@ -15,10 +15,10 @@ interface HeaderProps {
 }
 
 export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
-  const pathname = usePathname();
-  const segment = pathname?.split("/").find(Boolean);
-  const yearFromPath = segment && /^\d{4}$/.test(segment) ? segment : CURRENT_EDITION;
+  const yearFromPath = getEditionYearFromPathname(usePathname());
   const isUpcomingEdition = yearFromPath === "2027";
+  const edition = getEditionConfig(yearFromPath);
+  const ticketUrl = edition.tickets.url;
 
   return (
     <header>
@@ -26,26 +26,26 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="menu-top-area">
-                <div className="top-menu-area">
-                  <p>
-                    Are you Ready to DevBcn?
-                    {!isUpcomingEdition && (
-                      <Link href="https://tickets.devbcn.com/event/devbcn-2026" onClick={() => trackTicketClick("header_top", yearFromPath)}>
+              {!isUpcomingEdition && (
+                <div className="menu-top-area">
+                  <div className="top-menu-area">
+                    <p>
+                      Are you Ready to DevBcn?
+                      <Link href={ticketUrl} onClick={() => trackTicketClick("header_top", yearFromPath)}>
                         Buy Ticket
                       </Link>
-                    )}
-                  </p>
-                  <ul>
-                    <li>
-                      <Link href="/mailto:info@devbcn.com">
-                        <Image src="/assets/img/icons/mail1.svg" alt="" width={16} height={16} />
-                        info@devbcn.com <span> | </span>
-                      </Link>
-                    </li>
-                  </ul>
+                    </p>
+                    <ul>
+                      <li>
+                        <a href={`mailto:${edition.email}`}>
+                          <Image src="/assets/img/icons/mail1.svg" alt="" width={16} height={16} />
+                          {edition.email}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="header-elements">
                 <div className="site-logo">
                   <Link href="/">
@@ -93,11 +93,7 @@ export default function Header8({ scroll, navigation }: Readonly<HeaderProps>) {
                 {!isUpcomingEdition && (
                   <div className="btn-area">
                     <div className="btn-area1">
-                      <Link
-                        className="vl-btn8"
-                        href="https://tickets.devbcn.com/event/devbcn-2026"
-                        onClick={() => trackTicketClick("header_button", yearFromPath)}
-                      >
+                      <Link className="vl-btn8" href={ticketUrl} onClick={() => trackTicketClick("header_button", yearFromPath)}>
                         <span className="demo">Buy Ticket</span>
                       </Link>
                     </div>

@@ -21,14 +21,12 @@ export default function Footer8() {
   const rootPath = "";
 
   return (
-    <div className={`footer8-sertion-area${is2027Home ? " footer8-sertion-area--compact" : ""}`} style={{ position: "relative" }}>
-      <Image src="/assets/img/bg/header-bg21.png" alt="Footer Background" fill sizes="100vw" style={{ objectFit: "cover", zIndex: -3 }} />
-      {!is2027Home && <Image src="/assets/img/elements/layer1.png" alt="" width={1440} height={230} className="layer1" loading="lazy" />}
+    <div className={`footer8-sertion-area${is2027Home ? " footer8-sertion-area--compact" : ""}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-12">
             <div className="footer-logo-area">
-              <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={150} height={76} />
+              <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={150} height={76} unoptimized />
               <div className="space16" />
               <p>Barcelona Developers Conference</p>
               <div className="space24" />

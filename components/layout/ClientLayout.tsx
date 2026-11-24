@@ -21,7 +21,8 @@ function ClientChrome() {
         setTimeout(() => {
           const element = document.getElementById(id);
           if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            element.scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth" });
           }
         }, 300);
       }
@@ -41,6 +42,20 @@ function ClientChrome() {
       <Footer8 />
       <BackToTop target="#top" />
     </>
+  );
+}
+
+function EditionShell({ children }: Readonly<{ children: React.ReactNode }>) {
+  const pathname = usePathname();
+  const is2027Edition = pathname === "/" || pathname === "/2027" || pathname?.startsWith("/2027/");
+
+  const aboutClass = pathname === "/about-devbcn" ? "about-devbcn" : undefined;
+
+  return (
+    <div className={is2027Edition ? "edition-2027" : aboutClass}>
+      {children}
+      <ClientChrome />
+    </div>
   );
 }
 
@@ -75,9 +90,8 @@ export default function ClientLayout({ children }: Readonly<{ children: React.Re
       <Suspense fallback={null}>
         <AddClassBody />
       </Suspense>
-      {children}
       <Suspense fallback={null}>
-        <ClientChrome />
+        <EditionShell>{children}</EditionShell>
       </Suspense>
     </>
   );

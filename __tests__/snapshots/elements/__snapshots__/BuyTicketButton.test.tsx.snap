@@ -21,7 +21,7 @@ exports[`BuyTicketButton Component matches snapshot with custom text 1`] = `
 <div>
   <a
     class="vl-btn8"
-    href="https://tickets.devbcn.com/event/devbcn-2026"
+    href="https://tickets.devbcn.com/event/devbcn-2027"
     rel="noopener noreferrer"
     target="_blank"
   >
@@ -38,7 +38,7 @@ exports[`BuyTicketButton Component matches snapshot with default props 1`] = `
 <div>
   <a
     class="vl-btn8"
-    href="https://tickets.devbcn.com/event/devbcn-2026"
+    href="https://tickets.devbcn.com/event/devbcn-2027"
     rel="noopener noreferrer"
     target="_blank"
   >

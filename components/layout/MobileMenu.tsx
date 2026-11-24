@@ -1,6 +1,7 @@
 "use client";
 import { EditionNavigation } from "@/config/editions/types";
 import { editionLinks, socialLinks } from "@/config/navigation";
+import { getEditionConfig, getEditionYearFromPathname } from "@/config/editions";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,8 +15,8 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation }: MobileMenuProps) {
   const [isAccordion, setIsAccordion] = useState<number | null>(null);
-  const pathname = usePathname();
-  const isUpcomingEdition = pathname?.startsWith("/2027");
+  const yearFromPath = getEditionYearFromPathname(usePathname());
+  const isUpcomingEdition = yearFromPath === "2027";
 
   const handleAccordion = (key: number) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
@@ -27,18 +28,25 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
           <div className="col-12">
             <div className="mobile-header-elements">
               <div className="mobile-logo">
-                <Link href="//">
+                <Link href="/">
                   <Image src="/assets/img/logo/devBcn.webp" alt="devBcn" width={75} height={20} />
                 </Link>
               </div>
-              <div className="mobile-nav-icon dots-menu" onClick={handleMobileMenu}>
-                <i className="fa-solid fa-bars-staggered" />
-              </div>
+              <button
+                className="mobile-nav-icon dots-menu"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded={isMobileMenu}
+                aria-controls="mobile-navigation"
+                onClick={handleMobileMenu}
+              >
+                <i className="fa-solid fa-bars-staggered" aria-hidden="true" />
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <div className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? "mobile-menu-active" : ""}`}>
+      <div id="mobile-navigation" className={`mobile-sidebar mobile-sidebar1 ${isMobileMenu ? "mobile-menu-active" : ""}`}>
         <div className="logosicon-area">
           <div className="logos">
             <img src="/assets/img/logo/logo.png" alt="DevBcn" width={100} height={41} />
@@ -100,7 +108,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu, navigation 
 
           <div className="allmobilesection">
             {!isUpcomingEdition && (
-              <Link href="https://tickets.devbcn.com/event/devbcn-2026" className="vl-btn1">
+              <Link href={getEditionConfig(yearFromPath).tickets.url} className="vl-btn1">
                 Reserve your spot
               </Link>
             )}

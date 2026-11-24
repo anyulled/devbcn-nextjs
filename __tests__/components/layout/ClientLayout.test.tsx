@@ -3,6 +3,11 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 
 const aosInit = jest.fn();
+const usePathname = jest.fn();
+
+jest.mock("next/navigation", () => ({
+  usePathname: () => usePathname(),
+}));
 
 jest.mock("aos", () => ({
   __esModule: true,
@@ -27,6 +32,7 @@ jest.mock("@/components/layout/footer/Footer8", () => ({
 describe("ClientLayout", () => {
   beforeEach(() => {
     aosInit.mockClear();
+    usePathname.mockReturnValue("/");
   });
 
   it("initializes AOS and renders children", async () => {
@@ -39,8 +45,21 @@ describe("ClientLayout", () => {
 
     expect(screen.getByTestId("add-class-body")).toBeInTheDocument();
     expect(screen.getByTestId("child")).toBeInTheDocument();
+    expect(screen.getByTestId("child").parentElement).toHaveClass("edition-2027");
     expect(screen.getByTestId("footer-8")).toBeInTheDocument();
     expect(screen.getByTestId("back-to-top")).toHaveAttribute("data-target", "#top");
     expect(aosInit).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not apply the edition theme to global information pages", async () => {
+    usePathname.mockReturnValue("/about-us");
+    const ClientLayout = (await import("@/components/layout/ClientLayout")).default;
+    render(
+      <ClientLayout>
+        <div data-testid="global-child" />
+      </ClientLayout>
+    );
+
+    expect(screen.getByTestId("global-child").parentElement).not.toHaveClass("edition-2027");
   });
 });

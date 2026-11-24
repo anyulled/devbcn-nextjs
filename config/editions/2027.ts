@@ -82,7 +82,7 @@ export const edition2027: EditionConfig & { hero: HeroConfig } = {
   },
   hero: {
     mobileVideo: "/assets/video/devbcn-2027-hero-360.mp4",
-    desktopVideo: "/assets/video/devbcn-2027-hero-720.mp4",
+    desktopVideo: "/assets/video/devbcn-2027-hero-1080.mp4",
     fallbackImage: "/assets/img/all-images/venue/wtc-gemini-2.webp",
   },
   sponsorsData: {

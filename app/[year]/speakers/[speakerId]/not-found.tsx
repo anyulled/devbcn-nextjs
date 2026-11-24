@@ -1,7 +1,11 @@
+"use client";
+
 import PageHeader from "@/components/layout/PageHeader";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function SpeakerNotFound() {
+  const { year } = useParams<{ year: string }>();
   return (
     <div>
       <PageHeader title="Speaker Not Found" breadcrumbText="404" />
@@ -11,7 +15,7 @@ export default function SpeakerNotFound() {
           <p style={{ fontSize: "18px", marginBottom: "40px", color: "#666" }}>The speaker you're looking for doesn't exist or has been removed.</p>
           <div className="actions" style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="/2026/speakers"
+              href={`/${year}/speakers`}
               className="btn btn-primary"
               style={{
                 padding: "12px 30px",
@@ -25,7 +29,7 @@ export default function SpeakerNotFound() {
               View All Speakers
             </Link>
             <Link
-              href="/2026"
+              href={`/${year}`}
               className="btn btn-secondary"
               style={{
                 padding: "12px 30px",
